@@ -77,7 +77,7 @@ export const Pricing = () => {
                 className="w-full font-bold text-lg px-8 py-6 rounded-2xl border-2"
                 asChild
               >
-                <a href="https://wa.me/5545988287082?text=Tenho%20uma%20dúvida%20antes%20de%20finalizar" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/+5545988287082?text=Tenho%20uma%20d%C3%BAvida%20antes%20de%20finalizar" target="_blank" rel="noopener noreferrer">
                   Tirar uma dúvida no WhatsApp
                 </a>
               </Button>
