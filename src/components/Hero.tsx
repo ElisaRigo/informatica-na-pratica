@@ -52,15 +52,17 @@ export const Hero = () => {
           </div>
 
           <div className="relative max-w-5xl mx-auto">
-            <video
-              controls
-              preload="metadata"
-              className="w-full rounded-3xl border-2 border-line shadow-2xl aspect-video"
-              poster="/placeholder.svg"
-            >
-              <source src={heroVideo} type="video/mp4" />
-              Seu navegador não suporta vídeo HTML5.
-            </video>
+            <div className="relative rounded-3xl overflow-hidden border-2 border-line shadow-2xl bg-card">
+              <video
+                controls
+                preload="auto"
+                className="w-full aspect-video object-cover"
+                playsInline
+              >
+                <source src={heroVideo} type="video/mp4" />
+                Seu navegador não suporta vídeo HTML5.
+              </video>
+            </div>
           </div>
         </div>
       </div>
