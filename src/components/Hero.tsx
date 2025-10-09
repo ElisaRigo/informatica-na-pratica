@@ -19,7 +19,7 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8">
-            Aprenda Informática de Verdade, mesmo começando do zero 💻
+            Aprenda <span className="text-primary">Informática</span> de Verdade, mesmo começando do <span className="text-primary">zero</span> 💻
           </h1>
           
           <div className="relative max-w-4xl mx-auto mb-8">
