@@ -12,7 +12,7 @@ export const StickyMobileCTA = () => {
           className="font-extrabold px-6 py-5 rounded-xl"
           asChild
         >
-          <a href="#preco">Garantir agora</a>
+          <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">Garantir agora</a>
         </Button>
       </div>
     </div>

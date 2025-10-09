@@ -126,7 +126,7 @@ export const Pricing = () => {
                 className="w-full font-extrabold text-base md:text-lg px-6 md:px-8 py-5 md:py-7 rounded-xl md:rounded-2xl mb-3 md:mb-4 hover:scale-105 transition-transform"
                 asChild
               >
-                <a href="#" target="_blank">
+                <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
                   Garantir meu acesso agora
                 </a>
               </Button>

@@ -51,7 +51,7 @@ export const Hero = () => {
               className="text-base md:text-lg font-extrabold px-6 md:px-8 py-5 md:py-6 rounded-2xl hover:scale-105 transition-transform"
               asChild
             >
-              <a href="#preco">Quero aprender agora</a>
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">Quero aprender agora</a>
             </Button>
             <Button 
               size="lg" 
