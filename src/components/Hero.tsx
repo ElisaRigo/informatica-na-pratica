@@ -24,7 +24,7 @@ export const Hero = () => {
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8">
-            Aprenda <span className="text-primary">INFORMÁTICA</span> de Verdade, mesmo começando do <span className="text-primary">ZERO</span> 💻
+            Aprenda <span className="text-primary">Informática</span> de Verdade, mesmo começando do <span className="text-primary">Zero</span> 💻
           </h1>
           
           <div className="relative max-w-3xl mx-auto mb-8">
