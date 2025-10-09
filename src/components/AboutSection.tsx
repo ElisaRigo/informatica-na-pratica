@@ -28,13 +28,25 @@ export const AboutSection = () => {
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
               Aqui, eu te ensino passo a passo, com exemplos simples e do dia a dia, até você se sentir confiante e independente. Você vai perceber que aprender informática não é um <strong className="text-foreground">"bicho de 7 cabeças"</strong>.
             </p>
-            <Button 
-              size="lg" 
-              className="font-extrabold px-8 py-6 rounded-2xl"
-              asChild
-            >
-              <a href="#conteudo">Ver o que vou aprender</a>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <Button 
+                size="lg" 
+                className="font-extrabold px-8 py-6 rounded-2xl text-base"
+                asChild
+              >
+                <a href="https://pag.ae/8164tZJTR">
+                  🚀 Quero começar agora
+                </a>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="font-extrabold px-8 py-6 rounded-2xl text-base border-2"
+                asChild
+              >
+                <a href="#conteudo">Ver o conteúdo completo</a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

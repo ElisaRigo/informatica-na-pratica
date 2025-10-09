@@ -1,4 +1,5 @@
 import { Gift } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const bonuses = [
   {
@@ -40,6 +41,26 @@ export const Bonus = () => {
               <p className="text-muted-foreground">{bonus.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 md:mt-12 text-center max-w-3xl mx-auto">
+          <div className="bg-gradient-to-br from-success/20 to-success/5 border-2 border-success/30 rounded-2xl p-6 md:p-8">
+            <p className="text-xl md:text-2xl font-black text-success mb-3">
+              🎁 Todos esses bônus são SEUS hoje!
+            </p>
+            <p className="text-muted-foreground mb-6 text-base">
+              Valor total dos bônus: <span className="line-through">R$ 297</span> • Grátis para quem garantir vaga agora
+            </p>
+            <Button 
+              size="lg" 
+              className="font-extrabold px-10 py-6 rounded-2xl text-base bg-success hover:bg-success/90"
+              asChild
+            >
+              <a href="https://pag.ae/8164tZJTR">
+                Quero os bônus + curso completo
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const benefits = [
   {
@@ -41,6 +42,24 @@ export const EmotionalBenefits = () => {
                 <p className="text-base md:text-lg leading-relaxed pt-1">{benefit.text}</p>
               </div>
             ))}
+          </div>
+          
+          <div className="mt-10 md:mt-12 text-center bg-primary/10 border border-primary/30 rounded-2xl p-6 md:p-8">
+            <p className="text-lg md:text-xl font-bold mb-4">
+              ✅ Sem riscos: <span className="text-primary">Garantia incondicional de 7 dias</span>
+            </p>
+            <p className="text-muted-foreground mb-6 text-sm md:text-base">
+              Experimente o curso por 7 dias. Se não gostar, devolvemos 100% do seu dinheiro. Simples assim!
+            </p>
+            <Button 
+              size="lg" 
+              className="font-extrabold px-10 py-6 rounded-2xl text-base"
+              asChild
+            >
+              <a href="https://pag.ae/8164tZJTR">
+                Começar sem risco agora
+              </a>
+            </Button>
           </div>
         </div>
       </div>
