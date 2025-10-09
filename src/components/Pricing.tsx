@@ -76,9 +76,18 @@ export const Pricing = () => {
               </div>
 
               <div className="text-muted-foreground mb-2 font-semibold text-sm md:text-base">
-                Condição por tempo limitado
+                Valor total: <span className="line-through">R$ 768</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-black mb-6 md:mb-8">Garanta seu acesso hoje</h3>
+              <div className="mb-2">
+                <span className="text-sm md:text-base font-semibold text-muted-foreground">Curso (</span>
+                <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497</span>
+                <span className="text-sm md:text-base font-semibold text-muted-foreground">) + Bônus (</span>
+                <span className="text-muted-foreground text-base md:text-lg">R$ 271</span>
+                <span className="text-sm md:text-base font-semibold text-muted-foreground">)</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-black mb-6 md:mb-8">
+                Hoje por apenas <span className="text-accent">R$ 297</span>
+              </h3>
               
               <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 {features.map((feature, index) => (
