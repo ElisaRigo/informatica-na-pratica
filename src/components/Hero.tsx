@@ -76,7 +76,7 @@ export const Hero = () => {
             </div>
             <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
               <Zap className="w-4 h-4 md:w-5 md:h-5 text-warning" />
-              <span className="font-semibold text-xs md:text-sm">Acesso imediato</span>
+              <span className="font-semibold text-xs md:text-sm">Acesso Rápido</span>
             </div>
           </div>
         </div>
