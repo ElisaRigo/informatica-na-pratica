@@ -23,13 +23,13 @@ const Index = () => {
       <Header />
       <PromoTimer />
       <Hero />
-      <SocialProof />
       <AboutSection />
+      <SocialProof />
       <TargetAudience />
       <Possibilities />
       <ValueStack />
-      <ContentGrid />
       <Testimonials />
+      <ContentGrid />
       <EmotionalBenefits />
       <Pricing />
       <Bonus />

@@ -18,12 +18,17 @@ export const Hero = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-destructive/90 text-white px-4 py-2 rounded-full mb-4 animate-pulse">
+            <span className="text-lg">🔥</span>
+            <span className="font-extrabold text-sm md:text-base">Últimas 47 vagas com 40% de desconto</span>
+          </div>
+          
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8">
             Aprenda <span className="text-primary">INFORMÁTICA</span> de Verdade, mesmo começando do <span className="text-primary">ZERO</span> 💻
           </h1>
           
-          <div className="relative max-w-4xl mx-auto mb-8">
-            <div className="relative rounded-3xl overflow-hidden border-2 border-line shadow-2xl bg-card">
+          <div className="relative max-w-3xl mx-auto mb-8">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card">
               <video
                 ref={videoRef}
                 controls
@@ -51,7 +56,7 @@ export const Hero = () => {
               className="text-base md:text-lg font-extrabold px-6 md:px-8 py-5 md:py-6 rounded-2xl hover:scale-105 transition-transform"
               asChild
             >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">Quero aprender agora</a>
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">🚀 Garantir vaga com 40% OFF</a>
             </Button>
             <Button 
               size="lg" 

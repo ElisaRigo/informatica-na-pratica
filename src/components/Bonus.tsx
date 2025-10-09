@@ -1,5 +1,6 @@
-import { Gift } from "lucide-react";
+import { Gift, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 const bonuses = [
   {
@@ -20,6 +21,39 @@ const bonuses = [
 ];
 
 export const Bonus = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const deadline = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000);
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const distance = deadline.getTime() - now;
+
+      if (distance < 0) {
+        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      setTimeLeft({
+        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      });
+    };
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const pad = (num: number) => num.toString().padStart(2, "0");
+
   return (
     <section id="bonus" className="py-20 bg-panel">
       <div className="container mx-auto px-4">
@@ -29,9 +63,27 @@ export const Bonus = () => {
             <span className="font-bold">Bônus Exclusivos</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black mb-4">Bônus exclusivos</h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-6">
             Para acelerar seus resultados, você recebe materiais e aulas extras sem custo.
           </p>
+          
+          <div className="inline-flex items-center gap-3 bg-destructive/10 border-2 border-destructive/30 px-6 py-3 rounded-2xl">
+            <Clock className="w-5 h-5 text-destructive" />
+            <span className="font-bold text-sm">Bônus disponíveis por:</span>
+            <div className="flex gap-2">
+              <div className="bg-destructive text-white px-2 py-1 rounded font-bold text-sm min-w-[32px]">
+                {pad(timeLeft.hours)}
+              </div>
+              <span className="font-bold">:</span>
+              <div className="bg-destructive text-white px-2 py-1 rounded font-bold text-sm min-w-[32px]">
+                {pad(timeLeft.minutes)}
+              </div>
+              <span className="font-bold">:</span>
+              <div className="bg-destructive text-white px-2 py-1 rounded font-bold text-sm min-w-[32px]">
+                {pad(timeLeft.seconds)}
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
