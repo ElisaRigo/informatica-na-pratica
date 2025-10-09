@@ -1,4 +1,4 @@
-import logoImage from "@/assets/logo.png";
+import logoImage from "@/assets/logo-new.png";
 
 export const Header = () => {
   return (
@@ -7,7 +7,7 @@ export const Header = () => {
         <img
           src={logoImage}
           alt="Informática na Prática"
-          className="w-24 mx-auto"
+          className="w-32 mx-auto"
         />
       </div>
     </header>
