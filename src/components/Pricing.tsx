@@ -1,5 +1,6 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, CreditCard, Smartphone } from "lucide-react";
+import { CheckCircle2, CreditCard, Smartphone, Clock } from "lucide-react";
 
 const features = [
   'De R$ 497 por R$ 297',
@@ -9,12 +10,71 @@ const features = [
 ];
 
 export const Pricing = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const deadline = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000);
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const distance = deadline.getTime() - now;
+
+      if (distance < 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      });
+    };
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const pad = (num: number) => num.toString().padStart(2, "0");
+
   return (
     <section id="preco" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto bg-card border-2 border-primary/20 rounded-2xl md:rounded-3xl p-5 md:p-12 shadow-2xl">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-10 items-center">
             <div>
+              <div className="flex items-center gap-2 text-accent mb-3">
+                <Clock className="w-5 h-5" />
+                <span className="font-bold text-sm md:text-base">Oferta termina em:</span>
+              </div>
+              
+              <div className="flex gap-2 mb-6" role="timer" aria-live="polite">
+                <div className="bg-panel border border-line rounded-lg px-3 py-2 min-w-[60px] text-center">
+                  <div className="font-extrabold text-2xl text-primary">{pad(timeLeft.days)}</div>
+                  <div className="text-[10px] text-muted-foreground uppercase">dias</div>
+                </div>
+                <div className="bg-panel border border-line rounded-lg px-3 py-2 min-w-[60px] text-center">
+                  <div className="font-extrabold text-2xl text-primary">{pad(timeLeft.hours)}</div>
+                  <div className="text-[10px] text-muted-foreground uppercase">horas</div>
+                </div>
+                <div className="bg-panel border border-line rounded-lg px-3 py-2 min-w-[60px] text-center">
+                  <div className="font-extrabold text-2xl text-primary">{pad(timeLeft.minutes)}</div>
+                  <div className="text-[10px] text-muted-foreground uppercase">min</div>
+                </div>
+                <div className="bg-panel border border-line rounded-lg px-3 py-2 min-w-[60px] text-center">
+                  <div className="font-extrabold text-2xl text-primary">{pad(timeLeft.seconds)}</div>
+                  <div className="text-[10px] text-muted-foreground uppercase">seg</div>
+                </div>
+              </div>
+
               <div className="text-muted-foreground mb-2 font-semibold text-sm md:text-base">
                 Condição por tempo limitado
               </div>
