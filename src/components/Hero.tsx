@@ -8,7 +8,7 @@ export const Hero = () => {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.currentTime = 3;
+      videoRef.current.currentTime = 0;
     }
   }, []);
 
@@ -32,7 +32,7 @@ export const Hero = () => {
                 playsInline
                 onLoadedMetadata={(e) => {
                   const video = e.currentTarget;
-                  video.currentTime = 3;
+                  video.currentTime = 0;
                 }}
               >
                 <source src={heroVideo} type="video/mp4" />
