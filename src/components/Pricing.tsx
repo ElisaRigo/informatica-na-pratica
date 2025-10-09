@@ -75,6 +75,23 @@ export const Pricing = () => {
                 </div>
               </div>
 
+              <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 mb-6">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                    <span className="text-sm font-semibold">Última chance com desconto</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                    <span className="text-sm font-semibold">Vagas limitadas disponíveis</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                    <span className="text-sm font-semibold">Acesso vitalício garantido</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="text-muted-foreground mb-2 font-semibold text-sm md:text-base">
                 Condição por tempo limitado
               </div>
