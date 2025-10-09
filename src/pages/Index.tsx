@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
 import { AboutSection } from "@/components/AboutSection";
+import { TargetAudience } from "@/components/TargetAudience";
 import { Possibilities } from "@/components/Possibilities";
 import { ValueStack } from "@/components/ValueStack";
 import { ContentGrid } from "@/components/ContentGrid";
@@ -22,6 +23,7 @@ const Index = () => {
       <Hero />
       <SocialProof />
       <AboutSection />
+      <TargetAudience />
       <Possibilities />
       <ValueStack />
       <ContentGrid />
