@@ -1,12 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { PromoTimer } from "@/components/PromoTimer";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { AboutSection } from "@/components/AboutSection";
+import { ValueStack } from "@/components/ValueStack";
+import { ContentGrid } from "@/components/ContentGrid";
+import { Pricing } from "@/components/Pricing";
+import { Bonus } from "@/components/Bonus";
+import { Testimonials } from "@/components/Testimonials";
+import { Guarantee } from "@/components/Guarantee";
+import { FAQ } from "@/components/FAQ";
+import { StickyMobileCTA } from "@/components/StickyMobileCTA";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <PromoTimer />
+      <Header />
+      <Hero />
+      <AboutSection />
+      <ValueStack />
+      <ContentGrid />
+      <Pricing />
+      <Bonus />
+      <Testimonials />
+      <Guarantee />
+      <FAQ />
+      <StickyMobileCTA />
+      <WhatsAppFloat />
+      <Footer />
     </div>
   );
 };
