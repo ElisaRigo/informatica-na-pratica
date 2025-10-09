@@ -37,11 +37,7 @@ export const ValueStack = () => {
             <p className="text-lg md:text-xl text-muted-foreground mb-6">
               São <span className="font-bold text-foreground">24 meses completos</span> para você assistir e reassistir quantas vezes quiser, no seu ritmo, sem pressa
             </p>
-            <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div className="bg-card/50 backdrop-blur rounded-xl p-4">
-                <div className="font-black text-2xl text-primary mb-1">730</div>
-                <div className="text-muted-foreground">dias de acesso</div>
-              </div>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="bg-card/50 backdrop-blur rounded-xl p-4">
                 <div className="font-black text-2xl text-primary mb-1">Ilimitado</div>
                 <div className="text-muted-foreground">vezes para assistir</div>
