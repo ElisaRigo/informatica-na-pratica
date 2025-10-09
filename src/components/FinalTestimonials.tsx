@@ -1,25 +1,25 @@
 import { Quote } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import mariaPhoto from "@/assets/testimonial-maria.jpg";
-import robertoPhoto from "@/assets/testimonial-roberto.jpg";
-import sandraPhoto from "@/assets/testimonial-sandra.jpg";
+import testimonialPhoto1 from "@/assets/testimonial-final-1.jpg";
+import testimonialPhoto2 from "@/assets/testimonial-final-2.jpg";
+import testimonialPhoto3 from "@/assets/testimonial-final-3.jpg";
 
 const finalTestimonials = [
   {
-    text: "Finalmente consigo fazer meu currículo sozinha! Não sabia que era tão fácil.",
-    author: "Maria L.",
-    image: mariaPhoto,
+    text: "Consegui meu primeiro emprego de escritório graças ao curso. Hoje trabalho com computador todo dia e me sinto muito mais independente!",
+    author: "Claudia R.",
+    image: testimonialPhoto1,
   },
   {
-    text: "Nunca imaginei que ia aprender a usar Excel. Agora uso no dia a dia e me sinto mais confiante.",
-    author: "Roberto P.",
-    image: robertoPhoto,
+    text: "Antes dependia dos outros pra tudo. Hoje faço minhas contas online, mando e-mails e até ajudo meus filhos com o computador.",
+    author: "Paulo S.",
+    image: testimonialPhoto2,
   },
   {
-    text: "A prof. Elisa explica com paciência e clareza. Eu que achava impossível, hoje me viro super bem!",
-    author: "Sandra F.",
-    image: sandraPhoto,
+    text: "Achava que nunca ia conseguir. Com apenas 2 semanas de curso, já estava organizando meus documentos no Word. Valeu cada centavo!",
+    author: "Fernanda C.",
+    image: testimonialPhoto3,
   },
 ];
 
