@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
 import heroVideo from "@/assets/hero-video.mp4";
+import { useEffect, useRef } from "react";
 
 export const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 3;
+    }
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-20 md:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
@@ -54,10 +63,15 @@ export const Hero = () => {
           <div className="relative max-w-5xl mx-auto">
             <div className="relative rounded-3xl overflow-hidden border-2 border-line shadow-2xl bg-card">
               <video
+                ref={videoRef}
                 controls
-                preload="auto"
+                preload="metadata"
                 className="w-full aspect-video object-cover"
                 playsInline
+                onLoadedMetadata={(e) => {
+                  const video = e.currentTarget;
+                  video.currentTime = 3;
+                }}
               >
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeo HTML5.
