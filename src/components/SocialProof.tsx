@@ -1,4 +1,4 @@
-import { Users, TrendingUp, Award } from "lucide-react";
+import { Users, TrendingUp, Award, Zap } from "lucide-react";
 
 export const SocialProof = () => {
   return (
@@ -18,7 +18,7 @@ export const SocialProof = () => {
             Junte-se a milhares de alunos que saíram do zero e hoje dominam a informática com confiança. Você não está sozinho(a) nessa jornada 🚀
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             <div className="bg-card/50 backdrop-blur-sm border border-line rounded-2xl p-6 hover:border-primary/50 transition-all">
               <TrendingUp className="w-10 h-10 text-primary mx-auto mb-3" />
               <div className="text-3xl font-black text-primary mb-2">+15.000</div>
@@ -29,6 +29,12 @@ export const SocialProof = () => {
               <Award className="w-10 h-10 text-accent mx-auto mb-3" />
               <div className="text-3xl font-black text-primary mb-2">+90 aulas</div>
               <div className="text-sm font-semibold text-muted-foreground">Rápidas e sem enrolação</div>
+            </div>
+
+            <div className="bg-card/50 backdrop-blur-sm border border-line rounded-2xl p-6 hover:border-primary/50 transition-all">
+              <Zap className="w-10 h-10 text-accent mx-auto mb-3" />
+              <div className="text-3xl font-black text-primary mb-2">Prático</div>
+              <div className="text-sm font-semibold text-muted-foreground">Aprendizado acelerado</div>
             </div>
 
             <div className="bg-card/50 backdrop-blur-sm border border-line rounded-2xl p-6 hover:border-primary/50 transition-all">
