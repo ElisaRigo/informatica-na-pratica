@@ -11,7 +11,7 @@ export const SocialProof = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
-            🖥️ Mais de <span className="text-primary">20.000 pessoas</span> já aprenderam comigo
+            🖥️ <span className="text-primary">Milhares de alunos</span> já aprenderam comigo
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
