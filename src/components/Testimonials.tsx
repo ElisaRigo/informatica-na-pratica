@@ -1,29 +1,42 @@
 import { Quote } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import alinePhoto from "@/assets/testimonial-aline.jpg";
+import joaoPhoto from "@/assets/testimonial-joao.jpg";
+import carlaPhoto from "@/assets/testimonial-carla.jpg";
+import mariaPhoto from "@/assets/testimonial-maria.jpg";
+import robertoPhoto from "@/assets/testimonial-roberto.jpg";
+import sandraPhoto from "@/assets/testimonial-sandra.jpg";
 
 const testimonials = [
   {
     text: "Eu tinha medo de mexer no computador. Com a Elisa, aprendi de um jeito leve e hoje faço tudo no trabalho!",
     author: "Aline S.",
+    image: alinePhoto,
   },
   {
     text: "As aulas são diretas. Em poucos dias já estava criando planilhas e documentos.",
     author: "João M.",
+    image: joaoPhoto,
   },
   {
     text: "O suporte da Elisa fez toda a diferença. Recomendo pra quem quer aprender de verdade.",
     author: "Carla T.",
+    image: carlaPhoto,
   },
   {
     text: "Finalmente consigo fazer meu currículo sozinha! Não sabia que era tão fácil.",
     author: "Maria L.",
+    image: mariaPhoto,
   },
   {
     text: "Nunca imaginei que ia aprender a usar Excel. Agora uso no dia a dia e me sinto mais confiante.",
     author: "Roberto P.",
+    image: robertoPhoto,
   },
   {
     text: "A prof. Elisa explica com paciência e clareza. Eu que achava impossível, hoje me viro super bem!",
     author: "Sandra F.",
+    image: sandraPhoto,
   },
 ];
 
@@ -44,8 +57,14 @@ export const Testimonials = () => {
               <p className="text-lg italic mb-6 leading-relaxed">
                 "{testimonial.text}"
               </p>
-              <div className="text-sm text-muted-foreground font-semibold">
-                — {testimonial.author}
+              <div className="flex items-center gap-3">
+                <Avatar className="w-12 h-12">
+                  <AvatarImage src={testimonial.image} alt={testimonial.author} />
+                  <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <div className="text-sm text-muted-foreground font-semibold">
+                  — {testimonial.author}
+                </div>
               </div>
             </div>
           ))}
