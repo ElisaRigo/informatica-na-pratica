@@ -7,9 +7,8 @@ export const Header = () => {
         <img
           src={logoImage}
           alt="Informática na Prática"
-          className="w-24 mx-auto mb-2"
+          className="w-40 mx-auto"
         />
-        <div className="font-black text-xl">Informática na Prática</div>
       </div>
     </header>
   );
