@@ -12,7 +12,6 @@ import { Bonus } from "@/components/Bonus";
 import { Testimonials } from "@/components/Testimonials";
 import { Guarantee } from "@/components/Guarantee";
 import { FAQ } from "@/components/FAQ";
-import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Footer } from "@/components/Footer";
 
@@ -33,7 +32,6 @@ const Index = () => {
       <Testimonials />
       <Guarantee />
       <FAQ />
-      <StickyMobileCTA />
       <WhatsAppFloat />
       <Footer />
     </div>
