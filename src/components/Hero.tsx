@@ -42,7 +42,7 @@ export const Hero = () => {
           </div>
 
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
-            Do básico ao essencial do dia a dia e do trabalho — com aulas práticas, passo a passo e suporte direto com a professora Elisa.
+            Do Básico ao Mercado de Trabalho — com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10 px-4">
