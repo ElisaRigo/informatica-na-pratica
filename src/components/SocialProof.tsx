@@ -27,8 +27,8 @@ export const SocialProof = () => {
 
             <div className="bg-card/50 backdrop-blur-sm border border-line rounded-2xl p-6 hover:border-primary/50 transition-all">
               <Award className="w-10 h-10 text-accent mx-auto mb-3" />
-              <div className="text-3xl font-black text-primary mb-2">4.8★</div>
-              <div className="text-sm font-semibold text-muted-foreground">Avaliação média dos alunos</div>
+              <div className="text-3xl font-black text-primary mb-2">+90 aulas</div>
+              <div className="text-sm font-semibold text-muted-foreground">Rápidas e sem enrolação</div>
             </div>
 
             <div className="bg-card/50 backdrop-blur-sm border border-line rounded-2xl p-6 hover:border-primary/50 transition-all">
