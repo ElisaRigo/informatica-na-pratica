@@ -22,7 +22,7 @@ export const Hero = () => {
             Aprenda Informática de Verdade, mesmo começando do zero 💻
           </h1>
           
-          <div className="relative max-w-5xl mx-auto mb-8">
+          <div className="relative max-w-4xl mx-auto mb-8">
             <div className="relative rounded-3xl overflow-hidden border-2 border-line shadow-2xl bg-card">
               <video
                 ref={videoRef}
