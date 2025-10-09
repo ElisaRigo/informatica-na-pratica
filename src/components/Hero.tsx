@@ -20,7 +20,7 @@ export const Hero = () => {
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-destructive/90 text-white px-4 py-2 rounded-full mb-4 animate-pulse">
             <span className="text-lg">🔥</span>
-            <span className="font-extrabold text-sm md:text-base">Promoção por tempo limitado • 40% OFF</span>
+            <span className="font-extrabold text-sm md:text-base">Últimas vagas com 40% OFF</span>
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8">
