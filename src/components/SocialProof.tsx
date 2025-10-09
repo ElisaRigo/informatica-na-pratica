@@ -14,12 +14,8 @@ export const SocialProof = () => {
             🖥️ <span className="text-primary">Milhares de alunos</span> já aprenderam comigo
           </h2>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-3xl mx-auto">
-            Junte-se a milhares de alunos que saíram do zero e hoje dominam a informática com confiança
-          </p>
-          
-          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-3xl mx-auto font-medium">
-            Você não precisa enfrentar essa jornada sozinho(a). Faça parte de uma comunidade que está transformando suas vidas através da tecnologia! 🚀
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Junte-se a milhares de alunos que saíram do zero e hoje dominam a informática com confiança. Você não está sozinho(a) nessa jornada 🚀
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
