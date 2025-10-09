@@ -59,7 +59,7 @@ export const Hero = () => {
               className="text-base md:text-lg font-bold px-6 md:px-8 py-5 md:py-6 rounded-2xl border-2 hover:bg-primary/10"
               asChild
             >
-              <a href="https://wa.me/+5545988287082?text=Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5545988287082" target="_blank" rel="noopener noreferrer">
                 Tirar dúvida no WhatsApp
               </a>
             </Button>
