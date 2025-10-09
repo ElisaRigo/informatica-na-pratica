@@ -84,26 +84,15 @@ export const Possibilities = () => {
           </div>
 
           <div className="mt-10 md:mt-12 text-center">
-            <div className="bg-card border-2 border-primary/30 rounded-2xl p-6 md:p-8 max-w-3xl mx-auto">
-              <p className="text-xl md:text-2xl font-black text-primary mb-4">
-                🚀 De que lado você quer estar?
-              </p>
-              <p className="text-muted-foreground mb-6 text-base md:text-lg">
-                ⏰ Apenas <strong className="text-foreground">15 vagas</strong> disponíveis nesta turma com atendimento personalizado
-              </p>
-              <Button 
-                size="lg" 
-                className="font-extrabold px-10 py-6 rounded-2xl text-base md:text-lg"
-                asChild
-              >
-                <a href="https://pag.ae/8164tZJTR">
-                  Garantir minha vaga agora
-                </a>
-              </Button>
-              <p className="text-xs text-muted-foreground mt-4">
-                🔒 Pagamento 100% seguro • Acesso imediato
-              </p>
-            </div>
+            <Button 
+              size="lg" 
+              className="font-extrabold px-10 py-6 rounded-2xl text-base md:text-lg"
+              asChild
+            >
+              <a href="https://pag.ae/8164tZJTR">
+                Garantir minha vaga agora
+              </a>
+            </Button>
           </div>
         </div>
       </div>
