@@ -41,7 +41,7 @@ export const PromoTimer = () => {
       <div className="container mx-auto px-3 py-2 md:py-3">
         <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
           <span className="font-extrabold text-xs md:text-base tracking-wide text-center">
-            Oferta especial termina em:
+            🔥 Promoção especial encerrando em:
           </span>
           <div className="flex gap-1.5 md:gap-2" role="timer" aria-live="polite">
             <div className="bg-card border border-line rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2 min-w-[45px] md:min-w-[54px] text-center">
@@ -61,12 +61,6 @@ export const PromoTimer = () => {
               <div className="text-[9px] md:text-[10px] text-muted-foreground uppercase">seg</div>
             </div>
           </div>
-          <a
-            href="#preco"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-xs md:text-sm transition-all hover:scale-105 whitespace-nowrap"
-          >
-            Garantir por R$297
-          </a>
         </div>
       </div>
     </div>
