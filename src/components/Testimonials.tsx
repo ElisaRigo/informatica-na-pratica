@@ -13,6 +13,18 @@ const testimonials = [
     text: "O suporte da Elisa fez toda a diferença. Recomendo pra quem quer aprender de verdade.",
     author: "Carla T.",
   },
+  {
+    text: "Finalmente consigo fazer meu currículo sozinha! Não sabia que era tão fácil.",
+    author: "Maria L.",
+  },
+  {
+    text: "Nunca imaginei que ia aprender a usar Excel. Agora uso no dia a dia e me sinto mais confiante.",
+    author: "Roberto P.",
+  },
+  {
+    text: "A prof. Elisa explica com paciência e clareza. Eu que achava impossível, hoje me viro super bem!",
+    author: "Sandra F.",
+  },
 ];
 
 export const Testimonials = () => {
