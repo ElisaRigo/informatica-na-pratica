@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { SocialProof } from "@/components/SocialProof";
 import { AboutSection } from "@/components/AboutSection";
 import { ValueStack } from "@/components/ValueStack";
 import { ContentGrid } from "@/components/ContentGrid";
@@ -18,6 +19,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Hero />
+      <SocialProof />
       <AboutSection />
       <ValueStack />
       <ContentGrid />
