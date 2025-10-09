@@ -1,29 +1,11 @@
 import { Quote } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import alinePhoto from "@/assets/testimonial-aline.jpg";
-import joaoPhoto from "@/assets/testimonial-joao.jpg";
-import carlaPhoto from "@/assets/testimonial-carla.jpg";
 import mariaPhoto from "@/assets/testimonial-maria.jpg";
 import robertoPhoto from "@/assets/testimonial-roberto.jpg";
 import sandraPhoto from "@/assets/testimonial-sandra.jpg";
 
-const testimonials = [
-  {
-    text: "Eu tinha medo de mexer no computador. Com a Elisa, aprendi de um jeito leve e hoje faço tudo no trabalho!",
-    author: "Aline S.",
-    image: alinePhoto,
-  },
-  {
-    text: "As aulas são diretas. Em poucos dias já estava criando planilhas e documentos.",
-    author: "João M.",
-    image: joaoPhoto,
-  },
-  {
-    text: "O suporte da Elisa fez toda a diferença. Recomendo pra quem quer aprender de verdade.",
-    author: "Carla T.",
-    image: carlaPhoto,
-  },
+const finalTestimonials = [
   {
     text: "Finalmente consigo fazer meu currículo sozinha! Não sabia que era tão fácil.",
     author: "Maria L.",
@@ -41,25 +23,29 @@ const testimonials = [
   },
 ];
 
-export const Testimonials = () => {
+export const FinalTestimonials = () => {
   return (
-    <section id="depoimentos" className="py-20">
+    <section className="py-16 bg-panel">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
-          O que dizem os alunos
+        <h2 className="text-2xl md:text-3xl font-black text-center mb-3">
+          Não deixe para depois
         </h2>
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
+        <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+          Veja o que outros alunos conseguiram quando decidiram começar:
+        </p>
+        
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
+          {finalTestimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-card border border-line rounded-2xl p-8 hover:border-accent/50 transition-all"
+              className="bg-card border-2 border-success/30 rounded-2xl p-6 hover:border-success transition-all"
             >
-              <Quote className="w-10 h-10 text-accent/50 mb-4" />
-              <p className="text-lg italic mb-6 leading-relaxed">
+              <Quote className="w-8 h-8 text-success/50 mb-3" />
+              <p className="text-base italic mb-4 leading-relaxed">
                 "{testimonial.text}"
               </p>
               <div className="flex items-center gap-3">
-                <Avatar className="w-12 h-12">
+                <Avatar className="w-10 h-10">
                   <AvatarImage src={testimonial.image} alt={testimonial.author} />
                   <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
                 </Avatar>
@@ -71,17 +57,19 @@ export const Testimonials = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
-            Junte-se a centenas de alunos que já transformaram suas vidas
-          </p>
+        <div className="text-center">
           <Button 
             size="lg" 
-            className="font-extrabold px-8 py-6 rounded-2xl text-lg"
+            className="font-extrabold px-8 md:px-10 py-6 md:py-7 rounded-2xl text-base md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all"
             asChild
           >
-            <a href="#preco">Quero começar agora</a>
+            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+              🎯 Sim, quero garantir minha vaga
+            </a>
           </Button>
+          <p className="text-xs text-muted-foreground mt-4">
+            ⚡ Últimas vagas disponíveis nesta condição
+          </p>
         </div>
       </div>
     </section>

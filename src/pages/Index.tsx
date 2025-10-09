@@ -12,6 +12,7 @@ import { EmotionalBenefits } from "@/components/EmotionalBenefits";
 import { Pricing } from "@/components/Pricing";
 import { Bonus } from "@/components/Bonus";
 import { Guarantee } from "@/components/Guarantee";
+import { FinalTestimonials } from "@/components/FinalTestimonials";
 import { FAQ } from "@/components/FAQ";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Footer } from "@/components/Footer";
@@ -33,6 +34,7 @@ const Index = () => {
       <Pricing />
       <Bonus />
       <Guarantee />
+      <FinalTestimonials />
       <FAQ />
       <WhatsAppFloat />
       <Footer />
