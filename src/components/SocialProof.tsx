@@ -27,14 +27,14 @@ export const SocialProof = () => {
 
             <div className="bg-card/50 backdrop-blur-sm border border-line rounded-2xl p-6 hover:border-primary/50 transition-all">
               <Award className="w-10 h-10 text-accent mx-auto mb-3" />
-              <div className="text-3xl font-black text-primary mb-2">95%</div>
-              <div className="text-sm font-semibold text-muted-foreground">De satisfação</div>
+              <div className="text-3xl font-black text-primary mb-2">4.8★</div>
+              <div className="text-sm font-semibold text-muted-foreground">Avaliação média dos alunos</div>
             </div>
 
             <div className="bg-card/50 backdrop-blur-sm border border-line rounded-2xl p-6 hover:border-primary/50 transition-all">
               <Users className="w-10 h-10 text-success mx-auto mb-3" />
-              <div className="text-3xl font-black text-primary mb-2">100%</div>
-              <div className="text-sm font-semibold text-muted-foreground">Suporte dedicado</div>
+              <div className="text-3xl font-black text-primary mb-2">7 dias</div>
+              <div className="text-sm font-semibold text-muted-foreground">Garantia incondicional</div>
             </div>
           </div>
         </div>
