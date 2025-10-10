@@ -7,7 +7,7 @@ export const Header = () => {
         <img
           src={logoImage}
           alt="Informática na Prática"
-          className="w-24 md:w-32 mx-auto"
+          className="w-32 md:w-40 lg:w-44 mx-auto"
         />
         <h1 className="text-lg md:text-xl font-semibold text-foreground mt-2">
           Curso de Informática Online
