@@ -24,7 +24,7 @@ export const Hero = () => {
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8">
-            Domine <span className="text-primary">Word, Excel e PowerPoint</span> em 30 dias — Mesmo Começando do Zero 💻
+            Domine <span className="text-primary">Word, Excel e PowerPoint</span> em 30 dias Mesmo Começando do Zero 💻
           </h1>
           
           <div className="relative max-w-3xl mx-auto mb-8">
