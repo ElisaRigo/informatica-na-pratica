@@ -1,0 +1,239 @@
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { Resend } from "https://esm.sh/resend@4.0.0";
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+};
+
+const MOODLE_URL = 'https://aluno.informaticanapratica.com.br';
+const MOODLE_TOKEN = Deno.env.get('MOODLE_API_TOKEN');
+const COURSE_ID = 2;
+const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+
+interface PagSeguroWebhook {
+  customer?: {
+    name: string;
+    email: string;
+  };
+  status?: string;
+}
+
+async function callMoodleAPI(functionName: string, params: Record<string, any>) {
+  const url = new URL(`${MOODLE_URL}/webservice/rest/server.php`);
+  url.searchParams.set('wstoken', MOODLE_TOKEN!);
+  url.searchParams.set('wsfunction', functionName);
+  url.searchParams.set('moodlewsrestformat', 'json');
+
+  Object.keys(params).forEach(key => {
+    url.searchParams.set(key, String(params[key]));
+  });
+
+  console.log(`Calling Moodle API: ${functionName}`, params);
+
+  const response = await fetch(url.toString(), {
+    method: 'POST',
+  });
+
+  const data = await response.json();
+  console.log(`Moodle API response for ${functionName}:`, data);
+
+  if (data.exception || data.errorcode) {
+    throw new Error(`Moodle API error: ${data.message || JSON.stringify(data)}`);
+  }
+
+  return data;
+}
+
+async function createMoodleUser(name: string, email: string) {
+  // Gerar username a partir do email
+  const username = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+  
+  // Gerar senha aleatória
+  const password = Math.random().toString(36).slice(-12) + 'Aa1!';
+
+  const userData = {
+    'users[0][username]': username,
+    'users[0][password]': password,
+    'users[0][firstname]': name.split(' ')[0],
+    'users[0][lastname]': name.split(' ').slice(1).join(' ') || name.split(' ')[0],
+    'users[0][email]': email,
+    'users[0][auth]': 'manual',
+  };
+
+  try {
+    const result = await callMoodleAPI('core_user_create_users', userData);
+    console.log('User created:', result);
+    return { userId: result[0].id, username, password };
+  } catch (error) {
+    console.error('Error creating user:', error);
+    
+    // Se o usuário já existe, tentar buscar pelo email
+    const existingUser = await callMoodleAPI('core_user_get_users_by_field', {
+      field: 'email',
+      'values[0]': email
+    });
+
+    if (existingUser && existingUser[0]) {
+      console.log('User already exists:', existingUser[0]);
+      return { userId: existingUser[0].id, username: existingUser[0].username, password: null };
+    }
+
+    throw error;
+  }
+}
+
+async function enrollUserInCourse(userId: number) {
+  const enrollmentData = {
+    'enrolments[0][roleid]': 5, // Role ID 5 = student
+    'enrolments[0][userid]': userId,
+    'enrolments[0][courseid]': COURSE_ID,
+  };
+
+  const result = await callMoodleAPI('enrol_manual_enrol_users', enrollmentData);
+  console.log('User enrolled:', result);
+  return result;
+}
+
+async function sendWelcomeEmail(name: string, email: string, username: string, password: string | null) {
+  const firstName = name.split(' ')[0];
+  
+  const passwordInfo = password 
+    ? `<p><strong>Suas credenciais de acesso:</strong></p>
+       <p>Usuário: <strong>${username}</strong><br>
+       Senha: <strong>${password}</strong></p>`
+    : `<p>Use suas credenciais de acesso existentes para entrar na plataforma.</p>`;
+
+  const emailHtml = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+        .button { display: inline-block; background: #667eea; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .credentials { background: white; padding: 15px; border-left: 4px solid #667eea; margin: 20px 0; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>🎉 Bem-vindo ao Curso de Informática!</h1>
+        </div>
+        <div class="content">
+          <p>Olá, <strong>${firstName}</strong>!</p>
+          
+          <p>Parabéns! Sua matrícula foi confirmada com sucesso. Estamos muito felizes em ter você conosco! 🚀</p>
+          
+          <div class="credentials">
+            ${passwordInfo}
+          </div>
+          
+          <p>Acesse a plataforma agora mesmo e comece a aprender:</p>
+          
+          <center>
+            <a href="${MOODLE_URL}" class="button">Acessar Plataforma</a>
+          </center>
+          
+          <p>Se tiver qualquer dúvida, estamos à disposição para ajudar!</p>
+          
+          <p>Bons estudos! 📚<br>
+          <strong>Equipe Informática na Prática</strong></p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+
+  try {
+    const result = await resend.emails.send({
+      from: "Informática na Prática <onboarding@resend.dev>",
+      to: [email],
+      subject: "🎉 Bem-vindo ao Curso de Informática!",
+      html: emailHtml,
+    });
+
+    console.log('Welcome email sent:', result);
+    return result;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
+  }
+}
+
+serve(async (req: Request) => {
+  // Handle CORS
+  if (req.method === 'OPTIONS') {
+    return new Response(null, { headers: corsHeaders });
+  }
+
+  try {
+    console.log('Received webhook from PagSeguro');
+    
+    const payload: PagSeguroWebhook = await req.json();
+    console.log('Webhook payload:', JSON.stringify(payload, null, 2));
+
+    // Verificar se o pagamento foi aprovado
+    if (payload.status !== 'paid' && payload.status !== 'approved') {
+      console.log('Payment not approved yet:', payload.status);
+      return new Response(
+        JSON.stringify({ message: 'Payment not approved yet' }), 
+        { 
+          status: 200, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      );
+    }
+
+    const customerName = payload.customer?.name;
+    const customerEmail = payload.customer?.email;
+
+    if (!customerName || !customerEmail) {
+      throw new Error('Missing customer information');
+    }
+
+    console.log(`Processing enrollment for: ${customerName} (${customerEmail})`);
+
+    // 1. Criar usuário no Moodle
+    const { userId, username, password } = await createMoodleUser(customerName, customerEmail);
+    console.log(`User created/found with ID: ${userId}`);
+
+    // 2. Matricular no curso
+    await enrollUserInCourse(userId);
+    console.log(`User enrolled in course ${COURSE_ID}`);
+
+    // 3. Enviar email de boas-vindas
+    await sendWelcomeEmail(customerName, customerEmail, username, password);
+    console.log('Welcome email sent successfully');
+
+    return new Response(
+      JSON.stringify({ 
+        success: true, 
+        message: 'User enrolled and email sent successfully',
+        userId,
+        username
+      }), 
+      { 
+        status: 200, 
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      }
+    );
+
+  } catch (error: any) {
+    console.error('Error processing webhook:', error);
+    
+    return new Response(
+      JSON.stringify({ 
+        error: error.message,
+        details: error.stack 
+      }), 
+      { 
+        status: 500, 
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      }
+    );
+  }
+});
