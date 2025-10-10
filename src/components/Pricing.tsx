@@ -86,30 +86,39 @@ export const Pricing = () => {
                 </div>
               </div>
 
-              <div className="mb-4 p-4 bg-gradient-to-r from-destructive/20 to-destructive/10 rounded-xl border-2 border-destructive/40">
-                <p className="text-sm md:text-base font-bold text-muted-foreground mb-2">
-                  Valor total do pacote completo:
+              <div className="mb-4 p-5 bg-gradient-to-br from-destructive/15 to-destructive/5 rounded-xl border-2 border-destructive/30">
+                <p className="text-xs md:text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">
+                  Se comprasse separadamente:
                 </p>
-                <p className="text-3xl md:text-5xl font-black line-through text-destructive/80 mb-1">
-                  R$ 768
-                </p>
-                <div className="flex items-center justify-center gap-2 text-sm md:text-base flex-wrap">
-                  <span className="font-semibold text-muted-foreground">Curso</span>
-                  <span className="line-through text-destructive/70 text-xl md:text-2xl font-bold">R$ 497</span>
-                  <span className="text-muted-foreground">+</span>
-                  <span className="font-semibold text-muted-foreground">Bônus</span>
-                  <span className="text-xl md:text-2xl font-bold text-foreground">R$ 271</span>
+                <div className="space-y-2 mb-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm md:text-base text-muted-foreground">Curso de Informática:</span>
+                    <span className="text-lg md:text-xl font-bold line-through text-destructive/70">R$ 497</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm md:text-base text-success font-semibold">+ Bônus GRÁTIS inclusos:</span>
+                    <span className="text-lg md:text-xl font-bold text-success">R$ 271</span>
+                  </div>
+                  <div className="border-t border-destructive/20 pt-2 mt-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-base md:text-lg font-bold text-muted-foreground">Valor total:</span>
+                      <span className="text-2xl md:text-4xl font-black line-through text-destructive/80">R$ 768</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="mb-6 p-6 bg-gradient-to-br from-success/20 to-primary/20 rounded-2xl border-3 border-success/50 shadow-lg">
                 <p className="text-base md:text-lg font-bold text-muted-foreground mb-2">
-                  🔥 Investimento hoje:
+                  🔥 Você paga APENAS:
                 </p>
-                <p className="text-4xl md:text-6xl font-black text-accent mb-2">
+                <p className="text-4xl md:text-6xl font-black text-accent mb-1">
                   R$ 297
                 </p>
-                <p className="text-lg md:text-xl font-bold text-success">
-                  Você economiza R$ 471!
+                <p className="text-sm md:text-base font-semibold text-success mb-1">
+                  E leva curso + todos os bônus!
+                </p>
+                <p className="text-base md:text-lg font-bold text-success">
+                  💰 Economize R$ 471!
                 </p>
               </div>
               
