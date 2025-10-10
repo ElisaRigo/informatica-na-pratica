@@ -20,7 +20,7 @@ export const AboutSection = () => {
                 <img 
                   src={elisaPhoto} 
                   alt="Professora Elisangela Neri Rigo" 
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
