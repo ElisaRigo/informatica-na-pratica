@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.75.0';
 import { Resend } from "https://esm.sh/resend@4.0.0";
 
 const corsHeaders = {
@@ -11,12 +12,22 @@ const MOODLE_TOKEN = Deno.env.get('MOODLE_API_TOKEN');
 const COURSE_ID = 2;
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
+const supabase = createClient(
+  Deno.env.get('SUPABASE_URL')!,
+  Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+);
+
 interface PagSeguroWebhook {
+  id?: string;
   customer?: {
     name: string;
     email: string;
   };
   status?: string;
+  amount?: number;
+  payment_method?: {
+    type?: string;
+  };
 }
 
 async function callMoodleAPI(functionName: string, params: Record<string, any>) {
@@ -197,15 +208,64 @@ serve(async (req: Request) => {
 
     console.log(`Processing enrollment for: ${customerName} (${customerEmail})`);
 
-    // 1. Criar usuário no Moodle
+    // 1. Salvar pagamento no banco
+    const { data: paymentData, error: paymentError } = await supabase
+      .from('payments')
+      .insert({
+        pagseguro_transaction_id: payload.id || `webhook_${Date.now()}`,
+        status: payload.status,
+        amount: payload.amount,
+        payment_method: payload.payment_method?.type,
+        webhook_data: payload
+      })
+      .select()
+      .single();
+
+    if (paymentError) {
+      console.error('Error saving payment:', paymentError);
+    } else {
+      console.log('Payment saved:', paymentData);
+    }
+
+    // 2. Criar usuário no Moodle
     const { userId, username, password } = await createMoodleUser(customerName, customerEmail);
     console.log(`User created/found with ID: ${userId}`);
 
-    // 2. Matricular no curso
+    // 3. Salvar aluno no banco
+    const { data: studentData, error: studentError } = await supabase
+      .from('students')
+      .upsert({
+        email: customerEmail,
+        name: customerName,
+        moodle_username: username,
+        moodle_password: password,
+        course_access: true,
+        pagseguro_transaction_id: payload.id
+      }, {
+        onConflict: 'email'
+      })
+      .select()
+      .single();
+
+    if (studentError) {
+      console.error('Error saving student:', studentError);
+    } else {
+      console.log('Student saved:', studentData);
+      
+      // Atualizar payment com student_id
+      if (paymentData) {
+        await supabase
+          .from('payments')
+          .update({ student_id: studentData.id })
+          .eq('id', paymentData.id);
+      }
+    }
+
+    // 4. Matricular no curso
     await enrollUserInCourse(userId);
     console.log(`User enrolled in course ${COURSE_ID}`);
 
-    // 3. Enviar email de boas-vindas
+    // 5. Enviar email de boas-vindas
     await sendWelcomeEmail(customerName, customerEmail, username, password);
     console.log('Welcome email sent successfully');
 
