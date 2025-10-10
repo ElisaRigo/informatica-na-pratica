@@ -18,11 +18,22 @@ export const Pricing = () => {
   });
 
   useEffect(() => {
-    const deadline = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000);
+    const getNextMonday = () => {
+      const now = new Date();
+      const dayOfWeek = now.getDay();
+      const daysUntilMonday = dayOfWeek === 0 ? 1 : 8 - dayOfWeek;
+      
+      const nextMonday = new Date(now);
+      nextMonday.setDate(now.getDate() + daysUntilMonday);
+      nextMonday.setHours(0, 0, 0, 0);
+      
+      return nextMonday;
+    };
 
     const updateTimer = () => {
       const now = new Date().getTime();
-      const distance = deadline.getTime() - now;
+      const deadline = getNextMonday().getTime();
+      const distance = deadline - now;
 
       if (distance < 0) {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
