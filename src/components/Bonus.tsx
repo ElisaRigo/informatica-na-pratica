@@ -75,16 +75,18 @@ export const Bonus = () => {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <section id="bonus" className="py-20 bg-panel">
+    <section id="bonus" className="py-20 bg-gradient-to-br from-success/5 to-primary/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-success/10 text-success px-4 py-2 rounded-full mb-4">
             <Gift className="w-5 h-5" />
-            <span className="font-bold">Bônus Exclusivos</span>
+            <span className="font-bold">Bônus Exclusivos Inclusos</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-black mb-4">Bônus exclusivos</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-4">
+            Ganhe <span className="text-success">R$ 368 em bônus</span> de presente!
+          </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-6">
-            Para acelerar seus resultados, você recebe materiais e aulas extras sem custo.
+            Ao garantir sua vaga hoje, você recebe <span className="font-bold text-foreground">GRATUITAMENTE</span> estes materiais extras para acelerar seus resultados:
           </p>
           
           <div className="inline-flex items-center gap-3 bg-destructive/10 border-2 border-destructive/30 px-6 py-3 rounded-2xl">
@@ -181,11 +183,11 @@ export const Bonus = () => {
 
             <Button 
               size="lg" 
-              className="font-extrabold px-6 md:px-10 py-6 md:py-7 rounded-2xl text-sm md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
+              className="font-extrabold px-4 md:px-10 py-5 md:py-7 rounded-2xl text-base md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
               asChild
             >
-              <a href="https://pag.ae/8164tZJTR" className="whitespace-normal md:whitespace-nowrap">
-                🚀 Quero o curso + bônus
+              <a href="https://pag.ae/8164tZJTR" className="block text-center">
+                🚀 Quero o curso + todos os bônus
               </a>
             </Button>
             <p className="text-xs text-muted-foreground mt-4">

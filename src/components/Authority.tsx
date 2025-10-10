@@ -12,16 +12,18 @@ export const Authority = () => {
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="aspect-square rounded-3xl overflow-hidden border-4 border-primary/20 shadow-2xl">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
                 <img 
                   src={elisaPhoto} 
                   alt="Professora Elisangela Neri Rigo" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground rounded-2xl p-6 shadow-xl">
-                <div className="text-3xl font-black">+20</div>
-                <div className="text-sm font-semibold">Anos ensinando</div>
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground rounded-full px-6 py-3 shadow-xl">
+                <div className="text-center">
+                  <span className="text-2xl font-black">+20 anos</span>
+                  <span className="text-sm font-medium ml-2">de experiência</span>
+                </div>
               </div>
             </div>
 

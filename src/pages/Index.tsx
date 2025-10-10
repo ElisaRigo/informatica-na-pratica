@@ -43,8 +43,8 @@ const Index = () => {
       <EmotionalBenefits />
       <StrategicCTA context="sabendo de tudo que você vai aprender" />
       <NotForYou />
-      <Pricing />
       <Bonus />
+      <Pricing />
       <Guarantee />
       <Objections />
       <FinalTestimonials />
