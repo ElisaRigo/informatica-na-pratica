@@ -44,7 +44,7 @@ export const AboutSection = () => {
                 className="font-extrabold px-8 py-6 rounded-2xl text-base border-2"
                 asChild
               >
-                <a href="#conteudo">Ver o conteúdo completo</a>
+                <a href="https://wa.me/5545988287082" target="_blank" rel="noopener noreferrer">Tirar dúvidas no WhatsApp</a>
               </Button>
             </div>
           </div>
