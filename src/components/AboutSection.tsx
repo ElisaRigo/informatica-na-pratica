@@ -16,11 +16,11 @@ export const AboutSection = () => {
 
           <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
             <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                 <img 
                   src={elisaPhoto} 
                   alt="Professora Elisangela Neri Rigo" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
