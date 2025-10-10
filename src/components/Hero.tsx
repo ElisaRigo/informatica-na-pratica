@@ -46,8 +46,12 @@ export const Hero = () => {
             </div>
           </div>
 
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-4 md:mb-6 max-w-3xl mx-auto px-2">
             Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
+          </p>
+          
+          <p className="text-sm md:text-base text-muted-foreground/80 mb-6 md:mb-8 max-w-3xl mx-auto px-2 italic">
+            Aprenda Microsoft Office completo: Word para documentos profissionais, Excel para planilhas e análise de dados, PowerPoint para apresentações impactantes. Curso online com certificado, ideal para iniciantes e mercado de trabalho.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10 px-4">

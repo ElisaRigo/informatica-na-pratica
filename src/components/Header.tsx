@@ -6,8 +6,8 @@ export const Header = () => {
       <div className="container mx-auto px-4 text-center">
         <img
           src={logoImage}
-          alt="Informática na Prática"
-          className="w-24 md:w-32 mx-auto"
+          alt="Informática na Prática - Curso de Informática Online"
+          className="w-32 md:w-48 lg:w-56 mx-auto"
         />
       </div>
     </header>
