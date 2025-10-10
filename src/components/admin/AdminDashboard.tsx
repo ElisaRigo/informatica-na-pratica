@@ -34,14 +34,14 @@ export const AdminDashboard = () => {
 
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="mb-8 w-full justify-start gap-2 bg-muted p-2">
-            <TabsTrigger value="students" className="flex-1 data-[state=active]:bg-background">
+          <TabsList className="mb-8 w-full justify-start gap-2 bg-card border border-border p-2">
+            <TabsTrigger value="students" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Alunos
             </TabsTrigger>
-            <TabsTrigger value="add" className="flex-1 data-[state=active]:bg-background">
+            <TabsTrigger value="add" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Adicionar Aluno
             </TabsTrigger>
-            <TabsTrigger value="payments" className="flex-1 data-[state=active]:bg-background">
+            <TabsTrigger value="payments" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Pagamentos
             </TabsTrigger>
           </TabsList>
