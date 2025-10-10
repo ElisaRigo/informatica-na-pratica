@@ -60,8 +60,25 @@ async function createMoodleUser(name: string, email: string) {
   // Gerar username a partir do email
   const username = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
   
-  // Gerar senha aleatória
-  const password = Math.random().toString(36).slice(-12) + 'Aa1!';
+  // Gerar senha segura com requisitos: mínimo 8 caracteres, 1 maiúscula, 1 caractere especial
+  const chars = 'abcdefghijklmnopqrstuvwxyz';
+  const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numbers = '0123456789';
+  const special = '!@#$%&*';
+  
+  let password = '';
+  password += upperChars[Math.floor(Math.random() * upperChars.length)]; // 1 maiúscula
+  password += special[Math.floor(Math.random() * special.length)]; // 1 especial
+  password += numbers[Math.floor(Math.random() * numbers.length)]; // 1 número
+  
+  // Completar com mais 5 caracteres aleatórios para ter 8 no total
+  const allChars = chars + upperChars + numbers;
+  for (let i = 0; i < 5; i++) {
+    password += allChars[Math.floor(Math.random() * allChars.length)];
+  }
+  
+  // Embaralhar a senha
+  password = password.split('').sort(() => Math.random() - 0.5).join('');
 
   const userData = {
     'users[0][username]': username,
