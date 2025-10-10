@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: "O curso tem certificado?",
-    answer: "Sim! Ao concluir o curso, você recebe um certificado digital de conclusão que pode ser usado em seu currículo e processos seletivos.",
+    answer: "Sim! Ao concluir o curso, você recebe um certificado digital de conclusão que pode ser usado em seu currículo e processos seletivos. O certificado é emitido após 10 dias da conclusão do curso.",
   },
   {
     question: "Como funciona a garantia de 7 dias?",

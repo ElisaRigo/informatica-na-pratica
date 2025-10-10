@@ -1,4 +1,4 @@
-import { Gift, Clock } from "lucide-react";
+import { Gift, Clock, Mail, Briefcase, Keyboard, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -7,16 +7,25 @@ const bonuses = [
     title: "1) E-mail Profissional",
     description: "Crie e configure seu e-mail, boas práticas e assinatura.",
     value: "R$ 97",
+    icon: Mail,
   },
   {
     title: "2) Mercado de Trabalho",
     description: "Currículo, postura e como apresentar suas habilidades.",
     value: "R$ 127",
+    icon: Briefcase,
   },
   {
     title: "3) Atalhos Essenciais",
     description: "Guia rápido com atalhos para ganhar tempo.",
     value: "R$ 47",
+    icon: Keyboard,
+  },
+  {
+    title: "4) Currículo Profissional",
+    description: "Template profissional e dicas para um currículo que chama atenção.",
+    value: "R$ 97",
+    icon: FileText,
   },
 ];
 
@@ -97,19 +106,27 @@ export const Bonus = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {bonuses.map((bonus, index) => (
-            <div
-              key={index}
-              className="bg-card border-2 border-success/30 rounded-2xl p-6 hover:border-success transition-all hover:scale-105 relative"
-            >
-              <div className="absolute -top-3 right-4 bg-success text-white px-4 py-1 rounded-full text-sm font-bold">
-                Valor: {bonus.value}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {bonuses.map((bonus, index) => {
+            const IconComponent = bonus.icon;
+            return (
+              <div
+                key={index}
+                className="bg-card border-2 border-success/30 rounded-2xl p-6 hover:border-success transition-all hover:scale-105 relative"
+              >
+                <div className="absolute -top-3 right-4 bg-success text-white px-4 py-1 rounded-full text-sm font-bold">
+                  {bonus.value}
+                </div>
+                <div className="mb-4 pt-2">
+                  <div className="w-12 h-12 bg-success/10 rounded-xl flex items-center justify-center mb-3">
+                    <IconComponent className="w-6 h-6 text-success" />
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold mb-3">{bonus.title}</h3>
+                <p className="text-muted-foreground text-sm">{bonus.description}</p>
               </div>
-              <h3 className="text-xl font-bold mb-3 pt-2">{bonus.title}</h3>
-              <p className="text-muted-foreground">{bonus.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-12 md:mt-16 text-center max-w-4xl mx-auto">
@@ -119,7 +136,7 @@ export const Bonus = () => {
                 Valor Total dos Bônus
               </p>
               <p className="text-4xl md:text-5xl font-black text-success mb-2">
-                R$ 271,00
+                R$ 368,00
               </p>
               <p className="text-muted-foreground text-base md:text-lg">
                 Mas hoje você <span className="text-success font-bold">NÃO paga NADA</span> por eles!
@@ -149,11 +166,15 @@ export const Bonus = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-success">✓</span>
+                  <span>Bônus: Currículo Profissional</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-success">✓</span>
                   <span>Suporte direto com a prof. Elisa</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-success">✓</span>
-                  <span>Certificado de conclusão</span>
+                  <span>Certificado de conclusão (após 10 dias)</span>
                 </li>
               </ul>
             </div>

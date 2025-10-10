@@ -6,7 +6,7 @@ const targetProfiles = [
     description: "Você nunca mexeu com computador ou tem muito medo de errar e \"quebrar\" algo",
   },
   {
-    title: "Busca de recolocação",
+    title: "Mercado de Trabalho",
     description: "Precisa de informática básica para conquistar uma vaga de emprego",
   },
   {
