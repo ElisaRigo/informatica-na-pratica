@@ -29,14 +29,6 @@ export const AdminRegister = () => {
       if (authError) throw authError;
 
       if (authData.user) {
-        // Fazer login para ter sessão ativa
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-          email,
-          password
-        });
-
-        if (signInError) throw signInError;
-
         // Adicionar role de admin usando função segura
         const { error: roleError } = await supabase.rpc('add_admin_role', {
           user_id: authData.user.id,
@@ -45,8 +37,20 @@ export const AdminRegister = () => {
 
         if (roleError) throw roleError;
 
-        toast.success('Conta admin criada com sucesso!');
-        navigate('/admin');
+        toast.success('Conta criada! Aguarde um momento...');
+        
+        // Aguardar um pouco e então fazer login
+        setTimeout(async () => {
+          const { error: signInError } = await supabase.auth.signInWithPassword({
+            email,
+            password
+          });
+
+          if (signInError) {
+            toast.error('Conta criada, mas erro ao fazer login. Tente fazer login manualmente.');
+            navigate('/admin');
+          }
+        }, 2000);
       }
     } catch (error: any) {
       toast.error(error.message || 'Erro ao criar conta');
