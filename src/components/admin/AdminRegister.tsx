@@ -6,27 +6,44 @@ import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 
-export const AdminLogin = () => {
+export const AdminRegister = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      // Criar conta
+      const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/admin`
+        }
       });
 
-      if (error) throw error;
+      if (authError) throw authError;
 
-      toast.success('Login realizado com sucesso!');
+      if (authData.user) {
+        // Adicionar role de admin
+        const { error: roleError } = await supabase
+          .from('user_roles')
+          .insert({
+            user_id: authData.user.id,
+            role: 'admin'
+          });
+
+        if (roleError) throw roleError;
+
+        toast.success('Conta admin criada com sucesso!');
+        navigate('/admin');
+      }
     } catch (error: any) {
-      toast.error(error.message || 'Erro ao fazer login');
+      toast.error(error.message || 'Erro ao criar conta');
     } finally {
       setLoading(false);
     }
@@ -35,19 +52,15 @@ export const AdminLogin = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
-        <div className="bg-card border border-border rounded-lg p-8 shadow-lg">
-          <h1 className="text-2xl font-bold text-center mb-2">Painel Administrativo</h1>
-          <p className="text-center text-muted-foreground mb-8">
-            Entre com suas credenciais de administrador
-          </p>
-
-          <form onSubmit={handleLogin} className="space-y-4">
+        <div className="bg-card p-8 rounded-lg border border-border">
+          <h1 className="text-2xl font-bold mb-6 text-center">Criar Conta Admin</h1>
+          
+          <form onSubmit={handleRegister} className="space-y-4">
             <div>
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="admin@exemplo.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -59,24 +72,24 @@ export const AdminLogin = () => {
               <Input
                 id="password"
                 type="password"
-                placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength={6}
               />
             </div>
 
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? 'Entrando...' : 'Entrar'}
+              {loading ? 'Criando...' : 'Criar Conta'}
             </Button>
 
             <div className="text-center">
               <button
                 type="button"
-                onClick={() => navigate('/admin/register')}
+                onClick={() => navigate('/admin')}
                 className="text-sm text-muted-foreground hover:text-foreground"
               >
-                Criar primeira conta admin
+                Já tem conta? Fazer login
               </button>
             </div>
           </form>
