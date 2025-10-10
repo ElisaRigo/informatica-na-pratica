@@ -68,17 +68,17 @@ export const Comparison = () => {
           </div>
         </div>
 
-        <div className="text-center bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 rounded-3xl p-8 max-w-3xl mx-auto">
-          <p className="text-xl font-bold mb-6">
+        <div className="text-center bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 rounded-3xl p-6 md:p-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl font-bold mb-6">
             Escolha o caminho do crescimento profissional agora!
           </p>
           <Button 
             size="lg" 
-            className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform"
+            className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform w-full md:w-auto"
             asChild
           >
             <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-              🚀 Quero transformar minha vida agora
+              🚀 Quero transformar minha vida
             </a>
           </Button>
         </div>

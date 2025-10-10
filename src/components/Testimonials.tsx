@@ -1,12 +1,12 @@
 import { Quote } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import alinePhoto from "@/assets/testimonial-aline.jpg";
-import joaoPhoto from "@/assets/testimonial-joao.jpg";
-import carlaPhoto from "@/assets/testimonial-carla.jpg";
-import mariaPhoto from "@/assets/testimonial-maria.jpg";
-import robertoPhoto from "@/assets/testimonial-roberto.jpg";
-import sandraPhoto from "@/assets/testimonial-sandra.jpg";
+import alinePhoto from "@/assets/testimonial-new-1.jpg";
+import joaoPhoto from "@/assets/testimonial-new-3.jpg";
+import carlaPhoto from "@/assets/testimonial-new-2.jpg";
+import mariaPhoto from "@/assets/testimonial-new-4.jpg";
+import robertoPhoto from "@/assets/testimonial-new-6.jpg";
+import sandraPhoto from "@/assets/testimonial-new-5.jpg";
 
 const testimonials = [
   {
@@ -91,11 +91,11 @@ export const Testimonials = () => {
           </div>
           <Button 
             size="lg" 
-            className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-base md:text-lg hover:scale-105 transition-transform w-full md:w-auto"
+            className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform w-full md:w-auto"
             asChild
           >
             <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-              🚀 Garantir minha vaga com 40% OFF
+              🚀 Garantir vaga com 40% OFF
             </a>
           </Button>
         </div>

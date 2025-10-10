@@ -183,11 +183,11 @@ export const Bonus = () => {
 
             <Button 
               size="lg" 
-              className="font-extrabold px-4 md:px-10 py-5 md:py-7 rounded-2xl text-base md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
+              className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
               asChild
             >
-              <a href="https://pag.ae/8164tZJTR" className="block text-center">
-                🚀 Quero o curso + todos os bônus
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+                🎁 Quero curso + bônus
               </a>
             </Button>
             <p className="text-xs text-muted-foreground mt-4">
