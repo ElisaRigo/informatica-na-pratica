@@ -25,12 +25,12 @@ export const Possibilities = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center mb-4">
-            Abra um mundo de possibilidades com o curso de{" "}
+            Abra um mundo de possibilidades com o curso online de{" "}
             <span className="text-primary">Informática na Prática</span>
           </h2>
           
           <p className="text-lg md:text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Veja a diferença entre quem domina a informática e quem ainda não deu esse passo
+            Aprenda de qualquer lugar — veja a diferença entre quem domina a informática e quem ainda não deu esse passo
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">

@@ -5,7 +5,7 @@ import { CheckCircle2, CreditCard, Smartphone, Clock } from "lucide-react";
 const features = [
   'De R$ 497 por R$ 297',
   'Parcele em até 12x',
-  'Acesso imediato + suporte direto com a professora',
+  'Acesso online imediato + suporte direto com a professora',
   'Garantia total de 7 dias',
 ];
 
