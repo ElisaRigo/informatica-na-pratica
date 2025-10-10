@@ -1,5 +1,4 @@
 import { Award, Users, Clock, Heart } from "lucide-react";
-import elisaPhoto from "@/assets/elisa-photo.jpg";
 
 export const Authority = () => {
   return (
@@ -11,19 +10,22 @@ export const Authority = () => {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
-                <img 
-                  src={elisaPhoto} 
-                  alt="Professora Elisangela Neri Rigo" 
-                  className="w-full h-full object-cover"
-                />
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-card border-2 border-primary/30 rounded-2xl p-6 text-center">
+                <div className="text-4xl font-black text-primary mb-2">+20</div>
+                <div className="text-sm text-muted-foreground">Anos de experiência</div>
               </div>
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground rounded-full px-6 py-3 shadow-xl">
-                <div className="text-center">
-                  <span className="text-2xl font-black">+20 anos</span>
-                  <span className="text-sm font-medium ml-2">de experiência</span>
-                </div>
+              <div className="bg-card border-2 border-accent/30 rounded-2xl p-6 text-center">
+                <div className="text-4xl font-black text-accent mb-2">+15k</div>
+                <div className="text-sm text-muted-foreground">Alunos transformados</div>
+              </div>
+              <div className="bg-card border-2 border-primary/30 rounded-2xl p-6 text-center">
+                <div className="text-4xl font-black text-primary mb-2">100%</div>
+                <div className="text-sm text-muted-foreground">Método didático</div>
+              </div>
+              <div className="bg-card border-2 border-accent/30 rounded-2xl p-6 text-center">
+                <div className="text-4xl font-black text-accent mb-2">24/7</div>
+                <div className="text-sm text-muted-foreground">Suporte disponível</div>
               </div>
             </div>
 

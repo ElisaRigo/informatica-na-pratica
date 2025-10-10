@@ -5,7 +5,7 @@ export const AboutSection = () => {
   return (
     <section id="about" className="py-20 bg-panel">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black mb-6 text-center">
             Conheça o Informática na Prática
           </h2>
@@ -14,7 +14,17 @@ export const AboutSection = () => {
             O curso que já transformou a vida de mais de 15.000 pessoas que tinham medo do computador
           </p>
 
-          <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-8 md:p-12 border-2 border-primary/20">
+          <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
+            <div className="relative">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src={elisaPhoto} 
+                  alt="Professora Elisangela Neri Rigo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
             <div className="space-y-6 text-center md:text-left">
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Se você sente insegurança ao usar o computador ou tem medo de <strong className="text-foreground">"não conseguir"</strong>, o curso <strong className="text-foreground">Informática na Prática</strong> foi feito pra você 💙
@@ -26,8 +36,10 @@ export const AboutSection = () => {
                 Com mais de <strong className="text-foreground">20 anos de experiência</strong> ensinando, desenvolvi um método exclusivo que respeita seu ritmo e elimina de vez aquela sensação de "estar perdido" no computador.
               </p>
             </div>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-8 border-2 border-primary/20">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
                 className="font-extrabold px-8 py-6 rounded-2xl text-base"
