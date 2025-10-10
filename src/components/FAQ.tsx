@@ -138,9 +138,20 @@ export const FAQ = () => {
             </Button>
           </div>
           
-          <p className="text-sm text-muted-foreground">
-            ⚡ <span className="line-through">R$ 497</span> por apenas <span className="font-bold text-accent">R$ 297</span> • Últimas vagas nesta condição
-          </p>
+          <div className="text-sm text-muted-foreground">
+            <p className="mb-1">
+              ⚡ Valor total com bônus: <span className="line-through text-base font-bold text-destructive/80">R$ 768</span>
+            </p>
+            <p className="mb-1">
+              Curso: <span className="line-through text-base font-bold text-destructive/70">R$ 497</span>
+            </p>
+            <p className="text-lg md:text-xl font-black">
+              Hoje: <span className="text-accent">R$ 297</span>
+            </p>
+            <p className="text-success font-bold">
+              Economize R$ 471 • Últimas vagas nesta condição
+            </p>
+          </div>
         </div>
       </div>
     </section>

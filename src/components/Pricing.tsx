@@ -86,19 +86,32 @@ export const Pricing = () => {
                 </div>
               </div>
 
-              <div className="text-muted-foreground mb-2 font-semibold text-sm md:text-base">
-                Valor total: <span className="line-through">R$ 768</span>
+              <div className="mb-4 p-4 bg-gradient-to-r from-destructive/20 to-destructive/10 rounded-xl border-2 border-destructive/40">
+                <p className="text-sm md:text-base font-bold text-muted-foreground mb-2">
+                  Valor total do pacote completo:
+                </p>
+                <p className="text-3xl md:text-5xl font-black line-through text-destructive/80 mb-1">
+                  R$ 768
+                </p>
+                <div className="flex items-center justify-center gap-2 text-sm md:text-base flex-wrap">
+                  <span className="font-semibold text-muted-foreground">Curso</span>
+                  <span className="line-through text-destructive/70 text-xl md:text-2xl font-bold">R$ 497</span>
+                  <span className="text-muted-foreground">+</span>
+                  <span className="font-semibold text-muted-foreground">Bônus</span>
+                  <span className="text-xl md:text-2xl font-bold text-foreground">R$ 271</span>
+                </div>
               </div>
-              <div className="mb-2">
-                <span className="text-sm md:text-base font-semibold text-muted-foreground">Curso (</span>
-                <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497</span>
-                <span className="text-sm md:text-base font-semibold text-muted-foreground">) + Bônus (</span>
-                <span className="text-muted-foreground text-base md:text-lg">R$ 271</span>
-                <span className="text-sm md:text-base font-semibold text-muted-foreground">)</span>
+              <div className="mb-6 p-6 bg-gradient-to-br from-success/20 to-primary/20 rounded-2xl border-3 border-success/50 shadow-lg">
+                <p className="text-base md:text-lg font-bold text-muted-foreground mb-2">
+                  🔥 Investimento hoje:
+                </p>
+                <p className="text-4xl md:text-6xl font-black text-accent mb-2">
+                  R$ 297
+                </p>
+                <p className="text-lg md:text-xl font-bold text-success">
+                  Você economiza R$ 471!
+                </p>
               </div>
-              <h3 className="text-2xl md:text-3xl font-black mb-6 md:mb-8">
-                Hoje por apenas <span className="text-accent">R$ 297</span>
-              </h3>
               
               <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 {features.map((feature, index) => (

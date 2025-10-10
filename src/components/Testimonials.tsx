@@ -72,12 +72,23 @@ export const Testimonials = () => {
         </div>
 
         <div className="text-center mt-12 bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 rounded-3xl p-8 md:p-10 max-w-3xl mx-auto">
-          <p className="text-xl md:text-2xl font-bold mb-3">
+          <p className="text-xl md:text-2xl font-bold mb-4">
             Junte-se a +15.000 alunos que já transformaram suas vidas
           </p>
-          <p className="text-muted-foreground mb-6 text-base md:text-lg">
-            <span className="line-through">De R$ 497</span> por apenas <span className="text-accent font-bold text-xl">R$ 297</span> • Oferta termina em breve
-          </p>
+          <div className="mb-6">
+            <p className="text-sm text-muted-foreground mb-1">
+              Valor total: <span className="line-through text-lg font-bold text-destructive/80">R$ 768</span>
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground mb-2">
+              Curso: <span className="line-through text-xl font-bold text-destructive/70">R$ 497</span>
+            </p>
+            <p className="text-2xl md:text-3xl font-black mb-1">
+              Por apenas <span className="text-accent">R$ 297</span>
+            </p>
+            <p className="text-base md:text-lg font-bold text-success">
+              💰 Economize R$ 471 • Oferta termina em breve
+            </p>
+          </div>
           <Button 
             size="lg" 
             className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-base md:text-lg hover:scale-105 transition-transform w-full md:w-auto"
