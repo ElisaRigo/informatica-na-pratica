@@ -174,7 +174,7 @@ export const Bonus = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-success">✓</span>
-                  <span>Certificado de conclusão (após 10 dias)</span>
+                  <span>Certificado de conclusão</span>
                 </li>
               </ul>
             </div>

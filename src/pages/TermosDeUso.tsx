@@ -85,7 +85,7 @@ export const TermosDeUso = () => {
           <section>
             <h2 className="text-2xl font-bold text-foreground mb-3">7. Certificado</h2>
             <p>
-              O certificado de conclusão será emitido após 10 dias da conclusão de todos os módulos do curso. 
+              O certificado de conclusão será emitido após a conclusão de todos os módulos do curso. 
               O certificado é digital e pode ser usado em currículos e processos seletivos.
             </p>
           </section>
