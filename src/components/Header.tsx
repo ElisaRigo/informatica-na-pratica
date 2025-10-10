@@ -9,6 +9,9 @@ export const Header = () => {
           alt="Informática na Prática"
           className="w-24 md:w-32 mx-auto"
         />
+        <h1 className="text-lg md:text-xl font-semibold text-foreground mt-2">
+          Curso de Informática Online
+        </h1>
       </div>
     </header>
   );
