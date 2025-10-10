@@ -26,9 +26,9 @@ export const NotForYou = () => {
             <div className="bg-card border-2 border-destructive/30 rounded-2xl p-6 flex gap-4">
               <X className="w-6 h-6 text-destructive flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-bold text-lg mb-2">Já é expert em informática</h3>
+                <h3 className="font-bold text-lg mb-2">Não tem interesse em crescer</h3>
                 <p className="text-muted-foreground">
-                  Se você já domina Word, Excel e PowerPoint, este curso básico não agregará valor.
+                  Se você está satisfeito com sua situação atual e não busca novas oportunidades.
                 </p>
               </div>
             </div>

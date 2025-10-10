@@ -65,7 +65,7 @@ const faqs = [
   },
   {
     question: "Preciso instalar programas no meu computador?",
-    answer: "Não necessariamente. Ensino a usar o que já vem instalado no Windows. Se quiser, também mostro alternativas gratuitas online.",
+    answer: "Sim. Você precisa ter um computador com Windows, Word, Excel, PowerPoint instalados e um navegador de internet. A maioria dos computadores já vem com esses programas. Se não tiver, te oriento sobre alternativas gratuitas.",
   },
   {
     question: "Como sei que o curso é confiável?",
