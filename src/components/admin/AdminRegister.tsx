@@ -29,13 +29,19 @@ export const AdminRegister = () => {
       if (authError) throw authError;
 
       if (authData.user) {
-        // Adicionar role de admin
-        const { error: roleError } = await supabase
-          .from('user_roles')
-          .insert({
-            user_id: authData.user.id,
-            role: 'admin'
-          });
+        // Fazer login para ter sessão ativa
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        });
+
+        if (signInError) throw signInError;
+
+        // Adicionar role de admin usando função segura
+        const { error: roleError } = await supabase.rpc('add_admin_role', {
+          user_id: authData.user.id,
+          user_role: 'admin'
+        });
 
         if (roleError) throw roleError;
 
