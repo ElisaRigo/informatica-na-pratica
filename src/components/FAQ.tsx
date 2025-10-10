@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 
 const faqs = [
   {
@@ -87,7 +88,7 @@ export const FAQ = () => {
         <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
           Dúvidas frequentes
         </h2>
-        <Accordion type="single" collapsible className="max-w-3xl mx-auto space-y-4">
+        <Accordion type="single" collapsible className="max-w-3xl mx-auto space-y-4 mb-12">
           {faqs.map((faq, index) => (
             <AccordionItem 
               key={index} 
@@ -103,6 +104,44 @@ export const FAQ = () => {
             </AccordionItem>
           ))}
         </Accordion>
+
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-success/20 to-primary/20 border-2 border-success/40 rounded-3xl p-8 md:p-12 text-center">
+          <h3 className="text-2xl md:text-3xl font-black mb-4">
+            Todas as dúvidas esclarecidas? 💚
+          </h3>
+          <p className="text-lg md:text-xl text-muted-foreground mb-3">
+            Então é hora de dar o primeiro passo
+          </p>
+          <p className="text-base text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Você tem <strong className="text-foreground">garantia de 7 dias</strong>, suporte direto comigo e 2 anos de acesso completo. Não há motivo para adiar sua transformação.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+            <Button 
+              size="lg" 
+              className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform w-full sm:w-auto"
+              asChild
+            >
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+                ✅ Sim, quero começar agora
+              </a>
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="font-bold px-8 py-7 rounded-2xl text-base border-2 w-full sm:w-auto"
+              asChild
+            >
+              <a href="https://wa.me/5545988287082" target="_blank" rel="noopener noreferrer">
+                💬 Falar com a Elisa
+              </a>
+            </Button>
+          </div>
+          
+          <p className="text-sm text-muted-foreground">
+            ⚡ <span className="line-through">R$ 497</span> por apenas <span className="font-bold text-accent">R$ 297</span> • Últimas vagas nesta condição
+          </p>
+        </div>
       </div>
     </section>
   );

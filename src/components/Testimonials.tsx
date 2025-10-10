@@ -71,16 +71,21 @@ export const Testimonials = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
-            Junte-se a centenas de alunos que já transformaram suas vidas
+        <div className="text-center mt-12 bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 rounded-3xl p-8 md:p-10 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl font-bold mb-3">
+            Junte-se a +15.000 alunos que já transformaram suas vidas
+          </p>
+          <p className="text-muted-foreground mb-6 text-base md:text-lg">
+            <span className="line-through">De R$ 497</span> por apenas <span className="text-accent font-bold text-xl">R$ 297</span> • Oferta termina em breve
           </p>
           <Button 
             size="lg" 
-            className="font-extrabold px-8 py-6 rounded-2xl text-lg"
+            className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform"
             asChild
           >
-            <a href="#preco">Quero começar agora</a>
+            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+              🚀 Garantir minha vaga com 40% OFF
+            </a>
           </Button>
         </div>
       </div>
