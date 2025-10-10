@@ -89,10 +89,10 @@ const ThankYou = () => {
             Tem alguma dúvida? Entre em contato conosco pelo WhatsApp
           </p>
           <a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5545988287082"
             className="text-primary hover:text-accent transition-colors font-medium"
           >
-            (11) 99999-9999
+            (45) 98828-7082
           </a>
         </div>
       </div>
