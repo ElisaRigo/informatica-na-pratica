@@ -27,7 +27,7 @@ export const Hero = () => {
             Domine <span className="text-primary">Word, Excel e PowerPoint</span> em 30 dias Mesmo Começando do Zero 💻
           </h1>
           
-          <div className="relative max-w-3xl mx-auto mb-4">
+          <div className="relative max-w-3xl mx-auto mb-8">
             <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card">
               <video
                 ref={videoRef}
@@ -43,17 +43,18 @@ export const Hero = () => {
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeo HTML5.
               </video>
+              
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none">
+                <Button 
+                  size="sm"
+                  variant="secondary"
+                  className="text-xs font-semibold px-4 py-2 rounded-full opacity-90 hover:opacity-100 transition-opacity pointer-events-auto shadow-lg"
+                  asChild
+                >
+                  <a href="#about">Ver detalhes do curso</a>
+                </Button>
+              </div>
             </div>
-          </div>
-          
-          <div className="text-center mb-8">
-            <Button 
-              variant="ghost"
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              asChild
-            >
-              <a href="#about">Conheça esse curso →</a>
-            </Button>
           </div>
 
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
