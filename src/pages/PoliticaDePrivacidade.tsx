@@ -131,8 +131,8 @@ export const PoliticaDePrivacidade = () => {
           <div className="mt-12 pt-8 border-t border-line">
             <p className="text-sm">
               <strong>Elisangela Neri Rigo</strong><br />
-              CNPJ: [INSERIR CNPJ AQUI]<br />
-              Última atualização: Janeiro de 2025
+              <strong>CNPJ:</strong> [INSERIR CNPJ AQUI]<br />
+              <strong>Última atualização:</strong> Janeiro de 2025
             </p>
           </div>
         </div>

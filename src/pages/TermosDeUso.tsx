@@ -14,7 +14,34 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">2. Uso da Plataforma</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">2. Sobre o Curso e Resultados</h2>
+            <p className="mb-2">
+              O curso "Domine Word, Excel e PowerPoint em 30 dias Mesmo Começando do Zero" é uma proposta 
+              pedagógica que indica o período estimado para conclusão do conteúdo programático. O título representa 
+              uma meta de aprendizado, não uma garantia absoluta de domínio completo em 30 dias.
+            </p>
+            <p className="mb-2">
+              <strong>Importante:</strong> Os resultados individuais podem variar conforme:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mb-4">
+              <li>Dedicação e tempo de estudo do aluno</li>
+              <li>Conhecimento prévio em informática</li>
+              <li>Prática e aplicação dos conteúdos aprendidos</li>
+              <li>Capacidade individual de aprendizado</li>
+            </ul>
+            <p className="mb-2">
+              <strong>Não garantimos resultados específicos</strong>, como obtenção de emprego, aumento de salário, 
+              aprovação em processos seletivos ou qualquer outro resultado profissional ou financeiro. O sucesso 
+              do aluno depende exclusivamente de seu esforço, dedicação e aplicação dos conhecimentos adquiridos.
+            </p>
+            <p>
+              Todas as informações, depoimentos e materiais promocionais apresentados no site devem ser interpretados 
+              como exemplos de possibilidades, não como promessas ou garantias de resultados idênticos para todos os alunos.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-foreground mb-3">3. Uso da Plataforma</h2>
             <p className="mb-2">
               O acesso ao curso é pessoal e intransferível. O aluno se compromete a:
             </p>
@@ -27,7 +54,7 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">3. Propriedade Intelectual</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">4. Propriedade Intelectual</h2>
             <p>
               Todo o conteúdo do curso, incluindo textos, vídeos, imagens, materiais didáticos e exercícios, 
               é de propriedade exclusiva de Elisangela Neri Rigo e está protegido por direitos autorais. 
@@ -36,7 +63,7 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">4. Pagamento e Reembolso</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">5. Pagamento e Reembolso</h2>
             <p className="mb-2">
               O curso oferece garantia incondicional de 7 dias. Durante este período, o aluno pode solicitar 
               o reembolso total do valor pago, sem necessidade de justificativa.
@@ -48,7 +75,7 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">5. Acesso ao Curso</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">6. Acesso ao Curso</h2>
             <p>
               O acesso ao curso é válido por 2 anos a partir da data de confirmação do pagamento. 
               Após este período, o acesso pode ser renovado mediante pagamento de taxa de renovação.
@@ -56,7 +83,7 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">6. Certificado</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">7. Certificado</h2>
             <p>
               O certificado de conclusão será emitido após 10 dias da conclusão de todos os módulos do curso. 
               O certificado é digital e pode ser usado em currículos e processos seletivos.
@@ -64,7 +91,7 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">7. Responsabilidades</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">8. Responsabilidades</h2>
             <p className="mb-2">
               A Informática na Prática se compromete a:
             </p>
@@ -81,7 +108,7 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">8. Modificações nos Termos</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">9. Modificações nos Termos</h2>
             <p>
               Reservamo-nos o direito de modificar estes termos a qualquer momento. As alterações entrarão 
               em vigor imediatamente após sua publicação no site. O uso continuado do serviço após as 
@@ -90,7 +117,7 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">9. Lei Aplicável</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">10. Lei Aplicável</h2>
             <p>
               Estes termos são regidos pelas leis da República Federativa do Brasil. Qualquer disputa 
               relacionada a estes termos será submetida ao foro da comarca de domicílio do aluno.
@@ -98,7 +125,7 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-3">10. Contato</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-3">11. Contato</h2>
             <p>
               Para dúvidas sobre estes Termos de Uso, entre em contato conosco através do WhatsApp: 
               (45) 98828-7082 ou pelo e-mail disponível no site.
@@ -108,8 +135,8 @@ export const TermosDeUso = () => {
           <div className="mt-12 pt-8 border-t border-line">
             <p className="text-sm">
               <strong>Elisangela Neri Rigo</strong><br />
-              CNPJ: [INSERIR CNPJ AQUI]<br />
-              Última atualização: Janeiro de 2025
+              <strong>CNPJ:</strong> [INSERIR CNPJ AQUI]<br />
+              <strong>Última atualização:</strong> Janeiro de 2025
             </p>
           </div>
         </div>
