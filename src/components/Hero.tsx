@@ -27,8 +27,8 @@ export const Hero = () => {
             Domine <span className="text-primary">Word, Excel e PowerPoint</span> em 30 dias Mesmo Começando do Zero 💻
           </h1>
           
-          <div className="relative max-w-3xl mx-auto mb-8">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card group">
+          <div className="relative max-w-3xl mx-auto mb-4">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card">
               <video
                 ref={videoRef}
                 controls
@@ -43,19 +43,17 @@ export const Hero = () => {
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeo HTML5.
               </video>
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-8">
-                <Button 
-                  size="lg" 
-                  className="text-lg font-extrabold px-8 py-6 rounded-2xl hover:scale-105 transition-transform pointer-events-auto shadow-glow"
-                  asChild
-                >
-                  <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                    🔥 Garantir Minha Vaga Agora
-                  </a>
-                </Button>
-              </div>
             </div>
+          </div>
+          
+          <div className="text-center mb-8">
+            <Button 
+              variant="ghost"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              asChild
+            >
+              <a href="#about">Conheça esse curso →</a>
+            </Button>
           </div>
 
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">

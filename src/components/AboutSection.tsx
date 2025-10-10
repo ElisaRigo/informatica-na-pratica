@@ -3,7 +3,7 @@ import elisaPhoto from "@/assets/elisa-photo.jpg";
 
 export const AboutSection = () => {
   return (
-    <section className="py-20 bg-panel">
+    <section id="about" className="py-20 bg-panel">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-black mb-12 text-center">Conheça este curso!</h2>
         
