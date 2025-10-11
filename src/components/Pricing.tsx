@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, CreditCard, Smartphone, Clock } from "lucide-react";
+import { CheckoutForm } from "./CheckoutForm";
 
 const features = [
   'De R$ 497 por R$ 297',
@@ -60,7 +61,7 @@ export const Pricing = () => {
     <section id="preco" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto bg-card border-2 border-primary/20 rounded-2xl md:rounded-3xl p-5 md:p-12 shadow-2xl">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-10 items-start">
             <div>
               <div className="flex items-center gap-2 text-accent mb-3">
                 <Clock className="w-5 h-5" />
@@ -165,24 +166,20 @@ export const Pricing = () => {
               
               <Button 
                 size="lg" 
-                className="w-full font-extrabold text-base md:text-lg px-6 md:px-8 py-5 md:py-7 rounded-xl md:rounded-2xl mb-3 md:mb-4 hover:scale-105 transition-transform"
-                asChild
-              >
-                <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                  Garantir meu acesso agora
-                </a>
-              </Button>
-              
-              <Button 
-                size="lg" 
                 variant="outline"
-                className="w-full font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl md:rounded-2xl border-2"
+                className="w-full font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl md:rounded-2xl border-2 mb-3"
                 asChild
               >
                 <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">
                   Tirar uma dúvida no WhatsApp
                 </a>
               </Button>
+
+              <p className="text-sm font-semibold text-muted-foreground mb-4">
+                👇 Preencha seus dados para continuar
+              </p>
+
+              <CheckoutForm />
             </div>
           </div>
         </div>
