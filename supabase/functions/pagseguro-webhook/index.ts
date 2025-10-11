@@ -203,8 +203,9 @@ serve(async (req: Request) => {
   try {
     console.log('Received webhook from PagSeguro');
     console.log('Content-Type:', req.headers.get('content-type'));
+    console.log('Headers:', JSON.stringify(Object.fromEntries(req.headers.entries())));
     
-    // Ler o body como texto primeiro para ver o formato
+    // Ler o body como texto primeiro
     const bodyText = await req.text();
     console.log('Raw body:', bodyText);
     
@@ -213,22 +214,25 @@ serve(async (req: Request) => {
     // Tentar parsear como JSON primeiro
     try {
       payload = JSON.parse(bodyText);
-      console.log('Parsed as JSON:', JSON.stringify(payload, null, 2));
+      console.log('✅ Parsed as JSON:', JSON.stringify(payload, null, 2));
     } catch (jsonError) {
-      // Se não for JSON, pode ser notificationCode do PagSeguro antigo
-      console.log('Not JSON, checking for notificationCode format');
+      console.log('❌ Not JSON format');
       
-      if (bodyText.includes('notificationCode=')) {
-        const notificationCode = bodyText.split('notificationCode=')[1]?.split('&')[0];
-        console.log('Found notificationCode:', notificationCode);
+      // Se for notificationCode (formato antigo), apenas registrar por enquanto
+      if (bodyText.includes('notificationCode=') || bodyText.includes('notification_code=')) {
+        console.log('⚠️ Received old PagSeguro format (notificationCode)');
+        console.log('This webhook currently only supports direct JSON webhooks from PagSeguro');
+        console.log('Please configure your PagSeguro checkout to send JSON webhooks or use the new API');
         
         return new Response(
           JSON.stringify({ 
-            message: 'Notification received, but old format not supported yet',
-            notificationCode 
+            success: false,
+            message: 'Old PagSeguro format detected. Please use JSON webhook format.',
+            receivedFormat: 'url-encoded',
+            receivedData: bodyText.substring(0, 200)
           }), 
           { 
-            status: 200, 
+            status: 400, 
             headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
           }
         );
