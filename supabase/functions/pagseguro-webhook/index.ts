@@ -9,6 +9,7 @@ const corsHeaders = {
 
 const MOODLE_URL = 'https://aluno.informaticanapratica.com.br';
 const MOODLE_TOKEN = Deno.env.get('MOODLE_API_TOKEN');
+const PAGSEGURO_TOKEN = Deno.env.get('PAGSEGURO_API_TOKEN');
 const COURSE_ID = 2;
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -218,27 +219,96 @@ serve(async (req: Request) => {
     } catch (jsonError) {
       console.log('❌ Not JSON format');
       
-      // Se for notificationCode (formato antigo), apenas registrar por enquanto
+      // Se for notificationCode (formato antigo do PagSeguro)
       if (bodyText.includes('notificationCode=') || bodyText.includes('notification_code=')) {
         console.log('⚠️ Received old PagSeguro format (notificationCode)');
-        console.log('This webhook currently only supports direct JSON webhooks from PagSeguro');
-        console.log('Please configure your PagSeguro checkout to send JSON webhooks or use the new API');
         
-        return new Response(
-          JSON.stringify({ 
-            success: false,
-            message: 'Old PagSeguro format detected. Please use JSON webhook format.',
-            receivedFormat: 'url-encoded',
-            receivedData: bodyText.substring(0, 200)
-          }), 
-          { 
-            status: 400, 
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        // Extrair o notificationCode
+        const params = new URLSearchParams(bodyText);
+        const notificationCode = params.get('notificationCode') || params.get('notification_code');
+        
+        if (!notificationCode) {
+          throw new Error('notificationCode not found in request');
+        }
+        
+        console.log('📥 Fetching transaction details from PagSeguro API...');
+        console.log('NotificationCode:', notificationCode);
+        
+        // Consultar API do PagSeguro v3 (formato antigo)
+        const pagseguroUrl = `https://ws.pagseguro.uol.com.br/v3/transactions/notifications/${notificationCode}?email=elisafuturodigital@gmail.com&token=${PAGSEGURO_TOKEN}`;
+        
+        try {
+          const pagseguroResponse = await fetch(pagseguroUrl, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/xml;charset=UTF-8'
+            }
+          });
+          
+          if (!pagseguroResponse.ok) {
+            console.error('PagSeguro API error:', pagseguroResponse.status);
+            throw new Error(`PagSeguro API returned ${pagseguroResponse.status}`);
           }
-        );
+          
+          const xmlData = await pagseguroResponse.text();
+          console.log('PagSeguro XML Response:', xmlData);
+          
+          // Parse XML simples (extrair dados principais)
+          const getXmlValue = (xml: string, tag: string): string => {
+            const regex = new RegExp(`<${tag}>([^<]*)</${tag}>`);
+            const match = xml.match(regex);
+            return match ? match[1] : '';
+          };
+          
+          const transactionCode = getXmlValue(xmlData, 'code');
+          const status = getXmlValue(xmlData, 'status');
+          const grossAmount = getXmlValue(xmlData, 'grossAmount');
+          const senderName = getXmlValue(xmlData, 'name');
+          const senderEmail = getXmlValue(xmlData, 'email');
+          const paymentMethod = getXmlValue(xmlData, 'type');
+          
+          console.log('Parsed transaction:', {
+            code: transactionCode,
+            status,
+            grossAmount,
+            senderName,
+            senderEmail,
+            paymentMethod
+          });
+          
+          // Mapear status do PagSeguro (1=Aguardando, 2=Em análise, 3=Paga, 4=Disponível, etc)
+          // Status 3 ou 4 = aprovado
+          if (status !== '3' && status !== '4') {
+            console.log(`Payment status ${status} - not approved yet`);
+            return new Response(
+              JSON.stringify({ message: 'Payment not approved yet', status }), 
+              { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+            );
+          }
+          
+          // Converter para formato payload compatível
+          payload = {
+            id: transactionCode,
+            customer: {
+              name: senderName,
+              email: senderEmail
+            },
+            status: 'paid',
+            amount: parseFloat(grossAmount),
+            payment_method: {
+              type: paymentMethod
+            }
+          };
+          
+          console.log('✅ Converted to payload:', payload);
+          
+        } catch (apiError: any) {
+          console.error('Error fetching from PagSeguro API:', apiError);
+          throw new Error(`Failed to fetch transaction: ${apiError.message}`);
+        }
+      } else {
+        throw new Error(`Invalid payload format: ${bodyText.substring(0, 100)}`);
       }
-      
-      throw new Error(`Invalid payload format: ${bodyText.substring(0, 100)}`);
     }
 
     // Verificar se o pagamento foi aprovado
