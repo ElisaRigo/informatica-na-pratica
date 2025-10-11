@@ -7,11 +7,11 @@ export const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black mb-6 text-center">
-            Conheça o Informática na Prática
+            Quem vai te ensinar
           </h2>
           
           <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            O curso que já transformou a vida de mais de 15.000 pessoas que tinham medo do computador
+            Professora com mais de 20 anos ajudando pessoas a perder o medo do computador
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
@@ -27,13 +27,13 @@ export const AboutSection = () => {
 
             <div className="space-y-6 text-center md:text-left">
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Se você sente insegurança ao usar o computador ou tem medo de <strong className="text-foreground">"não conseguir"</strong>, o curso <strong className="text-foreground">Informática na Prática</strong> foi feito pra você 💙
+                Sou a professora Elisangela, e ao longo de mais de 20 anos ensinando informática, percebi algo importante: muita gente desiste não por falta de capacidade, mas porque as aulas são rápidas demais ou usam termos complicados.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Aqui, você aprende <strong className="text-foreground">passo a passo</strong>, com exemplos simples e do dia a dia, até se sentir confiante e independente. Você vai perceber que aprender informática não é um <strong className="text-foreground">"bicho de 7 cabeças"</strong>.
+                Por isso criei o <strong className="text-foreground">Informática na Prática</strong> — um curso onde você aprende no seu ritmo, com exemplos do dia a dia e linguagem simples. Sem pressão, sem termos técnicos difíceis.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Com mais de <strong className="text-foreground">20 anos de experiência</strong> ensinando, desenvolvi um método exclusivo que respeita seu ritmo e elimina de vez aquela sensação de "estar perdido" no computador.
+                Já ajudei mais de <strong className="text-foreground">15.000 pessoas</strong> que achavam que "não levavam jeito" para tecnologia. E posso te ajudar também, com paciência e sem pressa.
               </p>
             </div>
           </div>

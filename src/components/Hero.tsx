@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
-import heroVideo from "@/assets/hero-video.mp4";
+import heroVideo from "@/assets/hero-video-new.mp4";
 import { useEffect, useRef } from "react";
 
 export const Hero = () => {

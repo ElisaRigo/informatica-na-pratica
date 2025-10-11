@@ -10,7 +10,7 @@ export const Objections = () => {
     {
       icon: Brain,
       question: "Será que consigo aprender?",
-      answer: "Sim! O curso foi feito para quem está começando do ZERO. As aulas são passo a passo, bem explicadas e você pode rever quantas vezes precisar."
+      answer: "O curso foi criado especialmente para iniciantes! As aulas são passo a passo, bem explicadas, e você pode rever quantas vezes quiser. Milhares de alunos começaram do zero e hoje usam o computador com confiança."
     },
     {
       icon: Laptop,
