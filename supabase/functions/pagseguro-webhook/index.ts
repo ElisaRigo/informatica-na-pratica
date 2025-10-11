@@ -139,51 +139,183 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
   const firstName = name.split(' ')[0];
   
   const passwordInfo = password 
-    ? `<p><strong>Suas credenciais de acesso:</strong></p>
-       <p>Usuário: <strong>${username}</strong><br>
-       Senha: <strong>${password}</strong></p>`
-    : `<p>Use suas credenciais de acesso existentes para entrar na plataforma.</p>`;
+    ? `<div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 25px; border-radius: 12px; margin: 25px 0; border: 2px solid #0080BB;">
+         <p style="margin: 0 0 15px 0; font-size: 16px; color: #0c4a6e; font-weight: 600;">🔑 Suas credenciais de acesso:</p>
+         <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+           <p style="margin: 8px 0; font-size: 15px; color: #334155;"><strong style="color: #0080BB;">Usuário:</strong> <span style="font-family: 'Courier New', monospace; background: #f1f5f9; padding: 4px 8px; border-radius: 4px; font-size: 16px;">${username}</span></p>
+           <p style="margin: 8px 0; font-size: 15px; color: #334155;"><strong style="color: #0080BB;">Senha:</strong> <span style="font-family: 'Courier New', monospace; background: #f1f5f9; padding: 4px 8px; border-radius: 4px; font-size: 16px;">${password}</span></p>
+         </div>
+         <p style="margin: 15px 0 0 0; font-size: 13px; color: #64748b;">💡 Dica: Salve estas informações em um lugar seguro!</p>
+       </div>`
+    : `<div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 25px; border-radius: 12px; margin: 25px 0; border: 2px solid #0080BB;">
+         <p style="margin: 0; font-size: 15px; color: #0c4a6e;">🔐 Use suas credenciais de acesso existentes para entrar na plataforma.</p>
+       </div>`;
 
   const emailHtml = `
     <!DOCTYPE html>
     <html>
     <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #0080BB 0%, #005A87 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
-        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
-        .button { display: inline-block; background: #0080BB; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
-        .credentials { background: white; padding: 15px; border-left: 4px solid #0080BB; margin: 20px 0; }
-        .signature { margin-top: 20px; font-style: italic; color: #0080BB; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+          line-height: 1.6; 
+          color: #1e293b;
+          background: #f1f5f9;
+          padding: 20px;
+        }
+        .email-wrapper {
+          max-width: 600px;
+          margin: 0 auto;
+          background: white;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 10px 40px rgba(0, 128, 187, 0.15);
+        }
+        .header {
+          background: linear-gradient(135deg, #0080BB 0%, #005A87 100%);
+          padding: 40px 30px;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        .header::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          right: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+          animation: pulse 15s ease-in-out infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 0.5; }
+          50% { transform: scale(1.1); opacity: 0.3; }
+        }
+        .logo {
+          max-width: 180px;
+          height: auto;
+          margin-bottom: 20px;
+          position: relative;
+          z-index: 1;
+        }
+        .header h1 {
+          color: white;
+          font-size: 28px;
+          font-weight: 700;
+          margin: 0;
+          position: relative;
+          z-index: 1;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .content {
+          padding: 40px 30px;
+          background: white;
+        }
+        .greeting {
+          font-size: 18px;
+          color: #0f172a;
+          margin-bottom: 20px;
+          font-weight: 600;
+        }
+        .message {
+          font-size: 15px;
+          color: #475569;
+          margin-bottom: 15px;
+          line-height: 1.7;
+        }
+        .cta-container {
+          text-align: center;
+          margin: 35px 0;
+        }
+        .button {
+          display: inline-block;
+          background: linear-gradient(135deg, #0080BB 0%, #005A87 100%);
+          color: white;
+          padding: 16px 40px;
+          text-decoration: none;
+          border-radius: 10px;
+          font-weight: 600;
+          font-size: 16px;
+          box-shadow: 0 4px 15px rgba(0, 128, 187, 0.4);
+          transition: all 0.3s ease;
+        }
+        .divider {
+          height: 1px;
+          background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+          margin: 30px 0;
+        }
+        .footer {
+          background: #f8fafc;
+          padding: 30px;
+          text-align: center;
+          border-top: 1px solid #e2e8f0;
+        }
+        .signature {
+          font-size: 15px;
+          color: #64748b;
+          margin-bottom: 5px;
+        }
+        .signature strong {
+          display: block;
+          font-size: 17px;
+          color: #0080BB;
+          margin: 8px 0 5px 0;
+          font-weight: 700;
+        }
+        .brand {
+          color: #94a3b8;
+          font-size: 14px;
+          font-weight: 500;
+        }
+        .emoji {
+          font-size: 24px;
+          margin: 0 5px;
+        }
       </style>
     </head>
     <body>
-      <div class="container">
+      <div class="email-wrapper">
         <div class="header">
-          <h1>🎉 Bem-vindo ao Curso de Informática!</h1>
+          <img src="https://exncvylyygvctgwyqpin.supabase.co/storage/v1/object/public/assets/logo-new.png" alt="Informática na Prática" class="logo">
+          <h1><span class="emoji">🎉</span> Bem-vindo ao Curso!</h1>
         </div>
+        
         <div class="content">
-          <p>Olá, <strong>${firstName}</strong>!</p>
+          <p class="greeting">Olá, ${firstName}! 👋</p>
           
-          <p>Parabéns! Sua matrícula foi confirmada com sucesso. Estamos muito felizes em ter você conosco! 🚀</p>
+          <p class="message">
+            Parabéns! Sua matrícula foi confirmada com sucesso. <strong>Estou muito feliz</strong> em ter você comigo nessa jornada de aprendizado! <span class="emoji">🚀</span>
+          </p>
           
-          <div class="credentials">
-            ${passwordInfo}
+          ${passwordInfo}
+          
+          <p class="message">
+            Sua plataforma de estudos já está pronta! Acesse agora e comece a aprender no seu ritmo:
+          </p>
+          
+          <div class="cta-container">
+            <a href="${MOODLE_URL}" class="button">🎯 Acessar Plataforma</a>
           </div>
           
-          <p>Acesse a plataforma agora mesmo e comece a aprender:</p>
+          <div class="divider"></div>
           
-          <center>
-            <a href="${MOODLE_URL}" class="button">Acessar Plataforma</a>
-          </center>
-          
-          <p>Se tiver qualquer dúvida, estou à disposição para ajudar!</p>
-          
-          <p class="signature">Bons estudos! 📚<br>
-          <strong>Prof. Elisa</strong><br>
-          Informática na Prática</p>
+          <p class="message">
+            Se tiver qualquer dúvida, estou à disposição para ajudar! 💬
+          </p>
+        </div>
+        
+        <div class="footer">
+          <p class="signature">
+            Bons estudos! 📚
+            <strong>Prof. Elisa</strong>
+            <span class="brand">Informática na Prática</span>
+          </p>
         </div>
       </div>
     </body>
