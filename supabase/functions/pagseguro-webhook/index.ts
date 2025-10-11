@@ -235,7 +235,7 @@ serve(async (req: Request) => {
         console.log('NotificationCode:', notificationCode);
         
         // Consultar API do PagSeguro v3 (formato antigo)
-        const pagseguroUrl = `https://ws.pagseguro.uol.com.br/v3/transactions/notifications/${notificationCode}?email=elisafuturodigital@gmail.com&token=${PAGSEGURO_TOKEN}`;
+        const pagseguroUrl = `https://ws.pagseguro.uol.com.br/v3/transactions/notifications/${notificationCode}?email=elisa_cnt@hotmail.com&token=${PAGSEGURO_TOKEN}`;
         
         try {
           const pagseguroResponse = await fetch(pagseguroUrl, {
