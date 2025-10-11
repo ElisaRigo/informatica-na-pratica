@@ -27,7 +27,7 @@ export const AboutSection = () => {
 
             <div className="space-y-6 text-center md:text-left">
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Sou a professora Elisangela, e ao longo de mais de 20 anos ensinando informática, percebi algo importante: muita gente desiste não por falta de capacidade, mas porque as aulas são rápidas demais ou usam termos complicados.
+                Sou a professora Elisa, e ao longo de mais de 20 anos ensinando informática, percebi algo importante: muita gente desiste não por falta de capacidade, mas porque as aulas são rápidas demais ou usam termos complicados.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Por isso criei o <strong className="text-foreground">Informática na Prática</strong> — um curso onde você aprende no seu ritmo, com exemplos do dia a dia e linguagem simples. Sem pressão, sem termos técnicos difíceis.

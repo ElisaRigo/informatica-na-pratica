@@ -140,10 +140,11 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .header { background: linear-gradient(135deg, #0080BB 0%, #005A87 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
         .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
-        .button { display: inline-block; background: #667eea; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
-        .credentials { background: white; padding: 15px; border-left: 4px solid #667eea; margin: 20px 0; }
+        .button { display: inline-block; background: #0080BB; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .credentials { background: white; padding: 15px; border-left: 4px solid #0080BB; margin: 20px 0; }
+        .signature { margin-top: 20px; font-style: italic; color: #0080BB; }
       </style>
     </head>
     <body>
@@ -166,10 +167,11 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
             <a href="${MOODLE_URL}" class="button">Acessar Plataforma</a>
           </center>
           
-          <p>Se tiver qualquer dúvida, estamos à disposição para ajudar!</p>
+          <p>Se tiver qualquer dúvida, estou à disposição para ajudar!</p>
           
-          <p>Bons estudos! 📚<br>
-          <strong>Equipe Informática na Prática</strong></p>
+          <p class="signature">Bons estudos! 📚<br>
+          <strong>Prof. Elisa</strong><br>
+          Informática na Prática</p>
         </div>
       </div>
     </body>
