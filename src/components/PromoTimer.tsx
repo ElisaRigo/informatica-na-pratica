@@ -52,7 +52,7 @@ export const PromoTimer = () => {
       <div className="container mx-auto px-3 py-2 md:py-3">
         <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
           <span className="font-extrabold text-xs md:text-base tracking-wide text-center">
-            🔥 Promoção especial encerrando em:
+            ⏰ Promoção especial válida até:
           </span>
           <div className="flex gap-1.5 md:gap-2" role="timer" aria-live="polite">
             <div className="bg-card border border-line rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2 min-w-[45px] md:min-w-[54px] text-center">

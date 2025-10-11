@@ -55,7 +55,7 @@ export const AboutSection = () => {
                 className="font-extrabold px-8 py-6 rounded-2xl text-base border-2"
                 asChild
               >
-                <a href="https://wa.me/5545988287082" target="_blank" rel="noopener noreferrer">
+                <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">
                   Tirar dúvidas no WhatsApp
                 </a>
               </Button>

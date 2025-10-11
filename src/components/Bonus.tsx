@@ -89,9 +89,9 @@ export const Bonus = () => {
             Ao garantir sua vaga hoje, você recebe <span className="font-bold text-foreground">GRATUITAMENTE</span> estes materiais extras para acelerar seus resultados:
           </p>
           
-          <div className="inline-flex items-center gap-3 bg-destructive/10 border-2 border-destructive/30 px-6 py-3 rounded-2xl">
-            <Clock className="w-5 h-5 text-destructive" />
-            <span className="font-bold text-sm">Bônus disponíveis por:</span>
+          <div className="inline-flex items-center gap-3 bg-primary/10 border-2 border-primary/30 px-6 py-3 rounded-2xl">
+            <Clock className="w-5 h-5 text-primary" />
+            <span className="font-bold text-sm">Promoção com bônus até:</span>
             <div className="flex gap-2">
               <div className="bg-destructive text-white px-2 py-1 rounded font-bold text-sm min-w-[32px]">
                 {pad(timeLeft.hours)}

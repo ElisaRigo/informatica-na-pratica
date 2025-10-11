@@ -86,7 +86,7 @@ export const Testimonials = () => {
               Por apenas <span className="text-accent">R$ 297</span>
             </p>
             <p className="text-base md:text-lg font-bold text-success">
-              💰 Economize R$ 471 • Oferta termina em breve
+              💰 Economize R$ 471 com esta promoção
             </p>
           </div>
           <Button 
@@ -95,7 +95,7 @@ export const Testimonials = () => {
             asChild
           >
             <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-              🚀 Garantir vaga com 40% OFF
+              🚀 Garantir minha vaga agora
             </a>
           </Button>
         </div>

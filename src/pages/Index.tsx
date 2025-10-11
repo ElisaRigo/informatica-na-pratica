@@ -2,7 +2,6 @@ import { Header } from "@/components/Header";
 import { PromoTimer } from "@/components/PromoTimer";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
-import { SocialProofBadge } from "@/components/SocialProofBadge";
 import { AboutSection } from "@/components/AboutSection";
 import { Authority } from "@/components/Authority";
 import { TargetAudience } from "@/components/TargetAudience";
@@ -29,7 +28,6 @@ const Index = () => {
       <Header />
       <PromoTimer />
       <Hero />
-      <SocialProofBadge />
       <AboutSection />
       <Authority />
       <SocialProof />

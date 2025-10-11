@@ -68,7 +68,7 @@ export const FinalTestimonials = () => {
             </a>
           </Button>
           <p className="text-xs text-muted-foreground mt-4">
-            ⚡ Últimas vagas disponíveis nesta condição
+            ⚡ Aproveite a promoção especial
           </p>
         </div>
       </div>

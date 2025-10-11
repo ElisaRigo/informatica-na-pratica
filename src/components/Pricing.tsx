@@ -64,7 +64,7 @@ export const Pricing = () => {
             <div>
               <div className="flex items-center gap-2 text-accent mb-3">
                 <Clock className="w-5 h-5" />
-                <span className="font-bold text-sm md:text-base">Oferta termina em:</span>
+                <span className="font-bold text-sm md:text-base">Promoção disponível até:</span>
               </div>
               
               <div className="flex gap-2 mb-6" role="timer" aria-live="polite">
@@ -179,7 +179,7 @@ export const Pricing = () => {
                 className="w-full font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl md:rounded-2xl border-2"
                 asChild
               >
-                <a href="https://wa.me/5545988287082" target="_blank" rel="noopener noreferrer">
+                <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">
                   Tirar uma dúvida no WhatsApp
                 </a>
               </Button>
