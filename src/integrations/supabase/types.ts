@@ -80,13 +80,6 @@ export type Database = {
             referencedRelation: "students"
             referencedColumns: ["id"]
           },
-          {
-            foreignKeyName: "payments_student_id_fkey"
-            columns: ["student_id"]
-            isOneToOne: false
-            referencedRelation: "students_safe_view"
-            referencedColumns: ["id"]
-          },
         ]
       }
       students: {
@@ -148,81 +141,7 @@ export type Database = {
       }
     }
     Views: {
-      payments_safe_view: {
-        Row: {
-          amount: number | null
-          created_at: string | null
-          id: string | null
-          payment_method: string | null
-          status: string | null
-          student_id: string | null
-          updated_at: string | null
-        }
-        Insert: {
-          amount?: number | null
-          created_at?: string | null
-          id?: string | null
-          payment_method?: string | null
-          status?: string | null
-          student_id?: string | null
-          updated_at?: string | null
-        }
-        Update: {
-          amount?: number | null
-          created_at?: string | null
-          id?: string | null
-          payment_method?: string | null
-          status?: string | null
-          student_id?: string | null
-          updated_at?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "payments_student_id_fkey"
-            columns: ["student_id"]
-            isOneToOne: false
-            referencedRelation: "students"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "payments_student_id_fkey"
-            columns: ["student_id"]
-            isOneToOne: false
-            referencedRelation: "students_safe_view"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      students_safe_view: {
-        Row: {
-          course_access: boolean | null
-          created_at: string | null
-          email: string | null
-          id: string | null
-          moodle_username: string | null
-          name: string | null
-          updated_at: string | null
-        }
-        Insert: {
-          course_access?: boolean | null
-          created_at?: string | null
-          email?: string | null
-          id?: string | null
-          moodle_username?: string | null
-          name?: string | null
-          updated_at?: string | null
-        }
-        Update: {
-          course_access?: boolean | null
-          created_at?: string | null
-          email?: string | null
-          id?: string | null
-          moodle_username?: string | null
-          name?: string | null
-          updated_at?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       add_admin_role: {
