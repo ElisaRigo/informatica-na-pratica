@@ -20,11 +20,20 @@ export const AddStudent = () => {
     setLoading(true);
 
     try {
+      // Criptografa a senha do Moodle antes de salvar
+      const { data: encryptedPassword, error: encryptError } = await supabase
+        .rpc('encrypt_moodle_password', { password: formData.moodle_password });
+
+      if (encryptError) throw encryptError;
+
       const { data, error } = await supabase
         .from('students')
         .insert([
           {
-            ...formData,
+            email: formData.email,
+            name: formData.name,
+            moodle_username: formData.moodle_username,
+            moodle_password: encryptedPassword,
             course_access: true,
           },
         ])
@@ -33,7 +42,7 @@ export const AddStudent = () => {
 
       if (error) throw error;
 
-      toast.success('Aluno cadastrado com sucesso!');
+      toast.success('Aluno cadastrado com sucesso! Senha armazenada de forma segura.');
       
       // Reset form
       setFormData({

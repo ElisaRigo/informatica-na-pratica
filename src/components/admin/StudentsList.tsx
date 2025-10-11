@@ -69,14 +69,20 @@ export const StudentsList = () => {
     }
 
     try {
+      // Criptografa a nova senha antes de salvar
+      const { data: encryptedPassword, error: encryptError } = await supabase
+        .rpc('encrypt_moodle_password', { password: newPassword });
+
+      if (encryptError) throw encryptError;
+
       const { error } = await supabase
         .from('students')
-        .update({ moodle_password: newPassword })
+        .update({ moodle_password: encryptedPassword })
         .eq('id', selectedStudent);
 
       if (error) throw error;
 
-      toast.success('Senha redefinida com sucesso');
+      toast.success('Senha redefinida e criptografada com sucesso');
       setNewPassword('');
       setSelectedStudent(null);
       fetchStudents();

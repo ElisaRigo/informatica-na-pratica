@@ -68,6 +68,12 @@ async function callMoodleAPI(functionName: string, params: Record<string, any>) 
   return data;
 }
 
+async function encryptPassword(password: string): Promise<string> {
+  const { data, error } = await supabase.rpc('encrypt_moodle_password', { password });
+  if (error) throw error;
+  return data;
+}
+
 async function createMoodleUser(name: string, email: string) {
   // Gerar username a partir do email
   const username = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -499,13 +505,19 @@ serve(async (req: Request) => {
     console.log(`User created/found with ID: ${userId}`);
 
     // 3. Salvar aluno no banco
+    // Criptografar senha se ela existir
+    let encryptedPassword = password;
+    if (password) {
+      encryptedPassword = await encryptPassword(password);
+    }
+
     const { data: studentData, error: studentError } = await supabase
       .from('students')
       .upsert({
         email: customerEmail,
         name: customerName,
         moodle_username: username,
-        moodle_password: password,
+        moodle_password: encryptedPassword,
         course_access: true,
         pagseguro_transaction_id: payload.id
       }, {

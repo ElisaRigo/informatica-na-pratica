@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      payment_access_logs: {
+        Row: {
+          accessed_at: string | null
+          action: string
+          id: string
+          payment_id: string
+          user_id: string
+        }
+        Insert: {
+          accessed_at?: string | null
+          action: string
+          id?: string
+          payment_id: string
+          user_id: string
+        }
+        Update: {
+          accessed_at?: string | null
+          action?: string
+          id?: string
+          payment_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       payments: {
         Row: {
           amount: number | null
@@ -126,6 +150,14 @@ export type Database = {
           user_role: Database["public"]["Enums"]["app_role"]
         }
         Returns: undefined
+      }
+      decrypt_moodle_password: {
+        Args: { encrypted_password: string }
+        Returns: string
+      }
+      encrypt_moodle_password: {
+        Args: { password: string }
+        Returns: string
       }
       has_role: {
         Args: {
