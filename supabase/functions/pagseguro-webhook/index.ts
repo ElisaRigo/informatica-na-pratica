@@ -475,11 +475,27 @@ serve(async (req: Request) => {
     const customerName = payload.customer?.name;
     const customerEmail = payload.customer?.email;
 
+    // VALIDAÇÃO DE SEGURANÇA: Validar e sanitizar dados de entrada
     if (!customerName || !customerEmail) {
       throw new Error('Missing customer information');
     }
 
-    console.log(`Processing enrollment for: ${customerName} (${customerEmail})`);
+    // Validar formato de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(customerEmail)) {
+      throw new Error('Invalid email format');
+    }
+
+    // Limitar tamanho dos dados para prevenir ataques
+    if (customerName.length > 255 || customerEmail.length > 255) {
+      throw new Error('Customer data exceeds maximum length');
+    }
+
+    // Sanitizar nome (remover caracteres potencialmente perigosos)
+    const sanitizedName = customerName.trim().substring(0, 255);
+    const sanitizedEmail = customerEmail.trim().toLowerCase().substring(0, 255);
+
+    console.log(`Processing enrollment for: ${sanitizedName} (${sanitizedEmail})`);
 
     // 1. Salvar pagamento no banco
     const { data: paymentData, error: paymentError } = await supabase
@@ -500,8 +516,8 @@ serve(async (req: Request) => {
       console.log('Payment saved:', paymentData);
     }
 
-    // 2. Criar usuário no Moodle
-    const { userId, username, password } = await createMoodleUser(customerName, customerEmail);
+    // 2. Criar usuário no Moodle com dados sanitizados
+    const { userId, username, password } = await createMoodleUser(sanitizedName, sanitizedEmail);
     console.log(`User created/found with ID: ${userId}`);
 
     // 3. Salvar aluno no banco
@@ -514,8 +530,8 @@ serve(async (req: Request) => {
     const { data: studentData, error: studentError } = await supabase
       .from('students')
       .upsert({
-        email: customerEmail,
-        name: customerName,
+        email: sanitizedEmail,
+        name: sanitizedName,
         moodle_username: username,
         moodle_password: encryptedPassword,
         course_access: true,
@@ -550,9 +566,9 @@ serve(async (req: Request) => {
       throw new Error(`Failed to enroll user: ${errorMessage}`);
     }
 
-    // 5. Enviar email de boas-vindas
+    // 5. Enviar email de boas-vindas com dados sanitizados
     try {
-      await sendWelcomeEmail(customerName, customerEmail, username, password);
+      await sendWelcomeEmail(sanitizedName, sanitizedEmail, username, password);
       console.log('✅ Welcome email sent successfully');
     } catch (emailError) {
       console.error('⚠️ Warning: Failed to send welcome email:', emailError);
