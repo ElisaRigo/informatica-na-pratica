@@ -34,7 +34,7 @@ export const Authority = () => {
               </div>
               <div className="bg-card border-2 border-accent/30 rounded-2xl p-6 text-center">
                 <div className="text-4xl font-black text-accent mb-2">100%</div>
-                <div className="text-sm text-muted-foreground">Suporte completo</div>
+                <div className="text-sm text-muted-foreground">Dedicação total</div>
               </div>
             </div>
 
