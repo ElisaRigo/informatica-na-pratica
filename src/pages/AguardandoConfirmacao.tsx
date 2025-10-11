@@ -58,7 +58,9 @@ const AguardandoConfirmacao = () => {
           
           // Aguarda 2 segundos para mostrar a confirmação antes de redirecionar
           setTimeout(() => {
-            navigate('/obrigada');
+            // Passa o transaction_id para a página de obrigada
+            const txId = data[0].pagseguro_transaction_id;
+            navigate(`/obrigada${txId ? `?transaction_id=${txId}` : ''}`);
           }, 2000);
           
           return true; // Para o polling
@@ -69,7 +71,7 @@ const AguardandoConfirmacao = () => {
           console.log('Timeout reached, redirecting to thank you page');
           setStatus('timeout');
           setTimeout(() => {
-            navigate('/obrigada');
+            navigate(`/obrigada${transactionId ? `?transaction_id=${transactionId}` : ''}`);
           }, 3000);
           return true; // Para o polling
         }

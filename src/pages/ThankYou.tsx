@@ -1,9 +1,17 @@
-import { useEffect } from "react";
-import { CheckCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { CheckCircle, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
 import logoImage from "@/assets/logo-new.png";
 
 const ThankYou = () => {
+  const [courseAccess, setCourseAccess] = useState<{
+    hasAccess: boolean;
+    moodleUrl?: string;
+    username?: string;
+  }>({ hasAccess: false });
+  const [isChecking, setIsChecking] = useState(true);
+
   useEffect(() => {
     // Disparar evento de conversão do Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -22,6 +30,73 @@ const ThankYou = () => {
         currency: 'BRL'
       });
     }
+  }, []);
+
+  useEffect(() => {
+    // Pegar transaction_id ou email da URL se existir
+    const params = new URLSearchParams(window.location.search);
+    const transactionId = params.get('transaction_id');
+    const email = params.get('email');
+
+    if (!transactionId && !email) {
+      // Se não tiver parâmetros, para de checar após 10 segundos
+      const timeout = setTimeout(() => setIsChecking(false), 10000);
+      return () => clearTimeout(timeout);
+    }
+
+    let pollCount = 0;
+    const maxPolls = 36; // 3 minutos (36 * 5 segundos)
+
+    const checkAccess = async () => {
+      try {
+        let query = supabase
+          .from('students')
+          .select('course_access, moodle_username, email')
+          .eq('course_access', true);
+
+        if (transactionId) {
+          query = query.eq('pagseguro_transaction_id', transactionId);
+        } else if (email) {
+          query = query.eq('email', email);
+        }
+
+        const { data, error } = await query.maybeSingle();
+
+        if (error) {
+          console.error('Erro ao verificar acesso:', error);
+          return;
+        }
+
+        if (data && data.course_access) {
+          setCourseAccess({
+            hasAccess: true,
+            moodleUrl: 'https://informaticafeliz.com.br',
+            username: data.moodle_username || undefined
+          });
+          setIsChecking(false);
+        }
+      } catch (error) {
+        console.error('Erro ao verificar acesso:', error);
+      }
+    };
+
+    // Primeira verificação imediata
+    checkAccess();
+
+    // Polling a cada 5 segundos
+    const interval = setInterval(() => {
+      pollCount++;
+      
+      if (pollCount >= maxPolls) {
+        setIsChecking(false);
+        clearInterval(interval);
+        return;
+      }
+
+      checkAccess();
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -54,12 +129,52 @@ const ThankYou = () => {
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
             Seu pagamento foi confirmado! Você receberá um e-mail com suas credenciais de acesso em até 5 minutos.
           </p>
-          <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 max-w-xl mx-auto">
-            <p className="text-sm text-muted-foreground">
-              ⏱️ <strong>Importante:</strong> Após o pagamento no PagSeguro, pode levar alguns minutos para processar. 
-              Verifique sua caixa de entrada e spam para o e-mail com as credenciais.
-            </p>
-          </div>
+
+          {/* Botão de Acesso Liberado */}
+          {courseAccess.hasAccess && (
+            <div className="bg-gradient-to-br from-success/20 via-success/10 to-success/5 border-2 border-success rounded-2xl p-6 max-w-xl mx-auto animate-slide-up shadow-lg">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <CheckCircle className="w-6 h-6 text-success" />
+                <h3 className="text-xl font-bold text-success">🎉 Seu acesso foi liberado!</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                {courseAccess.username && (
+                  <>Seu usuário: <strong className="text-foreground">{courseAccess.username}</strong><br /></>
+                )}
+                Você já pode acessar o curso agora mesmo!
+              </p>
+              <a
+                href={courseAccess.moodleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold px-8 py-4 rounded-xl transition-all transform hover:scale-105 shadow-lg"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Acessar o Curso Agora
+              </a>
+            </div>
+          )}
+
+          {/* Loading Indicator */}
+          {isChecking && !courseAccess.hasAccess && (
+            <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 max-w-xl mx-auto">
+              <div className="flex items-center justify-center gap-3">
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary"></div>
+                <p className="text-sm text-muted-foreground">
+                  Verificando liberação do acesso...
+                </p>
+              </div>
+            </div>
+          )}
+
+          {!courseAccess.hasAccess && (
+            <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 max-w-xl mx-auto">
+              <p className="text-sm text-muted-foreground">
+                ⏱️ <strong>Importante:</strong> Após o pagamento no PagSeguro, pode levar alguns minutos para processar. 
+                Verifique sua caixa de entrada e spam para o e-mail com as credenciais.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Info Cards */}
