@@ -135,7 +135,7 @@ export const TermosDeUso = () => {
           <div className="mt-12 pt-8 border-t border-line">
             <p className="text-sm">
               <strong>Elisangela Neri Rigo</strong><br />
-              <strong>CNPJ:</strong> [INSERIR CNPJ AQUI]<br />
+              <strong>CNPJ:</strong> 32.373.460/0001-51<br />
               <strong>Última atualização:</strong> Janeiro de 2025
             </p>
           </div>
