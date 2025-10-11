@@ -66,16 +66,48 @@ const ThankYou = () => {
         <div className="grid md:grid-cols-2 gap-4 mt-8">
           <div className="bg-card border border-line rounded-xl p-6 text-left">
             <h3 className="font-semibold text-lg mb-2 text-primary">📧 Verifique seu e-mail</h3>
-            <p className="text-sm text-muted-foreground">
-              Enviaremos suas credenciais de acesso ao curso em poucos minutos.
+            <p className="text-sm text-muted-foreground mb-2">
+              Enviaremos suas credenciais de acesso ao curso em até 5 minutos.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              ⚠️ <strong>Não esquece:</strong> Verifique também a caixa de spam!
             </p>
           </div>
           <div className="bg-card border border-line rounded-xl p-6 text-left">
-            <h3 className="font-semibold text-lg mb-2 text-primary">🎓 Acesso imediato</h3>
+            <h3 className="font-semibold text-lg mb-2 text-primary">🎓 Acesso ao curso</h3>
             <p className="text-sm text-muted-foreground">
-              Após a confirmação do pagamento, você terá 2 anos de acesso completo ao curso.
+              Você terá 2 anos de acesso completo ao curso com suporte direto da professora.
             </p>
           </div>
+        </div>
+
+        {/* Fallback Instructions */}
+        <div className="bg-accent/10 border-2 border-accent/30 rounded-xl p-6 mt-6">
+          <h3 className="font-bold text-lg mb-3 text-accent flex items-center gap-2">
+            ⚠️ Não recebeu o e-mail em 10 minutos?
+          </h3>
+          <div className="text-left space-y-3 text-sm text-muted-foreground">
+            <p className="flex items-start gap-2">
+              <span className="text-accent font-bold">1.</span>
+              Verifique sua caixa de <strong>SPAM ou Promoções</strong>
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-accent font-bold">2.</span>
+              Aguarde até 15 minutos (o sistema pode estar processando)
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-accent font-bold">3.</span>
+              <strong>Entre em contato pelo WhatsApp</strong> com seu nome completo e e-mail usado na compra
+            </p>
+          </div>
+          <a
+            href="https://wa.me/5545988287082?text=Ol%C3%A1!%20Fiz%20a%20compra%20do%20curso%20mas%20n%C3%A3o%20recebi%20o%20e-mail%20com%20as%20credenciais.%20Meu%20nome%20%C3%A9%20____%20e%20o%20e-mail%20usado%20foi%20____"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 bg-success hover:bg-success/90 text-white font-bold px-6 py-3 rounded-lg transition-colors"
+          >
+            📱 Chamar no WhatsApp agora
+          </a>
         </div>
 
         {/* CTA */}
@@ -91,14 +123,14 @@ const ThankYou = () => {
 
         {/* Support Info */}
         <div className="pt-8 border-t border-line">
-          <p className="text-sm text-muted-foreground">
-            Tem alguma dúvida? Entre em contato conosco pelo WhatsApp
+          <p className="text-sm text-muted-foreground mb-2">
+            Suporte direto com a Prof. Elisa:
           </p>
           <a
             href="https://wa.me/5545988287082"
-            className="text-primary hover:text-accent transition-colors font-medium"
+            className="text-primary hover:text-accent transition-colors font-medium text-lg"
           >
-            (45) 98828-7082
+            📱 (45) 98828-7082
           </a>
         </div>
       </div>

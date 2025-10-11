@@ -70,7 +70,28 @@ export const AdminLogin = () => {
               {loading ? 'Entrando...' : 'Entrar'}
             </Button>
 
-            <div className="text-center">
+            <div className="flex flex-col gap-2 text-center">
+              <button
+                type="button"
+                onClick={async () => {
+                  if (!email) {
+                    toast.error('Digite seu e-mail primeiro');
+                    return;
+                  }
+                  try {
+                    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                      redirectTo: `${window.location.origin}/admin`
+                    });
+                    if (error) throw error;
+                    toast.success('E-mail de recuperação enviado! Verifique sua caixa de entrada.');
+                  } catch (error: any) {
+                    toast.error(error.message || 'Erro ao enviar e-mail de recuperação');
+                  }
+                }}
+                className="text-sm text-primary hover:underline"
+              >
+                Esqueci minha senha
+              </button>
               <button
                 type="button"
                 onClick={() => navigate('/admin/register')}
