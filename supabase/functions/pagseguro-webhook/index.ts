@@ -282,7 +282,7 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
     <body>
       <div class="email-wrapper">
         <div class="header">
-          <img src="https://exncvylyygvctgwyqpin.supabase.co/storage/v1/object/public/assets/logo-new.png" alt="Informática na Prática" class="logo">
+          <img src="https://informaticanapratica.com.br/logo-email.png" alt="Informática na Prática" class="logo">
           <h1><span class="emoji">🎉</span> Bem-vindo ao Curso!</h1>
         </div>
         
