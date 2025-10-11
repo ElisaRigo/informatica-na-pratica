@@ -1,9 +1,9 @@
 import { Quote } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import testimonialPhoto1 from "@/assets/testimonial-new-1.jpg";
-import testimonialPhoto2 from "@/assets/testimonial-new-4.jpg";
-import testimonialPhoto3 from "@/assets/testimonial-new-6.jpg";
+import testimonialPhoto1 from "@/assets/testimonial-final-1.jpg";
+import testimonialPhoto2 from "@/assets/testimonial-final-2.jpg";
+import testimonialPhoto3 from "@/assets/testimonial-final-3.jpg";
 
 const finalTestimonials = [
   {

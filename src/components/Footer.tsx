@@ -61,7 +61,7 @@ export const Footer = () => {
           {/* Company Info */}
           <div className="text-center text-muted-foreground text-sm space-y-2">
             <p className="font-semibold">Elisangela Neri Rigo</p>
-            <p><strong>CNPJ:</strong> 57.881.836/0001-02</p>
+            <p><strong>CNPJ:</strong> 32.373.460/0001-51</p>
             <p className="mt-4">© {currentYear} Informática na Prática. Todos os direitos reservados.</p>
           </div>
         </div>
