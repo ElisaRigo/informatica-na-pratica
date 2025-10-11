@@ -202,9 +202,40 @@ serve(async (req: Request) => {
 
   try {
     console.log('Received webhook from PagSeguro');
+    console.log('Content-Type:', req.headers.get('content-type'));
     
-    const payload: PagSeguroWebhook = await req.json();
-    console.log('Webhook payload:', JSON.stringify(payload, null, 2));
+    // Ler o body como texto primeiro para ver o formato
+    const bodyText = await req.text();
+    console.log('Raw body:', bodyText);
+    
+    let payload: PagSeguroWebhook;
+    
+    // Tentar parsear como JSON primeiro
+    try {
+      payload = JSON.parse(bodyText);
+      console.log('Parsed as JSON:', JSON.stringify(payload, null, 2));
+    } catch (jsonError) {
+      // Se não for JSON, pode ser notificationCode do PagSeguro antigo
+      console.log('Not JSON, checking for notificationCode format');
+      
+      if (bodyText.includes('notificationCode=')) {
+        const notificationCode = bodyText.split('notificationCode=')[1]?.split('&')[0];
+        console.log('Found notificationCode:', notificationCode);
+        
+        return new Response(
+          JSON.stringify({ 
+            message: 'Notification received, but old format not supported yet',
+            notificationCode 
+          }), 
+          { 
+            status: 200, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        );
+      }
+      
+      throw new Error(`Invalid payload format: ${bodyText.substring(0, 100)}`);
+    }
 
     // Verificar se o pagamento foi aprovado
     if (payload.status !== 'paid' && payload.status !== 'approved') {
