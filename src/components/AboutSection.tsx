@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import elisaPhoto from "@/assets/elisa-photo.jpg";
+import elisaPhoto from "@/assets/elisa-teaching.jpg";
 
 export const AboutSection = () => {
   return (
