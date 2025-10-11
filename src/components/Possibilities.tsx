@@ -11,12 +11,12 @@ const advantages = [
 ];
 
 const disadvantages = [
-  "Dificuldade em aproveitar oportunidades de emprego",
-  "Necessitar de ajuda frequente para tarefas no computador",
-  "Sentir insegurança ao usar tecnologia",
-  "Ter menos autonomia em tarefas digitais",
-  "Precisar de ajuda para resolver questões básicas",
-  "Ter dificuldade com ferramentas digitais do trabalho"
+  "Perder oportunidades de emprego por falta de conhecimento",
+  "Depender sempre de outras pessoas para tarefas simples",
+  "Sentir vergonha ou insegurança ao usar o computador",
+  "Ficar para trás enquanto o mundo avança",
+  "Gastar dinheiro pedindo ajuda para coisas básicas",
+  "Não conseguir acompanhar mudanças digitais"
 ];
 
 export const Possibilities = () => {

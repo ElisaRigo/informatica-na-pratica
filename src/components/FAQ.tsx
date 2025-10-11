@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     question: "Qual a diferença deste curso para vídeos grátis no YouTube?",
-    answer: "Aqui você tem um método estruturado passo a passo, suporte direto comigo, exercícios práticos organizados e certificado de conclusão. O curso segue uma progressão didática planejada para facilitar o aprendizado.",
+    answer: "No YouTube você encontra conteúdo solto e desorganizado. Aqui você tem um método estruturado passo a passo, suporte direto comigo, exercícios práticos e certificado. É a diferença entre assistir receitas e ter um chef te ensinando a cozinhar.",
   },
   {
     question: "Posso tirar dúvidas durante o curso?",
@@ -132,7 +132,7 @@ export const FAQ = () => {
               className="font-bold px-8 py-7 rounded-2xl text-base border-2 w-full sm:w-auto"
               asChild
             >
-              <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5545988287082" target="_blank" rel="noopener noreferrer">
                 💬 Falar com a Elisa
               </a>
             </Button>
@@ -149,7 +149,7 @@ export const FAQ = () => {
               Hoje: <span className="text-accent">R$ 297</span>
             </p>
             <p className="text-success font-bold">
-              Economize R$ 471 • Promoção por tempo limitado
+              Economize R$ 471 • Últimas vagas nesta condição
             </p>
           </div>
         </div>

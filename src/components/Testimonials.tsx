@@ -73,7 +73,7 @@ export const Testimonials = () => {
 
         <div className="text-center mt-12 bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 rounded-3xl p-8 md:p-10 max-w-3xl mx-auto">
           <p className="text-xl md:text-2xl font-bold mb-4">
-            Junte-se aos +15.000 alunos que aprenderam conosco
+            Junte-se a +15.000 alunos que já transformaram suas vidas
           </p>
           <div className="mb-6">
             <p className="text-sm text-muted-foreground mb-1">
@@ -86,7 +86,7 @@ export const Testimonials = () => {
               Por apenas <span className="text-accent">R$ 297</span>
             </p>
             <p className="text-base md:text-lg font-bold text-success">
-              💰 Economize R$ 471 • Promoção por tempo limitado
+              💰 Economize R$ 471 • Oferta termina em breve
             </p>
           </div>
           <Button 
