@@ -32,13 +32,15 @@ export const Hero = () => {
               <video
                 ref={videoRef}
                 controls
-                preload="metadata"
+                preload="auto"
                 className="w-full aspect-video object-cover"
                 playsInline
                 aria-label="Vídeo de apresentação do curso de Informática na Prática"
-                onLoadedMetadata={(e) => {
-                  const video = e.currentTarget;
-                  video.currentTime = 0;
+                onError={(e) => {
+                  console.error('Erro ao carregar vídeo:', e);
+                }}
+                onStalled={(e) => {
+                  console.warn('Vídeo pausado por carregamento');
                 }}
               >
                 <source src={heroVideo} type="video/mp4" />
