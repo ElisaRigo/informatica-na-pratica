@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { StudentsList } from './StudentsList';
 import { AddStudent } from './AddStudent';
 import { PaymentsList } from './PaymentsList';
+import { AdminSettings } from './AdminSettings';
 import { LogOut } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -44,6 +45,9 @@ export const AdminDashboard = () => {
             <TabsTrigger value="payments" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Pagamentos
             </TabsTrigger>
+            <TabsTrigger value="settings" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Configurações
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="students">
@@ -56,6 +60,10 @@ export const AdminDashboard = () => {
 
           <TabsContent value="payments">
             <PaymentsList />
+          </TabsContent>
+
+          <TabsContent value="settings">
+            <AdminSettings />
           </TabsContent>
         </Tabs>
       </main>
