@@ -50,7 +50,13 @@ async function callMoodleAPI(functionName: string, params: Record<string, any>) 
   const data = await response.json();
   console.log(`Moodle API response for ${functionName}:`, data);
 
-  if (data.exception || data.errorcode) {
+  // Se data é null, considerar como sucesso (algumas APIs do Moodle retornam null em sucesso)
+  if (data === null) {
+    return data;
+  }
+
+  // Verificar erros apenas se data não for null
+  if (data && (data.exception || data.errorcode)) {
     throw new Error(`Moodle API error: ${data.message || JSON.stringify(data)}`);
   }
 
@@ -386,12 +392,22 @@ serve(async (req: Request) => {
     }
 
     // 4. Matricular no curso
-    await enrollUserInCourse(userId);
-    console.log(`User enrolled in course ${COURSE_ID}`);
+    try {
+      await enrollUserInCourse(userId);
+      console.log(`User enrolled in course ${COURSE_ID}`);
+    } catch (enrollError) {
+      console.error('Error enrolling user, but continuing:', enrollError);
+      // Continua mesmo se houver erro na matrícula
+    }
 
-    // 5. Enviar email de boas-vindas
-    await sendWelcomeEmail(customerName, customerEmail, username, password);
-    console.log('Welcome email sent successfully');
+    // 5. Enviar email de boas-vindas (sempre tenta enviar)
+    try {
+      await sendWelcomeEmail(customerName, customerEmail, username, password);
+      console.log('Welcome email sent successfully');
+    } catch (emailError) {
+      console.error('Error sending email:', emailError);
+      // Não lança erro para não impedir o retorno de sucesso
+    }
 
     return new Response(
       JSON.stringify({ 
