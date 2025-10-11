@@ -52,8 +52,14 @@ const ThankYou = () => {
             Parabéns pela sua compra!
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-            Seu pagamento está sendo processado e você receberá um e-mail com suas credenciais de acesso em breve.
+            Seu pagamento foi confirmado! Você receberá um e-mail com suas credenciais de acesso em até 5 minutos.
           </p>
+          <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 max-w-xl mx-auto">
+            <p className="text-sm text-muted-foreground">
+              ⏱️ <strong>Importante:</strong> Após o pagamento no PagSeguro, pode levar alguns minutos para processar. 
+              Verifique sua caixa de entrada e spam para o e-mail com as credenciais.
+            </p>
+          </div>
         </div>
 
         {/* Info Cards */}

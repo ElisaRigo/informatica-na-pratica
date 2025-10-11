@@ -47,11 +47,16 @@ async function callMoodleAPI(functionName: string, params: Record<string, any>) 
     method: 'POST',
   });
 
+  if (!response.ok) {
+    throw new Error(`Moodle API HTTP error: ${response.status} ${response.statusText}`);
+  }
+
   const data = await response.json();
   console.log(`Moodle API response for ${functionName}:`, data);
 
-  // Se data é null, considerar como sucesso (algumas APIs do Moodle retornam null em sucesso)
+  // Se data é null, considerar como sucesso (enrol_manual_enrol_users retorna null em sucesso)
   if (data === null) {
+    console.log(`✅ API ${functionName} completed successfully (null response)`);
     return data;
   }
 
@@ -391,22 +396,23 @@ serve(async (req: Request) => {
       }
     }
 
-    // 4. Matricular no curso
+    // 4. Matricular no curso (CRÍTICO - deve funcionar)
     try {
       await enrollUserInCourse(userId);
-      console.log(`User enrolled in course ${COURSE_ID}`);
+      console.log(`✅ User enrolled successfully in course ${COURSE_ID}`);
     } catch (enrollError) {
-      console.error('Error enrolling user, but continuing:', enrollError);
-      // Continua mesmo se houver erro na matrícula
+      const errorMessage = enrollError instanceof Error ? enrollError.message : String(enrollError);
+      console.error('❌ CRITICAL: Error enrolling user:', enrollError);
+      throw new Error(`Failed to enroll user: ${errorMessage}`);
     }
 
-    // 5. Enviar email de boas-vindas (sempre tenta enviar)
+    // 5. Enviar email de boas-vindas
     try {
       await sendWelcomeEmail(customerName, customerEmail, username, password);
-      console.log('Welcome email sent successfully');
+      console.log('✅ Welcome email sent successfully');
     } catch (emailError) {
-      console.error('Error sending email:', emailError);
-      // Não lança erro para não impedir o retorno de sucesso
+      console.error('⚠️ Warning: Failed to send welcome email:', emailError);
+      // Email não é crítico - apenas loga o erro mas não falha o processo
     }
 
     return new Response(
