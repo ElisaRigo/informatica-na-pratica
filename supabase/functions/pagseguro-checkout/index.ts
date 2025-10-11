@@ -70,7 +70,7 @@ serve(async (req: Request) => {
       body: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <checkout>
   <currency>BRL</currency>
-  <redirectURL>https://${req.headers.get('host')}/aguardando-confirmacao</redirectURL>
+  <redirectURL>https://${req.headers.get('host')}/obrigada</redirectURL>
   <items>
     <item>
       <id>0001</id>
