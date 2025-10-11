@@ -24,7 +24,7 @@ export const Hero = () => {
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8">
-            Domine <span className="text-primary">Word, Excel e PowerPoint</span> em 30 dias Mesmo Começando do Zero 💻
+            Aprenda <span className="text-primary">Word, Excel e PowerPoint</span> do Zero ao Avançado com Método Comprovado 💻
           </h1>
           
           <div className="relative max-w-3xl mx-auto mb-8">
@@ -58,7 +58,7 @@ export const Hero = () => {
           </div>
 
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
-            Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
+            Curso prático de informática com mais de 90 aulas, suporte direto e certificado. Ideal para quem busca qualificação profissional com a professora Elisa 💻
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10 px-4">
@@ -75,7 +75,7 @@ export const Hero = () => {
               className="text-base md:text-lg font-bold px-6 md:px-8 py-5 md:py-6 rounded-2xl border-2 hover:bg-primary/10"
               asChild
             >
-              <a href="https://wa.me/5545988287082" target="_blank" rel="noopener noreferrer">
+              <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">
                 Tirar dúvida no WhatsApp
               </a>
             </Button>

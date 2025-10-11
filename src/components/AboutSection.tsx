@@ -11,7 +11,7 @@ export const AboutSection = () => {
           </h2>
           
           <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            O curso que já transformou a vida de mais de 15.000 pessoas que tinham medo do computador
+            Curso com mais de 15.000 alunos formados, ideal para quem busca aprender informática do zero
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
@@ -33,7 +33,7 @@ export const AboutSection = () => {
                 Aqui, você aprende <strong className="text-foreground">passo a passo</strong>, com exemplos simples e do dia a dia, até se sentir confiante e independente. Você vai perceber que aprender informática não é um <strong className="text-foreground">"bicho de 7 cabeças"</strong>.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Com mais de <strong className="text-foreground">20 anos de experiência</strong> ensinando, desenvolvi um método exclusivo que respeita seu ritmo e elimina de vez aquela sensação de "estar perdido" no computador.
+                Com mais de <strong className="text-foreground">20 anos de experiência</strong> ensinando, desenvolvi um método didático que respeita seu ritmo e ajuda a reduzir aquela sensação de insegurança com o computador.
               </p>
             </div>
           </div>
@@ -55,7 +55,7 @@ export const AboutSection = () => {
                 className="font-extrabold px-8 py-6 rounded-2xl text-base border-2"
                 asChild
               >
-                <a href="https://wa.me/5545988287082" target="_blank" rel="noopener noreferrer">
+                <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">
                   Tirar dúvidas no WhatsApp
                 </a>
               </Button>

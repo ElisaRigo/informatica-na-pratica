@@ -86,7 +86,7 @@ export const Bonus = () => {
             Ganhe <span className="text-success">R$ 368 em bônus</span> de presente!
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-6">
-            Ao garantir sua vaga hoje, você recebe <span className="font-bold text-foreground">GRATUITAMENTE</span> estes materiais extras para acelerar seus resultados:
+            Ao se inscrever no curso, você recebe <span className="font-bold text-foreground">sem custo adicional</span> estes materiais complementares:
           </p>
           
           <div className="inline-flex items-center gap-3 bg-destructive/10 border-2 border-destructive/30 px-6 py-3 rounded-2xl">

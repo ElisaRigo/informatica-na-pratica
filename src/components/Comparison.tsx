@@ -24,10 +24,10 @@ export const Comparison = () => {
     <section className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
-          Sua escolha define seu futuro
+          Compare os dois caminhos possíveis
         </h2>
         <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-          Compare onde você estará daqui 30 dias com ou sem o curso:
+          Veja a diferença que o conhecimento em informática pode fazer na sua vida profissional:
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">

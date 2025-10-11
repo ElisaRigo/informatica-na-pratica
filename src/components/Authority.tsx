@@ -91,7 +91,7 @@ export const Authority = () => {
 
           <div className="mt-12 bg-card border-2 border-primary/30 rounded-3xl p-8 text-center">
             <p className="text-lg md:text-xl italic text-muted-foreground mb-4">
-              "Minha missão é mostrar que você também consegue aprender informática. Você não está mais sozinho(a) eu vou te ajudar nessa jornada!"
+              "Minha missão é ajudar você a aprender informática com um método claro e acessível. Vou te acompanhar nessa jornada de aprendizado!"
             </p>
             <p className="font-bold text-primary text-xl">
               — Professora Elisa
