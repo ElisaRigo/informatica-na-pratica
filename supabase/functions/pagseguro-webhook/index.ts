@@ -236,7 +236,7 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
         .button {
           display: inline-block;
           background: linear-gradient(135deg, #0080BB 0%, #005A87 100%);
-          color: white;
+          color: #ffffff !important;
           padding: 16px 40px;
           text-decoration: none;
           border-radius: 10px;
@@ -324,7 +324,7 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
 
   try {
     const result = await resend.emails.send({
-      from: "Informática na Prática <onboarding@resend.dev>",
+      from: "Informática na Prática <contato@informaticanapratica.com.br>",
       to: [email],
       subject: "🎉 Bem-vindo ao Curso de Informática!",
       html: emailHtml,
