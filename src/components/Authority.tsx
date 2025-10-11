@@ -1,4 +1,5 @@
 import { Award, Users, Clock, Heart } from "lucide-react";
+import elisaTeaching from "@/assets/elisa-teaching.jpg";
 
 export const Authority = () => {
   return (
@@ -8,6 +9,14 @@ export const Authority = () => {
           <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
             Quem é a professora Elisa?
           </h2>
+
+          <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src={elisaTeaching} 
+              alt="Professora Elisa ensinando informática" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="grid grid-cols-2 gap-6">
