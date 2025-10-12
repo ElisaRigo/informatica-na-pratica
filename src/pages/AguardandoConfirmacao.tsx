@@ -61,9 +61,9 @@ const AguardandoConfirmacao = () => {
           
           // Aguarda 2 segundos para mostrar a confirmação antes de redirecionar
           setTimeout(() => {
-            // Passa o transaction_id para a página de obrigada
+            // Redireciona para o domínio principal
             const txId = data[0].pagseguro_transaction_id;
-            navigate(`/obrigada${txId ? `?transaction_id=${txId}` : ''}`);
+            window.location.href = `https://informaticanapratica.com.br/obrigada${txId ? `?transaction_id=${txId}` : ''}`;
           }, 2000);
           
           return true; // Para o polling
@@ -74,7 +74,7 @@ const AguardandoConfirmacao = () => {
           console.log('Timeout reached, redirecting to thank you page');
           setStatus('timeout');
           setTimeout(() => {
-            navigate(`/obrigada${transactionId ? `?transaction_id=${transactionId}` : ''}`);
+            window.location.href = `https://informaticanapratica.com.br/obrigada${transactionId ? `?transaction_id=${transactionId}` : ''}`;
           }, 3000);
           return true; // Para o polling
         }

@@ -81,8 +81,8 @@ export const CheckoutForm = () => {
       if (error) throw error;
 
       if (data.success && data.checkoutCode) {
-        // Redirecionar para página de aguardando com o código do checkout
-        window.location.href = `/aguardando?transaction_id=${data.checkoutCode}&payment_url=${encodeURIComponent(data.paymentUrl)}`;
+        // Redirecionar para página de aguardando confirmação com o código do checkout
+        window.location.href = `/aguardando-confirmacao?transaction_id=${data.checkoutCode}&payment_url=${encodeURIComponent(data.paymentUrl)}`;
       } else {
         throw new Error('Falha ao criar link de pagamento');
       }
