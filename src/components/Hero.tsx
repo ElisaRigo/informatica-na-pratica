@@ -27,7 +27,7 @@ export const Hero = () => {
                 <Skeleton className="absolute inset-0 w-full h-full" />
               )}
               <iframe
-                src="https://iframe.mediadelivery.net/embed/492757/5d42178e-cc4d-45ca-b10e-ac12e624afbb?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+                src="https://iframe.mediadelivery.net/embed/492757/5d42178e-cc4d-45ca-b10e-ac12e624afbb?autoplay=true&loop=false&muted=false&preload=false&responsive=true"
                 loading="lazy"
                 style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }}
                 allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
