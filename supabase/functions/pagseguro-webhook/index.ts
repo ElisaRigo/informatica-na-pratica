@@ -109,20 +109,36 @@ async function createMoodleUser(name: string, email: string) {
 
   try {
     const result = await callMoodleAPI('core_user_create_users', userData);
-    console.log('User created:', result);
+    console.log('✅ New user created:', result);
     return { userId: result[0].id, username, password };
   } catch (error) {
     console.error('Error creating user:', error);
     
-    // Se o usuário já existe, tentar buscar pelo email
+    // Se o usuário já existe, buscar pelo email e RESETAR A SENHA
     const existingUser = await callMoodleAPI('core_user_get_users_by_field', {
       field: 'email',
       'values[0]': email
     });
 
     if (existingUser && existingUser[0]) {
-      console.log('User already exists:', existingUser[0]);
-      return { userId: existingUser[0].id, username: existingUser[0].username, password: null };
+      console.log('⚠️ User already exists, resetting password...');
+      const userId = existingUser[0].id;
+      
+      // Atualizar a senha do usuário existente
+      const updateData = {
+        'users[0][id]': userId,
+        'users[0][password]': password,
+      };
+      
+      try {
+        await callMoodleAPI('core_user_update_users', updateData);
+        console.log('✅ Password reset successfully for existing user');
+        return { userId, username: existingUser[0].username, password };
+      } catch (updateError) {
+        console.error('Error updating password:', updateError);
+        // Retornar com senha null se não conseguir atualizar
+        return { userId, username: existingUser[0].username, password: null };
+      }
     }
 
     throw error;
