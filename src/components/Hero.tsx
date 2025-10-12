@@ -1,11 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
 import heroVideo from "@/assets/hero-video.mp4";
+import { useEffect, useRef, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+    }
+  }, []);
+
+  const handleVideoLoaded = () => {
+    setIsVideoLoaded(true);
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-12 md:py-20 lg:py-28">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.15),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
@@ -19,12 +34,17 @@ export const Hero = () => {
           </h1>
           
           <div className="relative max-w-3xl mx-auto mb-8">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-xl bg-card">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card">
+              {!isVideoLoaded && (
+                <Skeleton className="absolute inset-0 w-full h-full aspect-video" />
+              )}
               <video
+                ref={videoRef}
                 controls
                 preload="metadata"
-                className="w-full aspect-video object-cover"
+                className={`w-full aspect-video object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
                 playsInline
+                onLoadedData={handleVideoLoaded}
                 aria-label="Vídeo de apresentação do curso de Informática na Prática"
               >
                 <source src={heroVideo} type="video/mp4" />
@@ -51,7 +71,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10 px-4">
             <Button 
               size="lg" 
-              className="text-base md:text-lg font-extrabold px-6 md:px-8 py-5 md:py-6 rounded-2xl will-change-transform hover:scale-105 transition-transform"
+              className="text-base md:text-lg font-extrabold px-6 md:px-8 py-5 md:py-6 rounded-2xl hover:scale-105 transition-transform"
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">Garantir 40% OFF agora</a>
