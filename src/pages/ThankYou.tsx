@@ -4,17 +4,6 @@ import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo-new.png";
 
 const ThankYou = () => {
-  // Redirecionar automaticamente para o domínio principal
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const transactionId = urlParams.get('transaction_id');
-    const newUrl = transactionId 
-      ? `https://informaticanapratica.com.br/obrigada?transaction_id=${transactionId}`
-      : 'https://informaticanapratica.com.br/obrigada';
-    
-    window.location.replace(newUrl);
-  }, []);
-
   useEffect(() => {
     // Disparar evento de conversão do Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
