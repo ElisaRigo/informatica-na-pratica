@@ -41,7 +41,7 @@ export const Hero = () => {
               <video
                 ref={videoRef}
                 controls
-                preload="auto"
+                preload="metadata"
                 className={`w-full aspect-video object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
                 playsInline
                 onLoadedData={handleVideoLoaded}
