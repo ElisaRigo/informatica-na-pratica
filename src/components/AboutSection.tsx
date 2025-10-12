@@ -19,8 +19,12 @@ export const AboutSection = () => {
               <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                 <img 
                   src={elisaPhoto} 
-                  alt="Professora Elisangela Neri Rigo" 
+                  alt="Professora Elisangela Neri Rigo ensinando informática"
                   className="w-full h-full object-cover object-center"
+                  width="600"
+                  height="800"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </div>

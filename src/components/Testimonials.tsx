@@ -60,7 +60,14 @@ export const Testimonials = () => {
               </p>
               <div className="flex items-center gap-3">
                 <Avatar className="w-12 h-12">
-                  <AvatarImage src={testimonial.image} alt={testimonial.author} />
+                  <AvatarImage 
+                    src={testimonial.image} 
+                    alt={`Foto de ${testimonial.author}`}
+                    loading="lazy"
+                    decoding="async"
+                    width="48"
+                    height="48"
+                  />
                   <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="text-sm text-muted-foreground font-semibold">
