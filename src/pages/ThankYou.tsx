@@ -15,13 +15,6 @@ const ThankYou = () => {
       });
     }
 
-    // Também disparar evento do Meta Pixel se existir
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Purchase', {
-        value: 297.0,
-        currency: 'BRL'
-      });
-    }
   }, []);
 
 
