@@ -1,16 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
 import heroVideo from "@/assets/hero-video.mp4";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
     }
   }, []);
+
+  const handleVideoLoaded = () => {
+    setIsVideoLoaded(true);
+  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-12 md:py-20 lg:py-28">
@@ -29,12 +35,16 @@ export const Hero = () => {
           
           <div className="relative max-w-3xl mx-auto mb-8">
             <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card">
+              {!isVideoLoaded && (
+                <Skeleton className="absolute inset-0 w-full h-full aspect-video" />
+              )}
               <video
                 ref={videoRef}
                 controls
-                preload="metadata"
-                className="w-full aspect-video object-cover"
+                preload="auto"
+                className={`w-full aspect-video object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
                 playsInline
+                onLoadedData={handleVideoLoaded}
                 aria-label="Vídeo de apresentação do curso de Informática na Prática"
               >
                 <source src={heroVideo} type="video/mp4" />
