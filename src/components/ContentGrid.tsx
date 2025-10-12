@@ -53,12 +53,9 @@ export const ContentGrid = () => {
             >
               <img
                 src={module.icon}
-                alt={`Ícone do módulo ${module.title}`}
+                alt={module.title}
                 className="w-16 h-16 mx-auto mb-4"
-                width="64"
-                height="64"
                 loading="lazy"
-                decoding="async"
               />
               <h3 className="text-xl font-bold mb-3">{module.title}</h3>
               <p className="text-muted-foreground">{module.description}</p>

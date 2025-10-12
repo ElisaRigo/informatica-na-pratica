@@ -13,12 +13,8 @@ export const Authority = () => {
           <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
             <img 
               src={elisaTeaching} 
-              alt="Professora Elisa ensinando informática em sua sala de aula"
+              alt="Professora Elisa ensinando informática" 
               className="w-full h-auto object-cover"
-              width="1200"
-              height="675"
-              loading="lazy"
-              decoding="async"
             />
           </div>
 
