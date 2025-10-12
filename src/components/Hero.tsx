@@ -32,16 +32,10 @@ export const Hero = () => {
               <video
                 ref={videoRef}
                 controls
-                preload="auto"
+                preload="metadata"
                 className="w-full aspect-video object-cover"
                 playsInline
                 aria-label="Vídeo de apresentação do curso de Informática na Prática"
-                onError={(e) => {
-                  console.error('Erro ao carregar vídeo:', e);
-                }}
-                onStalled={(e) => {
-                  console.warn('Vídeo pausado por carregamento');
-                }}
               >
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeo HTML5.
