@@ -48,8 +48,8 @@ const faqs = [
     answer: "O curso cobre desde o absoluto zero até recursos intermediários/avançados. Você aprende desde ligar o computador até criar planilhas com fórmulas, documentos profissionais e apresentações impactantes.",
   },
   {
-    question: "Qual a diferença deste curso para vídeos grátis no YouTube?",
-    answer: "Vídeos no YouTube são úteis para consultas pontuais, mas não seguem uma sequência didática. Aqui você tem um método estruturado passo a passo, suporte direto comigo, exercícios práticos e certificado. É a diferença entre estudar sozinho e ter orientação profissional.",
+    question: "Qual a diferença deste curso para vídeos grátis na internet?",
+    answer: "Vídeos gratuitos na internet são úteis para consultas pontuais, mas não seguem uma sequência didática. Aqui você tem um método estruturado passo a passo, suporte direto comigo, exercícios práticos e certificado. É a diferença entre estudar sozinho e ter orientação profissional.",
   },
   {
     question: "Posso tirar dúvidas durante o curso?",
