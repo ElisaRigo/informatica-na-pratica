@@ -171,23 +171,6 @@ const AguardandoConfirmacao = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
                 Aguardando confirmação do pagamento...
               </h1>
-              
-              {/* AVISO DESTACADO - NÃO SAIR DA PÁGINA */}
-              <div className="bg-accent/20 border-2 border-accent rounded-xl p-6 max-w-xl mx-auto animate-pulse">
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <span className="text-4xl">⚠️</span>
-                  <h2 className="text-xl md:text-2xl font-bold text-accent">
-                    IMPORTANTE: NÃO SAIA DESTA PÁGINA!
-                  </h2>
-                </div>
-                <p className="text-base md:text-lg font-semibold text-foreground mb-2">
-                  🕐 Aguarde até 1 minuto - Você receberá as instruções de acesso automaticamente!
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Após a confirmação do pagamento, você será redirecionado e receberá um e-mail com suas credenciais.
-                </p>
-              </div>
-
               <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
                 Estamos processando seu pagamento. Isso geralmente leva alguns segundos.
               </p>
