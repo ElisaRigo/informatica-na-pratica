@@ -6,6 +6,7 @@ import { StudentsList } from './StudentsList';
 import { AddStudent } from './AddStudent';
 import { PaymentsList } from './PaymentsList';
 import { AdminSettings } from './AdminSettings';
+import { ReprocessPayment } from './ReprocessPayment';
 import { LogOut } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -59,7 +60,10 @@ export const AdminDashboard = () => {
           </TabsContent>
 
           <TabsContent value="payments">
-            <PaymentsList />
+            <div className="space-y-6">
+              <ReprocessPayment />
+              <PaymentsList />
+            </div>
           </TabsContent>
 
           <TabsContent value="settings">
