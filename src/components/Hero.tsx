@@ -1,10 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
-import { useState } from "react";
+import heroVideo from "@/assets/hero-video.mp4";
+import { useEffect, useRef, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+    }
+  }, []);
+
+  const handleVideoLoaded = () => {
+    setIsVideoLoaded(true);
+  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-12 md:py-20 lg:py-28">
@@ -22,30 +34,36 @@ export const Hero = () => {
           </h1>
           
           <div className="relative max-w-3xl mx-auto mb-8">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card" style={{ paddingTop: '56.25%' }}>
+            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card">
               {!isVideoLoaded && (
-                <Skeleton className="absolute inset-0 w-full h-full" />
+                <Skeleton className="absolute inset-0 w-full h-full aspect-video" />
               )}
-              <iframe
-                src="https://iframe.mediadelivery.net/embed/492757/5d42178e-cc4d-45ca-b10e-ac12e624afbb?autoplay=true&loop=false&muted=false&preload=false&responsive=true"
-                loading="lazy"
-                style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }}
-                allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-                allowFullScreen
-                onLoad={() => setIsVideoLoaded(true)}
-                title="Vídeo de apresentação do curso de Informática na Prática"
-                className={`transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
-              />
-            </div>
-            <div className="text-center mt-4">
-              <Button 
-                size="sm"
-                variant="secondary"
-                className="text-xs font-semibold px-4 py-2 rounded-full shadow-lg"
-                asChild
+              <video
+                ref={videoRef}
+                controls
+                preload="auto"
+                className={`w-full aspect-video object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                playsInline
+                onLoadedData={handleVideoLoaded}
+                aria-label="Vídeo de apresentação do curso de Informática na Prática"
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
+                width="1280"
+                height="720"
               >
-                <a href="#about">Ver detalhes do curso</a>
-              </Button>
+                <source src={heroVideo} type="video/mp4" />
+                Seu navegador não suporta vídeo HTML5.
+              </video>
+              
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none">
+                <Button 
+                  size="sm"
+                  variant="secondary"
+                  className="text-xs font-semibold px-4 py-2 rounded-full opacity-90 hover:opacity-100 transition-opacity pointer-events-auto shadow-lg"
+                  asChild
+                >
+                  <a href="#about">Ver detalhes do curso</a>
+                </Button>
+              </div>
             </div>
           </div>
 
