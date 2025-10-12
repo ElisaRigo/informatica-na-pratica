@@ -151,14 +151,6 @@ export type Database = {
         }
         Returns: undefined
       }
-      decrypt_moodle_password: {
-        Args: { encrypted_password: string }
-        Returns: string
-      }
-      encrypt_moodle_password: {
-        Args: { password: string }
-        Returns: string
-      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
