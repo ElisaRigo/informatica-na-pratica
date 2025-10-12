@@ -3,25 +3,25 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://informatica-na-pratica.lovable.app/</loc>
+    <loc>https://informaticanapratica.com.br/</loc>
     <lastmod>2025-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://informatica-na-pratica.lovable.app/termos-de-uso</loc>
+    <loc>https://informaticanapratica.com.br/termos-de-uso</loc>
     <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://informatica-na-pratica.lovable.app/politica-de-privacidade</loc>
+    <loc>https://informaticanapratica.com.br/politica-de-privacidade</loc>
     <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://informatica-na-pratica.lovable.app/obrigado</loc>
+    <loc>https://informaticanapratica.com.br/obrigado</loc>
     <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
