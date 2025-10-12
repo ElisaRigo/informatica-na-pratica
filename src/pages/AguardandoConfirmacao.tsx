@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Loader2, CheckCircle2, Clock } from "lucide-react";
+import { Loader2, CheckCircle2, Clock, ExternalLink } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo-new.png";
 
 const AguardandoConfirmacao = () => {
@@ -10,6 +11,8 @@ const AguardandoConfirmacao = () => {
   const [status, setStatus] = useState<'checking' | 'confirmed' | 'timeout'>('checking');
   const [elapsedTime, setElapsedTime] = useState(0);
   const transactionId = searchParams.get('transaction_id') || searchParams.get('id');
+  const paymentUrl = searchParams.get('payment_url');
+  const [paymentWindowOpened, setPaymentWindowOpened] = useState(false);
 
   useEffect(() => {
     // Timer para mostrar tempo decorrido
@@ -103,6 +106,13 @@ const AguardandoConfirmacao = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
+  const handleOpenPayment = () => {
+    if (paymentUrl) {
+      window.open(decodeURIComponent(paymentUrl), '_blank');
+      setPaymentWindowOpened(true);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="max-w-2xl w-full text-center space-y-8 animate-fade-in">
@@ -135,7 +145,28 @@ const AguardandoConfirmacao = () => {
 
         {/* Main Message */}
         <div className="space-y-4">
-          {status === 'checking' && (
+          {status === 'checking' && !paymentWindowOpened && paymentUrl && (
+            <>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
+                Link de Pagamento Criado! ✅
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
+                Clique no botão abaixo para abrir o PagSeguro e finalizar seu pagamento.
+              </p>
+              <Button 
+                onClick={handleOpenPayment}
+                size="lg"
+                className="text-xl px-12 py-8 font-bold"
+              >
+                <ExternalLink className="mr-3 h-6 w-6" />
+                Ir para o Pagamento Seguro
+              </Button>
+              <p className="text-sm text-muted-foreground mt-4">
+                🔒 Pagamento 100% seguro via PagSeguro
+              </p>
+            </>
+          )}
+          {status === 'checking' && (paymentWindowOpened || !paymentUrl) && (
             <>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
                 Aguardando confirmação do pagamento...
@@ -147,6 +178,17 @@ const AguardandoConfirmacao = () => {
                 <Clock className="w-5 h-5" />
                 <span className="font-mono text-lg">{formatTime(elapsedTime)}</span>
               </div>
+              {paymentUrl && (
+                <Button 
+                  onClick={handleOpenPayment}
+                  variant="outline"
+                  size="sm"
+                  className="mt-4"
+                >
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  Reabrir Pagamento
+                </Button>
+              )}
             </>
           )}
           {status === 'confirmed' && (
