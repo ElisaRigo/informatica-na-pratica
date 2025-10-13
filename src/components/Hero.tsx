@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
 import heroVideo from "@/assets/hero-video.mp4";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, []);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-12 md:py-20 lg:py-28">
@@ -26,7 +32,7 @@ export const Hero = () => {
               <video
                 ref={videoRef}
                 controls
-                preload="metadata"
+                preload="auto"
                 className="w-full aspect-video bg-transparent"
                 playsInline
                 aria-label="Vídeo de apresentação do curso de Informática na Prática"
