@@ -224,11 +224,12 @@
     </style>
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="/src/assets/video-poster-hero.jpg" as="image" />
+    <link rel="preload" href="/src/assets/video-poster-hero.jpg" as="image" fetchpriority="high" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
     
     <!-- Meta Pixel Code - Deferred -->
     <script defer>

@@ -15,6 +15,9 @@ export const Authority = () => {
               src={elisaTeaching} 
               alt="Professora Elisa ensinando informática" 
               className="w-full h-auto object-cover"
+              loading="lazy"
+              width="1200"
+              height="675"
             />
           </div>
 
