@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
 import heroVideo from "@/assets/hero-video.mp4";
+import videoPoster from "@/assets/video-poster.jpg";
 import { useRef } from "react";
 
 export const Hero = () => {
@@ -26,7 +27,8 @@ export const Hero = () => {
               <video
                 ref={videoRef}
                 controls
-                preload="auto"
+                preload="metadata"
+                poster={videoPoster}
                 className="w-full aspect-video object-cover"
                 playsInline
                 aria-label="Vídeo de apresentação do curso de Informática na Prática"
