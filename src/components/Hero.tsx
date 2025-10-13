@@ -8,9 +8,20 @@ export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    // Lazy load do vídeo apenas quando necessário
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && videoRef.current) {
+          videoRef.current.load();
+        }
+      });
+    });
+
     if (videoRef.current) {
-      videoRef.current.load();
+      observer.observe(videoRef.current);
     }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -33,7 +44,7 @@ export const Hero = () => {
               <video
                 ref={videoRef}
                 controls
-                preload="auto"
+                preload="metadata"
                 poster={videoPoster}
                 className="w-full aspect-video bg-transparent"
                 playsInline
