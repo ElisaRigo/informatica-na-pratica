@@ -60,12 +60,11 @@ export const Hero = () => {
                 <video
                   ref={videoRef}
                   controls
-                  preload="none"
+                  preload="metadata"
                   className={`w-full aspect-video object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
                   playsInline
                   onLoadedData={handleVideoLoaded}
                   aria-label="Vídeo de apresentação do curso de Informática na Prática"
-                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720'%3E%3Crect fill='%23f1f5f9' width='1280' height='720'/%3E%3C/svg%3E"
                 >
                   <source src={heroVideo} type="video/mp4" />
                   Seu navegador não suporta vídeo HTML5.

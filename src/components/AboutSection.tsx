@@ -21,8 +21,6 @@ export const AboutSection = () => {
                   src={elisaPhoto} 
                   alt="Professora Elisangela Neri Rigo" 
                   className="w-full h-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
                 />
               </div>
             </div>
