@@ -33,7 +33,7 @@ export const Hero = () => {
               <video
                 ref={videoRef}
                 controls
-                preload="metadata"
+                preload="none"
                 poster={videoPoster}
                 className="w-full aspect-video bg-transparent"
                 playsInline
