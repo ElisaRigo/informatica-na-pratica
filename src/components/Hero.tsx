@@ -22,12 +22,12 @@ export const Hero = () => {
           </h1>
           
           <div className="relative max-w-3xl mx-auto mb-8">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-transparent">
               <video
                 ref={videoRef}
                 controls
-                preload="auto"
-                className="w-full aspect-video object-cover"
+                preload="metadata"
+                className="w-full aspect-video bg-transparent"
                 playsInline
                 aria-label="Vídeo de apresentação do curso de Informática na Prática"
               >
