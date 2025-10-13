@@ -6,31 +6,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !shouldLoadVideo) {
-            setShouldLoadVideo(true);
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        rootMargin: "100px",
-      }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
     }
-
-    return () => observer.disconnect();
-  }, [shouldLoadVideo]);
+  }, []);
 
   const handleVideoLoaded = () => {
     setIsVideoLoaded(true);
@@ -51,25 +33,23 @@ export const Hero = () => {
             Aprenda <span className="text-primary">Word, Excel, PowerPoint e mais...</span> Mesmo Começando do Zero 💻
           </h1>
           
-          <div ref={containerRef} className="relative max-w-3xl mx-auto mb-8">
+          <div className="relative max-w-3xl mx-auto mb-8">
             <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-card">
               {!isVideoLoaded && (
                 <Skeleton className="absolute inset-0 w-full h-full aspect-video" />
               )}
-              {shouldLoadVideo && (
-                <video
-                  ref={videoRef}
-                  controls
-                  preload="metadata"
-                  className={`w-full aspect-video object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  playsInline
-                  onLoadedData={handleVideoLoaded}
-                  aria-label="Vídeo de apresentação do curso de Informática na Prática"
-                >
-                  <source src={heroVideo} type="video/mp4" />
-                  Seu navegador não suporta vídeo HTML5.
-                </video>
-              )}
+              <video
+                ref={videoRef}
+                controls
+                preload="metadata"
+                className={`w-full aspect-video object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                playsInline
+                onLoadedData={handleVideoLoaded}
+                aria-label="Vídeo de apresentação do curso de Informática na Prática"
+              >
+                <source src={heroVideo} type="video/mp4" />
+                Seu navegador não suporta vídeo HTML5.
+              </video>
               
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none">
                 <Button 
