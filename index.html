@@ -218,8 +218,11 @@
     
     <!-- Critical CSS Inline -->
     <style>
-      :root{--background:215 65% 8%;--foreground:213 100% 95%;--card:216 46% 10%;--card-foreground:213 100% 95%;--panel:217 60% 9%;--line:214 41% 16%;--primary:199 100% 37%;--primary-foreground:0 0% 100%;--accent:199 100% 50%;--accent-foreground:0 0% 100%;--radius:1rem;--gradient-hero:linear-gradient(135deg,hsl(199 100% 37%/.2),hsl(199 100% 50%/.05));--gradient-premium:linear-gradient(135deg,hsl(199 100% 37%),hsl(199 100% 50%))}*{box-sizing:border-box;margin:0;padding:0}body{background-color:hsl(var(--background));color:hsl(var(--foreground));font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html{scroll-behavior:smooth}#root{min-height:100vh}
+      :root{--background:215 65% 8%;--foreground:213 100% 95%;--card:216 46% 10%;--card-foreground:213 100% 95%;--panel:217 60% 9%;--line:214 41% 16%;--primary:199 100% 37%;--primary-foreground:0 0% 100%;--accent:199 100% 50%;--accent-foreground:0 0% 100%;--radius:1rem;--gradient-hero:linear-gradient(135deg,hsl(199 100% 37%/.2),hsl(199 100% 50%/.05));--gradient-premium:linear-gradient(135deg,hsl(199 100% 37%),hsl(199 100% 50%))}*{box-sizing:border-box;margin:0;padding:0}body{background-color:hsl(var(--background));color:hsl(var(--foreground));font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html{scroll-behavior:smooth}#root{min-height:100vh}.text-primary{color:hsl(var(--primary))}.bg-primary{background:hsl(var(--primary))}.font-extrabold{font-weight:800}.font-black{font-weight:900}.rounded-2xl{border-radius:1rem}.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
     </style>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="video" href="/src/assets/hero-video.mp4" type="video/mp4">
     
     <!-- Preconnect for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
