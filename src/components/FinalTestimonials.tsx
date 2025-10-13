@@ -46,7 +46,7 @@ export const FinalTestimonials = () => {
               </p>
               <div className="flex items-center gap-3">
                 <Avatar className="w-10 h-10">
-                  <AvatarImage src={testimonial.image} alt={testimonial.author} />
+                  <AvatarImage src={testimonial.image} alt={testimonial.author} loading="lazy" />
                   <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="text-sm text-muted-foreground font-semibold">
