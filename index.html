@@ -226,13 +226,23 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="/src/assets/video-poster-hero.jpg" as="image" fetchpriority="high" />
     
+    <!-- Preload font - Self hosted for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=787096354071974&ev=PageView&noscript=1"/>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Meta Pixel Code - Deferred -->
-    <script defer>
+    <!-- Analytics scripts moved to end for better performance -->
+    <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -244,24 +254,13 @@
       fbq('init', '787096354071974');
       fbq('track', 'PageView');
     </script>
-    <!-- End Meta Pixel Code -->
     
-    <!-- Google tag (gtag.js) - Deferred -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-08B5E33G3F"></script>
-    <script defer>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-08B5E33G3F"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-08B5E33G3F');
     </script>
-  </head>
-
-  <body>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-           src="https://www.facebook.com/tr?id=787096354071974&ev=PageView&noscript=1"/>
-    </noscript>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

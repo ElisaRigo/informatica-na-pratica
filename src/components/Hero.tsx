@@ -2,16 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
 import heroVideo from "@/assets/hero-video-optimized.mp4";
 import videoPoster from "@/assets/video-poster-hero.jpg";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-    }
-  }, []);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-12 md:py-20 lg:py-28">
