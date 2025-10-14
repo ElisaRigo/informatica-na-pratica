@@ -53,6 +53,21 @@ export const Hero = () => {
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
             Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
           </p>
+
+          <div className="mb-6 md:mb-8 max-w-2xl mx-auto">
+            <div className="bg-gradient-to-br from-success/20 to-primary/20 border-2 border-success/50 rounded-2xl p-6 shadow-xl">
+              <p className="text-sm md:text-base font-semibold text-muted-foreground mb-2 text-center">
+                🔥 Promoção por tempo limitado
+              </p>
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <span className="text-xl md:text-2xl line-through text-muted-foreground font-bold">R$ 497</span>
+                <span className="text-4xl md:text-5xl lg:text-6xl font-black text-accent">R$ 297</span>
+              </div>
+              <p className="text-sm md:text-base font-semibold text-success text-center">
+                ou em até 12x no cartão • Economize R$ 200!
+              </p>
+            </div>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10 px-4">
             <Button 
