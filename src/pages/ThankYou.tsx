@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo-new.png";
@@ -13,13 +14,32 @@ const ThankYou = () => {
         'value': 297.0,
         'currency': 'BRL'
       });
+      
+      // Disparar pageview para garantir que o GA4 rastreie a página
+      (window as any).gtag('config', 'G-08B5E33G3F', {
+        page_path: '/obrigado',
+        page_title: 'Obrigado - Compra Confirmada'
+      });
     }
 
   }, []);
 
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <>
+      <Helmet>
+        <title>Obrigado pela sua compra! - Informática na Prática</title>
+        <meta name="description" content="Parabéns! Sua compra foi confirmada. Você receberá um e-mail com as credenciais de acesso ao curso em até 5 minutos." />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://informaticanapratica.com.br/obrigado" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Obrigado pela sua compra! - Informática na Prática" />
+        <meta property="og:description" content="Parabéns! Sua compra foi confirmada." />
+        <meta property="og:url" content="https://informaticanapratica.com.br/obrigado" />
+      </Helmet>
+      
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="max-w-2xl w-full text-center space-y-8 animate-fade-in">
         {/* Logo */}
         <div className="flex justify-center">
@@ -130,6 +150,7 @@ const ThankYou = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
