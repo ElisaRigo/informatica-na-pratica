@@ -1,7 +1,12 @@
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+
 export const TermosDeUso = () => {
   return (
-    <div className="min-h-screen py-20 px-4">
-      <div className="container mx-auto max-w-4xl">
+    <>
+      <Header />
+      <div className="min-h-screen py-20 px-4">
+        <div className="container mx-auto max-w-4xl">
         <h1 className="text-4xl font-black mb-8">Termos de Uso</h1>
         
         <div className="space-y-6 text-muted-foreground">
@@ -151,5 +156,7 @@ export const TermosDeUso = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };

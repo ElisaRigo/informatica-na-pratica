@@ -7,19 +7,34 @@ Crawl-delay: 0
 # Sitemap location
 Sitemap: https://informaticanapratica.com.br/sitemap.xml
 
+# Block old WordPress URLs
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-login/
+Disallow: /wp-includes/
+Disallow: /wp-content/
+Disallow: /xmlrpc.php
+Disallow: /wp-json/
+Disallow: /*?s=
+Disallow: /*&s=
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /api/
+
 # Specific bots
 User-agent: Googlebot
 Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
 
 User-agent: Bingbot
 Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
 
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
-
-# Disallow admin areas (if any exist in future)
-Disallow: /admin/
-Disallow: /api/
