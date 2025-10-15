@@ -8,7 +8,7 @@ export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-12 md:py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-8 md:py-12 lg:py-16">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -31,21 +31,21 @@ export const Hero = () => {
             </div>
           </div>
           
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 md:mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-3 md:mb-4">
             <span className="text-destructive">Chega de perder oportunidades!</span><br />
             Aprenda <span className="text-primary">Word, Excel, PowerPoint e mais...</span><br />
             Mesmo Começando do Zero 💻
           </h1>
           
           {/* Destaque: Promessa de Resultado */}
-          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-2xl px-6 md:px-8 py-4 md:py-5 mb-8 md:mb-10 max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl lg:text-3xl font-black text-primary">
+          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-2xl px-4 md:px-6 py-3 md:py-4 mb-5 md:mb-6 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-2xl font-black text-primary">
               ✨ Conquiste o Emprego que Você Merece
             </p>
           </div>
           
           {/* CTA Principal Acima da Dobra */}
-          <div className="mb-8 md:mb-10">
+          <div className="mb-5 md:mb-6">
             <Button 
               size="lg" 
               className="text-sm md:text-xl font-extrabold px-6 md:px-12 py-5 md:py-7 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg w-full sm:w-auto"
@@ -60,7 +60,7 @@ export const Hero = () => {
             </p>
           </div>
           
-          <div className="relative max-w-3xl mx-auto mb-8">
+          <div className="relative max-w-3xl mx-auto mb-5 md:mb-6">
             <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-transparent">
               <video
                 ref={videoRef}
@@ -88,40 +88,40 @@ export const Hero = () => {
             </div>
           </div>
 
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
+          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
             Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
           </p>
 
           {/* Bloco de Preço Elegante */}
-          <div className="mb-8 md:mb-10 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-card via-panel to-card border-2 border-success/30 rounded-3xl p-6 md:p-8 shadow-2xl relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-destructive text-destructive-foreground px-6 py-1.5 text-sm font-black rounded-full shadow-lg">
+          <div className="mb-6 md:mb-8 max-w-3xl mx-auto">
+            <div className="bg-gradient-to-br from-card via-panel to-card border-2 border-success/30 rounded-2xl p-4 md:p-6 shadow-2xl relative">
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-destructive text-destructive-foreground px-4 py-1 text-xs font-black rounded-full shadow-lg">
                 Economize R$ 200
               </div>
-              <p className="text-base md:text-lg font-bold mb-4 text-center pt-2">
+              <p className="text-sm md:text-base font-bold mb-3 text-center pt-1">
                 🔥 Oferta especial por tempo limitado
               </p>
-              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-4">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 mb-3">
                 <div className="text-center">
                   <p className="text-xs text-muted-foreground mb-1">De:</p>
-                  <span className="text-2xl md:text-3xl line-through text-muted-foreground/50 font-bold">R$ 497</span>
+                  <span className="text-xl md:text-2xl line-through text-muted-foreground/50 font-bold">R$ 497</span>
                 </div>
                 <div className="text-center">
                   <p className="text-xs text-success font-bold mb-1">Por apenas:</p>
-                  <span className="text-5xl md:text-6xl font-black text-success">R$ 297</span>
+                  <span className="text-4xl md:text-5xl font-black text-success">R$ 297</span>
                 </div>
               </div>
-              <p className="text-sm md:text-base font-bold text-center mb-6">
+              <p className="text-sm md:text-base font-bold text-center mb-4">
                 💳 ou 12x de R$ 24,75 no cartão
               </p>
               
               {/* Selo de Garantia Elegante */}
-              <div className="bg-background/40 backdrop-blur-sm border border-success/30 rounded-2xl p-4 md:p-5">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Lock className="w-5 h-5 text-success" />
-                  <h3 className="text-sm md:text-base font-black text-success">RISCO ZERO</h3>
+              <div className="bg-background/40 backdrop-blur-sm border border-success/30 rounded-xl p-3 md:p-4">
+                <div className="flex items-center justify-center gap-2 mb-1.5">
+                  <Lock className="w-4 h-4 text-success" />
+                  <h3 className="text-xs md:text-sm font-black text-success">RISCO ZERO</h3>
                 </div>
-                <p className="text-xs md:text-sm font-semibold text-center leading-relaxed">
+                <p className="text-xs font-semibold text-center leading-relaxed">
                   Garantia incondicional de 7 dias<br />
                   <span className="text-muted-foreground">Não gostou? Devolvemos 100% do seu dinheiro</span>
                 </p>
@@ -130,7 +130,7 @@ export const Hero = () => {
           </div>
           
           {/* CTA Secundário */}
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10 px-4">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-6 md:mb-8 px-4">
             <Button 
               size="lg" 
               className="text-base md:text-lg font-extrabold px-6 md:px-8 py-5 md:py-6 rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90"
