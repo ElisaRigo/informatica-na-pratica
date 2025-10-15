@@ -23,7 +23,7 @@ const ThankYou = () => {
       
       // Disparar evento de conversão do Google Ads
       (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-17641842157/YOUR_CONVERSION_LABEL',
+        'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
         'value': 297.0,
         'currency': 'BRL',
         'transaction_id': ''
