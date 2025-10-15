@@ -8,54 +8,54 @@ export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-8 md:py-12 lg:py-16">
+    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-12 lg:py-16">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Social Proof Banner */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-4 bg-card/60 backdrop-blur-sm border border-success/20 px-4 md:px-6 py-2 md:py-3 rounded-full mb-6">
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-success" />
-              <span className="font-bold text-xs md:text-sm">+20 anos de experiência</span>
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-4 bg-card/60 backdrop-blur-sm border border-success/20 px-3 md:px-6 py-1.5 md:py-3 rounded-full mb-3 md:mb-6">
+            <div className="flex items-center gap-1">
+              <CheckCircle2 className="w-3.5 h-3.5 text-success" />
+              <span className="font-bold text-[10px] md:text-sm">+20 anos</span>
             </div>
             <span className="hidden md:inline text-muted-foreground">•</span>
-            <div className="flex items-center gap-1.5">
-              <Award className="w-4 h-4 text-accent" />
-              <span className="font-bold text-xs md:text-sm">+15.000 alunos ensinados</span>
+            <div className="flex items-center gap-1">
+              <Award className="w-3.5 h-3.5 text-accent" />
+              <span className="font-bold text-[10px] md:text-sm">+15.000 alunos</span>
             </div>
             <span className="hidden md:inline text-muted-foreground">•</span>
-            <div className="flex items-center gap-1.5">
-              <Shield className="w-4 h-4 text-success" />
-              <span className="font-bold text-xs md:text-sm">Garantia 7 Dias</span>
+            <div className="flex items-center gap-1">
+              <Shield className="w-3.5 h-3.5 text-success" />
+              <span className="font-bold text-[10px] md:text-sm">Garantia 7 Dias</span>
             </div>
           </div>
           
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-3 md:mb-4">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-2 md:mb-4">
             <span className="text-destructive">Chega de perder oportunidades!</span><br />
             Aprenda <span className="text-primary">Word, Excel, PowerPoint e mais...</span><br />
             Mesmo Começando do Zero 💻
           </h1>
           
           {/* Destaque: Promessa de Resultado */}
-          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-2xl px-4 md:px-6 py-3 md:py-4 mb-5 md:mb-6 max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl lg:text-2xl font-black text-primary">
+          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-3 md:px-6 py-2 md:py-4 mb-3 md:mb-6 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl lg:text-2xl font-black text-primary">
               ✨ Conquiste o Emprego que Você Merece
             </p>
           </div>
           
           {/* CTA Principal Acima da Dobra */}
-          <div className="mb-5 md:mb-6">
+          <div className="mb-4 md:mb-6">
             <Button 
               size="lg" 
-              className="text-sm md:text-xl font-extrabold px-6 md:px-12 py-5 md:py-7 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg w-full sm:w-auto"
+              className="text-sm md:text-xl font-extrabold px-6 md:px-12 py-4 md:py-7 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg w-full sm:w-auto"
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
                 🚀 Quero começar agora com 40% OFF
               </a>
             </Button>
-            <p className="text-xs md:text-sm text-muted-foreground mt-3 font-semibold">
+            <p className="text-[10px] md:text-sm text-muted-foreground mt-2 font-semibold">
               ⏰ Vagas limitadas • Aproveite enquanto disponível
             </p>
           </div>
