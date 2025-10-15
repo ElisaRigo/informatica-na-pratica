@@ -6,8 +6,8 @@ import logoImage from "@/assets/logo-new.png";
 
 const ThankYou = () => {
   useEffect(() => {
-    // Disparar evento de conversão do Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
+      // Disparar evento de conversão do Google Analytics
       (window as any).gtag('event', 'conversion', {
         'send_to': 'G-08B5E33G3F',
         'transaction_id': '',
@@ -20,8 +20,15 @@ const ThankYou = () => {
         page_path: '/obrigado',
         page_title: 'Obrigado - Compra Confirmada'
       });
+      
+      // Disparar evento de conversão do Google Ads
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-17641842157/YOUR_CONVERSION_LABEL',
+        'value': 297.0,
+        'currency': 'BRL',
+        'transaction_id': ''
+      });
     }
-
   }, []);
 
 
