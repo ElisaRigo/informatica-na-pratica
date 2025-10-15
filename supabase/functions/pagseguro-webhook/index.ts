@@ -300,7 +300,7 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
     <body>
       <div class="email-wrapper">
         <div class="header">
-          <img src="https://i.imgur.com/8xQy5Qh.png" alt="Informática na Prática" class="logo">
+          <img src="https://informatica-descomplicada.lovable.app/logo-email.png" alt="Informática na Prática" class="logo">
           <h1><span class="emoji">🎉</span> Bem-vindo ao Curso!</h1>
         </div>
         
