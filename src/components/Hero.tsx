@@ -14,20 +14,20 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Social Proof Banner */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-4 bg-card/80 backdrop-blur-sm border border-success/30 px-4 md:px-6 py-2 md:py-3 rounded-full mb-6">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-4 bg-card/60 backdrop-blur-sm border border-success/20 px-4 md:px-6 py-2 md:py-3 rounded-full mb-6">
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-success" />
-              <span className="font-extrabold text-xs md:text-sm">+15.000 alunos</span>
+              <span className="font-bold text-xs md:text-sm">+15.000 alunos</span>
             </div>
             <span className="hidden md:inline text-muted-foreground">•</span>
             <div className="flex items-center gap-1.5">
               <Award className="w-4 h-4 text-accent" />
-              <span className="font-extrabold text-xs md:text-sm">Certificado Reconhecido</span>
+              <span className="font-bold text-xs md:text-sm">Certificado Reconhecido</span>
             </div>
             <span className="hidden md:inline text-muted-foreground">•</span>
             <div className="flex items-center gap-1.5">
               <Shield className="w-4 h-4 text-success" />
-              <span className="font-extrabold text-xs md:text-sm">Garantia 7 Dias sem burocracia</span>
+              <span className="font-bold text-xs md:text-sm">Garantia 7 Dias</span>
             </div>
           </div>
           
@@ -41,15 +41,15 @@ export const Hero = () => {
           <div className="mb-8 md:mb-10">
             <Button 
               size="lg" 
-              className="text-lg md:text-xl font-extrabold px-8 md:px-12 py-6 md:py-8 rounded-2xl hover:scale-105 transition-transform bg-warning hover:bg-warning/90 text-warning-foreground shadow-[0_0_30px_rgba(255,166,0,0.4)]"
+              className="text-base md:text-xl font-extrabold px-8 md:px-12 py-6 md:py-7 rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg"
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                🚀 QUERO COMEÇAR AGORA - 40% OFF
+                🚀 Quero começar agora com 40% OFF
               </a>
             </Button>
             <p className="text-xs md:text-sm text-muted-foreground mt-3 font-semibold">
-              ⏰ Promoção expira em breve • Não perca essa chance!
+              ⏰ Vagas limitadas • Aproveite enquanto disponível
             </p>
           </div>
           
@@ -85,38 +85,38 @@ export const Hero = () => {
             Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
           </p>
 
-          {/* Bloco de Preço com Alto Contraste */}
+          {/* Bloco de Preço Elegante */}
           <div className="mb-8 md:mb-10 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-warning/20 via-destructive/10 to-primary/20 border-4 border-warning/60 rounded-3xl p-6 md:p-8 shadow-[0_0_40px_rgba(255,166,0,0.3)] relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-destructive text-destructive-foreground px-4 py-1 text-xs font-black rounded-bl-2xl">
-                ECONOMIZE R$ 200
+            <div className="bg-gradient-to-br from-card via-panel to-card border-2 border-success/30 rounded-3xl p-6 md:p-8 shadow-2xl relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-destructive text-destructive-foreground px-6 py-1.5 text-sm font-black rounded-full shadow-lg">
+                Economize R$ 200
               </div>
-              <p className="text-base md:text-lg font-extrabold mb-3 text-center">
-                🔥 OFERTA EXCLUSIVA POR TEMPO LIMITADO
+              <p className="text-base md:text-lg font-bold mb-4 text-center pt-2">
+                🔥 Oferta especial por tempo limitado
               </p>
-              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-4">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-4">
                 <div className="text-center">
-                  <p className="text-xs md:text-sm text-muted-foreground mb-1">De:</p>
-                  <span className="text-2xl md:text-3xl line-through text-muted-foreground/60 font-bold">R$ 497</span>
+                  <p className="text-xs text-muted-foreground mb-1">De:</p>
+                  <span className="text-2xl md:text-3xl line-through text-muted-foreground/50 font-bold">R$ 497</span>
                 </div>
                 <div className="text-center">
-                  <p className="text-xs md:text-sm text-warning font-bold mb-1">Por apenas:</p>
-                  <span className="text-5xl md:text-6xl lg:text-7xl font-black text-warning drop-shadow-[0_0_20px_rgba(255,166,0,0.5)]">R$ 297</span>
+                  <p className="text-xs text-success font-bold mb-1">Por apenas:</p>
+                  <span className="text-5xl md:text-6xl font-black text-success">R$ 297</span>
                 </div>
               </div>
-              <p className="text-sm md:text-lg font-extrabold text-success text-center mb-4">
-                💳 ou em até 12x de R$ 24,75 no cartão
+              <p className="text-sm md:text-base font-bold text-center mb-6">
+                💳 ou 12x de R$ 24,75 no cartão
               </p>
               
-              {/* Selo de Garantia */}
-              <div className="bg-card/80 backdrop-blur-sm border-2 border-success/50 rounded-2xl p-4 md:p-6 mt-4">
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <Lock className="w-6 h-6 md:w-8 md:h-8 text-success" />
-                  <h3 className="text-base md:text-lg font-black text-success">RISCO ZERO!</h3>
+              {/* Selo de Garantia Elegante */}
+              <div className="bg-background/40 backdrop-blur-sm border border-success/30 rounded-2xl p-4 md:p-5">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Lock className="w-5 h-5 text-success" />
+                  <h3 className="text-sm md:text-base font-black text-success">RISCO ZERO</h3>
                 </div>
-                <p className="text-sm md:text-base font-bold text-center leading-relaxed">
-                  Sua Satisfação Garantida ou Seu Dinheiro de Volta<br />
-                  <span className="text-success">7 Dias de Teste • Sem Burocracia</span>
+                <p className="text-xs md:text-sm font-semibold text-center leading-relaxed">
+                  Garantia incondicional de 7 dias<br />
+                  <span className="text-muted-foreground">Não gostou? Devolvemos 100% do seu dinheiro</span>
                 </p>
               </div>
             </div>
@@ -126,17 +126,17 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10 px-4">
             <Button 
               size="lg" 
-              className="text-base md:text-lg font-extrabold px-6 md:px-8 py-5 md:py-6 rounded-2xl hover:scale-105 transition-transform bg-warning hover:bg-warning/90 text-warning-foreground"
+              className="text-base md:text-lg font-extrabold px-6 md:px-8 py-5 md:py-6 rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90"
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                🎯 SIM! QUERO GARANTIR MINHA VAGA
+                ✓ Garantir minha vaga agora
               </a>
             </Button>
             <Button 
               size="lg" 
               variant="outline"
-              className="text-base md:text-lg font-bold px-6 md:px-8 py-5 md:py-6 rounded-2xl border-2 border-foreground/20 hover:bg-primary/10"
+              className="text-base md:text-lg font-bold px-6 md:px-8 py-5 md:py-6 rounded-2xl border-2 border-foreground/20 hover:bg-card"
               asChild
             >
               <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">
