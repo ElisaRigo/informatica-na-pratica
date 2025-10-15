@@ -35,13 +35,13 @@ const ThankYou = () => {
   return (
     <>
       <Helmet>
-        <title>Obrigado pela sua compra! - Informática na Prática</title>
+        <title>Obrigada pela sua compra! - Informática na Prática</title>
         <meta name="description" content="Parabéns! Sua compra foi confirmada. Você receberá um e-mail com as credenciais de acesso ao curso em até 5 minutos." />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://informaticanapratica.com.br/obrigado" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Obrigado pela sua compra! - Informática na Prática" />
+        <meta property="og:title" content="Obrigada pela sua compra! - Informática na Prática" />
         <meta property="og:description" content="Parabéns! Sua compra foi confirmada." />
         <meta property="og:url" content="https://informaticanapratica.com.br/obrigado" />
       </Helmet>
