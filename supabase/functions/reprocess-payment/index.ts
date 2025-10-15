@@ -78,6 +78,7 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
     <body style="font-family: Arial, sans-serif; padding: 20px; background: #f1f5f9;">
       <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,128,187,0.15);">
         <div style="background: linear-gradient(135deg, #0080BB 0%, #005A87 100%); padding: 40px; text-align: center;">
+          <img src="https://i.imgur.com/8xQy5Qh.png" alt="Informática na Prática" style="max-width: 180px; height: auto; margin-bottom: 20px;">
           <h1 style="color: white; margin: 0;">🎉 Bem-vindo ao Curso!</h1>
         </div>
         <div style="padding: 40px;">
