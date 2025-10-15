@@ -48,28 +48,28 @@ export const PromoTimer = () => {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <div className="sticky top-0 z-50 bg-panel border-b border-line">
-      <div className="container mx-auto px-3 py-2 md:py-3">
+    <div className="sticky top-0 z-50 bg-gradient-to-r from-destructive via-warning to-destructive text-white py-3 md:py-4 shadow-[0_4px_20px_rgba(255,0,0,0.4)] border-b-4 border-warning">
+      <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
-          <span className="font-extrabold text-xs md:text-base tracking-wide text-center">
-            ⏰ Promoção especial válida até:
-          </span>
-          <div className="flex gap-1.5 md:gap-2" role="timer" aria-live="polite">
-            <div className="bg-card border border-line rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2 min-w-[45px] md:min-w-[54px] text-center">
-              <div className="font-extrabold text-base md:text-lg">{pad(timeLeft.days)}</div>
-              <div className="text-[9px] md:text-[10px] text-muted-foreground uppercase">dias</div>
+          <p className="text-sm md:text-lg font-black text-center">
+            🔥 ÚLTIMA CHANCE! Promoção expira em:
+          </p>
+          <div className="flex gap-2 md:gap-3" role="timer" aria-live="polite">
+            <div className="bg-background/90 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2 md:py-2.5 min-w-[50px] md:min-w-[65px] text-center border-2 border-warning shadow-lg">
+              <div className="text-xl md:text-3xl font-black text-warning">{pad(timeLeft.days)}</div>
+              <div className="text-[9px] md:text-xs font-black text-foreground">DIAS</div>
             </div>
-            <div className="bg-card border border-line rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2 min-w-[45px] md:min-w-[54px] text-center">
-              <div className="font-extrabold text-base md:text-lg">{pad(timeLeft.hours)}</div>
-              <div className="text-[9px] md:text-[10px] text-muted-foreground uppercase">horas</div>
+            <div className="bg-background/90 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2 md:py-2.5 min-w-[50px] md:min-w-[65px] text-center border-2 border-warning shadow-lg">
+              <div className="text-xl md:text-3xl font-black text-warning">{pad(timeLeft.hours)}</div>
+              <div className="text-[9px] md:text-xs font-black text-foreground">HORAS</div>
             </div>
-            <div className="bg-card border border-line rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2 min-w-[45px] md:min-w-[54px] text-center">
-              <div className="font-extrabold text-base md:text-lg">{pad(timeLeft.minutes)}</div>
-              <div className="text-[9px] md:text-[10px] text-muted-foreground uppercase">min</div>
+            <div className="bg-background/90 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2 md:py-2.5 min-w-[50px] md:min-w-[65px] text-center border-2 border-warning shadow-lg">
+              <div className="text-xl md:text-3xl font-black text-warning">{pad(timeLeft.minutes)}</div>
+              <div className="text-[9px] md:text-xs font-black text-foreground">MIN</div>
             </div>
-            <div className="bg-card border border-line rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2 min-w-[45px] md:min-w-[54px] text-center">
-              <div className="font-extrabold text-base md:text-lg">{pad(timeLeft.seconds)}</div>
-              <div className="text-[9px] md:text-[10px] text-muted-foreground uppercase">seg</div>
+            <div className="bg-background/90 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2 md:py-2.5 min-w-[50px] md:min-w-[65px] text-center border-2 border-warning shadow-lg">
+              <div className="text-xl md:text-3xl font-black text-warning">{pad(timeLeft.seconds)}</div>
+              <div className="text-[9px] md:text-xs font-black text-foreground">SEG</div>
             </div>
           </div>
         </div>
