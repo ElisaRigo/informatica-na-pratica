@@ -17,12 +17,12 @@ export const Hero = () => {
           <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-4 bg-card/60 backdrop-blur-sm border border-success/20 px-4 md:px-6 py-2 md:py-3 rounded-full mb-6">
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-success" />
-              <span className="font-bold text-xs md:text-sm">+15.000 alunos</span>
+              <span className="font-bold text-xs md:text-sm">+20 anos de experiência</span>
             </div>
             <span className="hidden md:inline text-muted-foreground">•</span>
             <div className="flex items-center gap-1.5">
               <Award className="w-4 h-4 text-accent" />
-              <span className="font-bold text-xs md:text-sm">Certificado Reconhecido</span>
+              <span className="font-bold text-xs md:text-sm">+15.000 alunos ensinados</span>
             </div>
             <span className="hidden md:inline text-muted-foreground">•</span>
             <div className="flex items-center gap-1.5">
