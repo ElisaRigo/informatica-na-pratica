@@ -48,7 +48,7 @@ export const Hero = () => {
           <div className="mb-8 md:mb-10">
             <Button 
               size="lg" 
-              className="text-base md:text-xl font-extrabold px-8 md:px-12 py-6 md:py-7 rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg"
+              className="text-sm md:text-xl font-extrabold px-6 md:px-12 py-5 md:py-7 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg w-full sm:w-auto"
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
