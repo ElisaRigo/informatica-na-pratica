@@ -48,28 +48,28 @@ export const PromoTimer = () => {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <div className="sticky top-0 z-50 bg-gradient-to-r from-primary/90 via-accent/90 to-primary/90 text-white py-3 md:py-4 shadow-lg border-b-2 border-accent/50">
+    <div className="sticky top-0 z-50 bg-gradient-to-r from-primary/90 via-accent/90 to-primary/90 text-white py-2 md:py-3 shadow-lg border-b-2 border-accent/50">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
-          <p className="text-sm md:text-base font-black text-center">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-1.5 md:gap-4">
+          <p className="text-xs md:text-base font-black text-center">
             ⏰ Promoção especial termina em:
           </p>
-          <div className="flex gap-2 md:gap-3" role="timer" aria-live="polite">
-            <div className="bg-background/90 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2 md:py-2.5 min-w-[50px] md:min-w-[60px] text-center border border-accent/30 shadow-md">
-              <div className="text-xl md:text-2xl font-black text-accent">{pad(timeLeft.days)}</div>
-              <div className="text-[9px] md:text-xs font-bold text-foreground">DIAS</div>
+          <div className="flex gap-1.5 md:gap-3" role="timer" aria-live="polite">
+            <div className="bg-background/90 backdrop-blur-sm rounded-lg md:rounded-xl px-2 md:px-4 py-1.5 md:py-2.5 min-w-[45px] md:min-w-[60px] text-center border border-accent/30 shadow-md">
+              <div className="text-lg md:text-2xl font-black text-accent">{pad(timeLeft.days)}</div>
+              <div className="text-[8px] md:text-xs font-bold text-foreground">DIAS</div>
             </div>
-            <div className="bg-background/90 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2 md:py-2.5 min-w-[50px] md:min-w-[60px] text-center border border-accent/30 shadow-md">
-              <div className="text-xl md:text-2xl font-black text-accent">{pad(timeLeft.hours)}</div>
-              <div className="text-[9px] md:text-xs font-bold text-foreground">HORAS</div>
+            <div className="bg-background/90 backdrop-blur-sm rounded-lg md:rounded-xl px-2 md:px-4 py-1.5 md:py-2.5 min-w-[45px] md:min-w-[60px] text-center border border-accent/30 shadow-md">
+              <div className="text-lg md:text-2xl font-black text-accent">{pad(timeLeft.hours)}</div>
+              <div className="text-[8px] md:text-xs font-bold text-foreground">HORAS</div>
             </div>
-            <div className="bg-background/90 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2 md:py-2.5 min-w-[50px] md:min-w-[60px] text-center border border-accent/30 shadow-md">
-              <div className="text-xl md:text-2xl font-black text-accent">{pad(timeLeft.minutes)}</div>
-              <div className="text-[9px] md:text-xs font-bold text-foreground">MIN</div>
+            <div className="bg-background/90 backdrop-blur-sm rounded-lg md:rounded-xl px-2 md:px-4 py-1.5 md:py-2.5 min-w-[45px] md:min-w-[60px] text-center border border-accent/30 shadow-md">
+              <div className="text-lg md:text-2xl font-black text-accent">{pad(timeLeft.minutes)}</div>
+              <div className="text-[8px] md:text-xs font-bold text-foreground">MIN</div>
             </div>
-            <div className="bg-background/90 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2 md:py-2.5 min-w-[50px] md:min-w-[60px] text-center border border-accent/30 shadow-md">
-              <div className="text-xl md:text-2xl font-black text-accent">{pad(timeLeft.seconds)}</div>
-              <div className="text-[9px] md:text-xs font-bold text-foreground">SEG</div>
+            <div className="bg-background/90 backdrop-blur-sm rounded-lg md:rounded-xl px-2 md:px-4 py-1.5 md:py-2.5 min-w-[45px] md:min-w-[60px] text-center border border-accent/30 shadow-md">
+              <div className="text-lg md:text-2xl font-black text-accent">{pad(timeLeft.seconds)}</div>
+              <div className="text-[8px] md:text-xs font-bold text-foreground">SEG</div>
             </div>
           </div>
         </div>
