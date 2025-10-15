@@ -37,6 +37,13 @@ export const Hero = () => {
             Mesmo Começando do Zero 💻
           </h1>
           
+          {/* Destaque: Promessa de Resultado */}
+          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-2xl px-6 md:px-8 py-4 md:py-5 mb-8 md:mb-10 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl lg:text-3xl font-black text-primary">
+              ✨ Conquiste o Emprego que Você Merece
+            </p>
+          </div>
+          
           {/* CTA Principal Acima da Dobra */}
           <div className="mb-8 md:mb-10">
             <Button 
