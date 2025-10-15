@@ -32,7 +32,7 @@ export const Hero = () => {
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 md:mb-6">
-            <span className="text-destructive">Chega de perder oportunidades!</span><br />
+            <span className="text-destructive">Chega de ficar pra trás!</span><br />
             Aprenda <span className="text-primary">Word, Excel, PowerPoint e mais...</span><br />
             Mesmo Começando do Zero 💻
           </h1>
