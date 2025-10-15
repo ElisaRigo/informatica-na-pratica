@@ -88,40 +88,40 @@ export const Hero = () => {
             </div>
           </div>
 
-          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
+          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-3 md:mb-5 max-w-3xl mx-auto px-2">
             Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
           </p>
 
           {/* Bloco de Preço Elegante */}
-          <div className="mb-6 md:mb-8 max-w-3xl mx-auto">
+          <div className="mb-4 md:mb-8 max-w-3xl mx-auto">
             <div className="bg-gradient-to-br from-card via-panel to-card border-2 border-success/30 rounded-2xl p-4 md:p-6 shadow-2xl relative">
-              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-destructive text-destructive-foreground px-4 py-1 text-xs font-black rounded-full shadow-lg">
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-destructive text-destructive-foreground px-3 md:px-4 py-0.5 md:py-1 text-xs font-black rounded-full shadow-lg">
                 Economize R$ 200
               </div>
-              <p className="text-sm md:text-base font-bold mb-3 text-center pt-1">
+              <p className="text-xs md:text-base font-bold mb-2 md:mb-3 text-center pt-1">
                 🔥 Oferta especial por tempo limitado
               </p>
-              <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 mb-3">
+              <div className="flex flex-row items-center justify-center gap-3 md:gap-6 mb-2 md:mb-3">
                 <div className="text-center">
-                  <p className="text-xs text-muted-foreground mb-1">De:</p>
-                  <span className="text-xl md:text-2xl line-through text-muted-foreground/50 font-bold">R$ 497</span>
+                  <p className="text-[10px] md:text-xs text-muted-foreground mb-0.5">De:</p>
+                  <span className="text-lg md:text-2xl line-through text-muted-foreground/50 font-bold">R$ 497</span>
                 </div>
                 <div className="text-center">
-                  <p className="text-xs text-success font-bold mb-1">Por apenas:</p>
-                  <span className="text-4xl md:text-5xl font-black text-success">R$ 297</span>
+                  <p className="text-[10px] md:text-xs text-success font-bold mb-0.5">Por apenas:</p>
+                  <span className="text-3xl md:text-5xl font-black text-success">R$ 297</span>
                 </div>
               </div>
-              <p className="text-sm md:text-base font-bold text-center mb-4">
+              <p className="text-xs md:text-base font-bold text-center mb-3 md:mb-4">
                 💳 ou 12x de R$ 24,75 no cartão
               </p>
               
               {/* Selo de Garantia Elegante */}
-              <div className="bg-background/40 backdrop-blur-sm border border-success/30 rounded-xl p-3 md:p-4">
-                <div className="flex items-center justify-center gap-2 mb-1.5">
-                  <Lock className="w-4 h-4 text-success" />
+              <div className="bg-background/40 backdrop-blur-sm border border-success/30 rounded-xl p-2.5 md:p-4">
+                <div className="flex items-center justify-center gap-1.5 md:gap-2 mb-1">
+                  <Lock className="w-3.5 h-3.5 md:w-4 md:h-4 text-success" />
                   <h3 className="text-xs md:text-sm font-black text-success">RISCO ZERO</h3>
                 </div>
-                <p className="text-xs font-semibold text-center leading-relaxed">
+                <p className="text-[10px] md:text-xs font-semibold text-center leading-relaxed">
                   Garantia incondicional de 7 dias<br />
                   <span className="text-muted-foreground">Não gostou? Devolvemos 100% do seu dinheiro</span>
                 </p>
