@@ -52,6 +52,18 @@ export const Hero = () => {
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeo HTML5.
               </video>
+              
+              {/* Overlay estratégico com preço */}
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl pointer-events-none animate-pulse">
+                <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
+                <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none">R$ 297</p>
+                <p className="text-[9px] md:text-xs font-bold text-white/80 mt-0.5">ou 12x R$ 24,75</p>
+              </div>
+              
+              {/* Badge de desconto */}
+              <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-destructive text-destructive-foreground rounded-lg md:rounded-xl px-2 md:px-3 py-1 md:py-1.5 shadow-xl pointer-events-none">
+                <p className="text-xs md:text-sm font-black">40% OFF</p>
+              </div>
             </div>
           </div>
 
