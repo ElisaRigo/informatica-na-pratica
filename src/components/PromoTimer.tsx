@@ -48,7 +48,7 @@ export const PromoTimer = () => {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <div className="sticky top-0 z-50 bg-gradient-to-r from-primary/90 via-accent/90 to-primary/90 text-white py-2 md:py-3 shadow-lg border-b-2 border-accent/50">
+    <div className="sticky top-0 z-50 bg-gradient-to-r from-primary/90 via-accent/90 to-primary/90 text-white py-1 md:py-2 shadow-lg border-b-2 border-accent/50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-1.5 md:gap-4">
           <p className="text-xs md:text-base font-black text-center">
