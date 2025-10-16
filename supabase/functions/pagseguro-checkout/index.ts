@@ -61,8 +61,13 @@ serve(async (req: Request) => {
     };
 
     console.log('Sending request to PagSeguro API...');
+    console.log('Using token:', PAGSEGURO_TOKEN ? 'Token configured' : 'NO TOKEN FOUND');
 
-    const pagseguroResponse = await fetch('https://ws.pagseguro.uol.com.br/v2/checkout', {
+    if (!PAGSEGURO_TOKEN) {
+      throw new Error('PAGSEGURO_API_TOKEN not configured');
+    }
+
+    const pagseguroResponse = await fetch(`https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/xml; charset=UTF-8'
