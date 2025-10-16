@@ -3,26 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
-import { Loader2, CreditCard, Lock, ShieldCheck, CheckCircle2, Clock, AlertCircle, QrCode, FileText } from "lucide-react";
+import { Loader2, CreditCard, Lock, ShieldCheck, CheckCircle2, AlertCircle, QrCode, FileText } from "lucide-react";
 import logoImage from "@/assets/logo-new.png";
 import { Card, CardContent } from "@/components/ui/card";
 
 
 export const CheckoutTransparente = () => {
   const [loading, setLoading] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("credit-card");
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    cpf: "",
-    cardNumber: "",
-    cardHolder: "",
-    cardExpiry: "",
-    cardCVV: ""
+    cpf: ""
   });
 
   const formatPhone = (value: string) => {
@@ -41,28 +35,11 @@ export const CheckoutTransparente = () => {
     return value;
   };
 
-  const formatCardNumber = (value: string) => {
-    const numbers = value.replace(/\D/g, '');
-    if (numbers.length <= 16) {
-      return numbers.replace(/(\d{4})(?=\d)/g, '$1 ');
-    }
-    return value;
-  };
-
-  const formatExpiry = (value: string) => {
-    const numbers = value.replace(/\D/g, '');
-    if (numbers.length <= 4) {
-      return numbers.replace(/(\d{2})(\d{2})/, '$1/$2');
-    }
-    return value;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validação básica
-    if (!formData.name || !formData.email || !formData.phone || !formData.cpf ||
-        !formData.cardNumber || !formData.cardHolder || !formData.cardExpiry || !formData.cardCVV) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.cpf) {
       toast({
         title: "Preencha todos os campos",
         description: "Todos os campos são obrigatórios para continuar",
@@ -73,8 +50,6 @@ export const CheckoutTransparente = () => {
 
     const cleanPhone = formData.phone.replace(/\D/g, '');
     const cleanCPF = formData.cpf.replace(/\D/g, '');
-    const cleanCardNumber = formData.cardNumber.replace(/\D/g, '');
-    const cleanExpiry = formData.cardExpiry.replace(/\D/g, '');
 
     if (cleanPhone.length !== 11) {
       toast({
@@ -94,71 +69,9 @@ export const CheckoutTransparente = () => {
       return;
     }
 
-    if (cleanCardNumber.length !== 16) {
-      toast({
-        title: "Cartão inválido",
-        description: "Digite um número de cartão válido",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    if (cleanExpiry.length !== 4) {
-      toast({
-        title: "Validade inválida",
-        description: "Digite a validade no formato MM/AA",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    if (formData.cardCVV.length < 3) {
-      toast({
-        title: "CVV inválido",
-        description: "Digite o código de segurança do cartão",
-        variant: "destructive"
-      });
-      return;
-    }
-
+    // Redirecionar para o checkout do PagSeguro
     setLoading(true);
-
-    try {
-      const [expMonth, expYear] = cleanExpiry.match(/.{1,2}/g) || [];
-      
-      const { data, error } = await supabase.functions.invoke('pagseguro-transparent-checkout', {
-        body: {
-          customerName: formData.name,
-          customerEmail: formData.email,
-          customerPhone: cleanPhone,
-          customerCPF: cleanCPF,
-          cardNumber: cleanCardNumber,
-          cardHolder: formData.cardHolder,
-          cardExpMonth: expMonth,
-          cardExpYear: `20${expYear}`,
-          cardCVV: formData.cardCVV
-        }
-      });
-
-      if (error) throw error;
-
-      if (data.success) {
-        // Redirecionar para página de aguardando confirmação com transaction_id
-        window.location.href = `/obrigado?transaction_id=${data.transactionId}`;
-      } else {
-        throw new Error(data.message || 'Falha ao processar pagamento');
-      }
-
-    } catch (error: any) {
-      console.error('Error processing payment:', error);
-      toast({
-        title: "Erro ao processar pagamento",
-        description: error.message || "Tente novamente em alguns instantes",
-        variant: "destructive"
-      });
-    } finally {
-      setLoading(false);
-    }
+    window.location.href = 'https://pag.ae/7-LepVEPT';
   };
 
   return (
@@ -195,7 +108,7 @@ export const CheckoutTransparente = () => {
         <Card className="border-primary/20 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent hover:border-primary/40 transition-colors">
           <CardContent className="pt-5 pb-5 flex flex-col items-center text-center space-y-2">
             <div className="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center">
-              <Clock className="w-5 h-5 text-success" />
+              <CheckCircle2 className="w-5 h-5 text-success" />
             </div>
             <h4 className="font-bold text-sm text-foreground">Acesso Imediato</h4>
             <p className="text-xs text-foreground/70">Após confirmação</p>
@@ -213,518 +126,187 @@ export const CheckoutTransparente = () => {
         </Card>
       </div>
 
-      {/* Escolha o Método de Pagamento */}
-      <div className="w-full space-y-4">
-        <h3 className="text-center text-lg font-bold text-foreground mb-4">Escolha a forma de pagamento</h3>
+      {/* Métodos de Pagamento Disponíveis */}
+      <div className="bg-gradient-to-br from-muted/30 to-transparent rounded-xl p-5 border border-primary/10">
+        <h3 className="text-center text-base font-bold text-foreground mb-4">Formas de pagamento disponíveis:</h3>
         
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {/* Botão Cartão de Crédito */}
-          <Button
-            variant={paymentMethod === "credit-card" ? "default" : "outline"}
-            size="lg"
-            onClick={() => setPaymentMethod("credit-card")}
-            className="h-auto py-6 flex flex-col gap-2 hover:scale-105 transition-transform"
-          >
-            <CreditCard className="w-8 h-8" />
-            <span className="font-bold">Cartão de Crédito</span>
-            <span className="text-xs opacity-80">em até 12x</span>
-          </Button>
-
-          {/* Botão Pix */}
-          <Button
-            variant={paymentMethod === "pix" ? "default" : "outline"}
-            size="lg"
-            onClick={() => setPaymentMethod("pix")}
-            className="h-auto py-6 flex flex-col gap-2 hover:scale-105 transition-transform"
-          >
-            <QrCode className="w-8 h-8" />
-            <span className="font-bold">Pix</span>
-            <span className="text-xs opacity-80">aprovação instantânea</span>
-          </Button>
-
-          {/* Botão Boleto */}
-          <Button
-            variant={paymentMethod === "boleto" ? "default" : "outline"}
-            size="lg"
-            onClick={() => setPaymentMethod("boleto")}
-            className="h-auto py-6 flex flex-col gap-2 hover:scale-105 transition-transform"
-          >
-            <FileText className="w-8 h-8" />
-            <span className="font-bold">Boleto Bancário</span>
-            <span className="text-xs opacity-80">compensação em 3 dias</span>
-          </Button>
-        </div>
-
-        {/* Formulário de Cartão */}
-        {paymentMethod === "credit-card" && (
-          <div className="animate-slide-up mt-6">
-          <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
-            <CardContent className="pt-6 pb-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Progress Indicator */}
-                <div className="bg-muted/30 rounded-xl p-4 mb-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg">
-                        1
-                      </div>
-                      <span className="text-sm font-semibold text-foreground">Seus Dados</span>
-                    </div>
-                    <div className="h-1 flex-1 mx-3 bg-gradient-to-r from-primary to-primary/20 rounded-full"></div>
-                    <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${loading ? 'bg-primary text-primary-foreground shadow-lg' : 'bg-muted text-muted-foreground'}`}>
-                        2
-                      </div>
-                      <span className="text-sm font-semibold text-foreground">Pagamento</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Dados Pessoais */}
-                <div className="space-y-4 bg-muted/20 rounded-xl p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <CheckCircle2 className="w-4 h-4 text-primary" />
-                    </div>
-                    <h3 className="text-base font-bold text-foreground">Dados Pessoais</h3>
-                  </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="name">Nome Completo *</Label>
-          <Input
-            id="name"
-            placeholder="Seu nome completo"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            disabled={loading}
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="email">E-mail *</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="seu@email.com"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            disabled={loading}
-          />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="phone">Telefone com DDD *</Label>
-            <Input
-              id="phone"
-              placeholder="(00) 00000-0000"
-              value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-              maxLength={15}
-              disabled={loading}
-            />
+          <div className="border border-primary/20 rounded-lg p-4 flex flex-col items-center gap-2 bg-card">
+            <CreditCard className="w-8 h-8 text-primary" />
+            <span className="font-bold text-sm text-foreground">Cartão de Crédito</span>
+            <span className="text-xs text-foreground/70">em até 12x</span>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="cpf">CPF *</Label>
-            <Input
-              id="cpf"
-              placeholder="000.000.000-00"
-              value={formData.cpf}
-              onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-              maxLength={14}
-              disabled={loading}
-            />
+          <div className="border border-primary/20 rounded-lg p-4 flex flex-col items-center gap-2 bg-card">
+            <QrCode className="w-8 h-8 text-primary" />
+            <span className="font-bold text-sm text-foreground">Pix</span>
+            <span className="text-xs text-foreground/70">aprovação instantânea</span>
+          </div>
+
+          <div className="border border-primary/20 rounded-lg p-4 flex flex-col items-center gap-2 bg-card">
+            <FileText className="w-8 h-8 text-primary" />
+            <span className="font-bold text-sm text-foreground">Boleto</span>
+            <span className="text-xs text-foreground/70">compensação em 3 dias</span>
           </div>
         </div>
       </div>
 
-                {/* Dados do Cartão */}
-                <div className="space-y-4 pt-4 border-t-2 border-primary/10 bg-muted/20 rounded-xl p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <CreditCard className="w-4 h-4 text-primary" />
-                    </div>
-                    <h3 className="text-base font-bold text-foreground">Dados do Cartão</h3>
-                  </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="cardNumber">Número do Cartão *</Label>
-          <Input
-            id="cardNumber"
-            placeholder="0000 0000 0000 0000"
-            value={formData.cardNumber}
-            onChange={(e) => setFormData({ ...formData, cardNumber: formatCardNumber(e.target.value) })}
-            maxLength={19}
-            disabled={loading}
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="cardHolder">Nome no Cartão *</Label>
-          <Input
-            id="cardHolder"
-            placeholder="Nome como está no cartão"
-            value={formData.cardHolder}
-            onChange={(e) => setFormData({ ...formData, cardHolder: e.target.value.toUpperCase() })}
-            disabled={loading}
-          />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="cardExpiry">Validade *</Label>
-            <Input
-              id="cardExpiry"
-              placeholder="MM/AA"
-              value={formData.cardExpiry}
-              onChange={(e) => setFormData({ ...formData, cardExpiry: formatExpiry(e.target.value) })}
-              maxLength={5}
-              disabled={loading}
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="cardCVV">CVV *</Label>
-            <Input
-              id="cardCVV"
-              placeholder="000"
-              value={formData.cardCVV}
-              onChange={(e) => setFormData({ ...formData, cardCVV: e.target.value.replace(/\D/g, '') })}
-              maxLength={4}
-              type="password"
-              disabled={loading}
-            />
-          </div>
-                  </div>
+      {/* Formulário */}
+      <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
+        <CardContent className="pt-6 pb-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Dados Pessoais */}
+            <div className="space-y-4 bg-muted/20 rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
                 </div>
-
-                {/* Security Banner */}
-                <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-2 border-primary/30 rounded-xl p-5 shadow-inner">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                      <Lock className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="font-bold text-foreground flex items-center gap-2 text-base">
-                        Pagamento 100% Seguro
-                        <ShieldCheck className="w-5 h-5 text-success" />
-                      </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Seus dados são <strong className="text-foreground">criptografados</strong> e processados de forma segura pelo PagSeguro. 
-                      </p>
-                      <div className="flex flex-wrap gap-2 text-xs text-muted-foreground pt-1">
-                        <span className="bg-primary/10 px-2 py-1 rounded-md">🔒 Certificado PCI-DSS</span>
-                        <span className="bg-success/10 px-2 py-1 rounded-md">🛡️ Proteção SSL/TLS</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Info Alert */}
-                {loading && (
-                  <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 flex items-start gap-3 animate-pulse">
-                    <AlertCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                    <div className="text-sm">
-                      <p className="font-semibold text-foreground">Aguarde, processando seu pagamento...</p>
-                      <p className="text-muted-foreground mt-1">Não feche esta janela ou pressione o botão voltar</p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Submit Button */}
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group"
+                <h3 className="text-base font-bold text-foreground">Seus Dados</h3>
+              </div>
+    
+              <div className="space-y-2">
+                <Label htmlFor="name">Nome Completo *</Label>
+                <Input
+                  id="name"
+                  placeholder="Seu nome completo"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   disabled={loading}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                  {loading ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Processando pagamento seguro...
-                    </>
-                  ) : (
-                    <>
-                      <Lock className="mr-2 h-5 w-5" />
-                      Finalizar Pagamento Seguro - R$ 297,00
-                    </>
-                  )}
-                </Button>
+                />
+              </div>
 
-                {/* Footer Info */}
-                <div className="space-y-3">
-                  <div className="bg-gradient-to-r from-success/20 to-accent/20 border-2 border-success/40 rounded-xl p-5 shadow-lg">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-full bg-success flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-base font-bold text-foreground mb-2">
-                          🎓 Acesso Imediato ao Curso!
-                        </p>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          Após a confirmação do pagamento, você receberá um <strong className="text-foreground">e-mail com seus dados de acesso</strong> em até 5 minutos e poderá iniciar suas aulas imediatamente! Verifique também sua caixa de spam.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1">
-                    <ShieldCheck className="w-3 h-3" />
-                    Os dados do cartão não são armazenados em nosso servidor
+              <div className="space-y-2">
+                <Label htmlFor="email">E-mail *</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="seu@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Telefone com DDD *</Label>
+                  <Input
+                    id="phone"
+                    placeholder="(00) 00000-0000"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+                    maxLength={15}
+                    disabled={loading}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="cpf">CPF *</Label>
+                  <Input
+                    id="cpf"
+                    placeholder="000.000.000-00"
+                    value={formData.cpf}
+                    onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+                    maxLength={14}
+                    disabled={loading}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Security Banner */}
+            <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-2 border-primary/30 rounded-xl p-5 shadow-inner">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <Lock className="w-6 h-6 text-primary" />
+                </div>
+                <div className="space-y-2">
+                  <p className="font-bold text-foreground flex items-center gap-2 text-base">
+                    Pagamento 100% Seguro
+                    <ShieldCheck className="w-5 h-5 text-success" />
                   </p>
-                  <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3 text-success" />
-                      Processamento Seguro
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3 text-success" />
-                      Dados Criptografados
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3 text-success" />
-                      Garantia 7 Dias
-                    </span>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Seus dados são <strong className="text-foreground">criptografados</strong> e processados de forma segura pelo PagSeguro. 
+                  </p>
+                  <div className="flex flex-wrap gap-2 text-xs text-muted-foreground pt-1">
+                    <span className="bg-primary/10 px-2 py-1 rounded-md">🔒 Certificado PCI-DSS</span>
+                    <span className="bg-success/10 px-2 py-1 rounded-md">🛡️ Proteção SSL/TLS</span>
                   </div>
                 </div>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-        )}
+              </div>
+            </div>
 
-        {/* Formulário Pix */}
-        {paymentMethod === "pix" && (
-          <div className="animate-slide-up mt-6">
-            <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
-              <CardContent className="pt-6 pb-6">
-                <div className="space-y-6">
-                  {/* Header Pix */}
-                  <div className="text-center space-y-3 pb-4 border-b-2 border-primary/10">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                      <QrCode className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground">Pagamento via Pix</h3>
-                    <p className="text-sm text-foreground/70">
-                      Preencha seus dados para gerar o código Pix
+            {/* Info Alert */}
+            {loading && (
+              <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 flex items-start gap-3 animate-pulse">
+                <AlertCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                <div className="text-sm">
+                  <p className="font-semibold text-foreground">Redirecionando para página de pagamento...</p>
+                  <p className="text-muted-foreground mt-1">Aguarde um momento</p>
+                </div>
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group"
+              disabled={loading}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Redirecionando...
+                </>
+              ) : (
+                <>
+                  <Lock className="mr-2 h-5 w-5" />
+                  Ir para Pagamento - R$ 297,00
+                </>
+              )}
+            </Button>
+
+            {/* Footer Info */}
+            <div className="space-y-3">
+              <div className="bg-gradient-to-r from-success/20 to-accent/20 border-2 border-success/40 rounded-xl p-5 shadow-lg">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-full bg-success flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-base font-bold text-foreground mb-2">
+                      🎓 Acesso Imediato ao Curso!
                     </p>
-                    <div className="flex items-center justify-center gap-2 text-sm text-success font-semibold">
-                      <CheckCircle2 className="w-4 h-4" />
-                      Aprovação instantânea
-                    </div>
-                  </div>
-
-                  {/* Formulário de Dados */}
-                  <div className="space-y-4 bg-muted/20 rounded-xl p-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                      </div>
-                      <h3 className="text-base font-bold text-foreground">Seus Dados</h3>
-                    </div>
-            
-                    <div className="space-y-2">
-                      <Label htmlFor="pix-name">Nome Completo *</Label>
-                      <Input
-                        id="pix-name"
-                        placeholder="Seu nome completo"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        disabled={loading}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="pix-email">E-mail *</Label>
-                      <Input
-                        id="pix-email"
-                        type="email"
-                        placeholder="seu@email.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        disabled={loading}
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="pix-phone">Telefone com DDD *</Label>
-                        <Input
-                          id="pix-phone"
-                          placeholder="(00) 00000-0000"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-                          maxLength={15}
-                          disabled={loading}
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="pix-cpf">CPF *</Label>
-                        <Input
-                          id="pix-cpf"
-                          placeholder="000.000.000-00"
-                          value={formData.cpf}
-                          onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-                          maxLength={14}
-                          disabled={loading}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Botão de Pagamento */}
-                  <Button
-                    size="lg"
-                    className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
-                    onClick={() => {
-                      const cleanPhone = formData.phone.replace(/\D/g, '');
-                      const cleanCPF = formData.cpf.replace(/\D/g, '');
-                      
-                      if (!formData.name || !formData.email || cleanPhone.length !== 11 || cleanCPF.length !== 11) {
-                        toast({
-                          title: "Preencha todos os campos",
-                          description: "Todos os campos são obrigatórios e válidos",
-                          variant: "destructive"
-                        });
-                        return;
-                      }
-
-                      // Redirecionar para o link de pagamento com os dados validados
-                      window.location.href = 'https://pag.ae/7-LepVEPT';
-                    }}
-                    disabled={loading || !formData.name || !formData.email || !formData.phone || !formData.cpf}
-                  >
-                    <QrCode className="mr-2 h-5 w-5" />
-                    Pagar com Pix - R$ 297,00
-                  </Button>
-
-                  <p className="text-xs text-center text-muted-foreground">
-                    Após clicar, você será redirecionado para gerar o QR Code do Pix
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
-
-        {/* Formulário Boleto */}
-        {paymentMethod === "boleto" && (
-          <div className="animate-slide-up mt-6">
-            <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
-              <CardContent className="pt-6 pb-6">
-                <div className="space-y-6">
-                  {/* Header Boleto */}
-                  <div className="text-center space-y-3 pb-4 border-b-2 border-primary/10">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                      <FileText className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground">Pagamento via Boleto</h3>
-                    <p className="text-sm text-foreground/70">
-                      Preencha seus dados para gerar o boleto bancário
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Após a confirmação do pagamento, você receberá um <strong className="text-foreground">e-mail com seus dados de acesso</strong> em até 5 minutos e poderá iniciar suas aulas imediatamente! Verifique também sua caixa de spam.
                     </p>
-                    <div className="flex items-center justify-center gap-2 text-sm text-accent font-semibold">
-                      <Clock className="w-4 h-4" />
-                      Compensação em até 3 dias úteis
-                    </div>
                   </div>
-
-                  {/* Formulário de Dados */}
-                  <div className="space-y-4 bg-muted/20 rounded-xl p-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                      </div>
-                      <h3 className="text-base font-bold text-foreground">Seus Dados</h3>
-                    </div>
-            
-                    <div className="space-y-2">
-                      <Label htmlFor="boleto-name">Nome Completo *</Label>
-                      <Input
-                        id="boleto-name"
-                        placeholder="Seu nome completo"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        disabled={loading}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="boleto-email">E-mail *</Label>
-                      <Input
-                        id="boleto-email"
-                        type="email"
-                        placeholder="seu@email.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        disabled={loading}
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="boleto-phone">Telefone com DDD *</Label>
-                        <Input
-                          id="boleto-phone"
-                          placeholder="(00) 00000-0000"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-                          maxLength={15}
-                          disabled={loading}
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="boleto-cpf">CPF *</Label>
-                        <Input
-                          id="boleto-cpf"
-                          placeholder="000.000.000-00"
-                          value={formData.cpf}
-                          onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-                          maxLength={14}
-                          disabled={loading}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Botão de Pagamento */}
-                  <Button
-                    size="lg"
-                    className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
-                    onClick={() => {
-                      const cleanPhone = formData.phone.replace(/\D/g, '');
-                      const cleanCPF = formData.cpf.replace(/\D/g, '');
-                      
-                      if (!formData.name || !formData.email || cleanPhone.length !== 11 || cleanCPF.length !== 11) {
-                        toast({
-                          title: "Preencha todos os campos",
-                          description: "Todos os campos são obrigatórios e válidos",
-                          variant: "destructive"
-                        });
-                        return;
-                      }
-
-                      // Redirecionar para o link de pagamento com os dados validados
-                      window.location.href = 'https://pag.ae/7-LepVEPT';
-                    }}
-                    disabled={loading || !formData.name || !formData.email || !formData.phone || !formData.cpf}
-                  >
-                    <FileText className="mr-2 h-5 w-5" />
-                    Pagar com Boleto - R$ 297,00
-                  </Button>
-
-                  <p className="text-xs text-center text-muted-foreground">
-                    Após clicar, você será redirecionado para gerar e imprimir o boleto
-                  </p>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
-      </div>
+              </div>
+              <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1">
+                <ShieldCheck className="w-3 h-3" />
+                Os dados não são armazenados em nosso servidor
+              </p>
+              <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-success" />
+                  Processamento Seguro
+                </span>
+                <span className="flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-success" />
+                  Dados Criptografados
+                </span>
+                <span className="flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-success" />
+                  Garantia 7 Dias
+                </span>
+              </div>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
     </div>
   );
 };
