@@ -6,14 +6,14 @@ import { SocialProof } from "@/components/SocialProof";
 import { AboutSection } from "@/components/AboutSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Footer } from "@/components/Footer";
+import { Testimonials } from "@/components/Testimonials";
 
-// Lazy load componentes que não aparecem imediatamente
+// Lazy load componentes em blocos separados para carregamento progressivo
 const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
 const TargetAudience = lazy(() => import("@/components/TargetAudience").then(m => ({ default: m.TargetAudience })));
 const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
 const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
 const ContentGrid = lazy(() => import("@/components/ContentGrid").then(m => ({ default: m.ContentGrid })));
-const Testimonials = lazy(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
 const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({ default: m.StrategicCTA })));
 const Comparison = lazy(() => import("@/components/Comparison").then(m => ({ default: m.Comparison })));
 const EmotionalBenefits = lazy(() => import("@/components/EmotionalBenefits").then(m => ({ default: m.EmotionalBenefits })));
@@ -31,9 +31,7 @@ const Index = () => {
       <Header />
       <PromoTimer />
       <Hero />
-      <Suspense fallback={<div className="h-32" />}>
-        <Testimonials />
-      </Suspense>
+      <Testimonials />
       <AboutSection />
       <Suspense fallback={<div className="h-32" />}>
         <Authority />
@@ -41,20 +39,50 @@ const Index = () => {
       <SocialProof />
       <Suspense fallback={<div className="h-32" />}>
         <StrategicCTA context="depois de conhecer minha história" />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <TargetAudience />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <Possibilities />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <ValueStack />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <Comparison />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <ContentGrid />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <EmotionalBenefits />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <StrategicCTA context="sabendo de tudo que você vai aprender" />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <NotForYou />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <Bonus />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <Pricing />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <Guarantee />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <Objections />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <FinalTestimonials />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <FAQ />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>
       <WhatsAppFloat />
