@@ -31,6 +31,9 @@ const Index = () => {
       <Header />
       <PromoTimer />
       <Hero />
+      <Suspense fallback={<div className="h-32" />}>
+        <ContentGrid />
+      </Suspense>
       <Testimonials />
       <AboutSection />
       <Suspense fallback={<div className="h-32" />}>
@@ -51,9 +54,6 @@ const Index = () => {
       </Suspense>
       <Suspense fallback={<div className="h-32" />}>
         <Comparison />
-      </Suspense>
-      <Suspense fallback={<div className="h-32" />}>
-        <ContentGrid />
       </Suspense>
       <Suspense fallback={<div className="h-32" />}>
         <EmotionalBenefits />

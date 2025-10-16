@@ -73,7 +73,7 @@ export const Hero = () => {
           </h2>
 
           {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
-          <div className="mb-4 md:mb-6 max-w-3xl mx-auto">
+          <div className="mb-6 md:mb-8 max-w-3xl mx-auto">
             <Button 
               size="lg" 
               className="text-base md:text-xl font-extrabold px-8 md:px-16 py-6 md:py-8 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
@@ -84,78 +84,10 @@ export const Hero = () => {
               </a>
             </Button>
             <p className="text-xs md:text-sm text-muted-foreground mt-2 font-semibold">
-              ⏰ Vagas limitadas • Aproveite enquanto disponível
-            </p>
-          </div>
-
-          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-4 md:mb-6 max-w-3xl mx-auto px-2">
-            Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
-          </p>
-
-          {/* Bloco de Preço Elegante */}
-          <div className="mb-4 md:mb-6 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-card via-panel to-card border-2 border-success/30 rounded-2xl p-4 md:p-6 shadow-2xl relative">
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-destructive text-destructive-foreground px-3 md:px-4 py-0.5 md:py-1 text-xs font-black rounded-full shadow-lg">
-                Economize R$ 200
-              </div>
-              <p className="text-xs md:text-base font-bold mb-2 md:mb-3 text-center pt-1">
-                🔥 Oferta especial por tempo limitado
-              </p>
-              <div className="flex flex-row items-center justify-center gap-3 md:gap-6 mb-3 md:mb-4">
-                <div className="text-center">
-                  <p className="text-[10px] md:text-xs text-muted-foreground mb-0.5">De:</p>
-                  <span className="text-lg md:text-2xl line-through text-muted-foreground/50 font-bold">R$ 497</span>
-                </div>
-                <div className="text-center">
-                  <p className="text-[10px] md:text-xs text-success font-bold mb-0.5">Por apenas:</p>
-                  <span className="text-3xl md:text-5xl font-black text-success">R$ 297</span>
-                </div>
-              </div>
-              
-              {/* Selo de Garantia Elegante */}
-              <div className="bg-background/40 backdrop-blur-sm border border-success/30 rounded-xl p-2.5 md:p-4">
-                <div className="flex items-center justify-center gap-1.5 md:gap-2 mb-1">
-                  <Lock className="w-3.5 h-3.5 md:w-4 md:h-4 text-success" />
-                  <h3 className="text-xs md:text-sm font-black text-success">RISCO ZERO</h3>
-                </div>
-                <p className="text-[10px] md:text-xs font-semibold text-center leading-relaxed">
-                  Garantia incondicional de 7 dias<br />
-                  <span className="text-muted-foreground">Não gostou? Devolvemos 100% do seu dinheiro</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Destaque: Promessa de Resultado - Movida para posição estratégica */}
-          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-5 mb-5 md:mb-7 max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl lg:text-3xl font-black text-primary">
-              Conquiste o Emprego que Você Merece
+              ⏰ Oferta por tempo limitado • Garanta sua vaga
             </p>
           </div>
           
-          {/* CTA Secundário */}
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-6 md:mb-8 px-4">
-            <Button 
-              size="lg" 
-              className="text-base md:text-lg font-extrabold px-6 md:px-8 py-5 md:py-6 rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90"
-              asChild
-            >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                ✓ Garantir minha vaga agora
-              </a>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="text-base md:text-lg font-bold px-6 md:px-8 py-5 md:py-6 rounded-2xl border-2 border-foreground/20 hover:bg-card"
-              asChild
-            >
-              <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">
-                💬 Tirar dúvida no WhatsApp
-              </a>
-            </Button>
-          </div>
-
           {/* Benefícios Rápidos */}
           <div className="flex flex-wrap gap-2 md:gap-4 justify-center items-center px-2">
             <div className="flex items-center gap-1.5 md:gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
