@@ -57,7 +57,6 @@ export const Hero = () => {
               <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl pointer-events-none animate-pulse">
                 <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
                 <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none">R$ 297</p>
-                <p className="text-[9px] md:text-xs font-bold text-white/80 mt-0.5">ou 12x R$ 24,75</p>
               </div>
               
               {/* Badge de desconto */}
@@ -96,7 +95,7 @@ export const Hero = () => {
               <p className="text-xs md:text-base font-bold mb-2 md:mb-3 text-center pt-1">
                 🔥 Oferta especial por tempo limitado
               </p>
-              <div className="flex flex-row items-center justify-center gap-3 md:gap-6 mb-2 md:mb-3">
+              <div className="flex flex-row items-center justify-center gap-3 md:gap-6 mb-3 md:mb-4">
                 <div className="text-center">
                   <p className="text-[10px] md:text-xs text-muted-foreground mb-0.5">De:</p>
                   <span className="text-lg md:text-2xl line-through text-muted-foreground/50 font-bold">R$ 497</span>
@@ -106,9 +105,6 @@ export const Hero = () => {
                   <span className="text-3xl md:text-5xl font-black text-success">R$ 297</span>
                 </div>
               </div>
-              <p className="text-xs md:text-base font-bold text-center mb-3 md:mb-4">
-                💳 ou 12x de R$ 24,75 no cartão
-              </p>
               
               {/* Selo de Garantia Elegante */}
               <div className="bg-background/40 backdrop-blur-sm border border-success/30 rounded-xl p-2.5 md:p-4">
