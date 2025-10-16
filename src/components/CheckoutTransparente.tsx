@@ -495,62 +495,204 @@ export const CheckoutTransparente = () => {
         </div>
         )}
 
-        {/* Conteúdo Pix */}
+        {/* Formulário Pix */}
         {paymentMethod === "pix" && (
-          <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5 animate-slide-up mt-6">
-            <CardContent className="pt-6 pb-6 text-center">
-              <div className="space-y-4">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                  <QrCode className="w-8 h-8 text-primary" />
+          <div className="animate-slide-up mt-6">
+            <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
+              <CardContent className="pt-6 pb-6">
+                <div className="space-y-6">
+                  {/* Header Pix */}
+                  <div className="text-center space-y-3 pb-4 border-b-2 border-primary/10">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                      <QrCode className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">Pagamento via Pix</h3>
+                    <p className="text-sm text-foreground/70">
+                      Preencha seus dados para gerar o código Pix
+                    </p>
+                    <div className="flex items-center justify-center gap-2 text-sm text-success font-semibold">
+                      <CheckCircle2 className="w-4 h-4" />
+                      Aprovação instantânea
+                    </div>
+                  </div>
+
+                  {/* Formulário de Dados */}
+                  <div className="space-y-4 bg-muted/20 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                      </div>
+                      <h3 className="text-base font-bold text-foreground">Seus Dados</h3>
+                    </div>
+            
+                    <div className="space-y-2">
+                      <Label htmlFor="pix-name">Nome Completo *</Label>
+                      <Input
+                        id="pix-name"
+                        placeholder="Seu nome completo"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        disabled={loading}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="pix-email">E-mail *</Label>
+                      <Input
+                        id="pix-email"
+                        type="email"
+                        placeholder="seu@email.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        disabled={loading}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="pix-phone">Telefone com DDD *</Label>
+                        <Input
+                          id="pix-phone"
+                          placeholder="(00) 00000-0000"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+                          maxLength={15}
+                          disabled={loading}
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="pix-cpf">CPF *</Label>
+                        <Input
+                          id="pix-cpf"
+                          placeholder="000.000.000-00"
+                          value={formData.cpf}
+                          onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+                          maxLength={14}
+                          disabled={loading}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Botão de Pagamento */}
+                  <Button
+                    size="lg"
+                    className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
+                    onClick={() => window.location.href = 'https://pag.ae/7-LepVEPT'}
+                    disabled={loading || !formData.name || !formData.email || !formData.phone || !formData.cpf}
+                  >
+                    <QrCode className="mr-2 h-5 w-5" />
+                    Gerar Código Pix - R$ 297,00
+                  </Button>
+
+                  <p className="text-xs text-center text-muted-foreground">
+                    Após clicar, você será redirecionado para gerar o QR Code do Pix
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Pagamento via Pix</h3>
-                <p className="text-sm text-foreground/70">
-                  Clique no botão abaixo para gerar o código Pix e finalizar sua compra de forma rápida e segura.
-                </p>
-                <Button
-                  size="lg"
-                  className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
-                  onClick={() => window.location.href = 'https://pag.ae/7-LepVEPT'}
-                >
-                  <QrCode className="mr-2 h-5 w-5" />
-                  Pagar com Pix - R$ 297,00
-                </Button>
-                <div className="flex items-center justify-center gap-2 text-xs text-foreground/60">
-                  <CheckCircle2 className="w-4 h-4 text-success" />
-                  Aprovação instantânea
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         )}
 
-        {/* Conteúdo Boleto */}
+        {/* Formulário Boleto */}
         {paymentMethod === "boleto" && (
-          <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5 animate-slide-up mt-6">
-            <CardContent className="pt-6 pb-6 text-center">
-              <div className="space-y-4">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                  <FileText className="w-8 h-8 text-primary" />
+          <div className="animate-slide-up mt-6">
+            <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
+              <CardContent className="pt-6 pb-6">
+                <div className="space-y-6">
+                  {/* Header Boleto */}
+                  <div className="text-center space-y-3 pb-4 border-b-2 border-primary/10">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                      <FileText className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">Pagamento via Boleto</h3>
+                    <p className="text-sm text-foreground/70">
+                      Preencha seus dados para gerar o boleto bancário
+                    </p>
+                    <div className="flex items-center justify-center gap-2 text-sm text-accent font-semibold">
+                      <Clock className="w-4 h-4" />
+                      Compensação em até 3 dias úteis
+                    </div>
+                  </div>
+
+                  {/* Formulário de Dados */}
+                  <div className="space-y-4 bg-muted/20 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                      </div>
+                      <h3 className="text-base font-bold text-foreground">Seus Dados</h3>
+                    </div>
+            
+                    <div className="space-y-2">
+                      <Label htmlFor="boleto-name">Nome Completo *</Label>
+                      <Input
+                        id="boleto-name"
+                        placeholder="Seu nome completo"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        disabled={loading}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="boleto-email">E-mail *</Label>
+                      <Input
+                        id="boleto-email"
+                        type="email"
+                        placeholder="seu@email.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        disabled={loading}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="boleto-phone">Telefone com DDD *</Label>
+                        <Input
+                          id="boleto-phone"
+                          placeholder="(00) 00000-0000"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+                          maxLength={15}
+                          disabled={loading}
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="boleto-cpf">CPF *</Label>
+                        <Input
+                          id="boleto-cpf"
+                          placeholder="000.000.000-00"
+                          value={formData.cpf}
+                          onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+                          maxLength={14}
+                          disabled={loading}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Botão de Pagamento */}
+                  <Button
+                    size="lg"
+                    className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
+                    onClick={() => window.location.href = 'https://pag.ae/7-LepVEPT'}
+                    disabled={loading || !formData.name || !formData.email || !formData.phone || !formData.cpf}
+                  >
+                    <FileText className="mr-2 h-5 w-5" />
+                    Gerar Boleto - R$ 297,00
+                  </Button>
+
+                  <p className="text-xs text-center text-muted-foreground">
+                    Após clicar, você será redirecionado para gerar e imprimir o boleto
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Pagamento via Boleto</h3>
-                <p className="text-sm text-foreground/70">
-                  Clique no botão abaixo para gerar seu boleto bancário. O prazo de compensação é de até 3 dias úteis.
-                </p>
-                <Button
-                  size="lg"
-                  className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
-                  onClick={() => window.location.href = 'https://pag.ae/7-LepVEPT'}
-                >
-                  <FileText className="mr-2 h-5 w-5" />
-                  Gerar Boleto - R$ 297,00
-                </Button>
-                <div className="flex items-center justify-center gap-2 text-xs text-foreground/60">
-                  <Clock className="w-4 h-4 text-accent" />
-                  Compensação em até 3 dias úteis
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         )}
       </div>
     </div>
