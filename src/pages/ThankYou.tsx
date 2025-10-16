@@ -6,7 +6,11 @@ import logoImage from "@/assets/logo-new.png";
 
 const ThankYou = () => {
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
+    // Só rastrear conversões no domínio de produção
+    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
+                         window.location.hostname === 'www.informaticanapratica.com.br';
+    
+    if (typeof window !== 'undefined' && (window as any).gtag && isProduction) {
       // Disparar evento de conversão do Google Analytics
       (window as any).gtag('event', 'conversion', {
         'send_to': 'G-08B5E33G3F',
@@ -28,6 +32,10 @@ const ThankYou = () => {
         'currency': 'BRL',
         'transaction_id': ''
       });
+      
+      console.log('Google Ads conversion tracked on production domain');
+    } else if (!isProduction) {
+      console.log('Google Ads conversion skipped - not on production domain');
     }
   }, []);
 
