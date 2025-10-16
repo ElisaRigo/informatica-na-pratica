@@ -76,10 +76,10 @@ export const Hero = () => {
           <div className="mb-5 md:mb-6 max-w-3xl mx-auto">
             <Button 
               size="lg" 
-              className="text-base md:text-xl font-extrabold px-8 md:px-16 py-6 md:py-8 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
+              className="text-sm md:text-xl font-extrabold px-6 md:px-16 py-6 md:py-8 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
               asChild
             >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap">
                 🚀 Começar por R$ 297 (40% OFF)
               </a>
             </Button>

@@ -31,57 +31,54 @@ const Index = () => {
       <Header />
       <PromoTimer />
       <Hero />
+      {/* IDENTIFICAÇÃO */}
+      <Suspense fallback={<div className="h-32" />}>
+        <TargetAudience />
+      </Suspense>
+      {/* VALOR - O que vai aprender */}
       <Suspense fallback={<div className="h-32" />}>
         <ContentGrid />
       </Suspense>
+      {/* PROVA SOCIAL */}
       <Testimonials />
+      {/* AUTORIDADE & CREDIBILIDADE */}
       <AboutSection />
       <Suspense fallback={<div className="h-32" />}>
         <Authority />
       </Suspense>
       <SocialProof />
-      <Suspense fallback={<div className="h-32" />}>
-        <StrategicCTA context="depois de conhecer minha história" />
-      </Suspense>
-      <Suspense fallback={<div className="h-32" />}>
-        <TargetAudience />
-      </Suspense>
-      <Suspense fallback={<div className="h-32" />}>
-        <Possibilities />
-      </Suspense>
+      {/* PERCEPÇÃO DE VALOR */}
       <Suspense fallback={<div className="h-32" />}>
         <ValueStack />
       </Suspense>
       <Suspense fallback={<div className="h-32" />}>
-        <Comparison />
+        <StrategicCTA context="vendo todo o valor que você vai receber" />
       </Suspense>
-      <Suspense fallback={<div className="h-32" />}>
-        <EmotionalBenefits />
-      </Suspense>
-      <Suspense fallback={<div className="h-32" />}>
-        <StrategicCTA context="sabendo de tudo que você vai aprender" />
-      </Suspense>
-      <Suspense fallback={<div className="h-32" />}>
-        <NotForYou />
-      </Suspense>
+      {/* AUMENTAR VALOR PERCEBIDO */}
       <Suspense fallback={<div className="h-32" />}>
         <Bonus />
       </Suspense>
+      {/* OFERTA COM URGÊNCIA */}
       <Suspense fallback={<div className="h-32" />}>
         <Pricing />
       </Suspense>
+      {/* REDUZIR RISCO */}
       <Suspense fallback={<div className="h-32" />}>
         <Guarantee />
       </Suspense>
+      {/* QUEBRAR OBJEÇÕES */}
       <Suspense fallback={<div className="h-32" />}>
         <Objections />
       </Suspense>
+      {/* REFORÇAR CONFIANÇA */}
       <Suspense fallback={<div className="h-32" />}>
         <FinalTestimonials />
       </Suspense>
+      {/* ESCLARECER DÚVIDAS */}
       <Suspense fallback={<div className="h-32" />}>
         <FAQ />
       </Suspense>
+      {/* FECHAMENTO FINAL */}
       <Suspense fallback={<div className="h-32" />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>
