@@ -4,8 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, CreditCard, Lock, QrCode, FileText } from "lucide-react";
+import { Loader2, CreditCard, Lock, QrCode, FileText, ShieldCheck, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent } from "@/components/ui/card";
 
 export const CheckoutTransparente = () => {
   const [loading, setLoading] = useState(false);
@@ -160,7 +161,40 @@ export const CheckoutTransparente = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8 animate-fade-in">
+      {/* Trust Indicators */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
+          <CardContent className="pt-6 pb-6 flex flex-col items-center text-center space-y-2">
+            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <ShieldCheck className="w-6 h-6 text-primary" />
+            </div>
+            <h4 className="font-bold text-sm">100% Seguro</h4>
+            <p className="text-xs text-muted-foreground">Certificado PCI-DSS</p>
+          </CardContent>
+        </Card>
+
+        <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
+          <CardContent className="pt-6 pb-6 flex flex-col items-center text-center space-y-2">
+            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <Clock className="w-6 h-6 text-primary" />
+            </div>
+            <h4 className="font-bold text-sm">Acesso Imediato</h4>
+            <p className="text-xs text-muted-foreground">Após confirmação</p>
+          </CardContent>
+        </Card>
+
+        <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
+          <CardContent className="pt-6 pb-6 flex flex-col items-center text-center space-y-2">
+            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <Lock className="w-6 h-6 text-primary" />
+            </div>
+            <h4 className="font-bold text-sm">Dados Protegidos</h4>
+            <p className="text-xs text-muted-foreground">Criptografia SSL</p>
+          </CardContent>
+        </Card>
+      </div>
+
       {/* Seleção do Método de Pagamento */}
       <Tabs value={paymentMethod} onValueChange={(v) => setPaymentMethod(v as any)} className="w-full">
         <TabsList className="grid w-full grid-cols-3">
@@ -179,13 +213,33 @@ export const CheckoutTransparente = () => {
         </TabsList>
 
         {/* Formulário de Cartão */}
-        <TabsContent value="card">
-          <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-xl p-6">
-      {/* Dados Pessoais */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold flex items-center gap-2">
-          Dados Pessoais
-        </h3>
+        <TabsContent value="card" className="animate-slide-up">
+          <Card className="border-2 border-primary/20 shadow-lg">
+            <CardContent className="pt-8 pb-6">
+              <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Progress Indicator */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${!loading ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+                      1
+                    </div>
+                    <span className="text-sm font-semibold">Dados Pessoais</span>
+                  </div>
+                  <div className="h-px flex-1 mx-3 bg-border"></div>
+                  <div className="flex items-center gap-2">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${loading ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+                      2
+                    </div>
+                    <span className="text-sm font-semibold">Pagamento</span>
+                  </div>
+                </div>
+
+                {/* Dados Pessoais */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2 mb-4">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <h3 className="text-lg font-bold">Seus Dados</h3>
+                  </div>
         
         <div className="space-y-2">
           <Label htmlFor="name">Nome Completo *</Label>
@@ -237,12 +291,12 @@ export const CheckoutTransparente = () => {
         </div>
       </div>
 
-      {/* Dados do Cartão */}
-      <div className="space-y-4 pt-6 border-t border-border">
-        <h3 className="text-lg font-bold flex items-center gap-2">
-          <CreditCard className="w-5 h-5" />
-          Dados do Cartão
-        </h3>
+                {/* Dados do Cartão */}
+                <div className="space-y-4 pt-6 border-t-2 border-primary/10">
+                  <div className="flex items-center gap-2 mb-4">
+                    <CreditCard className="w-5 h-5 text-primary" />
+                    <h3 className="text-lg font-bold">Dados do Cartão</h3>
+                  </div>
 
         <div className="space-y-2">
           <Label htmlFor="cardNumber">Número do Cartão *</Label>
@@ -292,37 +346,80 @@ export const CheckoutTransparente = () => {
               disabled={loading}
             />
           </div>
-        </div>
-      </div>
+                  </div>
+                </div>
 
-      <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 flex items-start gap-3">
-        <Lock className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-        <div className="text-sm text-muted-foreground">
-          <p className="font-semibold text-foreground mb-1">Pagamento 100% Seguro</p>
-          <p>Seus dados são criptografados e processados de forma segura pelo PagSeguro (PCI-DSS Certificado)</p>
-        </div>
-      </div>
+                {/* Security Banner */}
+                <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded-lg p-5">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <Lock className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="space-y-1">
+                      <p className="font-bold text-foreground flex items-center gap-2">
+                        Pagamento 100% Seguro
+                        <ShieldCheck className="w-4 h-4 text-primary" />
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Seus dados são <strong className="text-foreground">criptografados</strong> e processados de forma segura pelo PagSeguro. 
+                        <span className="block mt-1">🔒 Certificado PCI-DSS Nível 1 | 🛡️ Proteção SSL/TLS</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-      <Button
-        type="submit"
-        size="lg"
-        className="w-full font-bold text-lg py-6"
-        disabled={loading}
-      >
-        {loading ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Processando pagamento...
-          </>
-        ) : (
-          'Finalizar Pagamento - R$ 5,00'
-        )}
-      </Button>
+                {/* Info Alert */}
+                {loading && (
+                  <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 flex items-start gap-3 animate-pulse">
+                    <AlertCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <div className="text-sm">
+                      <p className="font-semibold text-foreground">Aguarde, processando seu pagamento...</p>
+                      <p className="text-muted-foreground mt-1">Não feche esta janela ou pressione o botão voltar</p>
+                    </div>
+                  </div>
+                )}
 
-            <p className="text-xs text-muted-foreground text-center">
-              Ambiente de teste - Os dados do cartão não são armazenados em nosso servidor
-            </p>
-          </form>
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group"
+                  disabled={loading}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Processando pagamento seguro...
+                    </>
+                  ) : (
+                    <>
+                      <Lock className="mr-2 h-5 w-5" />
+                      Finalizar Pagamento Seguro - R$ 5,00
+                    </>
+                  )}
+                </Button>
+
+                {/* Footer Info */}
+                <div className="space-y-2">
+                  <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1">
+                    <ShieldCheck className="w-3 h-3" />
+                    Ambiente de teste - Os dados do cartão não são armazenados em nosso servidor
+                  </p>
+                  <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-primary" />
+                      Processamento Seguro
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-primary" />
+                      Dados Criptografados
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
         </TabsContent>
 
         {/* Formulário de Pix */}
