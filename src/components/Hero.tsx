@@ -31,37 +31,15 @@ export const Hero = () => {
             </div>
           </div>
           
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-3 md:mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8">
             <span className="text-destructive">Chega de perder oportunidades!</span><br />
             Aprenda <span className="text-primary">Word, Excel, PowerPoint e mais...</span><br />
             Mesmo Começando do Zero 💻
           </h1>
           
-          {/* Destaque: Promessa de Resultado */}
-          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-4 md:px-6 py-2 md:py-4 mb-3 md:mb-6 max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl lg:text-3xl font-black text-primary">
-              Conquiste o Emprego que Você Merece
-            </p>
-          </div>
-          
-          {/* CTA Principal Acima da Dobra */}
-          <div className="mb-4 md:mb-6">
-            <Button 
-              size="lg" 
-              className="text-base md:text-xl font-extrabold px-6 md:px-12 py-5 md:py-7 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg w-full sm:w-auto leading-tight"
-              asChild
-            >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                🚀 Começar por R$ 297 (40% OFF)
-              </a>
-            </Button>
-            <p className="text-[10px] md:text-sm text-muted-foreground mt-2 font-semibold">
-              ⏰ Vagas limitadas • Aproveite enquanto disponível
-            </p>
-          </div>
-          
-          <div className="relative max-w-3xl mx-auto mb-5 md:mb-6">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-line shadow-2xl bg-transparent">
+          {/* Vídeo em destaque - Elemento principal da primeira dobra */}
+          <div className="relative max-w-4xl mx-auto mb-5 md:mb-6">
+            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-transparent">
               <video
                 ref={videoRef}
                 controls
@@ -74,26 +52,31 @@ export const Hero = () => {
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeo HTML5.
               </video>
-              
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none">
-                <Button 
-                  size="sm"
-                  variant="secondary"
-                  className="text-xs font-semibold px-4 py-2 rounded-full opacity-90 hover:opacity-100 transition-opacity pointer-events-auto shadow-lg"
-                  asChild
-                >
-                  <a href="#about">Ver detalhes do curso</a>
-                </Button>
-              </div>
             </div>
           </div>
 
-          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-3 md:mb-5 max-w-3xl mx-auto px-2">
+          {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
+          <div className="mb-4 md:mb-6 max-w-3xl mx-auto">
+            <Button 
+              size="lg" 
+              className="text-base md:text-xl font-extrabold px-8 md:px-16 py-6 md:py-8 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
+              asChild
+            >
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+                🚀 Começar por R$ 297 (40% OFF)
+              </a>
+            </Button>
+            <p className="text-xs md:text-sm text-muted-foreground mt-2 font-semibold">
+              ⏰ Vagas limitadas • Aproveite enquanto disponível
+            </p>
+          </div>
+
+          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-4 md:mb-6 max-w-3xl mx-auto px-2">
             Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
           </p>
 
           {/* Bloco de Preço Elegante */}
-          <div className="mb-4 md:mb-8 max-w-3xl mx-auto">
+          <div className="mb-4 md:mb-6 max-w-3xl mx-auto">
             <div className="bg-gradient-to-br from-card via-panel to-card border-2 border-success/30 rounded-2xl p-4 md:p-6 shadow-2xl relative">
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-destructive text-destructive-foreground px-3 md:px-4 py-0.5 md:py-1 text-xs font-black rounded-full shadow-lg">
                 Economize R$ 200
@@ -127,6 +110,13 @@ export const Hero = () => {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Destaque: Promessa de Resultado - Movida para posição estratégica */}
+          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-5 mb-5 md:mb-7 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl lg:text-3xl font-black text-primary">
+              Conquiste o Emprego que Você Merece
+            </p>
           </div>
           
           {/* CTA Secundário */}
