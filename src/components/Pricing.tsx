@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, CreditCard, Smartphone, Clock } from "lucide-react";
-import { CheckoutForm } from "./CheckoutForm";
+import { useCheckout } from "@/hooks/useCheckout";
 
 const features = [
   'De R$ 497 por R$ 297',
@@ -11,6 +11,7 @@ const features = [
 ];
 
 export const Pricing = () => {
+  const { openCheckout } = useCheckout();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -167,11 +168,9 @@ export const Pricing = () => {
               <Button 
                 size="lg" 
                 className="w-full font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl md:rounded-2xl mb-3"
-                asChild
+                onClick={openCheckout}
               >
-                <a href="https://pag.ae/7-kWMybpk" target="_blank" rel="noopener noreferrer">
-                  Garantir minha vaga agora
-                </a>
+                Garantir minha vaga agora
               </Button>
 
               <Button 

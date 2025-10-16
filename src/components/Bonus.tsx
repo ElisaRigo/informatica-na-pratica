@@ -1,6 +1,7 @@
 import { Gift, Clock, Mail, Briefcase, Keyboard, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { useCheckout } from "@/hooks/useCheckout";
 
 const bonuses = [
   {
@@ -30,6 +31,7 @@ const bonuses = [
 ];
 
 export const Bonus = () => {
+  const { openCheckout } = useCheckout();
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
     minutes: 0,
@@ -184,11 +186,9 @@ export const Bonus = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
-              asChild
+              onClick={openCheckout}
             >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                🎁 Quero curso + bônus
-              </a>
+              🎁 Quero curso + bônus
             </Button>
             <p className="text-xs text-muted-foreground mt-4">
               🔒 Ambiente seguro • Acesso imediato após confirmação do pagamento

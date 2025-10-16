@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useCheckout } from "@/hooks/useCheckout";
 
 interface StrategicCTAProps {
   context?: string;
 }
 
 export const StrategicCTA = ({ context = "depois de ver tudo isso" }: StrategicCTAProps) => {
+  const { openCheckout } = useCheckout();
+  
   return (
     <div className="py-6 md:py-8">
       <div className="container mx-auto px-4">
@@ -30,12 +33,10 @@ export const StrategicCTA = ({ context = "depois de ver tudo isso" }: StrategicC
           <Button 
             size="lg" 
             className="font-extrabold px-6 md:px-10 py-6 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform group w-full md:w-auto"
-            asChild
+            onClick={openCheckout}
           >
-            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-              <span className="whitespace-nowrap">🚀 Garantir vaga</span>
-              <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-            </a>
+            <span className="whitespace-nowrap">🚀 Garantir vaga</span>
+            <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
           </Button>
           <p className="text-sm text-muted-foreground mt-4">
             ✓ Acesso imediato • ✓ Garantia de 7 dias • ✓ Certificado incluso

@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { useCheckout } from "@/hooks/useCheckout";
 
 const faqs = [
   {
@@ -82,6 +83,8 @@ const faqs = [
 ];
 
 export const FAQ = () => {
+  const { openCheckout } = useCheckout();
+  
   return (
     <section id="faq" className="py-20">
       <div className="container mx-auto px-4">
@@ -120,11 +123,9 @@ export const FAQ = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform w-full sm:w-auto"
-              asChild
+              onClick={openCheckout}
             >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                ✅ Sim, quero começar agora
-              </a>
+              ✅ Sim, quero começar agora
             </Button>
             <Button 
               size="lg" 

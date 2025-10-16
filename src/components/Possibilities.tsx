@@ -1,5 +1,6 @@
 import { CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCheckout } from "@/hooks/useCheckout";
 
 const advantages = [
   "Conquistar vagas de emprego com mais facilidade",
@@ -20,6 +21,8 @@ const disadvantages = [
 ];
 
 export const Possibilities = () => {
+  const { openCheckout } = useCheckout();
+  
   return (
     <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 to-accent/5">
       <div className="container mx-auto px-4">
@@ -87,11 +90,9 @@ export const Possibilities = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-6 md:px-10 py-5 md:py-6 rounded-2xl text-sm md:text-lg w-full md:w-auto"
-              asChild
+              onClick={openCheckout}
             >
-              <a href="https://pag.ae/8164tZJTR">
-                Garantir minha vaga agora
-              </a>
+              Garantir minha vaga agora
             </Button>
           </div>
         </div>
