@@ -7,8 +7,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
-import { CheckoutProvider } from "@/hooks/useCheckout";
-import { CheckoutModal } from "@/components/CheckoutModal";
+import { CheckoutForm } from "@/components/CheckoutForm";
 
 // Lazy load componentes em blocos separados para carregamento progressivo
 const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
@@ -29,8 +28,7 @@ const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })
 
 const VendaTeste = () => {
   return (
-    <CheckoutProvider>
-      <div className="min-h-screen">
+    <div className="min-h-screen">
         <Header />
         <PromoTimer />
         <Hero />
@@ -87,9 +85,7 @@ const VendaTeste = () => {
       </Suspense>
       <WhatsAppFloat />
       <Footer />
-      <CheckoutModal />
-      </div>
-    </CheckoutProvider>
+    </div>
   );
 };
 
