@@ -8,7 +8,7 @@ export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-12 lg:py-16">
+    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-8 lg:py-10">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -73,7 +73,7 @@ export const Hero = () => {
           </h2>
 
           {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
-          <div className="mb-6 md:mb-8 max-w-3xl mx-auto">
+          <div className="mb-5 md:mb-6 max-w-3xl mx-auto">
             <Button 
               size="lg" 
               className="text-base md:text-xl font-extrabold px-8 md:px-16 py-6 md:py-8 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
@@ -87,7 +87,17 @@ export const Hero = () => {
               ⏰ Oferta por tempo limitado • Garanta sua vaga
             </p>
           </div>
-          
+
+          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-5 md:mb-6 max-w-3xl mx-auto px-2">
+            Curso de informática online do básico ao mercado de trabalho, com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
+          </p>
+
+          {/* Destaque: Promessa de Resultado */}
+          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 mb-5 md:mb-6 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl lg:text-3xl font-black text-primary">
+              Conquiste o Emprego que Você Merece
+            </p>
+          </div>
           {/* Benefícios Rápidos */}
           <div className="flex flex-wrap gap-2 md:gap-4 justify-center items-center px-2">
             <div className="flex items-center gap-1.5 md:gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
