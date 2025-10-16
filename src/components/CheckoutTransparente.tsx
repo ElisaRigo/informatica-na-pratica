@@ -4,12 +4,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, CreditCard, Lock, ShieldCheck, CheckCircle2, Clock, AlertCircle } from "lucide-react";
+import { Loader2, CreditCard, Lock, ShieldCheck, CheckCircle2, Clock, AlertCircle, QrCode, FileText } from "lucide-react";
 import logoImage from "@/assets/logo-new.png";
 import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const CheckoutTransparente = () => {
   const [loading, setLoading] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("credit-card");
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -163,18 +165,18 @@ export const CheckoutTransparente = () => {
     <div className="space-y-6 animate-fade-in">
       {/* Header com Logo e Valor */}
       <div className="text-center pb-4 border-b-2 border-primary/10">
-        <div className="inline-flex items-center gap-3 mb-4">
-          <img src={logoImage} alt="Informática na Prática" className="h-12 w-auto" />
-          <div className="text-left">
-            <h3 className="text-lg font-bold text-foreground">Pagamento Seguro</h3>
-            <p className="text-sm text-foreground/70">Informática na Prática</p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+          <img src={logoImage} alt="Informática na Prática" className="h-10 sm:h-12 w-auto" />
+          <div className="text-center sm:text-left">
+            <h3 className="text-base sm:text-lg font-bold text-foreground">Pagamento Seguro</h3>
+            <p className="text-xs sm:text-sm text-foreground/70">Informática na Prática</p>
           </div>
         </div>
-        <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-5 inline-block border border-primary/20">
-          <p className="text-sm font-semibold text-foreground mb-2">Valor total do curso:</p>
-          <p className="text-4xl font-black text-gradient mb-2">R$ 297,00</p>
-          <p className="text-sm text-foreground/80 font-medium">ou em até 12x no cartão*</p>
-          <p className="text-xs text-foreground/60 mt-1">*parcelamento sujeito a juros da operadora</p>
+        <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-4 sm:p-5 inline-block border border-primary/20 w-full sm:w-auto">
+          <p className="text-xs sm:text-sm font-semibold text-foreground mb-2">Valor total do curso:</p>
+          <p className="text-3xl sm:text-4xl font-black text-gradient mb-2">R$ 297,00</p>
+          <p className="text-xs sm:text-sm text-foreground/80 font-medium">ou em até 12x no cartão*</p>
+          <p className="text-[10px] sm:text-xs text-foreground/60 mt-1">*parcelamento sujeito a juros da operadora</p>
         </div>
       </div>
 
@@ -213,8 +215,25 @@ export const CheckoutTransparente = () => {
 
       {/* Seleção do Método de Pagamento */}
       <div className="w-full">
-        {/* Formulário de Cartão */}
-        <div className="animate-slide-up mt-4">
+        <Tabs value={paymentMethod} onValueChange={setPaymentMethod} className="w-full">
+          <TabsList className="grid w-full grid-cols-3 mb-4">
+            <TabsTrigger value="credit-card" className="text-xs sm:text-sm">
+              <CreditCard className="w-4 h-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Cartão</span>
+              <span className="sm:hidden">Cartão</span>
+            </TabsTrigger>
+            <TabsTrigger value="pix" className="text-xs sm:text-sm">
+              <QrCode className="w-4 h-4 mr-1 sm:mr-2" />
+              Pix
+            </TabsTrigger>
+            <TabsTrigger value="boleto" className="text-xs sm:text-sm">
+              <FileText className="w-4 h-4 mr-1 sm:mr-2" />
+              Boleto
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Formulário de Cartão */}
+          <TabsContent value="credit-card" className="animate-slide-up mt-4">
           <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
             <CardContent className="pt-6 pb-6">
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -449,7 +468,66 @@ export const CheckoutTransparente = () => {
               </form>
             </CardContent>
           </Card>
-        </div>
+          </TabsContent>
+
+          {/* Conteúdo Pix */}
+          <TabsContent value="pix" className="animate-slide-up">
+            <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
+              <CardContent className="pt-6 pb-6 text-center">
+                <div className="space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                    <QrCode className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground">Pagamento via Pix</h3>
+                  <p className="text-sm text-foreground/70">
+                    Clique no botão abaixo para gerar o código Pix e finalizar sua compra de forma rápida e segura.
+                  </p>
+                  <Button
+                    size="lg"
+                    className="w-full font-bold text-base sm:text-lg py-6 sm:py-7 shadow-lg hover:shadow-xl transition-all"
+                    onClick={() => window.location.href = 'https://pag.ae/7-LepVEPT'}
+                  >
+                    <QrCode className="mr-2 h-5 w-5" />
+                    Pagar com Pix - R$ 297,00
+                  </Button>
+                  <div className="flex items-center justify-center gap-2 text-xs text-foreground/60">
+                    <CheckCircle2 className="w-4 h-4 text-success" />
+                    Aprovação instantânea
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Conteúdo Boleto */}
+          <TabsContent value="boleto" className="animate-slide-up">
+            <Card className="border-2 border-primary/30 shadow-xl bg-gradient-to-br from-card via-card to-primary/5">
+              <CardContent className="pt-6 pb-6 text-center">
+                <div className="space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                    <FileText className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground">Pagamento via Boleto</h3>
+                  <p className="text-sm text-foreground/70">
+                    Clique no botão abaixo para gerar seu boleto bancário. O prazo de compensação é de até 3 dias úteis.
+                  </p>
+                  <Button
+                    size="lg"
+                    className="w-full font-bold text-base sm:text-lg py-6 sm:py-7 shadow-lg hover:shadow-xl transition-all"
+                    onClick={() => window.location.href = 'https://pag.ae/7-LepVEPT'}
+                  >
+                    <FileText className="mr-2 h-5 w-5" />
+                    Gerar Boleto - R$ 297,00
+                  </Button>
+                  <div className="flex items-center justify-center gap-2 text-xs text-foreground/60">
+                    <Clock className="w-4 h-4 text-accent" />
+                    Compensação em até 3 dias úteis
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
