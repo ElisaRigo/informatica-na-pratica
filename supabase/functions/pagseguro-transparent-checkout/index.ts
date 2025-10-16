@@ -98,7 +98,7 @@ serve(async (req) => {
 
     // Enviar requisição para o PagSeguro
     const response = await fetch(
-      `https://ws.pagseguro.uol.com.br/v2/transactions?email=contato@informaticapratica.com.br&token=${PAGSEGURO_TOKEN}`,
+      `https://ws.pagseguro.uol.com.br/v2/transactions?email=elisa_cnt@hotmail.com&token=${PAGSEGURO_TOKEN}`,
       {
         method: 'POST',
         headers: {

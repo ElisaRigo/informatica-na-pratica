@@ -12,7 +12,7 @@ serve(async (req) => {
 
   try {
     const PAGSEGURO_TOKEN = Deno.env.get('PAGSEGURO_API_TOKEN');
-    const PAGSEGURO_EMAIL = 'contato@informaticapratica.com.br';
+    const PAGSEGURO_EMAIL = 'elisa_cnt@hotmail.com';
     
     if (!PAGSEGURO_TOKEN) {
       throw new Error('PagSeguro API token not configured');
