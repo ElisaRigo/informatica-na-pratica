@@ -12,7 +12,7 @@ export const CheckoutModal = () => {
         <DialogHeader className="text-center pb-2">
           <DialogTitle className="text-2xl md:text-3xl font-black text-gradient flex items-center justify-center gap-2">
             <ShieldCheck className="w-7 h-7 text-success" />
-            Finalize sua Compra com Segurança
+            Complete sua Inscrição no Curso
           </DialogTitle>
           <DialogDescription className="text-base text-muted-foreground pt-2">
             ✅ Pagamento 100% seguro | 🎓 Acesso imediato ao curso | 🔒 Garantia de 7 dias

@@ -167,14 +167,15 @@ export const CheckoutTransparente = () => {
             <CreditCard className="w-6 h-6 text-white" />
           </div>
           <div className="text-left">
-            <h3 className="text-lg font-bold">Checkout Seguro</h3>
+            <h3 className="text-lg font-bold">Pagamento Seguro</h3>
             <p className="text-sm text-muted-foreground">Informática na Prática</p>
           </div>
         </div>
         <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-4 inline-block">
-          <p className="text-sm text-muted-foreground mb-1">Valor total do curso:</p>
+          <p className="text-sm text-muted-foreground mb-1">Investimento no seu futuro:</p>
           <p className="text-4xl font-black text-gradient">R$ 297,00</p>
-          <p className="text-xs text-muted-foreground mt-1">ou em até 12x no cartão</p>
+          <p className="text-xs text-muted-foreground mt-1">à vista no cartão de crédito</p>
+          <p className="text-xs text-muted-foreground">ou parcele em até 12x (sujeito a juros da operadora)</p>
         </div>
       </div>
 
