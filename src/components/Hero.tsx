@@ -32,12 +32,11 @@ export const Hero = () => {
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8">
-            <span className="text-destructive">Chega de perder oportunidades!</span><br />
-            Aprenda <span className="text-primary">Word, Excel e mais...</span>
+            <span className="text-destructive">Chega de perder oportunidades!</span>
           </h1>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
-          <div className="relative max-w-3xl mx-auto mb-5 md:mb-6">
+          <div className="relative max-w-3xl mx-auto mb-6 md:mb-8">
             <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-transparent">
               <video
                 ref={videoRef}
@@ -52,18 +51,24 @@ export const Hero = () => {
                 Seu navegador não suporta vídeo HTML5.
               </video>
               
-              {/* Overlay estratégico com preço e desconto */}
-              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl pointer-events-none animate-pulse">
+              {/* Overlay estratégico com preço - CLICÁVEL */}
+              <a 
+                href="https://pag.ae/8164tZJTR" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer"
+              >
                 <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
                 <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
                 <div className="bg-destructive text-destructive-foreground rounded-md px-2 py-0.5 inline-block">
                   <p className="text-xs md:text-sm font-black">40% OFF</p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-6 md:mb-8">
+            Aprenda <span className="text-primary">Word, Excel e mais...</span><br />
             Mesmo Começando do Zero 💻
           </h2>
 
