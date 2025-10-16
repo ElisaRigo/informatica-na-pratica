@@ -31,6 +31,7 @@ const App = () => (
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/aguardando" element={<AguardandoConfirmacao />} />
             <Route path="/obrigada" element={<ThankYou />} />
+            <Route path="/aguardando-confirmacao" element={<AguardandoConfirmacao />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
             <Route path="/teste-checkout" element={<TesteCheckout />} />
