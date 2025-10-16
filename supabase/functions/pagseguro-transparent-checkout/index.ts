@@ -32,7 +32,7 @@ serve(async (req) => {
     console.log('Processing transparent checkout for:', body.customerEmail);
 
     // Construir XML para pagamento direto com cartão de crédito
-    // Usando valor de teste: R$ 5,00
+    // Valor: R$ 297,00
     const paymentXML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <payment>
   <mode>default</mode>
@@ -55,9 +55,9 @@ serve(async (req) => {
   <items>
     <item>
       <id>0001</id>
-      <description>Teste - Informática para Iniciantes</description>
+      <description>Informática na Prática - Curso Completo</description>
       <quantity>1</quantity>
-      <amount>5.00</amount>
+      <amount>297.00</amount>
     </item>
   </items>
   <creditCard>
@@ -143,10 +143,10 @@ serve(async (req) => {
           customer_email: body.customerEmail,
           customer_phone: body.customerPhone,
           customer_cpf: body.customerCPF,
-          amount: 5.00,
+          amount: 297.00,
           status: 'pending',
           payment_method: 'credit_card',
-          is_test: true
+          is_test: false
         })
       });
 

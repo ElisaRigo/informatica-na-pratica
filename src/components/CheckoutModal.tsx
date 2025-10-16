@@ -1,6 +1,7 @@
 import { useCheckout } from "@/hooks/useCheckout";
 import { CheckoutTransparente } from "./CheckoutTransparente";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { ShieldCheck } from "lucide-react";
 
 export const CheckoutModal = () => {
   const { showCheckout, closeCheckout } = useCheckout();
@@ -8,12 +9,13 @@ export const CheckoutModal = () => {
   return (
     <Dialog open={showCheckout} onOpenChange={closeCheckout}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl md:text-3xl font-bold text-gradient">
-            Finalize sua Compra
+        <DialogHeader className="text-center pb-2">
+          <DialogTitle className="text-2xl md:text-3xl font-black text-gradient flex items-center justify-center gap-2">
+            <ShieldCheck className="w-7 h-7 text-success" />
+            Finalize sua Compra com Segurança
           </DialogTitle>
-          <DialogDescription className="text-base">
-            Preencha os dados abaixo para garantir seu acesso ao curso
+          <DialogDescription className="text-base text-muted-foreground pt-2">
+            ✅ Pagamento 100% seguro | 🎓 Acesso imediato ao curso | 🔒 Garantia de 7 dias
           </DialogDescription>
         </DialogHeader>
         <CheckoutTransparente />
