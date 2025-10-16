@@ -7,7 +7,7 @@ interface StrategicCTAProps {
 
 export const StrategicCTA = ({ context = "depois de ver tudo isso" }: StrategicCTAProps) => {
   return (
-    <div className="py-6 md:py-8">
+    <div className="py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 rounded-3xl p-8">
           <p className="text-xl md:text-2xl font-bold mb-4">

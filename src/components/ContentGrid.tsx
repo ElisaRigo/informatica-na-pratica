@@ -40,7 +40,7 @@ const modules = [
 
 export const ContentGrid = () => {
   return (
-    <section id="conteudo" className="py-8 md:py-12 bg-panel">
+    <section id="conteudo" className="py-12 md:py-16 bg-panel">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
           O que você vai aprender
