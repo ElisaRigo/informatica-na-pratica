@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ShieldCheck } from "lucide-react";
-import { useCheckout } from "@/hooks/useCheckout";
 
 export const Guarantee = () => {
-  const { openCheckout } = useCheckout();
-  
   return (
     <section id="garantia" className="py-20 bg-panel">
       <div className="container mx-auto px-4 text-center">
@@ -19,9 +16,9 @@ export const Guarantee = () => {
           <Button 
             size="lg" 
             className="font-extrabold px-8 py-6 rounded-2xl"
-            onClick={openCheckout}
+            asChild
           >
-            Quero começar sem risco
+            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">Quero começar sem risco</a>
           </Button>
         </div>
       </div>

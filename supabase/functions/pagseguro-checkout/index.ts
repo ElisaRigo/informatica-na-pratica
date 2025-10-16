@@ -62,7 +62,7 @@ serve(async (req: Request) => {
 
     console.log('Sending request to PagSeguro API...');
 
-    const pagseguroResponse = await fetch(`https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`, {
+    const pagseguroResponse = await fetch('https://ws.pagseguro.uol.com.br/v2/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/xml; charset=UTF-8'
@@ -70,12 +70,10 @@ serve(async (req: Request) => {
       body: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <checkout>
   <currency>BRL</currency>
-  <redirectURL>https://afa78b97-840e-47e3-af65-707cd360c44b.lovableproject.com/aguardando-confirmacao</redirectURL>
-  <notificationURL>${Deno.env.get('SUPABASE_URL')}/functions/v1/pagseguro-webhook</notificationURL>
   <items>
     <item>
       <id>0001</id>
-      <description>Curso de Informatica na Pratica</description>
+      <description>Curso de Informática na Prática</description>
       <amount>297.00</amount>
       <quantity>1</quantity>
     </item>

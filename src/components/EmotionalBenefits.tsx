@@ -1,6 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCheckout } from "@/hooks/useCheckout";
 
 const benefits = [
   {
@@ -26,8 +25,6 @@ const benefits = [
 ];
 
 export const EmotionalBenefits = () => {
-  const { openCheckout } = useCheckout();
-  
   return (
     <section className="py-12 md:py-20 bg-panel/50">
       <div className="container mx-auto px-4">
@@ -57,9 +54,11 @@ export const EmotionalBenefits = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-10 py-6 rounded-2xl text-base"
-              onClick={openCheckout}
+              asChild
             >
-              Começar sem risco agora
+              <a href="https://pag.ae/8164tZJTR">
+                Começar sem risco agora
+              </a>
             </Button>
           </div>
         </div>

@@ -1,9 +1,7 @@
 import { Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCheckout } from "@/hooks/useCheckout";
 
 export const Comparison = () => {
-  const { openCheckout } = useCheckout();
   const withCourse = [
     "Domina Word, Excel e PowerPoint",
     "Mais confiança no trabalho",
@@ -77,9 +75,11 @@ export const Comparison = () => {
           <Button 
             size="lg" 
             className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform w-full md:w-auto"
-            onClick={openCheckout}
+            asChild
           >
-            🚀 Quero transformar minha vida
+            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+              🚀 Quero transformar minha vida
+            </a>
           </Button>
         </div>
       </div>

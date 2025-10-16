@@ -6,50 +6,29 @@ import logoImage from "@/assets/logo-new.png";
 
 const ThankYou = () => {
   useEffect(() => {
-    // Função para disparar eventos de conversão
-    const fireConversionEvents = () => {
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        const transactionId = new URLSearchParams(window.location.search).get('transaction_id') || '';
-        
-        // Google Analytics 4 - Evento de Compra
-        (window as any).gtag('event', 'purchase', {
-          'send_to': 'G-08B5E33G3F',
-          'transaction_id': transactionId,
-          'value': 297.0,
-          'currency': 'BRL',
-          'items': [{
-            'item_id': 'curso-informatica',
-            'item_name': 'Informática na Prática - Curso Completo',
-            'price': 297.0,
-            'quantity': 1
-          }]
-        });
-        
-        // Google Ads - Conversão de Compra
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
-          'value': 297.0,
-          'currency': 'BRL',
-          'transaction_id': transactionId
-        });
-        
-        // Evento adicional para confirmar pageview
-        (window as any).gtag('config', 'G-08B5E33G3F', {
-          page_path: '/obrigado',
-          page_title: 'Obrigado - Compra Confirmada'
-        });
-        
-        console.log('Conversão Google Ads disparada com sucesso!', { transactionId, value: 297.0 });
-      }
-    };
-
-    // Disparar imediatamente
-    fireConversionEvents();
-    
-    // Disparar novamente após 1 segundo (fallback)
-    const timeout = setTimeout(fireConversionEvents, 1000);
-    
-    return () => clearTimeout(timeout);
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      // Disparar evento de conversão do Google Analytics
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'G-08B5E33G3F',
+        'transaction_id': '',
+        'value': 297.0,
+        'currency': 'BRL'
+      });
+      
+      // Disparar pageview para garantir que o GA4 rastreie a página
+      (window as any).gtag('config', 'G-08B5E33G3F', {
+        page_path: '/obrigado',
+        page_title: 'Obrigado - Compra Confirmada'
+      });
+      
+      // Disparar evento de conversão do Google Ads
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
+        'value': 297.0,
+        'currency': 'BRL',
+        'transaction_id': ''
+      });
+    }
   }, []);
 
 

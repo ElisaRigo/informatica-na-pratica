@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button";
 import elisaPhoto from "@/assets/elisa-photo.jpg";
-import { useCheckout } from "@/hooks/useCheckout";
 
 export const AboutSection = () => {
-  const { openCheckout } = useCheckout();
-  
   return (
     <section id="about" className="py-8 md:py-12 bg-panel">
       <div className="container mx-auto px-4">
@@ -47,9 +44,11 @@ export const AboutSection = () => {
               <Button 
                 size="lg" 
                 className="font-extrabold px-8 py-6 rounded-2xl text-base"
-                onClick={openCheckout}
+                asChild
               >
-                🚀 Quero começar agora
+                <a href="https://pag.ae/8164tZJTR">
+                  🚀 Quero começar agora
+                </a>
               </Button>
               <Button 
                 size="lg" 

@@ -14,8 +14,6 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const AdminRegister = lazy(() => import("./components/admin/AdminRegister").then(m => ({ default: m.AdminRegister })));
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso").then(m => ({ default: m.TermosDeUso })));
 const PoliticaDePrivacidade = lazy(() => import("./pages/PoliticaDePrivacidade").then(m => ({ default: m.PoliticaDePrivacidade })));
-const TesteCheckout = lazy(() => import("./pages/TesteCheckout"));
-const VendaTeste = lazy(() => import("./pages/VendaTeste"));
 
 const queryClient = new QueryClient();
 
@@ -32,11 +30,8 @@ const App = () => (
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/aguardando" element={<AguardandoConfirmacao />} />
             <Route path="/obrigada" element={<ThankYou />} />
-            <Route path="/aguardando-confirmacao" element={<AguardandoConfirmacao />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
-            <Route path="/teste-checkout" element={<TesteCheckout />} />
-            <Route path="/venda-teste" element={<VendaTeste />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
