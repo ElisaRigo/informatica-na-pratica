@@ -8,6 +8,7 @@ import { Loader2 } from "lucide-react";
 
 export const CheckoutForm = () => {
   const [loading, setLoading] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<"credit_card" | "pix" | "boleto" | null>(null);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -33,9 +34,7 @@ export const CheckoutForm = () => {
     return value;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handlePaymentMethodClick = async (method: "credit_card" | "pix" | "boleto") => {
     if (!formData.name || !formData.email || !formData.phone || !formData.cpf) {
       toast({
         title: "Preencha todos os campos",
@@ -66,6 +65,7 @@ export const CheckoutForm = () => {
       return;
     }
 
+    setPaymentMethod(method);
     setLoading(true);
 
     try {
@@ -81,7 +81,6 @@ export const CheckoutForm = () => {
       if (error) throw error;
 
       if (data.success && data.checkoutCode) {
-        // Redirecionar para página de aguardando confirmação com o código do checkout
         window.location.href = `/aguardando-confirmacao?transaction_id=${data.checkoutCode}&payment_url=${encodeURIComponent(data.paymentUrl)}`;
       } else {
         throw new Error('Falha ao criar link de pagamento');
@@ -96,11 +95,12 @@ export const CheckoutForm = () => {
       });
     } finally {
       setLoading(false);
+      setPaymentMethod(null);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-card border border-border rounded-xl p-6">
+    <div className="space-y-4 bg-card border border-border rounded-xl p-6">
       <div className="space-y-2">
         <Label htmlFor="name">Nome Completo *</Label>
         <Input
@@ -148,25 +148,66 @@ export const CheckoutForm = () => {
         />
       </div>
 
-      <Button
-        type="submit"
-        size="lg"
-        className="w-full font-bold text-lg py-6"
-        disabled={loading}
-      >
-        {loading ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Processando...
-          </>
-        ) : (
-          'Ir para o Pagamento'
-        )}
-      </Button>
+      <div className="space-y-3 pt-4">
+        <p className="text-sm font-medium text-center mb-4">Escolha a forma de pagamento:</p>
+        
+        <Button
+          type="button"
+          size="lg"
+          className="w-full font-bold text-lg py-6"
+          disabled={loading}
+          onClick={() => handlePaymentMethodClick("credit_card")}
+        >
+          {loading && paymentMethod === "credit_card" ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            '💳 Pagar com Cartão de Crédito'
+          )}
+        </Button>
+
+        <Button
+          type="button"
+          size="lg"
+          variant="secondary"
+          className="w-full font-bold text-lg py-6"
+          disabled={loading}
+          onClick={() => handlePaymentMethodClick("pix")}
+        >
+          {loading && paymentMethod === "pix" ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            '📱 Pagar com PIX'
+          )}
+        </Button>
+
+        <Button
+          type="button"
+          size="lg"
+          variant="outline"
+          className="w-full font-bold text-lg py-6"
+          disabled={loading}
+          onClick={() => handlePaymentMethodClick("boleto")}
+        >
+          {loading && paymentMethod === "boleto" ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            '🧾 Pagar com Boleto'
+          )}
+        </Button>
+      </div>
 
       <p className="text-xs text-muted-foreground text-center">
         Você será redirecionado para o ambiente seguro do PagSeguro
       </p>
-    </form>
+    </div>
   );
 };
