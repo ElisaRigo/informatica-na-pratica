@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2, CreditCard, Lock, ShieldCheck, CheckCircle2, Clock, AlertCircle } from "lucide-react";
+import logoImage from "@/assets/logo-new.png";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const CheckoutTransparente = () => {
@@ -162,20 +163,18 @@ export const CheckoutTransparente = () => {
     <div className="space-y-6 animate-fade-in">
       {/* Header com Logo e Valor */}
       <div className="text-center pb-4 border-b-2 border-primary/10">
-        <div className="inline-flex items-center gap-3 mb-3">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <CreditCard className="w-6 h-6 text-white" />
-          </div>
+        <div className="inline-flex items-center gap-3 mb-4">
+          <img src={logoImage} alt="Informática na Prática" className="h-12 w-auto" />
           <div className="text-left">
-            <h3 className="text-lg font-bold">Pagamento Seguro</h3>
-            <p className="text-sm text-muted-foreground">Informática na Prática</p>
+            <h3 className="text-lg font-bold text-foreground">Pagamento Seguro</h3>
+            <p className="text-sm text-foreground/70">Informática na Prática</p>
           </div>
         </div>
-        <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-4 inline-block">
-          <p className="text-sm text-muted-foreground mb-1">Investimento no seu futuro:</p>
-          <p className="text-4xl font-black text-gradient">R$ 297,00</p>
-          <p className="text-xs text-muted-foreground mt-1">à vista no cartão de crédito</p>
-          <p className="text-xs text-muted-foreground">ou parcele em até 12x (sujeito a juros da operadora)</p>
+        <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-5 inline-block border border-primary/20">
+          <p className="text-sm font-semibold text-foreground mb-2">Valor total do curso:</p>
+          <p className="text-4xl font-black text-gradient mb-2">R$ 297,00</p>
+          <p className="text-sm text-foreground/80 font-medium">ou em até 12x no cartão*</p>
+          <p className="text-xs text-foreground/60 mt-1">*parcelamento sujeito a juros da operadora</p>
         </div>
       </div>
 
@@ -186,8 +185,8 @@ export const CheckoutTransparente = () => {
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
               <ShieldCheck className="w-5 h-5 text-primary" />
             </div>
-            <h4 className="font-bold text-sm">Pagamento Seguro</h4>
-            <p className="text-xs text-muted-foreground">Certificado PCI-DSS</p>
+            <h4 className="font-bold text-sm text-foreground">Pagamento Seguro</h4>
+            <p className="text-xs text-foreground/70">Certificado PCI-DSS</p>
           </CardContent>
         </Card>
 
@@ -196,8 +195,8 @@ export const CheckoutTransparente = () => {
             <div className="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center">
               <Clock className="w-5 h-5 text-success" />
             </div>
-            <h4 className="font-bold text-sm">Acesso Imediato</h4>
-            <p className="text-xs text-muted-foreground">Após confirmação</p>
+            <h4 className="font-bold text-sm text-foreground">Acesso Imediato</h4>
+            <p className="text-xs text-foreground/70">Após confirmação</p>
           </CardContent>
         </Card>
 
@@ -206,8 +205,8 @@ export const CheckoutTransparente = () => {
             <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
               <Lock className="w-5 h-5 text-accent" />
             </div>
-            <h4 className="font-bold text-sm">Dados Protegidos</h4>
-            <p className="text-xs text-muted-foreground">Criptografia SSL</p>
+            <h4 className="font-bold text-sm text-foreground">Dados Protegidos</h4>
+            <p className="text-xs text-foreground/70">Criptografia SSL</p>
           </CardContent>
         </Card>
       </div>
@@ -226,14 +225,14 @@ export const CheckoutTransparente = () => {
                       <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg">
                         1
                       </div>
-                      <span className="text-sm font-semibold">Seus Dados</span>
+                      <span className="text-sm font-semibold text-foreground">Seus Dados</span>
                     </div>
                     <div className="h-1 flex-1 mx-3 bg-gradient-to-r from-primary to-primary/20 rounded-full"></div>
                     <div className="flex items-center gap-3">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${loading ? 'bg-primary text-primary-foreground shadow-lg' : 'bg-muted text-muted-foreground'}`}>
                         2
                       </div>
-                      <span className="text-sm font-semibold">Pagamento</span>
+                      <span className="text-sm font-semibold text-foreground">Pagamento</span>
                     </div>
                   </div>
                 </div>
@@ -244,7 +243,7 @@ export const CheckoutTransparente = () => {
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <CheckCircle2 className="w-4 h-4 text-primary" />
                     </div>
-                    <h3 className="text-base font-bold">Dados Pessoais</h3>
+                    <h3 className="text-base font-bold text-foreground">Dados Pessoais</h3>
                   </div>
         
         <div className="space-y-2">
@@ -303,7 +302,7 @@ export const CheckoutTransparente = () => {
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <CreditCard className="w-4 h-4 text-primary" />
                     </div>
-                    <h3 className="text-base font-bold">Dados do Cartão</h3>
+                    <h3 className="text-base font-bold text-foreground">Dados do Cartão</h3>
                   </div>
 
         <div className="space-y-2">
