@@ -75,8 +75,8 @@ serve(async (req: Request) => {
   <items>
     <item>
       <id>0001</id>
-      <description>Curso de Informatica na Pratica - Teste</description>
-      <amount>5.00</amount>
+      <description>Curso de Informatica na Pratica</description>
+      <amount>297.00</amount>
       <quantity>1</quantity>
     </item>
   </items>
@@ -127,7 +127,7 @@ serve(async (req: Request) => {
       .insert({
         pagseguro_transaction_id: checkoutCode,
         status: 'initiated',
-        amount: 5.00,
+        amount: 297.00,
         webhook_data: {
           customerName,
           customerEmail,

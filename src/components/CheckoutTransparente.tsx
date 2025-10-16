@@ -594,13 +594,12 @@ export const CheckoutTransparente = () => {
 
                       setLoading(true);
                       try {
-                        const { data, error } = await supabase.functions.invoke('pagseguro-pix-boleto', {
+                        const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
                           body: {
                             customerName: formData.name,
                             customerEmail: formData.email,
                             customerPhone: cleanPhone,
-                            customerCPF: cleanCPF,
-                            paymentMethod: 'pix'
+                            customerCPF: cleanCPF
                           }
                         });
 
@@ -609,12 +608,12 @@ export const CheckoutTransparente = () => {
                         if (data.success) {
                           window.location.href = data.paymentUrl;
                         } else {
-                          throw new Error(data.error || 'Falha ao gerar código Pix');
+                          throw new Error(data.error || 'Falha ao gerar pagamento');
                         }
                       } catch (error: any) {
                         console.error('Error:', error);
                         toast({
-                          title: "Erro ao gerar Pix",
+                          title: "Erro ao processar",
                           description: error.message || "Tente novamente",
                           variant: "destructive"
                         });
@@ -627,12 +626,12 @@ export const CheckoutTransparente = () => {
                     {loading ? (
                       <>
                         <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                        Gerando código...
+                        Processando...
                       </>
                     ) : (
                       <>
                         <QrCode className="mr-2 h-5 w-5" />
-                        Gerar Código Pix - R$ 297,00
+                        Pagar com Pix - R$ 297,00
                       </>
                     )}
                   </Button>
@@ -745,13 +744,12 @@ export const CheckoutTransparente = () => {
 
                       setLoading(true);
                       try {
-                        const { data, error } = await supabase.functions.invoke('pagseguro-pix-boleto', {
+                        const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
                           body: {
                             customerName: formData.name,
                             customerEmail: formData.email,
                             customerPhone: cleanPhone,
-                            customerCPF: cleanCPF,
-                            paymentMethod: 'boleto'
+                            customerCPF: cleanCPF
                           }
                         });
 
@@ -765,7 +763,7 @@ export const CheckoutTransparente = () => {
                       } catch (error: any) {
                         console.error('Error:', error);
                         toast({
-                          title: "Erro ao gerar boleto",
+                          title: "Erro ao processar",
                           description: error.message || "Tente novamente",
                           variant: "destructive"
                         });
@@ -778,12 +776,12 @@ export const CheckoutTransparente = () => {
                     {loading ? (
                       <>
                         <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                        Gerando boleto...
+                        Processando...
                       </>
                     ) : (
                       <>
                         <FileText className="mr-2 h-5 w-5" />
-                        Gerar Boleto - R$ 297,00
+                        Pagar com Boleto - R$ 297,00
                       </>
                     )}
                   </Button>
