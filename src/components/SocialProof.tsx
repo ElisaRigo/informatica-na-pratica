@@ -2,7 +2,7 @@ import { Users, TrendingUp, Award, Zap } from "lucide-react";
 
 export const SocialProof = () => {
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 to-accent/5 border-y border-line">
+    <section className="py-8 md:py-12 bg-gradient-to-br from-primary/5 to-accent/5 border-y border-line">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 mb-6 bg-primary/10 px-4 py-2 rounded-full">
