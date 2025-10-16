@@ -70,10 +70,12 @@ serve(async (req: Request) => {
       body: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <checkout>
   <currency>BRL</currency>
+  <redirectURL>https://afa78b97-840e-47e3-af65-707cd360c44b.lovableproject.com/aguardando-confirmacao</redirectURL>
+  <notificationURL>${Deno.env.get('SUPABASE_URL')}/functions/v1/pagseguro-webhook</notificationURL>
   <items>
     <item>
       <id>0001</id>
-      <description>Curso de Informática na Prática</description>
+      <description>Curso de Informatica na Pratica - Teste</description>
       <amount>5.00</amount>
       <quantity>1</quantity>
     </item>
