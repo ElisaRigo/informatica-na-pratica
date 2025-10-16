@@ -579,7 +579,7 @@ export const CheckoutTransparente = () => {
                   <Button
                     size="lg"
                     className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
-                    onClick={async () => {
+                    onClick={() => {
                       const cleanPhone = formData.phone.replace(/\D/g, '');
                       const cleanCPF = formData.cpf.replace(/\D/g, '');
                       
@@ -592,48 +592,13 @@ export const CheckoutTransparente = () => {
                         return;
                       }
 
-                      setLoading(true);
-                      try {
-                        const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
-                          body: {
-                            customerName: formData.name,
-                            customerEmail: formData.email,
-                            customerPhone: cleanPhone,
-                            customerCPF: cleanCPF
-                          }
-                        });
-
-                        if (error) throw error;
-
-                        if (data.success) {
-                          window.location.href = data.paymentUrl;
-                        } else {
-                          throw new Error(data.error || 'Falha ao gerar pagamento');
-                        }
-                      } catch (error: any) {
-                        console.error('Error:', error);
-                        toast({
-                          title: "Erro ao processar",
-                          description: error.message || "Tente novamente",
-                          variant: "destructive"
-                        });
-                      } finally {
-                        setLoading(false);
-                      }
+                      // Redirecionar para o link de pagamento com os dados validados
+                      window.location.href = 'https://pag.ae/7-LepVEPT';
                     }}
                     disabled={loading || !formData.name || !formData.email || !formData.phone || !formData.cpf}
                   >
-                    {loading ? (
-                      <>
-                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                        Processando...
-                      </>
-                    ) : (
-                      <>
-                        <QrCode className="mr-2 h-5 w-5" />
-                        Pagar com Pix - R$ 297,00
-                      </>
-                    )}
+                    <QrCode className="mr-2 h-5 w-5" />
+                    Pagar com Pix - R$ 297,00
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground">
@@ -729,7 +694,7 @@ export const CheckoutTransparente = () => {
                   <Button
                     size="lg"
                     className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
-                    onClick={async () => {
+                    onClick={() => {
                       const cleanPhone = formData.phone.replace(/\D/g, '');
                       const cleanCPF = formData.cpf.replace(/\D/g, '');
                       
@@ -742,48 +707,13 @@ export const CheckoutTransparente = () => {
                         return;
                       }
 
-                      setLoading(true);
-                      try {
-                        const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
-                          body: {
-                            customerName: formData.name,
-                            customerEmail: formData.email,
-                            customerPhone: cleanPhone,
-                            customerCPF: cleanCPF
-                          }
-                        });
-
-                        if (error) throw error;
-
-                        if (data.success) {
-                          window.location.href = data.paymentUrl;
-                        } else {
-                          throw new Error(data.error || 'Falha ao gerar boleto');
-                        }
-                      } catch (error: any) {
-                        console.error('Error:', error);
-                        toast({
-                          title: "Erro ao processar",
-                          description: error.message || "Tente novamente",
-                          variant: "destructive"
-                        });
-                      } finally {
-                        setLoading(false);
-                      }
+                      // Redirecionar para o link de pagamento com os dados validados
+                      window.location.href = 'https://pag.ae/7-LepVEPT';
                     }}
                     disabled={loading || !formData.name || !formData.email || !formData.phone || !formData.cpf}
                   >
-                    {loading ? (
-                      <>
-                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                        Processando...
-                      </>
-                    ) : (
-                      <>
-                        <FileText className="mr-2 h-5 w-5" />
-                        Pagar com Boleto - R$ 297,00
-                      </>
-                    )}
+                    <FileText className="mr-2 h-5 w-5" />
+                    Pagar com Boleto - R$ 297,00
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground">
