@@ -8,7 +8,7 @@ export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-8 lg:py-10">
+    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-6 lg:py-8">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
