@@ -52,8 +52,7 @@ export const Hero = () => {
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                <span className="block md:inline">🚀 Quero Começar por <span className="text-2xl md:text-3xl">R$ 297</span></span>
-                <span className="block md:inline md:ml-2 text-lg md:text-xl">(40% OFF)</span>
+                🚀 Começar por R$ 297 (40% OFF)
               </a>
             </Button>
             <p className="text-[10px] md:text-sm text-muted-foreground mt-2 font-semibold">
