@@ -579,11 +579,62 @@ export const CheckoutTransparente = () => {
                   <Button
                     size="lg"
                     className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
-                    onClick={() => window.location.href = 'https://pag.ae/7-LepVEPT'}
+                    onClick={async () => {
+                      const cleanPhone = formData.phone.replace(/\D/g, '');
+                      const cleanCPF = formData.cpf.replace(/\D/g, '');
+                      
+                      if (!formData.name || !formData.email || cleanPhone.length !== 11 || cleanCPF.length !== 11) {
+                        toast({
+                          title: "Preencha todos os campos",
+                          description: "Todos os campos são obrigatórios e válidos",
+                          variant: "destructive"
+                        });
+                        return;
+                      }
+
+                      setLoading(true);
+                      try {
+                        const { data, error } = await supabase.functions.invoke('pagseguro-pix-boleto', {
+                          body: {
+                            customerName: formData.name,
+                            customerEmail: formData.email,
+                            customerPhone: cleanPhone,
+                            customerCPF: cleanCPF,
+                            paymentMethod: 'pix'
+                          }
+                        });
+
+                        if (error) throw error;
+
+                        if (data.success) {
+                          window.location.href = data.paymentUrl;
+                        } else {
+                          throw new Error(data.error || 'Falha ao gerar código Pix');
+                        }
+                      } catch (error: any) {
+                        console.error('Error:', error);
+                        toast({
+                          title: "Erro ao gerar Pix",
+                          description: error.message || "Tente novamente",
+                          variant: "destructive"
+                        });
+                      } finally {
+                        setLoading(false);
+                      }
+                    }}
                     disabled={loading || !formData.name || !formData.email || !formData.phone || !formData.cpf}
                   >
-                    <QrCode className="mr-2 h-5 w-5" />
-                    Gerar Código Pix - R$ 297,00
+                    {loading ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Gerando código...
+                      </>
+                    ) : (
+                      <>
+                        <QrCode className="mr-2 h-5 w-5" />
+                        Gerar Código Pix - R$ 297,00
+                      </>
+                    )}
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground">
@@ -679,11 +730,62 @@ export const CheckoutTransparente = () => {
                   <Button
                     size="lg"
                     className="w-full font-bold text-lg py-7 shadow-lg hover:shadow-xl transition-all"
-                    onClick={() => window.location.href = 'https://pag.ae/7-LepVEPT'}
+                    onClick={async () => {
+                      const cleanPhone = formData.phone.replace(/\D/g, '');
+                      const cleanCPF = formData.cpf.replace(/\D/g, '');
+                      
+                      if (!formData.name || !formData.email || cleanPhone.length !== 11 || cleanCPF.length !== 11) {
+                        toast({
+                          title: "Preencha todos os campos",
+                          description: "Todos os campos são obrigatórios e válidos",
+                          variant: "destructive"
+                        });
+                        return;
+                      }
+
+                      setLoading(true);
+                      try {
+                        const { data, error } = await supabase.functions.invoke('pagseguro-pix-boleto', {
+                          body: {
+                            customerName: formData.name,
+                            customerEmail: formData.email,
+                            customerPhone: cleanPhone,
+                            customerCPF: cleanCPF,
+                            paymentMethod: 'boleto'
+                          }
+                        });
+
+                        if (error) throw error;
+
+                        if (data.success) {
+                          window.location.href = data.paymentUrl;
+                        } else {
+                          throw new Error(data.error || 'Falha ao gerar boleto');
+                        }
+                      } catch (error: any) {
+                        console.error('Error:', error);
+                        toast({
+                          title: "Erro ao gerar boleto",
+                          description: error.message || "Tente novamente",
+                          variant: "destructive"
+                        });
+                      } finally {
+                        setLoading(false);
+                      }
+                    }}
                     disabled={loading || !formData.name || !formData.email || !formData.phone || !formData.cpf}
                   >
-                    <FileText className="mr-2 h-5 w-5" />
-                    Gerar Boleto - R$ 297,00
+                    {loading ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Gerando boleto...
+                      </>
+                    ) : (
+                      <>
+                        <FileText className="mr-2 h-5 w-5" />
+                        Gerar Boleto - R$ 297,00
+                      </>
+                    )}
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground">

@@ -2,3 +2,6 @@ project_id = "exncvylyygvctgwyqpin"
 
 [functions.pagseguro-webhook]
 verify_jwt = false
+
+[functions.pagseguro-pix-boleto]
+verify_jwt = false
