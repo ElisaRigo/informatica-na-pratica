@@ -4,10 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, CreditCard, Lock } from "lucide-react";
+import { Loader2, CreditCard, Lock, QrCode, FileText } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const CheckoutTransparente = () => {
   const [loading, setLoading] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<"card" | "pix" | "boleto">("card");
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -158,7 +160,27 @@ export const CheckoutTransparente = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-xl p-6">
+    <div className="space-y-6">
+      {/* Seleção do Método de Pagamento */}
+      <Tabs value={paymentMethod} onValueChange={(v) => setPaymentMethod(v as any)} className="w-full">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="card" className="flex items-center gap-2">
+            <CreditCard className="w-4 h-4" />
+            Cartão
+          </TabsTrigger>
+          <TabsTrigger value="pix" className="flex items-center gap-2">
+            <QrCode className="w-4 h-4" />
+            Pix
+          </TabsTrigger>
+          <TabsTrigger value="boleto" className="flex items-center gap-2">
+            <FileText className="w-4 h-4" />
+            Boleto
+          </TabsTrigger>
+        </TabsList>
+
+        {/* Formulário de Cartão */}
+        <TabsContent value="card">
+          <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-xl p-6">
       {/* Dados Pessoais */}
       <div className="space-y-4">
         <h3 className="text-lg font-bold flex items-center gap-2">
@@ -297,9 +319,148 @@ export const CheckoutTransparente = () => {
         )}
       </Button>
 
-      <p className="text-xs text-muted-foreground text-center">
-        Ambiente de teste - Os dados do cartão não são armazenados em nosso servidor
-      </p>
-    </form>
+            <p className="text-xs text-muted-foreground text-center">
+              Ambiente de teste - Os dados do cartão não são armazenados em nosso servidor
+            </p>
+          </form>
+        </TabsContent>
+
+        {/* Formulário de Pix */}
+        <TabsContent value="pix">
+          <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-xl p-6">
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold flex items-center gap-2">
+                <QrCode className="w-5 h-5" />
+                Pagamento via Pix
+              </h3>
+              
+              <div className="space-y-2">
+                <Label htmlFor="pix-name">Nome Completo *</Label>
+                <Input
+                  id="pix-name"
+                  placeholder="Seu nome completo"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="pix-email">E-mail *</Label>
+                <Input
+                  id="pix-email"
+                  type="email"
+                  placeholder="seu@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="pix-cpf">CPF *</Label>
+                <Input
+                  id="pix-cpf"
+                  placeholder="000.000.000-00"
+                  value={formData.cpf}
+                  onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+                  maxLength={14}
+                  disabled={loading}
+                />
+              </div>
+            </div>
+
+            <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+              <p className="text-sm font-semibold mb-2">✓ Pagamento instantâneo</p>
+              <p className="text-sm text-muted-foreground">Após confirmar, você receberá um QR Code para pagar via Pix</p>
+            </div>
+
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full font-bold text-lg py-6"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Gerando QR Code...
+                </>
+              ) : (
+                'Gerar QR Code Pix - R$ 5,00'
+              )}
+            </Button>
+          </form>
+        </TabsContent>
+
+        {/* Formulário de Boleto */}
+        <TabsContent value="boleto">
+          <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-xl p-6">
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                Pagamento via Boleto
+              </h3>
+              
+              <div className="space-y-2">
+                <Label htmlFor="boleto-name">Nome Completo *</Label>
+                <Input
+                  id="boleto-name"
+                  placeholder="Seu nome completo"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="boleto-email">E-mail *</Label>
+                <Input
+                  id="boleto-email"
+                  type="email"
+                  placeholder="seu@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="boleto-cpf">CPF *</Label>
+                <Input
+                  id="boleto-cpf"
+                  placeholder="000.000.000-00"
+                  value={formData.cpf}
+                  onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+                  maxLength={14}
+                  disabled={loading}
+                />
+              </div>
+            </div>
+
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-4">
+              <p className="text-sm font-semibold mb-2">⏱️ Pagamento em até 3 dias úteis</p>
+              <p className="text-sm text-muted-foreground">O boleto pode ser pago em qualquer banco até a data de vencimento</p>
+            </div>
+
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full font-bold text-lg py-6"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Gerando Boleto...
+                </>
+              ) : (
+                'Gerar Boleto - R$ 5,00'
+              )}
+            </Button>
+          </form>
+        </TabsContent>
+      </Tabs>
+    </div>
   );
 };
