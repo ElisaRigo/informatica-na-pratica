@@ -62,7 +62,7 @@ serve(async (req: Request) => {
 
     console.log('Sending request to PagSeguro API...');
 
-    const pagseguroResponse = await fetch('https://ws.pagseguro.uol.com.br/v2/checkout', {
+    const pagseguroResponse = await fetch(`https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/xml; charset=UTF-8'
@@ -74,7 +74,7 @@ serve(async (req: Request) => {
     <item>
       <id>0001</id>
       <description>Curso de Informática na Prática</description>
-      <amount>297.00</amount>
+      <amount>5.00</amount>
       <quantity>1</quantity>
     </item>
   </items>
@@ -125,7 +125,7 @@ serve(async (req: Request) => {
       .insert({
         pagseguro_transaction_id: checkoutCode,
         status: 'initiated',
-        amount: 297.00,
+        amount: 5.00,
         webhook_data: {
           customerName,
           customerEmail,
