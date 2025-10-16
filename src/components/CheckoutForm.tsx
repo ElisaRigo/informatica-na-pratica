@@ -7,7 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
 
 export const CheckoutForm = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<string | null>(null);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -33,9 +33,7 @@ export const CheckoutForm = () => {
     return value;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handlePaymentClick = async (paymentMethod: string) => {
     if (!formData.name || !formData.email || !formData.phone || !formData.cpf) {
       toast({
         title: "Preencha todos os campos",
@@ -66,7 +64,7 @@ export const CheckoutForm = () => {
       return;
     }
 
-    setLoading(true);
+    setLoading(paymentMethod);
 
     try {
       const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
@@ -81,8 +79,7 @@ export const CheckoutForm = () => {
       if (error) throw error;
 
       if (data.success && data.checkoutCode) {
-        // Redirecionar para página de aguardando confirmação com o código do checkout
-        window.location.href = `/aguardando-confirmacao?transaction_id=${data.checkoutCode}&payment_url=${encodeURIComponent(data.paymentUrl)}`;
+        window.location.href = `/aguardando?transaction_id=${data.checkoutCode}&payment_url=${encodeURIComponent(data.paymentUrl)}`;
       } else {
         throw new Error('Falha ao criar link de pagamento');
       }
@@ -95,12 +92,12 @@ export const CheckoutForm = () => {
         variant: "destructive"
       });
     } finally {
-      setLoading(false);
+      setLoading(null);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-card border border-border rounded-xl p-6">
+    <div className="space-y-4 bg-card border border-border rounded-xl p-6">
       <div className="space-y-2">
         <Label htmlFor="name">Nome Completo *</Label>
         <Input
@@ -108,7 +105,7 @@ export const CheckoutForm = () => {
           placeholder="Seu nome completo"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          disabled={loading}
+          disabled={loading !== null}
         />
       </div>
 
@@ -120,7 +117,7 @@ export const CheckoutForm = () => {
           placeholder="seu@email.com"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          disabled={loading}
+          disabled={loading !== null}
         />
       </div>
 
@@ -132,7 +129,7 @@ export const CheckoutForm = () => {
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
           maxLength={15}
-          disabled={loading}
+          disabled={loading !== null}
         />
       </div>
 
@@ -144,29 +141,68 @@ export const CheckoutForm = () => {
           value={formData.cpf}
           onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
           maxLength={14}
-          disabled={loading}
+          disabled={loading !== null}
         />
       </div>
 
-      <Button
-        type="submit"
-        size="lg"
-        className="w-full font-bold text-lg py-6"
-        disabled={loading}
-      >
-        {loading ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Processando...
-          </>
-        ) : (
-          'Ir para o Pagamento'
-        )}
-      </Button>
+      <div className="space-y-3 pt-4">
+        <p className="text-sm font-medium text-center mb-2">Escolha sua forma de pagamento:</p>
+        
+        <Button
+          onClick={() => handlePaymentClick('creditcard')}
+          size="lg"
+          className="w-full font-bold text-lg py-6"
+          disabled={loading !== null}
+          variant="default"
+        >
+          {loading === 'creditcard' ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            '💳 Cartão de Crédito'
+          )}
+        </Button>
+
+        <Button
+          onClick={() => handlePaymentClick('pix')}
+          size="lg"
+          className="w-full font-bold text-lg py-6"
+          disabled={loading !== null}
+          variant="secondary"
+        >
+          {loading === 'pix' ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            '📱 PIX'
+          )}
+        </Button>
+
+        <Button
+          onClick={() => handlePaymentClick('boleto')}
+          size="lg"
+          className="w-full font-bold text-lg py-6"
+          disabled={loading !== null}
+          variant="outline"
+        >
+          {loading === 'boleto' ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            '🧾 Boleto'
+          )}
+        </Button>
+      </div>
 
       <p className="text-xs text-muted-foreground text-center">
         Você será redirecionado para o ambiente seguro do PagSeguro
       </p>
-    </form>
+    </div>
   );
 };

@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 const Admin = lazy(() => import("./pages/Admin"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const AguardandoConfirmacao = lazy(() => import("./pages/AguardandoConfirmacao"));
+const VendaTeste = lazy(() => import("./pages/VendaTeste"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AdminRegister = lazy(() => import("./components/admin/AdminRegister").then(m => ({ default: m.AdminRegister })));
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso").then(m => ({ default: m.TermosDeUso })));
@@ -26,6 +27,7 @@ const App = () => (
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/aguardando" element={<AguardandoConfirmacao />} />
