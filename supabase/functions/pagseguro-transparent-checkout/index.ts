@@ -10,11 +10,9 @@ interface TransparentCheckoutRequest {
   customerEmail: string;
   customerPhone: string;
   customerCPF: string;
-  cardNumber: string;
-  cardHolder: string;
-  cardExpMonth: string;
-  cardExpYear: string;
-  cardCVV: string;
+  cardToken: string;
+  senderHash: string;
+  installments?: number;
 }
 
 serve(async (req) => {
@@ -31,8 +29,10 @@ serve(async (req) => {
     const body: TransparentCheckoutRequest = await req.json();
     console.log('Processing transparent checkout for:', body.customerEmail);
 
-    // Construir XML para pagamento direto com cartão de crédito
-    // Valor: R$ 297,00
+    const installments = body.installments || 1;
+    const amount = 297.00;
+
+    // Construir XML para pagamento direto com cartão de crédito tokenizado
     const paymentXML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <payment>
   <mode>default</mode>
@@ -50,6 +50,7 @@ serve(async (req) => {
         <value>${body.customerCPF}</value>
       </document>
     </documents>
+    <hash>${body.senderHash}</hash>
   </sender>
   <currency>BRL</currency>
   <items>
@@ -57,20 +58,24 @@ serve(async (req) => {
       <id>0001</id>
       <description>Informática na Prática - Curso Completo</description>
       <quantity>1</quantity>
-      <amount>297.00</amount>
+      <amount>${amount.toFixed(2)}</amount>
     </item>
   </items>
   <creditCard>
-    <token></token>
+    <token>${body.cardToken}</token>
+    <installment>
+      <quantity>${installments}</quantity>
+      <value>${(amount / installments).toFixed(2)}</value>
+    </installment>
     <holder>
-      <name>${body.cardHolder}</name>
+      <name>${body.customerName}</name>
       <documents>
         <document>
           <type>CPF</type>
           <value>${body.customerCPF}</value>
         </document>
       </documents>
-      <birthDate>01/01/1980</birthDate>
+      <birthDate>01/01/1990</birthDate>
       <phone>
         <areaCode>${body.customerPhone.substring(0, 2)}</areaCode>
         <number>${body.customerPhone.substring(2)}</number>

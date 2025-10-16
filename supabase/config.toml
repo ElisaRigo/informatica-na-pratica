@@ -5,3 +5,9 @@ verify_jwt = false
 
 [functions.pagseguro-pix-boleto]
 verify_jwt = false
+
+[functions.pagseguro-session]
+verify_jwt = false
+
+[functions.pagseguro-transparent-checkout]
+verify_jwt = false

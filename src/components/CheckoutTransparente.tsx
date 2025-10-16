@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,10 +9,36 @@ import logoImage from "@/assets/logo-new.png";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+// Declaração TypeScript para a biblioteca PagSeguro
+declare global {
+  interface Window {
+    PagSeguroDirectPayment: {
+      setSessionId: (sessionId: string) => void;
+      onSenderHashReady: (callback: (response: any) => void) => void;
+      createCardToken: (params: {
+        cardNumber: string;
+        brand: string;
+        cvv: string;
+        expirationMonth: string;
+        expirationYear: string;
+        success: (response: any) => void;
+        error: (response: any) => void;
+      }) => void;
+      getBrand: (params: {
+        cardBin: string;
+        success: (response: any) => void;
+        error: (response: any) => void;
+      }) => void;
+    };
+  }
+}
+
 
 export const CheckoutTransparente = () => {
   const [loading, setLoading] = useState(false);
   const [selectedMethod, setSelectedMethod] = useState<'card' | 'pix' | 'boleto'>('card');
+  const [sessionId, setSessionId] = useState<string>('');
+  const [senderHash, setSenderHash] = useState<string>('');
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -29,6 +55,51 @@ export const CheckoutTransparente = () => {
     expYear: "",
     cvv: ""
   });
+
+  // Inicializar sessão do PagSeguro
+  useEffect(() => {
+    const initPagSeguro = async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke('pagseguro-session');
+        
+        if (error) throw error;
+        
+        if (data?.sessionId) {
+          setSessionId(data.sessionId);
+          
+          // Aguardar biblioteca carregar
+          const checkLibrary = setInterval(() => {
+            if (window.PagSeguroDirectPayment) {
+              clearInterval(checkLibrary);
+              window.PagSeguroDirectPayment.setSessionId(data.sessionId);
+              
+              // Obter sender hash
+              window.PagSeguroDirectPayment.onSenderHashReady((response) => {
+                if (response.status === 'error') {
+                  console.error('Erro ao gerar sender hash:', response.message);
+                  return;
+                }
+                setSenderHash(response.senderHash);
+                console.log('Sender hash gerado com sucesso');
+              });
+            }
+          }, 100);
+          
+          // Timeout de segurança
+          setTimeout(() => clearInterval(checkLibrary), 10000);
+        }
+      } catch (error) {
+        console.error('Erro ao inicializar PagSeguro:', error);
+        toast({
+          title: "Erro ao inicializar pagamento",
+          description: "Recarregue a página e tente novamente",
+          variant: "destructive"
+        });
+      }
+    };
+
+    initPagSeguro();
+  }, [toast]);
 
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, '');
@@ -99,41 +170,84 @@ export const CheckoutTransparente = () => {
       return;
     }
 
+    if (!sessionId || !senderHash) {
+      toast({
+        title: "Sessão não inicializada",
+        description: "Aguarde um momento e tente novamente",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('pagseguro-transparent-checkout', {
-        body: {
-          customerName: formData.name,
-          customerEmail: formData.email,
-          customerPhone: formData.phone.replace(/\D/g, ''),
-          customerCPF: formData.cpf.replace(/\D/g, ''),
-          cardNumber: cardData.number.replace(/\D/g, ''),
-          cardHolder: cardData.holder,
-          cardExpMonth: cardData.expMonth,
-          cardExpYear: cardData.expYear,
-          cardCVV: cardData.cvv
-        }
+      // Obter bandeira do cartão
+      const cardBin = cardData.number.replace(/\s/g, '').substring(0, 6);
+      
+      await new Promise<string>((resolve, reject) => {
+        window.PagSeguroDirectPayment.getBrand({
+          cardBin: cardBin,
+          success: (response) => {
+            const brand = response.brand.name;
+            console.log('Bandeira detectada:', brand);
+            
+            // Criar token do cartão
+            window.PagSeguroDirectPayment.createCardToken({
+              cardNumber: cardData.number.replace(/\s/g, ''),
+              brand: brand,
+              cvv: cardData.cvv,
+              expirationMonth: cardData.expMonth,
+              expirationYear: cardData.expYear,
+              success: async (tokenResponse) => {
+                console.log('Token gerado:', tokenResponse.card.token);
+                
+                // Processar pagamento com token
+                const { data, error } = await supabase.functions.invoke('pagseguro-transparent-checkout', {
+                  body: {
+                    customerName: formData.name,
+                    customerEmail: formData.email,
+                    customerPhone: formData.phone.replace(/\D/g, ''),
+                    customerCPF: formData.cpf.replace(/\D/g, ''),
+                    cardToken: tokenResponse.card.token,
+                    senderHash: senderHash,
+                    installments: 1
+                  }
+                });
+
+                if (error) throw error;
+
+                if (data?.success) {
+                  toast({
+                    title: "Pagamento processado!",
+                    description: "Redirecionando para confirmação...",
+                  });
+                  setTimeout(() => {
+                    window.location.href = '/obrigado';
+                  }, 1500);
+                  resolve(tokenResponse.card.token);
+                } else {
+                  throw new Error(data?.error || 'Erro ao processar pagamento');
+                }
+              },
+              error: (tokenError) => {
+                console.error('Erro ao criar token:', tokenError);
+                reject(new Error('Erro ao processar dados do cartão'));
+              }
+            });
+          },
+          error: (brandError) => {
+            console.error('Erro ao detectar bandeira:', brandError);
+            reject(new Error('Cartão inválido'));
+          }
+        });
       });
 
-      if (error) throw error;
-
-      if (data?.success) {
-        toast({
-          title: "Pagamento processado!",
-          description: "Redirecionando para confirmação...",
-        });
-        setTimeout(() => {
-          window.location.href = '/obrigado';
-        }, 1500);
-      } else {
-        throw new Error(data?.error || 'Erro ao processar pagamento');
-      }
     } catch (error) {
       console.error('Erro no pagamento:', error);
       toast({
         title: "Erro no pagamento",
-        description: error instanceof Error ? error.message : "Tente novamente ou escolha outro método",
+        description: error instanceof Error ? error.message : "Verifique os dados e tente novamente",
         variant: "destructive"
       });
     } finally {
