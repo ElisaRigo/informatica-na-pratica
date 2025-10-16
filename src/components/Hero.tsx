@@ -38,9 +38,9 @@ export const Hero = () => {
           </h1>
           
           {/* Destaque: Promessa de Resultado */}
-          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-4 md:px-6 py-2 md:py-4 mb-3 md:mb-6 max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl lg:text-3xl font-black text-primary">
-              ✨ Conquiste o Emprego que Você Merece
+          <div className="bg-gradient-to-r from-success/30 via-primary/30 to-success/30 border-2 border-success/50 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-5 mb-3 md:mb-6 max-w-3xl mx-auto shadow-lg">
+            <p className="text-xl md:text-2xl lg:text-3xl font-black text-success">
+              Conquiste o Emprego que Você Merece
             </p>
           </div>
           
@@ -48,11 +48,12 @@ export const Hero = () => {
           <div className="mb-4 md:mb-6">
             <Button 
               size="lg" 
-              className="text-sm md:text-xl font-extrabold px-6 md:px-12 py-4 md:py-7 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg w-full sm:w-auto"
+              className="text-base md:text-xl font-extrabold px-6 md:px-12 py-5 md:py-7 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-lg w-full sm:w-auto leading-tight"
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                🚀 Quero começar agora com 40% OFF
+                🚀 Quero Começar por R$ 297<br className="md:hidden" />
+                <span className="md:ml-2">40% OFF</span>
               </a>
             </Button>
             <p className="text-[10px] md:text-sm text-muted-foreground mt-2 font-semibold">
