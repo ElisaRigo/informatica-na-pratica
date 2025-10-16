@@ -38,8 +38,8 @@ export const Hero = () => {
           </h1>
           
           {/* Destaque: Promessa de Resultado */}
-          <div className="bg-gradient-to-r from-success/30 via-primary/30 to-success/30 border-2 border-success/50 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-5 mb-3 md:mb-6 max-w-3xl mx-auto shadow-lg">
-            <p className="text-xl md:text-2xl lg:text-3xl font-black text-success">
+          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-4 md:px-6 py-2 md:py-4 mb-3 md:mb-6 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl lg:text-3xl font-black text-primary">
               Conquiste o Emprego que Você Merece
             </p>
           </div>
@@ -52,8 +52,8 @@ export const Hero = () => {
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                🚀 Quero Começar por R$ 297<br className="md:hidden" />
-                <span className="md:ml-2">40% OFF</span>
+                <span className="block md:inline">🚀 Quero Começar por <span className="text-2xl md:text-3xl">R$ 297</span></span>
+                <span className="block md:inline md:ml-2 text-lg md:text-xl">(40% OFF)</span>
               </a>
             </Button>
             <p className="text-[10px] md:text-sm text-muted-foreground mt-2 font-semibold">
