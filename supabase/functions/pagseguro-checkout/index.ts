@@ -101,11 +101,27 @@ serve(async (req: Request) => {
     });
 
     const xmlResponse = await pagseguroResponse.text();
+    console.log('PagSeguro Response Status:', pagseguroResponse.status);
     console.log('PagSeguro Response:', xmlResponse);
 
     if (!pagseguroResponse.ok) {
       console.error('PagSeguro API error:', pagseguroResponse.status);
-      throw new Error(`PagSeguro API returned ${pagseguroResponse.status}: ${xmlResponse}`);
+      console.error('PagSeguro Response Body:', xmlResponse);
+      
+      // Extrair mensagem de erro do XML
+      const getXmlValue = (xml: string, tag: string): string => {
+        const regex = new RegExp(`<${tag}>([^<]*)</${tag}>`);
+        const match = xml.match(regex);
+        return match ? match[1] : '';
+      };
+      
+      const errorCode = getXmlValue(xmlResponse, 'code');
+      const errorMessage = getXmlValue(xmlResponse, 'message');
+      
+      console.error('Error Code:', errorCode);
+      console.error('Error Message:', errorMessage);
+      
+      throw new Error(`PagSeguro: ${errorMessage || 'Erro ao processar pagamento'} (${errorCode || pagseguroResponse.status})`);
     }
 
     // Extrair código do checkout do XML
