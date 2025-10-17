@@ -92,21 +92,21 @@ export const Hero = () => {
           Domine <span className="text-[#00D4FF]">Word, Excel e mais....</span><br />
           Mesmo Começando do Zero 💻
         </p>
-      </div>
-      
-      {/* Benefícios Rápidos */}
-      <div className="flex flex-wrap gap-2 md:gap-3 justify-center items-center px-2 mb-4 md:mb-5">
-        <div className="flex items-center gap-1.5 md:gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-          <Zap className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-          <span className="font-bold text-xs md:text-sm">Acesso Imediato</span>
-        </div>
-        <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-          <Shield className="w-4 h-4 md:w-5 md:h-5 text-success" />
-          <span className="font-semibold text-xs md:text-sm">Garantia 7 dias</span>
-        </div>
-        <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-          <Award className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-          <span className="font-semibold text-xs md:text-sm">Certificado incluso</span>
+
+        {/* Benefícios Rápidos */}
+        <div className="flex flex-wrap gap-2 md:gap-3 justify-center items-center px-2 mb-4 md:mb-5">
+          <div className="flex items-center gap-1.5 md:gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
+            <Zap className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+            <span className="font-bold text-xs md:text-sm">Acesso Imediato</span>
+          </div>
+          <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
+            <Shield className="w-4 h-4 md:w-5 md:h-5 text-success" />
+            <span className="font-semibold text-xs md:text-sm">Garantia 7 dias</span>
+          </div>
+          <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
+            <Award className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+            <span className="font-semibold text-xs md:text-sm">Certificado incluso</span>
+          </div>
         </div>
       </div>
 
