@@ -37,27 +37,35 @@ serve(async (req) => {
       customerId = customers.data[0].id;
       console.log("Found existing customer:", customerId);
       
-      // Atualiza o tax_id do cliente existente
+      // Atualiza o nome do cliente
       await stripe.customers.update(customerId, {
         name: customerName,
-        tax_id_data: [{
-          type: 'br_cpf',
-          value: customerTaxId,
-        }],
       });
-      console.log("Updated customer tax_id");
     } else {
       console.log("Creating new customer");
       const customer = await stripe.customers.create({
         email: customerEmail,
         name: customerName,
-        tax_id_data: [{
-          type: 'br_cpf',
-          value: customerTaxId,
-        }],
       });
       customerId = customer.id;
       console.log("Created new customer:", customerId);
+    }
+
+    // Adiciona o CPF como tax_id
+    try {
+      const existingTaxIds = await stripe.customers.listTaxIds(customerId, { limit: 10 });
+      const hasCPF = existingTaxIds.data.some((tax: any) => tax.value === customerTaxId);
+      
+      if (!hasCPF) {
+        await stripe.customers.createTaxId(customerId, {
+          type: 'br_cpf',
+          value: customerTaxId,
+        });
+        console.log("Added tax_id to customer");
+      }
+    } catch (taxError: any) {
+      console.error("Error adding tax_id:", taxError.message);
+      // Continua mesmo se falhar ao adicionar o tax_id
     }
 
     // Cria Payment Intent (R$ 297,00 = 29700 centavos)
