@@ -153,6 +153,58 @@ async function enrollUserInCourse(userId: number) {
   return result;
 }
 
+async function trackGoogleAdsConversion(transactionId: string, value: number) {
+  try {
+    // Enviar conversão para Google Ads Measurement Protocol
+    const measurementId = 'AW-17641842157';
+    const conversionLabel = 'fmoACInw160bEO3LpNxB';
+    
+    // Google Ads Conversion Tracking
+    const adsUrl = `https://www.googleadservices.com/pagead/conversion/${measurementId}/?label=${conversionLabel}&value=${value}&currency=BRL&transaction_id=${transactionId}`;
+    
+    await fetch(adsUrl, {
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; Supabase-Edge-Function/1.0)',
+      },
+    });
+
+    // Google Analytics 4 Measurement Protocol
+    const gaUrl = `https://www.google-analytics.com/mp/collect?measurement_id=G-08B5E33G3F&api_secret=${Deno.env.get('GA4_API_SECRET') || ''}`;
+    
+    const gaPayload = {
+      client_id: transactionId,
+      events: [{
+        name: 'purchase',
+        params: {
+          transaction_id: transactionId,
+          value: value,
+          currency: 'BRL',
+          items: [{
+            item_id: 'curso-informatica',
+            item_name: 'Curso de Informática na Prática',
+            price: value,
+            quantity: 1
+          }]
+        }
+      }]
+    };
+
+    await fetch(gaUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(gaPayload),
+    });
+
+    console.log('✅ Google Ads & Analytics conversion tracked:', transactionId);
+  } catch (error) {
+    console.error('⚠️ Error tracking conversion (non-blocking):', error);
+    // Não bloquear o processo se o tracking falhar
+  }
+}
+
 async function sendWelcomeEmail(name: string, email: string, username: string, password: string | null) {
   const firstName = name.split(' ')[0];
   
@@ -579,6 +631,16 @@ serve(async (req: Request) => {
     } catch (emailError) {
       console.error('⚠️ Warning: Failed to send welcome email:', emailError);
       // Email não é crítico - apenas loga o erro mas não falha o processo
+    }
+
+    // 6. Rastrear conversão no Google Ads e Analytics (em background)
+    try {
+      const transactionValue = payload.amount || 297.0;
+      await trackGoogleAdsConversion(payload.id || `txn_${Date.now()}`, transactionValue);
+      console.log('✅ Conversion tracking completed');
+    } catch (trackingError) {
+      console.error('⚠️ Warning: Failed to track conversion:', trackingError);
+      // Tracking não é crítico - apenas loga o erro mas não falha o processo
     }
 
     return new Response(
