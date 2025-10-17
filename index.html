@@ -278,10 +278,11 @@
         gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-08B5E33G3F';
         document.head.appendChild(gaScript);
         
+        // Definir gtag globalmente
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-08B5E33G3F');
+        window.gtag = function(){dataLayer.push(arguments);}
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-08B5E33G3F');
 
         // Google Ads
         var adsScript = document.createElement('script');
@@ -289,7 +290,7 @@
         adsScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17641842157';
         document.head.appendChild(adsScript);
         
-        gtag('config', 'AW-17641842157');
+        window.gtag('config', 'AW-17641842157');
         
         console.log('Analytics scripts loaded on production domain');
       })();
