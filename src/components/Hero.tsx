@@ -7,13 +7,13 @@ export const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-6 lg:py-8">
+    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-2 md:py-3 lg:py-4">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-5xl mx-auto animate-fade-in">
+        <div className="text-center max-w-4xl mx-auto animate-fade-in">
           {/* Social Proof Banner */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-4 bg-card/60 backdrop-blur-sm border border-success/20 px-3 md:px-6 py-1.5 md:py-3 rounded-full mb-3 md:mb-6">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-3 bg-card/60 backdrop-blur-sm border border-success/20 px-2 md:px-4 py-1 md:py-2 rounded-full mb-2 md:mb-3">
             <div className="flex items-center gap-1">
               <CheckCircle2 className="w-3.5 h-3.5 text-success" />
               <span className="font-bold text-[10px] md:text-sm">+20 anos</span>
@@ -30,18 +30,18 @@ export const Hero = () => {
             </div>
           </div>
           
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-2 md:mb-3">
             <span className="text-destructive">Pare de Perder Oportunidades</span><br />
             <span className="text-foreground">Por Não Saber Informática</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto">
-            Quantas vagas de emprego você já perdeu? Quantas vezes pediu ajuda para fazer algo simples no computador? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
+          <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4 max-w-2xl mx-auto">
+            Quantas vagas você já perdeu? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
-          <div className="relative max-w-3xl mx-auto mb-6 md:mb-8">
-            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-black">
+          <div className="relative max-w-2xl mx-auto mb-3 md:mb-4">
+            <div className="relative rounded-xl overflow-hidden border-2 border-primary/30 shadow-xl bg-black">
               {!videoLoaded ? (
                 <>
                   {/* Capa do vídeo */}
@@ -81,92 +81,60 @@ export const Hero = () => {
                 href="https://pag.ae/8164tZJTR" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
+                className="absolute top-2 right-2 md:top-3 md:right-3 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-lg md:rounded-xl px-2 md:px-4 py-1.5 md:py-2 shadow-xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
               >
-                <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
-                <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
-                <div className="bg-destructive text-destructive-foreground rounded-md px-2 py-0.5 inline-block">
-                  <p className="text-xs md:text-sm font-black">40% OFF</p>
+                <p className="text-[9px] md:text-xs font-bold text-white/90">Apenas hoje:</p>
+                <p className="text-lg md:text-2xl font-black text-white leading-none mb-0.5">R$ 297</p>
+                <div className="bg-destructive text-destructive-foreground rounded px-1.5 py-0.5 inline-block">
+                  <p className="text-[10px] md:text-xs font-black">40% OFF</p>
                 </div>
               </a>
             </div>
           </div>
 
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-4 md:mb-6">
-            Conquiste sua <span className="text-primary">independência digital</span><br />
-            e abra portas no mercado de trabalho
-          </h2>
-          
-          <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
-            Aprenda Word, Excel, PowerPoint e mais de forma prática e aplicada ao dia a dia profissional
-          </p>
-
-          {/* Links âncora estratégicos */}
-          <div className="flex flex-wrap gap-3 justify-center mb-6 md:mb-8 text-sm md:text-base">
-            <a 
-              href="#sobre" 
-              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
-            >
-              👩‍🏫 Conhecer a Professora
-            </a>
-            <span className="text-muted-foreground">•</span>
-            <a 
-              href="#conteudo" 
-              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
-            >
-              📚 Ver Conteúdo Completo
-            </a>
-            <span className="text-muted-foreground">•</span>
-            <a 
-              href="#depoimentos" 
-              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
-            >
-              ⭐ Ler Depoimentos
-            </a>
-          </div>
-
           {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
-          <div className="mb-5 md:mb-6 max-w-3xl mx-auto">
+          <div className="mb-3 md:mb-4">
             <Button 
               size="lg" 
-              className="text-sm md:text-xl font-extrabold px-6 md:px-16 py-6 md:py-8 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
+              className="text-base md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-xl w-full sm:w-auto"
               asChild
             >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap">
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
                 ✨ Sim, quero mudar minha vida
               </a>
             </Button>
-            <p className="text-xs md:text-sm text-muted-foreground mt-3 font-semibold">
-              💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses
+            <p className="text-xs md:text-sm text-muted-foreground mt-2 font-semibold">
+              💰 Menos de R$ 1 por dia • Acesso imediato
             </p>
           </div>
 
-          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-5 md:mb-6 max-w-3xl mx-auto px-2">
-            <span className="font-bold text-foreground">Chega de se sentir perdido</span> no computador. Curso online com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
-          </p>
-
-          {/* Destaque: Promessa de Resultado */}
-          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-4 md:px-6 py-4 md:py-5 mb-5 md:mb-6 max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-2">
-              Seja visto e valorizado no mercado
-            </p>
-            <p className="text-sm md:text-base text-muted-foreground">
-              Domine as ferramentas que <span className="font-bold text-foreground">empresas exigem</span> e se destaque entre os candidatos
-            </p>
+          {/* Links âncora estratégicos */}
+          <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-3 md:mb-4 text-xs md:text-sm">
+            <a href="#sobre" className="font-semibold text-primary hover:underline">
+              👩‍🏫 Professora
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a href="#conteudo" className="font-semibold text-primary hover:underline">
+              📚 Conteúdo
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a href="#depoimentos" className="font-semibold text-primary hover:underline">
+              ⭐ Depoimentos
+            </a>
           </div>
           {/* Benefícios Rápidos */}
-          <div className="flex flex-wrap gap-2 md:gap-4 justify-center items-center px-2">
-            <div className="flex items-center gap-1.5 md:gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-              <Zap className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-              <span className="font-bold text-xs md:text-sm">Acesso Imediato</span>
+          <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center items-center text-[10px] md:text-xs">
+            <div className="flex items-center gap-1 bg-primary/10 border border-primary/30 px-2 py-1 rounded-lg">
+              <Zap className="w-3 h-3 text-primary" />
+              <span className="font-bold">Acesso Imediato</span>
             </div>
-            <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-              <Shield className="w-4 h-4 md:w-5 md:h-5 text-success" />
-              <span className="font-semibold text-xs md:text-sm">Garantia 7 dias</span>
+            <div className="flex items-center gap-1 bg-card/50 border border-line px-2 py-1 rounded-lg">
+              <Shield className="w-3 h-3 text-success" />
+              <span className="font-semibold">Garantia 7 dias</span>
             </div>
-            <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-              <Award className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-              <span className="font-semibold text-xs md:text-sm">Certificado incluso</span>
+            <div className="flex items-center gap-1 bg-card/50 border border-line px-2 py-1 rounded-lg">
+              <Award className="w-3 h-3 text-accent" />
+              <span className="font-semibold">Certificado</span>
             </div>
           </div>
         </div>
