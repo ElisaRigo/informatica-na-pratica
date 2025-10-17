@@ -41,11 +41,12 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
     setLoading(true);
 
     try {
-      const { error } = await stripe.confirmPayment({
+      const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
           return_url: `${window.location.origin}/obrigada`,
         },
+        redirect: 'if_required',
       });
 
       if (error) {
@@ -53,6 +54,22 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
           title: "Erro no pagamento",
           description: error.message,
           variant: "destructive",
+        });
+      } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+        // Redireciona manualmente para a página de sucesso
+        window.location.href = `/obrigada?payment_intent=${paymentIntent.id}`;
+      } else if (paymentIntent && paymentIntent.status === 'requires_action') {
+        // Stripe já mostrou a tela de autenticação necessária
+        toast({
+          title: "Ação necessária",
+          description: "Complete a autenticação do pagamento",
+        });
+      } else if (paymentIntent) {
+        // Para boleto ou outros métodos que não completam imediatamente
+        toast({
+          title: "Pagamento iniciado!",
+          description: "Siga as instruções para completar o pagamento",
+          duration: 5000,
         });
       }
     } catch (err: any) {
