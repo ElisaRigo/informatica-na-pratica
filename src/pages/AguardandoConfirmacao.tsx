@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { Loader2, CheckCircle2, Clock, ExternalLink } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { Button } from "@/components/ui/button";
+import { useSearchParams } from "react-router-dom";
+import { Clock, CheckCircle2, FileText, Mail, Smartphone } from "lucide-react";
 import logoImage from "@/assets/logo-new.png";
 
 const AguardandoConfirmacao = () => {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const [status, setStatus] = useState<'checking' | 'confirmed' | 'timeout'>('checking');
   const [elapsedTime, setElapsedTime] = useState(0);
-  const transactionId = searchParams.get('transaction_id') || searchParams.get('id');
-  const paymentUrl = searchParams.get('payment_url');
-  const [paymentWindowOpened, setPaymentWindowOpened] = useState(false);
+  const paymentIntent = searchParams.get('payment_intent');
+  const transactionId = searchParams.get('transaction_id');
 
   useEffect(() => {
     // Timer para mostrar tempo decorrido
@@ -23,94 +18,10 @@ const AguardandoConfirmacao = () => {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    if (!transactionId) {
-      console.log('No transaction ID found, checking for any recent payment');
-    }
-
-    let attempts = 0;
-    const maxAttempts = 36; // 3 minutos (36 * 5 segundos)
-
-    const checkPayment = async () => {
-      attempts++;
-      console.log(`Checking payment... Attempt ${attempts}/${maxAttempts}`);
-
-      try {
-        let query = supabase
-          .from('payments')
-          .select('*')
-          .eq('status', 'paid')
-          .order('created_at', { ascending: false })
-          .limit(1);
-
-        // Se tiver transaction_id, busca específico, senão busca o mais recente
-        if (transactionId) {
-          query = query.eq('pagseguro_transaction_id', transactionId);
-        }
-
-        const { data, error } = await query;
-
-        if (error) {
-          console.error('Error checking payment:', error);
-          return;
-        }
-
-        if (data && data.length > 0) {
-          console.log('Payment confirmed!', data[0]);
-          setStatus('confirmed');
-          
-          // Aguarda 2 segundos para mostrar a confirmação antes de redirecionar
-          setTimeout(() => {
-            // Redireciona para o domínio principal
-            const txId = data[0].pagseguro_transaction_id;
-            window.location.href = `https://informaticanapratica.com.br/obrigada${txId ? `?transaction_id=${txId}` : ''}`;
-          }, 2000);
-          
-          return true; // Para o polling
-        }
-
-        // Timeout após 3 minutos
-        if (attempts >= maxAttempts) {
-          console.log('Timeout reached, redirecting to thank you page');
-          setStatus('timeout');
-          setTimeout(() => {
-            window.location.href = `https://informaticanapratica.com.br/obrigada${transactionId ? `?transaction_id=${transactionId}` : ''}`;
-          }, 3000);
-          return true; // Para o polling
-        }
-
-        return false; // Continua o polling
-      } catch (err) {
-        console.error('Error in checkPayment:', err);
-        return false;
-      }
-    };
-
-    // Verificação inicial
-    checkPayment();
-
-    // Polling a cada 5 segundos
-    const interval = setInterval(async () => {
-      const shouldStop = await checkPayment();
-      if (shouldStop) {
-        clearInterval(interval);
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [transactionId, navigate]);
-
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
-
-  const handleOpenPayment = () => {
-    if (paymentUrl) {
-      window.open(decodeURIComponent(paymentUrl), '_blank');
-      setPaymentWindowOpened(true);
-    }
   };
 
   return (
@@ -131,110 +42,98 @@ const AguardandoConfirmacao = () => {
         <div className="flex justify-center">
           <div className="relative">
             <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full"></div>
-            {status === 'checking' && (
-              <Loader2 className="w-24 h-24 text-primary relative animate-spin" />
-            )}
-            {status === 'confirmed' && (
-              <CheckCircle2 className="w-24 h-24 text-success relative animate-bounce" />
-            )}
-            {status === 'timeout' && (
-              <Clock className="w-24 h-24 text-accent relative" />
-            )}
+            <CheckCircle2 className="w-24 h-24 text-success relative" />
           </div>
         </div>
 
         {/* Main Message */}
         <div className="space-y-4">
-          {status === 'checking' && !paymentWindowOpened && paymentUrl && (
-            <>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
-                Link de Pagamento Criado! ✅
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-                Clique no botão abaixo para abrir o PagSeguro e finalizar seu pagamento.
-              </p>
-              <Button 
-                onClick={handleOpenPayment}
-                size="lg"
-                className="text-xl px-12 py-8 font-bold"
-              >
-                <ExternalLink className="mr-3 h-6 w-6" />
-                Ir para o Pagamento Seguro
-              </Button>
-              <p className="text-sm text-muted-foreground mt-4">
-                🔒 Pagamento 100% seguro via PagSeguro
-              </p>
-            </>
-          )}
-          {status === 'checking' && (paymentWindowOpened || !paymentUrl) && (
-            <>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
-                Aguardando confirmação do pagamento...
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-                Estamos processando seu pagamento. Isso geralmente leva alguns segundos.
-              </p>
-              <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                <Clock className="w-5 h-5" />
-                <span className="font-mono text-lg">{formatTime(elapsedTime)}</span>
-              </div>
-              {paymentUrl && (
-                <Button 
-                  onClick={handleOpenPayment}
-                  variant="outline"
-                  size="sm"
-                  className="mt-4"
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Reabrir Pagamento
-                </Button>
-              )}
-            </>
-          )}
-          {status === 'confirmed' && (
-            <>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-success">
-                Pagamento confirmado! ✅
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-                Redirecionando você agora...
-              </p>
-            </>
-          )}
-          {status === 'timeout' && (
-            <>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
-                Processando seu pagamento...
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-                Seu pagamento está sendo processado. Você receberá um e-mail em breve!
-              </p>
-            </>
-          )}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
+            Boleto Gerado com Sucesso! 🎉
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
+            Seu boleto foi gerado. Você receberá as instruções de pagamento por e-mail.
+          </p>
+          <div className="flex items-center justify-center gap-2 text-muted-foreground">
+            <Clock className="w-5 h-5" />
+            <span className="font-mono text-lg">{formatTime(elapsedTime)}</span>
+          </div>
         </div>
 
         {/* Info Cards */}
+        <div className="grid md:grid-cols-2 gap-4 max-w-xl mx-auto">
+          <div className="bg-card border border-line rounded-xl p-6">
+            <Mail className="w-8 h-8 text-primary mb-3 mx-auto" />
+            <h3 className="font-semibold mb-2">Verifique seu E-mail</h3>
+            <p className="text-sm text-muted-foreground">
+              Enviamos o boleto e as instruções para seu e-mail
+            </p>
+          </div>
+
+          <div className="bg-card border border-line rounded-xl p-6">
+            <FileText className="w-8 h-8 text-primary mb-3 mx-auto" />
+            <h3 className="font-semibold mb-2">Código de Barras</h3>
+            <p className="text-sm text-muted-foreground">
+              Use o código de barras para pagar em qualquer banco
+            </p>
+          </div>
+        </div>
+
+        {/* Important Info */}
         <div className="bg-card border border-line rounded-xl p-6 text-left max-w-xl mx-auto">
-          <h3 className="font-semibold text-lg mb-2 text-primary">ℹ️ O que está acontecendo?</h3>
-          <ul className="text-sm text-muted-foreground space-y-2">
-            <li>✓ Seu pagamento foi enviado ao PagSeguro</li>
-            <li>✓ Estamos aguardando a confirmação</li>
-            <li>✓ Quando confirmado, sua matrícula será criada automaticamente</li>
-            <li>✓ Você receberá um e-mail com suas credenciais de acesso</li>
+          <h3 className="font-semibold text-lg mb-4 text-primary flex items-center gap-2">
+            <FileText className="w-5 h-5" />
+            Informações Importantes
+          </h3>
+          <ul className="text-sm text-muted-foreground space-y-3">
+            <li className="flex gap-2">
+              <span className="text-primary">✓</span>
+              <span>O boleto pode levar até 3 dias úteis para ser compensado após o pagamento</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-primary">✓</span>
+              <span>Você receberá um e-mail de confirmação assim que o pagamento for identificado</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-primary">✓</span>
+              <span>O acesso ao curso será liberado automaticamente após a confirmação do pagamento</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-primary">✓</span>
+              <span>Guarde o número do boleto para acompanhamento</span>
+            </li>
           </ul>
+          
+          {paymentIntent && (
+            <div className="mt-4 pt-4 border-t border-line">
+              <p className="text-xs text-muted-foreground">
+                Código do pagamento: <span className="font-mono">{paymentIntent}</span>
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Support Info */}
         <div className="pt-8 border-t border-line">
-          <p className="text-sm text-muted-foreground mb-2">
-            Está demorando muito? Entre em contato:
-          </p>
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <Smartphone className="w-5 h-5 text-primary" />
+            <p className="text-sm text-muted-foreground">
+              Dúvidas ou problemas com o pagamento?
+            </p>
+          </div>
           <a
             href="https://wa.me/5545988287082"
-            className="text-primary hover:text-accent transition-colors font-medium text-lg"
+            className="text-primary hover:text-accent transition-colors font-medium text-lg inline-flex items-center gap-2"
           >
             WhatsApp: (45) 98828-7082
           </a>
+        </div>
+
+        {/* Additional Note */}
+        <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 max-w-xl mx-auto">
+          <p className="text-sm text-muted-foreground">
+            💡 <strong>Dica:</strong> Você pode pagar boletos pelo aplicativo do seu banco ou usando o Pix do código de barras para pagamento instantâneo.
+          </p>
         </div>
       </div>
     </div>

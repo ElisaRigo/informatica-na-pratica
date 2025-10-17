@@ -41,28 +41,21 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
     setLoading(true);
 
     try {
-      // Construir URL de retorno completa com protocolo
-      const protocol = window.location.protocol; // http: ou https:
-      const host = window.location.host; // dominio.com ou localhost:port
-      const returnUrl = `${protocol}//${host}/obrigada`;
-      
-      console.log("Return URL:", returnUrl);
-
-      // Submete o pagamento - Stripe vai redirecionar automaticamente
-      const { error } = await stripe.confirmPayment({
+      // Usar redirect: 'if_required' para ter controle sobre o redirecionamento
+      const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: returnUrl,
+          return_url: `${window.location.protocol}//${window.location.host}/obrigada`,
         },
+        redirect: 'if_required',
       });
 
-      // Se chegou aqui, houve um erro (pois confirmPayment redireciona em caso de sucesso)
+      // Se há erro, mostrar para o usuário
       if (error) {
         console.error("Payment error:", error);
         
-        // Erros esperados que não devem mostrar toast de erro
+        // Erros de validação não mostram toast (deixa o Stripe mostrar inline)
         if (error.type === "validation_error") {
-          // Erro de validação nos campos, usuário precisa corrigir
           return;
         }
         
@@ -70,6 +63,33 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
           title: "Erro no pagamento",
           description: error.message,
           variant: "destructive",
+        });
+        return;
+      }
+
+      // Se temos paymentIntent, verificar o status
+      if (paymentIntent) {
+        console.log("Payment Intent Status:", paymentIntent.status);
+        
+        // Pagamento com cartão aprovado instantaneamente
+        if (paymentIntent.status === "succeeded") {
+          console.log("Payment succeeded, redirecting to thank you page");
+          window.location.href = `${window.location.protocol}//${window.location.host}/obrigada?payment_intent=${paymentIntent.id}`;
+          return;
+        }
+        
+        // Boleto ou método que requer ação adicional
+        if (paymentIntent.status === "requires_action" || paymentIntent.status === "processing") {
+          console.log("Payment requires action (boleto), redirecting to waiting page");
+          window.location.href = `${window.location.protocol}//${window.location.host}/aguardando-confirmacao?payment_intent=${paymentIntent.id}`;
+          return;
+        }
+
+        // Outros status
+        console.log("Payment status:", paymentIntent.status);
+        toast({
+          title: "Pagamento em processamento",
+          description: "Aguarde a confirmação do seu pagamento",
         });
       }
     } catch (err: any) {
