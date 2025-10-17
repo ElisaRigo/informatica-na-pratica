@@ -71,21 +71,22 @@ export const Hero = () => {
                   className="w-full aspect-video"
                 />
               )}
-              
-          {/* Overlay estratégico com preço - CLICÁVEL */}
-          <a 
-            href="https://pag.ae/8164tZJTR" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
-          >
-            <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
-            <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
-            <div className="bg-destructive text-destructive-foreground rounded-md px-2 py-0.5 inline-block">
-              <p className="text-xs md:text-sm font-black">40% OFF</p>
             </div>
-          </a>
-        </div>
+            
+            {/* Overlay estratégico com preço - CLICÁVEL */}
+            <a 
+              href="https://pag.ae/8164tZJTR" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
+            >
+              <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
+              <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
+              <div className="bg-destructive text-destructive-foreground rounded-md px-2 py-0.5 inline-block">
+                <p className="text-xs md:text-sm font-black">40% OFF</p>
+              </div>
+            </a>
+          </div>
         
         {/* Texto destacado abaixo do vídeo */}
         <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white mb-3 md:mb-4 max-w-3xl mx-auto font-black leading-tight">
@@ -107,53 +108,52 @@ export const Hero = () => {
             <Award className="w-4 h-4 md:w-5 md:h-5 text-accent" />
             <span className="font-semibold text-xs md:text-sm">Certificado incluso</span>
           </div>
-        </div>
-      </div>
+          </div>
 
-      <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
-        Quantas vagas de emprego você já perdeu? Quantas vezes pediu ajuda para fazer algo simples no computador? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
-      </p>
+          <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
+            Quantas vagas de emprego você já perdeu? Quantas vezes pediu ajuda para fazer algo simples no computador? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
+          </p>
 
-      {/* Links âncora estratégicos */}
-      <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-3 md:mb-4">
-        <a 
-          href="#sobre" 
-          className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
-        >
-          <span className="text-base md:text-lg">👩‍🏫</span>
-          <span className="font-semibold text-xs md:text-sm">Conhecer a Professora</span>
-        </a>
-        <a 
-          href="#conteudo" 
-          className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
-        >
-          <span className="text-base md:text-lg">📚</span>
-          <span className="font-semibold text-xs md:text-sm">Ver Conteúdo Completo</span>
-        </a>
-        <a 
-          href="#depoimentos" 
-          className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
-        >
-          <span className="text-base md:text-lg">⭐</span>
-          <span className="font-semibold text-xs md:text-sm">Ler Depoimentos</span>
-        </a>
-      </div>
+          {/* Links âncora estratégicos */}
+          <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-3 md:mb-4">
+            <a 
+              href="#sobre" 
+              className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
+            >
+              <span className="text-base md:text-lg">👩‍🏫</span>
+              <span className="font-semibold text-xs md:text-sm">Conhecer a Professora</span>
+            </a>
+            <a 
+              href="#conteudo" 
+              className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
+            >
+              <span className="text-base md:text-lg">📚</span>
+              <span className="font-semibold text-xs md:text-sm">Ver Conteúdo Completo</span>
+            </a>
+            <a 
+              href="#depoimentos" 
+              className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
+            >
+              <span className="text-base md:text-lg">⭐</span>
+              <span className="font-semibold text-xs md:text-sm">Ler Depoimentos</span>
+            </a>
+          </div>
 
-      {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
-      <div className="mb-3 md:mb-4 max-w-3xl mx-auto">
-        <Button 
-          size="lg" 
-          className="text-sm md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
-          asChild
-        >
-          <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap">
-            ✨ Sim, quero mudar minha vida
-          </a>
-        </Button>
-        <p className="text-xs text-muted-foreground mt-2 font-semibold">
-          💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses
-        </p>
-      </div>
+          {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
+          <div className="mb-3 md:mb-4 max-w-3xl mx-auto">
+            <Button 
+              size="lg" 
+              className="text-sm md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
+              asChild
+            >
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap">
+                ✨ Sim, quero mudar minha vida
+              </a>
+            </Button>
+            <p className="text-xs text-muted-foreground mt-2 font-semibold">
+              💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses
+            </p>
+          </div>
 
         </div>
       </div>
