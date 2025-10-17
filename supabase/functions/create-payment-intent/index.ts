@@ -14,13 +14,13 @@ serve(async (req) => {
   try {
     console.log("Creating payment intent");
     
-    const { customerName, customerEmail, customerPhone, customerTaxId } = await req.json();
+    const { customerName, customerEmail, customerTaxId } = await req.json();
     
     if (!customerName || !customerEmail || !customerTaxId) {
       throw new Error("Nome, email e CPF são obrigatórios");
     }
 
-    console.log("Customer data:", { customerName, customerEmail, customerPhone, taxId: customerTaxId });
+    console.log("Customer data:", { customerName, customerEmail, taxId: customerTaxId });
 
     const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
       apiVersion: "2025-08-27.basil",
@@ -40,17 +40,32 @@ serve(async (req) => {
       // Atualiza o nome do cliente
       await stripe.customers.update(customerId, {
         name: customerName,
-        phone: customerPhone,
       });
     } else {
       console.log("Creating new customer");
       const customer = await stripe.customers.create({
         email: customerEmail,
         name: customerName,
-        phone: customerPhone,
       });
       customerId = customer.id;
       console.log("Created new customer:", customerId);
+    }
+
+    // Adiciona o CPF como tax_id
+    try {
+      const existingTaxIds = await stripe.customers.listTaxIds(customerId, { limit: 10 });
+      const hasCPF = existingTaxIds.data.some((tax: any) => tax.value === customerTaxId);
+      
+      if (!hasCPF) {
+        await stripe.customers.createTaxId(customerId, {
+          type: 'br_cpf',
+          value: customerTaxId,
+        });
+        console.log("Added tax_id to customer");
+      }
+    } catch (taxError: any) {
+      console.error("Error adding tax_id:", taxError.message);
+      // Continua mesmo se falhar ao adicionar o tax_id
     }
 
     // Cria Payment Intent (R$ 297,00 = 29700 centavos)
@@ -58,16 +73,12 @@ serve(async (req) => {
       amount: 29700,
       currency: "brl",
       customer: customerId,
-      payment_method_options: {
-        boleto: {
-          expires_after_days: 3,
-        },
+      automatic_payment_methods: {
+        enabled: true,
       },
-      payment_method_types: ['card', 'boleto'],
       metadata: {
         customer_name: customerName,
         customer_email: customerEmail,
-        customer_tax_id: customerTaxId,
       },
     });
 
