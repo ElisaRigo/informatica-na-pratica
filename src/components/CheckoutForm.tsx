@@ -105,6 +105,8 @@ export const CheckoutForm = () => {
   };
 
   const handleInitiatePayment = async () => {
+    console.log("Iniciando pagamento...");
+    
     if (!formData.name || !formData.email || !formData.phone || !formData.cpf) {
       toast({
         title: "Preencha todos os campos",
@@ -136,6 +138,7 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
+    console.log("Chamando função create-payment-intent...");
 
     try {
       const { data, error } = await supabase.functions.invoke('create-payment-intent', {
@@ -145,9 +148,12 @@ export const CheckoutForm = () => {
         }
       });
 
+      console.log("Resposta da função:", { data, error });
+
       if (error) throw error;
 
       if (data.clientSecret) {
+        console.log("Client secret recebido, mostrando checkout");
         setClientSecret(data.clientSecret);
       } else {
         throw new Error('Falha ao iniciar pagamento');
