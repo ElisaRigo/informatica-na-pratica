@@ -10,33 +10,64 @@ const ThankYou = () => {
     const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
                          window.location.hostname === 'www.informaticanapratica.com.br';
     
-    if (typeof window !== 'undefined' && (window as any).gtag && isProduction) {
-      // Disparar evento de conversão do Google Analytics
-      (window as any).gtag('event', 'conversion', {
-        'send_to': 'G-08B5E33G3F',
-        'transaction_id': '',
-        'value': 297.0,
-        'currency': 'BRL'
-      });
-      
-      // Disparar pageview para garantir que o GA4 rastreie a página
-      (window as any).gtag('config', 'G-08B5E33G3F', {
-        page_path: '/obrigado',
-        page_title: 'Obrigado - Compra Confirmada'
-      });
-      
-      // Disparar evento de conversão do Google Ads
-      (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
-        'value': 297.0,
-        'currency': 'BRL',
-        'transaction_id': ''
-      });
-      
-      console.log('Google Ads conversion tracked on production domain');
-    } else if (!isProduction) {
+    if (!isProduction) {
       console.log('Google Ads conversion skipped - not on production domain');
+      return;
     }
+
+    // Função para disparar as conversões
+    const trackConversion = () => {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        // Disparar evento de conversão do Google Analytics
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'G-08B5E33G3F',
+          'transaction_id': '',
+          'value': 297.0,
+          'currency': 'BRL'
+        });
+        
+        // Disparar pageview para garantir que o GA4 rastreie a página
+        (window as any).gtag('config', 'G-08B5E33G3F', {
+          page_path: '/obrigado',
+          page_title: 'Obrigado - Compra Confirmada'
+        });
+        
+        // Disparar evento de conversão do Google Ads
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
+          'value': 297.0,
+          'currency': 'BRL',
+          'transaction_id': ''
+        });
+        
+        console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
+        return true;
+      }
+      return false;
+    };
+
+    // Tentar disparar imediatamente
+    if (trackConversion()) {
+      return;
+    }
+
+    // Se gtag não estiver disponível, esperar até que esteja (max 5 segundos)
+    console.log('⏳ Aguardando gtag carregar...');
+    let attempts = 0;
+    const maxAttempts = 50; // 5 segundos (50 * 100ms)
+    
+    const interval = setInterval(() => {
+      attempts++;
+      
+      if (trackConversion()) {
+        clearInterval(interval);
+      } else if (attempts >= maxAttempts) {
+        console.error('❌ gtag não carregou após 5 segundos');
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
   }, []);
 
 
