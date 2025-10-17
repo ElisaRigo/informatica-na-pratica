@@ -30,14 +30,10 @@ export const Hero = () => {
             </div>
           </div>
           
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-2 md:mb-3">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-3 md:mb-4">
             <span className="text-destructive">Pare de Perder Oportunidades</span><br />
             <span className="text-foreground">Por Não Saber Informática</span>
           </h1>
-          
-          <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4 max-w-2xl mx-auto">
-            Quantas vagas você já perdeu? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
-          </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-2xl mx-auto mb-3 md:mb-4">
@@ -92,6 +88,11 @@ export const Hero = () => {
             </div>
           </div>
 
+          {/* Texto descritivo abaixo do vídeo */}
+          <p className="text-base md:text-lg font-bold text-foreground mb-3 md:mb-4 max-w-2xl mx-auto">
+            Domine Word, Excel e mais... mesmo começando do zero
+          </p>
+
           {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
           <div className="mb-3 md:mb-4">
             <Button 
@@ -107,6 +108,11 @@ export const Hero = () => {
               💰 Menos de R$ 1 por dia • Acesso imediato
             </p>
           </div>
+
+          {/* Texto de transformação */}
+          <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4 max-w-2xl mx-auto">
+            <span className="font-bold text-foreground">Conquiste sua independência digital e abra portas no mercado de trabalho</span>
+          </p>
 
           {/* Links âncora estratégicos */}
           <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-3 md:mb-4 text-xs md:text-sm">
