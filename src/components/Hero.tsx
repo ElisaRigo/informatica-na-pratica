@@ -7,7 +7,7 @@ export const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-3 md:py-4 lg:py-6">
+    <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-3 md:py-4 lg:py-6">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
