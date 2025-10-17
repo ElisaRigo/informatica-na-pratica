@@ -46,7 +46,7 @@ export const AboutSection = () => {
                 className="font-extrabold px-8 py-6 rounded-2xl text-base"
               asChild
             >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+              <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>
                 ✨ Quero conquistar essa vaga
               </a>
               </Button>

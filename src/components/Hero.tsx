@@ -75,9 +75,8 @@ export const Hero = () => {
             
             {/* Overlay estratégico com preço - CLICÁVEL */}
             <a 
-              href="https://pag.ae/8164tZJTR" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="#checkout"
+              onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}
               className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
             >
               <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
@@ -146,7 +145,7 @@ export const Hero = () => {
               className="text-sm md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
               asChild
             >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap">
+              <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }} className="whitespace-nowrap">
                 ✨ Sim, quero mudar minha vida
               </a>
             </Button>

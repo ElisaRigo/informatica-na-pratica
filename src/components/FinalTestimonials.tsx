@@ -63,7 +63,7 @@ export const FinalTestimonials = () => {
             className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
             asChild
           >
-            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+            <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>
               💪 Quero fazer parte dessa transformação
             </a>
           </Button>

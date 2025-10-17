@@ -71,7 +71,7 @@ const VendaTeste = () => {
         <NotForYou />
       </Suspense>
       {/* OFERTA COM CHECKOUT */}
-      <section className="py-16 bg-gradient-to-b from-background to-muted/30">
+      <section id="checkout" className="py-16 bg-gradient-to-b from-background to-muted/30">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <Suspense fallback={<div className="h-96" />}>

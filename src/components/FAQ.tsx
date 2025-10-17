@@ -122,7 +122,7 @@ export const FAQ = () => {
               className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform w-full sm:w-auto"
               asChild
             >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+              <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>
                 ✅ Sim, quero essas respostas na prática
               </a>
             </Button>

@@ -77,7 +77,7 @@ export const Comparison = () => {
             className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform w-full md:w-auto"
             asChild
           >
-            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+            <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>
               ✨ Sim, quero conquistar minha independência
             </a>
           </Button>
