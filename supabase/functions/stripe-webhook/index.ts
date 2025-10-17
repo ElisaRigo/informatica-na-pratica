@@ -37,16 +37,44 @@ async function callMoodleAPI(functionName: string, params: Record<string, any>) 
     url.searchParams.set(key, String(value));
   });
 
+  console.log("Calling Moodle API:", functionName);
+  
   const response = await fetch(url.toString());
-  return await response.json();
+  const responseText = await response.text();
+  
+  // Check if response is HTML (error page)
+  if (responseText.trim().startsWith("<!DOCTYPE") || responseText.trim().startsWith("<html")) {
+    console.error("Moodle API returned HTML instead of JSON. Token may be invalid or API not enabled.");
+    console.error("Response preview:", responseText.substring(0, 500));
+    throw new Error("Moodle API configuration error: Invalid token or API not enabled");
+  }
+  
+  try {
+    const jsonResponse = JSON.parse(responseText);
+    
+    // Check for Moodle error response
+    if (jsonResponse.exception || jsonResponse.errorcode) {
+      console.error("Moodle API error:", jsonResponse);
+      throw new Error(`Moodle API error: ${jsonResponse.message || jsonResponse.errorcode}`);
+    }
+    
+    return jsonResponse;
+  } catch (parseError) {
+    console.error("Failed to parse Moodle response:", responseText.substring(0, 500));
+    throw new Error("Invalid Moodle API response format");
+  }
 }
 
 // Create Moodle user
 async function createMoodleUser(name: string, email: string) {
+  console.log("Creating Moodle user for:", { name, email });
+  
   const username = email.split("@")[0].toLowerCase().replace(/[^a-z0-9]/g, "");
   const password = `${Math.random().toString(36).slice(-8)}Aa1!`;
 
   try {
+    console.log("Attempting to create new Moodle user with username:", username);
+    
     const result = await callMoodleAPI("core_user_create_users", {
       "users[0][username]": username,
       "users[0][password]": password,
@@ -57,29 +85,32 @@ async function createMoodleUser(name: string, email: string) {
     });
 
     if (result[0]?.id) {
-      console.log("Moodle user created:", result[0].id);
+      console.log("✅ Moodle user created successfully:", result[0].id);
       return { userId: result[0].id, username, password };
     }
 
     // If user exists, try to get user ID
+    console.log("User may already exist, searching by email...");
     const existingUser = await callMoodleAPI("core_user_get_users_by_field", {
       field: "email",
       "values[0]": email,
     });
 
     if (existingUser[0]?.id) {
-      console.log("Moodle user already exists:", existingUser[0].id);
+      console.log("✅ Found existing Moodle user:", existingUser[0].id);
       // Reset password
+      console.log("Updating password for existing user...");
       await callMoodleAPI("core_user_update_users", {
         "users[0][id]": existingUser[0].id,
         "users[0][password]": password,
       });
+      console.log("✅ Password updated successfully");
       return { userId: existingUser[0].id, username: existingUser[0].username, password };
     }
 
     throw new Error("Failed to create or find Moodle user");
   } catch (error) {
-    console.error("Error creating Moodle user:", error);
+    console.error("❌ Error in createMoodleUser:", error);
     throw error;
   }
 }
