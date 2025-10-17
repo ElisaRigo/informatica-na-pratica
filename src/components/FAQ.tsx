@@ -120,7 +120,7 @@ export const FAQ = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform w-full sm:w-auto"
-              onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => (window as any).openCheckout?.()}
             >
               ✅ Sim, quero essas respostas na prática
             </Button>

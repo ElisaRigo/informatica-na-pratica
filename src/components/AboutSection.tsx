@@ -44,7 +44,7 @@ export const AboutSection = () => {
               <Button 
                 size="lg" 
                 className="font-extrabold px-8 py-6 rounded-2xl text-base"
-              onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => (window as any).openCheckout?.()}
             >
               ✨ Quero conquistar essa vaga
             </Button>

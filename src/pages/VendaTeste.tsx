@@ -7,7 +7,8 @@ import { AboutSection } from "@/components/AboutSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
-import { CheckoutForm } from "@/components/CheckoutForm";
+import { CheckoutDialog } from "@/components/CheckoutDialog";
+import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
 // Lazy load componentes em blocos separados para carregamento progressivo
 const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
@@ -27,6 +28,11 @@ const FinalTestimonials = lazy(() => import("@/components/FinalTestimonials").th
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 
 const VendaTeste = () => {
+  const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
+  
+  // Make openCheckout globally accessible
+  (window as any).openCheckout = openCheckout;
+  
   return (
     <div className="min-h-screen">
       <Header />
@@ -70,22 +76,10 @@ const VendaTeste = () => {
       <Suspense fallback={<div className="h-32" />}>
         <NotForYou />
       </Suspense>
-      {/* OFERTA COM CHECKOUT */}
-      <section id="checkout" className="py-16 bg-gradient-to-b from-background to-muted/30">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <Suspense fallback={<div className="h-96" />}>
-              <Pricing />
-            </Suspense>
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-center md:text-left">
-                Complete seus dados para finalizar
-              </h2>
-              <CheckoutForm />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* OFERTA COM URGÊNCIA */}
+      <Suspense fallback={<div className="h-32" />}>
+        <Pricing />
+      </Suspense>
       <Suspense fallback={<div className="h-32" />}>
         <Bonus />
       </Suspense>
@@ -106,6 +100,8 @@ const VendaTeste = () => {
       </Suspense>
       <Footer />
       <WhatsAppFloat />
+      
+      <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
   );
 };

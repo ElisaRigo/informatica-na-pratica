@@ -3,8 +3,8 @@ import { Zap } from "lucide-react";
 export const WhatsAppFloat = () => {
   return (
     <a
-      href="#checkout"
-      onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}
+      href="#"
+      onClick={(e) => { e.preventDefault(); (window as any).openCheckout?.(); }}
       className="fixed right-4 bottom-6 z-50 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 text-white font-black px-4 md:px-6 py-3 md:py-4 rounded-2xl shadow-2xl transition-all hover:scale-105 animate-pulse"
       aria-label="Garantir vaga agora"
     >

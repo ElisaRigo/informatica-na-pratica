@@ -97,7 +97,7 @@ export const Possibilities = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-6 md:px-10 py-5 md:py-6 rounded-2xl text-sm md:text-lg w-full md:w-auto"
-            onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => (window as any).openCheckout?.()}
           >
             💪 Sim, quero mudar agora
           </Button>

@@ -61,7 +61,7 @@ export const FinalTestimonials = () => {
           <Button 
             size="lg" 
             className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
-            onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => (window as any).openCheckout?.()}
           >
             💪 Quero fazer parte dessa transformação
           </Button>

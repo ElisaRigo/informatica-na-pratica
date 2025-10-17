@@ -54,7 +54,7 @@ export const EmotionalBenefits = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-10 py-6 rounded-2xl text-base"
-            onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => (window as any).openCheckout?.()}
           >
             💪 Começar minha jornada agora
           </Button>
