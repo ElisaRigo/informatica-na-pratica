@@ -175,7 +175,7 @@ export const CheckoutForm = () => {
         🔒 Pagamento 100% seguro via Stripe
       </p>
       <p className="text-xs text-center text-muted-foreground">
-        Aceita PIX, Boleto e Cartão de Crédito
+        💳 Aceita Cartão de Crédito
       </p>
     </div>
   );

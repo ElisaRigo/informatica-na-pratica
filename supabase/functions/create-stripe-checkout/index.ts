@@ -46,68 +46,33 @@ serve(async (req) => {
       console.log("Created new customer:", customerId);
     }
 
-    // Tenta criar Checkout Session com PIX, Boleto e Cartão
-    // Se PIX não estiver habilitado, cria sem PIX
-    let session;
-    try {
-      session = await stripe.checkout.sessions.create({
-        customer: customerId,
-        line_items: [
-          {
-            price_data: {
-              currency: "brl",
-              product_data: {
-                name: "Curso de Informática na Prática",
-                description: "Acesso completo ao curso",
-              },
-              unit_amount: 29700, // R$ 297,00 em centavos
+    // Criar Checkout Session apenas com Cartão (funciona em test mode sem configuração extra)
+    const session = await stripe.checkout.sessions.create({
+      customer: customerId,
+      line_items: [
+        {
+          price_data: {
+            currency: "brl",
+            product_data: {
+              name: "Curso de Informática na Prática",
+              description: "Acesso completo ao curso",
             },
-            quantity: 1,
+            unit_amount: 29700, // R$ 297,00 em centavos
           },
-        ],
-        mode: "payment",
-        payment_method_types: ["card", "boleto", "pix"],
-        success_url: `${req.headers.get("origin")}/obrigada?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.get("origin")}/`,
-        metadata: {
-          customer_name: customerName,
-          customer_email: customerEmail,
+          quantity: 1,
         },
-      });
-      console.log("Checkout session created with PIX, Boleto and Card");
-    } catch (pixError: any) {
-      // Se PIX não estiver habilitado, tenta sem PIX
-      if (pixError.code === 'parameter_invalid_empty' || pixError.rawType === 'invalid_request_error') {
-        console.log("PIX not available, creating session without PIX");
-        session = await stripe.checkout.sessions.create({
-          customer: customerId,
-          line_items: [
-            {
-              price_data: {
-                currency: "brl",
-                product_data: {
-                  name: "Curso de Informática na Prática",
-                  description: "Acesso completo ao curso",
-                },
-                unit_amount: 29700, // R$ 297,00 em centavos
-              },
-              quantity: 1,
-            },
-          ],
-          mode: "payment",
-          payment_method_types: ["card", "boleto"],
-          success_url: `${req.headers.get("origin")}/obrigada?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${req.headers.get("origin")}/`,
-          metadata: {
-            customer_name: customerName,
-            customer_email: customerEmail,
-          },
-        });
-        console.log("Checkout session created with Boleto and Card only");
-      } else {
-        throw pixError;
-      }
-    }
+      ],
+      mode: "payment",
+      payment_method_types: ["card"],
+      success_url: `${req.headers.get("origin")}/obrigada?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.get("origin")}/`,
+      metadata: {
+        customer_name: customerName,
+        customer_email: customerEmail,
+      },
+    });
+    
+    console.log("Checkout session created successfully:", session.id);
 
     console.log("Checkout session created:", session.id);
 
