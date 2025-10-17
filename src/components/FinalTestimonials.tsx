@@ -64,7 +64,7 @@ export const FinalTestimonials = () => {
             asChild
           >
             <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-              🎯 Garantir minha vaga
+              💪 Quero fazer parte dessa transformação
             </a>
           </Button>
           <p className="text-xs text-muted-foreground mt-4">

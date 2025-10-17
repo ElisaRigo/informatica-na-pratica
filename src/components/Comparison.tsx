@@ -78,7 +78,7 @@ export const Comparison = () => {
             asChild
           >
             <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-              🚀 Quero transformar minha vida
+              ✨ Sim, quero conquistar minha independência
             </a>
           </Button>
         </div>

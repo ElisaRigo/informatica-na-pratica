@@ -18,7 +18,7 @@ export const Guarantee = () => {
             className="font-extrabold px-8 py-6 rounded-2xl"
             asChild
           >
-            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">🔒 Quero começar sem risco</a>
+            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">💪 Quero começar sem risco</a>
           </Button>
         </div>
       </div>

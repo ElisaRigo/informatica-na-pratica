@@ -21,27 +21,31 @@ const disadvantages = [
 
 export const Possibilities = () => {
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 to-accent/5">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-destructive/5 to-destructive/10">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center mb-4">
-            Abra um mundo de possibilidades com o curso online de{" "}
-            <span className="text-primary">Informática na Prática</span>
-          </h2>
+          <div className="text-center mb-8">
+            <p className="text-lg md:text-xl text-destructive font-bold mb-2">
+              ⚠️ A cada dia que passa sem informática...
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
+              Você perde <span className="text-destructive">oportunidades</span> que poderiam mudar sua vida
+            </h2>
+          </div>
           
           <p className="text-lg md:text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Aprenda de qualquer lugar — veja a diferença entre quem domina a informática e quem ainda não deu esse passo
+            <span className="font-bold text-foreground">A escolha é sua:</span> Continuar dependendo de outros ou conquistar sua independência digital
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            {/* Vantagens */}
+            {/* Vantagens - TRANSFORMAÇÃO */}
             <div className="bg-success/5 border-2 border-success/20 rounded-2xl p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center">
                   <CheckCircle2 className="w-6 h-6 text-success" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black text-success">
-                  Com Informática
+                  Sua vida transformada
                 </h3>
               </div>
               
@@ -58,14 +62,14 @@ export const Possibilities = () => {
               </div>
             </div>
 
-            {/* Desvantagens */}
+            {/* Desvantagens - REFORÇO DA DOR */}
             <div className="bg-destructive/5 border-2 border-destructive/20 rounded-2xl p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-destructive/20 flex items-center justify-center">
                   <XCircle className="w-6 h-6 text-destructive" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black text-destructive">
-                  Sem Informática
+                  Sua realidade hoje
                 </h3>
               </div>
               
@@ -83,14 +87,20 @@ export const Possibilities = () => {
             </div>
           </div>
 
-          <div className="mt-10 md:mt-12 text-center">
+          <div className="mt-10 md:mt-12 text-center bg-primary/10 border-2 border-primary/30 rounded-2xl p-6 md:p-8">
+            <p className="text-xl md:text-2xl font-black mb-4">
+              Não deixe mais um dia passar <span className="text-destructive">sem tomar essa decisão</span>
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground mb-6">
+              Cada momento conta quando se trata do seu futuro profissional
+            </p>
             <Button 
               size="lg" 
               className="font-extrabold px-6 md:px-10 py-5 md:py-6 rounded-2xl text-sm md:text-lg w-full md:w-auto"
             asChild
           >
             <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-              ✨ Quero essas oportunidades
+              💪 Sim, quero mudar agora
             </a>
             </Button>
           </div>

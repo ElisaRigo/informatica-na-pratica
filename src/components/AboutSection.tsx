@@ -47,7 +47,7 @@ export const AboutSection = () => {
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                🚀 Quero começar agora
+                ✨ Quero conquistar essa vaga
               </a>
               </Button>
               <Button 

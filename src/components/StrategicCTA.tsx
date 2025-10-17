@@ -33,7 +33,7 @@ export const StrategicCTA = ({ context = "depois de ver tudo isso" }: StrategicC
             asChild
           >
             <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-              <span className="whitespace-nowrap">🚀 Quero mais oportunidades</span>
+              <span className="whitespace-nowrap">💪 Quero essa transformação</span>
               <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
             </a>
           </Button>

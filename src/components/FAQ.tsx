@@ -123,7 +123,7 @@ export const FAQ = () => {
               asChild
             >
               <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                ✅ Sim, quero começar agora
+                ✅ Sim, quero essas respostas na prática
               </a>
             </Button>
             <Button 

@@ -48,11 +48,11 @@ export const PromoTimer = () => {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <div className="sticky top-0 z-50 bg-gradient-to-r from-primary/90 via-accent/90 to-primary/90 text-white py-0.5 md:py-1.5 shadow-lg border-b-2 border-accent/50">
+    <div className="sticky top-0 z-50 bg-gradient-to-r from-destructive/95 via-destructive/90 to-destructive/95 text-white py-1.5 md:py-2 shadow-lg border-b-2 border-destructive/50">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3">
-          <p className="text-[10px] md:text-sm font-black text-center">
-            ⏰ Promoção termina em:
+        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
+          <p className="text-xs md:text-sm font-black text-center">
+            ⚠️ Últimas <span className="text-accent">50 vagas</span> com bônus • Encerra em:
           </p>
           <div className="flex gap-1 md:gap-2" role="timer" aria-live="polite">
             <div className="bg-background/90 backdrop-blur-sm rounded-md md:rounded-lg px-1.5 md:px-3 py-1 md:py-1.5 min-w-[40px] md:min-w-[50px] text-center border border-accent/30 shadow-md">

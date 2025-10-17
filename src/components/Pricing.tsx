@@ -110,16 +110,21 @@ export const Pricing = () => {
               </div>
               <div className="mb-6 p-6 bg-gradient-to-br from-success/20 to-primary/20 rounded-2xl border-3 border-success/50 shadow-lg">
                 <p className="text-base md:text-lg font-bold text-muted-foreground mb-2">
-                  🔥 Você paga APENAS:
+                  💰 Investimento que transforma:
                 </p>
-                <p className="text-4xl md:text-6xl font-black text-accent mb-1">
+                <p className="text-4xl md:text-6xl font-black text-accent mb-2">
                   R$ 297
                 </p>
-                <p className="text-sm md:text-base font-semibold text-success mb-1">
-                  E leva curso + todos os bônus!
+                <p className="text-sm md:text-base font-semibold text-success mb-2">
+                  Ou 12x de R$ 29,14 sem juros
                 </p>
-                <p className="text-base md:text-lg font-bold text-success">
-                  💰 Economize R$ 471!
+                <div className="bg-card/50 backdrop-blur rounded-lg p-3 mt-3">
+                  <p className="text-xs md:text-sm text-muted-foreground">
+                    <span className="font-bold text-foreground">Menos de R$ 1 por dia</span> para mudar seu futuro profissional
+                  </p>
+                </div>
+                <p className="text-base md:text-lg font-bold text-success mt-3">
+                  ✅ Economize R$ 471 hoje!
                 </p>
               </div>
               
@@ -170,7 +175,7 @@ export const Pricing = () => {
                 asChild
               >
                 <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
-                  🚀 Quero garantir minha vaga
+                  ✨ Sim, quero conquistar minha independência
                 </a>
               </Button>
 
