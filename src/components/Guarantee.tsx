@@ -16,9 +16,9 @@ export const Guarantee = () => {
           <Button 
             size="lg" 
             className="font-extrabold px-8 py-6 rounded-2xl"
-            asChild
+            onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>💪 Quero começar sem risco</a>
+            💪 Quero começar sem risco
           </Button>
         </div>
       </div>

@@ -75,11 +75,9 @@ export const Comparison = () => {
           <Button 
             size="lg" 
             className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform w-full md:w-auto"
-            asChild
+            onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>
-              ✨ Sim, quero conquistar minha independência
-            </a>
+            ✨ Sim, quero conquistar minha independência
           </Button>
         </div>
       </div>

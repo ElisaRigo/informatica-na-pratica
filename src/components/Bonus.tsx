@@ -196,11 +196,9 @@ export const Bonus = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
-              asChild
+              onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                💪 Quero curso + bônus agora
-              </a>
+              💪 Quero curso + bônus agora
             </Button>
             <p className="text-xs text-muted-foreground mt-4">
               🔒 Ambiente seguro • Acesso imediato após confirmação do pagamento

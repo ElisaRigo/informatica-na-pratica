@@ -143,11 +143,9 @@ export const Hero = () => {
             <Button 
               size="lg" 
               className="text-sm md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
-              asChild
+              onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }} className="whitespace-nowrap">
-                ✨ Sim, quero mudar minha vida
-              </a>
+              ✨ Sim, quero mudar minha vida
             </Button>
             <p className="text-xs text-muted-foreground mt-2 font-semibold">
               💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses

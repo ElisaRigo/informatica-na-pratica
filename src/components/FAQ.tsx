@@ -120,11 +120,9 @@ export const FAQ = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform w-full sm:w-auto"
-              asChild
+              onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                ✅ Sim, quero essas respostas na prática
-              </a>
+              ✅ Sim, quero essas respostas na prática
             </Button>
             <Button 
               size="lg" 

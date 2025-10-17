@@ -44,12 +44,10 @@ export const AboutSection = () => {
               <Button 
                 size="lg" 
                 className="font-extrabold px-8 py-6 rounded-2xl text-base"
-              asChild
+              onClick={() => document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <a href="#checkout" onClick={(e) => { e.preventDefault(); document.getElementById('checkout')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                ✨ Quero conquistar essa vaga
-              </a>
-              </Button>
+              ✨ Quero conquistar essa vaga
+            </Button>
               <Button 
                 size="lg" 
                 variant="outline"
