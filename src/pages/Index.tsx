@@ -31,34 +31,49 @@ const Index = () => {
       <Header />
       <PromoTimer />
       <Hero />
-      {/* IDENTIFICAÇÃO */}
+      
+      {/* IDENTIFICAÇÃO - Quem é o público? */}
       <Suspense fallback={<div className="h-32" />}>
         <TargetAudience />
       </Suspense>
-      {/* POSSIBILIDADES - Com vs Sem */}
+      
+      {/* PROBLEMA vs SOLUÇÃO - Dor e transformação */}
       <Suspense fallback={<div className="h-32" />}>
         <Possibilities />
       </Suspense>
-      {/* VALOR - Benefícios principais */}
+      
+      {/* CONEXÃO HUMANA - Pessoas se conectam com pessoas */}
+      <AboutSection />
+      
+      {/* PROVA SOCIAL IMEDIATA - Logo após apresentar a prof */}
+      <Testimonials />
+      
+      {/* TRANSFORMAÇÃO - O que você vai conseguir */}
       <Suspense fallback={<div className="h-32" />}>
         <ValueStack />
       </Suspense>
-      {/* COMPARAÇÃO - 30 dias */}
-      <Suspense fallback={<div className="h-32" />}>
-        <Comparison />
-      </Suspense>
-      {/* VALOR - O que vai aprender */}
+      
+      {/* O QUE VAI APRENDER - Conteúdo detalhado */}
       <Suspense fallback={<div className="h-32" />}>
         <ContentGrid />
       </Suspense>
-      {/* BENEFÍCIOS EMOCIONAIS */}
+      
+      {/* CTA ESTRATÉGICO - Após mostrar valor */}
+      <Suspense fallback={<div className="h-32" />}>
+        <StrategicCTA context="vendo todo o conteúdo que você vai dominar" />
+      </Suspense>
+      
+      {/* COMPARAÇÃO 30 DIAS - Escolha sua transformação */}
+      <Suspense fallback={<div className="h-32" />}>
+        <Comparison />
+      </Suspense>
+      
+      {/* BENEFÍCIOS EMOCIONAIS - Por que você vai amar */}
       <Suspense fallback={<div className="h-32" />}>
         <EmotionalBenefits />
       </Suspense>
-      {/* PROVA SOCIAL */}
-      <Testimonials />
-      {/* AUTORIDADE & CREDIBILIDADE */}
-      <AboutSection />
+      
+      {/* AUTORIDADE & CREDIBILIDADE - Reforçar confiança */}
       <Suspense fallback={<div className="h-32" />}>
         <Authority />
       </Suspense>

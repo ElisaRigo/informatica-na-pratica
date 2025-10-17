@@ -1,11 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap, Lock, CheckCircle2 } from "lucide-react";
-import heroVideo from "@/assets/hero-video-optimized.mp4";
-import videoPoster from "@/assets/video-poster-hero.jpg";
-import { useRef } from "react";
-
 export const Hero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-6 lg:py-8">
@@ -38,18 +33,17 @@ export const Hero = () => {
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-3xl mx-auto mb-6 md:mb-8">
             <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-transparent">
-              <video
-                ref={videoRef}
-                controls
-                preload="none"
-                poster={videoPoster}
-                className="w-full aspect-video bg-transparent"
-                playsInline
-                aria-label="Vídeo de apresentação do curso de Informática na Prática"
-              >
-                <source src={heroVideo} type="video/mp4" />
-                Seu navegador não suporta vídeo HTML5.
-              </video>
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/mSNhsfD5RWA?si=96D7p0Bn5pHsSRfA" 
+                title="Vídeo de apresentação do curso de Informática na Prática" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+                className="w-full aspect-video"
+              />
               
               {/* Overlay estratégico com preço - CLICÁVEL */}
               <a 
