@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,95 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
 
-// Inicializar Stripe
-const stripePromise = loadStripe("pk_test_51SJEnDRzpXJIMcLI2BPz4yeHYtehyaTtMyw7gNp3aXNEWtEd1TsieMoVFWeCbZlQjwCn6IT85giojLxMQCxCUSq600hn3yHyxc");
-
-const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [loading, setLoading] = useState(false);
-  const [isReady, setIsReady] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!stripe || !elements) {
-      toast({
-        title: "Carregando...",
-        description: "Aguarde enquanto preparamos o pagamento",
-      });
-      return;
-    }
-
-    if (!isReady) {
-      toast({
-        title: "Aguarde",
-        description: "O formulário de pagamento ainda está carregando",
-      });
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const { error } = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          return_url: `${window.location.origin}/obrigada`,
-        },
-      });
-
-      if (error) {
-        toast({
-          title: "Erro no pagamento",
-          description: error.message,
-          variant: "destructive",
-        });
-      }
-    } catch (err: any) {
-      toast({
-        title: "Erro",
-        description: err.message || "Ocorreu um erro ao processar o pagamento",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <PaymentElement 
-        onReady={() => setIsReady(true)}
-      />
-      
-      <Button
-        type="submit"
-        disabled={!stripe || !isReady || loading}
-        size="lg"
-        className="w-full font-bold text-lg py-6"
-      >
-        {loading ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Processando...
-          </>
-        ) : !isReady ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Carregando...
-          </>
-        ) : (
-          `Pagar R$ 297,00`
-        )}
-      </Button>
-    </form>
-  );
-};
-
 export const CheckoutForm = () => {
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   
@@ -125,8 +34,6 @@ export const CheckoutForm = () => {
   };
 
   const handleInitiatePayment = async () => {
-    console.log("Iniciando pagamento...");
-    
     if (!formData.name || !formData.email || !formData.phone || !formData.cpf) {
       toast({
         title: "Preencha todos os campos",
@@ -158,29 +65,40 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
-    console.log("Chamando função create-payment-intent...");
 
     try {
-      const { data, error } = await supabase.functions.invoke('create-payment-intent', {
+      const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
         body: {
           customerName: formData.name,
-          customerEmail: formData.email
+          customerEmail: formData.email,
+          customerPhone: cleanPhone,
+          customerCPF: cleanCPF
         }
       });
 
-      console.log("Resposta da função:", { data, error });
-
       if (error) throw error;
 
-      if (data.clientSecret) {
-        console.log("Client secret recebido, mostrando checkout");
-        setClientSecret(data.clientSecret);
+      if (data?.paymentUrl) {
+        // Abre o checkout do PagSeguro em nova aba
+        window.open(data.paymentUrl, '_blank');
+        
+        toast({
+          title: "Redirecionando para pagamento",
+          description: "Uma nova aba foi aberta com as opções de pagamento (PIX, Boleto e Cartão)",
+        });
+        
+        // Redireciona para página de aguardando confirmação
+        if (data.redirectUrl) {
+          setTimeout(() => {
+            window.location.href = data.redirectUrl;
+          }, 2000);
+        }
       } else {
-        throw new Error('Falha ao iniciar pagamento');
+        throw new Error('Falha ao gerar link de pagamento');
       }
 
     } catch (error: any) {
-      console.error('Error creating payment intent:', error);
+      console.error('Error creating checkout:', error);
       toast({
         title: "Erro ao processar",
         description: error.message || "Tente novamente em alguns instantes",
@@ -190,17 +108,6 @@ export const CheckoutForm = () => {
       setLoading(false);
     }
   };
-
-  if (clientSecret) {
-    return (
-      <div className="space-y-4 bg-card border border-border rounded-xl p-6">
-        <h3 className="text-xl font-bold text-center mb-4">Finalize seu pagamento</h3>
-        <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutFormContent clientSecret={clientSecret} />
-        </Elements>
-      </div>
-    );
-  }
 
   return (
     <div className="space-y-4 bg-card border border-border rounded-xl p-6">
@@ -270,7 +177,10 @@ export const CheckoutForm = () => {
       </div>
 
       <p className="text-xs text-muted-foreground text-center">
-        🔒 Pagamento 100% seguro via Stripe
+        🔒 Pagamento 100% seguro via PagSeguro
+      </p>
+      <p className="text-xs text-center text-muted-foreground">
+        Aceita PIX, Boleto e Cartão de Crédito
       </p>
     </div>
   );
