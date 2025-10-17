@@ -9,42 +9,47 @@ const modules = [
   {
     icon: windowsIcon,
     title: "Windows & Organização",
-    description: "Domine pastas, arquivos, configurações e atalhos úteis do dia a dia.",
+    description: "Organize seus arquivos como um profissional e ganhe produtividade no dia a dia.",
   },
   {
     icon: wordIcon,
     title: "Word Profissional",
-    description: "Crie documentos e currículos com formatação impecável e exporte em PDF.",
+    description: "Crie currículos impecáveis e documentos que impressionam recrutadores.",
   },
   {
     icon: excelIcon,
     title: "Excel na Prática",
-    description: "Planilhas do zero, SOMA, MÉDIA, SE e exercícios comentados.",
+    description: "Domine planilhas e fórmulas essenciais que o mercado exige.",
   },
   {
     icon: powerpointIcon,
     title: "PowerPoint",
-    description: "Slides claros e bonitos com storytelling simples.",
+    description: "Apresente suas ideias com slides profissionais que chamam atenção.",
   },
   {
     icon: internetIcon,
     title: "Internet & E-mail",
-    description: "Pesquisa eficiente, segurança básica e uso de e-mail.",
+    description: "Navegue com segurança e use e-mail profissional com confiança.",
   },
   {
     icon: typingIcon,
     title: "Digitação",
-    description: "Agilidade e precisão no teclado com prática diária.",
+    description: "Ganhe velocidade e precisão no teclado para trabalhar mais rápido.",
   },
 ];
 
 export const ContentGrid = () => {
   return (
-    <section id="conteudo" className="py-8 md:py-12 bg-panel">
+    <section id="conteudo" className="py-12 md:py-20 bg-panel">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
-          O que você vai aprender
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-black mb-4">
+            Sua transformação começa aqui
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            Aprenda as <span className="font-bold text-foreground">6 ferramentas essenciais</span> que vão abrir portas no mercado de trabalho
+          </p>
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {modules.map((module, index) => (
             <div

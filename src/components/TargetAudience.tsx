@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import { AnchorLink } from "./AnchorLink";
 
 const targetProfiles = [
   {
@@ -62,9 +63,13 @@ export const TargetAudience = () => {
             <p className="text-base md:text-lg font-semibold mb-2">
               💡 <span className="text-primary">Não importa sua idade ou experiência</span>
             </p>
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-muted-foreground mb-6">
               O curso é projetado para quem está começando do absoluto zero. Se você consegue ligar um computador, você consegue aprender!
             </p>
+            <div className="flex flex-wrap gap-4 justify-center mt-6">
+              <AnchorLink href="#sobre" icon="👩‍🏫" text="Conhecer a Professora" />
+              <AnchorLink href="#depoimentos" icon="⭐" text="Ver Depoimentos" />
+            </div>
           </div>
         </div>
       </div>

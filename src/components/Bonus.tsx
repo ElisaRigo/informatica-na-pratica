@@ -114,18 +114,30 @@ export const Bonus = () => {
             return (
               <div
                 key={index}
-                className="bg-card border-2 border-success/30 rounded-2xl p-6 hover:border-success transition-all hover:scale-105 relative"
+                className="bg-card border-2 border-success/30 rounded-2xl p-6 hover:border-success transition-all hover:scale-105 relative overflow-hidden"
               >
-                <div className="absolute -top-3 right-4 bg-success text-white px-4 py-1 rounded-full text-sm font-bold">
+                {/* Selo de valor no topo */}
+                <div className="absolute -top-3 right-4 bg-gradient-to-r from-success to-success/80 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg z-10">
                   {bonus.value}
                 </div>
-                <div className="mb-4 pt-2">
-                  <div className="w-12 h-12 bg-success/10 rounded-xl flex items-center justify-center mb-3">
+                
+                {/* Selo "GRÁTIS" chamativo */}
+                <div className="absolute -left-8 top-6 bg-gradient-to-r from-destructive to-destructive/80 text-white px-12 py-1 -rotate-45 text-xs font-black shadow-xl">
+                  GRÁTIS
+                </div>
+                
+                {/* Selo "BÔNUS" no canto superior esquerdo */}
+                <div className="absolute top-3 left-3 bg-accent text-white px-3 py-1 rounded-lg text-[10px] font-black shadow-md">
+                  BÔNUS #{index + 1}
+                </div>
+                
+                <div className="mb-4 pt-8">
+                  <div className="w-12 h-12 bg-success/10 rounded-xl flex items-center justify-center mb-3 mx-auto">
                     <IconComponent className="w-6 h-6 text-success" />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold mb-3">{bonus.title}</h3>
-                <p className="text-muted-foreground text-sm">{bonus.description}</p>
+                <h3 className="text-lg font-bold mb-3 text-center">{bonus.title}</h3>
+                <p className="text-muted-foreground text-sm text-center">{bonus.description}</p>
               </div>
             );
           })}

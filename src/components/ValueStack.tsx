@@ -1,4 +1,5 @@
 import { CheckCircle2, Clock } from "lucide-react";
+import { AnchorLink } from "./AnchorLink";
 
 const benefits = [
   "Usar o computador com segurança e organização (Windows)",
@@ -46,6 +47,9 @@ export const ValueStack = () => {
                 <div className="font-black text-2xl text-primary mb-1">Seu ritmo</div>
                 <div className="text-muted-foreground">aprenda quando quiser</div>
               </div>
+            </div>
+            <div className="flex justify-center mt-6">
+              <AnchorLink href="#bonus" icon="🎁" text="Ver Bônus Exclusivos" />
             </div>
           </div>
         </div>

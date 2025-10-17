@@ -1,6 +1,6 @@
 import { Quote } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { AnchorLink } from "./AnchorLink";
 import alinePhoto from "@/assets/testimonial-new-1.jpg";
 import joaoPhoto from "@/assets/testimonial-new-3.jpg";
 import carlaPhoto from "@/assets/testimonial-new-2.jpg";
@@ -69,6 +69,9 @@ export const Testimonials = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center mt-8">
+          <AnchorLink href="#conteudo" icon="📚" text="Ver o que você vai aprender" />
         </div>
       </div>
     </section>
