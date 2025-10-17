@@ -164,7 +164,8 @@ export const CheckoutForm = () => {
       const { data, error } = await supabase.functions.invoke('create-payment-intent', {
         body: {
           customerName: formData.name,
-          customerEmail: formData.email
+          customerEmail: formData.email,
+          customerTaxId: cleanCPF
         }
       });
 

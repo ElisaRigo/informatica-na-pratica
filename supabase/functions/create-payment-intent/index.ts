@@ -14,13 +14,13 @@ serve(async (req) => {
   try {
     console.log("Creating payment intent");
     
-    const { customerName, customerEmail } = await req.json();
+    const { customerName, customerEmail, customerTaxId } = await req.json();
     
-    if (!customerName || !customerEmail) {
-      throw new Error("Nome e email são obrigatórios");
+    if (!customerName || !customerEmail || !customerTaxId) {
+      throw new Error("Nome, email e CPF são obrigatórios");
     }
 
-    console.log("Customer data:", { customerName, customerEmail });
+    console.log("Customer data:", { customerName, customerEmail, taxId: customerTaxId });
 
     const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
       apiVersion: "2025-08-27.basil",
@@ -36,11 +36,25 @@ serve(async (req) => {
     if (customers.data.length > 0) {
       customerId = customers.data[0].id;
       console.log("Found existing customer:", customerId);
+      
+      // Atualiza o tax_id do cliente existente
+      await stripe.customers.update(customerId, {
+        name: customerName,
+        tax_id_data: [{
+          type: 'br_cpf',
+          value: customerTaxId,
+        }],
+      });
+      console.log("Updated customer tax_id");
     } else {
       console.log("Creating new customer");
       const customer = await stripe.customers.create({
         email: customerEmail,
         name: customerName,
+        tax_id_data: [{
+          type: 'br_cpf',
+          value: customerTaxId,
+        }],
       });
       customerId = customer.id;
       console.log("Created new customer:", customerId);
