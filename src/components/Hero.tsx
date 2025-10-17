@@ -36,7 +36,7 @@ export const Hero = () => {
               <iframe 
                 width="100%" 
                 height="100%" 
-                src="https://www.youtube.com/embed/mSNhsfD5RWA?si=96D7p0Bn5pHsSRfA" 
+                src="https://www.youtube.com/embed/mSNhsfD5RWA?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&iv_load_policy=3&playsinline=1" 
                 title="Vídeo de apresentação do curso de Informática na Prática" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
