@@ -46,31 +46,68 @@ serve(async (req) => {
       console.log("Created new customer:", customerId);
     }
 
-    // Cria Checkout Session com suporte a PIX, Boleto e Cartão
-    const session = await stripe.checkout.sessions.create({
-      customer: customerId,
-      line_items: [
-        {
-          price_data: {
-            currency: "brl",
-            product_data: {
-              name: "Curso de Informática na Prática",
-              description: "Acesso completo ao curso",
+    // Tenta criar Checkout Session com PIX, Boleto e Cartão
+    // Se PIX não estiver habilitado, cria sem PIX
+    let session;
+    try {
+      session = await stripe.checkout.sessions.create({
+        customer: customerId,
+        line_items: [
+          {
+            price_data: {
+              currency: "brl",
+              product_data: {
+                name: "Curso de Informática na Prática",
+                description: "Acesso completo ao curso",
+              },
+              unit_amount: 29700, // R$ 297,00 em centavos
             },
-            unit_amount: 29700, // R$ 297,00 em centavos
+            quantity: 1,
           },
-          quantity: 1,
+        ],
+        mode: "payment",
+        payment_method_types: ["card", "boleto", "pix"],
+        success_url: `${req.headers.get("origin")}/obrigada?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${req.headers.get("origin")}/`,
+        metadata: {
+          customer_name: customerName,
+          customer_email: customerEmail,
         },
-      ],
-      mode: "payment",
-      payment_method_types: ["card", "boleto", "pix"],
-      success_url: `${req.headers.get("origin")}/obrigada?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.get("origin")}/`,
-      metadata: {
-        customer_name: customerName,
-        customer_email: customerEmail,
-      },
-    });
+      });
+      console.log("Checkout session created with PIX, Boleto and Card");
+    } catch (pixError: any) {
+      // Se PIX não estiver habilitado, tenta sem PIX
+      if (pixError.code === 'parameter_invalid_empty' || pixError.rawType === 'invalid_request_error') {
+        console.log("PIX not available, creating session without PIX");
+        session = await stripe.checkout.sessions.create({
+          customer: customerId,
+          line_items: [
+            {
+              price_data: {
+                currency: "brl",
+                product_data: {
+                  name: "Curso de Informática na Prática",
+                  description: "Acesso completo ao curso",
+                },
+                unit_amount: 29700, // R$ 297,00 em centavos
+              },
+              quantity: 1,
+            },
+          ],
+          mode: "payment",
+          payment_method_types: ["card", "boleto"],
+          success_url: `${req.headers.get("origin")}/obrigada?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${req.headers.get("origin")}/`,
+          metadata: {
+            customer_name: customerName,
+            customer_email: customerEmail,
+          },
+        });
+        console.log("Checkout session created with Boleto and Card only");
+      } else {
+        throw pixError;
+      }
+    }
 
     console.log("Checkout session created:", session.id);
 
