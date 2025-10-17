@@ -87,11 +87,11 @@ export const Possibilities = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-6 md:px-10 py-5 md:py-6 rounded-2xl text-sm md:text-lg w-full md:w-auto"
-              asChild
-            >
-              <a href="https://pag.ae/8164tZJTR">
-                Garantir minha vaga agora
-              </a>
+            asChild
+          >
+            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+              ✨ Quero essas oportunidades
+            </a>
             </Button>
           </div>
         </div>

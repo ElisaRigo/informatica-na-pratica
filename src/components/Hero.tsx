@@ -92,6 +92,30 @@ export const Hero = () => {
             Mesmo Começando do Zero 💻
           </h2>
 
+          {/* Links âncora estratégicos */}
+          <div className="flex flex-wrap gap-3 justify-center mb-6 md:mb-8 text-sm md:text-base">
+            <a 
+              href="#sobre" 
+              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
+            >
+              👩‍🏫 Conhecer a Professora
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a 
+              href="#conteudo" 
+              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
+            >
+              📚 Ver Conteúdo Completo
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a 
+              href="#depoimentos" 
+              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
+            >
+              ⭐ Ler Depoimentos
+            </a>
+          </div>
+
           {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
           <div className="mb-5 md:mb-6 max-w-3xl mx-auto">
             <Button 

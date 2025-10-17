@@ -44,11 +44,11 @@ export const AboutSection = () => {
               <Button 
                 size="lg" 
                 className="font-extrabold px-8 py-6 rounded-2xl text-base"
-                asChild
-              >
-                <a href="https://pag.ae/8164tZJTR">
-                  🚀 Quero começar agora
-                </a>
+              asChild
+            >
+              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+                🚀 Quero começar agora
+              </a>
               </Button>
               <Button 
                 size="lg" 

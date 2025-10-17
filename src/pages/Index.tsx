@@ -7,6 +7,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
+import { InternalLinks } from "@/components/InternalLinks";
 
 // Lazy load componentes em blocos separados para carregamento progressivo
 const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
@@ -52,6 +53,9 @@ const Index = () => {
       <Suspense fallback={<div className="h-32" />}>
         <ValueStack />
       </Suspense>
+      
+      {/* NAVEGAÇÃO INTERNA - Links âncora estratégicos */}
+      <InternalLinks />
       
       {/* O QUE VAI APRENDER - Conteúdo detalhado */}
       <Suspense fallback={<div className="h-32" />}>

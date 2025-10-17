@@ -54,11 +54,11 @@ export const EmotionalBenefits = () => {
             <Button 
               size="lg" 
               className="font-extrabold px-10 py-6 rounded-2xl text-base"
-              asChild
-            >
-              <a href="https://pag.ae/8164tZJTR">
-                Começar sem risco agora
-              </a>
+            asChild
+          >
+            <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+              💪 Começar minha transformação
+            </a>
             </Button>
           </div>
         </div>
