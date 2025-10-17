@@ -41,19 +41,18 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
     setLoading(true);
 
     try {
-      // Submete o pagamento - Stripe vai redirecionar automaticamente
+      // Para boleto e alguns métodos, Stripe precisa redirecionar para mostrar instruções
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${window.location.origin}/obrigada`,
+          return_url: `${window.location.protocol}//${window.location.host}/obrigada`,
         },
       });
 
-      // Se chegou aqui, houve um erro (pois confirmPayment redireciona em caso de sucesso)
+      // Se chegou aqui sem redirecionar, houve um erro
       if (error) {
-        // Erros esperados que não devem mostrar toast de erro
+        // Erros de validação não precisam de toast
         if (error.type === "validation_error") {
-          // Erro de validação nos campos, usuário precisa corrigir
           return;
         }
         
@@ -78,6 +77,12 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
     <form onSubmit={handleSubmit} className="space-y-6">
       <PaymentElement 
         onReady={() => setIsReady(true)}
+        options={{
+          layout: {
+            type: 'tabs',
+            defaultCollapsed: false,
+          }
+        }}
       />
       
       <Button
