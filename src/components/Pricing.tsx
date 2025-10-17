@@ -169,8 +169,8 @@ export const Pricing = () => {
                 className="w-full font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl md:rounded-2xl mb-3"
                 asChild
               >
-                <a href="https://pag.ae/7-kWMybpk" target="_blank" rel="noopener noreferrer">
-                  Garantir minha vaga agora
+                <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer">
+                  🚀 Quero garantir minha vaga
                 </a>
               </Button>
 
