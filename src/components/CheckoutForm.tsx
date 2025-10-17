@@ -108,6 +108,12 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
     <form onSubmit={handleSubmit} className="space-y-6">
       <PaymentElement 
         onReady={() => setIsReady(true)}
+        options={{
+          layout: {
+            type: 'tabs',
+            defaultCollapsed: false,
+          },
+        }}
       />
       
       <Button

@@ -76,6 +76,18 @@ serve(async (req) => {
       automatic_payment_methods: {
         enabled: true,
       },
+      payment_method_options: {
+        card: {
+          installments: {
+            enabled: true,
+            plan: {
+              count: 12,
+              interval: "month",
+              type: "fixed_count",
+            },
+          },
+        },
+      },
       metadata: {
         customer_name: customerName,
         customer_email: customerEmail,
