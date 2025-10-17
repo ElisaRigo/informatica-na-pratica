@@ -65,8 +65,10 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
+    console.log("🚀 Iniciando checkout...", { name: formData.name, email: formData.email });
 
     try {
+      console.log("📞 Chamando edge function create-stripe-checkout...");
       const { data, error } = await supabase.functions.invoke('create-stripe-checkout', {
         body: {
           customerName: formData.name,
@@ -74,17 +76,24 @@ export const CheckoutForm = () => {
         }
       });
 
-      if (error) throw error;
+      console.log("📦 Resposta recebida:", { data, error });
+
+      if (error) {
+        console.error("❌ Erro na edge function:", error);
+        throw error;
+      }
 
       if (data?.url) {
-        // Redireciona para o checkout do Stripe (suporta PIX, Boleto e Cartão)
+        console.log("✅ URL de checkout recebida:", data.url);
+        console.log("🔄 Redirecionando para Stripe...");
         window.location.href = data.url;
       } else {
+        console.error("⚠️ Dados retornados sem URL:", data);
         throw new Error('Falha ao gerar link de pagamento');
       }
 
     } catch (error: any) {
-      console.error('Error creating checkout:', error);
+      console.error('❌ Erro ao criar checkout:', error);
       toast({
         title: "Erro ao processar",
         description: error.message || "Tente novamente em alguns instantes",
