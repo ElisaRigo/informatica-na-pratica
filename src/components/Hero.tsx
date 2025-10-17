@@ -92,18 +92,13 @@ export const Hero = () => {
         </div>
         
         {/* Texto destacado abaixo do vídeo */}
-        <p className="text-lg md:text-xl text-foreground mb-4 md:mb-5 max-w-3xl mx-auto font-semibold">
-          Domine <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e <span className="text-white font-black">mais</span>... mesmo <span className="text-white font-black">começando do zero</span>
+        <p className="text-base md:text-lg text-foreground mb-3 md:mb-4 max-w-3xl mx-auto font-medium">
+          Domine <span className="text-primary font-bold">Word</span>, <span className="text-primary font-bold">Excel</span> e <span className="text-white font-bold">mais</span>... mesmo <span className="text-white font-bold">começando do zero</span>
         </p>
       </div>
 
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-3 md:mb-4">
-        Conquiste sua <span className="text-primary">independência digital</span><br />
-        e abra portas no mercado de trabalho
-      </h2>
-
       {/* Links âncora estratégicos */}
-      <div className="flex flex-wrap gap-3 justify-center mb-4 md:mb-5 text-sm md:text-base">
+      <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-3 md:mb-4 text-xs md:text-sm">
             <a 
               href="#sobre" 
               className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
@@ -127,36 +122,23 @@ export const Hero = () => {
           </div>
 
       {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
-      <div className="mb-4 md:mb-5 max-w-3xl mx-auto">
-            <Button 
-              size="lg" 
-              className="text-sm md:text-xl font-extrabold px-6 md:px-16 py-6 md:py-8 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
-              asChild
-            >
-              <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap">
-                ✨ Sim, quero mudar minha vida
-              </a>
-            </Button>
-            <p className="text-xs md:text-sm text-muted-foreground mt-3 font-semibold">
-              💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses
-            </p>
-          </div>
+      <div className="mb-3 md:mb-4 max-w-3xl mx-auto">
+        <Button 
+          size="lg" 
+          className="text-sm md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
+          asChild
+        >
+          <a href="https://pag.ae/8164tZJTR" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap">
+            ✨ Sim, quero mudar minha vida
+          </a>
+        </Button>
+        <p className="text-xs text-muted-foreground mt-2 font-semibold">
+          💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses
+        </p>
+      </div>
 
-          <p className="text-sm md:text-base lg:text-lg text-muted-foreground mb-5 md:mb-6 max-w-3xl mx-auto px-2">
-            <span className="font-bold text-foreground">Chega de se sentir perdido</span> no computador. Curso online com aulas práticas, passo a passo e suporte direto comigo, professora Elisa 💻
-          </p>
-
-          {/* Destaque: Promessa de Resultado */}
-          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-xl md:rounded-2xl px-4 md:px-6 py-4 md:py-5 mb-5 md:mb-6 max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-2">
-              Seja visto e valorizado no mercado
-            </p>
-            <p className="text-sm md:text-base text-muted-foreground">
-              Domine as ferramentas que <span className="font-bold text-foreground">empresas exigem</span> e se destaque entre os candidatos
-            </p>
-          </div>
-          {/* Benefícios Rápidos */}
-          <div className="flex flex-wrap gap-2 md:gap-4 justify-center items-center px-2">
+      {/* Benefícios Rápidos */}
+      <div className="flex flex-wrap gap-2 md:gap-3 justify-center items-center px-2">
             <div className="flex items-center gap-1.5 md:gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
               <Zap className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               <span className="font-bold text-xs md:text-sm">Acesso Imediato</span>
