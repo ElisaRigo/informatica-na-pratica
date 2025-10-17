@@ -67,19 +67,17 @@ export const CheckoutForm = () => {
     setLoading(paymentMethod);
 
     try {
-      const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
+      const { data, error } = await supabase.functions.invoke('stripe-checkout', {
         body: {
           customerName: formData.name,
-          customerEmail: formData.email,
-          customerPhone: cleanPhone,
-          customerCPF: cleanCPF
+          customerEmail: formData.email
         }
       });
 
       if (error) throw error;
 
-      if (data.success && data.checkoutCode) {
-        window.location.href = `/aguardando?transaction_id=${data.checkoutCode}&payment_url=${encodeURIComponent(data.paymentUrl)}`;
+      if (data.success && data.url) {
+        window.open(data.url, '_blank');
       } else {
         throw new Error('Falha ao criar link de pagamento');
       }
@@ -201,7 +199,7 @@ export const CheckoutForm = () => {
       </div>
 
       <p className="text-xs text-muted-foreground text-center">
-        Você será redirecionado para o ambiente seguro do PagSeguro
+        Você será redirecionado para o ambiente seguro de pagamento
       </p>
     </div>
   );
