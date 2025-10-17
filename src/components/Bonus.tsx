@@ -117,7 +117,7 @@ export const Bonus = () => {
                 className="bg-card border-2 border-success/30 rounded-2xl p-6 hover:border-success transition-all hover:scale-105 relative overflow-hidden"
               >
                 {/* Selo de valor no topo */}
-                <div className="absolute -top-3 right-4 bg-gradient-to-r from-success to-success/80 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg z-10">
+                <div className="absolute top-3 right-3 bg-gradient-to-r from-success to-success/80 text-white px-3 py-1.5 rounded-lg text-base md:text-lg font-black shadow-lg z-10">
                   {bonus.value}
                 </div>
                 

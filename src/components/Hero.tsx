@@ -90,7 +90,7 @@ export const Hero = () => {
         {/* Texto destacado abaixo do vídeo */}
         <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white mb-3 md:mb-4 max-w-3xl mx-auto font-black leading-tight">
           Domine <span className="text-[#00D4FF]">Word, Excel e mais....</span><br />
-          Mesmo Começando do Zero 💻
+          Mesmo Começando do Zero
         </p>
 
         {/* Benefícios Rápidos */}
