@@ -29,179 +29,327 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 // Moodle API helper
 async function callMoodleAPI(functionName: string, params: Record<string, any>) {
   const url = new URL(`${MOODLE_URL}/webservice/rest/server.php`);
-  url.searchParams.set("wstoken", MOODLE_TOKEN || "");
-  url.searchParams.set("wsfunction", functionName);
-  url.searchParams.set("moodlewsrestformat", "json");
+  url.searchParams.set('wstoken', MOODLE_TOKEN!);
+  url.searchParams.set('wsfunction', functionName);
+  url.searchParams.set('moodlewsrestformat', 'json');
 
-  Object.entries(params).forEach(([key, value]) => {
-    url.searchParams.set(key, String(value));
+  Object.keys(params).forEach(key => {
+    url.searchParams.set(key, String(params[key]));
   });
 
-  console.log("Calling Moodle API:", functionName);
-  
-  const response = await fetch(url.toString());
-  const responseText = await response.text();
-  
-  // Check if response is HTML (error page)
-  if (responseText.trim().startsWith("<!DOCTYPE") || responseText.trim().startsWith("<html")) {
-    console.error("Moodle API returned HTML instead of JSON. Token may be invalid or API not enabled.");
-    console.error("Response preview:", responseText.substring(0, 500));
-    throw new Error("Moodle API configuration error: Invalid token or API not enabled");
+  console.log(`Calling Moodle API: ${functionName}`, params);
+
+  const response = await fetch(url.toString(), {
+    method: 'POST',
+  });
+
+  if (!response.ok) {
+    throw new Error(`Moodle API HTTP error: ${response.status} ${response.statusText}`);
   }
-  
-  try {
-    const jsonResponse = JSON.parse(responseText);
-    
-    // Check for Moodle error response
-    if (jsonResponse.exception || jsonResponse.errorcode) {
-      console.error("Moodle API error:", jsonResponse);
-      throw new Error(`Moodle API error: ${jsonResponse.message || jsonResponse.errorcode}`);
-    }
-    
-    return jsonResponse;
-  } catch (parseError) {
-    console.error("Failed to parse Moodle response:", responseText.substring(0, 500));
-    throw new Error("Invalid Moodle API response format");
+
+  const data = await response.json();
+  console.log(`Moodle API response for ${functionName}:`, data);
+
+  // Se data é null, considerar como sucesso (enrol_manual_enrol_users retorna null em sucesso)
+  if (data === null) {
+    console.log(`✅ API ${functionName} completed successfully (null response)`);
+    return data;
   }
+
+  // Verificar erros apenas se data não for null
+  if (data && (data.exception || data.errorcode)) {
+    throw new Error(`Moodle API error: ${data.message || JSON.stringify(data)}`);
+  }
+
+  return data;
 }
 
-// Create Moodle user (now returns null on failure instead of throwing)
-async function createMoodleUser(name: string, email: string): Promise<{userId: number, username: string, password: string} | null> {
-  console.log("🔄 Attempting Moodle integration for:", { name, email });
+// Create Moodle user
+async function createMoodleUser(name: string, email: string) {
+  // Gerar username a partir do email
+  const username = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
   
-  const username = email.split("@")[0].toLowerCase().replace(/[^a-z0-9]/g, "");
-  const password = `${Math.random().toString(36).slice(-8)}Aa1!`;
+  // Gerar senha segura com requisitos: mínimo 8 caracteres, 1 maiúscula, 1 caractere especial
+  const chars = 'abcdefghijklmnopqrstuvwxyz';
+  const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numbers = '0123456789';
+  const special = '!@#$%&*';
+  
+  let password = '';
+  password += upperChars[Math.floor(Math.random() * upperChars.length)]; // 1 maiúscula
+  password += special[Math.floor(Math.random() * special.length)]; // 1 especial
+  password += numbers[Math.floor(Math.random() * numbers.length)]; // 1 número
+  
+  // Completar com mais 5 caracteres aleatórios para ter 8 no total
+  const allChars = chars + upperChars + numbers;
+  for (let i = 0; i < 5; i++) {
+    password += allChars[Math.floor(Math.random() * allChars.length)];
+  }
+  
+  // Embaralhar a senha
+  password = password.split('').sort(() => Math.random() - 0.5).join('');
+
+  const userData = {
+    'users[0][username]': username,
+    'users[0][password]': password,
+    'users[0][firstname]': name.split(' ')[0],
+    'users[0][lastname]': name.split(' ').slice(1).join(' ') || name.split(' ')[0],
+    'users[0][email]': email,
+    'users[0][auth]': 'manual',
+  };
 
   try {
-    console.log("Creating new Moodle user with username:", username);
-    
-    const result = await callMoodleAPI("core_user_create_users", {
-      "users[0][username]": username,
-      "users[0][password]": password,
-      "users[0][firstname]": name.split(" ")[0],
-      "users[0][lastname]": name.split(" ").slice(1).join(" ") || name.split(" ")[0],
-      "users[0][email]": email,
-      "users[0][auth]": "manual",
-    });
-
-    if (result[0]?.id) {
-      console.log("✅ Moodle user created successfully:", result[0].id);
-      return { userId: result[0].id, username, password };
-    }
-
-    // If user exists, try to get user ID
-    console.log("User may exist, searching by email...");
-    const existingUser = await callMoodleAPI("core_user_get_users_by_field", {
-      field: "email",
-      "values[0]": email,
-    });
-
-    if (existingUser[0]?.id) {
-      console.log("✅ Found existing Moodle user:", existingUser[0].id);
-      // Reset password
-      await callMoodleAPI("core_user_update_users", {
-        "users[0][id]": existingUser[0].id,
-        "users[0][password]": password,
-      });
-      return { userId: existingUser[0].id, username: existingUser[0].username, password };
-    }
-
-    console.warn("⚠️ Could not create or find Moodle user");
-    return null;
+    const result = await callMoodleAPI('core_user_create_users', userData);
+    console.log('✅ New user created:', result);
+    return { userId: result[0].id, username, password };
   } catch (error) {
-    console.error("❌ Moodle integration failed:", error);
-    console.log("⚠️ Continuing without Moodle access...");
-    return null;
-  }
-}
-
-// Enroll user in course (returns success boolean)
-async function enrollUserInCourse(userId: number): Promise<boolean> {
-  try {
-    const result = await callMoodleAPI("enrol_manual_enrol_users", {
-      "enrolments[0][roleid]": 5,
-      "enrolments[0][userid]": userId,
-      "enrolments[0][courseid]": COURSE_ID,
+    console.error('Error creating user:', error);
+    
+    // Se o usuário já existe, buscar pelo email e RESETAR A SENHA
+    const existingUser = await callMoodleAPI('core_user_get_users_by_field', {
+      field: 'email',
+      'values[0]': email
     });
-    console.log("✅ User enrolled in course successfully");
-    return true;
-  } catch (error) {
-    console.error("❌ Error enrolling user:", error);
-    return false;
+
+    if (existingUser && existingUser[0]) {
+      console.log('⚠️ User already exists, resetting password...');
+      const userId = existingUser[0].id;
+      
+      // Atualizar a senha do usuário existente
+      const updateData = {
+        'users[0][id]': userId,
+        'users[0][password]': password,
+      };
+      
+      try {
+        await callMoodleAPI('core_user_update_users', updateData);
+        console.log('✅ Password reset successfully for existing user');
+        return { userId, username: existingUser[0].username, password };
+      } catch (updateError) {
+        console.error('Error updating password:', updateError);
+        // Retornar com senha null se não conseguir atualizar
+        return { userId, username: existingUser[0].username, password: null };
+      }
+    }
+
+    throw error;
   }
 }
 
-// Send welcome email (adapted for optional Moodle)
-async function sendWelcomeEmail(
-  name: string, 
-  email: string, 
-  moodleSuccess: boolean, 
-  username?: string, 
-  password?: string
-): Promise<boolean> {
-  try {
-    const emailHtml = `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
-          .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
-          .button { display: inline-block; background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
-          .credentials { background: white; padding: 20px; border-left: 4px solid #667eea; margin: 20px 0; }
-          .warning { background: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin: 20px 0; }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="header">
-            <h1>🎉 Pagamento Confirmado!</h1>
-          </div>
-          <div class="content">
-            <p>Olá <strong>${name}</strong>,</p>
-            <p>Seu pagamento foi processado com sucesso!</p>
-            
-            ${moodleSuccess && username && password ? `
-            <div class="credentials">
-              <h3>📚 Seus dados de acesso à plataforma:</h3>
-              <p><strong>URL:</strong> ${MOODLE_URL}</p>
-              <p><strong>Usuário:</strong> ${username}</p>
-              <p><strong>Senha:</strong> ${password}</p>
-            </div>
-            <a href="${MOODLE_URL}/login/index.php" class="button">Acessar o Curso Agora</a>
-            ` : `
-            <div class="warning">
-              <h3>⚠️ Acesso em Processamento</h3>
-              <p>Seu pagamento foi confirmado, mas estamos processando seu acesso à plataforma.</p>
-              <p>Você receberá suas credenciais em breve por email ou WhatsApp.</p>
-              <p><strong>Contato:</strong> Entre em contato conosco se tiver dúvidas.</p>
-            </div>
-            `}
-            
-            <p>Obrigado pela confiança!</p>
-            <p>Equipe Elisa Rigo 💙</p>
-          </div>
+// Enroll user in course
+async function enrollUserInCourse(userId: number) {
+  const enrollmentData = {
+    'enrolments[0][roleid]': 5, // Role ID 5 = student
+    'enrolments[0][userid]': userId,
+    'enrolments[0][courseid]': COURSE_ID,
+  };
+
+  const result = await callMoodleAPI('enrol_manual_enrol_users', enrollmentData);
+  console.log('User enrolled:', result);
+  return result;
+}
+
+// Send welcome email
+async function sendWelcomeEmail(name: string, email: string, username: string, password: string | null) {
+  const firstName = name.split(' ')[0];
+  
+  const passwordInfo = password 
+    ? `<div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 25px; border-radius: 12px; margin: 25px 0; border: 2px solid #0080BB;">
+         <p style="margin: 0 0 15px 0; font-size: 16px; color: #0c4a6e; font-weight: 600;">🔑 Suas credenciais de acesso:</p>
+         <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+           <p style="margin: 8px 0; font-size: 15px; color: #334155;"><strong style="color: #0080BB;">Usuário:</strong> <span style="font-family: 'Courier New', monospace; background: #f1f5f9; padding: 4px 8px; border-radius: 4px; font-size: 16px;">${username}</span></p>
+           <p style="margin: 8px 0; font-size: 15px; color: #334155;"><strong style="color: #0080BB;">Senha:</strong> <span style="font-family: 'Courier New', monospace; background: #f1f5f9; padding: 4px 8px; border-radius: 4px; font-size: 16px;">${password}</span></p>
+         </div>
+         <p style="margin: 15px 0 0 0; font-size: 13px; color: #64748b;">💡 Dica: Salve estas informações em um lugar seguro!</p>
+       </div>`
+    : `<div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 25px; border-radius: 12px; margin: 25px 0; border: 2px solid #0080BB;">
+         <p style="margin: 0; font-size: 15px; color: #0c4a6e;">🔐 Use suas credenciais de acesso existentes para entrar na plataforma.</p>
+       </div>`;
+
+  const emailHtml = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+          line-height: 1.6; 
+          color: #1e293b;
+          background: #f1f5f9;
+          padding: 20px;
+        }
+        .email-wrapper {
+          max-width: 600px;
+          margin: 0 auto;
+          background: white;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 10px 40px rgba(0, 128, 187, 0.15);
+        }
+        .header {
+          background: linear-gradient(135deg, #0080BB 0%, #005A87 100%);
+          padding: 40px 30px;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        .header::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          right: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+          animation: pulse 15s ease-in-out infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 0.5; }
+          50% { transform: scale(1.1); opacity: 0.3; }
+        }
+        .logo {
+          max-width: 180px;
+          height: auto;
+          margin-bottom: 20px;
+          position: relative;
+          z-index: 1;
+        }
+        .header h1 {
+          color: white;
+          font-size: 28px;
+          font-weight: 700;
+          margin: 0;
+          position: relative;
+          z-index: 1;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .content {
+          padding: 40px 30px;
+          background: white;
+        }
+        .greeting {
+          font-size: 18px;
+          color: #0f172a;
+          margin-bottom: 20px;
+          font-weight: 600;
+        }
+        .message {
+          font-size: 15px;
+          color: #475569;
+          margin-bottom: 15px;
+          line-height: 1.7;
+        }
+        .cta-container {
+          text-align: center;
+          margin: 35px 0;
+        }
+        .button {
+          display: inline-block;
+          background: linear-gradient(135deg, #0080BB 0%, #005A87 100%);
+          color: #ffffff !important;
+          padding: 16px 40px;
+          text-decoration: none;
+          border-radius: 10px;
+          font-weight: 600;
+          font-size: 16px;
+          box-shadow: 0 4px 15px rgba(0, 128, 187, 0.4);
+          transition: all 0.3s ease;
+        }
+        .divider {
+          height: 1px;
+          background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+          margin: 30px 0;
+        }
+        .footer {
+          background: #f8fafc;
+          padding: 30px;
+          text-align: center;
+          border-top: 1px solid #e2e8f0;
+        }
+        .signature {
+          font-size: 15px;
+          color: #64748b;
+          margin-bottom: 5px;
+        }
+        .signature strong {
+          display: block;
+          font-size: 17px;
+          color: #0080BB;
+          margin: 8px 0 5px 0;
+          font-weight: 700;
+        }
+        .brand {
+          color: #94a3b8;
+          font-size: 14px;
+          font-weight: 500;
+        }
+        .emoji {
+          font-size: 24px;
+          margin: 0 5px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="email-wrapper">
+        <div class="header">
+          <img src="https://informatica-descomplicada.lovable.app/logo-email.png" alt="Informática na Prática" class="logo">
+          <h1><span class="emoji">🎉</span> Bem-vindo ao Curso!</h1>
         </div>
-      </body>
-      </html>
-    `;
+        
+        <div class="content">
+          <p class="greeting">Olá, ${firstName}! 👋</p>
+          
+          <p class="message">
+            Parabéns! Sua matrícula foi confirmada com sucesso. <strong>Estou muito feliz</strong> em ter você comigo nessa jornada de aprendizado! <span class="emoji">🚀</span>
+          </p>
+          
+          ${passwordInfo}
+          
+          <p class="message">
+            Sua plataforma de estudos já está pronta! Acesse agora e comece a aprender no seu ritmo:
+          </p>
+          
+          <div class="cta-container">
+            <a href="${MOODLE_URL}" class="button">🎯 Acessar Plataforma</a>
+          </div>
+          
+          <div class="divider"></div>
+          
+          <p class="message">
+            Se tiver qualquer dúvida, estou à disposição para ajudar! 💬
+          </p>
+        </div>
+        
+        <div class="footer">
+          <p class="signature">
+            Bons estudos! 📚
+            <strong>Prof. Elisa</strong>
+            <span class="brand">Informática na Prática</span>
+          </p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
 
-    await resend.emails.send({
-      from: "Elisa Rigo <onboarding@resend.dev>",
-      to: email,
-      subject: moodleSuccess 
-        ? "🎉 Bem-vindo! Acesso ao Curso Liberado" 
-        : "✅ Pagamento Confirmado - Acesso em Processamento",
+  try {
+    const result = await resend.emails.send({
+      from: "Informática na Prática <contato@informaticanapratica.com.br>",
+      to: [email],
+      subject: "🎉 Bem-vindo ao Curso de Informática!",
       html: emailHtml,
     });
 
-    console.log("✅ Email sent successfully");
-    return true;
+    console.log('Welcome email sent:', result);
+    return result;
   } catch (error) {
-    console.error("❌ Error sending email:", error);
-    return false;
+    console.error('Error sending email:', error);
+    throw error;
   }
 }
 
@@ -313,30 +461,15 @@ serve(async (req) => {
 
       console.log("✅ Payment saved:", paymentData.id);
 
-      // Try Moodle integration (optional, won't break flow if fails)
+      // Moodle integration
       console.log("🔄 Starting Moodle integration...");
       const moodleUser = await createMoodleUser(customerName, customerEmail);
-      
-      let moodleSuccess = false;
-      let enrollmentSuccess = false;
-      
-      if (moodleUser) {
-        console.log("✅ Moodle user ready:", moodleUser.userId);
-        
-        // Try to enroll
-        enrollmentSuccess = await enrollUserInCourse(moodleUser.userId);
-        moodleSuccess = enrollmentSuccess;
-        
-        if (enrollmentSuccess) {
-          console.log("✅ Moodle enrollment completed");
-        } else {
-          console.warn("⚠️ Moodle enrollment failed, but continuing...");
-        }
-      } else {
-        console.warn("⚠️ Moodle integration unavailable, continuing without it...");
-      }
+      console.log("✅ Moodle user created:", moodleUser);
 
-      // Save student to database (ALWAYS, regardless of Moodle status)
+      await enrollUserInCourse(moodleUser.userId);
+      console.log("✅ User enrolled in course");
+
+      // Save student to database
       console.log("💾 Saving student to database...");
       const { error: studentError } = await supabase
         .from("students")
@@ -344,46 +477,28 @@ serve(async (req) => {
           email: customerEmail,
           name: customerName,
           pagseguro_transaction_id: paymentIntent.id,
-          course_access: moodleSuccess,
-          moodle_username: moodleUser?.username || null,
-          moodle_password: moodleUser?.password || null,
+          course_access: true,
+          moodle_username: moodleUser.username,
+          moodle_password: moodleUser.password,
         }, {
           onConflict: "email",
         });
 
       if (studentError) {
         console.error("❌ Error saving student:", studentError);
-        // Don't throw - continue with email
-      } else {
-        console.log("✅ Student saved to database");
+        throw studentError;
       }
+      console.log("✅ Student saved to database");
 
-      // Send email (ALWAYS, adapted to Moodle status)
-      console.log("📧 Sending confirmation email...");
-      const emailSent = await sendWelcomeEmail(
-        customerName, 
-        customerEmail, 
-        moodleSuccess,
-        moodleUser?.username,
-        moodleUser?.password
-      );
-      
-      if (emailSent) {
-        console.log("✅ Email sent successfully");
-      } else {
-        console.warn("⚠️ Email failed, but student is registered");
-      }
+      // Send welcome email
+      console.log("📧 Sending welcome email...");
+      await sendWelcomeEmail(customerName, customerEmail, moodleUser.username, moodleUser.password);
+      console.log("✅ Email sent successfully");
 
       // Track conversion
       await trackGoogleAdsConversion(paymentIntent.id, paymentIntent.amount / 100);
       
       console.log("🎉 Automation completed for payment:", paymentIntent.id);
-      console.log("📊 Status:", {
-        payment: "✅ saved",
-        student: studentError ? "⚠️ error" : "✅ saved",
-        moodle: moodleSuccess ? "✅ enrolled" : "❌ failed",
-        email: emailSent ? "✅ sent" : "⚠️ failed"
-      });
 
       return new Response(JSON.stringify({ success: true }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
