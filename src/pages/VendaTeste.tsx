@@ -7,7 +7,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
-import { CheckoutForm } from "@/components/CheckoutForm";
+import { StripeCheckoutForm } from "@/components/StripeCheckoutForm";
 
 // Lazy load componentes em blocos separados para carregamento progressivo
 const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
@@ -81,7 +81,7 @@ const VendaTeste = () => {
               <h2 className="text-3xl font-bold text-center md:text-left">
                 Complete seus dados para finalizar
               </h2>
-              <CheckoutForm />
+              <StripeCheckoutForm />
             </div>
           </div>
         </div>
