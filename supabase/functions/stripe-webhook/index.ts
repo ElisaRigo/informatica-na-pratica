@@ -185,10 +185,21 @@ serve(async (req) => {
 
     // Verify webhook signature
     const webhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET");
+    
+    if (!webhookSecret) {
+      console.error("STRIPE_WEBHOOK_SECRET not configured");
+      return new Response(JSON.stringify({ error: "Webhook secret not configured" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     let event: Stripe.Event;
 
     try {
-      event = stripe.webhooks.constructEvent(body, signature, webhookSecret || "");
+      // CRITICAL: Use constructEventAsync for Deno environment
+      event = await stripe.webhooks.constructEventAsync(body, signature, webhookSecret);
+      console.log("Webhook signature verified successfully");
     } catch (err) {
       console.error("Webhook signature verification failed:", err);
       return new Response(JSON.stringify({ error: "Invalid signature" }), {
@@ -205,21 +216,36 @@ serve(async (req) => {
 
       console.log("Processing payment intent:", paymentIntent.id);
 
-      // Get customer details
-      const customer = await stripe.customers.retrieve(paymentIntent.customer as string);
-      
-      if (customer.deleted) {
-        throw new Error("Customer was deleted");
+      // Get customer details with better error handling
+      let customerName = "Cliente";
+      let customerEmail = "";
+
+      if (paymentIntent.customer) {
+        try {
+          const customer = await stripe.customers.retrieve(paymentIntent.customer as string);
+          
+          if (!customer.deleted) {
+            customerName = customer.name || paymentIntent.metadata?.customer_name || "Cliente";
+            customerEmail = customer.email || paymentIntent.metadata?.customer_email || "";
+          }
+        } catch (err) {
+          console.error("Error retrieving customer:", err);
+          // Fallback to metadata if customer retrieval fails
+          customerName = paymentIntent.metadata?.customer_name || "Cliente";
+          customerEmail = paymentIntent.metadata?.customer_email || "";
+        }
+      } else {
+        // No customer ID, try metadata
+        customerName = paymentIntent.metadata?.customer_name || "Cliente";
+        customerEmail = paymentIntent.metadata?.customer_email || "";
       }
 
-      const customerName = paymentIntent.metadata?.customer_name || customer.name || "Cliente";
-      const customerEmail = paymentIntent.metadata?.customer_email || customer.email;
-
       if (!customerEmail) {
+        console.error("Customer email not found in payment intent:", paymentIntent.id);
         throw new Error("Customer email not found");
       }
 
-      console.log("Customer:", { name: customerName, email: customerEmail });
+      console.log("Customer data retrieved:", { name: customerName, email: customerEmail });
 
       // Save payment to database
       const { data: paymentData, error: paymentError } = await supabase
@@ -242,10 +268,16 @@ serve(async (req) => {
       console.log("Payment saved:", paymentData.id);
 
       // Create Moodle user and enroll
+      console.log("Creating Moodle user...");
       const moodleUser = await createMoodleUser(customerName, customerEmail);
+      console.log("Moodle user created successfully:", moodleUser.userId);
+      
+      console.log("Enrolling user in course...");
       await enrollUserInCourse(moodleUser.userId);
+      console.log("User enrolled successfully");
 
       // Save student to database
+      console.log("Saving student to database...");
       const { error: studentError } = await supabase
         .from("students")
         .upsert({
@@ -264,13 +296,19 @@ serve(async (req) => {
         throw studentError;
       }
 
-      console.log("Student saved");
+      console.log("Student saved successfully");
 
       // Send welcome email
+      console.log("Sending welcome email...");
       await sendWelcomeEmail(customerName, customerEmail, moodleUser.username, moodleUser.password);
+      console.log("Welcome email sent successfully");
 
       // Track conversion
-      trackGoogleAdsConversion(paymentIntent.id, paymentIntent.amount / 100);
+      console.log("Tracking conversion...");
+      await trackGoogleAdsConversion(paymentIntent.id, paymentIntent.amount / 100);
+      console.log("Conversion tracked successfully");
+      
+      console.log("✅ All automation steps completed successfully for payment:", paymentIntent.id);
 
       return new Response(JSON.stringify({ success: true }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
