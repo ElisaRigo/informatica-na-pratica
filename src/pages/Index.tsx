@@ -35,9 +35,25 @@ const Index = () => {
       <Suspense fallback={<div className="h-32" />}>
         <TargetAudience />
       </Suspense>
+      {/* POSSIBILIDADES - Com vs Sem */}
+      <Suspense fallback={<div className="h-32" />}>
+        <Possibilities />
+      </Suspense>
+      {/* VALOR - Benefícios principais */}
+      <Suspense fallback={<div className="h-32" />}>
+        <ValueStack />
+      </Suspense>
+      {/* COMPARAÇÃO - 30 dias */}
+      <Suspense fallback={<div className="h-32" />}>
+        <Comparison />
+      </Suspense>
       {/* VALOR - O que vai aprender */}
       <Suspense fallback={<div className="h-32" />}>
         <ContentGrid />
+      </Suspense>
+      {/* BENEFÍCIOS EMOCIONAIS */}
+      <Suspense fallback={<div className="h-32" />}>
+        <EmotionalBenefits />
       </Suspense>
       {/* PROVA SOCIAL */}
       <Testimonials />
@@ -47,16 +63,16 @@ const Index = () => {
         <Authority />
       </Suspense>
       <SocialProof />
-      {/* PERCEPÇÃO DE VALOR */}
-      <Suspense fallback={<div className="h-32" />}>
-        <ValueStack />
-      </Suspense>
-      <Suspense fallback={<div className="h-32" />}>
-        <StrategicCTA context="vendo todo o valor que você vai receber" />
-      </Suspense>
       {/* AUMENTAR VALOR PERCEBIDO */}
       <Suspense fallback={<div className="h-32" />}>
         <Bonus />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
+        <StrategicCTA context="sabendo de tudo que você vai aprender" />
+      </Suspense>
+      {/* OBJEÇÕES ANTECIPADAS */}
+      <Suspense fallback={<div className="h-32" />}>
+        <NotForYou />
       </Suspense>
       {/* OFERTA COM URGÊNCIA */}
       <Suspense fallback={<div className="h-32" />}>
