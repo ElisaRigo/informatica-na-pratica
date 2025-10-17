@@ -41,16 +41,25 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
     setLoading(true);
 
     try {
+      // Construir URL de retorno completa com protocolo
+      const protocol = window.location.protocol; // http: ou https:
+      const host = window.location.host; // dominio.com ou localhost:port
+      const returnUrl = `${protocol}//${host}/obrigada`;
+      
+      console.log("Return URL:", returnUrl);
+
       // Submete o pagamento - Stripe vai redirecionar automaticamente
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${window.location.origin}/obrigada`,
+          return_url: returnUrl,
         },
       });
 
       // Se chegou aqui, houve um erro (pois confirmPayment redireciona em caso de sucesso)
       if (error) {
+        console.error("Payment error:", error);
+        
         // Erros esperados que não devem mostrar toast de erro
         if (error.type === "validation_error") {
           // Erro de validação nos campos, usuário precisa corrigir
@@ -64,6 +73,7 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
         });
       }
     } catch (err: any) {
+      console.error("Unexpected error:", err);
       toast({
         title: "Erro",
         description: err.message || "Ocorreu um erro ao processar o pagamento",
