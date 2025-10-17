@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
 
 // Inicializar Stripe
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "");
+const stripePromise = loadStripe("pk_test_51SJEnDRzpXJIMcLI2BPz4yeHYtehyaTtMyw7gNp3aXNEWtEd1TsieMoVFWeCbZlQjwCn6IT85giojLxMQCxCUSq600hn3yHyxc");
 
 const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
   const stripe = useStripe();
