@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Award, Zap, Lock, CheckCircle2 } from "lucide-react";
+import { Shield, Award, Zap, Lock, CheckCircle2, Play } from "lucide-react";
+import { useState } from "react";
+import videoPoster from "@/assets/video-poster-hero.jpg";
+
 export const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-6 lg:py-8">
@@ -32,25 +36,47 @@ export const Hero = () => {
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-3xl mx-auto mb-6 md:mb-8">
-            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-transparent">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/mSNhsfD5RWA?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&iv_load_policy=3&playsinline=1" 
-                title="Vídeo de apresentação do curso de Informática na Prática" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
-                allowFullScreen
-                className="w-full aspect-video"
-              />
+            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-black">
+              {!videoLoaded ? (
+                <>
+                  {/* Capa do vídeo */}
+                  <div 
+                    className="relative w-full aspect-video cursor-pointer group"
+                    onClick={() => setVideoLoaded(true)}
+                  >
+                    <img 
+                      src={videoPoster} 
+                      alt="Capa do vídeo - Curso de Informática na Prática" 
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Botão de play */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+                      <div className="bg-primary/90 backdrop-blur-sm rounded-full p-6 md:p-8 group-hover:scale-110 transition-transform shadow-2xl">
+                        <Play className="w-12 h-12 md:w-16 md:h-16 text-white fill-white" />
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src="https://www.youtube.com/embed/mSNhsfD5RWA?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&iv_load_policy=3&playsinline=1&autoplay=1" 
+                  title="Vídeo de apresentação do curso de Informática na Prática" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerPolicy="strict-origin-when-cross-origin" 
+                  allowFullScreen
+                  className="w-full aspect-video"
+                />
+              )}
               
               {/* Overlay estratégico com preço - CLICÁVEL */}
               <a 
                 href="https://pag.ae/8164tZJTR" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer"
+                className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
               >
                 <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
                 <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
