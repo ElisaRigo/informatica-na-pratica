@@ -31,7 +31,7 @@ export const Hero = () => {
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8">
-            <span className="text-destructive">Chega de perder oportunidades!</span>
+            <span className="text-destructive">Consiga Melhores Oportunidades!</span>
           </h1>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
@@ -47,12 +47,12 @@ export const Hero = () => {
                     <img 
                       src={videoPoster} 
                       alt="Capa do vídeo - Curso de Informática na Prática" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover brightness-110 contrast-105"
                     />
                     {/* Botão de play */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
-                      <div className="bg-primary/90 backdrop-blur-sm rounded-full p-6 md:p-8 group-hover:scale-110 transition-transform shadow-2xl">
-                        <Play className="w-12 h-12 md:w-16 md:h-16 text-white fill-white" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                      <div className="bg-primary/70 backdrop-blur-sm rounded-full p-3 md:p-4 group-hover:scale-110 transition-transform shadow-2xl">
+                        <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white" />
                       </div>
                     </div>
                   </div>
@@ -88,9 +88,33 @@ export const Hero = () => {
           </div>
 
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-6 md:mb-8">
-            Aprenda <span className="text-primary">Word, Excel e mais...</span><br />
+            Domine <span className="text-primary">Word, Excel e mais...</span><br />
             Mesmo Começando do Zero 💻
           </h2>
+
+          {/* Links âncora estratégicos */}
+          <div className="flex flex-wrap gap-3 justify-center mb-6 md:mb-8">
+            <a 
+              href="#sobre" 
+              className="text-sm md:text-base font-semibold text-primary hover:underline underline-offset-4 transition-all"
+            >
+              👩‍🏫 Conhecer a Professora
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a 
+              href="#conteudo" 
+              className="text-sm md:text-base font-semibold text-primary hover:underline underline-offset-4 transition-all"
+            >
+              📚 Ver Conteúdo Completo
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a 
+              href="#depoimentos" 
+              className="text-sm md:text-base font-semibold text-primary hover:underline underline-offset-4 transition-all"
+            >
+              ⭐ Ler Depoimentos
+            </a>
+          </div>
 
           {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
           <div className="mb-5 md:mb-6 max-w-3xl mx-auto">
