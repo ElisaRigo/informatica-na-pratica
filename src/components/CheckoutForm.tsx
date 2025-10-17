@@ -16,12 +16,25 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!stripe || !elements) {
+      toast({
+        title: "Carregando...",
+        description: "Aguarde enquanto preparamos o pagamento",
+      });
+      return;
+    }
+
+    if (!isReady) {
+      toast({
+        title: "Aguarde",
+        description: "O formulário de pagamento ainda está carregando",
+      });
       return;
     }
 
@@ -55,11 +68,13 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <PaymentElement />
+      <PaymentElement 
+        onReady={() => setIsReady(true)}
+      />
       
       <Button
         type="submit"
-        disabled={!stripe || loading}
+        disabled={!stripe || !isReady || loading}
         size="lg"
         className="w-full font-bold text-lg py-6"
       >
@@ -67,6 +82,11 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
           <>
             <Loader2 className="mr-2 h-5 w-5 animate-spin" />
             Processando...
+          </>
+        ) : !isReady ? (
+          <>
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+            Carregando...
           </>
         ) : (
           `Pagar R$ 297,00`
