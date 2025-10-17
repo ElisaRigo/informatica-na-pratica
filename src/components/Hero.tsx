@@ -35,10 +35,6 @@ export const Hero = () => {
             <span className="text-foreground">Por Não Saber Informática</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto">
-            Quantas vagas de emprego você já perdeu? Quantas vezes pediu ajuda para fazer algo simples no computador? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
-          </p>
-          
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-3xl mx-auto mb-6 md:mb-8">
             <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-black">
@@ -96,6 +92,10 @@ export const Hero = () => {
           Domine <span className="text-primary font-bold">Word</span>, <span className="text-primary font-bold">Excel</span> e <span className="text-white font-bold">mais</span>... mesmo <span className="text-white font-bold">começando do zero</span>
         </p>
       </div>
+      
+      <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
+        Quantas vagas de emprego você já perdeu? Quantas vezes pediu ajuda para fazer algo simples no computador? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
+      </p>
 
       {/* Links âncora estratégicos */}
       <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-3 md:mb-4 text-xs md:text-sm">
