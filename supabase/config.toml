@@ -3,5 +3,5 @@ project_id = "exncvylyygvctgwyqpin"
 [functions.pagseguro-webhook]
 verify_jwt = false
 
-[functions.create-payment-intent]
+[functions.create-stripe-checkout]
 verify_jwt = false

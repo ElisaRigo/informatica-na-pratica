@@ -67,32 +67,18 @@ export const CheckoutForm = () => {
     setLoading(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
+      const { data, error } = await supabase.functions.invoke('create-stripe-checkout', {
         body: {
           customerName: formData.name,
-          customerEmail: formData.email,
-          customerPhone: cleanPhone,
-          customerCPF: cleanCPF
+          customerEmail: formData.email
         }
       });
 
       if (error) throw error;
 
-      if (data?.paymentUrl) {
-        // Abre o checkout do PagSeguro em nova aba
-        window.open(data.paymentUrl, '_blank');
-        
-        toast({
-          title: "Redirecionando para pagamento",
-          description: "Uma nova aba foi aberta com as opções de pagamento (PIX, Boleto e Cartão)",
-        });
-        
-        // Redireciona para página de aguardando confirmação
-        if (data.redirectUrl) {
-          setTimeout(() => {
-            window.location.href = data.redirectUrl;
-          }, 2000);
-        }
+      if (data?.url) {
+        // Redireciona para o checkout do Stripe (suporta PIX, Boleto e Cartão)
+        window.location.href = data.url;
       } else {
         throw new Error('Falha ao gerar link de pagamento');
       }
@@ -177,7 +163,7 @@ export const CheckoutForm = () => {
       </div>
 
       <p className="text-xs text-muted-foreground text-center">
-        🔒 Pagamento 100% seguro via PagSeguro
+        🔒 Pagamento 100% seguro via Stripe
       </p>
       <p className="text-xs text-center text-muted-foreground">
         Aceita PIX, Boleto e Cartão de Crédito

@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    console.log("Creating payment intent");
+    console.log("Creating Stripe checkout session");
     
     const { customerName, customerEmail } = await req.json();
     
@@ -46,25 +46,39 @@ serve(async (req) => {
       console.log("Created new customer:", customerId);
     }
 
-    // Cria Payment Intent (R$ 297,00 = 29700 centavos)
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: 29700,
-      currency: "brl",
+    // Cria Checkout Session com suporte a PIX, Boleto e Cartão
+    const session = await stripe.checkout.sessions.create({
       customer: customerId,
-      automatic_payment_methods: {
-        enabled: true,
-      },
+      line_items: [
+        {
+          price_data: {
+            currency: "brl",
+            product_data: {
+              name: "Curso de Informática na Prática",
+              description: "Acesso completo ao curso",
+            },
+            unit_amount: 29700, // R$ 297,00 em centavos
+          },
+          quantity: 1,
+        },
+      ],
+      mode: "payment",
+      payment_method_types: ["card", "boleto"],
+      // PIX será habilitado automaticamente para contas BR
+      success_url: `${req.headers.get("origin")}/obrigada?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.get("origin")}/`,
       metadata: {
         customer_name: customerName,
         customer_email: customerEmail,
       },
     });
 
-    console.log("Payment intent created:", paymentIntent.id);
+    console.log("Checkout session created:", session.id);
 
     return new Response(
       JSON.stringify({ 
-        clientSecret: paymentIntent.client_secret,
+        sessionId: session.id,
+        url: session.url,
       }), 
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -72,7 +86,7 @@ serve(async (req) => {
       }
     );
   } catch (error: any) {
-    console.error("Error in create-payment-intent:", error);
+    console.error("Error in create-stripe-checkout:", error);
     return new Response(
       JSON.stringify({ 
         error: error.message 
