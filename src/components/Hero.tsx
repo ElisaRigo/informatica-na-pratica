@@ -7,7 +7,7 @@ export const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-4 md:py-6 lg:py-8">
+    <section className="relative overflow-hidden bg-gradient-to-b from-panel via-background to-background py-3 md:py-4 lg:py-6">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -76,33 +76,34 @@ export const Hero = () => {
                 />
               )}
               
-              {/* Overlay estratégico com preço - CLICÁVEL */}
-              <a 
-                href="https://pag.ae/8164tZJTR" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
-              >
-                <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
-                <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
-                <div className="bg-destructive text-destructive-foreground rounded-md px-2 py-0.5 inline-block">
-                  <p className="text-xs md:text-sm font-black">40% OFF</p>
-                </div>
-              </a>
+          {/* Overlay estratégico com preço - CLICÁVEL */}
+          <a 
+            href="https://pag.ae/8164tZJTR" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
+          >
+            <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
+            <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
+            <div className="bg-destructive text-destructive-foreground rounded-md px-2 py-0.5 inline-block">
+              <p className="text-xs md:text-sm font-black">40% OFF</p>
             </div>
-          </div>
+          </a>
+        </div>
+        
+        {/* Texto destacado abaixo do vídeo */}
+        <p className="text-lg md:text-xl text-foreground mb-4 md:mb-5 max-w-3xl mx-auto font-semibold">
+          Domine <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e <span className="text-white font-black">mais</span>... mesmo <span className="text-white font-black">começando do zero</span>
+        </p>
+      </div>
 
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-4 md:mb-6">
-            Conquiste sua <span className="text-primary">independência digital</span><br />
-            e abra portas no mercado de trabalho
-          </h2>
-          
-          <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
-            Aprenda Word, Excel, PowerPoint e mais de forma prática e aplicada ao dia a dia profissional
-          </p>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-3 md:mb-4">
+        Conquiste sua <span className="text-primary">independência digital</span><br />
+        e abra portas no mercado de trabalho
+      </h2>
 
-          {/* Links âncora estratégicos */}
-          <div className="flex flex-wrap gap-3 justify-center mb-6 md:mb-8 text-sm md:text-base">
+      {/* Links âncora estratégicos */}
+      <div className="flex flex-wrap gap-3 justify-center mb-4 md:mb-5 text-sm md:text-base">
             <a 
               href="#sobre" 
               className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
@@ -125,8 +126,8 @@ export const Hero = () => {
             </a>
           </div>
 
-          {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
-          <div className="mb-5 md:mb-6 max-w-3xl mx-auto">
+      {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
+      <div className="mb-4 md:mb-5 max-w-3xl mx-auto">
             <Button 
               size="lg" 
               className="text-sm md:text-xl font-extrabold px-6 md:px-16 py-6 md:py-8 rounded-xl md:rounded-2xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
