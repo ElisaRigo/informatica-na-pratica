@@ -90,38 +90,10 @@ export const Hero = () => {
         {/* Texto destacado abaixo do vídeo */}
         <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white mb-3 md:mb-4 max-w-3xl mx-auto font-black leading-tight">
           Domine <span className="text-[#00D4FF]">Word, Excel e mais....</span><br />
-          Mesmo Começando do Zero 💻
+          Mesmo Começando do Zero ❗
         </p>
       </div>
       
-      <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
-        Quantas vagas de emprego você já perdeu? Quantas vezes pediu ajuda para fazer algo simples no computador? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
-      </p>
-
-      {/* Links âncora estratégicos */}
-      <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-3 md:mb-4 text-xs md:text-sm">
-            <a 
-              href="#sobre" 
-              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
-            >
-              👩‍🏫 Conhecer a Professora
-            </a>
-            <span className="text-muted-foreground">•</span>
-            <a 
-              href="#conteudo" 
-              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
-            >
-              📚 Ver Conteúdo Completo
-            </a>
-            <span className="text-muted-foreground">•</span>
-            <a 
-              href="#depoimentos" 
-              className="font-semibold text-primary hover:underline underline-offset-4 transition-all"
-            >
-              ⭐ Ler Depoimentos
-            </a>
-          </div>
-
       {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
       <div className="mb-3 md:mb-4 max-w-3xl mx-auto">
         <Button 
@@ -137,8 +109,12 @@ export const Hero = () => {
           💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses
         </p>
       </div>
+      
+      <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
+        Quantas vagas de emprego você já perdeu? Quantas vezes pediu ajuda para fazer algo simples no computador? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
+      </p>
 
-      {/* Benefícios Rápidos */}
+      {/* Links âncora estratégicos */}
       <div className="flex flex-wrap gap-2 md:gap-3 justify-center items-center px-2">
             <div className="flex items-center gap-1.5 md:gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
               <Zap className="w-4 h-4 md:w-5 md:h-5 text-primary" />
