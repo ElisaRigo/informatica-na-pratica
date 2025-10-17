@@ -17,7 +17,7 @@ const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 // Moodle configuration
-const MOODLE_URL = "https://elisarigo.moodlecloud.com";
+const MOODLE_URL = 'https://aluno.informaticanapratica.com.br';
 const MOODLE_TOKEN = Deno.env.get("MOODLE_API_TOKEN");
 const COURSE_ID = 2;
 
