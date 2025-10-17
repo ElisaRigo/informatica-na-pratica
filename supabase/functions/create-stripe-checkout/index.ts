@@ -63,8 +63,7 @@ serve(async (req) => {
         },
       ],
       mode: "payment",
-      payment_method_types: ["card", "boleto"],
-      // PIX será habilitado automaticamente para contas BR
+      payment_method_types: ["card", "boleto", "pix"],
       success_url: `${req.headers.get("origin")}/obrigada?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get("origin")}/`,
       metadata: {
