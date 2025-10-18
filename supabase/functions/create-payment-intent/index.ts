@@ -73,14 +73,15 @@ serve(async (req) => {
       amount: 29700,
       currency: "brl",
       customer: customerId,
-      automatic_payment_methods: {
-        enabled: true,
-      },
+      payment_method_types: ['card', 'boleto'],
       payment_method_options: {
         card: {
           installments: {
             enabled: true,
           },
+        },
+        boleto: {
+          expires_after_days: 3,
         },
       },
       metadata: {
