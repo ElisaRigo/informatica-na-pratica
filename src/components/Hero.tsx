@@ -39,40 +39,41 @@ export const Hero = () => {
           <div className="relative max-w-3xl mx-auto mb-6 md:mb-8">
             <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-black">
               {!videoLoaded ? (
-                <>
-                  {/* Capa do vídeo */}
-                  <div 
-                    className="relative w-full aspect-video cursor-pointer group"
-                    onClick={() => setVideoLoaded(true)}
-                  >
-                    <img 
-                      src={videoPoster} 
-                      alt="Capa do vídeo - Curso de Informática na Prática" 
-                      className="w-full h-full object-cover brightness-110 contrast-105"
-                      loading="eager"
-                      fetchPriority="high"
-                      width="1280"
-                      height="720"
-                    />
-                    {/* Botão de play */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
-                      <div className="bg-primary/70 backdrop-blur-sm rounded-full p-3 md:p-4 group-hover:scale-110 transition-transform shadow-2xl">
-                        <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white" />
-                      </div>
+                <div 
+                  className="relative w-full aspect-video cursor-pointer group"
+                  onClick={() => setVideoLoaded(true)}
+                >
+                  <img 
+                    src={videoPoster} 
+                    alt="Capa do vídeo - Curso de Informática na Prática" 
+                    className="w-full h-full object-cover brightness-110 contrast-105"
+                    loading="eager"
+                    fetchPriority="high"
+                    width="1280"
+                    height="720"
+                  />
+                  {/* Botão de play */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                    <div className="bg-primary/70 backdrop-blur-sm rounded-full p-3 md:p-4 group-hover:scale-110 transition-transform shadow-2xl">
+                      <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white" />
                     </div>
                   </div>
-                </>
+                  {/* Preconnect YouTube apenas quando hover (preparar para carregar) */}
+                  <link rel="preconnect" href="https://www.youtube.com" />
+                  <link rel="preconnect" href="https://i.ytimg.com" />
+                </div>
               ) : (
                 <iframe 
                   width="100%" 
                   height="100%" 
-                  src="https://www.youtube.com/embed/mSNhsfD5RWA?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&iv_load_policy=3&playsinline=1&autoplay=1" 
+                  src="https://www.youtube.com/embed/mSNhsfD5RWA?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&iv_load_policy=3&playsinline=1&autoplay=1"
                   title="Vídeo de apresentação do curso de Informática na Prática" 
                   frameBorder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerPolicy="strict-origin-when-cross-origin" 
                   allowFullScreen
                   className="w-full aspect-video"
+                  loading="lazy"
                 />
               )}
             </div>
