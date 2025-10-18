@@ -11,8 +11,11 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
+          <div className="flex justify-center mb-4">
+            <img src="/logo-blue.png" alt="Informática na Prática" className="h-12" />
+          </div>
           <DialogTitle className="text-2xl md:text-3xl font-black text-center">
-            Garanta sua vaga agora! 🎯
+            Complete seus dados para finalizar
           </DialogTitle>
           <p className="text-sm text-muted-foreground text-center pt-2">
             Preencha seus dados e escolha a forma de pagamento
