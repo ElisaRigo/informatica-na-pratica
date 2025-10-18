@@ -238,7 +238,7 @@ export const CheckoutForm = () => {
     <div className="space-y-6 bg-card border border-border rounded-xl p-6">
       {/* Logo e Valor */}
       <div className="flex items-center justify-between pb-4 border-b border-border">
-        <img src={logoBlue} alt="Informática na Prática" className="h-10" />
+        <img src={logoBlue} alt="Informática na Prática" className="h-14" />
         <div className="text-right">
           <div className="text-2xl font-black text-primary">R$ 297,00</div>
           <div className="text-sm font-bold text-success">40% OFF</div>
