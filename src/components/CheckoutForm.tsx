@@ -226,7 +226,20 @@ export const CheckoutForm = () => {
   if (clientSecret) {
     return (
       <div className="space-y-4 bg-card border border-border rounded-xl p-6">
-        <h3 className="text-xl font-bold text-center mb-4">Finalize seu pagamento</h3>
+        <div className="flex flex-col items-center space-y-4 mb-6">
+          <img src={logoBlue} alt="Informática na Prática" className="h-16" />
+          <div className="text-center space-y-2">
+            <h3 className="text-xl font-bold">💳 Finalize sua matrícula com segurança</h3>
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <Lock className="w-4 h-4" />
+              <span>Pagamento 100% seguro e criptografado</span>
+            </div>
+            <div className="flex items-center justify-center gap-2 text-sm font-medium text-success">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Garantia Total de 7 Dias</span>
+            </div>
+          </div>
+        </div>
         <Elements stripe={stripePromise} options={{ clientSecret }}>
           <CheckoutFormContent clientSecret={clientSecret} />
         </Elements>
