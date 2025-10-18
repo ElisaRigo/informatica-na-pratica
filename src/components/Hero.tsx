@@ -49,6 +49,10 @@ export const Hero = () => {
                       src={videoPoster} 
                       alt="Capa do vídeo - Curso de Informática na Prática" 
                       className="w-full h-full object-cover brightness-110 contrast-105"
+                      loading="eager"
+                      fetchPriority="high"
+                      width="1280"
+                      height="720"
                     />
                     {/* Botão de play */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
