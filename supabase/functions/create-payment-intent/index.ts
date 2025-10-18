@@ -73,7 +73,7 @@ serve(async (req) => {
       amount: 29700,
       currency: "brl",
       customer: customerId,
-      payment_method_types: ['card', 'boleto', 'pix'],
+      payment_method_types: ['card', 'boleto'],
       payment_method_options: {
         card: {
           installments: {
@@ -82,9 +82,6 @@ serve(async (req) => {
         },
         boleto: {
           expires_after_days: 3,
-        },
-        pix: {
-          expires_after_seconds: 86400, // 24 horas
         },
       },
       metadata: {
