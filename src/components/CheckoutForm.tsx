@@ -11,7 +11,7 @@ import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 // Inicializar Stripe
-const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIb1MMomEjFYEEWRuCjYG5roBoqfcTFNtCBzXD6liN7022aiG1aidNa6SVF8l3GfNIqIGWUyUW001MW9Tg5r");
+const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIOaOGtGMLw98egdIGBwNKDt2Psja21XVQOujE6jMT4iJsh8cow5JgYqe5Qvya6qVF5WiiJEOs00SD9is173");
 
 const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
   const stripe = useStripe();
