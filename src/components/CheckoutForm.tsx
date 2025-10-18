@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
-import logoNew from "@/assets/logo-new.png";
+import logoBlue from "@/assets/logo-blue.png";
 
 // Inicializar Stripe
 const stripePromise = loadStripe("pk_test_51SJEnDRzpXJIMcLI2BPz4yeHYtehyaTtMyw7gNp3aXNEWtEd1TsieMoVFWeCbZlQjwCn6IT85giojLxMQCxCUSq600hn3yHyxc");
@@ -238,7 +238,7 @@ export const CheckoutForm = () => {
     <div className="space-y-6 bg-card border border-border rounded-xl p-6">
       {/* Logo e Valor */}
       <div className="flex items-center justify-between pb-4 border-b border-border">
-        <img src={logoNew} alt="Informática na Prática" className="h-10" />
+        <img src={logoBlue} alt="Informática na Prática" className="h-10" />
         <div className="text-right">
           <div className="text-2xl font-black text-primary">R$ 297,00</div>
           <div className="text-sm font-bold text-success">40% OFF</div>
