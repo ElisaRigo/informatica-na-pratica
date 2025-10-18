@@ -107,23 +107,7 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="text-center space-y-3 pb-4">
-        <h3 className="text-xl md:text-2xl font-bold flex items-center justify-center gap-2">
-          💳 Finalize sua matrícula com segurança
-        </h3>
-        <div className="flex flex-col items-center gap-2">
-          <p className="text-sm text-muted-foreground flex items-center gap-2">
-            <Lock className="w-4 h-4" />
-            Pagamento 100% seguro e criptografado
-          </p>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <ShieldCheck className="w-4 h-4 text-success" />
-            <span className="font-medium">Garantia Total de 7 Dias</span>
-          </div>
-        </div>
-      </div>
-      
-      <PaymentElement
+      <PaymentElement 
         onReady={() => setIsReady(true)}
         options={{
           layout: {
