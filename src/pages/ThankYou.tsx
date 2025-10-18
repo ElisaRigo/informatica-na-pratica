@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoImage from "@/assets/logo-new.png";
+import logoImage from "@/assets/logo-blue.png";
 
 const ThankYou = () => {
   useEffect(() => {
@@ -88,14 +88,12 @@ const ThankYou = () => {
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="max-w-2xl w-full text-center space-y-8 animate-fade-in">
         {/* Logo */}
-        <div className="flex justify-center">
-          <div className="inline-block bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-lg">
-            <img
-              src={logoImage}
-              alt="Informática na Prática"
-              className="w-32 mx-auto"
-            />
-          </div>
+        <div className="flex justify-center mb-4">
+          <img
+            src={logoImage}
+            alt="Informática na Prática"
+            className="h-20 mx-auto"
+          />
         </div>
 
         {/* Success Icon */}
@@ -109,16 +107,16 @@ const ThankYou = () => {
         {/* Main Message */}
         <div className="space-y-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
-            Parabéns pela sua compra!
+            Compra Confirmada! Parabéns!
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-            Seu pagamento foi confirmado! Você receberá um e-mail com suas credenciais de acesso em até 5 minutos.
+            Seu acesso foi liberado! Enviamos suas credenciais para o e-mail cadastrado.
           </p>
 
           <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 max-w-xl mx-auto">
             <p className="text-sm text-muted-foreground">
-              ⏱️ <strong>Importante:</strong> Após o pagamento no PagSeguro, pode levar alguns minutos para processar. 
-              Verifique sua caixa de entrada e spam para o e-mail com as credenciais.
+              ⏱️ <strong>Importante:</strong> As credenciais de acesso chegarão em até 5 minutos. 
+              Verifique sua caixa de entrada e a pasta de spam.
             </p>
           </div>
         </div>
@@ -131,14 +129,16 @@ const ThankYou = () => {
               Enviaremos suas credenciais de acesso ao curso em até 5 minutos.
             </p>
             <p className="text-xs text-muted-foreground">
-              ⚠️ <strong>Não esquece:</strong> Verifique também a caixa de spam!
+              ⚠️ <strong>Não esquece:</strong> Verifique também a caixa de <strong>SPAM</strong> ou <strong>Promoções</strong>!
             </p>
           </div>
           <div className="bg-card border border-line rounded-xl p-6 text-left">
             <h3 className="font-semibold text-lg mb-2 text-primary">🎓 Acesso ao curso</h3>
-            <p className="text-sm text-muted-foreground">
-              Você terá 2 anos de acesso completo ao curso com suporte direto da professora.
-            </p>
+            <ul className="text-sm text-muted-foreground space-y-2">
+              <li>✅ 2 anos de acesso completo ao curso</li>
+              <li>✅ Suporte direto da professora Elisa</li>
+              <li>✅ Certificado incluso</li>
+            </ul>
           </div>
         </div>
 
@@ -154,11 +154,11 @@ const ThankYou = () => {
             </p>
             <p className="flex items-start gap-2">
               <span className="text-accent font-bold">2.</span>
-              Aguarde até 15 minutos (o sistema pode estar processando)
+              Aguarde mais 5 minutos (processamento do sistema)
             </p>
             <p className="flex items-start gap-2">
               <span className="text-accent font-bold">3.</span>
-              <strong>Entre em contato pelo WhatsApp</strong> com seu nome completo e e-mail usado na compra
+              <strong>Clique para falar com o Suporte via WhatsApp</strong> — informe seu nome e e-mail usado na compra
             </p>
           </div>
           <a
@@ -167,7 +167,7 @@ const ThankYou = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-4 bg-success hover:bg-success/90 text-white font-bold px-6 py-3 rounded-lg transition-colors"
           >
-            📱 Chamar no WhatsApp agora
+            📱 Falar com o Suporte no WhatsApp
           </a>
         </div>
 
