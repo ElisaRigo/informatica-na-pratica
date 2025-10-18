@@ -107,8 +107,25 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {!isReady && (
+        <div className="flex items-center justify-center py-8 text-muted-foreground">
+          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+          <span>Carregando opções de pagamento...</span>
+        </div>
+      )}
       <PaymentElement 
-        onReady={() => setIsReady(true)}
+        onReady={() => {
+          console.log("PaymentElement ready");
+          setIsReady(true);
+        }}
+        onLoadError={(error) => {
+          console.error("PaymentElement load error:", error);
+          toast({
+            title: "Erro ao carregar",
+            description: "Não foi possível carregar o formulário de pagamento. Tente novamente.",
+            variant: "destructive"
+          });
+        }}
         options={{
           layout: {
             type: 'tabs',
@@ -224,6 +241,7 @@ export const CheckoutForm = () => {
   };
 
   if (clientSecret) {
+    console.log("Rendering checkout form with clientSecret");
     return (
       <div className="space-y-4 bg-card border border-border rounded-xl p-6">
         <div className="flex flex-col items-center space-y-4 mb-6">
@@ -240,7 +258,13 @@ export const CheckoutForm = () => {
             </div>
           </div>
         </div>
-        <Elements stripe={stripePromise} options={{ clientSecret }}>
+        <Elements 
+          stripe={stripePromise} 
+          options={{ 
+            clientSecret,
+            loader: 'always'
+          }}
+        >
           <CheckoutFormContent clientSecret={clientSecret} />
         </Elements>
       </div>
