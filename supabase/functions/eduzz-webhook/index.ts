@@ -313,8 +313,19 @@ serve(async (req) => {
 
     console.log("Event type:", event);
 
-    // Only process paid invoices
-    if (event === "myeduzz.invoice_paid") {
+    // Process paid invoices - Eduzz pode enviar diferentes formatos de evento
+    // Aceitar: myeduzz.invoice_paid, invoice_paid, invoice.paid, ou quando status é "paid"
+    const isPaidEvent = event === "myeduzz.invoice_paid" || 
+                        event === "invoice_paid" || 
+                        event === "invoice.paid" ||
+                        event === "Fatura" ||
+                        payload.data?.status === "paid" ||
+                        payload.data?.invoice_status === "paid";
+
+    console.log("Is paid event?", isPaidEvent);
+    console.log("Invoice status:", payload.data?.status);
+
+    if (isPaidEvent) {
       const invoice = payload.data;
       
       const transactionId = invoice.transaction_id || invoice.id;
