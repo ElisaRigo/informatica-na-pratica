@@ -47,8 +47,9 @@ export const Hero = () => {
                     src={videoPoster} 
                     alt="Capa do vídeo - Curso de Informática na Prática" 
                     className="w-full h-full object-cover brightness-110 contrast-105"
-                     loading="eager"
-                     width="1280"
+                    loading="eager"
+                    fetchPriority="high"
+                    width="1280"
                     height="720"
                   />
                   {/* Botão de play */}
@@ -76,6 +77,19 @@ export const Hero = () => {
                 />
               )}
             </div>
+            
+            {/* Overlay estratégico com preço - CLICÁVEL */}
+            <a 
+              href="#"
+              onClick={(e) => { e.preventDefault(); (window as any).openCheckout?.(); }}
+              className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
+            >
+              <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
+              <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
+              <div className="bg-destructive text-destructive-foreground rounded-md px-2 py-0.5 inline-block">
+                <p className="text-xs md:text-sm font-black">40% OFF</p>
+              </div>
+            </a>
           </div>
         
         {/* Texto destacado abaixo do vídeo */}

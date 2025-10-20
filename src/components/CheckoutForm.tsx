@@ -7,11 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, Lock, CheckCircle2, CreditCard, FileText, Smartphone } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
-// Inicializar Stripe - IMPORTANTE: Esta é a chave PUBLICÁVEL, não é secreta
-const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIM7wCJea44yypOFWrTLglfYQLgliSZ5AIblICg3Kdh0h9hXh0rj3IIMN54saR56rszBDPQRx800u7rhR1vw");
+// Inicializar Stripe
+const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIOaOGtGMLw98egdIGBwNKDt2Psja21XVQOujE6jMT4iJsh8cow5JgYqe5Qvya6qVF5WiiJEOs00SD9is173");
 
 const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
   const stripe = useStripe();
@@ -166,14 +166,12 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
 export const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'pix' | null>(null);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    cpf: "",
-    phone: ""
+    cpf: ""
   });
 
   const formatCPF = (value: string) => {
@@ -184,21 +182,13 @@ export const CheckoutForm = () => {
     return value;
   };
 
-  const formatPhone = (value: string) => {
-    const numbers = value.replace(/\D/g, '');
-    if (numbers.length <= 11) {
-      return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-    }
-    return value;
-  };
-
   const handleInitiatePayment = async () => {
-    console.log("Iniciando pagamento Stripe...");
+    console.log("Iniciando pagamento...");
     
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
         title: "Preencha todos os campos",
-        description: "Nome, e-mail e CPF são obrigatórios",
+        description: "Todos os campos são obrigatórios para continuar",
         variant: "destructive"
       });
       return;
@@ -209,14 +199,13 @@ export const CheckoutForm = () => {
     if (cleanCPF.length !== 11) {
       toast({
         title: "CPF inválido",
-        description: "Digite um CPF válido com 11 dígitos",
+        description: "Digite um CPF válido",
         variant: "destructive"
       });
       return;
     }
 
     setLoading(true);
-    setPaymentMethod('stripe');
     console.log("Chamando função create-payment-intent...");
 
     try {
@@ -246,100 +235,7 @@ export const CheckoutForm = () => {
         description: error.message || "Tente novamente em alguns instantes",
         variant: "destructive"
       });
-      setPaymentMethod(null);
     } finally {
-      setLoading(false);
-    }
-  };
-
-  const handlePixPayment = async () => {
-    console.log("🟦 INICIANDO PAGAMENTO PIX VIA PAGSEGURO");
-    
-    if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
-      toast({
-        title: "Preencha todos os campos",
-        description: "Nome, e-mail, CPF e telefone são obrigatórios",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    const cleanCPF = formData.cpf.replace(/\D/g, '');
-    const cleanPhone = formData.phone.replace(/\D/g, '');
-
-    if (cleanCPF.length !== 11) {
-      toast({
-        title: "CPF inválido",
-        description: "Digite um CPF válido com 11 dígitos",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    if (cleanPhone.length !== 11) {
-      toast({
-        title: "Telefone inválido",
-        description: "Digite um telefone válido com DDD (11 dígitos)",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setLoading(true);
-    setPaymentMethod('pix');
-
-    try {
-      console.log("📞 Chamando pagseguro-checkout...");
-      const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
-        body: {
-          customerName: formData.name,
-          customerEmail: formData.email,
-          customerPhone: cleanPhone,
-          customerTaxId: cleanCPF
-        }
-      });
-
-      console.log("📦 Resposta:", { data, error });
-
-      if (error) {
-        console.error("❌ Erro:", error);
-        throw new Error(error.message || 'Erro ao conectar com PagSeguro');
-      }
-
-      if (!data || !data.paymentUrl) {
-        console.error("❌ Sem URL:", data);
-        throw new Error('URL de pagamento não gerada');
-      }
-
-      console.log("✅ Abrindo PagSeguro:", data.paymentUrl);
-      
-      // Abrir PagSeguro em nova aba
-      const pagSeguroWindow = window.open(data.paymentUrl, '_blank');
-      
-      if (!pagSeguroWindow) {
-        toast({
-          title: "Pop-up bloqueado",
-          description: "Permita pop-ups para abrir o pagamento",
-          variant: "destructive"
-        });
-        setPaymentMethod(null);
-        setLoading(false);
-        return;
-      }
-      
-      // Redirecionar para aguardando após abrir o PagSeguro
-      setTimeout(() => {
-        window.location.href = `/aguardando-confirmacao?method=pagseguro&transaction_id=${data.checkoutCode}`;
-      }, 1000);
-
-    } catch (error: any) {
-      console.error('❌ ERRO COMPLETO:', error);
-      toast({
-        title: "Erro no pagamento",
-        description: error.message || "Tente novamente em alguns instantes",
-        variant: "destructive"
-      });
-      setPaymentMethod(null);
       setLoading(false);
     }
   };
@@ -376,7 +272,7 @@ export const CheckoutForm = () => {
   }
 
   return (
-    <div className="space-y-6 bg-card border border-border rounded-xl p-6 shadow-lg">
+    <div className="space-y-6 bg-card border border-border rounded-xl p-6">
       {/* Logo e Valor */}
       <div className="flex items-center justify-between pb-4 border-b border-border">
         <img src={logoBlue} alt="Informática na Prática" className="h-14" />
@@ -387,14 +283,14 @@ export const CheckoutForm = () => {
       </div>
 
       {/* Ícones de Segurança */}
-      <div className="flex items-center justify-center gap-6 py-3 bg-muted rounded-lg">
+      <div className="flex items-center justify-center gap-6 py-3 bg-muted/50 rounded-lg">
         <div className="flex items-center gap-2 text-xs">
           <Lock className="w-4 h-4 text-success" />
           <span className="font-medium">SSL Seguro</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <CheckCircle2 className="w-4 h-4 text-success" />
-          <span className="font-medium">Pagamento Seguro</span>
+          <span className="font-medium">Stripe</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <ShieldCheck className="w-4 h-4 text-success" />
@@ -402,7 +298,6 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
-      {/* Formulário de Dados */}
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="name">Nome Completo *</Label>
@@ -438,88 +333,26 @@ export const CheckoutForm = () => {
             disabled={loading}
           />
         </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="phone">Telefone com DDD * (apenas para PIX)</Label>
-          <Input
-            id="phone"
-            placeholder="(00) 00000-0000"
-            value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-            maxLength={15}
-            disabled={loading}
-          />
-        </div>
       </div>
 
-      {/* Botões de Pagamento Separados e Visíveis */}
-      <div className="space-y-3 pt-4">
-        <h3 className="text-sm font-semibold text-center mb-3">Escolha a forma de pagamento:</h3>
-        
-        {/* Botão Cartão de Crédito */}
+      <div className="pt-2">
         <Button
           onClick={handleInitiatePayment}
           size="lg"
-          variant="default"
-          className="w-full font-bold text-lg py-6 bg-primary hover:bg-primary/90"
-          disabled={loading && paymentMethod === 'stripe'}
+          className="w-full font-bold text-lg py-6"
+          disabled={loading}
         >
-          {loading && paymentMethod === 'stripe' ? (
+          {loading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               Processando...
             </>
           ) : (
-            <>
-              <CreditCard className="mr-2 h-5 w-5" />
-              Pagar com Cartão de Crédito
-            </>
-          )}
-        </Button>
-
-        {/* Botão Boleto */}
-        <Button
-          onClick={handleInitiatePayment}
-          size="lg"
-          variant="outline"
-          className="w-full font-bold text-lg py-6 border-2"
-          disabled={loading && paymentMethod === 'stripe'}
-        >
-          {loading && paymentMethod === 'stripe' ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Processando...
-            </>
-          ) : (
-            <>
-              <FileText className="mr-2 h-5 w-5" />
-              Pagar com Boleto
-            </>
-          )}
-        </Button>
-
-        {/* Botão PIX - PagSeguro */}
-        <Button
-          onClick={handlePixPayment}
-          size="lg"
-          variant="outline"
-          className="w-full font-bold text-lg py-6 border-2 border-success text-success hover:bg-success hover:text-success-foreground"
-          disabled={loading && paymentMethod === 'pix'}
-        >
-          {loading && paymentMethod === 'pix' ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Redirecionando para pagamento...
-            </>
-          ) : (
-            <>
-              <Smartphone className="mr-2 h-5 w-5" />
-              Pagar com PIX (Aprovação Instantânea)
-            </>
+            'Garantir Minha Vaga Agora'
           )}
         </Button>
         
-        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-3">
           <ShieldCheck className="w-4 h-4" />
           <span>Compra Protegida pela Garantia Total de 7 Dias</span>
         </div>

@@ -8,50 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 84% 5%;
+    --background: 215 65% 8%;
+    --foreground: 213 100% 95%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 222 84% 5%;
+    --card: 216 46% 10%;
+    --card-foreground: 213 100% 95%;
     
-    --panel: 210 20% 98%;
-    --line: 214 20% 85%;
+    --panel: 217 60% 9%;
+    --line: 214 41% 16%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 84% 5%;
+    --popover: 216 46% 10%;
+    --popover-foreground: 213 100% 95%;
     
-    --primary: 199 89% 48%;
+    --primary: 199 100% 37%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 210 20% 94%;
-    --secondary-foreground: 222 84% 5%;
+    --secondary: 199 100% 37%;
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 210 20% 94%;
-    --muted-foreground: 215 20% 35%;
+    --muted: 211 28% 71%;
+    --muted-foreground: 211 28% 71%;
     
-    --accent: 199 89% 48%;
+    --accent: 199 100% 50%;
     --accent-foreground: 0 0% 100%;
     
-    --success: 142 71% 45%;
+    --success: 163 89% 40%;
     --success-foreground: 0 0% 100%;
     
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
+    --warning: 40 100% 51%;
+    --warning-foreground: 0 0% 0%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 214 20% 85%;
-    --input: 214 20% 85%;
-    --ring: 199 89% 48%;
+    --border: 214 41% 16%;
+    --input: 214 41% 16%;
+    --ring: 199 100% 37%;
     
-    --radius: 0.5rem;
+    --radius: 1rem;
     
-    --gradient-hero: linear-gradient(135deg, hsl(199 89% 48% / 0.08), hsl(199 89% 48% / 0.03));
-    --gradient-premium: linear-gradient(135deg, hsl(199 89% 48%), hsl(199 89% 58%));
+    --gradient-hero: linear-gradient(135deg, hsl(199 100% 37% / 0.2), hsl(199 100% 50% / 0.05));
+    --gradient-premium: linear-gradient(135deg, hsl(199 100% 37%), hsl(199 100% 50%));
     
-    --shadow-glow: 0 0 40px hsl(199 89% 48% / 0.12);
-    --shadow-card: 0 2px 8px hsl(222 84% 5% / 0.06);
+    --shadow-glow: 0 0 40px hsl(199 100% 50% / 0.3);
+    --shadow-card: 0 4px 24px hsl(215 65% 8% / 0.4);
   }
 }
 

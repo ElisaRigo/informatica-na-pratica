@@ -9,10 +9,6 @@ const corsHeaders = {
 const PAGSEGURO_TOKEN = Deno.env.get('PAGSEGURO_API_TOKEN');
 const PAGSEGURO_EMAIL = 'elisa_cnt@hotmail.com';
 
-// ⚠️ IMPORTANTE: API v2 cria CHECKOUT GENÉRICO (cliente escolhe método)
-// Para PIX direto, seria necessário API v4 (mais complexa)
-// Mantemos v2 por compatibilidade - cliente escolhe PIX na página do PagSeguro
-
 const supabase = createClient(
   Deno.env.get('SUPABASE_URL')!,
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
@@ -22,7 +18,7 @@ interface CheckoutRequest {
   customerName: string;
   customerEmail: string;
   customerPhone: string;
-  customerTaxId: string;
+  customerCPF: string;
 }
 
 serve(async (req: Request) => {
@@ -31,31 +27,22 @@ serve(async (req: Request) => {
   }
 
   try {
-    const { customerName, customerEmail, customerPhone, customerTaxId }: CheckoutRequest = await req.json();
+    const { customerName, customerEmail, customerPhone, customerCPF }: CheckoutRequest = await req.json();
 
     console.log('Creating PagSeguro payment link for:', customerEmail);
-    console.log('Request data:', { customerName, customerEmail, customerPhone, customerTaxId });
 
-    // Limpar dados
-    const cleanCPF = customerTaxId.replace(/\D/g, '');
-    const cleanPhone = customerPhone.replace(/\D/g, '');
-    const areaCode = cleanPhone.substring(0, 2);
-    const phoneNumber = cleanPhone.substring(2);
-
-    console.log('Cleaned data:', { cleanCPF, cleanPhone, areaCode, phoneNumber });
-
-    // Criar link de pagamento via API do PagSeguro v2 (XML)
+    // Criar link de pagamento via API do PagSeguro v4
     const checkoutData = {
       reference_id: `CURSO_${Date.now()}`,
       customer: {
         name: customerName,
         email: customerEmail,
-        tax_id: cleanCPF,
+        tax_id: customerCPF.replace(/\D/g, ''),
         phones: [
           {
             country: '55',
-            area: areaCode,
-            number: phoneNumber,
+            area: customerPhone.substring(0, 2),
+            number: customerPhone.substring(2).replace(/\D/g, ''),
             type: 'MOBILE'
           }
         ]
@@ -73,28 +60,25 @@ serve(async (req: Request) => {
       ]
     };
 
-    console.log('🔧 Sending request to PagSeguro API...');
-    console.log('📧 Email vendedor:', PAGSEGURO_EMAIL);
-    console.log('🔑 Token:', PAGSEGURO_TOKEN ? `Configurado (${PAGSEGURO_TOKEN.substring(0, 20)}...)` : 'NO TOKEN FOUND');
+    console.log('Sending request to PagSeguro API...');
+    console.log('Using token:', PAGSEGURO_TOKEN ? 'Token configured' : 'NO TOKEN FOUND');
 
     if (!PAGSEGURO_TOKEN) {
       throw new Error('PAGSEGURO_API_TOKEN not configured');
     }
 
-    // Gerar referência única
-    const reference = `CURSO_${Date.now()}`;
-    
-    const xmlBody = `<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+    const pagseguroResponse = await fetch(`https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/xml; charset=UTF-8'
+      },
+      body: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <checkout>
   <currency>BRL</currency>
-  <reference>${reference}</reference>
-  <redirectURL>https://informatica-descomplicada.lovable.app/aguardando-confirmacao?method=pagseguro</redirectURL>
-  <maxUses>200</maxUses>
-  <maxAge>3600</maxAge>
   <items>
     <item>
       <id>0001</id>
-      <description>Curso de Informatica na Pratica</description>
+      <description>Curso de Informática na Prática</description>
       <amount>297.00</amount>
       <quantity>1</quantity>
     </item>
@@ -103,26 +87,17 @@ serve(async (req: Request) => {
     <name>${customerName}</name>
     <email>${customerEmail}</email>
     <phone>
-      <areaCode>${areaCode}</areaCode>
-      <number>${phoneNumber}</number>
+      <areaCode>${customerPhone.substring(0, 2)}</areaCode>
+      <number>${customerPhone.substring(2).replace(/\D/g, '')}</number>
     </phone>
     <documents>
       <document>
         <type>CPF</type>
-        <value>${cleanCPF}</value>
+        <value>${customerCPF.replace(/\D/g, '')}</value>
       </document>
     </documents>
   </sender>
-</checkout>`;
-
-    console.log('📤 XML enviado:', xmlBody.substring(0, 200) + '...');
-
-    const pagseguroResponse = await fetch(`https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/xml; charset=ISO-8859-1'
-      },
-      body: xmlBody
+</checkout>`.replace(/\n/g, '')
     });
 
     const xmlResponse = await pagseguroResponse.text();
@@ -172,14 +147,12 @@ serve(async (req: Request) => {
         pagseguro_transaction_id: checkoutCode,
         status: 'initiated',
         amount: 297.00,
-        payment_method: 'pix',
         webhook_data: {
           customerName,
           customerEmail,
           customerPhone,
-          customerTaxId,
-          checkoutDate,
-          reference
+          customerCPF,
+          checkoutDate
         }
       });
 
