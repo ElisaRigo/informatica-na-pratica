@@ -245,54 +245,14 @@ export const CheckoutForm = () => {
   };
 
   const handlePagSeguroPayment = async () => {
-    console.log("Iniciando checkout PagSeguro...");
+    console.log("Iniciando checkout PagSeguro (sem cadastro prévio)...");
     
-    // Validar campos obrigatórios
-    if (!formData.name || !formData.email || !formData.cpf) {
-      toast({
-        title: "Preencha todos os campos",
-        description: "Nome completo, email e CPF são obrigatórios",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    // Validar nome completo (pelo menos 2 palavras)
-    const nameParts = formData.name.trim().split(' ');
-    if (nameParts.length < 2 || nameParts.some(part => part.length < 2)) {
-      toast({
-        title: "Nome inválido",
-        description: "Digite seu nome completo (nome e sobrenome)",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    const cleanCPF = formData.cpf.replace(/\D/g, '');
-
-    if (cleanCPF.length !== 11) {
-      toast({
-        title: "CPF inválido",
-        description: "Digite um CPF válido com 11 dígitos",
-        variant: "destructive"
-      });
-      return;
-    }
-
     setPagSeguroLoading(true);
-    console.log("Gerando checkout PagSeguro com dados:", {
-      name: formData.name,
-      email: formData.email,
-      cpf: cleanCPF
-    });
 
     try {
+      // Enviar dados vazios - o cliente preenche no PagSeguro
       const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
-        body: {
-          customerName: formData.name,
-          customerEmail: formData.email,
-          customerTaxId: cleanCPF
-        }
+        body: {}
       });
 
       console.log("Resposta PagSeguro:", { data, error });
@@ -386,6 +346,10 @@ export const CheckoutForm = () => {
       </div>
 
       <div className="space-y-4">
+        <div className="text-center text-sm text-muted-foreground mb-2">
+          Para pagar com <strong>Cartão de Crédito</strong>, preencha seus dados abaixo:
+        </div>
+        
         <div className="space-y-2">
           <Label htmlFor="name">Nome Completo *</Label>
           <Input
@@ -423,10 +387,6 @@ export const CheckoutForm = () => {
       </div>
 
       <div className="pt-2 space-y-3">
-        <div className="text-center text-sm font-medium text-muted-foreground mb-2">
-          Escolha sua forma de pagamento:
-        </div>
-        
         <Button
           onClick={handleStripePayment}
           size="lg"
@@ -450,7 +410,7 @@ export const CheckoutForm = () => {
             <span className="w-full border-t" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground">ou</span>
+            <span className="bg-card px-2 text-muted-foreground">ou pague direto sem cadastro</span>
           </div>
         </div>
 
