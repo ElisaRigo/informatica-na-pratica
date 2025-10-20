@@ -113,13 +113,6 @@ serve(async (req: Request) => {
       </document>
     </documents>
   </sender>
-  <acceptedPaymentMethods>
-    <include>
-      <paymentMethod>
-        <group>ONLINE_DEBIT</group>
-      </paymentMethod>
-    </include>
-  </acceptedPaymentMethods>
 </checkout>`;
 
     console.log('📤 XML enviado:', xmlBody.substring(0, 200) + '...');

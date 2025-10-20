@@ -311,11 +311,26 @@ export const CheckoutForm = () => {
         throw new Error('URL de pagamento não gerada');
       }
 
-      console.log("✅ Redirecionando para:", data.paymentUrl);
+      console.log("✅ Abrindo PagSeguro:", data.paymentUrl);
       
-      // Redirecionar DIRETAMENTE para a página do PagSeguro
-      // O PagSeguro está configurado para retornar para /aguardando-confirmacao
-      window.location.href = data.paymentUrl;
+      // Abrir PagSeguro em nova aba
+      const pagSeguroWindow = window.open(data.paymentUrl, '_blank');
+      
+      if (!pagSeguroWindow) {
+        toast({
+          title: "Pop-up bloqueado",
+          description: "Permita pop-ups para abrir o pagamento",
+          variant: "destructive"
+        });
+        setPaymentMethod(null);
+        setLoading(false);
+        return;
+      }
+      
+      // Redirecionar para aguardando após abrir o PagSeguro
+      setTimeout(() => {
+        window.location.href = `/aguardando-confirmacao?method=pagseguro&transaction_id=${data.checkoutCode}`;
+      }, 1000);
 
     } catch (error: any) {
       console.error('❌ ERRO COMPLETO:', error);
