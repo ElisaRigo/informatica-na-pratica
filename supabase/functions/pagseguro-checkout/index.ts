@@ -18,7 +18,7 @@ interface CheckoutRequest {
   customerName: string;
   customerEmail: string;
   customerPhone: string;
-  customerCPF: string;
+  customerTaxId: string;
 }
 
 serve(async (req: Request) => {
@@ -27,22 +27,31 @@ serve(async (req: Request) => {
   }
 
   try {
-    const { customerName, customerEmail, customerPhone, customerCPF }: CheckoutRequest = await req.json();
+    const { customerName, customerEmail, customerPhone, customerTaxId }: CheckoutRequest = await req.json();
 
     console.log('Creating PagSeguro payment link for:', customerEmail);
+    console.log('Request data:', { customerName, customerEmail, customerPhone, customerTaxId });
 
-    // Criar link de pagamento via API do PagSeguro v4
+    // Limpar dados
+    const cleanCPF = customerTaxId.replace(/\D/g, '');
+    const cleanPhone = customerPhone.replace(/\D/g, '');
+    const areaCode = cleanPhone.substring(0, 2);
+    const phoneNumber = cleanPhone.substring(2);
+
+    console.log('Cleaned data:', { cleanCPF, cleanPhone, areaCode, phoneNumber });
+
+    // Criar link de pagamento via API do PagSeguro v2 (XML)
     const checkoutData = {
       reference_id: `CURSO_${Date.now()}`,
       customer: {
         name: customerName,
         email: customerEmail,
-        tax_id: customerCPF.replace(/\D/g, ''),
+        tax_id: cleanCPF,
         phones: [
           {
             country: '55',
-            area: customerPhone.substring(0, 2),
-            number: customerPhone.substring(2).replace(/\D/g, ''),
+            area: areaCode,
+            number: phoneNumber,
             type: 'MOBILE'
           }
         ]
@@ -87,13 +96,13 @@ serve(async (req: Request) => {
     <name>${customerName}</name>
     <email>${customerEmail}</email>
     <phone>
-      <areaCode>${customerPhone.substring(0, 2)}</areaCode>
-      <number>${customerPhone.substring(2).replace(/\D/g, '')}</number>
+      <areaCode>${areaCode}</areaCode>
+      <number>${phoneNumber}</number>
     </phone>
     <documents>
       <document>
         <type>CPF</type>
-        <value>${customerCPF.replace(/\D/g, '')}</value>
+        <value>${cleanCPF}</value>
       </document>
     </documents>
   </sender>
@@ -151,7 +160,7 @@ serve(async (req: Request) => {
           customerName,
           customerEmail,
           customerPhone,
-          customerCPF,
+          customerTaxId,
           checkoutDate
         }
       });
