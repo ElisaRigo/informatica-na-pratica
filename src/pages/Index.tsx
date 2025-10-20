@@ -1,10 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Header } from "@/components/Header";
-import { PromoTimer } from "@/components/PromoTimer";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
 import { AboutSection } from "@/components/AboutSection";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
@@ -36,7 +34,6 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <PromoTimer />
       <Hero />
       
       {/* 2ª DOBRA - O QUE VAI APRENDER - Conteúdo e transformação */}
@@ -120,7 +117,6 @@ const Index = () => {
       <Suspense fallback={<div className="h-32" />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>
-      <WhatsAppFloat />
       <Footer />
       
       <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
