@@ -253,7 +253,7 @@ export const CheckoutForm = () => {
   };
 
   const handlePixPayment = async () => {
-    console.log("Iniciando pagamento PIX PagSeguro...");
+    console.log("🔵 Iniciando pagamento PIX PagSeguro...");
     
     if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
       toast({
@@ -289,6 +289,7 @@ export const CheckoutForm = () => {
     setPaymentMethod('pix');
 
     try {
+      console.log("📞 Chamando pagseguro-checkout...");
       const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
         body: {
           customerName: formData.name,
@@ -298,46 +299,34 @@ export const CheckoutForm = () => {
         }
       });
 
-      console.log("Resposta PagSeguro:", { data, error });
+      console.log("📦 Resposta PagSeguro:", { data, error });
 
-      if (error) throw error;
-
-      if (data.paymentUrl) {
-        console.log("✅ URL de pagamento PIX recebida:", data.paymentUrl);
-        
-        // Abrir em nova aba
-        const newWindow = window.open(data.paymentUrl, '_blank');
-        
-        if (newWindow) {
-          toast({
-            title: "✅ Link do PIX aberto",
-            description: "Complete o pagamento na nova aba aberta",
-          });
-        } else {
-          toast({
-            title: "⚠️ Bloqueador de pop-up",
-            description: "Permita pop-ups e tente novamente",
-            variant: "destructive"
-          });
-        }
-
-        // Redirecionar para página de aguardando
-        setTimeout(() => {
-          window.location.href = `/aguardando-confirmacao?method=pix&transaction_id=${data.checkoutCode || 'pending'}`;
-        }, 1500);
-      } else {
-        throw new Error('Falha ao gerar link de pagamento PIX');
+      if (error) {
+        console.error("❌ Erro na chamada:", error);
+        throw error;
       }
 
+      if (!data || !data.paymentUrl) {
+        console.error("❌ Resposta sem paymentUrl:", data);
+        throw new Error('Falha ao gerar link de pagamento PIX - URL não retornada');
+      }
+
+      console.log("✅ URL recebida:", data.paymentUrl);
+      console.log("🔑 Checkout code:", data.checkoutCode);
+      
+      // Redirecionar DIRETAMENTE para o PagSeguro na mesma janela
+      window.location.href = data.paymentUrl;
+      
+      // NÃO fazer mais nada - deixar o PagSeguro gerenciar tudo
+
     } catch (error: any) {
-      console.error('❌ Error creating PIX payment:', error);
+      console.error('❌ Erro completo:', error);
       toast({
         title: "Erro ao processar PIX",
-        description: error.message || "Tente novamente em alguns instantes",
+        description: error.message || "Erro ao conectar com PagSeguro. Tente novamente.",
         variant: "destructive"
       });
       setPaymentMethod(null);
-    } finally {
       setLoading(false);
     }
   };

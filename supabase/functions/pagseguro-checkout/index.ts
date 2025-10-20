@@ -69,25 +69,22 @@ serve(async (req: Request) => {
       ]
     };
 
-    console.log('Sending request to PagSeguro API...');
-    console.log('Using token:', PAGSEGURO_TOKEN ? 'Token configured' : 'NO TOKEN FOUND');
+    console.log('🔧 Sending request to PagSeguro API...');
+    console.log('📧 Email vendedor:', PAGSEGURO_EMAIL);
+    console.log('🔑 Token:', PAGSEGURO_TOKEN ? `Configurado (${PAGSEGURO_TOKEN.substring(0, 20)}...)` : 'NO TOKEN FOUND');
 
     if (!PAGSEGURO_TOKEN) {
       throw new Error('PAGSEGURO_API_TOKEN not configured');
     }
 
-    const pagseguroResponse = await fetch(`https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/xml; charset=UTF-8'
-      },
-      body: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    const xmlBody = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <checkout>
   <currency>BRL</currency>
+  <redirectURL>${Deno.env.get('SUPABASE_URL')?.replace('/rest/v1', '')}/aguardando-confirmacao</redirectURL>
   <items>
     <item>
       <id>0001</id>
-      <description>Curso de Informática na Prática</description>
+      <description>Curso de Informatica na Pratica</description>
       <amount>297.00</amount>
       <quantity>1</quantity>
     </item>
@@ -106,7 +103,16 @@ serve(async (req: Request) => {
       </document>
     </documents>
   </sender>
-</checkout>`.replace(/\n/g, '')
+</checkout>`;
+
+    console.log('📤 XML enviado:', xmlBody.substring(0, 200) + '...');
+
+    const pagseguroResponse = await fetch(`https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/xml; charset=ISO-8859-1'
+      },
+      body: xmlBody
     });
 
     const xmlResponse = await pagseguroResponse.text();
