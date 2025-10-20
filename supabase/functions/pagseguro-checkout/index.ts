@@ -26,22 +26,23 @@ serve(async (req: Request) => {
   }
 
   try {
-    console.log('=== INICIANDO CHECKOUT PAGSEGURO ===');
+    console.log('=== 🚀 INICIANDO CHECKOUT PAGSEGURO (SEM CADASTRO PRÉVIO) ===');
     
     const requestBody = await req.json().catch(() => ({}));
-    console.log('Request body recebido:', JSON.stringify(requestBody));
+    console.log('📦 Request body recebido:', JSON.stringify(requestBody));
     
     const { customerName, customerEmail, customerTaxId }: CheckoutRequest = requestBody;
 
-    // Usar dados genéricos se não fornecidos (checkout sem cadastro prévio)
+    // ✅ Usar dados genéricos - Cliente preenche no PagSeguro
     const name = customerName || 'Comprador';
     const email = customerEmail || 'comprador@checkout.com';
     const cpf = (customerTaxId || '00000000191').replace(/\D/g, '');
 
-    console.log('Dados processados:', {
+    console.log('✅ Dados processados (genéricos para checkout direto):', {
       name,
       email,
-      cpf
+      cpf,
+      isGeneric: !customerName
     });
 
     // Validar token
@@ -132,8 +133,8 @@ serve(async (req: Request) => {
       throw new Error('Falha ao obter código do checkout');
     }
 
-    console.log('✅ Checkout criado com sucesso!');
-    console.log('Código:', checkoutCode);
+    console.log('✅ Checkout criado com sucesso! Cliente pode pagar com PIX, Boleto ou Cartão');
+    console.log('📝 Código do checkout:', checkoutCode);
 
     // Salvar no banco (com try-catch para não bloquear o fluxo)
     try {
@@ -165,8 +166,8 @@ serve(async (req: Request) => {
 
     // URL de pagamento do PagSeguro
     const paymentUrl = `https://pagseguro.uol.com.br/v2/checkout/payment.html?code=${checkoutCode}`;
-    console.log('URL de pagamento:', paymentUrl);
-    console.log('=== FIM DO CHECKOUT ===');
+    console.log('🔗 URL de pagamento:', paymentUrl);
+    console.log('=== ✅ CHECKOUT CONCLUÍDO COM SUCESSO ===');
 
     return new Response(
       JSON.stringify({

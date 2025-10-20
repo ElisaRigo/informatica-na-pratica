@@ -245,29 +245,37 @@ export const CheckoutForm = () => {
   };
 
   const handlePagSeguroPayment = async () => {
-    console.log("Iniciando checkout PagSeguro (sem cadastro prévio)...");
+    console.log("🚀 INICIANDO CHECKOUT PAGSEGURO DIRETO (SEM CADASTRO)");
     
     setPagSeguroLoading(true);
 
     try {
+      console.log("📡 Chamando edge function pagseguro-checkout...");
+      
       // Enviar dados vazios - o cliente preenche no PagSeguro
       const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
         body: {}
       });
 
-      console.log("Resposta PagSeguro:", { data, error });
+      console.log("📦 Resposta da edge function:", { data, error });
 
-      if (error) throw error;
+      if (error) {
+        console.error("❌ Erro retornado pela edge function:", error);
+        throw error;
+      }
 
       if (data.paymentUrl) {
-        console.log("✅ Checkout criado! Redirecionando:", data.paymentUrl);
+        console.log("✅ Checkout criado! Código:", data.checkoutCode);
+        console.log("🔗 Redirecionando para:", data.paymentUrl);
+        console.log("💡 Cliente vai preencher dados no PagSeguro");
         window.location.href = data.paymentUrl;
       } else {
+        console.error("❌ paymentUrl não encontrado na resposta");
         throw new Error('Falha ao gerar link de checkout');
       }
 
     } catch (error: any) {
-      console.error('Error creating checkout:', error);
+      console.error('❌ Erro ao criar checkout:', error);
       toast({
         title: "Erro ao processar",
         description: error.message || "Tente novamente em alguns instantes",
