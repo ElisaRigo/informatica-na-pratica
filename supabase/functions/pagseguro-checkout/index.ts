@@ -15,8 +15,8 @@ const supabase = createClient(
 );
 
 interface CheckoutRequest {
-  customerName: string;
-  customerEmail: string;
+  customerName?: string;
+  customerEmail?: string;
   customerTaxId?: string;
 }
 
@@ -28,27 +28,21 @@ serve(async (req: Request) => {
   try {
     console.log('=== INICIANDO CHECKOUT PAGSEGURO ===');
     
-    const requestBody = await req.json();
+    const requestBody = await req.json().catch(() => ({}));
     console.log('Request body recebido:', JSON.stringify(requestBody));
     
     const { customerName, customerEmail, customerTaxId }: CheckoutRequest = requestBody;
 
-    // Validar dados recebidos
-    if (!customerName || !customerEmail || !customerTaxId) {
-      throw new Error('Dados incompletos: nome, email e CPF são obrigatórios');
-    }
+    // Usar dados padrão se não fornecidos (checkout genérico)
+    const name = customerName || 'Cliente';
+    const email = customerEmail || 'cliente@informaticadescomplicada.com.br';
+    const cpf = (customerTaxId || '00000000000').replace(/\D/g, '');
 
-    const cpf = customerTaxId.replace(/\D/g, '');
     console.log('Dados processados:', {
-      name: customerName,
-      email: customerEmail,
-      cpf: cpf
+      name,
+      email,
+      cpf
     });
-
-    // Validar CPF
-    if (cpf.length !== 11) {
-      throw new Error(`CPF inválido: ${cpf} (deve ter 11 dígitos)`);
-    }
 
     // Validar token
     if (!PAGSEGURO_TOKEN) {
@@ -72,8 +66,8 @@ serve(async (req: Request) => {
     </item>
   </items>
   <sender>
-    <name>${customerName}</name>
-    <email>${customerEmail}</email>
+    <name>${name}</name>
+    <email>${email}</email>
     <documents>
       <document>
         <type>CPF</type>
@@ -152,8 +146,8 @@ serve(async (req: Request) => {
           payment_provider: 'pagseguro',
           payment_method: 'pix',
           webhook_data: {
-            customerName,
-            customerEmail,
+            customerName: name,
+            customerEmail: email,
             customerCPF: cpf,
             checkoutDate,
             reference: `CURSO_${Date.now()}`
