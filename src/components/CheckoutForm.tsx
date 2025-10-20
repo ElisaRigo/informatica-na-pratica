@@ -1,29 +1,171 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
-// Declarar tipos globais para Eduzz
-declare global {
-  interface Window {
-    Eduzz?: {
-      Checkout: {
-        init: (options: {
-          contentId: string;
-          target: string;
-          errorCover?: boolean;
-        }) => void;
-      };
-    };
-  }
-}
+// Inicializar Stripe
+const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIOaOGtGMLw98egdIGBwNKDt2Psja21XVQOujE6jMT4iJsh8cow5JgYqe5Qvya6qVF5WiiJEOs00SD9is173");
+
+const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [loading, setLoading] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!stripe || !elements) {
+      toast({
+        title: "Carregando...",
+        description: "Aguarde enquanto preparamos o pagamento",
+      });
+      return;
+    }
+
+    if (!isReady) {
+      toast({
+        title: "Aguarde",
+        description: "O formulário de pagamento ainda está carregando",
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // Usar redirect: 'if_required' para ter controle sobre o redirecionamento
+      const { error, paymentIntent } = await stripe.confirmPayment({
+        elements,
+        confirmParams: {
+          return_url: `${window.location.protocol}//${window.location.host}/obrigada`,
+        },
+        redirect: 'if_required',
+      });
+
+      // Se há erro, mostrar para o usuário
+      if (error) {
+        console.error("Payment error:", error);
+        
+        // Erros de validação não mostram toast (deixa o Stripe mostrar inline)
+        if (error.type === "validation_error") {
+          return;
+        }
+        
+        toast({
+          title: "Erro no pagamento",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Se temos paymentIntent, verificar o status
+      if (paymentIntent) {
+        console.log("Payment Intent Status:", paymentIntent.status);
+        
+        // Pagamento com cartão aprovado instantaneamente
+        if (paymentIntent.status === "succeeded") {
+          console.log("Payment succeeded, redirecting to thank you page");
+          window.location.href = `${window.location.protocol}//${window.location.host}/obrigada?payment_intent=${paymentIntent.id}`;
+          return;
+        }
+        
+        // Boleto ou método que requer ação adicional
+        if (paymentIntent.status === "requires_action" || paymentIntent.status === "processing") {
+          console.log("Payment requires action (boleto), redirecting to waiting page");
+          window.location.href = `${window.location.protocol}//${window.location.host}/aguardando-confirmacao?payment_intent=${paymentIntent.id}`;
+          return;
+        }
+
+        // Outros status
+        console.log("Payment status:", paymentIntent.status);
+        toast({
+          title: "Pagamento em processamento",
+          description: "Aguarde a confirmação do seu pagamento",
+        });
+      }
+    } catch (err: any) {
+      console.error("Unexpected error:", err);
+      toast({
+        title: "Erro",
+        description: err.message || "Ocorreu um erro ao processar o pagamento",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {!isReady && (
+        <div className="flex items-center justify-center py-8 text-muted-foreground">
+          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+          <span>Carregando opções de pagamento...</span>
+        </div>
+      )}
+      <PaymentElement 
+        onReady={() => {
+          console.log("PaymentElement ready");
+          setIsReady(true);
+        }}
+        onLoadError={(error) => {
+          console.error("PaymentElement load error:", error);
+          toast({
+            title: "Erro ao carregar",
+            description: "Não foi possível carregar o formulário de pagamento. Tente novamente.",
+            variant: "destructive"
+          });
+        }}
+        options={{
+          layout: {
+            type: 'tabs',
+            defaultCollapsed: false,
+          },
+        }}
+      />
+      
+      <Button
+        type="submit"
+        disabled={!stripe || !isReady || loading}
+        size="lg"
+        className="w-full font-bold text-lg py-6"
+      >
+        {loading ? (
+          <>
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+            Processando...
+          </>
+        ) : !isReady ? (
+          <>
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+            Carregando...
+          </>
+        ) : (
+          `Garantir Minha Vaga Agora`
+        )}
+      </Button>
+      
+      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+        <ShieldCheck className="w-4 h-4" />
+        <span>Compra Protegida pela Garantia Total de 7 Dias</span>
+      </div>
+    </form>
+  );
+};
 
 export const CheckoutForm = () => {
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [showCheckout, setShowCheckout] = useState(false);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -40,45 +182,8 @@ export const CheckoutForm = () => {
     return value;
   };
 
-  useEffect(() => {
-    if (showCheckout) {
-      // Carregar o script do Eduzz Bridge
-      const script = document.createElement('script');
-      script.src = 'https://cdn.eduzzcdn.com/sun/bridge/bridge.js';
-      script.async = true;
-      script.type = 'module';
-      
-      script.onload = () => {
-        // Inicializar o checkout quando o script carregar
-        const initCheckout = () => {
-          if (window.Eduzz?.Checkout) {
-            window.Eduzz.Checkout.init({
-              contentId: "69KA3Z7A0O",
-              target: "eduzz-elements",
-              errorCover: false
-            });
-          }
-        };
-
-        if (document.readyState === 'complete') {
-          initCheckout();
-        } else {
-          window.addEventListener('load', initCheckout);
-        }
-      };
-
-      document.body.appendChild(script);
-
-      return () => {
-        if (document.body.contains(script)) {
-          document.body.removeChild(script);
-        }
-      };
-    }
-  }, [showCheckout]);
-
   const handleInitiatePayment = async () => {
-    console.log("Iniciando pagamento com Eduzz");
+    console.log("Iniciando pagamento...");
     
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
@@ -101,27 +206,73 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
-    
-    toast({
-      title: "Carregando checkout",
-      description: "Preparando o formulário de pagamento...",
-    });
+    console.log("Chamando função create-payment-intent...");
 
-    // Mostrar o checkout embutido
-    setTimeout(() => {
-      setShowCheckout(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('create-payment-intent', {
+        body: {
+          customerName: formData.name,
+          customerEmail: formData.email,
+          customerTaxId: cleanCPF
+        }
+      });
+
+      console.log("Resposta da função:", { data, error });
+
+      if (error) throw error;
+
+      if (data.clientSecret) {
+        console.log("Client secret recebido, mostrando checkout");
+        setClientSecret(data.clientSecret);
+      } else {
+        throw new Error('Falha ao iniciar pagamento');
+      }
+
+    } catch (error: any) {
+      console.error('Error creating payment intent:', error);
+      toast({
+        title: "Erro ao processar",
+        description: error.message || "Tente novamente em alguns instantes",
+        variant: "destructive"
+      });
+    } finally {
       setLoading(false);
-    }, 500);
+    }
   };
+
+  if (clientSecret) {
+    console.log("Rendering checkout form with clientSecret");
+    return (
+      <div className="space-y-4 bg-card border border-border rounded-xl p-6">
+        <div className="flex flex-col items-center space-y-4 mb-6">
+          <img src={logoBlue} alt="Informática na Prática" className="h-16" />
+          <div className="text-center space-y-2">
+            <h3 className="text-xl font-bold">💳 Finalize sua matrícula com segurança</h3>
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <Lock className="w-4 h-4" />
+              <span>Pagamento 100% seguro e criptografado</span>
+            </div>
+            <div className="flex items-center justify-center gap-2 text-sm font-medium text-success">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Garantia Total de 7 Dias</span>
+            </div>
+          </div>
+        </div>
+        <Elements 
+          stripe={stripePromise} 
+          options={{ 
+            clientSecret,
+            loader: 'always'
+          }}
+        >
+          <CheckoutFormContent clientSecret={clientSecret} />
+        </Elements>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6 bg-card border border-border rounded-xl p-6">
-      {showCheckout && (
-        <div id="eduzz-elements" className="min-h-[600px]"></div>
-      )}
-      
-      {!showCheckout && (
-        <>
       {/* Logo e Valor */}
       <div className="flex items-center justify-between pb-4 border-b border-border">
         <img src={logoBlue} alt="Informática na Prática" className="h-14" />
@@ -139,7 +290,7 @@ export const CheckoutForm = () => {
         </div>
         <div className="flex items-center gap-2 text-xs">
           <CheckCircle2 className="w-4 h-4 text-success" />
-          <span className="font-medium">Eduzz</span>
+          <span className="font-medium">Stripe</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <ShieldCheck className="w-4 h-4 text-success" />
@@ -184,21 +335,20 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
-      <div className="pt-2 space-y-3">
+      <div className="pt-2">
         <Button
           onClick={handleInitiatePayment}
           size="lg"
           className="w-full font-bold text-lg py-6"
           disabled={loading}
-          variant="default"
         >
           {loading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Redirecionando...
+              Processando...
             </>
           ) : (
-            <>💳 Garantir Minha Vaga Agora - PIX, Cartão ou Boleto</>
+            'Garantir Minha Vaga Agora'
           )}
         </Button>
         
@@ -207,8 +357,6 @@ export const CheckoutForm = () => {
           <span>Compra Protegida pela Garantia Total de 7 Dias</span>
         </div>
       </div>
-      </>
-      )}
     </div>
   );
 };

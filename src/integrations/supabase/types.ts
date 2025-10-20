@@ -45,7 +45,6 @@ export type Database = {
           id: string
           pagseguro_transaction_id: string
           payment_method: string | null
-          payment_provider: string
           status: string
           student_id: string | null
           updated_at: string | null
@@ -57,7 +56,6 @@ export type Database = {
           id?: string
           pagseguro_transaction_id: string
           payment_method?: string | null
-          payment_provider?: string
           status: string
           student_id?: string | null
           updated_at?: string | null
@@ -69,7 +67,6 @@ export type Database = {
           id?: string
           pagseguro_transaction_id?: string
           payment_method?: string | null
-          payment_provider?: string
           status?: string
           student_id?: string | null
           updated_at?: string | null
