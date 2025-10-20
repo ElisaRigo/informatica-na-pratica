@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,38 +6,9 @@ import { useToast } from "@/hooks/use-toast";
 import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
-// Declarar tipos globais para Eduzz
-declare global {
-  interface Window {
-    Eduzz?: {
-      Checkout: {
-        create: (options: {
-          publicKey: string;
-          checkoutId: string;
-          onSuccess?: () => void;
-          onError?: (error: any) => void;
-        }) => void;
-      };
-    };
-  }
-}
-
 export const CheckoutForm = () => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
-
-  useEffect(() => {
-    // Carregar o script do Eduzz Elements
-    const script = document.createElement('script');
-    script.src = 'https://app.eduzz.com/checkout/eduzz-elements.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Limpar o script ao desmontar
-      document.body.removeChild(script);
-    };
-  }, []);
   
   const [formData, setFormData] = useState({
     name: "",
@@ -78,50 +49,18 @@ export const CheckoutForm = () => {
 
     setLoading(true);
 
-    try {
-      // Verificar se o Eduzz está carregado
-      if (!window.Eduzz) {
-        toast({
-          title: "Carregando...",
-          description: "Aguarde enquanto carregamos o checkout",
-          variant: "destructive"
-        });
-        setLoading(false);
-        return;
-      }
+    // Redirecionar para o checkout da Eduzz
+    const eduzzCheckoutUrl = "https://chk.eduzz.com/69KA3Z7A0O";
+    
+    toast({
+      title: "Redirecionando para pagamento",
+      description: "Você será direcionado para finalizar sua compra",
+    });
 
-      // Abrir checkout transparente do Eduzz
-      window.Eduzz.Checkout.create({
-        publicKey: '82324746',
-        checkoutId: '69KA3Z7A0O',
-        onSuccess: () => {
-          console.log('Pagamento realizado com sucesso');
-          toast({
-            title: "Pagamento realizado!",
-            description: "Você receberá um e-mail com os dados de acesso",
-          });
-          window.location.href = '/obrigada';
-        },
-        onError: (error) => {
-          console.error('Erro no pagamento:', error);
-          toast({
-            title: "Erro no pagamento",
-            description: "Tente novamente em alguns instantes",
-            variant: "destructive"
-          });
-        }
-      });
-      
-    } catch (error: any) {
-      console.error('Error:', error);
-      toast({
-        title: "Erro ao processar",
-        description: error.message || "Tente novamente em alguns instantes",
-        variant: "destructive"
-      });
-    } finally {
-      setLoading(false);
-    }
+    // Aguardar 500ms para o toast aparecer antes de redirecionar
+    setTimeout(() => {
+      window.location.href = eduzzCheckoutUrl;
+    }, 500);
   };
 
   return (
