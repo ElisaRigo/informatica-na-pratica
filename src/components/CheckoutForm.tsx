@@ -245,11 +245,53 @@ export const CheckoutForm = () => {
 
   const handlePagSeguroPayment = async () => {
     console.log("Iniciando checkout PagSeguro...");
+    
+    // Validar campos obrigatórios
+    if (!formData.name || !formData.email || !formData.cpf) {
+      toast({
+        title: "Preencha todos os campos",
+        description: "Nome completo, email e CPF são obrigatórios",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Validar nome completo (pelo menos 2 palavras)
+    const nameParts = formData.name.trim().split(' ');
+    if (nameParts.length < 2 || nameParts.some(part => part.length < 2)) {
+      toast({
+        title: "Nome inválido",
+        description: "Digite seu nome completo (nome e sobrenome)",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const cleanCPF = formData.cpf.replace(/\D/g, '');
+
+    if (cleanCPF.length !== 11) {
+      toast({
+        title: "CPF inválido",
+        description: "Digite um CPF válido com 11 dígitos",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setLoading(true);
+    console.log("Gerando checkout PagSeguro com dados:", {
+      name: formData.name,
+      email: formData.email,
+      cpf: cleanCPF
+    });
 
     try {
       const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
-        body: {}
+        body: {
+          customerName: formData.name,
+          customerEmail: formData.email,
+          customerTaxId: cleanCPF
+        }
       });
 
       console.log("Resposta PagSeguro:", { data, error });
@@ -257,7 +299,7 @@ export const CheckoutForm = () => {
       if (error) throw error;
 
       if (data.paymentUrl) {
-        console.log("Redirecionando para checkout PagSeguro:", data.paymentUrl);
+        console.log("✅ Checkout criado! Redirecionando:", data.paymentUrl);
         window.location.href = data.paymentUrl;
       } else {
         throw new Error('Falha ao gerar link de checkout');

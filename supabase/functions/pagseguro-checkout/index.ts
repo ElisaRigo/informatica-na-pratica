@@ -15,9 +15,9 @@ const supabase = createClient(
 );
 
 interface CheckoutRequest {
-  customerName?: string;
-  customerEmail?: string;
-  customerTaxId?: string;
+  customerName: string;
+  customerEmail: string;
+  customerTaxId: string;
 }
 
 serve(async (req: Request) => {
@@ -28,20 +28,33 @@ serve(async (req: Request) => {
   try {
     console.log('=== INICIANDO CHECKOUT PAGSEGURO ===');
     
-    const requestBody = await req.json().catch(() => ({}));
+    const requestBody = await req.json();
     console.log('Request body recebido:', JSON.stringify(requestBody));
     
     const { customerName, customerEmail, customerTaxId }: CheckoutRequest = requestBody;
 
-    // Usar dados padrão se não fornecidos (checkout genérico)
-    const name = customerName || 'Cliente';
-    const email = customerEmail || 'cliente@informaticadescomplicada.com.br';
-    const cpf = (customerTaxId || '00000000000').replace(/\D/g, '');
+    // Validar dados obrigatórios
+    if (!customerName || !customerEmail || !customerTaxId) {
+      throw new Error('Dados incompletos: nome, email e CPF são obrigatórios');
+    }
+
+    // Validar nome (mínimo 2 palavras para o PagSeguro)
+    const nameParts = customerName.trim().split(' ');
+    if (nameParts.length < 2 || nameParts.some(part => part.length < 2)) {
+      throw new Error('Nome completo inválido. Forneça nome e sobrenome');
+    }
+
+    const cpf = customerTaxId.replace(/\D/g, '');
+    
+    // Validar CPF
+    if (cpf.length !== 11) {
+      throw new Error(`CPF inválido: deve ter 11 dígitos`);
+    }
 
     console.log('Dados processados:', {
-      name,
-      email,
-      cpf
+      name: customerName,
+      email: customerEmail,
+      cpf: cpf
     });
 
     // Validar token
@@ -66,8 +79,8 @@ serve(async (req: Request) => {
     </item>
   </items>
   <sender>
-    <name>${name}</name>
-    <email>${email}</email>
+    <name>${customerName}</name>
+    <email>${customerEmail}</email>
     <documents>
       <document>
         <type>CPF</type>
@@ -146,8 +159,8 @@ serve(async (req: Request) => {
           payment_provider: 'pagseguro',
           payment_method: 'pix',
           webhook_data: {
-            customerName: name,
-            customerEmail: email,
+            customerName,
+            customerEmail,
             customerCPF: cpf,
             checkoutDate,
             reference: `CURSO_${Date.now()}`
