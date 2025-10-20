@@ -5,13 +5,12 @@ import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, Lock, CheckCircle2, CreditCard, Smartphone } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CheckCircle2, CreditCard, FileText, Smartphone } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
-// Inicializar Stripe
+// Inicializar Stripe - IMPORTANTE: Esta é a chave PUBLICÁVEL, não é secreta
 const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIb1MMomEjFYEEWRuCjYG5roBoqfcTFNtCBzXD6liN7022aiG1aidNa6SVF8l3GfNIqIGWUyUW001MW9Tg5r");
 
 const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
@@ -167,6 +166,7 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
 export const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'pix' | null>(null);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -198,7 +198,7 @@ export const CheckoutForm = () => {
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
         title: "Preencha todos os campos",
-        description: "Todos os campos são obrigatórios para continuar",
+        description: "Nome, e-mail e CPF são obrigatórios",
         variant: "destructive"
       });
       return;
@@ -209,13 +209,14 @@ export const CheckoutForm = () => {
     if (cleanCPF.length !== 11) {
       toast({
         title: "CPF inválido",
-        description: "Digite um CPF válido",
+        description: "Digite um CPF válido com 11 dígitos",
         variant: "destructive"
       });
       return;
     }
 
     setLoading(true);
+    setPaymentMethod('stripe');
     console.log("Chamando função create-payment-intent...");
 
     try {
@@ -245,6 +246,7 @@ export const CheckoutForm = () => {
         description: error.message || "Tente novamente em alguns instantes",
         variant: "destructive"
       });
+      setPaymentMethod(null);
     } finally {
       setLoading(false);
     }
@@ -256,7 +258,7 @@ export const CheckoutForm = () => {
     if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
       toast({
         title: "Preencha todos os campos",
-        description: "Todos os campos são obrigatórios para PIX",
+        description: "Nome, e-mail, CPF e telefone são obrigatórios para PIX",
         variant: "destructive"
       });
       return;
@@ -268,7 +270,7 @@ export const CheckoutForm = () => {
     if (cleanCPF.length !== 11) {
       toast({
         title: "CPF inválido",
-        description: "Digite um CPF válido",
+        description: "Digite um CPF válido com 11 dígitos",
         variant: "destructive"
       });
       return;
@@ -277,13 +279,14 @@ export const CheckoutForm = () => {
     if (cleanPhone.length !== 11) {
       toast({
         title: "Telefone inválido",
-        description: "Digite um telefone válido com DDD",
+        description: "Digite um telefone válido com DDD (11 dígitos)",
         variant: "destructive"
       });
       return;
     }
 
     setLoading(true);
+    setPaymentMethod('pix');
 
     try {
       const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
@@ -295,31 +298,45 @@ export const CheckoutForm = () => {
         }
       });
 
+      console.log("Resposta PagSeguro:", { data, error });
+
       if (error) throw error;
 
       if (data.paymentUrl) {
-        console.log("URL de pagamento recebida:", data.paymentUrl);
-        window.open(data.paymentUrl, '_blank');
+        console.log("✅ URL de pagamento PIX recebida:", data.paymentUrl);
         
-        toast({
-          title: "Redirecionando para pagamento",
-          description: "Complete o pagamento PIX na nova aba",
-        });
+        // Abrir em nova aba
+        const newWindow = window.open(data.paymentUrl, '_blank');
+        
+        if (newWindow) {
+          toast({
+            title: "✅ Link do PIX aberto",
+            description: "Complete o pagamento na nova aba aberta",
+          });
+        } else {
+          toast({
+            title: "⚠️ Bloqueador de pop-up",
+            description: "Permita pop-ups e tente novamente",
+            variant: "destructive"
+          });
+        }
 
+        // Redirecionar para página de aguardando
         setTimeout(() => {
-          window.location.href = '/aguardando-confirmacao';
-        }, 2000);
+          window.location.href = `/aguardando-confirmacao?method=pix&transaction_id=${data.checkoutCode || 'pending'}`;
+        }, 1500);
       } else {
-        throw new Error('Falha ao gerar link de pagamento');
+        throw new Error('Falha ao gerar link de pagamento PIX');
       }
 
     } catch (error: any) {
-      console.error('Error creating PIX payment:', error);
+      console.error('❌ Error creating PIX payment:', error);
       toast({
-        title: "Erro ao processar",
+        title: "Erro ao processar PIX",
         description: error.message || "Tente novamente em alguns instantes",
         variant: "destructive"
       });
+      setPaymentMethod(null);
     } finally {
       setLoading(false);
     }
@@ -357,7 +374,7 @@ export const CheckoutForm = () => {
   }
 
   return (
-    <div className="space-y-6 bg-card border border-border rounded-xl p-6">
+    <div className="space-y-6 bg-card border border-border rounded-xl p-6 shadow-lg">
       {/* Logo e Valor */}
       <div className="flex items-center justify-between pb-4 border-b border-border">
         <img src={logoBlue} alt="Informática na Prática" className="h-14" />
@@ -368,7 +385,7 @@ export const CheckoutForm = () => {
       </div>
 
       {/* Ícones de Segurança */}
-      <div className="flex items-center justify-center gap-6 py-3 bg-muted/50 rounded-lg">
+      <div className="flex items-center justify-center gap-6 py-3 bg-muted rounded-lg">
         <div className="flex items-center gap-2 text-xs">
           <Lock className="w-4 h-4 text-success" />
           <span className="font-medium">SSL Seguro</span>
@@ -383,154 +400,128 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
-      <Tabs defaultValue="stripe" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="stripe" className="flex items-center gap-2">
-            <CreditCard className="w-4 h-4" />
-            Cartão/Boleto
-          </TabsTrigger>
-          <TabsTrigger value="pix" className="flex items-center gap-2">
-            <Smartphone className="w-4 h-4" />
-            PIX
-          </TabsTrigger>
-        </TabsList>
+      {/* Formulário de Dados */}
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="name">Nome Completo *</Label>
+          <Input
+            id="name"
+            placeholder="Seu nome completo"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            disabled={loading}
+          />
+        </div>
 
-        <TabsContent value="stripe" className="space-y-4 mt-4">
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Nome Completo *</Label>
-              <Input
-                id="name"
-                placeholder="Seu nome completo"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                disabled={loading}
-              />
-            </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">E-mail *</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="seu@email.com"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            disabled={loading}
+          />
+        </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="email">E-mail *</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="seu@email.com"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                disabled={loading}
-              />
-            </div>
+        <div className="space-y-2">
+          <Label htmlFor="cpf">CPF *</Label>
+          <Input
+            id="cpf"
+            placeholder="000.000.000-00"
+            value={formData.cpf}
+            onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+            maxLength={14}
+            disabled={loading}
+          />
+        </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="cpf">CPF *</Label>
-              <Input
-                id="cpf"
-                placeholder="000.000.000-00"
-                value={formData.cpf}
-                onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-                maxLength={14}
-                disabled={loading}
-              />
-            </div>
-          </div>
+        <div className="space-y-2">
+          <Label htmlFor="phone">Telefone com DDD * (apenas para PIX)</Label>
+          <Input
+            id="phone"
+            placeholder="(00) 00000-0000"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+            maxLength={15}
+            disabled={loading}
+          />
+        </div>
+      </div>
 
-          <div className="pt-2">
-            <Button
-              onClick={handleInitiatePayment}
-              size="lg"
-              className="w-full font-bold text-lg py-6"
-              disabled={loading}
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Processando...
-                </>
-              ) : (
-                'Pagar com Cartão ou Boleto'
-              )}
-            </Button>
-            
-            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-3">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Compra Protegida pela Garantia Total de 7 Dias</span>
-            </div>
-          </div>
-        </TabsContent>
+      {/* Botões de Pagamento Separados e Visíveis */}
+      <div className="space-y-3 pt-4">
+        <h3 className="text-sm font-semibold text-center mb-3">Escolha a forma de pagamento:</h3>
+        
+        {/* Botão Cartão de Crédito */}
+        <Button
+          onClick={handleInitiatePayment}
+          size="lg"
+          variant="default"
+          className="w-full font-bold text-lg py-6 bg-primary hover:bg-primary/90"
+          disabled={loading && paymentMethod === 'stripe'}
+        >
+          {loading && paymentMethod === 'stripe' ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            <>
+              <CreditCard className="mr-2 h-5 w-5" />
+              Pagar com Cartão de Crédito
+            </>
+          )}
+        </Button>
 
-        <TabsContent value="pix" className="space-y-4 mt-4">
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name-pix">Nome Completo *</Label>
-              <Input
-                id="name-pix"
-                placeholder="Seu nome completo"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                disabled={loading}
-              />
-            </div>
+        {/* Botão Boleto */}
+        <Button
+          onClick={handleInitiatePayment}
+          size="lg"
+          variant="outline"
+          className="w-full font-bold text-lg py-6 border-2"
+          disabled={loading && paymentMethod === 'stripe'}
+        >
+          {loading && paymentMethod === 'stripe' ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            <>
+              <FileText className="mr-2 h-5 w-5" />
+              Pagar com Boleto
+            </>
+          )}
+        </Button>
 
-            <div className="space-y-2">
-              <Label htmlFor="email-pix">E-mail *</Label>
-              <Input
-                id="email-pix"
-                type="email"
-                placeholder="seu@email.com"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                disabled={loading}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="cpf-pix">CPF *</Label>
-              <Input
-                id="cpf-pix"
-                placeholder="000.000.000-00"
-                value={formData.cpf}
-                onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-                maxLength={14}
-                disabled={loading}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="phone">Telefone com DDD *</Label>
-              <Input
-                id="phone"
-                placeholder="(00) 00000-0000"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-                maxLength={15}
-                disabled={loading}
-              />
-            </div>
-          </div>
-
-          <div className="pt-2">
-            <Button
-              onClick={handlePixPayment}
-              size="lg"
-              className="w-full font-bold text-lg py-6"
-              disabled={loading}
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Processando...
-                </>
-              ) : (
-                'Pagar com PIX'
-              )}
-            </Button>
-            
-            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-3">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Compra Protegida pela Garantia Total de 7 Dias</span>
-            </div>
-          </div>
-        </TabsContent>
-      </Tabs>
+        {/* Botão PIX */}
+        <Button
+          onClick={handlePixPayment}
+          size="lg"
+          variant="outline"
+          className="w-full font-bold text-lg py-6 border-2 border-success text-success hover:bg-success hover:text-success-foreground"
+          disabled={loading && paymentMethod === 'pix'}
+        >
+          {loading && paymentMethod === 'pix' ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            <>
+              <Smartphone className="mr-2 h-5 w-5" />
+              Pagar com PIX (PagSeguro)
+            </>
+          )}
+        </Button>
+        
+        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+          <ShieldCheck className="w-4 h-4" />
+          <span>Compra Protegida pela Garantia Total de 7 Dias</span>
+        </div>
+      </div>
     </div>
   );
 };
