@@ -163,6 +163,9 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
   );
 };
 
+// Link direto do PagSeguro - você pode substituir por um link de pagamento permanente
+const PAGSEGURO_CHECKOUT_LINK = "https://pag.ae/7-yJxVVhD"; // Substitua pelo seu link do PagSeguro
+
 export const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -242,62 +245,10 @@ export const CheckoutForm = () => {
     }
   };
 
-  const handlePagSeguroPayment = async () => {
-    console.log("Iniciando checkout PagSeguro...");
-    
-    if (!formData.name || !formData.email || !formData.cpf) {
-      toast({
-        title: "Preencha todos os campos",
-        description: "Todos os campos são obrigatórios para continuar",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    const cleanCPF = formData.cpf.replace(/\D/g, '');
-
-    if (cleanCPF.length !== 11) {
-      toast({
-        title: "CPF inválido",
-        description: "Digite um CPF válido",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setLoading(true);
-    console.log("Gerando link de checkout PagSeguro...");
-
-    try {
-      const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
-        body: {
-          customerName: formData.name,
-          customerEmail: formData.email,
-          customerTaxId: cleanCPF
-        }
-      });
-
-      console.log("Resposta PagSeguro:", { data, error });
-
-      if (error) throw error;
-
-      if (data.paymentUrl) {
-        console.log("Redirecionando para checkout PagSeguro:", data.paymentUrl);
-        // Redirecionar diretamente para o checkout
-        window.location.href = data.paymentUrl;
-      } else {
-        throw new Error('Falha ao gerar link de checkout');
-      }
-
-    } catch (error: any) {
-      console.error('Error creating checkout:', error);
-      toast({
-        title: "Erro ao processar",
-        description: error.message || "Tente novamente em alguns instantes",
-        variant: "destructive"
-      });
-      setLoading(false);
-    }
+  const handlePagSeguroPayment = () => {
+    console.log("Redirecionando para PagSeguro...");
+    // Redirecionar diretamente para o link do PagSeguro
+    window.location.href = PAGSEGURO_CHECKOUT_LINK;
   };
 
   if (clientSecret && paymentMethod === 'stripe') {
@@ -428,23 +379,22 @@ export const CheckoutForm = () => {
           )}
         </Button>
 
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-card px-2 text-muted-foreground">ou</span>
+          </div>
+        </div>
+
         <Button
           onClick={handlePagSeguroPayment}
           size="lg"
           variant="outline"
-          className="w-full font-bold text-lg py-6 border-2 bg-gradient-to-r from-primary/10 to-primary/5"
-          disabled={loading}
+          className="w-full font-bold text-lg py-6 border-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 hover:from-green-500/20 hover:to-blue-500/20"
         >
-          {loading ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Gerando checkout...
-            </>
-          ) : (
-            <>
-              💰 PIX, Boleto ou Cartão (PagSeguro)
-            </>
-          )}
+          💰 PIX, Boleto ou Cartão (PagSeguro)
         </Button>
         
         <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
