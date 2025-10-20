@@ -1,172 +1,13 @@
 import { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
-// Inicializar Stripe
-const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIOaOGtGMLw98egdIGBwNKDt2Psja21XVQOujE6jMT4iJsh8cow5JgYqe5Qvya6qVF5WiiJEOs00SD9is173");
-
-const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [loading, setLoading] = useState(false);
-  const [isReady, setIsReady] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!stripe || !elements) {
-      toast({
-        title: "Carregando...",
-        description: "Aguarde enquanto preparamos o pagamento",
-      });
-      return;
-    }
-
-    if (!isReady) {
-      toast({
-        title: "Aguarde",
-        description: "O formulário de pagamento ainda está carregando",
-      });
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      // Usar redirect: 'if_required' para ter controle sobre o redirecionamento
-      const { error, paymentIntent } = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          return_url: `${window.location.protocol}//${window.location.host}/obrigada`,
-        },
-        redirect: 'if_required',
-      });
-
-      // Se há erro, mostrar para o usuário
-      if (error) {
-        console.error("Payment error:", error);
-        
-        // Erros de validação não mostram toast (deixa o Stripe mostrar inline)
-        if (error.type === "validation_error") {
-          return;
-        }
-        
-        toast({
-          title: "Erro no pagamento",
-          description: error.message,
-          variant: "destructive",
-        });
-        return;
-      }
-
-      // Se temos paymentIntent, verificar o status
-      if (paymentIntent) {
-        console.log("Payment Intent Status:", paymentIntent.status);
-        
-        // Pagamento com cartão aprovado instantaneamente
-        if (paymentIntent.status === "succeeded") {
-          console.log("Payment succeeded, redirecting to thank you page");
-          window.location.href = `${window.location.protocol}//${window.location.host}/obrigada?payment_intent=${paymentIntent.id}`;
-          return;
-        }
-        
-        // Boleto ou método que requer ação adicional
-        if (paymentIntent.status === "requires_action" || paymentIntent.status === "processing") {
-          console.log("Payment requires action (boleto), redirecting to waiting page");
-          window.location.href = `${window.location.protocol}//${window.location.host}/aguardando-confirmacao?payment_intent=${paymentIntent.id}`;
-          return;
-        }
-
-        // Outros status
-        console.log("Payment status:", paymentIntent.status);
-        toast({
-          title: "Pagamento em processamento",
-          description: "Aguarde a confirmação do seu pagamento",
-        });
-      }
-    } catch (err: any) {
-      console.error("Unexpected error:", err);
-      toast({
-        title: "Erro",
-        description: err.message || "Ocorreu um erro ao processar o pagamento",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {!isReady && (
-        <div className="flex items-center justify-center py-8 text-muted-foreground">
-          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-          <span>Carregando opções de pagamento...</span>
-        </div>
-      )}
-      <PaymentElement 
-        onReady={() => {
-          console.log("PaymentElement ready");
-          setIsReady(true);
-        }}
-        onLoadError={(error) => {
-          console.error("PaymentElement load error:", error);
-          toast({
-            title: "Erro ao carregar",
-            description: "Não foi possível carregar o formulário de pagamento. Tente novamente.",
-            variant: "destructive"
-          });
-        }}
-        options={{
-          layout: {
-            type: 'tabs',
-            defaultCollapsed: false,
-          },
-        }}
-      />
-      
-      <Button
-        type="submit"
-        disabled={!stripe || !isReady || loading}
-        size="lg"
-        className="w-full font-bold text-lg py-6"
-      >
-        {loading ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Processando...
-          </>
-        ) : !isReady ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Carregando...
-          </>
-        ) : (
-          `Garantir Minha Vaga Agora`
-        )}
-      </Button>
-      
-      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
-        <ShieldCheck className="w-4 h-4" />
-        <span>Compra Protegida pela Garantia Total de 7 Dias</span>
-      </div>
-    </form>
-  );
-};
-
 export const CheckoutForm = () => {
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'eduzz' | null>(null);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -183,8 +24,8 @@ export const CheckoutForm = () => {
     return value;
   };
 
-  const handleInitiatePayment = async (method: 'stripe' | 'eduzz') => {
-    console.log("Iniciando pagamento com:", method);
+  const handleInitiatePayment = async () => {
+    console.log("Iniciando pagamento com Eduzz");
     
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
@@ -207,88 +48,28 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
-    setPaymentMethod(method);
 
     try {
-      if (method === 'eduzz') {
-        // Redirect to Eduzz checkout
-        const eduzzUrl = "https://chk.eduzz.com/69KA3Z7A0O";
-        window.open(eduzzUrl, '_blank');
-        
-        toast({
-          title: "Redirecionando...",
-          description: "Você será direcionado para o checkout da Eduzz",
-        });
-        
-        setLoading(false);
-        return;
-      }
-
-      // Stripe flow
-      console.log("Chamando função create-payment-intent...");
-      const { data, error } = await supabase.functions.invoke('create-payment-intent', {
-        body: {
-          customerName: formData.name,
-          customerEmail: formData.email,
-          customerTaxId: cleanCPF
-        }
+      // Redirect to Eduzz checkout
+      const eduzzUrl = "https://chk.eduzz.com/69KA3Z7A0O";
+      window.open(eduzzUrl, '_blank');
+      
+      toast({
+        title: "Redirecionando...",
+        description: "Você será direcionado para o checkout da Eduzz",
       });
-
-      console.log("Resposta da função:", { data, error });
-
-      if (error) throw error;
-
-      if (data.clientSecret) {
-        console.log("Client secret recebido, mostrando checkout");
-        setClientSecret(data.clientSecret);
-      } else {
-        throw new Error('Falha ao iniciar pagamento');
-      }
-
+      
     } catch (error: any) {
-      console.error('Error creating payment intent:', error);
+      console.error('Error:', error);
       toast({
         title: "Erro ao processar",
         description: error.message || "Tente novamente em alguns instantes",
         variant: "destructive"
       });
     } finally {
-      if (method === 'stripe') {
-        setLoading(false);
-      }
+      setLoading(false);
     }
   };
-
-  if (clientSecret) {
-    console.log("Rendering checkout form with clientSecret");
-    return (
-      <div className="space-y-4 bg-card border border-border rounded-xl p-6">
-        <div className="flex flex-col items-center space-y-4 mb-6">
-          <img src={logoBlue} alt="Informática na Prática" className="h-16" />
-          <div className="text-center space-y-2">
-            <h3 className="text-xl font-bold">💳 Finalize sua matrícula com segurança</h3>
-            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-              <Lock className="w-4 h-4" />
-              <span>Pagamento 100% seguro e criptografado</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-sm font-medium text-success">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Garantia Total de 7 Dias</span>
-            </div>
-          </div>
-        </div>
-        <Elements 
-          stripe={stripePromise} 
-          options={{ 
-            clientSecret,
-            loader: 'always'
-          }}
-        >
-          <CheckoutFormContent clientSecret={clientSecret} />
-        </Elements>
-      </div>
-    );
-  }
 
   return (
     <div className="space-y-6 bg-card border border-border rounded-xl p-6">
@@ -309,7 +90,7 @@ export const CheckoutForm = () => {
         </div>
         <div className="flex items-center gap-2 text-xs">
           <CheckCircle2 className="w-4 h-4 text-success" />
-          <span className="font-medium">Stripe</span>
+          <span className="font-medium">Eduzz</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <ShieldCheck className="w-4 h-4 text-success" />
@@ -355,41 +136,20 @@ export const CheckoutForm = () => {
       </div>
 
       <div className="pt-2 space-y-3">
-        <div className="text-center text-sm font-medium text-muted-foreground mb-2">
-          Escolha sua forma de pagamento:
-        </div>
-        
         <Button
-          onClick={() => handleInitiatePayment('stripe')}
+          onClick={handleInitiatePayment}
           size="lg"
           className="w-full font-bold text-lg py-6"
           disabled={loading}
           variant="default"
         >
-          {loading && paymentMethod === 'stripe' ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Processando...
-            </>
-          ) : (
-            <>💳 Cartão de Crédito / Boleto</>
-          )}
-        </Button>
-
-        <Button
-          onClick={() => handleInitiatePayment('eduzz')}
-          size="lg"
-          className="w-full font-bold text-lg py-6"
-          disabled={loading}
-          variant="outline"
-        >
-          {loading && paymentMethod === 'eduzz' ? (
+          {loading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               Redirecionando...
             </>
           ) : (
-            <>🏦 PIX / Eduzz</>
+            <>💳 Garantir Minha Vaga Agora - PIX, Cartão ou Boleto</>
           )}
         </Button>
         
