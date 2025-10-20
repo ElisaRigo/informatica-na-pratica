@@ -166,6 +166,7 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
 export const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'eduzz' | null>(null);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -182,8 +183,8 @@ export const CheckoutForm = () => {
     return value;
   };
 
-  const handleInitiatePayment = async () => {
-    console.log("Iniciando pagamento...");
+  const handleInitiatePayment = async (method: 'stripe' | 'eduzz') => {
+    console.log("Iniciando pagamento com:", method);
     
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
@@ -206,9 +207,25 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
-    console.log("Chamando função create-payment-intent...");
+    setPaymentMethod(method);
 
     try {
+      if (method === 'eduzz') {
+        // Redirect to Eduzz checkout
+        const eduzzUrl = "https://chk.eduzz.com/69KA3Z7A0O";
+        window.open(eduzzUrl, '_blank');
+        
+        toast({
+          title: "Redirecionando...",
+          description: "Você será direcionado para o checkout da Eduzz",
+        });
+        
+        setLoading(false);
+        return;
+      }
+
+      // Stripe flow
+      console.log("Chamando função create-payment-intent...");
       const { data, error } = await supabase.functions.invoke('create-payment-intent', {
         body: {
           customerName: formData.name,
@@ -236,7 +253,9 @@ export const CheckoutForm = () => {
         variant: "destructive"
       });
     } finally {
-      setLoading(false);
+      if (method === 'stripe') {
+        setLoading(false);
+      }
     }
   };
 
@@ -335,20 +354,42 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
-      <div className="pt-2">
+      <div className="pt-2 space-y-3">
+        <div className="text-center text-sm font-medium text-muted-foreground mb-2">
+          Escolha sua forma de pagamento:
+        </div>
+        
         <Button
-          onClick={handleInitiatePayment}
+          onClick={() => handleInitiatePayment('stripe')}
           size="lg"
           className="w-full font-bold text-lg py-6"
           disabled={loading}
+          variant="default"
         >
-          {loading ? (
+          {loading && paymentMethod === 'stripe' ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               Processando...
             </>
           ) : (
-            'Garantir Minha Vaga Agora'
+            <>💳 Cartão de Crédito / Boleto</>
+          )}
+        </Button>
+
+        <Button
+          onClick={() => handleInitiatePayment('eduzz')}
+          size="lg"
+          className="w-full font-bold text-lg py-6"
+          disabled={loading}
+          variant="outline"
+        >
+          {loading && paymentMethod === 'eduzz' ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Redirecionando...
+            </>
+          ) : (
+            <>🏦 PIX / Eduzz</>
           )}
         </Button>
         
