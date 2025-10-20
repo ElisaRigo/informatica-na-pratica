@@ -253,12 +253,12 @@ export const CheckoutForm = () => {
   };
 
   const handlePixPayment = async () => {
-    console.log("🔵 Iniciando pagamento PIX PagSeguro...");
+    console.log("🟦 INICIANDO PAGAMENTO PIX VIA PAGSEGURO");
     
     if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
       toast({
         title: "Preencha todos os campos",
-        description: "Nome, e-mail, CPF e telefone são obrigatórios para PIX",
+        description: "Nome, e-mail, CPF e telefone são obrigatórios",
         variant: "destructive"
       });
       return;
@@ -299,31 +299,29 @@ export const CheckoutForm = () => {
         }
       });
 
-      console.log("📦 Resposta PagSeguro:", { data, error });
+      console.log("📦 Resposta:", { data, error });
 
       if (error) {
-        console.error("❌ Erro na chamada:", error);
-        throw error;
+        console.error("❌ Erro:", error);
+        throw new Error(error.message || 'Erro ao conectar com PagSeguro');
       }
 
       if (!data || !data.paymentUrl) {
-        console.error("❌ Resposta sem paymentUrl:", data);
-        throw new Error('Falha ao gerar link de pagamento PIX - URL não retornada');
+        console.error("❌ Sem URL:", data);
+        throw new Error('URL de pagamento não gerada');
       }
 
-      console.log("✅ URL recebida:", data.paymentUrl);
-      console.log("🔑 Checkout code:", data.checkoutCode);
+      console.log("✅ Redirecionando para:", data.paymentUrl);
       
-      // Redirecionar DIRETAMENTE para o PagSeguro na mesma janela
+      // Redirecionar DIRETAMENTE para a página do PagSeguro
+      // O PagSeguro está configurado para retornar para /aguardando-confirmacao
       window.location.href = data.paymentUrl;
-      
-      // NÃO fazer mais nada - deixar o PagSeguro gerenciar tudo
 
     } catch (error: any) {
-      console.error('❌ Erro completo:', error);
+      console.error('❌ ERRO COMPLETO:', error);
       toast({
-        title: "Erro ao processar PIX",
-        description: error.message || "Erro ao conectar com PagSeguro. Tente novamente.",
+        title: "Erro no pagamento",
+        description: error.message || "Tente novamente em alguns instantes",
         variant: "destructive"
       });
       setPaymentMethod(null);
@@ -485,7 +483,7 @@ export const CheckoutForm = () => {
           )}
         </Button>
 
-        {/* Botão PIX */}
+        {/* Botão PIX - PagSeguro */}
         <Button
           onClick={handlePixPayment}
           size="lg"
@@ -496,12 +494,12 @@ export const CheckoutForm = () => {
           {loading && paymentMethod === 'pix' ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Processando...
+              Redirecionando para pagamento...
             </>
           ) : (
             <>
               <Smartphone className="mr-2 h-5 w-5" />
-              Pagar com PIX (PagSeguro)
+              Pagar com PIX (Aprovação Instantânea)
             </>
           )}
         </Button>

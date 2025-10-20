@@ -9,6 +9,10 @@ const corsHeaders = {
 const PAGSEGURO_TOKEN = Deno.env.get('PAGSEGURO_API_TOKEN');
 const PAGSEGURO_EMAIL = 'elisa_cnt@hotmail.com';
 
+// ⚠️ IMPORTANTE: API v2 cria CHECKOUT GENÉRICO (cliente escolhe método)
+// Para PIX direto, seria necessário API v4 (mais complexa)
+// Mantemos v2 por compatibilidade - cliente escolhe PIX na página do PagSeguro
+
 const supabase = createClient(
   Deno.env.get('SUPABASE_URL')!,
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
@@ -77,10 +81,16 @@ serve(async (req: Request) => {
       throw new Error('PAGSEGURO_API_TOKEN not configured');
     }
 
-    const xmlBody = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    // Gerar referência única
+    const reference = `CURSO_${Date.now()}`;
+    
+    const xmlBody = `<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <checkout>
   <currency>BRL</currency>
-  <redirectURL>${Deno.env.get('SUPABASE_URL')?.replace('/rest/v1', '')}/aguardando-confirmacao</redirectURL>
+  <reference>${reference}</reference>
+  <redirectURL>https://informatica-descomplicada.lovable.app/aguardando-confirmacao?method=pagseguro</redirectURL>
+  <maxUses>200</maxUses>
+  <maxAge>3600</maxAge>
   <items>
     <item>
       <id>0001</id>
@@ -103,6 +113,13 @@ serve(async (req: Request) => {
       </document>
     </documents>
   </sender>
+  <acceptedPaymentMethods>
+    <include>
+      <paymentMethod>
+        <group>ONLINE_DEBIT</group>
+      </paymentMethod>
+    </include>
+  </acceptedPaymentMethods>
 </checkout>`;
 
     console.log('📤 XML enviado:', xmlBody.substring(0, 200) + '...');
@@ -162,12 +179,14 @@ serve(async (req: Request) => {
         pagseguro_transaction_id: checkoutCode,
         status: 'initiated',
         amount: 297.00,
+        payment_method: 'pix',
         webhook_data: {
           customerName,
           customerEmail,
           customerPhone,
           customerTaxId,
-          checkoutDate
+          checkoutDate,
+          reference
         }
       });
 
