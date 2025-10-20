@@ -166,7 +166,8 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
 
 export const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [stripeLoading, setStripeLoading] = useState(false);
+  const [pagSeguroLoading, setPagSeguroLoading] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'pix' | null>(null);
   const { toast } = useToast();
   
@@ -207,7 +208,7 @@ export const CheckoutForm = () => {
       return;
     }
 
-    setLoading(true);
+    setStripeLoading(true);
     console.log("Chamando função create-payment-intent...");
 
     try {
@@ -239,7 +240,7 @@ export const CheckoutForm = () => {
         variant: "destructive"
       });
     } finally {
-      setLoading(false);
+      setStripeLoading(false);
     }
   };
 
@@ -278,7 +279,7 @@ export const CheckoutForm = () => {
       return;
     }
 
-    setLoading(true);
+    setPagSeguroLoading(true);
     console.log("Gerando checkout PagSeguro com dados:", {
       name: formData.name,
       email: formData.email,
@@ -312,7 +313,7 @@ export const CheckoutForm = () => {
         description: error.message || "Tente novamente em alguns instantes",
         variant: "destructive"
       });
-      setLoading(false);
+      setPagSeguroLoading(false);
     }
   };
 
@@ -392,7 +393,7 @@ export const CheckoutForm = () => {
             placeholder="Seu nome completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            disabled={loading}
+            disabled={stripeLoading || pagSeguroLoading}
           />
         </div>
 
@@ -404,7 +405,7 @@ export const CheckoutForm = () => {
             placeholder="seu@email.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            disabled={loading}
+            disabled={stripeLoading || pagSeguroLoading}
           />
         </div>
 
@@ -416,7 +417,7 @@ export const CheckoutForm = () => {
             value={formData.cpf}
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
             maxLength={14}
-            disabled={loading}
+            disabled={stripeLoading || pagSeguroLoading}
           />
         </div>
       </div>
@@ -430,9 +431,9 @@ export const CheckoutForm = () => {
           onClick={handleStripePayment}
           size="lg"
           className="w-full font-bold text-lg py-6"
-          disabled={loading}
+          disabled={stripeLoading || pagSeguroLoading}
         >
-          {loading ? (
+          {stripeLoading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               Processando...
@@ -458,9 +459,9 @@ export const CheckoutForm = () => {
           size="lg"
           variant="outline"
           className="w-full font-bold text-lg py-6 border-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 hover:from-green-500/20 hover:to-blue-500/20"
-          disabled={loading}
+          disabled={stripeLoading || pagSeguroLoading}
         >
-          {loading ? (
+          {pagSeguroLoading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               Gerando checkout...
