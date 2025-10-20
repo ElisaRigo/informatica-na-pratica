@@ -5,7 +5,6 @@ import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2, ShieldCheck, Lock, CheckCircle2, CreditCard, Zap } from "lucide-react";
@@ -328,50 +327,39 @@ export const CheckoutForm = () => {
   }
 
   return (
-    <div className="space-y-6 bg-card border border-border rounded-xl p-6">
-      {/* Logo e Valor */}
-      <div className="flex items-center justify-between pb-4 border-b border-border">
-        <img src={logoBlue} alt="Informática na Prática" className="h-14" />
-        <div className="text-right">
-          <div className="text-2xl font-black text-primary">R$ 297,00</div>
-          <div className="text-sm font-bold text-success">40% OFF</div>
-        </div>
-      </div>
-
-      {/* Ícones de Segurança */}
-      <div className="flex items-center justify-center gap-6 py-3 bg-muted/50 rounded-lg">
-        <div className="flex items-center gap-2 text-xs">
-          <Lock className="w-4 h-4 text-success" />
-          <span className="font-medium">SSL Seguro</span>
-        </div>
-        <div className="flex items-center gap-2 text-xs">
-          <CheckCircle2 className="w-4 h-4 text-success" />
-          <span className="font-medium">Pagamento Seguro</span>
-        </div>
-        <div className="flex items-center gap-2 text-xs">
-          <ShieldCheck className="w-4 h-4 text-success" />
-          <span className="font-medium">Garantia 7 dias</span>
-        </div>
-      </div>
-
-      <Tabs defaultValue="stripe" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="stripe" className="flex items-center gap-2">
-            <CreditCard className="w-4 h-4" />
-            Cartão de Crédito
-          </TabsTrigger>
-          <TabsTrigger value="pagseguro" className="flex items-center gap-2">
-            <Zap className="w-4 h-4" />
-            PIX / Boleto
-          </TabsTrigger>
-        </TabsList>
-
-        {/* ABA STRIPE - Com formulário */}
-        <TabsContent value="stripe" className="space-y-4 mt-6">
-          <div className="text-center text-sm text-muted-foreground mb-4">
-            Preencha seus dados para pagar com <strong>Cartão de Crédito</strong>
+    <>
+      {/* Formulário Principal - Stripe */}
+      <div className="space-y-6 bg-card border border-border rounded-xl p-6">
+        {/* Logo e Valor */}
+        <div className="flex items-center justify-between pb-4 border-b border-border">
+          <img src={logoBlue} alt="Informática na Prática" className="h-14" />
+          <div className="text-right">
+            <div className="text-2xl font-black text-primary">R$ 297,00</div>
+            <div className="text-sm font-bold text-success">40% OFF</div>
           </div>
-          
+        </div>
+
+        {/* Ícones de Segurança */}
+        <div className="flex items-center justify-center gap-6 py-3 bg-muted/50 rounded-lg">
+          <div className="flex items-center gap-2 text-xs">
+            <Lock className="w-4 h-4 text-success" />
+            <span className="font-medium">SSL Seguro</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <CheckCircle2 className="w-4 h-4 text-success" />
+            <span className="font-medium">Stripe</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <ShieldCheck className="w-4 h-4 text-success" />
+            <span className="font-medium">Garantia 7 dias</span>
+          </div>
+        </div>
+
+        <div className="text-center text-sm text-muted-foreground mb-4">
+          Preencha seus dados para pagar com <strong>Cartão de Crédito</strong>
+        </div>
+        
+        <div className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="name">Nome Completo *</Label>
             <Input
@@ -406,98 +394,74 @@ export const CheckoutForm = () => {
               disabled={stripeLoading}
             />
           </div>
+        </div>
 
-          <Button
-            onClick={handleStripePayment}
-            size="lg"
-            className="w-full font-bold text-lg py-6 mt-4"
-            disabled={stripeLoading}
-          >
-            {stripeLoading ? (
-              <>
-                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                Processando...
-              </>
-            ) : (
-              <>
-                <CreditCard className="mr-2 h-5 w-5" />
-                Pagar com Cartão de Crédito
-              </>
-            )}
-          </Button>
+        <Button
+          onClick={handleStripePayment}
+          size="lg"
+          className="w-full font-bold text-lg py-6"
+          disabled={stripeLoading}
+        >
+          {stripeLoading ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            <>
+              <CreditCard className="mr-2 h-5 w-5" />
+              Pagar com Cartão de Crédito
+            </>
+          )}
+        </Button>
 
-          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Parcelamento disponível • Garantia de 7 Dias</span>
-          </div>
-        </TabsContent>
+        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+          <ShieldCheck className="w-4 h-4" />
+          <span>Parcelamento disponível • Garantia de 7 Dias</span>
+        </div>
+      </div>
 
-        {/* ABA PAGSEGURO - Botão direto sem formulário */}
-        <TabsContent value="pagseguro" className="space-y-4 mt-6">
-          <div className="text-center space-y-2 mb-6">
-            <div className="text-lg font-semibold">Pagamento Rápido e Seguro</div>
-            <div className="text-sm text-muted-foreground">
-              Clique no botão abaixo e preencha seus dados diretamente no PagSeguro
-            </div>
-          </div>
-
-          <div className="bg-muted/30 rounded-lg p-4 space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center">
-                <CheckCircle2 className="w-5 h-5 text-success" />
-              </div>
-              <div className="flex-1">
-                <div className="font-medium text-sm">PIX - Aprovação Instantânea</div>
-                <div className="text-xs text-muted-foreground">Pagamento confirmado em segundos</div>
-              </div>
+      {/* Botão Flutuante PagSeguro - Independente */}
+      <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-500">
+        <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl shadow-2xl p-1">
+          <div className="bg-background rounded-xl p-4 space-y-3">
+            <div className="text-center space-y-1">
+              <div className="text-sm font-bold">Pagamento Rápido</div>
+              <div className="text-xs text-muted-foreground">Sem cadastro prévio</div>
             </div>
             
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
-              </div>
-              <div className="flex-1">
-                <div className="font-medium text-sm">Boleto Bancário</div>
-                <div className="text-xs text-muted-foreground">Aprovação em até 1 dia útil</div>
-              </div>
+            <div className="flex gap-2 justify-center text-xs">
+              <span className="px-2 py-1 bg-green-500/10 text-green-700 dark:text-green-400 rounded font-medium">PIX</span>
+              <span className="px-2 py-1 bg-blue-500/10 text-blue-700 dark:text-blue-400 rounded font-medium">Boleto</span>
+              <span className="px-2 py-1 bg-purple-500/10 text-purple-700 dark:text-purple-400 rounded font-medium">Cartão</span>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
-                <CreditCard className="w-5 h-5 text-blue-500" />
-              </div>
-              <div className="flex-1">
-                <div className="font-medium text-sm">Cartão de Crédito</div>
-                <div className="text-xs text-muted-foreground">Parcelamento disponível</div>
-              </div>
+            <Button
+              onClick={handlePagSeguroPayment}
+              size="lg"
+              className="w-full font-bold bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 shadow-lg"
+              disabled={pagSeguroLoading}
+            >
+              {pagSeguroLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Abrindo...
+                </>
+              ) : (
+                <>
+                  <Zap className="mr-2 h-4 w-4" />
+                  PagSeguro
+                </>
+              )}
+            </Button>
+
+            <div className="flex items-center justify-center gap-1 text-[10px] text-muted-foreground">
+              <ShieldCheck className="w-3 h-3" />
+              <span>Garantia 7 dias</span>
             </div>
           </div>
-
-          <Button
-            onClick={handlePagSeguroPayment}
-            size="lg"
-            className="w-full font-bold text-lg py-6 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
-            disabled={pagSeguroLoading}
-          >
-            {pagSeguroLoading ? (
-              <>
-                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                Abrindo checkout...
-              </>
-            ) : (
-              <>
-                <Zap className="mr-2 h-5 w-5" />
-                Ir para Checkout PagSeguro
-              </>
-            )}
-          </Button>
-
-          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Sem cadastro prévio • Garantia de 7 Dias</span>
-          </div>
-        </TabsContent>
-      </Tabs>
-    </div>
+        </div>
+      </div>
+    </>
   );
 };
