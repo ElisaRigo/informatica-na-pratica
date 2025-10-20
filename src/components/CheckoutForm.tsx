@@ -166,6 +166,7 @@ const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
 export const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'pix' | null>(null);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -182,8 +183,8 @@ export const CheckoutForm = () => {
     return value;
   };
 
-  const handleInitiatePayment = async () => {
-    console.log("Iniciando pagamento...");
+  const handleStripePayment = async () => {
+    console.log("Iniciando pagamento Stripe...");
     
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
@@ -224,6 +225,7 @@ export const CheckoutForm = () => {
       if (data.clientSecret) {
         console.log("Client secret recebido, mostrando checkout");
         setClientSecret(data.clientSecret);
+        setPaymentMethod('stripe');
       } else {
         throw new Error('Falha ao iniciar pagamento');
       }
@@ -240,7 +242,69 @@ export const CheckoutForm = () => {
     }
   };
 
-  if (clientSecret) {
+  const handlePixPayment = async () => {
+    console.log("Iniciando pagamento PIX...");
+    
+    if (!formData.name || !formData.email || !formData.cpf) {
+      toast({
+        title: "Preencha todos os campos",
+        description: "Todos os campos são obrigatórios para continuar",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const cleanCPF = formData.cpf.replace(/\D/g, '');
+
+    if (cleanCPF.length !== 11) {
+      toast({
+        title: "CPF inválido",
+        description: "Digite um CPF válido",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setLoading(true);
+    console.log("Chamando função pagseguro-checkout...");
+
+    try {
+      const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
+        body: {
+          customerName: formData.name,
+          customerEmail: formData.email,
+          customerTaxId: cleanCPF
+        }
+      });
+
+      console.log("Resposta PagSeguro:", { data, error });
+
+      if (error) throw error;
+
+      if (data.paymentUrl) {
+        console.log("Redirecionando para PagSeguro");
+        window.open(data.paymentUrl, '_blank');
+        
+        setTimeout(() => {
+          window.location.href = '/aguardando-confirmacao?method=pagseguro';
+        }, 1000);
+      } else {
+        throw new Error('Falha ao gerar link de pagamento PIX');
+      }
+
+    } catch (error: any) {
+      console.error('Error creating PIX payment:', error);
+      toast({
+        title: "Erro ao processar PIX",
+        description: error.message || "Tente novamente em alguns instantes",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (clientSecret && paymentMethod === 'stripe') {
     console.log("Rendering checkout form with clientSecret");
     return (
       <div className="space-y-4 bg-card border border-border rounded-xl p-6">
@@ -267,6 +331,16 @@ export const CheckoutForm = () => {
         >
           <CheckoutFormContent clientSecret={clientSecret} />
         </Elements>
+        <Button
+          variant="outline"
+          onClick={() => {
+            setClientSecret(null);
+            setPaymentMethod(null);
+          }}
+          className="w-full"
+        >
+          Voltar para opções de pagamento
+        </Button>
       </div>
     );
   }
@@ -335,9 +409,13 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
-      <div className="pt-2">
+      <div className="pt-2 space-y-3">
+        <div className="text-center text-sm font-medium text-muted-foreground mb-2">
+          Escolha sua forma de pagamento:
+        </div>
+        
         <Button
-          onClick={handleInitiatePayment}
+          onClick={handleStripePayment}
           size="lg"
           className="w-full font-bold text-lg py-6"
           disabled={loading}
@@ -348,11 +426,32 @@ export const CheckoutForm = () => {
               Processando...
             </>
           ) : (
-            'Garantir Minha Vaga Agora'
+            <>
+              💳 Pagar com Cartão ou Boleto
+            </>
+          )}
+        </Button>
+
+        <Button
+          onClick={handlePixPayment}
+          size="lg"
+          variant="outline"
+          className="w-full font-bold text-lg py-6 border-2"
+          disabled={loading}
+        >
+          {loading ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            <>
+              🔵 Pagar com PIX (Aprovação Instantânea)
+            </>
           )}
         </Button>
         
-        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-3">
+        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
           <ShieldCheck className="w-4 h-4" />
           <span>Compra Protegida pela Garantia Total de 7 Dias</span>
         </div>
