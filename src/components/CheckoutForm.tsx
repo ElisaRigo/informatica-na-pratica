@@ -11,7 +11,7 @@ import { Loader2, ShieldCheck, Lock, CheckCircle2, CreditCard, FileText, Smartph
 import logoBlue from "@/assets/logo-blue.png";
 
 // Inicializar Stripe - IMPORTANTE: Esta é a chave PUBLICÁVEL, não é secreta
-const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIb1MMomEjFYEEWRuCjYG5roBoqfcTFNtCBzXD6liN7022aiG1aidNa6SVF8l3GfNIqIGWUyUW001MW9Tg5r");
+const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIM7wCJea44yypOFWrTLglfYQLgliSZ5AIblICg3Kdh0h9hXh0rj3IIMN54saR56rszBDPQRx800u7rhR1vw");
 
 const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
   const stripe = useStripe();
