@@ -18,8 +18,6 @@ interface CheckoutRequest {
   customerName: string;
   customerEmail: string;
   customerTaxId?: string;
-  customerCPF?: string;
-  customerPhone?: string;
 }
 
 serve(async (req: Request) => {
@@ -28,65 +26,47 @@ serve(async (req: Request) => {
   }
 
   try {
-    const { customerName, customerEmail, customerPhone, customerCPF, customerTaxId }: CheckoutRequest = await req.json();
-
-    // Usar customerTaxId como fallback se customerCPF não existir
-    const cpf = (customerCPF || customerTaxId || '').replace(/\D/g, '');
-    // Usar telefone fornecido ou default
-    const phone = customerPhone || '11999999999';
+    console.log('=== INICIANDO CHECKOUT PAGSEGURO ===');
     
-    console.log('Creating PagSeguro payment link for:', customerEmail);
-    console.log('CPF:', cpf);
-    console.log('Phone:', phone);
+    const requestBody = await req.json();
+    console.log('Request body recebido:', JSON.stringify(requestBody));
+    
+    const { customerName, customerEmail, customerTaxId }: CheckoutRequest = requestBody;
 
-    // Criar link de pagamento via API do PagSeguro v4
-    const checkoutData = {
-      reference_id: `CURSO_${Date.now()}`,
-      customer: {
-        name: customerName,
-        email: customerEmail,
-        tax_id: cpf,
-        phones: [
-          {
-            country: '55',
-            area: phone.substring(0, 2),
-            number: phone.substring(2).replace(/\D/g, ''),
-            type: 'MOBILE'
-          }
-        ]
-      },
-      items: [
-        {
-          reference_id: 'CURSO_INFORMATICA',
-          name: 'Curso de Informática na Prática',
-          quantity: 1,
-          unit_amount: 29700 // R$ 297,00 em centavos
-        }
-      ],
-      notification_urls: [
-        `${Deno.env.get('SUPABASE_URL')}/functions/v1/pagseguro-webhook`
-      ]
-    };
-
-    console.log('Sending request to PagSeguro API...');
-    console.log('Using token:', PAGSEGURO_TOKEN ? 'Token configured' : 'NO TOKEN FOUND');
-
-    if (!PAGSEGURO_TOKEN) {
-      throw new Error('PAGSEGURO_API_TOKEN not configured');
+    // Validar dados recebidos
+    if (!customerName || !customerEmail || !customerTaxId) {
+      throw new Error('Dados incompletos: nome, email e CPF são obrigatórios');
     }
 
-    const pagseguroResponse = await fetch(`https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/xml; charset=UTF-8'
-      },
-      body: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    const cpf = customerTaxId.replace(/\D/g, '');
+    console.log('Dados processados:', {
+      name: customerName,
+      email: customerEmail,
+      cpf: cpf
+    });
+
+    // Validar CPF
+    if (cpf.length !== 11) {
+      throw new Error(`CPF inválido: ${cpf} (deve ter 11 dígitos)`);
+    }
+
+    // Validar token
+    if (!PAGSEGURO_TOKEN) {
+      throw new Error('PAGSEGURO_API_TOKEN não configurado');
+    }
+
+    console.log('Token PagSeguro:', PAGSEGURO_TOKEN ? 'Configurado ✅' : 'NÃO CONFIGURADO ❌');
+
+    // Montar XML para API v2 do PagSeguro
+    // Deixando TODAS as opções de pagamento disponíveis (sem restrições)
+    const xmlBody = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <checkout>
   <currency>BRL</currency>
+  <reference>CURSO_${Date.now()}</reference>
   <items>
     <item>
       <id>0001</id>
-      <description>Curso de Informática na Prática</description>
+      <description>Curso de Informatica na Pratica</description>
       <amount>297.00</amount>
       <quantity>1</quantity>
     </item>
@@ -94,10 +74,6 @@ serve(async (req: Request) => {
   <sender>
     <name>${customerName}</name>
     <email>${customerEmail}</email>
-    <phone>
-      <areaCode>${phone.substring(0, 2)}</areaCode>
-      <number>${phone.substring(2).replace(/\D/g, '')}</number>
-    </phone>
     <documents>
       <document>
         <type>CPF</type>
@@ -105,16 +81,31 @@ serve(async (req: Request) => {
       </document>
     </documents>
   </sender>
-</checkout>`.replace(/\n/g, '')
-    });
+  <redirectURL>${Deno.env.get('SUPABASE_URL')?.replace('supabase.co', 'lovable.app') || 'https://informatica-descomplicada.lovable.app'}/aguardando-confirmacao?method=pagseguro</redirectURL>
+  <maxUses>1</maxUses>
+  <maxAge>3600</maxAge>
+</checkout>`;
+
+    console.log('XML preparado (sem senha e dados sensíveis)');
+    console.log('URL da API:', `https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=***`);
+
+    const pagseguroResponse = await fetch(
+      `https://ws.pagseguro.uol.com.br/v2/checkout?email=${PAGSEGURO_EMAIL}&token=${PAGSEGURO_TOKEN}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/xml; charset=UTF-8'
+        },
+        body: xmlBody
+      }
+    );
 
     const xmlResponse = await pagseguroResponse.text();
-    console.log('PagSeguro Response Status:', pagseguroResponse.status);
-    console.log('PagSeguro Response:', xmlResponse);
+    console.log('Status da resposta:', pagseguroResponse.status);
+    console.log('Resposta XML:', xmlResponse);
 
     if (!pagseguroResponse.ok) {
-      console.error('PagSeguro API error:', pagseguroResponse.status);
-      console.error('PagSeguro Response Body:', xmlResponse);
+      console.error('❌ Erro na API do PagSeguro');
       
       // Extrair mensagem de erro do XML
       const getXmlValue = (xml: string, tag: string): string => {
@@ -126,13 +117,13 @@ serve(async (req: Request) => {
       const errorCode = getXmlValue(xmlResponse, 'code');
       const errorMessage = getXmlValue(xmlResponse, 'message');
       
-      console.error('Error Code:', errorCode);
-      console.error('Error Message:', errorMessage);
+      console.error('Código do erro:', errorCode);
+      console.error('Mensagem:', errorMessage);
       
-      throw new Error(`PagSeguro: ${errorMessage || 'Erro ao processar pagamento'} (${errorCode || pagseguroResponse.status})`);
+      throw new Error(`PagSeguro: ${errorMessage || 'Erro ao processar'} (código: ${errorCode || pagseguroResponse.status})`);
     }
 
-    // Extrair código do checkout do XML
+    // Extrair código do checkout
     const getXmlValue = (xml: string, tag: string): string => {
       const regex = new RegExp(`<${tag}>([^<]*)</${tag}>`);
       const match = xml.match(regex);
@@ -143,40 +134,52 @@ serve(async (req: Request) => {
     const checkoutDate = getXmlValue(xmlResponse, 'date');
 
     if (!checkoutCode) {
-      throw new Error('Failed to get checkout code from PagSeguro');
+      console.error('❌ Código do checkout não encontrado na resposta');
+      throw new Error('Falha ao obter código do checkout');
     }
 
-    console.log('✅ Checkout created successfully:', checkoutCode);
+    console.log('✅ Checkout criado com sucesso!');
+    console.log('Código:', checkoutCode);
 
-    // Salvar informação do checkout iniciado
-    const { error: saveError } = await supabase
-      .from('payments')
-      .insert({
-        pagseguro_transaction_id: checkoutCode,
-        status: 'initiated',
-        amount: 297.00,
-        webhook_data: {
-          customerName,
-          customerEmail,
-          customerPhone: phone,
-          customerCPF: cpf,
-          checkoutDate
-        }
-      });
+    // Salvar no banco (com try-catch para não bloquear o fluxo)
+    try {
+      const { error: saveError } = await supabase
+        .from('payments')
+        .insert({
+          pagseguro_transaction_id: checkoutCode,
+          status: 'initiated',
+          amount: 297.00,
+          payment_provider: 'pagseguro',
+          payment_method: 'pix',
+          webhook_data: {
+            customerName,
+            customerEmail,
+            customerCPF: cpf,
+            checkoutDate,
+            reference: `CURSO_${Date.now()}`
+          }
+        });
 
-    if (saveError) {
-      console.error('Error saving checkout info:', saveError);
+      if (saveError) {
+        console.error('⚠️ Erro ao salvar no banco (não crítico):', saveError.message);
+      } else {
+        console.log('✅ Pagamento salvo no banco');
+      }
+    } catch (dbError: any) {
+      console.error('⚠️ Erro no banco de dados:', dbError.message);
     }
 
-    // Retornar URL de pagamento
+    // URL de pagamento do PagSeguro
     const paymentUrl = `https://pagseguro.uol.com.br/v2/checkout/payment.html?code=${checkoutCode}`;
+    console.log('URL de pagamento:', paymentUrl);
+    console.log('=== FIM DO CHECKOUT ===');
 
     return new Response(
       JSON.stringify({
         success: true,
         checkoutCode,
         paymentUrl,
-        redirectUrl: `/aguardando-confirmacao?transaction_id=${checkoutCode}`
+        redirectUrl: `/aguardando-confirmacao?transaction_id=${checkoutCode}&method=pagseguro`
       }),
       {
         status: 200,
@@ -185,7 +188,8 @@ serve(async (req: Request) => {
     );
 
   } catch (error: any) {
-    console.error('Error creating checkout:', error);
+    console.error('❌ ERRO GERAL:', error.message);
+    console.error('Stack:', error.stack);
 
     return new Response(
       JSON.stringify({
