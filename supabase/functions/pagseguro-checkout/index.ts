@@ -17,8 +17,9 @@ const supabase = createClient(
 interface CheckoutRequest {
   customerName: string;
   customerEmail: string;
-  customerPhone: string;
-  customerCPF: string;
+  customerTaxId?: string;
+  customerCPF?: string;
+  customerPhone?: string;
 }
 
 serve(async (req: Request) => {
@@ -27,9 +28,16 @@ serve(async (req: Request) => {
   }
 
   try {
-    const { customerName, customerEmail, customerPhone, customerCPF }: CheckoutRequest = await req.json();
+    const { customerName, customerEmail, customerPhone, customerCPF, customerTaxId }: CheckoutRequest = await req.json();
 
+    // Usar customerTaxId como fallback se customerCPF não existir
+    const cpf = (customerCPF || customerTaxId || '').replace(/\D/g, '');
+    // Usar telefone fornecido ou default
+    const phone = customerPhone || '11999999999';
+    
     console.log('Creating PagSeguro payment link for:', customerEmail);
+    console.log('CPF:', cpf);
+    console.log('Phone:', phone);
 
     // Criar link de pagamento via API do PagSeguro v4
     const checkoutData = {
@@ -37,12 +45,12 @@ serve(async (req: Request) => {
       customer: {
         name: customerName,
         email: customerEmail,
-        tax_id: customerCPF.replace(/\D/g, ''),
+        tax_id: cpf,
         phones: [
           {
             country: '55',
-            area: customerPhone.substring(0, 2),
-            number: customerPhone.substring(2).replace(/\D/g, ''),
+            area: phone.substring(0, 2),
+            number: phone.substring(2).replace(/\D/g, ''),
             type: 'MOBILE'
           }
         ]
@@ -87,13 +95,13 @@ serve(async (req: Request) => {
     <name>${customerName}</name>
     <email>${customerEmail}</email>
     <phone>
-      <areaCode>${customerPhone.substring(0, 2)}</areaCode>
-      <number>${customerPhone.substring(2).replace(/\D/g, '')}</number>
+      <areaCode>${phone.substring(0, 2)}</areaCode>
+      <number>${phone.substring(2).replace(/\D/g, '')}</number>
     </phone>
     <documents>
       <document>
         <type>CPF</type>
-        <value>${customerCPF.replace(/\D/g, '')}</value>
+        <value>${cpf}</value>
       </document>
     </documents>
   </sender>
@@ -150,8 +158,8 @@ serve(async (req: Request) => {
         webhook_data: {
           customerName,
           customerEmail,
-          customerPhone,
-          customerCPF,
+          customerPhone: phone,
+          customerCPF: cpf,
           checkoutDate
         }
       });
