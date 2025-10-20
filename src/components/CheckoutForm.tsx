@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,8 +6,24 @@ import { useToast } from "@/hooks/use-toast";
 import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
+// Declarar tipos globais para Eduzz
+declare global {
+  interface Window {
+    Eduzz?: {
+      Checkout: {
+        init: (options: {
+          contentId: string;
+          target: string;
+          errorCover?: boolean;
+        }) => void;
+      };
+    };
+  }
+}
+
 export const CheckoutForm = () => {
   const [loading, setLoading] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
   const { toast } = useToast();
   
   const [formData, setFormData] = useState({
@@ -23,6 +39,43 @@ export const CheckoutForm = () => {
     }
     return value;
   };
+
+  useEffect(() => {
+    if (showCheckout) {
+      // Carregar o script do Eduzz Bridge
+      const script = document.createElement('script');
+      script.src = 'https://cdn.eduzzcdn.com/sun/bridge/bridge.js';
+      script.async = true;
+      script.type = 'module';
+      
+      script.onload = () => {
+        // Inicializar o checkout quando o script carregar
+        const initCheckout = () => {
+          if (window.Eduzz?.Checkout) {
+            window.Eduzz.Checkout.init({
+              contentId: "69KA3Z7A0O",
+              target: "eduzz-elements",
+              errorCover: false
+            });
+          }
+        };
+
+        if (document.readyState === 'complete') {
+          initCheckout();
+        } else {
+          window.addEventListener('load', initCheckout);
+        }
+      };
+
+      document.body.appendChild(script);
+
+      return () => {
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      };
+    }
+  }, [showCheckout]);
 
   const handleInitiatePayment = async () => {
     console.log("Iniciando pagamento com Eduzz");
@@ -48,23 +101,27 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
-
-    // Redirecionar para o checkout da Eduzz
-    const eduzzCheckoutUrl = "https://chk.eduzz.com/69KA3Z7A0O";
     
     toast({
-      title: "Redirecionando para pagamento",
-      description: "Você será direcionado para finalizar sua compra",
+      title: "Carregando checkout",
+      description: "Preparando o formulário de pagamento...",
     });
 
-    // Aguardar 500ms para o toast aparecer antes de redirecionar
+    // Mostrar o checkout embutido
     setTimeout(() => {
-      window.location.href = eduzzCheckoutUrl;
+      setShowCheckout(true);
+      setLoading(false);
     }, 500);
   };
 
   return (
     <div className="space-y-6 bg-card border border-border rounded-xl p-6">
+      {showCheckout && (
+        <div id="eduzz-elements" className="min-h-[600px]"></div>
+      )}
+      
+      {!showCheckout && (
+        <>
       {/* Logo e Valor */}
       <div className="flex items-center justify-between pb-4 border-b border-border">
         <img src={logoBlue} alt="Informática na Prática" className="h-14" />
@@ -150,6 +207,8 @@ export const CheckoutForm = () => {
           <span>Compra Protegida pela Garantia Total de 7 Dias</span>
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 };
