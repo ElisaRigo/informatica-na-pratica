@@ -242,8 +242,8 @@ export const CheckoutForm = () => {
     }
   };
 
-  const handlePixPayment = async () => {
-    console.log("Iniciando pagamento PIX...");
+  const handlePagSeguroPayment = async () => {
+    console.log("Iniciando checkout PagSeguro...");
     
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
@@ -266,7 +266,7 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
-    console.log("Chamando função pagseguro-checkout...");
+    console.log("Gerando link de checkout PagSeguro...");
 
     try {
       const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
@@ -282,24 +282,20 @@ export const CheckoutForm = () => {
       if (error) throw error;
 
       if (data.paymentUrl) {
-        console.log("Redirecionando para PagSeguro");
-        window.open(data.paymentUrl, '_blank');
-        
-        setTimeout(() => {
-          window.location.href = '/aguardando-confirmacao?method=pagseguro';
-        }, 1000);
+        console.log("Redirecionando para checkout PagSeguro:", data.paymentUrl);
+        // Redirecionar diretamente para o checkout
+        window.location.href = data.paymentUrl;
       } else {
-        throw new Error('Falha ao gerar link de pagamento PIX');
+        throw new Error('Falha ao gerar link de checkout');
       }
 
     } catch (error: any) {
-      console.error('Error creating PIX payment:', error);
+      console.error('Error creating checkout:', error);
       toast({
-        title: "Erro ao processar PIX",
+        title: "Erro ao processar",
         description: error.message || "Tente novamente em alguns instantes",
         variant: "destructive"
       });
-    } finally {
       setLoading(false);
     }
   };
@@ -427,26 +423,26 @@ export const CheckoutForm = () => {
             </>
           ) : (
             <>
-              💳 Pagar com Cartão ou Boleto
+              💳 Cartão de Crédito (Parcelado)
             </>
           )}
         </Button>
 
         <Button
-          onClick={handlePixPayment}
+          onClick={handlePagSeguroPayment}
           size="lg"
           variant="outline"
-          className="w-full font-bold text-lg py-6 border-2"
+          className="w-full font-bold text-lg py-6 border-2 bg-gradient-to-r from-primary/10 to-primary/5"
           disabled={loading}
         >
           {loading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Processando...
+              Gerando checkout...
             </>
           ) : (
             <>
-              🔵 Pagar com PIX (Aprovação Instantânea)
+              💰 PIX, Boleto ou Cartão (PagSeguro)
             </>
           )}
         </Button>
