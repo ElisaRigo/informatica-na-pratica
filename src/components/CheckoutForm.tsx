@@ -5,9 +5,10 @@ import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CheckCircle2, CreditCard, Zap } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 // Inicializar Stripe
@@ -345,7 +346,7 @@ export const CheckoutForm = () => {
         </div>
         <div className="flex items-center gap-2 text-xs">
           <CheckCircle2 className="w-4 h-4 text-success" />
-          <span className="font-medium">Stripe</span>
+          <span className="font-medium">Pagamento Seguro</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <ShieldCheck className="w-4 h-4 text-success" />
@@ -353,99 +354,150 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
-      <div className="space-y-4">
-        <div className="text-center text-sm text-muted-foreground mb-2">
-          Para pagar com <strong>Cartão de Crédito</strong>, preencha seus dados abaixo:
-        </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="name">Nome Completo *</Label>
-          <Input
-            id="name"
-            placeholder="Seu nome completo"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            disabled={stripeLoading || pagSeguroLoading}
-          />
-        </div>
+      <Tabs defaultValue="stripe" className="w-full">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="stripe" className="flex items-center gap-2">
+            <CreditCard className="w-4 h-4" />
+            Cartão de Crédito
+          </TabsTrigger>
+          <TabsTrigger value="pagseguro" className="flex items-center gap-2">
+            <Zap className="w-4 h-4" />
+            PIX / Boleto
+          </TabsTrigger>
+        </TabsList>
 
-        <div className="space-y-2">
-          <Label htmlFor="email">E-mail *</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="seu@email.com"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            disabled={stripeLoading || pagSeguroLoading}
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="cpf">CPF *</Label>
-          <Input
-            id="cpf"
-            placeholder="000.000.000-00"
-            value={formData.cpf}
-            onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-            maxLength={14}
-            disabled={stripeLoading || pagSeguroLoading}
-          />
-        </div>
-      </div>
-
-      <div className="pt-2 space-y-3">
-        <Button
-          onClick={handleStripePayment}
-          size="lg"
-          className="w-full font-bold text-lg py-6"
-          disabled={stripeLoading || pagSeguroLoading}
-        >
-          {stripeLoading ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Processando...
-            </>
-          ) : (
-            <>
-              💳 Cartão de Crédito (Parcelado)
-            </>
-          )}
-        </Button>
-
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <span className="w-full border-t" />
+        {/* ABA STRIPE - Com formulário */}
+        <TabsContent value="stripe" className="space-y-4 mt-6">
+          <div className="text-center text-sm text-muted-foreground mb-4">
+            Preencha seus dados para pagar com <strong>Cartão de Crédito</strong>
           </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground">ou pague direto sem cadastro</span>
+          
+          <div className="space-y-2">
+            <Label htmlFor="name">Nome Completo *</Label>
+            <Input
+              id="name"
+              placeholder="Seu nome completo"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              disabled={stripeLoading}
+            />
           </div>
-        </div>
 
-        <Button
-          onClick={handlePagSeguroPayment}
-          size="lg"
-          variant="outline"
-          className="w-full font-bold text-lg py-6 border-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 hover:from-green-500/20 hover:to-blue-500/20"
-          disabled={stripeLoading || pagSeguroLoading}
-        >
-          {pagSeguroLoading ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Gerando checkout...
-            </>
-          ) : (
-            <>
-              💰 PIX, Boleto ou Cartão (PagSeguro)
-            </>
-          )}
-        </Button>
-        
-        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
-          <ShieldCheck className="w-4 h-4" />
-          <span>Compra Protegida pela Garantia Total de 7 Dias</span>
-        </div>
-      </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">E-mail *</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="seu@email.com"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              disabled={stripeLoading}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="cpf">CPF *</Label>
+            <Input
+              id="cpf"
+              placeholder="000.000.000-00"
+              value={formData.cpf}
+              onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+              maxLength={14}
+              disabled={stripeLoading}
+            />
+          </div>
+
+          <Button
+            onClick={handleStripePayment}
+            size="lg"
+            className="w-full font-bold text-lg py-6 mt-4"
+            disabled={stripeLoading}
+          >
+            {stripeLoading ? (
+              <>
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                Processando...
+              </>
+            ) : (
+              <>
+                <CreditCard className="mr-2 h-5 w-5" />
+                Pagar com Cartão de Crédito
+              </>
+            )}
+          </Button>
+
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+            <ShieldCheck className="w-4 h-4" />
+            <span>Parcelamento disponível • Garantia de 7 Dias</span>
+          </div>
+        </TabsContent>
+
+        {/* ABA PAGSEGURO - Botão direto sem formulário */}
+        <TabsContent value="pagseguro" className="space-y-4 mt-6">
+          <div className="text-center space-y-2 mb-6">
+            <div className="text-lg font-semibold">Pagamento Rápido e Seguro</div>
+            <div className="text-sm text-muted-foreground">
+              Clique no botão abaixo e preencha seus dados diretamente no PagSeguro
+            </div>
+          </div>
+
+          <div className="bg-muted/30 rounded-lg p-4 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center">
+                <CheckCircle2 className="w-5 h-5 text-success" />
+              </div>
+              <div className="flex-1">
+                <div className="font-medium text-sm">PIX - Aprovação Instantânea</div>
+                <div className="text-xs text-muted-foreground">Pagamento confirmado em segundos</div>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <CheckCircle2 className="w-5 h-5 text-primary" />
+              </div>
+              <div className="flex-1">
+                <div className="font-medium text-sm">Boleto Bancário</div>
+                <div className="text-xs text-muted-foreground">Aprovação em até 1 dia útil</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
+                <CreditCard className="w-5 h-5 text-blue-500" />
+              </div>
+              <div className="flex-1">
+                <div className="font-medium text-sm">Cartão de Crédito</div>
+                <div className="text-xs text-muted-foreground">Parcelamento disponível</div>
+              </div>
+            </div>
+          </div>
+
+          <Button
+            onClick={handlePagSeguroPayment}
+            size="lg"
+            className="w-full font-bold text-lg py-6 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+            disabled={pagSeguroLoading}
+          >
+            {pagSeguroLoading ? (
+              <>
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                Abrindo checkout...
+              </>
+            ) : (
+              <>
+                <Zap className="mr-2 h-5 w-5" />
+                Ir para Checkout PagSeguro
+              </>
+            )}
+          </Button>
+
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+            <ShieldCheck className="w-4 h-4" />
+            <span>Sem cadastro prévio • Garantia de 7 Dias</span>
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
