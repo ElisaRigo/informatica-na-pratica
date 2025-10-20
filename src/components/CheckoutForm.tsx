@@ -5,13 +5,14 @@ import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CheckCircle2, CreditCard, Smartphone } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 // Inicializar Stripe
-const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIOaOGtGMLw98egdIGBwNKDt2Psja21XVQOujE6jMT4iJsh8cow5JgYqe5Qvya6qVF5WiiJEOs00SD9is173");
+const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIb1MMomEjFYEEWRuCjYG5roBoqfcTFNtCBzXD6liN7022aiG1aidNa6SVF8l3GfNIqIGWUyUW001MW9Tg5r");
 
 const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
   const stripe = useStripe();
@@ -171,7 +172,8 @@ export const CheckoutForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    cpf: ""
+    cpf: "",
+    phone: ""
   });
 
   const formatCPF = (value: string) => {
@@ -182,8 +184,16 @@ export const CheckoutForm = () => {
     return value;
   };
 
+  const formatPhone = (value: string) => {
+    const numbers = value.replace(/\D/g, '');
+    if (numbers.length <= 11) {
+      return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    }
+    return value;
+  };
+
   const handleInitiatePayment = async () => {
-    console.log("Iniciando pagamento...");
+    console.log("Iniciando pagamento Stripe...");
     
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
@@ -230,6 +240,81 @@ export const CheckoutForm = () => {
 
     } catch (error: any) {
       console.error('Error creating payment intent:', error);
+      toast({
+        title: "Erro ao processar",
+        description: error.message || "Tente novamente em alguns instantes",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePixPayment = async () => {
+    console.log("Iniciando pagamento PIX PagSeguro...");
+    
+    if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
+      toast({
+        title: "Preencha todos os campos",
+        description: "Todos os campos são obrigatórios para PIX",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const cleanCPF = formData.cpf.replace(/\D/g, '');
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+
+    if (cleanCPF.length !== 11) {
+      toast({
+        title: "CPF inválido",
+        description: "Digite um CPF válido",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (cleanPhone.length !== 11) {
+      toast({
+        title: "Telefone inválido",
+        description: "Digite um telefone válido com DDD",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
+        body: {
+          customerName: formData.name,
+          customerEmail: formData.email,
+          customerPhone: cleanPhone,
+          customerTaxId: cleanCPF
+        }
+      });
+
+      if (error) throw error;
+
+      if (data.paymentUrl) {
+        console.log("URL de pagamento recebida:", data.paymentUrl);
+        window.open(data.paymentUrl, '_blank');
+        
+        toast({
+          title: "Redirecionando para pagamento",
+          description: "Complete o pagamento PIX na nova aba",
+        });
+
+        setTimeout(() => {
+          window.location.href = '/aguardando-confirmacao';
+        }, 2000);
+      } else {
+        throw new Error('Falha ao gerar link de pagamento');
+      }
+
+    } catch (error: any) {
+      console.error('Error creating PIX payment:', error);
       toast({
         title: "Erro ao processar",
         description: error.message || "Tente novamente em alguns instantes",
@@ -290,7 +375,7 @@ export const CheckoutForm = () => {
         </div>
         <div className="flex items-center gap-2 text-xs">
           <CheckCircle2 className="w-4 h-4 text-success" />
-          <span className="font-medium">Stripe</span>
+          <span className="font-medium">Pagamento Seguro</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <ShieldCheck className="w-4 h-4 text-success" />
@@ -298,65 +383,154 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="name">Nome Completo *</Label>
-          <Input
-            id="name"
-            placeholder="Seu nome completo"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            disabled={loading}
-          />
-        </div>
+      <Tabs defaultValue="stripe" className="w-full">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="stripe" className="flex items-center gap-2">
+            <CreditCard className="w-4 h-4" />
+            Cartão/Boleto
+          </TabsTrigger>
+          <TabsTrigger value="pix" className="flex items-center gap-2">
+            <Smartphone className="w-4 h-4" />
+            PIX
+          </TabsTrigger>
+        </TabsList>
 
-        <div className="space-y-2">
-          <Label htmlFor="email">E-mail *</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="seu@email.com"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            disabled={loading}
-          />
-        </div>
+        <TabsContent value="stripe" className="space-y-4 mt-4">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name">Nome Completo *</Label>
+              <Input
+                id="name"
+                placeholder="Seu nome completo"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                disabled={loading}
+              />
+            </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="cpf">CPF *</Label>
-          <Input
-            id="cpf"
-            placeholder="000.000.000-00"
-            value={formData.cpf}
-            onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-            maxLength={14}
-            disabled={loading}
-          />
-        </div>
-      </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">E-mail *</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="seu@email.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                disabled={loading}
+              />
+            </div>
 
-      <div className="pt-2">
-        <Button
-          onClick={handleInitiatePayment}
-          size="lg"
-          className="w-full font-bold text-lg py-6"
-          disabled={loading}
-        >
-          {loading ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Processando...
-            </>
-          ) : (
-            'Garantir Minha Vaga Agora'
-          )}
-        </Button>
-        
-        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-3">
-          <ShieldCheck className="w-4 h-4" />
-          <span>Compra Protegida pela Garantia Total de 7 Dias</span>
-        </div>
-      </div>
+            <div className="space-y-2">
+              <Label htmlFor="cpf">CPF *</Label>
+              <Input
+                id="cpf"
+                placeholder="000.000.000-00"
+                value={formData.cpf}
+                onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+                maxLength={14}
+                disabled={loading}
+              />
+            </div>
+          </div>
+
+          <div className="pt-2">
+            <Button
+              onClick={handleInitiatePayment}
+              size="lg"
+              className="w-full font-bold text-lg py-6"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Processando...
+                </>
+              ) : (
+                'Pagar com Cartão ou Boleto'
+              )}
+            </Button>
+            
+            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-3">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Compra Protegida pela Garantia Total de 7 Dias</span>
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="pix" className="space-y-4 mt-4">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name-pix">Nome Completo *</Label>
+              <Input
+                id="name-pix"
+                placeholder="Seu nome completo"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                disabled={loading}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email-pix">E-mail *</Label>
+              <Input
+                id="email-pix"
+                type="email"
+                placeholder="seu@email.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                disabled={loading}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="cpf-pix">CPF *</Label>
+              <Input
+                id="cpf-pix"
+                placeholder="000.000.000-00"
+                value={formData.cpf}
+                onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+                maxLength={14}
+                disabled={loading}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="phone">Telefone com DDD *</Label>
+              <Input
+                id="phone"
+                placeholder="(00) 00000-0000"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+                maxLength={15}
+                disabled={loading}
+              />
+            </div>
+          </div>
+
+          <div className="pt-2">
+            <Button
+              onClick={handlePixPayment}
+              size="lg"
+              className="w-full font-bold text-lg py-6"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Processando...
+                </>
+              ) : (
+                'Pagar com PIX'
+              )}
+            </Button>
+            
+            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-3">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Compra Protegida pela Garantia Total de 7 Dias</span>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
