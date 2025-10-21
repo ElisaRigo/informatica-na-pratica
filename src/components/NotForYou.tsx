@@ -17,7 +17,7 @@ export const NotForYou = () => {
               <X className="w-8 h-8 text-destructive flex-shrink-0 mt-1" />
               <div>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Este curso não é pra quem procura <strong className="text-foreground">fórmulas mágicas</strong> ou quer resultado sem se dedicar. É preciso praticar e aplicar o que você aprende.
+                  Este curso não é para quem procura <strong className="text-foreground">fórmulas mágicas</strong> ou quer resultado sem se dedicar. É preciso praticar e aplicar o que você aprende.
                 </p>
               </div>
             </div>

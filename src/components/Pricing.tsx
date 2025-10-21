@@ -119,7 +119,7 @@ export const Pricing = () => {
                 </p>
                 <div className="bg-card/50 backdrop-blur rounded-lg p-3 mt-3">
                   <p className="text-sm md:text-base text-muted-foreground text-center">
-                    De <span className="line-through text-destructive">R$ 768</span> por apenas <span className="font-black text-foreground">R$ 297</span> — <span className="font-bold text-foreground">menos de R$ 1 por dia</span> pra mudar sua vida profissional.
+                    De <span className="line-through text-destructive">R$ 768</span> por apenas <span className="font-black text-foreground">R$ 297</span> — <span className="font-bold text-foreground">menos de R$ 1 por dia</span> para mudar sua vida profissional.
                   </p>
                 </div>
                 <p className="text-base md:text-lg font-bold text-success mt-3 text-center">

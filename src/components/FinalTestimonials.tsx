@@ -12,7 +12,7 @@ const finalTestimonials = [
     image: testimonialPhoto1,
   },
   {
-    text: "Antes dependia dos outros pra tudo. Hoje faço minhas contas online, mando e-mails e até ajudo meus filhos com o computador.",
+    text: "Antes dependia dos outros para tudo. Hoje faço minhas contas online, mando e-mails e até ajudo meus filhos com o computador.",
     author: "Paulo S.",
     image: testimonialPhoto2,
   },

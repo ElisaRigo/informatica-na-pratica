@@ -21,7 +21,7 @@ const testimonials = [
     image: joaoPhoto,
   },
   {
-    text: "O suporte da Elisa fez toda a diferença. Recomendo pra quem quer aprender de verdade.",
+    text: "O suporte da Elisa fez toda a diferença. Recomendo para quem quer aprender de verdade.",
     author: "Carla T.",
     image: carlaPhoto,
   },

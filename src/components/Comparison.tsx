@@ -23,7 +23,7 @@ export const Comparison = () => {
           Sua escolha define seu futuro
         </h2>
         <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-          Compare onde você estará daqui 30 dias:
+          Compare onde você estará em alguns meses:
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">

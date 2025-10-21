@@ -28,7 +28,7 @@ export const Hero = () => {
 
           {/* Texto abaixo do vídeo */}
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-8 max-w-3xl mx-auto leading-tight">
-            Do <span className="text-primary">Zero ao Profissional</span>, com aulas <span className="text-primary">Simples e Práticas</span> de Word, Excel e muito mais — pra você se destacar no <span className="text-primary">Mercado de Trabalho</span> e usar o computador com <span className="text-primary">Confiança</span>.
+            Do <span className="text-primary">Zero ao Profissional</span>, com aulas <span className="text-primary">Simples e Práticas</span> de Word, Excel e muito mais — para você se destacar no <span className="text-primary">Mercado de Trabalho</span> e usar o computador com <span className="text-primary">Confiança</span>.
           </p>
 
           {/* CTA Principal DESTAQUE */}

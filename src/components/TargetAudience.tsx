@@ -30,7 +30,7 @@ export const TargetAudience = () => {
               Para quem é <span className="text-primary">este curso?</span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-semibold">
-              Se você quer aprender informática de verdade — este curso foi feito pra você.
+              Se você quer aprender informática de verdade — este curso foi feito para você.
             </p>
           </div>
 

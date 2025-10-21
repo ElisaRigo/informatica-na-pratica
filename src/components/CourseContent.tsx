@@ -36,7 +36,7 @@ const modules = [
   {
     icon: typingIcon,
     title: "Digitação Profissional",
-    description: "Ganhe velocidade e produtividade pra se destacar no trabalho.",
+    description: "Ganhe velocidade e produtividade para se destacar no trabalho.",
   },
 ];
 
