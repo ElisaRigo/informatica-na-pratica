@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
-import videoPoster from "@/assets/video-poster-hero.jpg";
-import heroVideo from "@/assets/hero-video-main.mp4";
+import videoPoster from "@/assets/video-poster-new.jpg";
+import heroVideo from "@/assets/hero-video-new.mp4";
 
 export const Hero = () => {
   return (
@@ -14,19 +14,12 @@ export const Hero = () => {
           </p>
           
           {/* Vídeo em destaque */}
-          <div className="relative max-w-4xl mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg bg-black">
+          <div className="relative max-w-4xl mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg">
             <video 
               controls
               poster={videoPoster}
-              className="w-full h-auto"
-              preload="metadata"
-              style={{ 
-                display: 'block',
-                width: '100%',
-                height: 'auto',
-                maxWidth: '100%',
-                objectFit: 'contain'
-              }}
+              className="w-full"
+              preload="auto"
             >
               <source src={heroVideo} type="video/mp4" />
               Seu navegador não suporta o elemento de vídeo.
