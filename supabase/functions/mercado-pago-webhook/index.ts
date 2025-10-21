@@ -152,31 +152,20 @@ async function createMoodleUser(name: string, email: string) {
   } catch (error) {
     console.error('Error creating user:', error);
     
-    // Se o usuário já existe, buscar pelo email e RESETAR A SENHA
+    // Se o usuário já existe, buscar pelo email
     const existingUser = await callMoodleAPI('core_user_get_users_by_field', {
       field: 'email',
       'values[0]': email
     });
 
     if (existingUser && existingUser[0]) {
-      console.log('⚠️ User already exists, resetting password...');
+      console.log('⚠️ User already exists in Moodle');
       const userId = existingUser[0].id;
       
-      // Atualizar a senha do usuário existente
-      const updateData = {
-        'users[0][id]': userId,
-        'users[0][password]': password,
-      };
-      
-      try {
-        await callMoodleAPI('core_user_update_users', updateData);
-        console.log('✅ Password reset successfully for existing user');
-        return { userId, username: existingUser[0].username, password };
-      } catch (updateError) {
-        console.error('Error updating password:', updateError);
-        // Retornar com senha null se não conseguir atualizar
-        return { userId, username: existingUser[0].username, password: null };
-      }
+      // IMPORTANTE: Não podemos atualizar a senha de usuários existentes por questões de segurança do Moodle
+      // O aluno deve usar a opção "Esqueci minha senha" no Moodle se necessário
+      console.log('ℹ️ Returning existing user without password reset (security restriction)');
+      return { userId, username: existingUser[0].username, password: null };
     }
 
     throw error;

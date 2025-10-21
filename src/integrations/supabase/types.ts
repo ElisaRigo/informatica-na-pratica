@@ -92,6 +92,7 @@ export type Database = {
           email: string
           id: string
           moodle_password: string | null
+          moodle_user_id: number | null
           moodle_username: string | null
           name: string
           pagseguro_transaction_id: string | null
@@ -103,6 +104,7 @@ export type Database = {
           email: string
           id?: string
           moodle_password?: string | null
+          moodle_user_id?: number | null
           moodle_username?: string | null
           name: string
           pagseguro_transaction_id?: string | null
@@ -114,6 +116,7 @@ export type Database = {
           email?: string
           id?: string
           moodle_password?: string | null
+          moodle_user_id?: number | null
           moodle_username?: string | null
           name?: string
           pagseguro_transaction_id?: string | null
