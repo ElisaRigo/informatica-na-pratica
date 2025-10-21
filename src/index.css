@@ -9,49 +9,51 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 20% 15%;
+    --foreground: 210 30% 10%;
     
     --card: 0 0% 100%;
-    --card-foreground: 210 20% 15%;
+    --card-foreground: 210 30% 10%;
     
-    --panel: 200 30% 97%;
-    --line: 200 20% 90%;
+    --panel: 200 25% 98%;
+    --line: 200 15% 85%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 15%;
+    --popover-foreground: 210 30% 10%;
     
-    --primary: 195 100% 37%;
+    --primary: 195 100% 35%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 200 25% 94%;
-    --secondary-foreground: 210 20% 15%;
+    --secondary: 200 20% 92%;
+    --secondary-foreground: 210 30% 10%;
     
-    --muted: 200 20% 92%;
-    --muted-foreground: 210 10% 45%;
+    --muted: 200 15% 90%;
+    --muted-foreground: 210 20% 35%;
     
-    --accent: 170 70% 45%;
+    --accent: 150 75% 40%;
     --accent-foreground: 0 0% 100%;
     
-    --success: 150 80% 40%;
+    --success: 150 80% 38%;
     --success-foreground: 0 0% 100%;
     
     --warning: 38 95% 55%;
     --warning-foreground: 0 0% 100%;
     
-    --destructive: 195 100% 37%;
+    --destructive: 0 85% 50%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 200 20% 88%;
-    --input: 200 20% 88%;
-    --ring: 195 100% 37%;
+    --border: 200 15% 82%;
+    --input: 200 15% 82%;
+    --ring: 195 100% 35%;
     
     --radius: 0.75rem;
     
     --gradient-hero: linear-gradient(135deg, hsl(195 100% 97%), hsl(200 100% 98%));
-    --gradient-premium: linear-gradient(135deg, hsl(195 100% 37%), hsl(170 70% 45%));
+    --gradient-premium: linear-gradient(135deg, hsl(195 100% 35%), hsl(150 75% 40%));
+    --gradient-cta: linear-gradient(135deg, hsl(150 75% 40%), hsl(150 80% 35%));
     
-    --shadow-glow: 0 8px 32px hsl(195 100% 37% / 0.12);
-    --shadow-card: 0 2px 16px hsl(210 20% 15% / 0.06);
+    --shadow-glow: 0 8px 32px hsl(195 100% 35% / 0.15);
+    --shadow-card: 0 2px 16px hsl(210 30% 10% / 0.08);
+    --shadow-cta: 0 12px 40px hsl(150 75% 40% / 0.3);
   }
   
   .dark {
@@ -62,7 +64,7 @@ All colors MUST be HSL.
     --card-foreground: 0 0% 98%;
     
     --panel: 210 25% 7%;
-    --line: 210 18% 18%;
+    --line: 210 18% 20%;
     
     --popover: 210 22% 11%;
     --popover-foreground: 0 0% 98%;
@@ -74,9 +76,9 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 98%;
     
     --muted: 210 18% 22%;
-    --muted-foreground: 210 10% 65%;
+    --muted-foreground: 210 10% 70%;
     
-    --accent: 170 70% 50%;
+    --accent: 150 75% 45%;
     --accent-foreground: 0 0% 100%;
     
     --success: 150 80% 45%;
@@ -85,11 +87,11 @@ All colors MUST be HSL.
     --warning: 38 95% 55%;
     --warning-foreground: 0 0% 100%;
     
-    --destructive: 195 100% 45%;
+    --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 210 18% 18%;
-    --input: 210 18% 18%;
+    --border: 210 18% 20%;
+    --input: 210 18% 20%;
     --ring: 195 100% 45%;
   }
 }

@@ -1,160 +1,109 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Award, Zap, Lock, CheckCircle2, Play } from "lucide-react";
-import { useState } from "react";
+import { Shield, Award, Zap, CheckCircle2 } from "lucide-react";
 import videoPoster from "@/assets/video-poster-hero.jpg";
+import heroVideo from "@/assets/hero-video-main.mp4";
 
 export const Hero = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
   return (
-    <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-3 md:py-4 lg:py-6">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.25),transparent)]" />
+    <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,128,187,0.15),transparent)]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Social Proof Banner */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-4 bg-card/60 backdrop-blur-sm border border-success/20 px-3 md:px-6 py-1.5 md:py-3 rounded-full mb-3 md:mb-6">
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-success" />
-              <span className="font-bold text-[10px] md:text-sm">+20 anos</span>
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 md:gap-6 bg-card/80 backdrop-blur-sm border-2 border-success/30 px-4 md:px-8 py-2 md:py-3 rounded-full mb-6 md:mb-8 shadow-md">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-success" />
+              <span className="font-bold text-xs md:text-base text-foreground">+20 anos</span>
             </div>
-            <span className="hidden md:inline text-muted-foreground">•</span>
-            <div className="flex items-center gap-1">
-              <Award className="w-3.5 h-3.5 text-accent" />
-              <span className="font-bold text-[10px] md:text-sm">+15.000 alunos</span>
+            <span className="hidden md:inline text-muted-foreground text-lg">•</span>
+            <div className="flex items-center gap-2">
+              <Award className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+              <span className="font-bold text-xs md:text-base text-foreground">+15.000 alunos</span>
             </div>
-            <span className="hidden md:inline text-muted-foreground">•</span>
-            <div className="flex items-center gap-1">
-              <Shield className="w-3.5 h-3.5 text-success" />
-              <span className="font-bold text-[10px] md:text-sm">Garantia 7 Dias</span>
+            <span className="hidden md:inline text-muted-foreground text-lg">•</span>
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4 md:w-5 md:h-5 text-success" />
+              <span className="font-bold text-xs md:text-base text-foreground">Garantia 7 Dias</span>
             </div>
           </div>
           
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 md:mb-6">
-            <span className="text-primary">Conquiste Sua Independência Digital</span><br />
-            <span className="text-foreground">Do Zero ao Profissional no Mercado de Trabalho</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 md:mb-8 text-foreground">
+            Domine Informática e<br />
+            <span className="text-primary">Conquiste Seu Espaço no Mercado</span>
           </h1>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
-          <div className="relative max-w-3xl mx-auto mb-6 md:mb-8">
-            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl bg-black">
-              {!videoLoaded ? (
-                <div 
-                  className="relative w-full aspect-video cursor-pointer group"
-                  onClick={() => setVideoLoaded(true)}
-                >
-                  <img 
-                    src={videoPoster} 
-                    alt="Capa do vídeo - Curso de Informática na Prática" 
-                    className="w-full h-full object-cover brightness-110 contrast-105"
-                    loading="eager"
-                    fetchPriority="high"
-                    width="1280"
-                    height="720"
-                  />
-                  {/* Botão de play */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
-                    <div className="bg-primary/70 backdrop-blur-sm rounded-full p-3 md:p-4 group-hover:scale-110 transition-transform shadow-2xl">
-                      <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white" />
-                    </div>
-                  </div>
-                  {/* Preconnect YouTube apenas quando hover (preparar para carregar) */}
-                  <link rel="preconnect" href="https://www.youtube.com" />
-                  <link rel="preconnect" href="https://i.ytimg.com" />
-                </div>
-              ) : (
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src="https://www.youtube.com/embed/mSNhsfD5RWA?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&iv_load_policy=3&playsinline=1&autoplay=1"
-                  title="Vídeo de apresentação do curso de Informática na Prática" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerPolicy="strict-origin-when-cross-origin" 
-                  allowFullScreen
-                  className="w-full aspect-video"
-                  loading="lazy"
-                />
-              )}
+          <div className="relative max-w-4xl mx-auto mb-8 md:mb-10">
+            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/40 shadow-2xl bg-black">
+              <video 
+                controls
+                poster={videoPoster}
+                className="w-full aspect-video"
+                preload="metadata"
+              >
+                <source src={heroVideo} type="video/mp4" />
+                Seu navegador não suporta o elemento de vídeo.
+              </video>
             </div>
-            
-            {/* Overlay estratégico com preço - CLICÁVEL */}
-            <a 
-              href="#"
-              onClick={(e) => { e.preventDefault(); (window as any).openCheckout?.(); }}
-              className="absolute top-3 right-3 md:top-4 md:right-4 bg-gradient-to-br from-success/95 to-success/90 backdrop-blur-md border-2 border-white/40 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 md:py-3 shadow-2xl animate-pulse hover:scale-105 transition-transform cursor-pointer z-10"
-            >
-              <p className="text-[10px] md:text-xs font-bold text-white/90 mb-0.5">Apenas hoje:</p>
-              <p className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-1">R$ 297</p>
-              <div className="bg-destructive text-destructive-foreground rounded-md px-2 py-0.5 inline-block">
-                <p className="text-xs md:text-sm font-black">40% OFF</p>
-              </div>
-            </a>
           </div>
         
-        {/* Texto destacado abaixo do vídeo */}
-        <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground mb-3 md:mb-4 max-w-3xl mx-auto font-bold leading-tight">
-          Domine <span className="text-primary">Word, Excel, Internet e Windows</span><br />
-          <span className="text-muted-foreground text-lg md:text-xl">Aprenda no seu ritmo, com acompanhamento profissional</span>
-        </p>
-
-        {/* Benefícios Rápidos */}
-        <div className="flex flex-wrap gap-2 md:gap-3 justify-center items-center px-2 mb-4 md:mb-5">
-          <div className="flex items-center gap-1.5 md:gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-            <Zap className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            <span className="font-bold text-xs md:text-sm">Acesso Imediato</span>
-          </div>
-          <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-            <Shield className="w-4 h-4 md:w-5 md:h-5 text-success" />
-            <span className="font-semibold text-xs md:text-sm">Garantia 7 dias</span>
-          </div>
-          <div className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
-            <Award className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-            <span className="font-semibold text-xs md:text-sm">Certificado incluso</span>
-          </div>
+          {/* Benefícios Principais */}
+          <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center mb-8 md:mb-10 max-w-3xl mx-auto">
+            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
+              <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+              <span className="font-bold text-sm md:text-base text-foreground">Acesso Imediato</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-success/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
+              <Shield className="w-5 h-5 md:w-6 md:h-6 text-success" />
+              <span className="font-bold text-sm md:text-base text-foreground">Garantia 7 dias</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-accent/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
+              <Award className="w-5 h-5 md:w-6 md:h-6 text-accent" />
+              <span className="font-bold text-sm md:text-base text-foreground">Certificado incluso</span>
+            </div>
           </div>
 
-          <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
-            Aprenda informática de forma prática e profissional. <span className="font-bold text-foreground">Desenvolva habilidades que o mercado busca</span> e conquiste novas oportunidades na sua carreira.
-          </p>
-
-          {/* Links âncora estratégicos */}
-          <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-3 md:mb-4">
-            <a 
-              href="#sobre" 
-              className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
-            >
-              <span className="text-base md:text-lg">👩‍🏫</span>
-              <span className="font-semibold text-xs md:text-sm">Conhecer a Professora</span>
-            </a>
-            <a 
-              href="#conteudo" 
-              className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
-            >
-              <span className="text-base md:text-lg">📚</span>
-              <span className="font-semibold text-xs md:text-sm">Ver Conteúdo Completo</span>
-            </a>
-            <a 
-              href="#depoimentos" 
-              className="flex items-center gap-1.5 md:gap-2 bg-card/50 backdrop-blur-sm border border-line hover:border-primary/50 px-3 md:px-4 py-1.5 md:py-2 rounded-xl transition-all hover:scale-105"
-            >
-              <span className="text-base md:text-lg">⭐</span>
-              <span className="font-semibold text-xs md:text-sm">Ler Depoimentos</span>
-            </a>
+          {/* Descrição clara dos benefícios */}
+          <div className="max-w-3xl mx-auto mb-8 md:mb-10 space-y-4 text-left bg-card/60 backdrop-blur-sm border-2 border-line rounded-2xl p-6 md:p-8 shadow-md">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-6">O Que Você Vai Dominar:</h2>
+            <ul className="space-y-3 text-base md:text-lg">
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                <span className="text-foreground"><strong className="text-primary">Word Profissional:</strong> Crie documentos, currículos e relatórios impecáveis</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                <span className="text-foreground"><strong className="text-primary">Excel Avançado:</strong> Organize dados, crie planilhas e análises profissionais</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                <span className="text-foreground"><strong className="text-primary">Internet com Segurança:</strong> Navegue, pesquise e comunique-se com confiança</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                <span className="text-foreground"><strong className="text-primary">Windows Completo:</strong> Domine seu computador do básico ao avançado</span>
+              </li>
+            </ul>
           </div>
 
-          {/* CTA Principal com Preço - Logo após o vídeo para conversão imediata */}
-          <div className="mb-3 md:mb-4 max-w-3xl mx-auto">
+          {/* CTA Principal DESTAQUE */}
+          <div className="mb-6 max-w-2xl mx-auto">
             <Button 
               size="lg" 
-              className="text-sm md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all shadow-xl w-full sm:w-auto leading-tight"
+              className="w-full text-lg md:text-xl font-black px-8 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-success hover:from-success hover:to-accent border-2 border-accent/30"
               onClick={() => (window as any).openCheckout?.()}
             >
-              ✨ Começar minha formação profissional
+              ✨ Sim, Quero Dominar Informática
             </Button>
-            <p className="text-xs text-muted-foreground mt-2 font-semibold">
-              💼 Investimento profissional: R$ 297,00 - Acesso por 2 anos
-            </p>
+            <div className="text-center mt-4 space-y-2">
+              <p className="text-2xl md:text-3xl font-black text-foreground">
+                Apenas R$ 297,00
+              </p>
+              <p className="text-sm md:text-base text-muted-foreground font-semibold">
+                Acesso completo por 2 anos • Certificado incluso
+              </p>
+            </div>
           </div>
 
         </div>
