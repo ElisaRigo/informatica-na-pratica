@@ -4,13 +4,21 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, Lock, CreditCard, Smartphone, Receipt, CheckCircle2 } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CreditCard, Smartphone, Receipt, CheckCircle2, Copy, X } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 declare global {
   interface Window {
     MercadoPago: any;
   }
+}
+
+interface PixData {
+  paymentId: string;
+  qrCode: string;
+  qrCodeBase64: string;
+  ticketUrl?: string;
+  expirationDate?: string;
 }
 
 export const CheckoutForm = () => {
@@ -23,6 +31,7 @@ export const CheckoutForm = () => {
     cpf: ""
   });
   const [mpInstance, setMpInstance] = useState<any>(null);
+  const [pixData, setPixData] = useState<PixData | null>(null);
 
   // Carregar SDK do Mercado Pago
   useEffect(() => {
@@ -102,7 +111,54 @@ export const CheckoutForm = () => {
     return true;
   };
 
-  const handlePayment = async (method: 'card' | 'pix' | 'boleto') => {
+  const handlePixPayment = async () => {
+    if (!validateForm()) return;
+    if (!sdkLoaded) {
+      toast({
+        title: "Aguarde",
+        description: "Sistema de pagamento ainda carregando...",
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      console.log('Creating PIX payment...');
+      
+      const { data, error } = await supabase.functions.invoke('create-pix-payment', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          cpf: formData.cpf.replace(/\D/g, '')
+        }
+      });
+
+      if (error) throw error;
+
+      if (!data?.qrCode) {
+        throw new Error('Erro ao gerar PIX');
+      }
+
+      console.log('PIX created:', data.paymentId);
+      setPixData(data);
+
+      toast({
+        title: "PIX gerado!",
+        description: "Escaneie o QR Code ou copie o código para pagar",
+      });
+    } catch (error: any) {
+      console.error('Error:', error);
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao gerar PIX",
+        variant: "destructive"
+      });
+      setLoading(false);
+    }
+  };
+
+  const handleOtherPayment = async (method: 'card' | 'boleto') => {
     if (!validateForm()) return;
     if (!mpInstance || !sdkLoaded) {
       toast({
@@ -152,11 +208,107 @@ export const CheckoutForm = () => {
         description: error.message || "Erro ao processar pagamento",
         variant: "destructive"
       });
-    } finally {
       setLoading(false);
     }
   };
 
+  const copyPixCode = () => {
+    if (pixData?.qrCode) {
+      navigator.clipboard.writeText(pixData.qrCode);
+      toast({
+        title: "Copiado!",
+        description: "Código PIX copiado para área de transferência",
+      });
+    }
+  };
+
+  // Se tem dados do PIX, mostra a tela do QR Code
+  if (pixData) {
+    return (
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="flex items-center justify-between pb-6 border-b">
+          <img src={logoBlue} alt="Elisa Ensina" className="h-12" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => {
+              setPixData(null);
+              setLoading(false);
+            }}
+          >
+            <X className="w-5 h-5" />
+          </Button>
+        </div>
+
+        {/* QR Code do PIX */}
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success/10">
+            <Smartphone className="w-8 h-8 text-success" />
+          </div>
+          
+          <div>
+            <h3 className="text-2xl font-bold">Pague com PIX</h3>
+            <p className="text-muted-foreground mt-2">
+              Escaneie o QR Code abaixo ou copie o código
+            </p>
+          </div>
+
+          {/* QR Code */}
+          <div className="flex justify-center py-6">
+            <div className="p-4 bg-white rounded-xl shadow-lg">
+              <img
+                src={`data:image/png;base64,${pixData.qrCodeBase64}`}
+                alt="QR Code PIX"
+                className="w-64 h-64"
+              />
+            </div>
+          </div>
+
+          {/* Valor */}
+          <div className="text-center p-4 bg-muted/30 rounded-lg">
+            <div className="text-sm text-muted-foreground">Valor a pagar</div>
+            <div className="text-3xl font-black text-primary mt-1">R$ 497,00</div>
+          </div>
+
+          {/* Código PIX */}
+          <div className="space-y-2">
+            <Label className="text-sm font-semibold">Código PIX Copia e Cola</Label>
+            <div className="flex gap-2">
+              <Input
+                value={pixData.qrCode}
+                readOnly
+                className="font-mono text-xs"
+              />
+              <Button onClick={copyPixCode} size="icon" className="shrink-0">
+                <Copy className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Instruções */}
+          <div className="text-left space-y-2 p-4 bg-muted/20 rounded-lg text-sm">
+            <p className="font-semibold">Como pagar:</p>
+            <ol className="list-decimal list-inside space-y-1 text-muted-foreground">
+              <li>Abra o app do seu banco</li>
+              <li>Escolha pagar com PIX</li>
+              <li>Escaneie o QR Code ou cole o código</li>
+              <li>Confirme o pagamento</li>
+              <li>Pronto! Você receberá o acesso por e-mail</li>
+            </ol>
+          </div>
+
+          {/* Aviso */}
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+            <ShieldCheck className="w-4 h-4" />
+            <span>Pagamento 100% Seguro • Acesso liberado automaticamente</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Formulário inicial
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -234,7 +386,7 @@ export const CheckoutForm = () => {
       <div className="grid grid-cols-3 gap-3">
         {/* Cartão */}
         <button
-          onClick={() => handlePayment('card')}
+          onClick={() => handleOtherPayment('card')}
           disabled={loading || !sdkLoaded}
           className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
         >
@@ -249,7 +401,7 @@ export const CheckoutForm = () => {
 
         {/* PIX */}
         <button
-          onClick={() => handlePayment('pix')}
+          onClick={handlePixPayment}
           disabled={loading || !sdkLoaded}
           className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
         >
@@ -264,7 +416,7 @@ export const CheckoutForm = () => {
 
         {/* Boleto */}
         <button
-          onClick={() => handlePayment('boleto')}
+          onClick={() => handleOtherPayment('boleto')}
           disabled={loading || !sdkLoaded}
           className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
         >
