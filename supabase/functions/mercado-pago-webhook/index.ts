@@ -13,12 +13,12 @@ const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 // Moodle configuration
-const MOODLE_BASE_URL = "https://elisaensina.com.br";
+const MOODLE_URL = 'https://aluno.informaticanapratica.com.br';
 const MOODLE_TOKEN = Deno.env.get("MOODLE_API_TOKEN") || "";
-const MOODLE_COURSE_ID = 2;
+const COURSE_ID = 2;
 
 async function callMoodleAPI(functionName: string, params: Record<string, any>) {
-  const url = new URL(`${MOODLE_BASE_URL}/webservice/rest/server.php`);
+  const url = new URL(`${MOODLE_URL}/webservice/rest/server.php`);
   url.searchParams.set('wstoken', MOODLE_TOKEN);
   url.searchParams.set('wsfunction', functionName);
   url.searchParams.set('moodlewsrestformat', 'json');
@@ -129,7 +129,7 @@ async function enrollUserInCourse(userId: number) {
   const enrollmentData = {
     'enrolments[0][roleid]': 5, // Role ID 5 = student
     'enrolments[0][userid]': userId,
-    'enrolments[0][courseid]': MOODLE_COURSE_ID,
+    'enrolments[0][courseid]': COURSE_ID,
   };
 
   const result = await callMoodleAPI('enrol_manual_enrol_users', enrollmentData);
@@ -270,7 +270,7 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
           </p>
           
           <div class="cta-container">
-            <a href="${MOODLE_BASE_URL}" class="button">🎯 Acessar Plataforma</a>
+            <a href="${MOODLE_URL}" class="button">🎯 Acessar Plataforma</a>
           </div>
           
           <div class="divider"></div>
