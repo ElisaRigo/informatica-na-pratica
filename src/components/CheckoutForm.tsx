@@ -420,49 +420,49 @@ export const CheckoutForm = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between pb-6 border-b">
-        <img src={logoBlue} alt="Elisa Ensina" className="h-12" />
+        <img src={logoBlue} alt="Elisa Ensina" className="h-12 md:h-14" />
         <div className="text-right">
-          <div className="text-3xl font-black text-primary">
+          <div className="text-4xl md:text-5xl font-black text-primary">
             R$ {coursePrice.toFixed(2).replace('.', ',')}
           </div>
-          <div className="text-sm font-medium text-muted-foreground line-through">
-            R$ {(coursePrice * 2).toFixed(2).replace('.', ',')}
+          <div className="text-xs md:text-sm font-semibold text-muted-foreground mt-1">
+            Acesso completo por 2 anos
           </div>
         </div>
       </div>
 
       {/* Badges de Segurança */}
-      <div className="flex items-center justify-center gap-4 py-4 bg-muted/30 rounded-lg">
-        <div className="flex items-center gap-2 text-xs">
-          <Lock className="w-4 h-4 text-success" />
-          <span className="font-medium">Pagamento Seguro</span>
+      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 py-4 px-2 bg-gradient-to-r from-success/10 to-primary/10 rounded-xl border border-success/20">
+        <div className="flex items-center gap-2 text-xs md:text-sm">
+          <Lock className="w-4 h-4 md:w-5 md:h-5 text-success" />
+          <span className="font-semibold text-foreground">Pagamento Seguro</span>
         </div>
-        <div className="flex items-center gap-2 text-xs">
-          <CheckCircle2 className="w-4 h-4 text-success" />
-          <span className="font-medium">Mercado Pago</span>
+        <div className="flex items-center gap-2 text-xs md:text-sm">
+          <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-success" />
+          <span className="font-semibold text-foreground">Mercado Pago</span>
         </div>
-        <div className="flex items-center gap-2 text-xs">
-          <ShieldCheck className="w-4 h-4 text-success" />
-          <span className="font-medium">Garantia 7 dias</span>
+        <div className="flex items-center gap-2 text-xs md:text-sm">
+          <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-success" />
+          <span className="font-semibold text-foreground">Garantia 7 dias</span>
         </div>
       </div>
 
       {/* Formulário */}
-      <div className="space-y-4">
+      <div className="space-y-5">
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-base font-semibold">Nome Completo *</Label>
+          <Label htmlFor="name" className="text-sm md:text-base font-bold text-foreground">Nome Completo *</Label>
           <Input
             id="name"
             placeholder="Seu nome completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-12 text-base"
+            className="h-12 md:h-14 text-base border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-base font-semibold">E-mail *</Label>
+          <Label htmlFor="email" className="text-sm md:text-base font-bold text-foreground">E-mail *</Label>
           <Input
             id="email"
             type="email"
@@ -470,12 +470,12 @@ export const CheckoutForm = () => {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-12 text-base"
+            className="h-12 md:h-14 text-base border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="cpf" className="text-base font-semibold">CPF *</Label>
+          <Label htmlFor="cpf" className="text-sm md:text-base font-bold text-foreground">CPF *</Label>
           <Input
             id="cpf"
             placeholder="000.000.000-00"
@@ -483,14 +483,14 @@ export const CheckoutForm = () => {
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
             maxLength={14}
             disabled={loading || !sdkLoaded}
-            className="h-12 text-base"
+            className="h-12 md:h-14 text-base border-2 focus:border-primary"
           />
         </div>
       </div>
 
       {/* Título das Opções */}
-      <div className="pt-4">
-        <h3 className="text-lg font-bold text-center mb-4">Escolha a forma de pagamento</h3>
+      <div className="pt-2">
+        <h3 className="text-lg md:text-xl font-black text-center mb-4 text-foreground">Escolha a forma de pagamento</h3>
       </div>
 
       {/* Opções de Pagamento - Grade de 3 colunas */}
