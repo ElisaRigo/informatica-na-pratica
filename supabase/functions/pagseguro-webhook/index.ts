@@ -71,14 +71,18 @@ async function callMoodleAPI(functionName: string, params: Record<string, any>) 
 // Função de criptografia removida temporariamente
 
 async function createMoodleUser(name: string, email: string) {
-  // Gerar username a partir do email
-  const username = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+  // Gerar username a partir do email - mínimo 5 caracteres
+  let username = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+  if (username.length < 5) {
+    username = username + Math.random().toString(36).substring(2, 7);
+  }
   
-  // Gerar senha segura com requisitos: mínimo 8 caracteres, 1 maiúscula, 1 caractere especial
+  // Gerar senha segura SEM caracteres especiais problemáticos (&, %, +, =)
+  // Usar apenas caracteres seguros para URL
   const chars = 'abcdefghijklmnopqrstuvwxyz';
   const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numbers = '0123456789';
-  const special = '!@#$%&*';
+  const special = '!@#$*-_';  // Removido & e outros caracteres problemáticos
   
   let password = '';
   password += upperChars[Math.floor(Math.random() * upperChars.length)]; // 1 maiúscula
@@ -94,14 +98,31 @@ async function createMoodleUser(name: string, email: string) {
   // Embaralhar a senha
   password = password.split('').sort(() => Math.random() - 0.5).join('');
 
+  // Validar e preparar firstname e lastname
+  const nameParts = name.trim().split(' ').filter(part => part.length > 0);
+  const firstname = nameParts[0] || 'Aluno';
+  const lastname = nameParts.slice(1).join(' ') || 'Curso';
+  
+  // Garantir que firstname e lastname sejam diferentes e tenham pelo menos 2 caracteres
+  const validFirstname = firstname.length >= 2 ? firstname : 'Aluno';
+  const validLastname = lastname.length >= 2 ? lastname : 'Curso';
+
   const userData = {
     'users[0][username]': username,
     'users[0][password]': password,
-    'users[0][firstname]': name.split(' ')[0],
-    'users[0][lastname]': name.split(' ').slice(1).join(' ') || 'Aluno', // Usar "Aluno" se não tiver sobrenome
+    'users[0][firstname]': validFirstname,
+    'users[0][lastname]': validLastname,
     'users[0][email]': email,
     'users[0][auth]': 'manual',
   };
+  
+  console.log('📝 User data prepared:', {
+    username,
+    firstname: validFirstname,
+    lastname: validLastname,
+    email,
+    passwordLength: password.length
+  });
 
   try {
     const result = await callMoodleAPI('core_user_create_users', userData);
