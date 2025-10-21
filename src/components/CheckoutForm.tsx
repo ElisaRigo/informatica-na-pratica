@@ -315,7 +315,7 @@ export const CheckoutForm = () => {
           {/* Valor */}
           <div className="text-center p-4 bg-muted/30 rounded-lg">
             <div className="text-sm text-muted-foreground">Valor a pagar</div>
-            <div className="text-3xl font-black text-primary mt-1">R$ 497,00</div>
+            <div className="text-3xl font-black text-primary mt-1">R$ 297,00</div>
           </div>
 
           {/* Código PIX */}
@@ -382,8 +382,8 @@ export const CheckoutForm = () => {
       <div className="flex items-center justify-between pb-6 border-b">
         <img src={logoBlue} alt="Elisa Ensina" className="h-12" />
         <div className="text-right">
-          <div className="text-3xl font-black text-primary">R$ 497,00</div>
-          <div className="text-sm font-medium text-muted-foreground line-through">R$ 997,00</div>
+          <div className="text-3xl font-black text-primary">R$ 297,00</div>
+          <div className="text-sm font-medium text-muted-foreground line-through">R$ 597,00</div>
         </div>
       </div>
 

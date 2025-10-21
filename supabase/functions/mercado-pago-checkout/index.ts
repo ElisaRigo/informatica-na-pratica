@@ -38,7 +38,7 @@ serve(async (req) => {
         {
           title: "Curso Completo - Elisa Ensina",
           quantity: 1,
-          unit_price: 497.00,
+          unit_price: 297.00,
           currency_id: "BRL",
         },
       ],

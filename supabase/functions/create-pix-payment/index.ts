@@ -32,7 +32,7 @@ serve(async (req) => {
 
     // Criar pagamento PIX direto
     const paymentData = {
-      transaction_amount: 497.00,
+      transaction_amount: 297.00,
       description: "Curso Completo - Elisa Ensina",
       payment_method_id: "pix",
       payer: {
