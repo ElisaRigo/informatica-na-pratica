@@ -28,12 +28,12 @@ export const Hero = () => {
           
           {/* Texto acima do vídeo */}
           <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
-            Aprenda <span className="text-primary">informática de verdade</span> e conquiste <span className="text-accent">novas oportunidades</span>.
+            Aprenda <span className="text-primary">Informática de Verdade</span> e conquiste <span className="text-primary">Novas Oportunidades</span>.
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-4xl mx-auto mb-6">
-            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/40 shadow-2xl bg-black">
+            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/40 bg-black">
               <video 
                 controls
                 poster={videoPoster}
@@ -48,7 +48,7 @@ export const Hero = () => {
 
           {/* Texto abaixo do vídeo */}
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-8 max-w-3xl mx-auto leading-tight">
-            Do <span className="text-primary">zero ao profissional</span>, com aulas <span className="text-accent">simples e práticas</span> de Word, Excel e muito mais — tudo pra te preparar pro <span className="text-success">mercado de trabalho</span>.
+            Do <span className="text-primary">Zero ao Profissional</span>, com aulas <span className="text-primary">Simples e Práticas</span> de Word, Excel e muito mais — pra você se destacar no <span className="text-primary">Mercado de Trabalho</span> e usar o computador com <span className="text-primary">Confiança</span>.
           </p>
         
           {/* Benefícios Principais */}
