@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CreditCard, Smartphone, Receipt, CheckCircle2 } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 declare global {
@@ -23,8 +23,6 @@ export const CheckoutForm = () => {
     cpf: ""
   });
   const [mpInstance, setMpInstance] = useState<any>(null);
-  const [bricksBuilder, setBricksBuilder] = useState<any>(null);
-  const [selectedMethod, setSelectedMethod] = useState<'card' | 'pix' | null>(null);
 
   // Carregar SDK do Mercado Pago
   useEffect(() => {
@@ -34,7 +32,6 @@ export const CheckoutForm = () => {
     script.onload = async () => {
       console.log('Mercado Pago SDK loaded');
       
-      // Buscar public key do backend
       try {
         const { data: { MERCADO_PAGO_PUBLIC_KEY } } = await supabase.functions.invoke('get-mp-public-key');
         
@@ -105,7 +102,7 @@ export const CheckoutForm = () => {
     return true;
   };
 
-  const handleCardPayment = async () => {
+  const handlePayment = async (method: 'card' | 'pix' | 'boleto') => {
     if (!validateForm()) return;
     if (!mpInstance || !sdkLoaded) {
       toast({
@@ -116,10 +113,9 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
-    setSelectedMethod('card');
 
     try {
-      console.log('Creating preference for card payment...');
+      console.log(`Creating checkout for ${method}...`);
       
       const { data, error } = await supabase.functions.invoke('mercado-pago-checkout', {
         body: {
@@ -137,131 +133,8 @@ export const CheckoutForm = () => {
 
       console.log('Preference created:', data.preferenceId);
 
-      // Criar Brick de Card Payment
-      const bricks = mpInstance.bricks();
-      
-      // Limpar container se existir
-      const container = document.getElementById('cardPaymentBrick_container');
-      if (container) {
-        container.innerHTML = '';
-      }
-
-      await bricks.create('cardPayment', 'cardPaymentBrick_container', {
-        initialization: {
-          amount: 497,
-          payer: {
-            email: formData.email,
-          },
-        },
-        customization: {
-          visual: {
-            style: {
-              theme: 'dark',
-            },
-          },
-          paymentMethods: {
-            maxInstallments: 12,
-          },
-        },
-        callbacks: {
-          onReady: () => {
-            console.log('Card Payment Brick ready');
-            setLoading(false);
-          },
-          onSubmit: async (cardFormData: any) => {
-            console.log('Card payment submitted:', cardFormData);
-            
-            try {
-              // Processar pagamento
-              const paymentResponse = await fetch(`https://api.mercadopago.com/v1/payments`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${data.accessToken}`, // Enviado pelo backend
-                },
-                body: JSON.stringify({
-                  ...cardFormData,
-                  statement_descriptor: 'ELISA ENSINA',
-                  external_reference: `${formData.email}-${Date.now()}`,
-                  notification_url: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/mercado-pago-webhook`,
-                }),
-              });
-
-              const paymentResult = await paymentResponse.json();
-              
-              if (paymentResult.status === 'approved') {
-                window.location.href = '/obrigada';
-              } else if (paymentResult.status === 'pending') {
-                window.location.href = '/aguardando';
-              } else {
-                throw new Error(paymentResult.status_detail || 'Pagamento não aprovado');
-              }
-            } catch (err: any) {
-              console.error('Payment error:', err);
-              toast({
-                title: "Erro no pagamento",
-                description: err.message,
-                variant: "destructive"
-              });
-            }
-          },
-          onError: (error: any) => {
-            console.error('Brick error:', error);
-            toast({
-              title: "Erro",
-              description: "Ocorreu um erro ao processar o pagamento",
-              variant: "destructive"
-            });
-            setLoading(false);
-          },
-        },
-      });
-
-      setBricksBuilder(bricks);
-    } catch (error: any) {
-      console.error('Error:', error);
-      toast({
-        title: "Erro",
-        description: error.message || "Erro ao processar pagamento",
-        variant: "destructive"
-      });
-      setLoading(false);
-      setSelectedMethod(null);
-    }
-  };
-
-  const handlePixPayment = async () => {
-    if (!validateForm()) return;
-    if (!mpInstance || !sdkLoaded) {
-      toast({
-        title: "Aguarde",
-        description: "Sistema de pagamento ainda carregando...",
-      });
-      return;
-    }
-
-    setLoading(true);
-    setSelectedMethod('pix');
-
-    try {
-      console.log('Creating checkout for PIX...');
-      
-      const { data, error } = await supabase.functions.invoke('mercado-pago-checkout', {
-        body: {
-          name: formData.name,
-          email: formData.email,
-          cpf: formData.cpf.replace(/\D/g, '')
-        }
-      });
-
-      if (error) throw error;
-
-      if (!data?.preferenceId) {
-        throw new Error('Erro ao criar checkout');
-      }
-
-      // Redirecionar para o Mercado Pago com preference criado
-      const checkout = mpInstance.checkout({
+      // Abrir checkout do Mercado Pago
+      mpInstance.checkout({
         preference: {
           id: data.preferenceId
         },
@@ -279,61 +152,27 @@ export const CheckoutForm = () => {
         description: error.message || "Erro ao processar pagamento",
         variant: "destructive"
       });
+    } finally {
       setLoading(false);
-      setSelectedMethod(null);
     }
   };
 
-  // Se método foi selecionado, mostra o Brick
-  if (selectedMethod === 'card') {
-    return (
-      <div className="space-y-6">
-        <div className="flex flex-col items-center space-y-4">
-          <img src={logoBlue} alt="Elisa Ensina" className="h-16" />
-          <div className="text-center space-y-2">
-            <h3 className="text-xl font-bold">💳 Pagamento com Cartão</h3>
-            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-              <Lock className="w-4 h-4" />
-              <span>Pagamento 100% seguro</span>
-            </div>
-          </div>
-        </div>
-
-        <div id="cardPaymentBrick_container"></div>
-
-        <Button
-          variant="outline"
-          onClick={() => {
-            setSelectedMethod(null);
-            setLoading(false);
-            const container = document.getElementById('cardPaymentBrick_container');
-            if (container) container.innerHTML = '';
-          }}
-          className="w-full"
-        >
-          Voltar para opções de pagamento
-        </Button>
-      </div>
-    );
-  }
-
-  // Formulário inicial
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-border">
-        <img src={logoBlue} alt="Elisa Ensina" className="h-14" />
+      <div className="flex items-center justify-between pb-6 border-b">
+        <img src={logoBlue} alt="Elisa Ensina" className="h-12" />
         <div className="text-right">
-          <div className="text-2xl font-black text-primary">R$ 497,00</div>
+          <div className="text-3xl font-black text-primary">R$ 497,00</div>
           <div className="text-sm font-medium text-muted-foreground line-through">R$ 997,00</div>
         </div>
       </div>
 
       {/* Badges de Segurança */}
-      <div className="flex items-center justify-center gap-6 py-3 bg-muted/50 rounded-lg">
+      <div className="flex items-center justify-center gap-4 py-4 bg-muted/30 rounded-lg">
         <div className="flex items-center gap-2 text-xs">
           <Lock className="w-4 h-4 text-success" />
-          <span className="font-medium">SSL Seguro</span>
+          <span className="font-medium">Pagamento Seguro</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <CheckCircle2 className="w-4 h-4 text-success" />
@@ -348,18 +187,19 @@ export const CheckoutForm = () => {
       {/* Formulário */}
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="name">Nome Completo *</Label>
+          <Label htmlFor="name" className="text-base font-semibold">Nome Completo *</Label>
           <Input
             id="name"
             placeholder="Seu nome completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             disabled={loading || !sdkLoaded}
+            className="h-12 text-base"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email">E-mail *</Label>
+          <Label htmlFor="email" className="text-base font-semibold">E-mail *</Label>
           <Input
             id="email"
             type="email"
@@ -367,11 +207,12 @@ export const CheckoutForm = () => {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             disabled={loading || !sdkLoaded}
+            className="h-12 text-base"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="cpf">CPF *</Label>
+          <Label htmlFor="cpf" className="text-base font-semibold">CPF *</Label>
           <Input
             id="cpf"
             placeholder="000.000.000-00"
@@ -379,60 +220,83 @@ export const CheckoutForm = () => {
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
             maxLength={14}
             disabled={loading || !sdkLoaded}
+            className="h-12 text-base"
           />
         </div>
       </div>
 
-      {/* Botões de Pagamento */}
-      <div className="space-y-3">
-        <Button
-          onClick={handleCardPayment}
-          size="lg"
-          className="w-full font-bold text-lg py-6"
-          disabled={loading || !sdkLoaded}
-        >
-          {!sdkLoaded ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Carregando sistema...
-            </>
-          ) : loading ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Carregando...
-            </>
-          ) : (
-            <>
-              <CreditCard className="mr-2 h-5 w-5" />
-              Pagar com Cartão de Crédito
-            </>
-          )}
-        </Button>
-
-        <Button
-          onClick={handlePixPayment}
-          size="lg"
-          variant="outline"
-          className="w-full font-bold text-lg py-6 border-2"
-          disabled={loading || !sdkLoaded}
-        >
-          {loading ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Processando...
-            </>
-          ) : (
-            <>
-              <Smartphone className="mr-2 h-5 w-5" />
-              Pagar com PIX ou Boleto
-            </>
-          )}
-        </Button>
+      {/* Título das Opções */}
+      <div className="pt-4">
+        <h3 className="text-lg font-bold text-center mb-4">Escolha a forma de pagamento</h3>
       </div>
 
-      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+      {/* Opções de Pagamento - Grade de 3 colunas */}
+      <div className="grid grid-cols-3 gap-3">
+        {/* Cartão */}
+        <button
+          onClick={() => handlePayment('card')}
+          disabled={loading || !sdkLoaded}
+          className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+        >
+          <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+            <CreditCard className="w-8 h-8 text-primary" />
+          </div>
+          <div className="text-center">
+            <div className="font-bold text-sm">Cartão</div>
+            <div className="text-xs text-muted-foreground mt-1">Até 12x</div>
+          </div>
+        </button>
+
+        {/* PIX */}
+        <button
+          onClick={() => handlePayment('pix')}
+          disabled={loading || !sdkLoaded}
+          className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+        >
+          <div className="p-4 rounded-full bg-success/10 group-hover:bg-success/20 transition-colors">
+            <Smartphone className="w-8 h-8 text-success" />
+          </div>
+          <div className="text-center">
+            <div className="font-bold text-sm">PIX</div>
+            <div className="text-xs text-muted-foreground mt-1">Aprovação imediata</div>
+          </div>
+        </button>
+
+        {/* Boleto */}
+        <button
+          onClick={() => handlePayment('boleto')}
+          disabled={loading || !sdkLoaded}
+          className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+        >
+          <div className="p-4 rounded-full bg-warning/10 group-hover:bg-warning/20 transition-colors">
+            <Receipt className="w-8 h-8 text-warning" />
+          </div>
+          <div className="text-center">
+            <div className="font-bold text-sm">Boleto</div>
+            <div className="text-xs text-muted-foreground mt-1">Até 3 dias úteis</div>
+          </div>
+        </button>
+      </div>
+
+      {/* Loading State */}
+      {loading && (
+        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-4">
+          <Loader2 className="w-4 h-4 animate-spin" />
+          <span>Processando...</span>
+        </div>
+      )}
+
+      {!sdkLoaded && (
+        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-4">
+          <Loader2 className="w-4 h-4 animate-spin" />
+          <span>Carregando sistema de pagamento...</span>
+        </div>
+      )}
+
+      {/* Footer Info */}
+      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2 border-t">
         <ShieldCheck className="w-4 h-4" />
-        <span>Parcelamento disponível • Garantia Total de 7 Dias</span>
+        <span>Pagamento 100% Seguro • Garantia Total de 7 Dias</span>
       </div>
     </div>
   );

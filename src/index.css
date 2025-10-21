@@ -8,50 +8,89 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 215 65% 8%;
-    --foreground: 213 100% 95%;
+    --background: 0 0% 98%;
+    --foreground: 220 15% 20%;
     
-    --card: 216 46% 10%;
-    --card-foreground: 213 100% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
     
-    --panel: 217 60% 9%;
-    --line: 214 41% 16%;
+    --panel: 0 0% 96%;
+    --line: 220 13% 91%;
     
-    --popover: 216 46% 10%;
-    --popover-foreground: 213 100% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
     
-    --primary: 199 100% 37%;
+    --primary: 220 90% 56%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 199 100% 37%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 30% 92%;
+    --secondary-foreground: 220 15% 20%;
     
-    --muted: 211 28% 71%;
-    --muted-foreground: 211 28% 71%;
+    --muted: 220 13% 91%;
+    --muted-foreground: 220 8% 46%;
     
-    --accent: 199 100% 50%;
+    --accent: 220 90% 56%;
     --accent-foreground: 0 0% 100%;
     
-    --success: 163 89% 40%;
+    --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
     
-    --warning: 40 100% 51%;
-    --warning-foreground: 0 0% 0%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 214 41% 16%;
-    --input: 214 41% 16%;
-    --ring: 199 100% 37%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 90% 56%;
     
-    --radius: 1rem;
+    --radius: 0.75rem;
     
-    --gradient-hero: linear-gradient(135deg, hsl(199 100% 37% / 0.2), hsl(199 100% 50% / 0.05));
-    --gradient-premium: linear-gradient(135deg, hsl(199 100% 37%), hsl(199 100% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 90% 56% / 0.1), hsl(220 90% 70% / 0.05));
+    --gradient-premium: linear-gradient(135deg, hsl(220 90% 56%), hsl(220 90% 70%));
     
-    --shadow-glow: 0 0 40px hsl(199 100% 50% / 0.3);
-    --shadow-card: 0 4px 24px hsl(215 65% 8% / 0.4);
+    --shadow-glow: 0 0 30px hsl(220 90% 56% / 0.15);
+    --shadow-card: 0 4px 24px hsl(220 15% 20% / 0.08);
+  }
+  
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 0 0% 95%;
+    
+    --card: 220 18% 12%;
+    --card-foreground: 0 0% 95%;
+    
+    --panel: 220 20% 9%;
+    --line: 220 15% 18%;
+    
+    --popover: 220 18% 12%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 220 90% 56%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 15% 25%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 220 15% 25%;
+    --muted-foreground: 220 10% 60%;
+    
+    --accent: 220 90% 56%;
+    --accent-foreground: 0 0% 100%;
+    
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 220 90% 56%;
   }
 }
 

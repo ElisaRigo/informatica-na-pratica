@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Header } from "@/components/Header";
-import { PromoTimer } from "@/components/PromoTimer";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
 import { AboutSection } from "@/components/AboutSection";
@@ -36,7 +35,6 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <PromoTimer />
       <Hero />
       
       {/* 2ª DOBRA - O QUE VAI APRENDER - Conteúdo e transformação */}
