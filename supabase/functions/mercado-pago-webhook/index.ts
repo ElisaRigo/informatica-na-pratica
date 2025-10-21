@@ -411,7 +411,15 @@ serve(async (req) => {
       console.error("Error fetching student:", studentFetchError);
     }
 
-    const customerName = studentData?.name || payment.payer?.first_name || "Cliente";
+    // Construir nome completo a partir do Mercado Pago
+    let customerName = studentData?.name;
+    
+    if (!customerName) {
+      const firstName = payment.payer?.first_name || payment.additional_info?.payer?.first_name || '';
+      const lastName = payment.payer?.last_name || payment.additional_info?.payer?.last_name || '';
+      customerName = `${firstName} ${lastName}`.trim() || "Aluno Curso";
+    }
+    
     console.log(`Customer name found: ${customerName}`);
 
     // Atualizar ou inserir pagamento com status "approved"
