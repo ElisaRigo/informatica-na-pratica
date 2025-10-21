@@ -14,16 +14,18 @@ export const Hero = () => {
           </p>
           
           {/* Vídeo em destaque */}
-          <div className="relative max-w-4xl mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg">
-            <video 
-              controls
-              poster={videoPoster}
-              className="w-full"
-              preload="auto"
-            >
-              <source src={heroVideo} type="video/mp4" />
-              Seu navegador não suporta o elemento de vídeo.
-            </video>
+          <div className="relative max-w-4xl mx-auto mb-6">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg bg-black">
+              <video 
+                controls
+                poster={videoPoster}
+                className="w-full aspect-video object-cover"
+                preload="metadata"
+              >
+                <source src={heroVideo} type="video/mp4" />
+                Seu navegador não suporta o elemento de vídeo.
+              </video>
+            </div>
           </div>
 
           {/* Texto abaixo do vídeo */}

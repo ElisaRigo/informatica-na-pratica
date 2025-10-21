@@ -147,11 +147,11 @@ All colors MUST be HSL.
 }
 
 /* Customização do player de vídeo */
-video::-webkit-media-controls {
-  opacity: 1 !important;
+video {
+  display: block;
+  max-width: 100%;
 }
 
 video::-webkit-media-controls-panel {
-  background: hsl(var(--card)) !important;
-  opacity: 1 !important;
+  background: rgba(0, 0, 0, 0.8) !important;
 }

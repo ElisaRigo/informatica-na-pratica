@@ -70,7 +70,7 @@ export const Comparison = () => {
           </p>
           <Button 
             size="lg" 
-            className="font-extrabold px-4 md:px-10 py-5 md:py-7 rounded-2xl text-xs md:text-lg hover:scale-105 transition-transform w-full md:w-auto leading-tight"
+            className="font-extrabold px-4 md:px-10 py-5 md:py-7 rounded-2xl text-xs md:text-lg hover:scale-105 transition-transform w-full md:w-auto leading-tight break-words"
             onClick={() => (window as any).openCheckout?.()}
           >
             ✨ Quero Aprender do Jeito Certo
