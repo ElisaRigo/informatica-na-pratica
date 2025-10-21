@@ -3,28 +3,20 @@ import { AnchorLink } from "./AnchorLink";
 
 const targetProfiles = [
   {
-    title: "Iniciantes absolutos",
-    description: "Você nunca mexeu com computador ou tem muito medo de errar e \"quebrar\" algo",
+    title: "Iniciantes",
+    description: "Nunca mexeu no computador? Aqui você começa do zero.",
   },
   {
     title: "Mercado de Trabalho",
-    description: "Precisa de informática básica para conquistar uma vaga de emprego",
-  },
-  {
-    title: "Aposentados e 50+",
-    description: "Quer se manter atualizado e não depender de filhos ou netos",
+    description: "Aprenda o que as empresas realmente exigem.",
   },
   {
     title: "Empreendedores",
-    description: "Precisa organizar seu negócio, fazer planilhas e documentos",
+    description: "Organize seu negócio e aumente sua produtividade.",
   },
   {
-    title: "Estudantes",
-    description: "Precisa fazer trabalhos, apresentações e usar o computador para estudar",
-  },
-  {
-    title: "Profissionais",
-    description: "Quer melhorar suas habilidades e ser mais produtivo no trabalho",
+    title: "50+",
+    description: "Atualize-se e use o computador sem depender de ninguém.",
   },
 ];
 
@@ -37,22 +29,22 @@ export const TargetAudience = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
               Para quem é <span className="text-primary">este curso?</span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Se você se identifica com algum desses perfis, este curso foi feito sob medida para você
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-semibold">
+              Se você quer aprender informática de verdade — este curso foi feito pra você.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {targetProfiles.map((profile, index) => (
               <div
                 key={index}
-                className="bg-card border border-line rounded-2xl p-6 hover:border-primary/50 transition-all hover:scale-105"
+                className="bg-card border-2 border-line rounded-2xl p-6 hover:border-primary/50 transition-all hover:scale-105"
               >
                 <div className="flex items-start gap-3 mb-3">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-7 h-7 text-primary flex-shrink-0 mt-0.5" />
                   <h3 className="text-lg md:text-xl font-bold">{profile.title}</h3>
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground pl-9">
+                <p className="text-sm md:text-base text-muted-foreground pl-10">
                   {profile.description}
                 </p>
               </div>
@@ -66,9 +58,8 @@ export const TargetAudience = () => {
             <p className="text-sm md:text-base text-muted-foreground mb-6">
               O curso é projetado para quem está começando do absoluto zero. Se você consegue ligar um computador, você consegue aprender!
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mt-6">
+            <div className="flex justify-center mt-6">
               <AnchorLink href="#sobre" icon="👩‍🏫" text="Conhecer a Professora" />
-              <AnchorLink href="#depoimentos" icon="⭐" text="Ver Depoimentos" />
             </div>
           </div>
         </div>

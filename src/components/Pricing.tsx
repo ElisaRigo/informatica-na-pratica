@@ -4,9 +4,9 @@ import { CheckCircle2, CreditCard, Smartphone, Clock } from "lucide-react";
 import { CheckoutForm } from "./CheckoutForm";
 
 const features = [
-  'De R$ 497 por R$ 297',
-  'Parcele em até 12x',
-  'Acesso online imediato + suporte direto com a professora',
+  'Parcele em até 12x sem juros',
+  'Acesso online imediato',
+  'Suporte direto com a professora',
   'Garantia total de 7 dias',
 ];
 
@@ -119,8 +119,8 @@ export const Pricing = () => {
                   Ou 12x de R$ 29,14 sem juros
                 </p>
                 <div className="bg-card/50 backdrop-blur rounded-lg p-3 mt-3">
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    <span className="font-bold text-foreground">Menos de R$ 1 por dia</span> para mudar seu futuro profissional
+                  <p className="text-sm md:text-base text-muted-foreground">
+                    De <span className="line-through text-destructive">R$ 768</span> por apenas <span className="font-black text-foreground">R$ 297</span> — <span className="font-bold text-foreground">menos de R$ 1 por dia</span> pra mudar sua vida profissional.
                   </p>
                 </div>
                 <p className="text-base md:text-lg font-bold text-success mt-3">
@@ -132,16 +132,7 @@ export const Pricing = () => {
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2 md:gap-3">
                     <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-success flex-shrink-0 mt-0.5" />
-                    <span className="text-sm md:text-lg leading-tight">
-                      {index === 0 ? (
-                        <>
-                          De <span className="line-through text-muted-foreground">R$ 497</span> por{' '}
-                          <strong className="text-accent">R$ 297</strong>
-                        </>
-                      ) : (
-                        feature
-                      )}
-                    </span>
+                    <span className="text-sm md:text-lg leading-tight">{feature}</span>
                   </div>
                 ))}
               </div>

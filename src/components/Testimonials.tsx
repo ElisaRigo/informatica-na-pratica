@@ -1,5 +1,6 @@
 import { Quote } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { AnchorLink } from "./AnchorLink";
 import alinePhoto from "@/assets/testimonial-new-1.jpg";
 import joaoPhoto from "@/assets/testimonial-new-3.jpg";
@@ -45,10 +46,13 @@ export const Testimonials = () => {
   return (
     <section id="depoimentos" className="py-8 md:py-12">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
-          O que dizem os alunos
+        <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
+          Histórias reais de quem saiu do zero e aprendeu de verdade
         </h2>
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
+          Veja o que os alunos têm a dizer sobre sua transformação
+        </p>
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
@@ -70,8 +74,14 @@ export const Testimonials = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-8">
-          <AnchorLink href="#conteudo" icon="📚" text="Ver o que você vai aprender" />
+        <div className="flex justify-center">
+          <Button 
+            size="lg" 
+            className="font-extrabold px-8 py-6 rounded-2xl text-base hover:scale-105 transition-transform"
+            onClick={() => (window as any).openCheckout?.()}
+          >
+            💪 Quero ser o próximo aluno!
+          </Button>
         </div>
       </div>
     </section>

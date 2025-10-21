@@ -28,13 +28,13 @@ export const AboutSection = () => {
 
             <div className="space-y-6 text-center md:text-left">
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Sou a professora Elisa, com mais de 20 anos de experiência formando profissionais em informática. Minha missão é tornar o aprendizado acessível e eficaz para todos.
+                Sou a professora Elisa e há mais de 20 anos ajudo pessoas a dominar o computador e conquistar novas oportunidades.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Desenvolvi o <strong className="text-foreground">Informática na Prática</strong> — uma metodologia que respeita seu ritmo e utiliza exemplos práticos do cotidiano profissional, com linguagem clara e objetiva.
+                Desenvolvi o curso <strong className="text-foreground">Informática na Prática</strong> com um método simples e direto.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Já capacitei mais de <strong className="text-foreground">15.000 profissionais</strong> que conquistaram autonomia digital e novas oportunidades no mercado de trabalho.
+                Já são mais de <strong className="text-foreground">15 mil alunos transformados</strong> — e o próximo pode ser você!
               </p>
             </div>
           </div>

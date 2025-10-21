@@ -1,5 +1,5 @@
 import { CheckCircle2, Clock } from "lucide-react";
-import { AnchorLink } from "./AnchorLink";
+import { Button } from "@/components/ui/button";
 
 const benefits = [
   "Usar o computador com segurança e organização (Windows)",
@@ -15,7 +15,7 @@ export const ValueStack = () => {
     <section className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
-          Você vai conseguir…
+          ✅ Depois do curso, você será capaz de...
         </h2>
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {benefits.map((benefit, index) => (
@@ -35,10 +35,13 @@ export const ValueStack = () => {
             <h3 className="text-2xl md:text-3xl font-black mb-3">
               Acesso online completo por <span className="text-primary">2 anos inteiros</span>
             </h3>
-            <p className="text-lg md:text-xl text-muted-foreground mb-6">
-              São <span className="font-bold text-foreground">24 meses completos</span> de curso online para você assistir de qualquer lugar, quantas vezes quiser, no seu ritmo
+            <p className="text-lg md:text-xl text-muted-foreground mb-4">
+              Aprenda no seu ritmo, sem pressa — o acesso é seu por 2 anos inteiros.
             </p>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <p className="text-base text-muted-foreground mb-6">
+              São <span className="font-bold text-foreground">24 meses completos</span> de curso online para você assistir de qualquer lugar, quantas vezes quiser
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 text-sm mb-6">
               <div className="bg-card/50 backdrop-blur rounded-xl p-4">
                 <div className="font-black text-2xl text-primary mb-1">Ilimitado</div>
                 <div className="text-muted-foreground">vezes para assistir</div>
@@ -48,9 +51,13 @@ export const ValueStack = () => {
                 <div className="text-muted-foreground">aprenda quando quiser</div>
               </div>
             </div>
-            <div className="flex justify-center mt-6">
-              <AnchorLink href="#bonus" icon="🎁" text="Ver Bônus Exclusivos" />
-            </div>
+            <Button 
+              size="lg" 
+              className="font-extrabold px-8 py-6 rounded-2xl text-base hover:scale-105 transition-transform"
+              onClick={() => (window as any).openCheckout?.()}
+            >
+              🎯 Garantir meu acesso agora
+            </Button>
           </div>
         </div>
       </div>

@@ -80,10 +80,10 @@ export const Bonus = () => {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-success/10 text-success px-4 py-2 rounded-full mb-4">
             <Gift className="w-5 h-5" />
-            <span className="font-bold">Apenas para as primeiras 50 vagas</span>
+            <span className="font-bold">Bônus Exclusivos</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black mb-4">
-            Leve <span className="text-success">R$ 368 em bônus</span> sem pagar nada a mais
+            Leve <span className="text-success text-4xl md:text-5xl">R$ 368 em bônus</span> sem pagar nada a mais
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-6">
             Quem garantir vaga <span className="font-bold text-foreground">hoje</span> recebe materiais que vão <span className="font-bold text-foreground">acelerar sua entrada no mercado</span>:
@@ -91,7 +91,7 @@ export const Bonus = () => {
           
           <div className="inline-flex items-center gap-3 bg-destructive/10 border-2 border-destructive/30 px-6 py-3 rounded-2xl">
             <Clock className="w-5 h-5 text-destructive" />
-            <span className="font-bold text-sm text-destructive">⚠️ Bônus disponíveis por apenas:</span>
+            <span className="font-bold text-sm text-destructive">⚠️ Bônus disponíveis apenas enquanto durar o lote atual:</span>
             <div className="flex gap-2">
               <div className="bg-destructive text-white px-2 py-1 rounded font-bold text-sm min-w-[32px]">
                 {pad(timeLeft.hours)}
