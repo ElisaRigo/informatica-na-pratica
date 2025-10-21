@@ -32,6 +32,7 @@ export const CheckoutForm = () => {
   });
   const [mpInstance, setMpInstance] = useState<any>(null);
   const [pixData, setPixData] = useState<PixData | null>(null);
+  const [checkingPayment, setCheckingPayment] = useState(false);
 
   // Carregar SDK do Mercado Pago
   useEffect(() => {
@@ -222,6 +223,52 @@ export const CheckoutForm = () => {
     }
   };
 
+  const checkPaymentStatus = async () => {
+    if (!pixData?.paymentId) return;
+    
+    setCheckingPayment(true);
+    
+    try {
+      // Verificar na base de dados se o pagamento foi processado
+      const { data: payment, error } = await supabase
+        .from('payments')
+        .select('status')
+        .eq('pagseguro_transaction_id', pixData.paymentId)
+        .eq('status', 'approved')
+        .maybeSingle();
+
+      if (error && error.code !== 'PGRST116') {
+        throw error;
+      }
+
+      if (payment) {
+        toast({
+          title: "✅ Pagamento confirmado!",
+          description: "Redirecionando para confirmação...",
+        });
+        
+        // Redirecionar para página de obrigado
+        setTimeout(() => {
+          window.location.href = '/obrigada';
+        }, 1500);
+      } else {
+        toast({
+          title: "Aguardando pagamento",
+          description: "O pagamento ainda não foi confirmado. Aguarde alguns instantes após pagar.",
+        });
+      }
+    } catch (error: any) {
+      console.error('Error checking payment:', error);
+      toast({
+        title: "Erro",
+        description: "Não foi possível verificar o pagamento. Tente novamente.",
+        variant: "destructive"
+      });
+    } finally {
+      setCheckingPayment(false);
+    }
+  };
+
   // Se tem dados do PIX, mostra a tela do QR Code
   if (pixData) {
     return (
@@ -297,6 +344,26 @@ export const CheckoutForm = () => {
               <li>Pronto! Você receberá o acesso por e-mail</li>
             </ol>
           </div>
+
+          {/* Botão "Já Paguei" */}
+          <Button
+            onClick={checkPaymentStatus}
+            disabled={checkingPayment}
+            size="lg"
+            className="w-full bg-success hover:bg-success/90 text-white font-bold"
+          >
+            {checkingPayment ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                Verificando pagamento...
+              </>
+            ) : (
+              <>
+                <CheckCircle2 className="w-4 h-4 mr-2" />
+                Já paguei, verificar pagamento
+              </>
+            )}
+          </Button>
 
           {/* Aviso */}
           <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
