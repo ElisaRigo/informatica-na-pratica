@@ -418,15 +418,18 @@ export const CheckoutForm = () => {
   // Formulário inicial
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between pb-6 border-b">
-        <img src={logoBlue} alt="Elisa Ensina" className="h-12 md:h-14" />
-        <div className="text-right">
-          <div className="text-4xl md:text-5xl font-black text-primary">
+      {/* Header com Preço em Destaque */}
+      <div className="text-center space-y-4 pb-6 border-b-2">
+        <img src={logoBlue} alt="Elisa Ensina" className="h-14 md:h-16 mx-auto" />
+        <div>
+          <div className="text-5xl md:text-6xl font-black text-primary mb-2">
             R$ {coursePrice.toFixed(2).replace('.', ',')}
           </div>
-          <div className="text-xs md:text-sm font-semibold text-muted-foreground mt-1">
-            Acesso completo por 2 anos
+          <div className="text-sm md:text-base font-bold text-foreground">
+            Acesso completo por 2 anos • Certificado incluso
+          </div>
+          <div className="text-xs md:text-sm text-muted-foreground mt-2">
+            Ou parcele em até 12x no cartão
           </div>
         </div>
       </div>
@@ -493,20 +496,20 @@ export const CheckoutForm = () => {
         <h3 className="text-lg md:text-xl font-black text-center mb-4 text-foreground">Escolha a forma de pagamento</h3>
       </div>
 
-      {/* Opções de Pagamento - Grade de 3 colunas */}
-      <div className="grid grid-cols-3 gap-3">
+      {/* Opções de Pagamento - Melhoradas */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Cartão */}
         <button
           onClick={() => handleOtherPayment('card')}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+          className="flex flex-col items-center justify-center gap-3 p-6 md:p-8 rounded-2xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
           <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-            <CreditCard className="w-8 h-8 text-primary" />
+            <CreditCard className="w-8 h-8 md:w-10 md:h-10 text-primary" />
           </div>
           <div className="text-center">
-            <div className="font-bold text-sm">Cartão</div>
-            <div className="text-xs text-muted-foreground mt-1">Até 12x</div>
+            <div className="font-black text-base md:text-lg">Cartão de Crédito</div>
+            <div className="text-sm text-primary font-bold mt-2">Parcele em até 12x</div>
           </div>
         </button>
 
@@ -514,14 +517,14 @@ export const CheckoutForm = () => {
         <button
           onClick={handlePixPayment}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+          className="flex flex-col items-center justify-center gap-3 p-6 md:p-8 rounded-2xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
           <div className="p-4 rounded-full bg-success/10 group-hover:bg-success/20 transition-colors">
-            <Smartphone className="w-8 h-8 text-success" />
+            <Smartphone className="w-8 h-8 md:w-10 md:h-10 text-success" />
           </div>
           <div className="text-center">
-            <div className="font-bold text-sm">PIX</div>
-            <div className="text-xs text-muted-foreground mt-1">Aprovação imediata</div>
+            <div className="font-black text-base md:text-lg">PIX</div>
+            <div className="text-sm text-success font-bold mt-2">Aprovação imediata</div>
           </div>
         </button>
 
@@ -529,14 +532,14 @@ export const CheckoutForm = () => {
         <button
           onClick={() => handleOtherPayment('boleto')}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+          className="flex flex-col items-center justify-center gap-3 p-6 md:p-8 rounded-2xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
           <div className="p-4 rounded-full bg-warning/10 group-hover:bg-warning/20 transition-colors">
-            <Receipt className="w-8 h-8 text-warning" />
+            <Receipt className="w-8 h-8 md:w-10 md:h-10 text-warning" />
           </div>
           <div className="text-center">
-            <div className="font-bold text-sm">Boleto</div>
-            <div className="text-xs text-muted-foreground mt-1">Até 3 dias úteis</div>
+            <div className="font-black text-base md:text-lg">Boleto</div>
+            <div className="text-sm text-warning font-bold mt-2">Até 3 dias úteis</div>
           </div>
         </button>
       </div>
