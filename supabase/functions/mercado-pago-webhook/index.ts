@@ -426,79 +426,32 @@ serve(async (req) => {
       });
     }
 
-    const customerEmail = payment.payer?.email;
     const amount = payment.transaction_amount;
     const paymentMethod = payment.payment_method_id;
 
-    if (!customerEmail) {
-      throw new Error("Customer email not found");
-    }
-
-    console.log(`Processing approved payment for ${customerEmail}`);
-
-    // ESTRATÉGIA: Buscar nome em múltiplas fontes (prioridade decrescente)
-    let customerName = '';
-
-    // 1. Buscar do registro de estudante (salvo quando PIX foi criado)
-    console.log("🔍 Looking for student data...");
+    // CRÍTICO: Mercado Pago mascara o email no webhook como "XXXXXXXXXXX"
+    // Precisamos buscar o email REAL da tabela students usando o payment ID
+    console.log("🔍 Looking for student data by transaction ID...");
     const { data: studentData, error: studentFetchError } = await supabase
       .from("students")
       .select("name, email")
-      .eq("email", customerEmail)
+      .eq("pagseguro_transaction_id", String(paymentId))
       .maybeSingle();
 
     if (studentFetchError) {
       console.error("Error fetching student:", studentFetchError);
+      throw new Error("Student not found for this payment");
     }
 
-    if (studentData?.name) {
-      customerName = studentData.name;
-      console.log(`✅ Name found in students table: ${customerName}`);
+    if (!studentData) {
+      throw new Error("Student not found - payment may have been created outside the system");
     }
 
-    // 2. Se não encontrou, buscar do payment original (webhook_data do create-pix-payment)
-    if (!customerName) {
-      console.log("🔍 Looking for name in payment data...");
-      const { data: paymentRecord, error: paymentRecordError } = await supabase
-        .from("payments")
-        .select("webhook_data")
-        .eq("pagseguro_transaction_id", String(paymentId))
-        .maybeSingle();
+    const customerEmail = studentData.email;
+    const customerName = studentData.name || "Aluno Curso";
 
-      if (paymentRecordError) {
-        console.error("Error fetching payment record:", paymentRecordError);
-      }
+    console.log(`✅ Student found: ${customerName} (${customerEmail})`);
 
-      if (paymentRecord?.webhook_data) {
-        const webhookData = paymentRecord.webhook_data as any;
-        const firstName = webhookData.payer?.first_name || '';
-        const lastName = webhookData.payer?.last_name || '';
-        customerName = `${firstName} ${lastName}`.trim();
-        
-        if (customerName) {
-          console.log(`✅ Name found in payment webhook_data: ${customerName}`);
-        }
-      }
-    }
-
-    // 3. Fallback: usar dados do webhook atual (geralmente null no MP)
-    if (!customerName) {
-      const firstName = payment.payer?.first_name || '';
-      const lastName = payment.payer?.last_name || '';
-      customerName = `${firstName} ${lastName}`.trim();
-      
-      if (customerName) {
-        console.log(`✅ Name found in current webhook: ${customerName}`);
-      }
-    }
-
-    // 4. Último recurso: nome genérico
-    if (!customerName) {
-      customerName = "Aluno Curso";
-      console.log(`⚠️ Using fallback name: ${customerName}`);
-    }
-    
-    console.log(`📝 Final customer name: ${customerName}`);
 
     // Atualizar ou inserir pagamento com status "approved"
     const { data: paymentData, error: paymentError } = await supabase
