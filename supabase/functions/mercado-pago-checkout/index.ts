@@ -85,6 +85,7 @@ serve(async (req) => {
       JSON.stringify({
         preferenceId: preference.id,
         initPoint: preference.init_point,
+        accessToken: accessToken, // Enviar para processar pagamentos no frontend
       }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },

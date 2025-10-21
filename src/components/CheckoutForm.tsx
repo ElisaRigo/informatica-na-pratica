@@ -1,181 +1,68 @@
-import { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, Lock, CheckCircle2, CreditCard, Zap } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
-// Inicializar Stripe
-const stripePromise = loadStripe("pk_live_51SJEnDRzpXJIMcLIM7wCJea44yypOFWrTLglfYQLgliSZ5AIblICg3Kdh0h9hXh0rj3IIMN54saR56rszBDPQRx800u7rhR1vw");
-
-const CheckoutFormContent = ({ clientSecret }: { clientSecret: string }) => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [loading, setLoading] = useState(false);
-  const [isReady, setIsReady] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!stripe || !elements) {
-      toast({
-        title: "Carregando...",
-        description: "Aguarde enquanto preparamos o pagamento",
-      });
-      return;
-    }
-
-    if (!isReady) {
-      toast({
-        title: "Aguarde",
-        description: "O formulário de pagamento ainda está carregando",
-      });
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      // Usar redirect: 'if_required' para ter controle sobre o redirecionamento
-      const { error, paymentIntent } = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          return_url: `${window.location.protocol}//${window.location.host}/obrigada`,
-        },
-        redirect: 'if_required',
-      });
-
-      // Se há erro, mostrar para o usuário
-      if (error) {
-        console.error("Payment error:", error);
-        
-        // Erros de validação não mostram toast (deixa o Stripe mostrar inline)
-        if (error.type === "validation_error") {
-          return;
-        }
-        
-        toast({
-          title: "Erro no pagamento",
-          description: error.message,
-          variant: "destructive",
-        });
-        return;
-      }
-
-      // Se temos paymentIntent, verificar o status
-      if (paymentIntent) {
-        console.log("Payment Intent Status:", paymentIntent.status);
-        
-        // Pagamento com cartão aprovado instantaneamente
-        if (paymentIntent.status === "succeeded") {
-          console.log("Payment succeeded, redirecting to thank you page");
-          window.location.href = `${window.location.protocol}//${window.location.host}/obrigada?payment_intent=${paymentIntent.id}`;
-          return;
-        }
-        
-        // Boleto ou método que requer ação adicional
-        if (paymentIntent.status === "requires_action" || paymentIntent.status === "processing") {
-          console.log("Payment requires action (boleto), redirecting to waiting page");
-          window.location.href = `${window.location.protocol}//${window.location.host}/aguardando-confirmacao?payment_intent=${paymentIntent.id}`;
-          return;
-        }
-
-        // Outros status
-        console.log("Payment status:", paymentIntent.status);
-        toast({
-          title: "Pagamento em processamento",
-          description: "Aguarde a confirmação do seu pagamento",
-        });
-      }
-    } catch (err: any) {
-      console.error("Unexpected error:", err);
-      toast({
-        title: "Erro",
-        description: err.message || "Ocorreu um erro ao processar o pagamento",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {!isReady && (
-        <div className="flex items-center justify-center py-8 text-muted-foreground">
-          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-          <span>Carregando opções de pagamento...</span>
-        </div>
-      )}
-      <PaymentElement 
-        onReady={() => {
-          console.log("PaymentElement ready");
-          setIsReady(true);
-        }}
-        onLoadError={(error) => {
-          console.error("PaymentElement load error:", error);
-          toast({
-            title: "Erro ao carregar",
-            description: "Não foi possível carregar o formulário de pagamento. Tente novamente.",
-            variant: "destructive"
-          });
-        }}
-        options={{
-          layout: {
-            type: 'tabs',
-            defaultCollapsed: false,
-          },
-        }}
-      />
-      
-      <Button
-        type="submit"
-        disabled={!stripe || !isReady || loading}
-        size="lg"
-        className="w-full font-bold text-lg py-6"
-      >
-        {loading ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Processando...
-          </>
-        ) : !isReady ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Carregando...
-          </>
-        ) : (
-          `Garantir Minha Vaga Agora`
-        )}
-      </Button>
-      
-      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
-        <ShieldCheck className="w-4 h-4" />
-        <span>Compra Protegida pela Garantia Total de 7 Dias</span>
-      </div>
-    </form>
-  );
-};
-
+declare global {
+  interface Window {
+    MercadoPago: any;
+  }
+}
 
 export const CheckoutForm = () => {
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
-  const [stripeLoading, setStripeLoading] = useState(false);
-  const [pagSeguroLoading, setPagSeguroLoading] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'pix' | null>(null);
   const { toast } = useToast();
-  
+  const [loading, setLoading] = useState(false);
+  const [sdkLoaded, setSdkLoaded] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     cpf: ""
   });
+  const [mpInstance, setMpInstance] = useState<any>(null);
+  const [bricksBuilder, setBricksBuilder] = useState<any>(null);
+  const [selectedMethod, setSelectedMethod] = useState<'card' | 'pix' | null>(null);
+
+  // Carregar SDK do Mercado Pago
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://sdk.mercadopago.com/js/v2';
+    script.async = true;
+    script.onload = async () => {
+      console.log('Mercado Pago SDK loaded');
+      
+      // Buscar public key do backend
+      try {
+        const { data: { MERCADO_PAGO_PUBLIC_KEY } } = await supabase.functions.invoke('get-mp-public-key');
+        
+        if (MERCADO_PAGO_PUBLIC_KEY) {
+          const mp = new window.MercadoPago(MERCADO_PAGO_PUBLIC_KEY, {
+            locale: 'pt-BR'
+          });
+          setMpInstance(mp);
+          setSdkLoaded(true);
+          console.log('Mercado Pago initialized');
+        }
+      } catch (error) {
+        console.error('Error loading MP key:', error);
+        toast({
+          title: "Erro ao carregar",
+          description: "Não foi possível carregar o sistema de pagamento",
+          variant: "destructive"
+        });
+      }
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   const formatCPF = (value: string) => {
     const numbers = value.replace(/\D/g, '');
@@ -185,138 +72,242 @@ export const CheckoutForm = () => {
     return value;
   };
 
-  const handleStripePayment = async () => {
-    console.log("Iniciando pagamento Stripe...");
-    
+  const validateForm = () => {
     if (!formData.name || !formData.email || !formData.cpf) {
       toast({
         title: "Preencha todos os campos",
-        description: "Todos os campos são obrigatórios para continuar",
+        description: "Todos os campos são obrigatórios",
         variant: "destructive"
       });
-      return;
+      return false;
     }
 
     const cleanCPF = formData.cpf.replace(/\D/g, '');
-
     if (cleanCPF.length !== 11) {
       toast({
         title: "CPF inválido",
-        description: "Digite um CPF válido",
+        description: "Digite um CPF válido com 11 dígitos",
         variant: "destructive"
+      });
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "E-mail inválido",
+        description: "Digite um e-mail válido",
+        variant: "destructive"
+      });
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleCardPayment = async () => {
+    if (!validateForm()) return;
+    if (!mpInstance || !sdkLoaded) {
+      toast({
+        title: "Aguarde",
+        description: "Sistema de pagamento ainda carregando...",
       });
       return;
     }
 
-    setStripeLoading(true);
-    console.log("Chamando função create-payment-intent...");
+    setLoading(true);
+    setSelectedMethod('card');
 
     try {
-      const { data, error } = await supabase.functions.invoke('create-payment-intent', {
+      console.log('Creating preference for card payment...');
+      
+      const { data, error } = await supabase.functions.invoke('mercado-pago-checkout', {
         body: {
-          customerName: formData.name,
-          customerEmail: formData.email,
-          customerTaxId: cleanCPF
+          name: formData.name,
+          email: formData.email,
+          cpf: formData.cpf.replace(/\D/g, '')
         }
       });
 
-      console.log("Resposta da função:", { data, error });
+      if (error) throw error;
+
+      if (!data?.preferenceId) {
+        throw new Error('Erro ao criar checkout');
+      }
+
+      console.log('Preference created:', data.preferenceId);
+
+      // Criar Brick de Card Payment
+      const bricks = mpInstance.bricks();
+      
+      // Limpar container se existir
+      const container = document.getElementById('cardPaymentBrick_container');
+      if (container) {
+        container.innerHTML = '';
+      }
+
+      await bricks.create('cardPayment', 'cardPaymentBrick_container', {
+        initialization: {
+          amount: 497,
+          payer: {
+            email: formData.email,
+          },
+        },
+        customization: {
+          visual: {
+            style: {
+              theme: 'dark',
+            },
+          },
+          paymentMethods: {
+            maxInstallments: 12,
+          },
+        },
+        callbacks: {
+          onReady: () => {
+            console.log('Card Payment Brick ready');
+            setLoading(false);
+          },
+          onSubmit: async (cardFormData: any) => {
+            console.log('Card payment submitted:', cardFormData);
+            
+            try {
+              // Processar pagamento
+              const paymentResponse = await fetch(`https://api.mercadopago.com/v1/payments`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${data.accessToken}`, // Enviado pelo backend
+                },
+                body: JSON.stringify({
+                  ...cardFormData,
+                  statement_descriptor: 'ELISA ENSINA',
+                  external_reference: `${formData.email}-${Date.now()}`,
+                  notification_url: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/mercado-pago-webhook`,
+                }),
+              });
+
+              const paymentResult = await paymentResponse.json();
+              
+              if (paymentResult.status === 'approved') {
+                window.location.href = '/obrigada';
+              } else if (paymentResult.status === 'pending') {
+                window.location.href = '/aguardando';
+              } else {
+                throw new Error(paymentResult.status_detail || 'Pagamento não aprovado');
+              }
+            } catch (err: any) {
+              console.error('Payment error:', err);
+              toast({
+                title: "Erro no pagamento",
+                description: err.message,
+                variant: "destructive"
+              });
+            }
+          },
+          onError: (error: any) => {
+            console.error('Brick error:', error);
+            toast({
+              title: "Erro",
+              description: "Ocorreu um erro ao processar o pagamento",
+              variant: "destructive"
+            });
+            setLoading(false);
+          },
+        },
+      });
+
+      setBricksBuilder(bricks);
+    } catch (error: any) {
+      console.error('Error:', error);
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao processar pagamento",
+        variant: "destructive"
+      });
+      setLoading(false);
+      setSelectedMethod(null);
+    }
+  };
+
+  const handlePixPayment = async () => {
+    if (!validateForm()) return;
+    if (!mpInstance || !sdkLoaded) {
+      toast({
+        title: "Aguarde",
+        description: "Sistema de pagamento ainda carregando...",
+      });
+      return;
+    }
+
+    setLoading(true);
+    setSelectedMethod('pix');
+
+    try {
+      console.log('Creating checkout for PIX...');
+      
+      const { data, error } = await supabase.functions.invoke('mercado-pago-checkout', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          cpf: formData.cpf.replace(/\D/g, '')
+        }
+      });
 
       if (error) throw error;
 
-      if (data.clientSecret) {
-        console.log("Client secret recebido, mostrando checkout");
-        setClientSecret(data.clientSecret);
-        setPaymentMethod('stripe');
-      } else {
-        throw new Error('Falha ao iniciar pagamento');
+      if (!data?.preferenceId) {
+        throw new Error('Erro ao criar checkout');
       }
 
-    } catch (error: any) {
-      console.error('Error creating payment intent:', error);
+      // Redirecionar para o Mercado Pago com preference criado
+      const checkout = mpInstance.checkout({
+        preference: {
+          id: data.preferenceId
+        },
+        autoOpen: true,
+      });
+
       toast({
-        title: "Erro ao processar",
-        description: error.message || "Tente novamente em alguns instantes",
+        title: "Redirecionando...",
+        description: "Você será redirecionado para completar o pagamento",
+      });
+    } catch (error: any) {
+      console.error('Error:', error);
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao processar pagamento",
         variant: "destructive"
       });
-    } finally {
-      setStripeLoading(false);
+      setLoading(false);
+      setSelectedMethod(null);
     }
   };
 
-  const handlePagSeguroPayment = async () => {
-    console.log("🚀 INICIANDO CHECKOUT PAGSEGURO DIRETO (SEM CADASTRO)");
-    
-    setPagSeguroLoading(true);
-
-    try {
-      console.log("📡 Chamando edge function pagseguro-checkout...");
-      
-      // Enviar dados vazios - o cliente preenche no PagSeguro
-      const { data, error } = await supabase.functions.invoke('pagseguro-checkout', {
-        body: {}
-      });
-
-      console.log("📦 Resposta da edge function:", { data, error });
-
-      if (error) {
-        console.error("❌ Erro retornado pela edge function:", error);
-        throw error;
-      }
-
-      if (data.paymentUrl) {
-        console.log("✅ Checkout criado! Código:", data.checkoutCode);
-        console.log("🔗 Redirecionando para:", data.paymentUrl);
-        console.log("💡 Cliente vai preencher dados no PagSeguro");
-        window.location.href = data.paymentUrl;
-      } else {
-        console.error("❌ paymentUrl não encontrado na resposta");
-        throw new Error('Falha ao gerar link de checkout');
-      }
-
-    } catch (error: any) {
-      console.error('❌ Erro ao criar checkout:', error);
-      toast({
-        title: "Erro ao processar",
-        description: error.message || "Tente novamente em alguns instantes",
-        variant: "destructive"
-      });
-      setPagSeguroLoading(false);
-    }
-  };
-
-  if (clientSecret && paymentMethod === 'stripe') {
-    console.log("Rendering checkout form with clientSecret");
+  // Se método foi selecionado, mostra o Brick
+  if (selectedMethod === 'card') {
     return (
-      <div className="space-y-4 bg-card border border-border rounded-xl p-6">
-        <div className="flex flex-col items-center space-y-4 mb-6">
-          <img src={logoBlue} alt="Informática na Prática" className="h-16" />
+      <div className="space-y-6">
+        <div className="flex flex-col items-center space-y-4">
+          <img src={logoBlue} alt="Elisa Ensina" className="h-16" />
           <div className="text-center space-y-2">
-            <h3 className="text-xl font-bold">💳 Finalize sua matrícula com segurança</h3>
+            <h3 className="text-xl font-bold">💳 Pagamento com Cartão</h3>
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <Lock className="w-4 h-4" />
-              <span>Pagamento 100% seguro e criptografado</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-sm font-medium text-success">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Garantia Total de 7 Dias</span>
+              <span>Pagamento 100% seguro</span>
             </div>
           </div>
         </div>
-        <Elements 
-          stripe={stripePromise} 
-          options={{ 
-            clientSecret,
-            loader: 'always'
-          }}
-        >
-          <CheckoutFormContent clientSecret={clientSecret} />
-        </Elements>
+
+        <div id="cardPaymentBrick_container"></div>
+
         <Button
           variant="outline"
           onClick={() => {
-            setClientSecret(null);
-            setPaymentMethod(null);
+            setSelectedMethod(null);
+            setLoading(false);
+            const container = document.getElementById('cardPaymentBrick_container');
+            if (container) container.innerHTML = '';
           }}
           className="w-full"
         >
@@ -326,86 +317,89 @@ export const CheckoutForm = () => {
     );
   }
 
+  // Formulário inicial
   return (
-    <>
-      {/* Formulário Principal - Stripe */}
-      <div className="space-y-6 bg-card border border-border rounded-xl p-6">
-        {/* Logo e Valor */}
-        <div className="flex items-center justify-between pb-4 border-b border-border">
-          <img src={logoBlue} alt="Informática na Prática" className="h-14" />
-          <div className="text-right">
-            <div className="text-2xl font-black text-primary">R$ 297,00</div>
-            <div className="text-sm font-bold text-success">40% OFF</div>
-          </div>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between pb-4 border-b border-border">
+        <img src={logoBlue} alt="Elisa Ensina" className="h-14" />
+        <div className="text-right">
+          <div className="text-2xl font-black text-primary">R$ 497,00</div>
+          <div className="text-sm font-medium text-muted-foreground line-through">R$ 997,00</div>
+        </div>
+      </div>
+
+      {/* Badges de Segurança */}
+      <div className="flex items-center justify-center gap-6 py-3 bg-muted/50 rounded-lg">
+        <div className="flex items-center gap-2 text-xs">
+          <Lock className="w-4 h-4 text-success" />
+          <span className="font-medium">SSL Seguro</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs">
+          <CheckCircle2 className="w-4 h-4 text-success" />
+          <span className="font-medium">Mercado Pago</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs">
+          <ShieldCheck className="w-4 h-4 text-success" />
+          <span className="font-medium">Garantia 7 dias</span>
+        </div>
+      </div>
+
+      {/* Formulário */}
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="name">Nome Completo *</Label>
+          <Input
+            id="name"
+            placeholder="Seu nome completo"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            disabled={loading || !sdkLoaded}
+          />
         </div>
 
-        {/* Ícones de Segurança */}
-        <div className="flex items-center justify-center gap-6 py-3 bg-muted/50 rounded-lg">
-          <div className="flex items-center gap-2 text-xs">
-            <Lock className="w-4 h-4 text-success" />
-            <span className="font-medium">SSL Seguro</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs">
-            <CheckCircle2 className="w-4 h-4 text-success" />
-            <span className="font-medium">Stripe</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs">
-            <ShieldCheck className="w-4 h-4 text-success" />
-            <span className="font-medium">Garantia 7 dias</span>
-          </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">E-mail *</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="seu@email.com"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            disabled={loading || !sdkLoaded}
+          />
         </div>
 
-        <div className="text-center text-sm text-muted-foreground mb-4">
-          Preencha seus dados para pagar com <strong>Cartão de Crédito</strong>
+        <div className="space-y-2">
+          <Label htmlFor="cpf">CPF *</Label>
+          <Input
+            id="cpf"
+            placeholder="000.000.000-00"
+            value={formData.cpf}
+            onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+            maxLength={14}
+            disabled={loading || !sdkLoaded}
+          />
         </div>
-        
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="name">Nome Completo *</Label>
-            <Input
-              id="name"
-              placeholder="Seu nome completo"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              disabled={stripeLoading}
-            />
-          </div>
+      </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="email">E-mail *</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="seu@email.com"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              disabled={stripeLoading}
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="cpf">CPF *</Label>
-            <Input
-              id="cpf"
-              placeholder="000.000.000-00"
-              value={formData.cpf}
-              onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-              maxLength={14}
-              disabled={stripeLoading}
-            />
-          </div>
-        </div>
-
+      {/* Botões de Pagamento */}
+      <div className="space-y-3">
         <Button
-          onClick={handleStripePayment}
+          onClick={handleCardPayment}
           size="lg"
           className="w-full font-bold text-lg py-6"
-          disabled={stripeLoading}
+          disabled={loading || !sdkLoaded}
         >
-          {stripeLoading ? (
+          {!sdkLoaded ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Processando...
+              Carregando sistema...
+            </>
+          ) : loading ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Carregando...
             </>
           ) : (
             <>
@@ -415,53 +409,31 @@ export const CheckoutForm = () => {
           )}
         </Button>
 
-        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
-          <ShieldCheck className="w-4 h-4" />
-          <span>Parcelamento disponível • Garantia de 7 Dias</span>
-        </div>
+        <Button
+          onClick={handlePixPayment}
+          size="lg"
+          variant="outline"
+          className="w-full font-bold text-lg py-6 border-2"
+          disabled={loading || !sdkLoaded}
+        >
+          {loading ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            <>
+              <Smartphone className="mr-2 h-5 w-5" />
+              Pagar com PIX ou Boleto
+            </>
+          )}
+        </Button>
       </div>
 
-      {/* Botão Flutuante PagSeguro - Independente */}
-      <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-500">
-        <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl shadow-2xl p-1">
-          <div className="bg-background rounded-xl p-4 space-y-3">
-            <div className="text-center space-y-1">
-              <div className="text-sm font-bold">Pagamento Rápido</div>
-              <div className="text-xs text-muted-foreground">Sem cadastro prévio</div>
-            </div>
-            
-            <div className="flex gap-2 justify-center text-xs">
-              <span className="px-2 py-1 bg-green-500/10 text-green-700 dark:text-green-400 rounded font-medium">PIX</span>
-              <span className="px-2 py-1 bg-blue-500/10 text-blue-700 dark:text-blue-400 rounded font-medium">Boleto</span>
-              <span className="px-2 py-1 bg-purple-500/10 text-purple-700 dark:text-purple-400 rounded font-medium">Cartão</span>
-            </div>
-
-            <Button
-              onClick={handlePagSeguroPayment}
-              size="lg"
-              className="w-full font-bold bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 shadow-lg"
-              disabled={pagSeguroLoading}
-            >
-              {pagSeguroLoading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Abrindo...
-                </>
-              ) : (
-                <>
-                  <Zap className="mr-2 h-4 w-4" />
-                  PagSeguro
-                </>
-              )}
-            </Button>
-
-            <div className="flex items-center justify-center gap-1 text-[10px] text-muted-foreground">
-              <ShieldCheck className="w-3 h-3" />
-              <span>Garantia 7 dias</span>
-            </div>
-          </div>
-        </div>
+      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+        <ShieldCheck className="w-4 h-4" />
+        <span>Parcelamento disponível • Garantia Total de 7 Dias</span>
       </div>
-    </>
+    </div>
   );
 };

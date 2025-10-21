@@ -1,13 +1,10 @@
 project_id = "exncvylyygvctgwyqpin"
 
-[functions.pagseguro-webhook]
-verify_jwt = false
-
-[functions.create-payment-intent]
-verify_jwt = false
-
-[functions.stripe-webhook]
+[functions.mercado-pago-checkout]
 verify_jwt = false
 
 [functions.mercado-pago-webhook]
+verify_jwt = false
+
+[functions.get-mp-public-key]
 verify_jwt = false
