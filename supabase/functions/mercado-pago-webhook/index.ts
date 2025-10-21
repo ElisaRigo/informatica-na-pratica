@@ -55,11 +55,28 @@ async function callMoodleAPI(functionName: string, params: Record<string, any>) 
 }
 
 async function createMoodleUser(name: string, email: string) {
+  // VALIDAÇÕES DE ENTRADA
+  console.log('🔍 Validating input data:', { name, email });
+  
+  // Validar email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    throw new Error(`Invalid email format: ${email}`);
+  }
+  
+  // Validar nome (deve ter pelo menos 2 palavras ou mínimo 5 caracteres)
+  const trimmedName = name.trim();
+  if (trimmedName.length < 3) {
+    throw new Error(`Name too short: "${trimmedName}"`);
+  }
+  
   // Gerar username a partir do email - mínimo 5 caracteres
   let username = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
   if (username.length < 5) {
     username = username + Math.random().toString(36).substring(2, 7);
   }
+  // Limitar tamanho máximo do username
+  username = username.substring(0, 20);
   
   // Gerar senha segura SEM caracteres especiais problemáticos (&, %, +, =)
   // Usar apenas caracteres seguros para URL
@@ -82,28 +99,48 @@ async function createMoodleUser(name: string, email: string) {
   // Embaralhar a senha
   password = password.split('').sort(() => Math.random() - 0.5).join('');
 
-  // Validar e preparar firstname e lastname
-  const nameParts = name.trim().split(' ').filter(part => part.length > 0);
-  const firstname = nameParts[0] || 'Aluno';
-  const lastname = nameParts.slice(1).join(' ') || 'Curso';
+  // PROCESSAMENTO DE NOME - mais robusto
+  const nameParts = trimmedName.split(/\s+/).filter(part => part.length > 0);
   
-  // Garantir que firstname e lastname sejam diferentes e tenham pelo menos 2 caracteres
-  const validFirstname = firstname.length >= 2 ? firstname : 'Aluno';
-  const validLastname = lastname.length >= 2 ? lastname : 'Curso';
+  let firstname: string;
+  let lastname: string;
+  
+  if (nameParts.length === 0) {
+    // Caso extremo: nome vazio (não deveria acontecer)
+    firstname = 'Estudante';
+    lastname = 'Curso';
+  } else if (nameParts.length === 1) {
+    // Apenas um nome: usar como firstname e gerar lastname
+    firstname = nameParts[0];
+    lastname = 'Silva'; // Sobrenome comum
+  } else {
+    // Nome completo: primeiro nome + resto
+    firstname = nameParts[0];
+    lastname = nameParts.slice(1).join(' ');
+  }
+  
+  // Garantir que firstname e lastname sejam válidos
+  // Moodle requer: mínimo 2 caracteres, não podem ser iguais
+  const validFirstname = firstname.length >= 2 ? firstname.substring(0, 100) : 'Estudante';
+  const validLastname = lastname.length >= 2 ? lastname.substring(0, 100) : 'Silva';
+  
+  // Garantir que não sejam iguais
+  const finalFirstname = validFirstname;
+  const finalLastname = validFirstname === validLastname ? validLastname + ' Jr' : validLastname;
 
   const userData = {
     'users[0][username]': username,
     'users[0][password]': password,
-    'users[0][firstname]': validFirstname,
-    'users[0][lastname]': validLastname,
+    'users[0][firstname]': finalFirstname,
+    'users[0][lastname]': finalLastname,
     'users[0][email]': email,
     'users[0][auth]': 'manual',
   };
   
   console.log('📝 User data prepared:', {
     username,
-    firstname: validFirstname,
-    lastname: validLastname,
+    firstname: finalFirstname,
+    lastname: finalLastname,
     email,
     passwordLength: password.length
   });
@@ -399,7 +436,10 @@ serve(async (req) => {
 
     console.log(`Processing approved payment for ${customerEmail}`);
 
-    // Buscar dados do estudante que foram salvos quando o PIX foi criado
+    // ESTRATÉGIA: Buscar nome em múltiplas fontes (prioridade decrescente)
+    let customerName = '';
+
+    // 1. Buscar do registro de estudante (salvo quando PIX foi criado)
     console.log("🔍 Looking for student data...");
     const { data: studentData, error: studentFetchError } = await supabase
       .from("students")
@@ -411,16 +451,54 @@ serve(async (req) => {
       console.error("Error fetching student:", studentFetchError);
     }
 
-    // Construir nome completo a partir do Mercado Pago
-    let customerName = studentData?.name;
-    
+    if (studentData?.name) {
+      customerName = studentData.name;
+      console.log(`✅ Name found in students table: ${customerName}`);
+    }
+
+    // 2. Se não encontrou, buscar do payment original (webhook_data do create-pix-payment)
     if (!customerName) {
-      const firstName = payment.payer?.first_name || payment.additional_info?.payer?.first_name || '';
-      const lastName = payment.payer?.last_name || payment.additional_info?.payer?.last_name || '';
-      customerName = `${firstName} ${lastName}`.trim() || "Aluno Curso";
+      console.log("🔍 Looking for name in payment data...");
+      const { data: paymentRecord, error: paymentRecordError } = await supabase
+        .from("payments")
+        .select("webhook_data")
+        .eq("pagseguro_transaction_id", String(paymentId))
+        .maybeSingle();
+
+      if (paymentRecordError) {
+        console.error("Error fetching payment record:", paymentRecordError);
+      }
+
+      if (paymentRecord?.webhook_data) {
+        const webhookData = paymentRecord.webhook_data as any;
+        const firstName = webhookData.payer?.first_name || '';
+        const lastName = webhookData.payer?.last_name || '';
+        customerName = `${firstName} ${lastName}`.trim();
+        
+        if (customerName) {
+          console.log(`✅ Name found in payment webhook_data: ${customerName}`);
+        }
+      }
+    }
+
+    // 3. Fallback: usar dados do webhook atual (geralmente null no MP)
+    if (!customerName) {
+      const firstName = payment.payer?.first_name || '';
+      const lastName = payment.payer?.last_name || '';
+      customerName = `${firstName} ${lastName}`.trim();
+      
+      if (customerName) {
+        console.log(`✅ Name found in current webhook: ${customerName}`);
+      }
+    }
+
+    // 4. Último recurso: nome genérico
+    if (!customerName) {
+      customerName = "Aluno Curso";
+      console.log(`⚠️ Using fallback name: ${customerName}`);
     }
     
-    console.log(`Customer name found: ${customerName}`);
+    console.log(`📝 Final customer name: ${customerName}`);
 
     // Atualizar ou inserir pagamento com status "approved"
     const { data: paymentData, error: paymentError } = await supabase
