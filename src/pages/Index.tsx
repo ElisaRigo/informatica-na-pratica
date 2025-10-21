@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { CourseContent } from "@/components/CourseContent";
+import { VideoSection } from "@/components/VideoSection";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
 // Lazy load componentes otimizados para conversão
@@ -35,6 +36,9 @@ const Index = () => {
       <Suspense fallback={<div className="h-32" />}>
         <Bonus />
       </Suspense>
+      
+      {/* 3.5️⃣ VÍDEO DEMONSTRATIVO - Mostra como é simples aprender */}
+      <VideoSection />
       
       {/* 4️⃣ ANTES E DEPOIS - Transformação */}
       <Suspense fallback={<div className="h-32" />}>
