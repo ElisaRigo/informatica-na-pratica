@@ -4,23 +4,23 @@ import { Button } from "@/components/ui/button";
 const benefits = [
   {
     icon: "💻",
-    text: "Você vai aprender com segurança e prazer — nada de enrolação ou termos difíceis."
+    text: "Metodologia clara e acessível — aprenda sem termos complicados, no seu ritmo."
   },
   {
     icon: "🧠",
-    text: "Aulas diretas e práticas — você aprende fazendo, não só assistindo."
+    text: "Aulas práticas e aplicadas — você desenvolve habilidades reais para o mercado."
   },
   {
     icon: "💬",
-    text: "Suporte próximo comigo, prof. Elisa — nada de se sentir sozinha, eu te acompanho."
+    text: "Acompanhamento profissional — suporte direto com a professora Elisa."
   },
   {
     icon: "🎓",
-    text: "Certificado reconhecido — destaque seu currículo com um curso completo e profissional."
+    text: "Certificado profissional — valide suas competências com um documento reconhecido."
   },
   {
     icon: "🔒",
-    text: "Garantia total de 7 dias — se não amar, é só cancelar."
+    text: "Garantia de satisfação — 7 dias para experimentar sem riscos."
   }
 ];
 
@@ -30,7 +30,7 @@ export const EmotionalBenefits = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-center mb-8 md:mb-12">
-            Por que você vai amar este curso
+            Por que este é o melhor investimento na sua carreira
           </h2>
           <div className="grid gap-4 md:gap-6">
             {benefits.map((benefit, index) => (
@@ -44,19 +44,19 @@ export const EmotionalBenefits = () => {
             ))}
           </div>
           
-          <div className="mt-10 md:mt-12 text-center bg-primary/10 border border-primary/30 rounded-2xl p-6 md:p-8">
+          <div className="mt-10 md:mt-12 text-center bg-success/10 border border-success/30 rounded-2xl p-6 md:p-8">
             <p className="text-lg md:text-xl font-bold mb-4">
-              ✅ Sem riscos: <span className="text-primary">Garantia incondicional de 7 dias</span>
+              ✅ Compromisso com sua satisfação: <span className="text-success">Garantia de 7 dias</span>
             </p>
             <p className="text-muted-foreground mb-6 text-sm md:text-base">
-              Experimente o curso por 7 dias. Se não gostar, devolvemos 100% do seu dinheiro. Simples assim!
+              Experimente o curso por 7 dias. Se não atender suas expectativas, devolvemos 100% do investimento.
             </p>
             <Button 
               size="lg" 
               className="font-extrabold px-10 py-6 rounded-2xl text-base"
             onClick={() => (window as any).openCheckout?.()}
           >
-            💪 Começar minha jornada agora
+            💼 Iniciar minha qualificação
           </Button>
           </div>
         </div>

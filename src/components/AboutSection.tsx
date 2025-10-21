@@ -28,13 +28,13 @@ export const AboutSection = () => {
 
             <div className="space-y-6 text-center md:text-left">
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Sou a professora Elisa, e ao longo de mais de 20 anos ensinando informática, percebi algo importante: muita gente desiste não por falta de capacidade, mas porque as aulas são rápidas demais ou usam termos complicados.
+                Sou a professora Elisa, com mais de 20 anos de experiência formando profissionais em informática. Minha missão é tornar o aprendizado acessível e eficaz para todos.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Por isso criei o <strong className="text-foreground">Informática na Prática</strong> — um curso onde você aprende no seu ritmo, com exemplos do dia a dia e linguagem simples. Sem pressão, sem termos técnicos difíceis.
+                Desenvolvi o <strong className="text-foreground">Informática na Prática</strong> — uma metodologia que respeita seu ritmo e utiliza exemplos práticos do cotidiano profissional, com linguagem clara e objetiva.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Já ajudei mais de <strong className="text-foreground">15.000 pessoas</strong> que achavam que "não levavam jeito" para tecnologia. E posso te ajudar também, com paciência e sem pressa.
+                Já capacitei mais de <strong className="text-foreground">15.000 profissionais</strong> que conquistaram autonomia digital e novas oportunidades no mercado de trabalho.
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@ export const AboutSection = () => {
                 className="font-extrabold px-8 py-6 rounded-2xl text-base"
               onClick={() => (window as any).openCheckout?.()}
             >
-              ✨ Quero conquistar essa vaga
+              💼 Investir na minha formação
             </Button>
               <Button 
                 size="lg" 

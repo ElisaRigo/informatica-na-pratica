@@ -31,8 +31,8 @@ export const Hero = () => {
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 md:mb-6">
-            <span className="text-destructive">Pare de Perder Oportunidades</span><br />
-            <span className="text-foreground">Por Não Saber Informática</span>
+            <span className="text-primary">Conquiste Sua Independência Digital</span><br />
+            <span className="text-foreground">Do Zero ao Profissional no Mercado de Trabalho</span>
           </h1>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
@@ -93,9 +93,9 @@ export const Hero = () => {
           </div>
         
         {/* Texto destacado abaixo do vídeo */}
-        <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white mb-3 md:mb-4 max-w-3xl mx-auto font-black leading-tight">
-          Domine <span className="text-[#00D4FF]">Word, Excel e mais....</span><br />
-          Mesmo Começando do Zero
+        <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground mb-3 md:mb-4 max-w-3xl mx-auto font-bold leading-tight">
+          Domine <span className="text-primary">Word, Excel, Internet e Windows</span><br />
+          <span className="text-muted-foreground text-lg md:text-xl">Aprenda no seu ritmo, com acompanhamento profissional</span>
         </p>
 
         {/* Benefícios Rápidos */}
@@ -115,7 +115,7 @@ export const Hero = () => {
           </div>
 
           <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-5 max-w-3xl mx-auto px-2">
-            Quantas vagas de emprego você já perdeu? Quantas vezes pediu ajuda para fazer algo simples no computador? <span className="font-bold text-foreground">Isso pode acabar hoje.</span>
+            Aprenda informática de forma prática e profissional. <span className="font-bold text-foreground">Desenvolva habilidades que o mercado busca</span> e conquiste novas oportunidades na sua carreira.
           </p>
 
           {/* Links âncora estratégicos */}
@@ -147,13 +147,13 @@ export const Hero = () => {
           <div className="mb-3 md:mb-4 max-w-3xl mx-auto">
             <Button 
               size="lg" 
-              className="text-sm md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all bg-success hover:bg-success/90 shadow-2xl w-full sm:w-auto leading-tight"
+              className="text-sm md:text-lg font-extrabold px-6 md:px-12 py-5 md:py-6 rounded-xl hover:scale-105 transition-all shadow-xl w-full sm:w-auto leading-tight"
               onClick={() => (window as any).openCheckout?.()}
             >
-              ✨ Sim, quero mudar minha vida
+              ✨ Começar minha formação profissional
             </Button>
             <p className="text-xs text-muted-foreground mt-2 font-semibold">
-              💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses
+              💼 Investimento profissional: R$ 297,00 - Acesso por 2 anos
             </p>
           </div>
 

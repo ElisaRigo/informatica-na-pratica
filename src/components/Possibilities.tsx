@@ -2,39 +2,39 @@ import { CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const advantages = [
-  "Conquistar vagas de emprego com mais facilidade",
-  "Trabalhar de casa ou de qualquer lugar",
-  "Resolver problemas do dia a dia sozinho(a)",
-  "Ajudar filhos e netos com tecnologia",
-  "Organizar sua vida digital com segurança",
-  "Ter autonomia e independência tecnológica"
+  "Conquistar novas oportunidades de emprego",
+  "Ter autonomia para trabalhar com ferramentas digitais",
+  "Resolver tarefas profissionais com confiança",
+  "Ajudar sua família com tecnologia",
+  "Organizar documentos e informações profissionalmente",
+  "Destacar-se no mercado de trabalho"
 ];
 
-const disadvantages = [
-  "Perder oportunidades de emprego por falta de conhecimento",
-  "Depender sempre de outras pessoas para tarefas simples",
-  "Sentir insegurança ao usar o computador no dia a dia",
-  "Ter dificuldade em acompanhar as ferramentas digitais atuais",
-  "Gastar dinheiro pedindo ajuda para tarefas básicas",
-  "Não conseguir aproveitar recursos tecnológicos disponíveis"
+const currentSituation = [
+  "Falta de qualificação em ferramentas essenciais",
+  "Dificuldade em acompanhar processos digitais",
+  "Insegurança ao usar recursos tecnológicos",
+  "Limitações em oportunidades profissionais",
+  "Necessidade de ajuda para tarefas básicas",
+  "Desatualização em relação ao mercado"
 ];
 
 export const Possibilities = () => {
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-br from-destructive/5 to-destructive/10">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 to-accent/5">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <p className="text-lg md:text-xl text-destructive font-bold mb-2">
-              ⚠️ A cada dia que passa sem informática...
+            <p className="text-lg md:text-xl text-primary font-bold mb-2">
+              💼 O mercado de trabalho valoriza profissionais capacitados
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
-              Você perde <span className="text-destructive">oportunidades</span> que poderiam mudar sua vida
+              Compare: <span className="text-primary">Antes</span> e <span className="text-success">Depois</span> do curso
             </h2>
           </div>
           
           <p className="text-lg md:text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-            <span className="font-bold text-foreground">A escolha é sua:</span> Continuar dependendo de outros ou conquistar sua independência digital
+            <span className="font-bold text-foreground">Invista no seu futuro:</span> Desenvolva competências valorizadas pelo mercado de trabalho
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -62,44 +62,44 @@ export const Possibilities = () => {
               </div>
             </div>
 
-            {/* Desvantagens - REFORÇO DA DOR */}
-            <div className="bg-destructive/5 border-2 border-destructive/20 rounded-2xl p-6 md:p-8">
+            {/* Situação Atual */}
+            <div className="bg-muted/30 border-2 border-muted rounded-2xl p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-full bg-destructive/20 flex items-center justify-center">
-                  <XCircle className="w-6 h-6 text-destructive" />
+                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
+                  <XCircle className="w-6 h-6 text-muted-foreground" />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-black text-destructive">
-                  Sua realidade hoje
+                <h3 className="text-2xl md:text-3xl font-black text-foreground">
+                  Situação atual
                 </h3>
               </div>
               
               <div className="space-y-4">
-                {disadvantages.map((disadvantage, index) => (
+                {currentSituation.map((situation, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-card rounded-xl"
                   >
-                    <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                    <p className="text-base font-medium text-muted-foreground">{disadvantage}</p>
+                    <XCircle className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
+                    <p className="text-base font-medium text-muted-foreground">{situation}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="mt-10 md:mt-12 text-center bg-primary/10 border-2 border-primary/30 rounded-2xl p-6 md:p-8">
+          <div className="mt-10 md:mt-12 text-center bg-success/10 border-2 border-success/30 rounded-2xl p-6 md:p-8">
             <p className="text-xl md:text-2xl font-black mb-4">
-              Não deixe mais um dia passar <span className="text-destructive">sem tomar essa decisão</span>
+              Invista no seu desenvolvimento <span className="text-success">profissional</span>
             </p>
             <p className="text-base md:text-lg text-muted-foreground mb-6">
-              Cada momento conta quando se trata do seu futuro profissional
+              Comece hoje sua jornada rumo à qualificação profissional
             </p>
             <Button 
               size="lg" 
               className="font-extrabold px-6 md:px-10 py-5 md:py-6 rounded-2xl text-sm md:text-lg w-full md:w-auto"
             onClick={() => (window as any).openCheckout?.()}
           >
-            💪 Sim, quero mudar agora
+            💼 Quero me qualificar profissionalmente
           </Button>
           </div>
         </div>
