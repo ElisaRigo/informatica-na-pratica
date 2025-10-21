@@ -341,9 +341,9 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
 
   try {
     const result = await resend.emails.send({
-      from: "Elisa Ensina <onboarding@resend.dev>",
+      from: "Informática na Prática <contato@informaticanapratica.com.br>",
       to: [email],
-      subject: "🎉 Bem-vindo ao Curso!",
+      subject: "🎉 Bem-vindo ao Curso de Informática!",
       html: emailHtml,
     });
 
