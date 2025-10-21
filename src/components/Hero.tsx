@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
-import videoPoster from "@/assets/video-poster-new.jpg";
-import heroVideo from "@/assets/hero-video-new.mp4";
+import videoPoster from "@/assets/video-poster-hero.jpg";
+import heroVideo from "@/assets/hero-video-main.mp4";
 
 export const Hero = () => {
   return (
@@ -13,19 +13,17 @@ export const Hero = () => {
             Aprenda <span className="text-primary">Informática de Verdade</span> e conquiste <span className="text-primary">Novas Oportunidades</span>.
           </p>
           
-          {/* Vídeo em destaque */}
+          {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-4xl mx-auto mb-6">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg bg-black">
-              <video 
-                controls
-                poster={videoPoster}
-                className="w-full aspect-video object-cover"
-                preload="metadata"
-              >
-                <source src={heroVideo} type="video/mp4" />
-                Seu navegador não suporta o elemento de vídeo.
-              </video>
-            </div>
+            <video 
+              controls
+              poster={videoPoster}
+              className="w-full aspect-video rounded-2xl"
+              preload="metadata"
+            >
+              <source src={heroVideo} type="video/mp4" />
+              Seu navegador não suporta o elemento de vídeo.
+            </video>
           </div>
 
           {/* Texto abaixo do vídeo */}
