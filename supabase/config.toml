@@ -9,5 +9,8 @@ verify_jwt = false
 [functions.get-mp-public-key]
 verify_jwt = false
 
+[functions.get-course-price]
+verify_jwt = false
+
 [functions.create-pix-payment]
 verify_jwt = false

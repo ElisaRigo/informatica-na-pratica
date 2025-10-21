@@ -32,13 +32,16 @@ serve(async (req) => {
       throw new Error("Mercado Pago access token not configured");
     }
 
+    // Obter o preço do curso do ambiente
+    const coursePrice = parseFloat(Deno.env.get("COURSE_PRICE") || "297.00");
+
     // Create preference
     const preferenceData = {
       items: [
         {
           title: "Curso Completo - Elisa Ensina",
           quantity: 1,
-          unit_price: 297.00,
+          unit_price: coursePrice,
           currency_id: "BRL",
         },
       ],

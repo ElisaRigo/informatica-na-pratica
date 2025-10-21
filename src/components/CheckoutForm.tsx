@@ -33,6 +33,7 @@ export const CheckoutForm = () => {
   const [mpInstance, setMpInstance] = useState<any>(null);
   const [pixData, setPixData] = useState<PixData | null>(null);
   const [checkingPayment, setCheckingPayment] = useState(false);
+  const [coursePrice, setCoursePrice] = useState<number>(297.00);
 
   // Carregar SDK do Mercado Pago
   useEffect(() => {
@@ -43,15 +44,23 @@ export const CheckoutForm = () => {
       console.log('Mercado Pago SDK loaded');
       
       try {
-        const { data: { MERCADO_PAGO_PUBLIC_KEY } } = await supabase.functions.invoke('get-mp-public-key');
+        const [keyResponse, priceResponse] = await Promise.all([
+          supabase.functions.invoke('get-mp-public-key'),
+          supabase.functions.invoke('get-course-price')
+        ]);
         
-        if (MERCADO_PAGO_PUBLIC_KEY) {
-          const mp = new window.MercadoPago(MERCADO_PAGO_PUBLIC_KEY, {
+        if (keyResponse.data?.MERCADO_PAGO_PUBLIC_KEY) {
+          const mp = new window.MercadoPago(keyResponse.data.MERCADO_PAGO_PUBLIC_KEY, {
             locale: 'pt-BR'
           });
           setMpInstance(mp);
           setSdkLoaded(true);
           console.log('Mercado Pago initialized');
+        }
+        
+        if (priceResponse.data?.price) {
+          setCoursePrice(priceResponse.data.price);
+          console.log('Course price loaded:', priceResponse.data.price);
         }
       } catch (error) {
         console.error('Error loading MP key:', error);
@@ -315,7 +324,9 @@ export const CheckoutForm = () => {
           {/* Valor */}
           <div className="text-center p-4 bg-muted/30 rounded-lg">
             <div className="text-sm text-muted-foreground">Valor a pagar</div>
-            <div className="text-3xl font-black text-primary mt-1">R$ 297,00</div>
+            <div className="text-3xl font-black text-primary mt-1">
+              R$ {coursePrice.toFixed(2).replace('.', ',')}
+            </div>
           </div>
 
           {/* Código PIX */}
@@ -382,8 +393,12 @@ export const CheckoutForm = () => {
       <div className="flex items-center justify-between pb-6 border-b">
         <img src={logoBlue} alt="Elisa Ensina" className="h-12" />
         <div className="text-right">
-          <div className="text-3xl font-black text-primary">R$ 297,00</div>
-          <div className="text-sm font-medium text-muted-foreground line-through">R$ 597,00</div>
+          <div className="text-3xl font-black text-primary">
+            R$ {coursePrice.toFixed(2).replace('.', ',')}
+          </div>
+          <div className="text-sm font-medium text-muted-foreground line-through">
+            R$ {(coursePrice * 2).toFixed(2).replace('.', ',')}
+          </div>
         </div>
       </div>
 

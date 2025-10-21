@@ -30,9 +30,12 @@ serve(async (req) => {
       throw new Error("Mercado Pago access token not configured");
     }
 
+    // Obter o preço do curso do ambiente
+    const coursePrice = parseFloat(Deno.env.get("COURSE_PRICE") || "297.00");
+    
     // Criar pagamento PIX direto
     const paymentData = {
-      transaction_amount: 297.00,
+      transaction_amount: coursePrice,
       description: "Curso Completo - Elisa Ensina",
       payment_method_id: "pix",
       payer: {
