@@ -35,7 +35,7 @@ export const Hero = () => {
           <div className="mb-6 max-w-2xl mx-auto">
             <Button 
               size="lg" 
-              className="w-full text-lg md:text-xl font-black px-8 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30"
+              className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30"
               onClick={() => (window as any).openCheckout?.()}
             >
               ✨ Sim, Quero Dominar Informática

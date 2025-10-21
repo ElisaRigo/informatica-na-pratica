@@ -116,18 +116,18 @@ export const FAQ = () => {
             Você tem <strong className="text-foreground">garantia de 7 dias</strong>, suporte direto comigo e 2 anos de acesso completo. Não há motivo para adiar sua transformação.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+          <div className="flex flex-col gap-4 justify-center items-center mb-6">
             <Button 
               size="lg" 
-              className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform w-full sm:w-auto"
+              className="font-extrabold px-4 md:px-10 py-6 md:py-7 rounded-2xl text-xs md:text-lg hover:scale-105 transition-transform w-full"
               onClick={() => (window as any).openCheckout?.()}
             >
-              ✅ Sim, quero essas respostas na prática
+              ✅ Sim, quero as respostas na prática
             </Button>
             <Button 
               size="lg" 
               variant="outline"
-              className="font-bold px-8 py-7 rounded-2xl text-base border-2 w-full sm:w-auto"
+              className="font-bold px-4 md:px-8 py-6 md:py-7 rounded-2xl text-xs md:text-base border-2 w-full"
               asChild
             >
               <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">

@@ -10,6 +10,7 @@ import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
 // Lazy load componentes otimizados para conversão
 const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
+const VideoTestimonial = lazy(() => import("@/components/VideoTestimonial").then(m => ({ default: m.VideoTestimonial })));
 const Comparison = lazy(() => import("@/components/Comparison").then(m => ({ default: m.Comparison })));
 const Pricing = lazy(() => import("@/components/Pricing").then(m => ({ default: m.Pricing })));
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
@@ -36,33 +37,38 @@ const Index = () => {
         <Bonus />
       </Suspense>
       
-      {/* 4️⃣ ANTES E DEPOIS - Transformação */}
+      {/* 4️⃣ DEPOIMENTO EM VÍDEO - Prova Social */}
+      <Suspense fallback={<div className="h-32" />}>
+        <VideoTestimonial />
+      </Suspense>
+      
+      {/* 5️⃣ ANTES E DEPOIS - Transformação */}
       <Suspense fallback={<div className="h-32" />}>
         <Comparison />
       </Suspense>
       
-      {/* 5️⃣ DEPOIMENTOS - Prova Social */}
+      {/* 6️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />
       
-      {/* 6️⃣ QUEM VAI TE ENSINAR - Autoridade */}
+      {/* 7️⃣ QUEM VAI TE ENSINAR - Autoridade */}
       <AboutSection />
       
-      {/* 7️⃣ OFERTA E PREÇO */}
+      {/* 8️⃣ OFERTA E PREÇO */}
       <Suspense fallback={<div className="h-32" />}>
         <Pricing />
       </Suspense>
       
-      {/* 8️⃣ PERGUNTAS FREQUENTES */}
+      {/* 9️⃣ PERGUNTAS FREQUENTES */}
       <Suspense fallback={<div className="h-32" />}>
         <FAQ />
       </Suspense>
       
-      {/* 9️⃣ GARANTIA - Reduzir Risco */}
+      {/* 🔟 GARANTIA - Reduzir Risco */}
       <Suspense fallback={<div className="h-32" />}>
         <Guarantee />
       </Suspense>
       
-      {/* 🔟 CTA FINAL ESTRATÉGICO */}
+      {/* 1️⃣1️⃣ CTA FINAL ESTRATÉGICO */}
       <Suspense fallback={<div className="h-32" />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>

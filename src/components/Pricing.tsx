@@ -86,23 +86,23 @@ export const Pricing = () => {
                 </div>
               </div>
 
-              <div className="mb-4 p-5 bg-gradient-to-br from-destructive/15 to-destructive/5 rounded-xl border-2 border-destructive/30">
-                <p className="text-xs md:text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">
-                  Se comprasse separadamente:
+              <div className="mb-4 p-4 md:p-5 bg-gradient-to-br from-accent/10 to-primary/10 rounded-xl border-2 border-accent/30">
+                <p className="text-xs md:text-sm font-bold text-foreground mb-3 text-center">
+                  📊 Comparação de valor:
                 </p>
                 <div className="space-y-2 mb-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm md:text-base text-muted-foreground">Curso de Informática:</span>
-                    <span className="text-lg md:text-xl font-bold line-through text-destructive/70">R$ 497</span>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs md:text-sm text-muted-foreground">Curso de Informática:</span>
+                    <span className="text-sm md:text-lg font-bold line-through text-muted-foreground">R$ 497</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm md:text-base text-success font-semibold">+ Bônus GRÁTIS inclusos:</span>
-                    <span className="text-lg md:text-xl font-bold text-success">R$ 271</span>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs md:text-sm text-success font-semibold">+ Bônus inclusos:</span>
+                    <span className="text-sm md:text-lg font-bold text-success">R$ 271</span>
                   </div>
-                  <div className="border-t border-destructive/20 pt-2 mt-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-base md:text-lg font-bold text-muted-foreground">Valor total:</span>
-                      <span className="text-2xl md:text-4xl font-black line-through text-destructive/80">R$ 768</span>
+                  <div className="border-t border-accent/20 pt-2 mt-2">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-sm md:text-base font-bold text-foreground">Valor total:</span>
+                      <span className="text-xl md:text-3xl font-black line-through text-muted-foreground">R$ 768</span>
                     </div>
                   </div>
                 </div>
@@ -138,10 +138,10 @@ export const Pricing = () => {
 
               <Button 
                 size="lg" 
-                className="w-full text-lg md:text-xl font-black px-8 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-success hover:from-success hover:to-accent border-2 border-accent/30 mb-6"
+                className="w-full text-sm md:text-xl font-black px-4 md:px-8 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-success hover:from-success hover:to-accent border-2 border-accent/30 mb-6"
                 onClick={() => (window as any).openCheckout?.()}
               >
-                Quero começar agora com esse desconto
+                Quero começar agora com desconto
               </Button>
 
               <div className="flex flex-wrap gap-2 md:gap-3 justify-center">

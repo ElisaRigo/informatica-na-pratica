@@ -40,10 +40,10 @@ export const AboutSection = () => {
           </div>
 
           <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-8 border-2 border-primary/20">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="font-extrabold px-8 py-6 rounded-2xl text-base"
+                className="font-extrabold px-4 md:px-8 py-6 rounded-2xl text-xs md:text-base w-full"
               onClick={() => (window as any).openCheckout?.()}
             >
               💼 Investir na minha formação
@@ -51,7 +51,7 @@ export const AboutSection = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="font-extrabold px-8 py-6 rounded-2xl text-base border-2"
+                className="font-extrabold px-4 md:px-8 py-6 rounded-2xl text-xs md:text-base border-2 w-full"
                 asChild
               >
                 <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica" target="_blank" rel="noopener noreferrer">

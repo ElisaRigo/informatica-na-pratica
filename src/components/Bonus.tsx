@@ -117,18 +117,13 @@ export const Bonus = () => {
                 className="bg-card border-2 border-success/30 rounded-2xl p-6 hover:border-success transition-all hover:scale-105 relative overflow-hidden"
               >
                 {/* Selo de valor no topo */}
-                <div className="absolute top-3 right-3 bg-gradient-to-r from-success to-success/80 text-white px-3 py-1.5 rounded-lg text-base md:text-lg font-black shadow-lg z-10">
+                <div className="absolute top-3 right-3 bg-gradient-to-r from-success to-success/80 text-white px-3 py-1.5 rounded-lg text-sm md:text-base font-black shadow-lg z-10">
                   {bonus.value}
                 </div>
                 
                 {/* Selo "GRÁTIS" chamativo */}
-                <div className="absolute -left-8 top-6 bg-gradient-to-r from-destructive to-destructive/80 text-white px-12 py-1 -rotate-45 text-xs font-black shadow-xl">
+                <div className="absolute -left-8 top-8 bg-gradient-to-r from-destructive to-destructive/80 text-white px-12 py-1 -rotate-45 text-xs font-black shadow-xl z-[5]">
                   GRÁTIS
-                </div>
-                
-                {/* Selo "BÔNUS" no canto superior esquerdo */}
-                <div className="absolute top-3 left-3 bg-accent text-white px-3 py-1 rounded-lg text-[10px] font-black shadow-md">
-                  BÔNUS #{index + 1}
                 </div>
                 
                 <div className="mb-4 pt-8">
@@ -195,7 +190,7 @@ export const Bonus = () => {
 
             <Button 
               size="lg" 
-              className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full md:w-auto"
+              className="font-extrabold px-4 md:px-10 py-5 md:py-7 rounded-2xl text-xs md:text-lg bg-success hover:bg-success/90 shadow-lg hover:shadow-xl transition-all w-full"
               onClick={() => (window as any).openCheckout?.()}
             >
               💪 Quero curso + bônus agora

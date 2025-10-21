@@ -77,7 +77,7 @@ export const Testimonials = () => {
         <div className="flex justify-center">
           <Button 
             size="lg" 
-            className="font-extrabold px-8 py-6 rounded-2xl text-base hover:scale-105 transition-transform"
+            className="font-extrabold px-4 md:px-8 py-6 rounded-2xl text-xs md:text-base hover:scale-105 transition-transform w-full md:w-auto"
             onClick={() => (window as any).openCheckout?.()}
           >
             💪 Quero ser o próximo aluno!
