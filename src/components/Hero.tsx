@@ -33,17 +33,18 @@ export const Hero = () => {
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-4xl mx-auto mb-6">
-            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/40 bg-black">
-              <video 
-                controls
-                poster={videoPoster}
-                className="w-full aspect-video"
-                preload="metadata"
-              >
-                <source src={heroVideo} type="video/mp4" />
-                Seu navegador não suporta o elemento de vídeo.
-              </video>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden border-4 border-primary/40 bg-black">
+            <video 
+              controls
+              poster={videoPoster}
+              className="w-full aspect-video"
+              preload="metadata"
+              style={{ filter: 'none', boxShadow: 'none' }}
+            >
+              <source src={heroVideo} type="video/mp4" />
+              Seu navegador não suporta o elemento de vídeo.
+            </video>
+          </div>
           </div>
 
           {/* Texto abaixo do vídeo */}
