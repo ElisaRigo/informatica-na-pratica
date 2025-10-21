@@ -14,12 +14,13 @@ export const Hero = () => {
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
-          <div className="relative max-w-4xl mx-auto mb-6 bg-gradient-to-br from-muted/30 to-panel/50 rounded-2xl p-4 md:p-6 shadow-lg">
+          <div className="relative max-w-4xl mx-auto mb-6 bg-card rounded-2xl p-4 md:p-6 shadow-lg">
             <video 
               controls
               poster={videoPoster}
-              className="w-full aspect-video rounded-xl bg-black"
+              className="w-full aspect-video rounded-xl"
               preload="metadata"
+              style={{ filter: 'none', opacity: 1 }}
             >
               <source src={heroVideo} type="video/mp4" />
               Seu navegador não suporta o elemento de vídeo.

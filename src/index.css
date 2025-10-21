@@ -150,8 +150,10 @@ All colors MUST be HSL.
 video {
   display: block;
   max-width: 100%;
+  filter: none !important;
+  opacity: 1 !important;
 }
 
 video::-webkit-media-controls-panel {
-  background: rgba(0, 0, 0, 0.8) !important;
+  background: rgba(0, 0, 0, 0.7) !important;
 }
