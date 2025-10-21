@@ -147,13 +147,10 @@ All colors MUST be HSL.
 }
 
 /* Customização do player de vídeo */
-video::-webkit-media-controls-play-button {
-  transform: scale(0.6);
-  opacity: 0.75;
-  background-color: hsl(var(--primary) / 0.9);
-  border-radius: 50%;
+video::-webkit-media-controls {
+  opacity: 1 !important;
 }
 
 video::-webkit-media-controls-panel {
-  background: linear-gradient(to top, hsl(var(--background) / 0.85), transparent);
+  background: hsl(var(--background) / 0.9);
 }

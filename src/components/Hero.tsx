@@ -18,8 +18,9 @@ export const Hero = () => {
             <video 
               controls
               poster={videoPoster}
-              className="w-full aspect-video rounded-2xl"
+              className="w-full aspect-video rounded-2xl opacity-100"
               preload="metadata"
+              style={{ opacity: 1 }}
             >
               <source src={heroVideo} type="video/mp4" />
               Seu navegador não suporta o elemento de vídeo.
@@ -32,10 +33,10 @@ export const Hero = () => {
           </p>
 
           {/* CTA Principal DESTAQUE */}
-          <div className="mb-6 max-w-2xl mx-auto">
+          <div className="mb-6 max-w-2xl mx-auto px-2">
             <Button 
               size="lg" 
-              className="w-full text-lg md:text-xl font-black px-8 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30"
+              className="w-full text-base md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30"
               onClick={() => (window as any).openCheckout?.()}
             >
               ✨ Sim, Quero Dominar Informática

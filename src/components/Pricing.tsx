@@ -86,23 +86,23 @@ export const Pricing = () => {
                 </div>
               </div>
 
-              <div className="mb-4 p-5 bg-gradient-to-br from-destructive/15 to-destructive/5 rounded-xl border-2 border-destructive/30">
-                <p className="text-xs md:text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">
-                  Se comprasse separadamente:
+              <div className="mb-4 p-4 bg-muted/30 rounded-xl border border-border">
+                <p className="text-xs md:text-sm font-semibold text-muted-foreground mb-3 text-center">
+                  Valor individual dos componentes:
                 </p>
-                <div className="space-y-2 mb-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm md:text-base text-muted-foreground">Curso de Informática:</span>
-                    <span className="text-lg md:text-xl font-bold line-through text-destructive/70">R$ 497</span>
+                <div className="space-y-1.5 mb-3">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Curso completo</span>
+                    <span className="font-semibold line-through text-muted-foreground">R$ 497</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm md:text-base text-success font-semibold">+ Bônus GRÁTIS inclusos:</span>
-                    <span className="text-lg md:text-xl font-bold text-success">R$ 271</span>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-success font-medium">+ Bônus inclusos</span>
+                    <span className="font-semibold text-success">R$ 271</span>
                   </div>
-                  <div className="border-t border-destructive/20 pt-2 mt-2">
+                  <div className="border-t border-border pt-2 mt-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-base md:text-lg font-bold text-muted-foreground">Valor total:</span>
-                      <span className="text-2xl md:text-4xl font-black line-through text-destructive/80">R$ 768</span>
+                      <span className="text-sm font-bold">Total:</span>
+                      <span className="text-xl md:text-2xl font-black line-through text-muted-foreground">R$ 768</span>
                     </div>
                   </div>
                 </div>

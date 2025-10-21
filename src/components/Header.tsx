@@ -13,7 +13,7 @@ export const Header = () => {
             height="96"
           />
         </div>
-        <h1 className="text-lg md:text-xl lg:text-2xl font-black text-primary mt-3 tracking-tight">
+        <h1 className="text-lg md:text-xl lg:text-2xl font-semibold text-primary mt-3 tracking-tight">
           Curso Completo de Informática do Zero ao Profissional
         </h1>
       </div>

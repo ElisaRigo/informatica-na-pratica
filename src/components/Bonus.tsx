@@ -122,12 +122,12 @@ export const Bonus = () => {
                 </div>
                 
                 {/* Selo "GRÁTIS" chamativo */}
-                <div className="absolute -left-8 top-6 bg-gradient-to-r from-destructive to-destructive/80 text-white px-12 py-1 -rotate-45 text-xs font-black shadow-xl">
+                <div className="absolute -left-8 top-8 bg-gradient-to-r from-destructive to-destructive/80 text-white px-12 py-1 -rotate-45 text-xs font-black shadow-xl z-20">
                   GRÁTIS
                 </div>
                 
                 {/* Selo "BÔNUS" no canto superior esquerdo */}
-                <div className="absolute top-3 left-3 bg-accent text-white px-3 py-1 rounded-lg text-[10px] font-black shadow-md">
+                <div className="absolute top-16 left-3 bg-accent text-white px-2 py-0.5 rounded text-[10px] font-black shadow-md z-10">
                   BÔNUS #{index + 1}
                 </div>
                 
