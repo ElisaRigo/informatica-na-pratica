@@ -15,10 +15,10 @@ export const Guarantee = () => {
           </p>
           <Button 
             size="lg" 
-            className="font-extrabold px-4 md:px-8 py-6 rounded-2xl text-sm md:text-base w-full md:w-auto leading-tight"
+            className="font-extrabold px-8 py-6 rounded-2xl"
             onClick={() => (window as any).openCheckout?.()}
           >
-            🛡️ Garantir Minha Vaga Agora
+            💪 Quero começar sem risco
           </Button>
         </div>
       </div>

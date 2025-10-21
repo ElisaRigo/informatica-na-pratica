@@ -85,7 +85,7 @@ export const CourseContent = () => {
           {/* CTA */}
           <Button 
             size="lg" 
-            className="text-sm md:text-lg lg:text-xl font-black px-6 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--primary)/0.4)] bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary border-2 border-primary/30 w-full md:w-auto leading-tight"
+            className="text-lg md:text-xl font-black px-8 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--primary)/0.4)] bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary border-2 border-primary/30"
             onClick={() => (window as any).openCheckout?.()}
           >
             ✅ Quero Aprender Tudo Isso Agora
