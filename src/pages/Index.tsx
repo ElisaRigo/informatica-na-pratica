@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { AboutSection } from "@/components/AboutSection";
+import { Authority } from "@/components/Authority";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
@@ -39,58 +40,61 @@ const Index = () => {
         <Bonus />
       </Suspense>
       
-      {/* 4️⃣ DEPOIS DO CURSO - Capacidades */}
+      {/* 4️⃣ DEPOIMENTOS - Prova Social */}
+      <Testimonials />
+      
+      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      <Authority />
+      
+      {/* 6️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<div className="h-32" />}>
         <ValueStack />
       </Suspense>
       
-      {/* 5️⃣ INVESTIMENTO - Proposta de valor */}
+      {/* 7️⃣ INVESTIMENTO - Proposta de valor */}
       <Suspense fallback={<div className="h-32" />}>
         <Possibilities />
       </Suspense>
       
-      {/* 6️⃣ PARA QUEM É - Público alvo */}
+      {/* 8️⃣ PARA QUEM É - Público alvo */}
       <Suspense fallback={<div className="h-32" />}>
         <TargetAudience />
       </Suspense>
       
-      {/* 7️⃣ OFERTA E PREÇO #1 */}
+      {/* 9️⃣ OFERTA E PREÇO #1 */}
       <Suspense fallback={<div className="h-32" />}>
         <Pricing />
       </Suspense>
       
-      {/* 8️⃣ GARANTIA #1 */}
+      {/* 🔟 GARANTIA #1 */}
       <Suspense fallback={<div className="h-32" />}>
         <Guarantee />
       </Suspense>
       
-      {/* 9️⃣ ANTES E DEPOIS - Transformação */}
+      {/* 1️⃣1️⃣ ANTES E DEPOIS - Transformação */}
       <Suspense fallback={<div className="h-32" />}>
         <Comparison />
       </Suspense>
       
-      {/* 🔟 DEPOIMENTOS - Prova Social */}
-      <Testimonials />
-      
-      {/* 1️⃣1️⃣ QUEM VAI TE ENSINAR - Autoridade */}
+      {/* 1️⃣2️⃣ QUEM VAI TE ENSINAR - Sobre */}
       <AboutSection />
       
-      {/* 1️⃣2️⃣ OFERTA E PREÇO #2 */}
+      {/* 1️⃣3️⃣ OFERTA E PREÇO #2 */}
       <Suspense fallback={<div className="h-32" />}>
         <Pricing />
       </Suspense>
       
-      {/* 1️⃣3️⃣ PERGUNTAS FREQUENTES */}
+      {/* 1️⃣4️⃣ PERGUNTAS FREQUENTES */}
       <Suspense fallback={<div className="h-32" />}>
         <FAQ />
       </Suspense>
       
-      {/* 1️⃣4️⃣ GARANTIA #2 - Reduzir Risco */}
+      {/* 1️⃣5️⃣ GARANTIA #2 - Reduzir Risco */}
       <Suspense fallback={<div className="h-32" />}>
         <Guarantee />
       </Suspense>
       
-      {/* 1️⃣5️⃣ CTA FINAL ESTRATÉGICO */}
+      {/* 1️⃣6️⃣ CTA FINAL ESTRATÉGICO */}
       <Suspense fallback={<div className="h-32" />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>

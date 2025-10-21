@@ -14,7 +14,7 @@ export const Hero = () => {
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
-          <div className="relative max-w-4xl mx-auto mb-6">
+          <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
             <video 
               controls
               poster={videoPoster}
@@ -27,7 +27,7 @@ export const Hero = () => {
           </div>
 
           {/* Texto abaixo do vídeo */}
-          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-8 max-w-3xl mx-auto leading-tight">
+          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
             Do <span className="text-primary">Zero ao Profissional</span>, com aulas <span className="text-primary">Simples e Práticas</span> de Word, Excel e muito mais — para você se destacar no <span className="text-primary">Mercado de Trabalho</span> e usar o computador com <span className="text-primary">Confiança</span>.
           </p>
 
@@ -46,6 +46,9 @@ export const Hero = () => {
               </p>
               <p className="text-sm md:text-base text-muted-foreground font-semibold">
                 Acesso completo por 2 anos • Certificado incluso
+              </p>
+              <p className="text-sm md:text-base text-accent font-bold mt-2">
+                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
               </p>
             </div>
           </div>

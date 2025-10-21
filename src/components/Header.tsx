@@ -14,7 +14,7 @@ export const Header = () => {
           />
         </div>
         <h1 className="text-base md:text-xl lg:text-2xl text-foreground mt-2 tracking-tight leading-tight px-2">
-          Curso Completo de Informática do Zero ao Profissional
+          Curso de <span className="text-primary font-bold">Informática</span> completo do zero ao <span className="text-primary font-bold">Profissional</span>
         </h1>
       </div>
     </header>
