@@ -157,6 +157,35 @@ export const CheckoutForm = () => {
         title: "PIX gerado!",
         description: "Escaneie o QR Code ou copie o código para pagar",
       });
+
+      // Iniciar verificação automática do pagamento a cada 5 segundos
+      const intervalId = setInterval(async () => {
+        try {
+          const { data: payment } = await supabase
+            .from('payments')
+            .select('status')
+            .eq('pagseguro_transaction_id', data.paymentId)
+            .eq('status', 'approved')
+            .maybeSingle();
+
+          if (payment) {
+            clearInterval(intervalId);
+            toast({
+              title: "✅ Pagamento confirmado!",
+              description: "Redirecionando para confirmação...",
+            });
+            setTimeout(() => {
+              window.location.href = '/obrigada';
+            }, 1500);
+          }
+        } catch (error) {
+          console.error('Error checking payment:', error);
+        }
+      }, 5000);
+
+      // Limpar intervalo após 10 minutos (600000ms)
+      setTimeout(() => clearInterval(intervalId), 600000);
+
     } catch (error: any) {
       console.error('Error:', error);
       toast({
