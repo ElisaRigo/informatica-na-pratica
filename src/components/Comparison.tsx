@@ -70,10 +70,10 @@ export const Comparison = () => {
           </p>
           <Button 
             size="lg" 
-            className="font-extrabold px-6 md:px-10 py-5 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform w-full md:w-auto"
+            className="font-extrabold px-4 md:px-10 py-5 md:py-7 rounded-2xl text-xs md:text-lg hover:scale-105 transition-transform w-full md:w-auto leading-tight"
             onClick={() => (window as any).openCheckout?.()}
           >
-            ✨ Sim, quero conquistar minha independência digital
+            ✨ Quero Aprender do Jeito Certo
           </Button>
         </div>
       </div>

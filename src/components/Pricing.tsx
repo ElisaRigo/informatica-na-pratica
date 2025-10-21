@@ -138,10 +138,10 @@ export const Pricing = () => {
 
               <Button 
                 size="lg" 
-                className="w-full text-lg md:text-xl font-black px-8 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-success hover:from-success hover:to-accent border-2 border-accent/30 mb-6"
+                className="w-full text-sm md:text-lg lg:text-xl font-black px-6 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-success hover:from-success hover:to-accent border-2 border-accent/30 mb-6 leading-tight"
                 onClick={() => (window as any).openCheckout?.()}
               >
-                Quero começar agora com esse desconto
+                🚀 Quero Dominar Informática Agora
               </Button>
 
               <div className="flex flex-wrap gap-2 md:gap-3 justify-center">

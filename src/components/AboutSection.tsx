@@ -43,10 +43,10 @@ export const AboutSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="font-extrabold px-8 py-6 rounded-2xl text-base"
+                className="font-extrabold px-4 md:px-8 py-6 rounded-2xl text-sm md:text-base w-full md:w-auto leading-tight"
               onClick={() => (window as any).openCheckout?.()}
             >
-              💼 Investir na minha formação
+              Quero Aprender com a Elisa
             </Button>
               <Button 
                 size="lg" 

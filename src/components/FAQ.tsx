@@ -119,10 +119,10 @@ export const FAQ = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
             <Button 
               size="lg" 
-              className="font-extrabold px-10 py-7 rounded-2xl text-lg hover:scale-105 transition-transform w-full sm:w-auto"
+              className="font-extrabold px-6 md:px-10 py-6 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform w-full sm:w-auto leading-tight"
               onClick={() => (window as any).openCheckout?.()}
             >
-              ✅ Sim, quero essas respostas na prática
+              🎯 Quero Começar Agora
             </Button>
             <Button 
               size="lg" 

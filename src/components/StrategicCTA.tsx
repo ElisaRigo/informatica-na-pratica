@@ -29,10 +29,10 @@ export const StrategicCTA = ({ context = "depois de ver tudo isso" }: StrategicC
           </div>
           <Button 
             size="lg" 
-            className="font-extrabold px-6 md:px-10 py-6 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform group w-full md:w-auto flex items-center justify-center"
+            className="font-extrabold px-4 md:px-10 py-6 md:py-7 rounded-2xl text-xs md:text-lg hover:scale-105 transition-transform group w-full md:w-auto flex items-center justify-center leading-tight"
             onClick={() => (window as any).openCheckout?.()}
           >
-            <span className="whitespace-nowrap">💪 Quero essa transformação</span>
+            <span className="whitespace-nowrap">Quero Começar Minha Transformação Agora</span>
             <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
           </Button>
           <p className="text-sm text-muted-foreground mt-4">

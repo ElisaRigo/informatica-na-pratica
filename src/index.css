@@ -152,5 +152,6 @@ video::-webkit-media-controls {
 }
 
 video::-webkit-media-controls-panel {
-  background: hsl(var(--background) / 0.9);
+  background: hsl(var(--card)) !important;
+  opacity: 1 !important;
 }
