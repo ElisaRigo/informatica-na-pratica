@@ -1,9 +1,14 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
+
+const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
+const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 interface PixPaymentRequest {
   name: string;
@@ -78,6 +83,51 @@ serve(async (req) => {
     
     if (!pixData) {
       throw new Error("Dados do PIX não encontrados na resposta");
+    }
+
+    // Salvar dados do pagamento com status "pending"
+    console.log("💾 Saving payment data...");
+    const { data: paymentRecord, error: paymentError } = await supabase
+      .from("payments")
+      .insert({
+        pagseguro_transaction_id: String(payment.id),
+        payment_provider: "mercado_pago",
+        amount: coursePrice,
+        status: "pending",
+        payment_method: "pix",
+        webhook_data: payment,
+      })
+      .select()
+      .single();
+
+    if (paymentError) {
+      console.error("Error saving payment:", paymentError);
+      // Não falhar se o pagamento já foi salvo
+      if (paymentError.code !== "23505") {
+        throw paymentError;
+      }
+    } else {
+      console.log("✅ Payment saved:", paymentRecord.id);
+    }
+
+    // Salvar dados do estudante com status pending
+    console.log("💾 Saving student data...");
+    const { error: studentError } = await supabase
+      .from("students")
+      .upsert({
+        email: email,
+        name: name,
+        pagseguro_transaction_id: String(payment.id),
+        course_access: false, // Será ativado quando o pagamento for aprovado
+      }, {
+        onConflict: "email"
+      });
+
+    if (studentError) {
+      console.error("Error saving student:", studentError);
+      // Não falhar, continuar mesmo com erro
+    } else {
+      console.log("✅ Student data saved");
     }
 
     return new Response(

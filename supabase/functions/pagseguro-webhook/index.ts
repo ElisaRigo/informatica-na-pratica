@@ -98,7 +98,7 @@ async function createMoodleUser(name: string, email: string) {
     'users[0][username]': username,
     'users[0][password]': password,
     'users[0][firstname]': name.split(' ')[0],
-    'users[0][lastname]': name.split(' ').slice(1).join(' ') || name.split(' ')[0],
+    'users[0][lastname]': name.split(' ').slice(1).join(' ') || 'Aluno', // Usar "Aluno" se não tiver sobrenome
     'users[0][email]': email,
     'users[0][auth]': 'manual',
   };

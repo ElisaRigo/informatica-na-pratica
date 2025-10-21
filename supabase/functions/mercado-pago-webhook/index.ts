@@ -82,7 +82,7 @@ async function createMoodleUser(name: string, email: string) {
     'users[0][username]': username,
     'users[0][password]': password,
     'users[0][firstname]': name.split(' ')[0],
-    'users[0][lastname]': name.split(' ').slice(1).join(' ') || name.split(' ')[0],
+    'users[0][lastname]': name.split(' ').slice(1).join(' ') || 'Aluno', // Usar "Aluno" se não tiver sobrenome
     'users[0][email]': email,
     'users[0][auth]': 'manual',
   };
@@ -368,7 +368,6 @@ serve(async (req) => {
       });
     }
 
-    const customerName = payment.payer?.first_name || payment.payer?.name || "Cliente";
     const customerEmail = payment.payer?.email;
     const amount = payment.transaction_amount;
     const paymentMethod = payment.payment_method_id;
@@ -379,16 +378,34 @@ serve(async (req) => {
 
     console.log(`Processing approved payment for ${customerEmail}`);
 
-    // Save payment to database
+    // Buscar dados do estudante que foram salvos quando o PIX foi criado
+    console.log("🔍 Looking for student data...");
+    const { data: studentData, error: studentFetchError } = await supabase
+      .from("students")
+      .select("name, email")
+      .eq("email", customerEmail)
+      .maybeSingle();
+
+    if (studentFetchError) {
+      console.error("Error fetching student:", studentFetchError);
+    }
+
+    const customerName = studentData?.name || payment.payer?.first_name || "Cliente";
+    console.log(`Customer name found: ${customerName}`);
+
+    // Atualizar ou inserir pagamento com status "approved"
     const { data: paymentData, error: paymentError } = await supabase
       .from("payments")
-      .insert({
+      .upsert({
         pagseguro_transaction_id: String(paymentId),
         payment_provider: "mercado_pago",
         amount: amount,
         status: "approved",
         payment_method: paymentMethod,
         webhook_data: payment,
+      }, {
+        onConflict: "pagseguro_transaction_id",
+        ignoreDuplicates: false
       })
       .select()
       .single();
@@ -408,8 +425,8 @@ serve(async (req) => {
     await enrollUserInCourse(moodleUser.userId);
     console.log("✅ User enrolled in course");
 
-    // Save student to database
-    console.log("💾 Saving student to database...");
+    // Atualizar/salvar estudante com acesso ao curso e dados do Moodle
+    console.log("💾 Updating student with course access...");
     const { error: studentError } = await supabase
       .from("students")
       .upsert({
@@ -418,16 +435,17 @@ serve(async (req) => {
         pagseguro_transaction_id: String(paymentId),
         course_access: true,
         moodle_username: moodleUser.username,
+        moodle_user_id: moodleUser.userId,
         moodle_password: moodleUser.password,
       }, {
         onConflict: "email",
       });
 
     if (studentError) {
-      console.error("❌ Error saving student:", studentError);
+      console.error("❌ Error updating student:", studentError);
       throw studentError;
     }
-    console.log("✅ Student saved to database");
+    console.log("✅ Student updated with course access");
 
     // Send welcome email
     console.log("📧 Sending welcome email...");
