@@ -27,8 +27,8 @@ export const Hero = () => {
           </div>
           
           {/* Texto acima do vídeo */}
-          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 leading-tight">
-            Aprenda informática de verdade e conquiste novas oportunidades.
+          <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
+            Aprenda <span className="text-primary">informática de verdade</span> e conquiste <span className="text-accent">novas oportunidades</span>.
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
@@ -47,8 +47,8 @@ export const Hero = () => {
           </div>
 
           {/* Texto abaixo do vídeo */}
-          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            Do zero ao profissional, com aulas simples e práticas de Word, Excel e muito mais — tudo pra te preparar pro mercado de trabalho.
+          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-8 max-w-3xl mx-auto leading-tight">
+            Do <span className="text-primary">zero ao profissional</span>, com aulas <span className="text-accent">simples e práticas</span> de Word, Excel e muito mais — tudo pra te preparar pro <span className="text-success">mercado de trabalho</span>.
           </p>
         
           {/* Benefícios Principais */}
