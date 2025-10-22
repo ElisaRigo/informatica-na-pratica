@@ -53,6 +53,10 @@ serve(async (req) => {
           number: cpf.replace(/\D/g, ""),
         },
       },
+      payment_methods: {
+        installments: 12,
+        default_installments: 1,
+      },
       back_urls: {
         success: `${req.headers.get("origin")}/obrigada`,
         failure: `${req.headers.get("origin")}/aguardando`,
@@ -62,6 +66,7 @@ serve(async (req) => {
       notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
       statement_descriptor: "INFORMATICA PRATICA",
       external_reference: `${email}-${Date.now()}`,
+      binary_mode: false,
     };
 
     console.log("Sending preference to Mercado Pago...");

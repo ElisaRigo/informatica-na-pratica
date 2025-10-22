@@ -233,15 +233,19 @@ export const CheckoutForm = () => {
         description: "Aguarde enquanto preparamos o pagamento",
       });
 
-      // Abrir checkout transparente do Mercado Pago
+      // Abrir checkout transparente do Mercado Pago com configurações completas
       const checkout = mpInstance.checkout({
         preference: {
           id: data.preferenceId
         },
+        render: {
+          container: '.cho-container',
+          label: 'Pagar'
+        },
         autoOpen: true
       });
 
-      console.log('Checkout opened');
+      console.log('Checkout opened successfully');
       
       // Resetar loading após abrir
       setTimeout(() => setLoading(false), 1000);
