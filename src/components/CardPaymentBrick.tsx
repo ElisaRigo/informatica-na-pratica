@@ -65,7 +65,11 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
               },
               paymentMethods: {
                 maxInstallments: 12,
-                minInstallments: 1
+                minInstallments: 1,
+                types: {
+                  excluded: [], // Não excluir nenhum método
+                  included: ['credit_card', 'debit_card'] // Incluir cartão de crédito e débito
+                }
               }
             },
             callbacks: {
