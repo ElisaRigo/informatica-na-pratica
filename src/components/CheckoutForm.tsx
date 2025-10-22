@@ -199,7 +199,7 @@ export const CheckoutForm = () => {
 
   const handleOtherPayment = async (method: 'card' | 'boleto') => {
     if (!validateForm()) return;
-    if (!mpInstance || !sdkLoaded) {
+    if (!sdkLoaded) {
       toast({
         title: "Aguarde",
         description: "Sistema de pagamento ainda carregando...",
@@ -222,24 +222,23 @@ export const CheckoutForm = () => {
 
       if (error) throw error;
 
-      if (!data?.preferenceId) {
+      if (!data?.initPoint) {
         throw new Error('Erro ao criar checkout');
       }
 
-      console.log('Preference created:', data.preferenceId);
-
-      // Abrir checkout do Mercado Pago
-      mpInstance.checkout({
-        preference: {
-          id: data.preferenceId
-        },
-        autoOpen: true,
-      });
+      console.log('Preference created, redirecting to:', data.initPoint);
 
       toast({
         title: "Redirecionando...",
         description: "Você será redirecionado para completar o pagamento",
       });
+
+      // Redirecionar para o checkout do Mercado Pago em nova aba
+      window.open(data.initPoint, '_blank');
+      
+      // Resetar loading após 2 segundos
+      setTimeout(() => setLoading(false), 2000);
+      
     } catch (error: any) {
       console.error('Error:', error);
       toast({
