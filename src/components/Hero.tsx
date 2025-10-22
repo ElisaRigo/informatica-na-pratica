@@ -66,8 +66,8 @@ export const Hero = () => {
               💻 Quero começar agora
             </Button>
             <div className="text-center mt-4 space-y-2">
-              <p className="text-3xl md:text-4xl font-black text-foreground">
-                💰 De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
+              <p className="text-lg md:text-2xl font-black text-foreground">
+                💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
               </p>
               <p className="text-sm md:text-base text-muted-foreground font-semibold">
                 💳 ou parcele em até 12x no cartão
