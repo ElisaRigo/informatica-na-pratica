@@ -11,6 +11,7 @@ import { CardPaymentBrick } from "./CardPaymentBrick";
 declare global {
   interface Window {
     MercadoPago: any;
+    grecaptcha: any;
   }
 }
 
@@ -37,6 +38,35 @@ export const CheckoutForm = () => {
   const [checkingPayment, setCheckingPayment] = useState(false);
   const [coursePrice, setCoursePrice] = useState<number>(297.00);
   const [showCardPayment, setShowCardPayment] = useState(false);
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
+
+  // Carregar reCAPTCHA
+  useEffect(() => {
+    const loadRecaptcha = async () => {
+      try {
+        // Buscar a site key dos secrets
+        const { data: keyData } = await supabase.functions.invoke('get-recaptcha-site-key');
+        
+        if (keyData?.siteKey) {
+          setRecaptchaSiteKey(keyData.siteKey);
+          
+          const script = document.createElement('script');
+          script.src = `https://www.google.com/recaptcha/api.js?render=${keyData.siteKey}`;
+          script.async = true;
+          script.onload = () => {
+            console.log('reCAPTCHA loaded');
+            setRecaptchaLoaded(true);
+          };
+          document.body.appendChild(script);
+        }
+      } catch (error) {
+        console.error('Error loading reCAPTCHA:', error);
+      }
+    };
+
+    loadRecaptcha();
+  }, []);
 
   // Carregar SDK do Mercado Pago
   useEffect(() => {
@@ -142,6 +172,38 @@ export const CheckoutForm = () => {
     return true;
   };
 
+  // Verificar reCAPTCHA antes de processar pagamento
+  const verifyRecaptcha = async (action: string): Promise<boolean> => {
+    if (!recaptchaLoaded || !recaptchaSiteKey) {
+      console.warn('reCAPTCHA not loaded, skipping verification');
+      return true; // Não bloquear se reCAPTCHA não carregou
+    }
+
+    try {
+      const token = await window.grecaptcha.execute(recaptchaSiteKey, { action });
+      
+      const { data, error } = await supabase.functions.invoke('verify-recaptcha', {
+        body: { token }
+      });
+
+      if (error || !data?.success) {
+        toast({
+          title: "Verificação de segurança falhou",
+          description: "Por favor, tente novamente em alguns instantes",
+          variant: "destructive"
+        });
+        return false;
+      }
+
+      console.log('reCAPTCHA verified, score:', data.score);
+      return true;
+    } catch (error) {
+      console.error('reCAPTCHA error:', error);
+      // Não bloquear em caso de erro técnico
+      return true;
+    }
+  };
+
   const handlePixPayment = async () => {
     if (!validateForm()) return;
     if (!sdkLoaded) {
@@ -153,6 +215,13 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
+
+    // Verificar reCAPTCHA antes de processar
+    const recaptchaValid = await verifyRecaptcha('pix_payment');
+    if (!recaptchaValid) {
+      setLoading(false);
+      return;
+    }
 
     try {
       console.log('Creating PIX payment...');
@@ -219,8 +288,19 @@ export const CheckoutForm = () => {
     }
   };
 
-  const handleCardPayment = () => {
+  const handleCardPayment = async () => {
     if (!validateForm()) return;
+    
+    setLoading(true);
+    
+    // Verificar reCAPTCHA antes de mostrar formulário de cartão
+    const recaptchaValid = await verifyRecaptcha('card_payment');
+    if (!recaptchaValid) {
+      setLoading(false);
+      return;
+    }
+    
+    setLoading(false);
     setShowCardPayment(true);
   };
 
@@ -235,6 +315,13 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
+
+    // Verificar reCAPTCHA antes de processar
+    const recaptchaValid = await verifyRecaptcha('boleto_payment');
+    if (!recaptchaValid) {
+      setLoading(false);
+      return;
+    }
 
     try {
       console.log(`Creating checkout for ${method}...`);
