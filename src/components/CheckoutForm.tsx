@@ -454,6 +454,12 @@ export const CheckoutForm = () => {
           </div>
         </div>
 
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+          <p className="text-sm text-blue-900 font-medium">
+            💳 Digite o número do cartão para ver as opções de parcelamento disponíveis
+          </p>
+        </div>
+
         <CardPaymentBrick
           formData={formData}
           amount={coursePrice}
