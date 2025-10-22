@@ -14,6 +14,7 @@ interface PixPaymentRequest {
   name: string;
   email: string;
   cpf: string;
+  phone?: string;
 }
 
 serve(async (req) => {
@@ -22,7 +23,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, cpf }: PixPaymentRequest = await req.json();
+    const { name, email, cpf, phone }: PixPaymentRequest = await req.json();
 
     console.log("Creating PIX payment for:", { email, name });
 
@@ -47,6 +48,10 @@ serve(async (req) => {
         email: email,
         first_name: name.split(" ")[0],
         last_name: name.split(" ").slice(1).join(" ") || ".",
+        phone: phone ? {
+          area_code: phone.substring(0, 2),
+          number: phone.substring(2)
+        } : undefined,
         identification: {
           type: "CPF",
           number: cpf.replace(/\D/g, ""),

@@ -28,7 +28,8 @@ export const CheckoutForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    cpf: ""
+    cpf: "",
+    phone: ""
   });
   const [mpInstance, setMpInstance] = useState<any>(null);
   const [pixData, setPixData] = useState<PixData | null>(null);
@@ -88,8 +89,16 @@ export const CheckoutForm = () => {
     return value;
   };
 
+  const formatPhone = (value: string) => {
+    const numbers = value.replace(/\D/g, '');
+    if (numbers.length <= 11) {
+      return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    }
+    return value;
+  };
+
   const validateForm = () => {
-    if (!formData.name || !formData.email || !formData.cpf) {
+    if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
       toast({
         title: "Preencha todos os campos",
         description: "Todos os campos são obrigatórios",
@@ -103,6 +112,16 @@ export const CheckoutForm = () => {
       toast({
         title: "CPF inválido",
         description: "Digite um CPF válido com 11 dígitos",
+        variant: "destructive"
+      });
+      return false;
+    }
+
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+    if (cleanPhone.length !== 11) {
+      toast({
+        title: "Telefone inválido",
+        description: "Digite um telefone válido com DDD (11 dígitos)",
         variant: "destructive"
       });
       return false;
@@ -140,7 +159,8 @@ export const CheckoutForm = () => {
         body: {
           name: formData.name,
           email: formData.email,
-          cpf: formData.cpf.replace(/\D/g, '')
+          cpf: formData.cpf.replace(/\D/g, ''),
+          phone: formData.phone.replace(/\D/g, '')
         }
       });
 
@@ -216,7 +236,8 @@ export const CheckoutForm = () => {
         body: {
           name: formData.name,
           email: formData.email,
-          cpf: formData.cpf.replace(/\D/g, '')
+          cpf: formData.cpf.replace(/\D/g, ''),
+          phone: formData.phone.replace(/\D/g, '')
         }
       });
 
@@ -495,6 +516,19 @@ export const CheckoutForm = () => {
             value={formData.cpf}
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
             maxLength={14}
+            disabled={loading || !sdkLoaded}
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+          />
+        </div>
+
+        <div className="space-y-1">
+          <Label htmlFor="phone" className="text-xs md:text-sm font-bold text-foreground">Telefone com DDD *</Label>
+          <Input
+            id="phone"
+            placeholder="(11) 99999-9999"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+            maxLength={15}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />

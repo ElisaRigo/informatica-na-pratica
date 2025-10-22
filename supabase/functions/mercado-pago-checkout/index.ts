@@ -10,6 +10,7 @@ interface CheckoutRequest {
   name: string;
   email: string;
   cpf: string;
+  phone?: string;
 }
 
 serve(async (req) => {
@@ -18,7 +19,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, cpf }: CheckoutRequest = await req.json();
+    const { name, email, cpf, phone }: CheckoutRequest = await req.json();
 
     console.log("Creating Mercado Pago preference for:", { email, name });
 
@@ -35,7 +36,12 @@ serve(async (req) => {
     // Obter o preço do curso do ambiente
     const coursePrice = parseFloat(Deno.env.get("COURSE_PRICE") || "297.00");
 
-    // Create preference
+    // Separar nome em primeiro e último nome
+    const nameParts = name.trim().split(' ');
+    const firstName = nameParts[0];
+    const lastName = nameParts.slice(1).join(' ') || nameParts[0];
+
+    // Create preference com todas as informações necessárias
     const preferenceData = {
       items: [
         {
@@ -46,12 +52,22 @@ serve(async (req) => {
         },
       ],
       payer: {
-        name: name,
+        name: firstName,
+        surname: lastName,
         email: email,
+        phone: {
+          area_code: phone ? phone.substring(0, 2) : "11",
+          number: phone ? phone.substring(2) : "999999999"
+        },
         identification: {
           type: "CPF",
           number: cpf.replace(/\D/g, ""),
         },
+        address: {
+          zip_code: "00000000",
+          street_name: "Rua",
+          street_number: 1
+        }
       },
       payment_methods: {
         installments: 12,
