@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
 import { useState, useRef } from "react";
 import videoPoster from "@/assets/video-poster-hero.jpg";
-import heroVideo from "@/assets/hero-video-main.mp4";
+import heroVideo from "@/assets/hero-video-new.mp4";
 
 export const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -21,7 +21,7 @@ export const Hero = () => {
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo */}
           <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
-            Aprenda <span className="text-primary">Informática de Verdade</span> e conquiste <span className="text-primary">Novas Oportunidades</span>.
+            Vou te Ajudar a <span className="text-primary">dominar Informática</span> e conquistar seu <span className="text-primary">certificado profissional</span> em poucas semanas.
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
@@ -53,7 +53,7 @@ export const Hero = () => {
 
           {/* Texto abaixo do vídeo */}
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
-            Do <span className="text-primary font-black">Zero ao Profissional</span>, com aulas <span className="text-primary font-black">Simples e Práticas</span> de Word, Excel e muito mais — para você se destacar no <span className="text-primary font-black">Mercado de Trabalho</span> e usar o computador com <span className="text-primary font-black">Confiança</span>.
+            Do <span className="text-primary font-black">zero ao profissional</span> — aulas <span className="text-primary font-black">simples e práticas</span> pra você dominar <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e muito mais.
           </p>
 
           {/* CTA Principal DESTAQUE */}
@@ -63,14 +63,14 @@ export const Hero = () => {
               className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30"
               onClick={() => (window as any).openCheckout?.()}
             >
-              ✨ Sim, Quero Dominar Informática
+              💻 Quero começar agora
             </Button>
             <div className="text-center mt-4 space-y-2">
               <p className="text-3xl md:text-4xl font-black text-foreground">
-                R$ 297,00
+                💰 De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
               </p>
               <p className="text-sm md:text-base text-muted-foreground font-semibold">
-                Acesso completo por 2 anos • Certificado incluso
+                💳 ou parcele em até 12x no cartão
               </p>
               <p className="text-sm md:text-base text-accent font-bold mt-2">
                 🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
