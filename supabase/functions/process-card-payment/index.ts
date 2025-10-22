@@ -51,6 +51,25 @@ serve(async (req) => {
     const payment = await response.json();
     console.log("Payment processed:", payment.id, "Status:", payment.status);
 
+    // CRÍTICO: Salvar estudante PRIMEIRO para que o webhook encontre
+    console.log("💾 Saving student data...");
+    const { error: studentError } = await supabase
+      .from("students")
+      .upsert({
+        email: paymentData.payer.email,
+        name: `${paymentData.payer.first_name} ${paymentData.payer.last_name}`,
+        pagseguro_transaction_id: String(payment.id),
+        course_access: false, // Será ativado pelo webhook quando aprovado
+      }, {
+        onConflict: "email"
+      });
+
+    if (studentError) {
+      console.error("Error saving student:", studentError);
+    } else {
+      console.log("✅ Student saved - webhook will complete enrollment");
+    }
+
     // Salvar pagamento no banco
     const { error: paymentError } = await supabase
       .from("payments")
@@ -65,25 +84,16 @@ serve(async (req) => {
 
     if (paymentError && paymentError.code !== "23505") {
       console.error("Error saving payment:", paymentError);
+    } else {
+      console.log("✅ Payment saved");
     }
 
-    // Se aprovado, salvar estudante
-    if (payment.status === "approved") {
-      const { error: studentError } = await supabase
-        .from("students")
-        .upsert({
-          email: paymentData.payer.email,
-          name: `${paymentData.payer.first_name} ${paymentData.payer.last_name}`,
-          pagseguro_transaction_id: String(payment.id),
-          course_access: true,
-        }, {
-          onConflict: "email"
-        });
-
-      if (studentError) {
-        console.error("Error saving student:", studentError);
-      }
-    }
+    // O webhook do Mercado Pago será chamado automaticamente e vai:
+    // 1. Criar usuário no Moodle
+    // 2. Matricular no curso
+    // 3. Enviar email de boas-vindas
+    // 4. Atualizar course_access para true
+    console.log("✅ Payment created - webhook will handle Moodle enrollment and welcome email");
 
     return new Response(
       JSON.stringify({
