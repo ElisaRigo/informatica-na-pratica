@@ -44,8 +44,8 @@ export const Hero = () => {
                 className="absolute inset-0 flex items-center justify-center cursor-pointer"
                 onClick={handlePlayClick}
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/60 hover:bg-black/50 hover:scale-110 transition-all">
-                  <div className="w-0 h-0 border-l-[16px] md:border-l-[20px] border-l-white border-y-[10px] md:border-y-[12px] border-y-transparent ml-1"></div>
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/60 hover:bg-black/50 hover:scale-110 transition-all">
+                  <div className="w-0 h-0 border-l-[13px] md:border-l-[16px] border-l-white border-y-[8px] md:border-y-[10px] border-y-transparent ml-1"></div>
                 </div>
               </div>
             )}
