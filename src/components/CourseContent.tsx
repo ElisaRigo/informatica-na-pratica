@@ -61,7 +61,7 @@ export const CourseContent = () => {
             >
               <img
                 src={module.icon}
-                alt={module.title}
+                alt={`Ícone do curso de ${module.title} - Aprenda informática do zero ao profissional`}
                 className="w-16 h-16 mx-auto mb-4"
                 loading="lazy"
                 width="64"

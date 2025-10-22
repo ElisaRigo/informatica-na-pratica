@@ -435,7 +435,7 @@ export const CheckoutForm = () => {
             <ArrowLeft className="w-4 h-4" />
             Voltar
           </Button>
-          <img src={logoBlue} alt="Logo" className="h-12" />
+          <img src={logoBlue} alt="Informática na Prática - Curso de Informática Online" className="h-12" />
           <div className="w-20"></div>
         </div>
 
@@ -477,7 +477,7 @@ export const CheckoutForm = () => {
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between pb-6 border-b">
-          <img src={logoBlue} alt="Elisa Ensina" className="h-12" />
+          <img src={logoBlue} alt="Informática na Prática - Curso de Informática com Professora Elisa" className="h-12" />
           <Button
             variant="ghost"
             size="icon"
@@ -508,7 +508,7 @@ export const CheckoutForm = () => {
             <div className="p-4 bg-white rounded-xl shadow-lg">
               <img
                 src={`data:image/png;base64,${pixData.qrCodeBase64}`}
-                alt="QR Code PIX"
+                alt="QR Code PIX para pagamento do Curso de Informática na Prática - Escaneie para pagar"
                 className="w-64 h-64"
               />
             </div>
@@ -584,7 +584,7 @@ export const CheckoutForm = () => {
     <div className="space-y-6">
       {/* Header com Preço em Destaque */}
       <div className="text-center space-y-2 pb-4 border-b">
-        <img src={logoBlue} alt="Elisa Ensina" className="h-10 md:h-14 mx-auto" />
+        <img src={logoBlue} alt="Informática na Prática - Logo do Curso" className="h-10 md:h-14 mx-auto" />
         <div>
           <div className="text-3xl md:text-5xl font-black text-primary mb-1">
             R$ {coursePrice.toFixed(2).replace('.', ',')}

@@ -13,7 +13,7 @@ export const Authority = () => {
           <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
             <img 
               src={elisaTeaching} 
-              alt="Professora Elisa ensinando informática" 
+              alt="Professora Elisa ensinando curso de informática online - Word, Excel e PowerPoint" 
               className="w-full h-auto object-cover"
               loading="lazy"
               width="1200"

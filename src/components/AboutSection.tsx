@@ -19,7 +19,7 @@ export const AboutSection = () => {
               <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                 <img 
                   src={elisaPhoto} 
-                  alt="Professora Elisangela Neri Rigo" 
+                  alt="Professora Elisangela Neri Rigo - Fundadora do Curso Informática na Prática com mais de 20 anos de experiência" 
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                 />

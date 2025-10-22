@@ -58,7 +58,7 @@ export const ContentGrid = () => {
             >
               <img
                 src={module.icon}
-                alt={module.title}
+                alt={`Ícone do módulo ${module.title} - Curso de Informática na Prática`}
                 className="w-16 h-16 mx-auto mb-4"
                 loading="lazy"
                 width="64"
