@@ -1,9 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
+import { useState, useRef } from "react";
 import videoPoster from "@/assets/video-poster-hero.jpg";
 import heroVideo from "@/assets/hero-video-main.mp4";
 
 export const Hero = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayClick = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
   return (
     <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
       <div className="container mx-auto px-4 relative z-10">
@@ -16,15 +26,29 @@ export const Hero = () => {
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
             <video 
+              ref={videoRef}
               className="w-full aspect-video rounded-2xl"
               controls
               playsInline
               preload="metadata"
               poster={videoPoster}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
             >
               <source src={heroVideo} type="video/mp4" />
               Seu navegador não suporta vídeos HTML5.
             </video>
+            
+            {!isPlaying && (
+              <div 
+                className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                onClick={handlePlayClick}
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/60 hover:bg-black/50 hover:scale-110 transition-all">
+                  <div className="w-0 h-0 border-l-[16px] md:border-l-[20px] border-l-white border-y-[10px] md:border-y-[12px] border-y-transparent ml-1"></div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Texto abaixo do vídeo */}
