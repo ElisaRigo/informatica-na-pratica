@@ -6,6 +6,8 @@ interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   priority?: boolean;
   width?: number;
   height?: number;
+  srcSet?: string;
+  sizes?: string;
 }
 
 export const OptimizedImage = ({ 
@@ -14,6 +16,8 @@ export const OptimizedImage = ({
   priority = false,
   width,
   height,
+  srcSet,
+  sizes,
   className,
   ...props 
 }: OptimizedImageProps) => {
@@ -23,6 +27,8 @@ export const OptimizedImage = ({
       alt={alt}
       width={width}
       height={height}
+      srcSet={srcSet}
+      sizes={sizes}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
       className={className}
