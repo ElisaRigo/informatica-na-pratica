@@ -3,6 +3,7 @@ import { Shield, Award, Zap } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import videoPoster from "@/assets/video-poster-hero.jpg";
 import heroVideo from "@/assets/hero-video-new.mp4";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 
 export const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -120,6 +121,9 @@ export const Hero = () => {
               <span className="font-bold text-sm md:text-base text-foreground">Certificado incluso</span>
             </div>
           </div>
+
+          {/* WhatsApp CTA */}
+          <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mt-8" />
 
         </div>
       </div>

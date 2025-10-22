@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
 import excelIcon from "@/assets/excel-icon.png";
@@ -44,6 +45,9 @@ export const CourseContent = () => {
   return (
     <section id="conteudo" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
+        {/* WhatsApp CTA antes do conteúdo */}
+        <WhatsAppCTA text="💬 Fale com a Professora Elisa pelo WhatsApp" className="mb-12" />
+        
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-foreground">
             Veja tudo o que você vai dominar no curso
@@ -91,6 +95,9 @@ export const CourseContent = () => {
             ✅ Quero Aprender Tudo Isso Agora
           </Button>
         </div>
+
+        {/* WhatsApp CTA adicional */}
+        <WhatsAppCTA text="🎓 Tem dúvidas? Fale com a Professora!" className="mt-12" />
       </div>
     </section>
   );
