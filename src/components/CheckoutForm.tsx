@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2, ShieldCheck, Lock, CreditCard, Smartphone, Receipt, CheckCircle2, Copy, X, ArrowLeft } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
-import { CardPaymentBrick } from "./CardPaymentBrick";
+import { CustomCardPayment } from "./CustomCardPayment";
 
 declare global {
   interface Window {
@@ -454,18 +454,17 @@ export const CheckoutForm = () => {
           </div>
         </div>
 
-        <CardPaymentBrick
+        <CustomCardPayment
           formData={formData}
           amount={coursePrice}
+          mpPublicKey={mpInstance?._publicKey || ""}
           onSuccess={() => {
             toast({
               title: "✅ Pagamento aprovado!",
               description: "Redirecionando...",
             });
           }}
-          onError={(error) => {
-            console.error('Payment error:', error);
-          }}
+          onBack={() => setShowCardPayment(false)}
         />
 
         <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2 border-t">
