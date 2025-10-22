@@ -14,31 +14,39 @@ export const Hero = () => {
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
-          <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
-            <img 
-              src={videoPoster}
-              alt="Vídeo de apresentação do Curso de Informática na Prática"
-              className="w-full aspect-video rounded-2xl cursor-pointer object-cover"
-              fetchPriority="high"
-              decoding="async"
+          <div className="relative max-w-4xl mx-auto mb-4 md:mb-6" id="video-container">
+            <div 
+              className="relative cursor-pointer"
               onClick={(e) => {
-                const video = document.createElement('video');
-                video.controls = true;
-                video.className = 'w-full aspect-video rounded-2xl';
-                video.playsInline = true;
-                video.autoplay = true;
-                const source = document.createElement('source');
-                source.src = heroVideo;
-                source.type = 'video/mp4';
-                video.appendChild(source);
-                e.currentTarget.parentElement?.replaceChild(video, e.currentTarget);
+                const container = document.getElementById('video-container');
+                if (container) {
+                  const video = document.createElement('video');
+                  video.controls = true;
+                  video.className = 'w-full aspect-video rounded-2xl';
+                  video.playsInline = true;
+                  video.autoplay = true;
+                  const source = document.createElement('source');
+                  source.src = heroVideo;
+                  source.type = 'video/mp4';
+                  video.appendChild(source);
+                  container.innerHTML = '';
+                  container.appendChild(video);
+                }
               }}
-            />
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-16 h-16 md:w-20 md:h-20 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/60">
-              <div className="w-0 h-0 border-l-8 md:border-l-10 border-l-white border-y-6 md:border-y-8 border-y-transparent ml-1"></div>
+            >
+              <img 
+                src={videoPoster}
+                alt="Vídeo de apresentação do Curso de Informática na Prática"
+                className="w-full aspect-video rounded-2xl object-cover"
+                fetchPriority="high"
+                decoding="async"
+              />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/60">
+                  <div className="w-0 h-0 border-l-8 md:border-l-10 border-l-white border-y-6 md:border-y-8 border-y-transparent ml-1"></div>
+                </div>
+              </div>
             </div>
-          </div>
           </div>
 
           {/* Texto abaixo do vídeo */}
