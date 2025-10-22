@@ -4,8 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, Lock, CreditCard, Smartphone, Receipt, CheckCircle2, Copy, X } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CreditCard, Smartphone, Receipt, CheckCircle2, Copy, X, ArrowLeft } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
+import { CardPaymentBrick } from "./CardPaymentBrick";
 
 declare global {
   interface Window {
@@ -35,6 +36,7 @@ export const CheckoutForm = () => {
   const [pixData, setPixData] = useState<PixData | null>(null);
   const [checkingPayment, setCheckingPayment] = useState(false);
   const [coursePrice, setCoursePrice] = useState<number>(297.00);
+  const [showCardPayment, setShowCardPayment] = useState(false);
 
   // Carregar SDK do Mercado Pago
   useEffect(() => {
@@ -217,7 +219,12 @@ export const CheckoutForm = () => {
     }
   };
 
-  const handleOtherPayment = async (method: 'card' | 'boleto') => {
+  const handleCardPayment = () => {
+    if (!validateForm()) return;
+    setShowCardPayment(true);
+  };
+
+  const handleOtherPayment = async (method: 'boleto') => {
     if (!validateForm()) return;
     if (!sdkLoaded) {
       toast({
@@ -325,6 +332,57 @@ export const CheckoutForm = () => {
       setCheckingPayment(false);
     }
   };
+
+  // Se está mostrando pagamento com cartão
+  if (showCardPayment) {
+    return (
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="flex items-center justify-between pb-6 border-b">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowCardPayment(false)}
+            className="gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Voltar
+          </Button>
+          <img src={logoBlue} alt="Logo" className="h-12" />
+          <div className="w-20"></div>
+        </div>
+
+        <div className="text-center space-y-2">
+          <h3 className="text-2xl font-bold">Pagamento com Cartão</h3>
+          <p className="text-sm text-muted-foreground">
+            Parcele em até 12x sem juros
+          </p>
+          <div className="text-3xl font-black text-primary">
+            R$ {coursePrice.toFixed(2).replace('.', ',')}
+          </div>
+        </div>
+
+        <CardPaymentBrick
+          formData={formData}
+          amount={coursePrice}
+          onSuccess={() => {
+            toast({
+              title: "✅ Pagamento aprovado!",
+              description: "Redirecionando...",
+            });
+          }}
+          onError={(error) => {
+            console.error('Payment error:', error);
+          }}
+        />
+
+        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2 border-t">
+          <ShieldCheck className="w-4 h-4" />
+          <span>Pagamento 100% Seguro com Mercado Pago</span>
+        </div>
+      </div>
+    );
+  }
 
   // Se tem dados do PIX, mostra a tela do QR Code
   if (pixData) {
@@ -532,7 +590,7 @@ export const CheckoutForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
         {/* Cartão */}
         <button
-          onClick={() => handleOtherPayment('card')}
+          onClick={handleCardPayment}
           disabled={loading || !sdkLoaded}
           className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
