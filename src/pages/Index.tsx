@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { CourseContent } from "@/components/CourseContent";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
 // Lazy load componentes com prefetch
@@ -103,6 +104,7 @@ const Index = () => {
       </Suspense>
       
       <Footer />
+      <WhatsAppButton />
       
       <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>

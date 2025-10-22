@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
 import { AboutSection } from "@/components/AboutSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
@@ -98,6 +99,7 @@ const VendaTeste = () => {
       </Suspense>
       <Footer />
       <WhatsAppFloat />
+      <WhatsAppButton />
       
       <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
