@@ -28,7 +28,7 @@ export const Authority = () => {
                 <div className="text-sm text-muted-foreground">Anos de experiência</div>
               </div>
               <div className="bg-card border-2 border-accent/30 rounded-2xl p-6 text-center">
-                <div className="text-4xl font-black text-accent mb-2">+15k</div>
+                <div className="text-3xl md:text-4xl font-black text-accent mb-2">+15.000</div>
                 <div className="text-sm text-muted-foreground">Alunos transformados</div>
               </div>
               <div className="bg-card border-2 border-primary/30 rounded-2xl p-6 text-center">
