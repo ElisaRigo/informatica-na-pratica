@@ -96,6 +96,7 @@ export type Database = {
           moodle_username: string | null
           name: string
           pagseguro_transaction_id: string | null
+          phone: string | null
           updated_at: string | null
         }
         Insert: {
@@ -108,6 +109,7 @@ export type Database = {
           moodle_username?: string | null
           name: string
           pagseguro_transaction_id?: string | null
+          phone?: string | null
           updated_at?: string | null
         }
         Update: {
@@ -120,6 +122,7 @@ export type Database = {
           moodle_username?: string | null
           name?: string
           pagseguro_transaction_id?: string | null
+          phone?: string | null
           updated_at?: string | null
         }
         Relationships: []

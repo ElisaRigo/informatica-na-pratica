@@ -10,6 +10,7 @@ export const AddStudent = () => {
   const [formData, setFormData] = useState({
     email: '',
     name: '',
+    phone: '',
     moodle_username: '',
     moodle_password: '',
   });
@@ -26,6 +27,7 @@ export const AddStudent = () => {
           {
             email: formData.email,
             name: formData.name,
+            phone: formData.phone || null,
             moodle_username: formData.moodle_username,
             moodle_password: formData.moodle_password,
             course_access: true,
@@ -42,6 +44,7 @@ export const AddStudent = () => {
       setFormData({
         email: '',
         name: '',
+        phone: '',
         moodle_username: '',
         moodle_password: '',
       });
@@ -83,6 +86,17 @@ export const AddStudent = () => {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="phone">Telefone (opcional)</Label>
+            <Input
+              id="phone"
+              type="tel"
+              placeholder="(11) 99999-9999"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />
           </div>
 

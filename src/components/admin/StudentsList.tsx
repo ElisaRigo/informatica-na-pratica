@@ -14,6 +14,7 @@ interface Student {
   id: string;
   email: string;
   name: string;
+  phone: string | null;
   moodle_username: string | null;
   course_access: boolean;
   created_at: string;
@@ -120,6 +121,9 @@ export const StudentsList = () => {
                   <div className="flex-1">
                     <h3 className="font-semibold">{student.name}</h3>
                     <p className="text-sm text-muted-foreground">{student.email}</p>
+                    {student.phone && (
+                      <p className="text-sm text-muted-foreground">📱 {student.phone}</p>
+                    )}
                   </div>
                   <div className="flex items-center gap-2">
                     <Badge variant={student.course_access ? 'default' : 'secondary'}>

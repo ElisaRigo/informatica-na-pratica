@@ -122,6 +122,7 @@ serve(async (req) => {
       .upsert({
         email: email,
         name: name,
+        phone: phone || null,
         pagseguro_transaction_id: String(payment.id),
         course_access: false, // Será ativado quando o pagamento for aprovado
       }, {

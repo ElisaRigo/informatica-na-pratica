@@ -58,6 +58,7 @@ serve(async (req) => {
       .upsert({
         email: paymentData.payer.email,
         name: `${paymentData.payer.first_name} ${paymentData.payer.last_name}`,
+        phone: paymentData.payer.phone ? `${paymentData.payer.phone.area_code}${paymentData.payer.phone.number}` : null,
         pagseguro_transaction_id: String(payment.id),
         course_access: false, // Será ativado pelo webhook quando aprovado
       }, {
