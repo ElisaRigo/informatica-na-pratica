@@ -16,6 +16,7 @@ export const Authority = () => {
               alt="Professora Elisa ensinando curso de informática online - Word, Excel e PowerPoint" 
               className="w-full h-auto object-cover"
               loading="lazy"
+              decoding="async"
               width="1200"
               height="675"
             />

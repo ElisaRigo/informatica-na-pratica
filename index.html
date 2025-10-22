@@ -216,11 +216,13 @@
     }
     </script>
     
-    <!-- Critical CSS inline -->
+    <!-- Critical CSS inline com font-display -->
     <style>
       body{margin:0;font-family:Montserrat,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
       #root{min-height:100vh}
       *{box-sizing:border-box}
+      @font-face{font-family:'Montserrat';font-display:swap}
+      img{content-visibility:auto}
     </style>
     
     <!-- Preconnect para APIs críticas -->
@@ -229,13 +231,15 @@
     <link rel="dns-prefetch" href="https://api.mercadopago.com">
     <link rel="dns-prefetch" href="https://http2.mlstatic.com">
     
-    <!-- Preload critical resources -->
+    <!-- Preload critical resources com fetchpriority -->
     <link rel="preload" href="/src/assets/video-poster-hero.jpg" as="image" type="image/jpeg" fetchpriority="high" />
+    <link rel="preload" href="/src/assets/logo-blue.png" as="image" type="image/png" fetchpriority="high" />
     <link rel="modulepreload" href="/src/main.tsx" />
     
-    <!-- Preload font with display swap for better performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Preload font crítica com display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">

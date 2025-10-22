@@ -22,6 +22,9 @@ export const AboutSection = () => {
                   alt="Professora Elisangela Neri Rigo - Fundadora do Curso Informática na Prática com mais de 20 anos de experiência" 
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="533"
                 />
               </div>
             </div>

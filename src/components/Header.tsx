@@ -11,6 +11,8 @@ export const Header = () => {
             className="w-14 md:w-16 lg:w-20 mx-auto"
             width="80"
             height="80"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
         <h1 className="text-base md:text-xl lg:text-2xl text-foreground mt-2 tracking-tight leading-tight px-2">

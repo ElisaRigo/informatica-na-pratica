@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Award, Zap, CheckCircle2 } from "lucide-react";
+import { Shield, Award, Zap } from "lucide-react";
 import videoPoster from "@/assets/video-poster-hero.jpg";
 import heroVideo from "@/assets/hero-video-main.mp4";
 
@@ -15,16 +15,30 @@ export const Hero = () => {
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
-            <video 
-              controls
-              poster={videoPoster}
-              className="w-full aspect-video rounded-2xl"
-              preload="none"
-              playsInline
-            >
-              <source src={heroVideo} type="video/mp4" />
-              Seu navegador não suporta o elemento de vídeo.
-            </video>
+            <img 
+              src={videoPoster}
+              alt="Vídeo de apresentação do Curso de Informática na Prática"
+              className="w-full aspect-video rounded-2xl cursor-pointer object-cover"
+              fetchPriority="high"
+              decoding="async"
+              onClick={(e) => {
+                const video = document.createElement('video');
+                video.controls = true;
+                video.className = 'w-full aspect-video rounded-2xl';
+                video.playsInline = true;
+                video.autoplay = true;
+                const source = document.createElement('source');
+                source.src = heroVideo;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                e.currentTarget.parentElement?.replaceChild(video, e.currentTarget);
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center">
+                <div className="w-0 h-0 border-l-8 md:border-l-10 border-l-white border-y-6 md:border-y-8 border-y-transparent ml-1"></div>
+              </div>
+            </div>
           </div>
 
           {/* Texto abaixo do vídeo */}
