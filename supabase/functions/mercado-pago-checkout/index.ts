@@ -39,7 +39,7 @@ serve(async (req) => {
     const preferenceData = {
       items: [
         {
-          title: "Curso Completo - Elisa Ensina",
+          title: "Curso Completo de Informática na Prática",
           quantity: 1,
           unit_price: coursePrice,
           currency_id: "BRL",
@@ -60,7 +60,7 @@ serve(async (req) => {
       },
       auto_return: "approved",
       notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
-      statement_descriptor: "ELISA ENSINA",
+      statement_descriptor: "INFORMATICA PRATICA",
       external_reference: `${email}-${Date.now()}`,
     };
 

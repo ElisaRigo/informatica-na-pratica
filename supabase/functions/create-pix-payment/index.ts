@@ -41,7 +41,7 @@ serve(async (req) => {
     // Criar pagamento PIX direto
     const paymentData = {
       transaction_amount: coursePrice,
-      description: "Curso Completo - Elisa Ensina",
+      description: "Curso Completo de Informática na Prática",
       payment_method_id: "pix",
       payer: {
         email: email,
@@ -54,7 +54,7 @@ serve(async (req) => {
       },
       notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
       external_reference: `${email}-${Date.now()}`,
-      statement_descriptor: "ELISA ENSINA",
+      statement_descriptor: "INFORMATICA PRATICA",
     };
 
     console.log("Creating PIX payment...");
