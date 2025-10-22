@@ -10,6 +10,7 @@ export const Hero = () => {
 
   const handlePlayClick = () => {
     if (videoRef.current) {
+      videoRef.current.controls = true;
       videoRef.current.play();
       setIsPlaying(true);
     }
@@ -28,7 +29,6 @@ export const Hero = () => {
             <video 
               ref={videoRef}
               className="w-full aspect-video rounded-2xl"
-              controls
               playsInline
               preload="metadata"
               poster={videoPoster}
