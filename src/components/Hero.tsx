@@ -34,11 +34,11 @@ export const Hero = () => {
                 e.currentTarget.parentElement?.replaceChild(video, e.currentTarget);
               }}
             />
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center">
-                <div className="w-0 h-0 border-l-8 md:border-l-10 border-l-white border-y-6 md:border-y-8 border-y-transparent ml-1"></div>
-              </div>
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/60">
+              <div className="w-0 h-0 border-l-8 md:border-l-10 border-l-white border-y-6 md:border-y-8 border-y-transparent ml-1"></div>
             </div>
+          </div>
           </div>
 
           {/* Texto abaixo do vídeo */}
