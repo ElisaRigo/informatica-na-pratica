@@ -223,8 +223,15 @@
       *{box-sizing:border-box}
     </style>
     
+    <!-- Preconnect para APIs críticas -->
+    <link rel="preconnect" href="https://exncvylyygvctgwyqpin.supabase.co" crossorigin>
+    <link rel="preconnect" href="https://sdk.mercadopago.com" crossorigin>
+    <link rel="dns-prefetch" href="https://api.mercadopago.com">
+    <link rel="dns-prefetch" href="https://http2.mlstatic.com">
+    
     <!-- Preload critical resources -->
     <link rel="preload" href="/src/assets/video-poster-hero.jpg" as="image" type="image/jpeg" fetchpriority="high" />
+    <link rel="modulepreload" href="/src/main.tsx" />
     
     <!-- Preload font with display swap for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -234,13 +241,12 @@
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     </noscript>
     
-    <!-- DNS Prefetch para scripts externos (mais rápido que preconnect para terceiros) -->
+    <!-- DNS Prefetch para scripts externos -->
     <link rel="dns-prefetch" href="https://www.facebook.com">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
-    <!-- YouTube removido - só carrega quando usuário clicar no vídeo -->
   </head>
 
   <body>

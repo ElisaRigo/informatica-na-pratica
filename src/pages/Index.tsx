@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, memo } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { AboutSection } from "@/components/AboutSection";
@@ -9,7 +9,7 @@ import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { CourseContent } from "@/components/CourseContent";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
-// Lazy load componentes otimizados para conversão
+// Lazy load componentes com prefetch
 const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
 const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
 const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
@@ -19,6 +19,9 @@ const Pricing = lazy(() => import("@/components/Pricing").then(m => ({ default: 
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 const Guarantee = lazy(() => import("@/components/Guarantee").then(m => ({ default: m.Guarantee })));
 const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({ default: m.StrategicCTA })));
+
+// Loading placeholder otimizado
+const LoadingFallback = memo(() => <div className="h-32" />);
 
 const Index = () => {
   const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
@@ -36,7 +39,7 @@ const Index = () => {
       <CourseContent />
       
       {/* 3️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
       
@@ -47,32 +50,32 @@ const Index = () => {
       <Authority />
       
       {/* 6️⃣ DEPOIS DO CURSO - Capacidades */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <ValueStack />
       </Suspense>
       
       {/* 7️⃣ INVESTIMENTO - Proposta de valor */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <Possibilities />
       </Suspense>
       
       {/* 8️⃣ PARA QUEM É - Público alvo */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <TargetAudience />
       </Suspense>
       
       {/* 9️⃣ OFERTA E PREÇO #1 */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <Pricing />
       </Suspense>
       
       {/* 🔟 GARANTIA #1 */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <Guarantee />
       </Suspense>
       
       {/* 1️⃣1️⃣ ANTES E DEPOIS - Transformação */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <Comparison />
       </Suspense>
       
@@ -80,22 +83,22 @@ const Index = () => {
       <AboutSection />
       
       {/* 1️⃣3️⃣ OFERTA E PREÇO #2 */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <Pricing />
       </Suspense>
       
       {/* 1️⃣4️⃣ PERGUNTAS FREQUENTES */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <FAQ />
       </Suspense>
       
       {/* 1️⃣5️⃣ GARANTIA #2 - Reduzir Risco */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <Guarantee />
       </Suspense>
       
       {/* 1️⃣6️⃣ CTA FINAL ESTRATÉGICO */}
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<LoadingFallback />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>
       

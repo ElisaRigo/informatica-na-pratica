@@ -19,7 +19,8 @@ export const Hero = () => {
               controls
               poster={videoPoster}
               className="w-full aspect-video rounded-2xl"
-              preload="metadata"
+              preload="none"
+              playsInline
             >
               <source src={heroVideo} type="video/mp4" />
               Seu navegador não suporta o elemento de vídeo.
