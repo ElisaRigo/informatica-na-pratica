@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -30,6 +30,7 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [loadingInstallments, setLoadingInstallments] = useState(false);
+  const [mpInstance, setMpInstance] = useState<any>(null);
   const [cardData, setCardData] = useState({
     cardNumber: "",
     cardholderName: "",
@@ -42,6 +43,15 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
     { value: "1", label: `1x de R$ ${amount.toFixed(2).replace(".", ",")}` }
   ]);
   const [paymentMethodId, setPaymentMethodId] = useState<string | null>(null);
+
+  // Inicializar MercadoPago uma vez
+  useEffect(() => {
+    if (mpPublicKey && window.MercadoPago && !mpInstance) {
+      const mp = new window.MercadoPago(mpPublicKey, { locale: "pt-BR" });
+      setMpInstance(mp);
+      console.log("MercadoPago instance created for installments");
+    }
+  }, [mpPublicKey, mpInstance]);
 
   const formatCardNumber = (value: string) => {
     const numbers = value.replace(/\D/g, "");
@@ -71,23 +81,31 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
   };
 
   const fetchInstallmentOptions = async (bin: string) => {
+    if (!mpInstance) {
+      console.log("MercadoPago instance not ready yet");
+      return;
+    }
+
     try {
       setLoadingInstallments(true);
-      const mp = new window.MercadoPago(mpPublicKey, { locale: "pt-BR" });
+      console.log("Fetching installments for bin:", bin);
       
       // Identificar o payment method
-      const paymentMethods = await mp.getPaymentMethods({ bin });
+      const paymentMethods = await mpInstance.getPaymentMethods({ bin });
       
       if (paymentMethods?.results?.length > 0) {
         const paymentMethod = paymentMethods.results[0];
         setPaymentMethodId(paymentMethod.id);
+        console.log("Payment method identified:", paymentMethod.id);
         
         // Buscar installments
-        const installments = await mp.getInstallments({
+        const installments = await mpInstance.getInstallments({
           amount: amount.toString(),
           bin: bin,
           paymentTypeId: paymentMethod.payment_type_id
         });
+        
+        console.log("Installments fetched:", installments);
         
         if (installments?.length > 0 && installments[0].payer_costs) {
           const options = installments[0].payer_costs.map((cost: any) => ({
@@ -95,11 +113,16 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
             label: cost.recommended_message
           }));
           setInstallmentOptions(options);
+          console.log("Installment options set:", options.length, "options");
         }
       }
     } catch (error) {
       console.error("Erro ao buscar parcelas:", error);
-      // Manter opções padrão se houver erro
+      toast({
+        title: "Aviso",
+        description: "Não foi possível carregar as parcelas. Usando valores padrão.",
+        variant: "destructive"
+      });
     } finally {
       setLoadingInstallments(false);
     }
@@ -184,7 +207,9 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
     setLoading(true);
 
     try {
-      const mp = new window.MercadoPago(mpPublicKey, { locale: "pt-BR" });
+      if (!mpInstance) {
+        throw new Error("Mercado Pago não está pronto. Recarregue a página.");
+      }
 
       // Criar token do cartão
       const cleanCardNumber = cardData.cardNumber.replace(/\s/g, "");
@@ -199,7 +224,7 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
       };
 
       console.log("Creating card token...");
-      const token = await mp.fields.createCardToken(tokenData);
+      const token = await mpInstance.fields.createCardToken(tokenData);
 
       if (!token?.id) {
         throw new Error("Erro ao processar cartão");
