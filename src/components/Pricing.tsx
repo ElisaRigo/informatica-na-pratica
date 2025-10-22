@@ -115,7 +115,7 @@ export const Pricing = () => {
                   R$ 297
                 </p>
                 <p className="text-sm md:text-base font-semibold text-success mb-2 text-center">
-                  Ou 12x de R$ 29,14 sem juros
+                  Opções de parcelamento em até 12x
                 </p>
                 <div className="bg-card/50 backdrop-blur rounded-lg p-3 mt-3">
                   <p className="text-sm md:text-base text-muted-foreground text-center">

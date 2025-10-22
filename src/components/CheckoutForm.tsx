@@ -419,53 +419,53 @@ export const CheckoutForm = () => {
   return (
     <div className="space-y-6">
       {/* Header com Preço em Destaque */}
-      <div className="text-center space-y-4 pb-6 border-b-2">
-        <img src={logoBlue} alt="Elisa Ensina" className="h-14 md:h-16 mx-auto" />
+      <div className="text-center space-y-2 pb-4 border-b">
+        <img src={logoBlue} alt="Elisa Ensina" className="h-10 md:h-14 mx-auto" />
         <div>
-          <div className="text-5xl md:text-6xl font-black text-primary mb-2">
+          <div className="text-3xl md:text-5xl font-black text-primary mb-1">
             R$ {coursePrice.toFixed(2).replace('.', ',')}
           </div>
-          <div className="text-sm md:text-base font-bold text-foreground">
+          <div className="text-xs md:text-sm font-bold text-foreground">
             Acesso completo por 2 anos • Certificado incluso
           </div>
-          <div className="text-xs md:text-sm text-muted-foreground mt-2">
-            Ou parcele em até 12x no cartão
+          <div className="text-xs text-success font-semibold mt-1">
+            Parcele em até 12x no cartão
           </div>
         </div>
       </div>
 
       {/* Badges de Segurança */}
-      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 py-4 px-2 bg-gradient-to-r from-success/10 to-primary/10 rounded-xl border border-success/20">
-        <div className="flex items-center gap-2 text-xs md:text-sm">
-          <Lock className="w-4 h-4 md:w-5 md:h-5 text-success" />
-          <span className="font-semibold text-foreground">Pagamento Seguro</span>
+      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 py-2 md:py-3 px-2 bg-gradient-to-r from-success/10 to-primary/10 rounded-lg border border-success/20">
+        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
+          <Lock className="w-3 h-3 md:w-4 md:h-4 text-success" />
+          <span className="font-semibold text-foreground">Seguro</span>
         </div>
-        <div className="flex items-center gap-2 text-xs md:text-sm">
-          <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-success" />
+        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
+          <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-success" />
           <span className="font-semibold text-foreground">Mercado Pago</span>
         </div>
-        <div className="flex items-center gap-2 text-xs md:text-sm">
-          <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-success" />
+        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
+          <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 text-success" />
           <span className="font-semibold text-foreground">Garantia 7 dias</span>
         </div>
       </div>
 
       {/* Formulário */}
-      <div className="space-y-5">
-        <div className="space-y-2">
-          <Label htmlFor="name" className="text-sm md:text-base font-bold text-foreground">Nome Completo *</Label>
+      <div className="space-y-3 md:space-y-4">
+        <div className="space-y-1">
+          <Label htmlFor="name" className="text-xs md:text-sm font-bold text-foreground">Nome Completo *</Label>
           <Input
             id="name"
             placeholder="Seu nome completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-12 md:h-14 text-base border-2 focus:border-primary"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="email" className="text-sm md:text-base font-bold text-foreground">E-mail *</Label>
+        <div className="space-y-1">
+          <Label htmlFor="email" className="text-xs md:text-sm font-bold text-foreground">E-mail *</Label>
           <Input
             id="email"
             type="email"
@@ -473,12 +473,12 @@ export const CheckoutForm = () => {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-12 md:h-14 text-base border-2 focus:border-primary"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="cpf" className="text-sm md:text-base font-bold text-foreground">CPF *</Label>
+        <div className="space-y-1">
+          <Label htmlFor="cpf" className="text-xs md:text-sm font-bold text-foreground">CPF *</Label>
           <Input
             id="cpf"
             placeholder="000.000.000-00"
@@ -486,30 +486,30 @@ export const CheckoutForm = () => {
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
             maxLength={14}
             disabled={loading || !sdkLoaded}
-            className="h-12 md:h-14 text-base border-2 focus:border-primary"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
       </div>
 
       {/* Título das Opções */}
-      <div className="pt-2">
-        <h3 className="text-lg md:text-xl font-black text-center mb-4 text-foreground">Escolha a forma de pagamento</h3>
+      <div className="pt-1">
+        <h3 className="text-sm md:text-lg font-black text-center mb-2 md:mb-3 text-foreground">Escolha a forma de pagamento</h3>
       </div>
 
       {/* Opções de Pagamento - Melhoradas */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
         {/* Cartão */}
         <button
           onClick={() => handleOtherPayment('card')}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-3 p-6 md:p-8 rounded-2xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
-          <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-            <CreditCard className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+          <div className="p-2 md:p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+            <CreditCard className="w-5 h-5 md:w-8 md:h-8 text-primary" />
           </div>
           <div className="text-center">
-            <div className="font-black text-base md:text-lg">Cartão de Crédito</div>
-            <div className="text-sm text-primary font-bold mt-2">Parcele em até 12x</div>
+            <div className="font-black text-xs md:text-base">Cartão de Crédito</div>
+            <div className="text-[10px] md:text-sm text-primary font-bold mt-1">Parcele em até 12x</div>
           </div>
         </button>
 
@@ -517,14 +517,14 @@ export const CheckoutForm = () => {
         <button
           onClick={handlePixPayment}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-3 p-6 md:p-8 rounded-2xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
-          <div className="p-4 rounded-full bg-success/10 group-hover:bg-success/20 transition-colors">
-            <Smartphone className="w-8 h-8 md:w-10 md:h-10 text-success" />
+          <div className="p-2 md:p-3 rounded-full bg-success/10 group-hover:bg-success/20 transition-colors">
+            <Smartphone className="w-5 h-5 md:w-8 md:h-8 text-success" />
           </div>
           <div className="text-center">
-            <div className="font-black text-base md:text-lg">PIX</div>
-            <div className="text-sm text-success font-bold mt-2">Aprovação imediata</div>
+            <div className="font-black text-xs md:text-base">PIX</div>
+            <div className="text-[10px] md:text-sm text-success font-bold mt-1">Aprovação imediata</div>
           </div>
         </button>
 
@@ -532,14 +532,14 @@ export const CheckoutForm = () => {
         <button
           onClick={() => handleOtherPayment('boleto')}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-3 p-6 md:p-8 rounded-2xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
-          <div className="p-4 rounded-full bg-warning/10 group-hover:bg-warning/20 transition-colors">
-            <Receipt className="w-8 h-8 md:w-10 md:h-10 text-warning" />
+          <div className="p-2 md:p-3 rounded-full bg-warning/10 group-hover:bg-warning/20 transition-colors">
+            <Receipt className="w-5 h-5 md:w-8 md:h-8 text-warning" />
           </div>
           <div className="text-center">
-            <div className="font-black text-base md:text-lg">Boleto</div>
-            <div className="text-sm text-warning font-bold mt-2">Até 3 dias úteis</div>
+            <div className="font-black text-xs md:text-base">Boleto</div>
+            <div className="text-[10px] md:text-sm text-warning font-bold mt-1">Até 3 dias úteis</div>
           </div>
         </button>
       </div>
