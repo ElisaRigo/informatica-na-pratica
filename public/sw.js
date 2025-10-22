@@ -1,9 +1,10 @@
 // Service Worker para cache de assets estáticos
-const CACHE_NAME = 'informatica-pratica-v1';
+const CACHE_NAME = 'informatica-pratica-v2';
 const urlsToCache = [
   '/',
   '/src/assets/logo-new.png',
   '/src/assets/video-poster-hero.jpg',
+  '/src/assets/hero-video-new.mp4',
 ];
 
 // Instalar e fazer cache dos recursos

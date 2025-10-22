@@ -1,12 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import videoPoster from "@/assets/video-poster-hero.jpg";
 import heroVideo from "@/assets/hero-video-new.mp4";
 
 export const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Lazy load video usando Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoadVideo(true);
+        }
+      },
+      { rootMargin: "50px" }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const handlePlayClick = () => {
     if (videoRef.current) {
@@ -25,19 +45,26 @@ export const Hero = () => {
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
-          <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
-            <video 
-              ref={videoRef}
-              className="w-full aspect-video rounded-2xl"
-              playsInline
-              preload="metadata"
-              poster={videoPoster}
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-            >
-              <source src={heroVideo} type="video/mp4" />
-              Seu navegador não suporta vídeos HTML5.
-            </video>
+          <div ref={containerRef} className="relative max-w-4xl mx-auto mb-4 md:mb-6">
+            {shouldLoadVideo ? (
+              <video 
+                ref={videoRef}
+                className="w-full aspect-video rounded-2xl"
+                playsInline
+                preload="none"
+                poster={videoPoster}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              >
+                <source src={heroVideo} type="video/mp4" />
+                Seu navegador não suporta vídeos HTML5.
+              </video>
+            ) : (
+              <div 
+                className="w-full aspect-video rounded-2xl bg-cover bg-center"
+                style={{ backgroundImage: `url(${videoPoster})` }}
+              />
+            )}
             
             {!isPlaying && (
               <div 
