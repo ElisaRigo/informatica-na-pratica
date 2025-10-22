@@ -29,6 +29,7 @@ interface CustomCardPaymentProps {
 export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, onBack }: CustomCardPaymentProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [loadingInstallments, setLoadingInstallments] = useState(false);
   const [cardData, setCardData] = useState({
     cardNumber: "",
     cardholderName: "",
@@ -37,6 +38,10 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
     securityCode: "",
     installments: "1"
   });
+  const [installmentOptions, setInstallmentOptions] = useState<Array<{value: string; label: string}>>([
+    { value: "1", label: `1x de R$ ${amount.toFixed(2).replace(".", ",")}` }
+  ]);
+  const [paymentMethodId, setPaymentMethodId] = useState<string | null>(null);
 
   const formatCardNumber = (value: string) => {
     const numbers = value.replace(/\D/g, "");
@@ -52,10 +57,51 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
     return numbers;
   };
 
-  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCardNumberChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const formatted = formatCardNumber(e.target.value);
     if (formatted.replace(/\s/g, "").length <= 16) {
       setCardData({ ...cardData, cardNumber: formatted });
+      
+      // Quando tiver 6+ dígitos, buscar installments
+      const cleanNumber = formatted.replace(/\s/g, "");
+      if (cleanNumber.length >= 6) {
+        await fetchInstallmentOptions(cleanNumber.substring(0, 6));
+      }
+    }
+  };
+
+  const fetchInstallmentOptions = async (bin: string) => {
+    try {
+      setLoadingInstallments(true);
+      const mp = new window.MercadoPago(mpPublicKey, { locale: "pt-BR" });
+      
+      // Identificar o payment method
+      const paymentMethods = await mp.getPaymentMethods({ bin });
+      
+      if (paymentMethods?.results?.length > 0) {
+        const paymentMethod = paymentMethods.results[0];
+        setPaymentMethodId(paymentMethod.id);
+        
+        // Buscar installments
+        const installments = await mp.getInstallments({
+          amount: amount.toString(),
+          bin: bin,
+          paymentTypeId: paymentMethod.payment_type_id
+        });
+        
+        if (installments?.length > 0 && installments[0].payer_costs) {
+          const options = installments[0].payer_costs.map((cost: any) => ({
+            value: cost.installments.toString(),
+            label: cost.recommended_message
+          }));
+          setInstallmentOptions(options);
+        }
+      }
+    } catch (error) {
+      console.error("Erro ao buscar parcelas:", error);
+      // Manter opções padrão se houver erro
+    } finally {
+      setLoadingInstallments(false);
     }
   };
 
@@ -172,7 +218,7 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
           token: token.id,
           transaction_amount: amount,
           installments: parseInt(cardData.installments),
-          payment_method_id: token.payment_method_id,
+          payment_method_id: paymentMethodId || token.payment_method_id,
           issuer_id: token.issuer_id,
           payer: {
             email: formData.email,
@@ -219,18 +265,6 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
       setLoading(false);
     }
   };
-
-  // Gerar opções de parcelas
-  const installmentOptions = Array.from({ length: 12 }, (_, i) => {
-    const installment = i + 1;
-    const installmentAmount = amount / installment;
-    return {
-      value: installment.toString(),
-      label: installment === 1 
-        ? `1x de R$ ${amount.toFixed(2).replace(".", ",")} sem juros`
-        : `${installment}x de R$ ${installmentAmount.toFixed(2).replace(".", ",")} sem juros`
-    };
-  });
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -313,10 +347,10 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
         <Select 
           value={cardData.installments} 
           onValueChange={(value) => setCardData({ ...cardData, installments: value })}
-          disabled={loading}
+          disabled={loading || loadingInstallments}
         >
           <SelectTrigger className="h-12 text-base font-semibold">
-            <SelectValue placeholder="Escolha o número de parcelas" />
+            <SelectValue placeholder={loadingInstallments ? "Carregando parcelas..." : "Escolha o número de parcelas"} />
           </SelectTrigger>
           <SelectContent>
             {installmentOptions.map((option) => (
@@ -326,9 +360,11 @@ export const CustomCardPayment = ({ formData, amount, mpPublicKey, onSuccess, on
             ))}
           </SelectContent>
         </Select>
-        <p className="text-xs text-muted-foreground text-center mt-2">
-          ✨ Parcele em até 12x sem juros no cartão de crédito
-        </p>
+        {cardData.cardNumber.replace(/\s/g, "").length < 6 && (
+          <p className="text-xs text-muted-foreground text-center mt-2">
+            Digite o número do cartão para ver as opções de parcelamento
+          </p>
+        )}
       </div>
 
       {/* Botões */}
