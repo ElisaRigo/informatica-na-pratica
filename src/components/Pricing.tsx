@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, CreditCard, Smartphone, Clock } from "lucide-react";
 
 const features = [
-  'Parcele em até 12x sem juros',
+  'Parcele em até 12x',
   'Acesso online imediato',
   'Suporte direto com a professora',
   'Garantia total de 7 dias',

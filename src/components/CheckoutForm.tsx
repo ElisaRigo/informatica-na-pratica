@@ -447,7 +447,7 @@ export const CheckoutForm = () => {
         <div className="text-center space-y-2">
           <h3 className="text-2xl font-bold">Pagamento com Cartão</h3>
           <p className="text-sm text-muted-foreground">
-            Parcele em até 12x sem juros
+            Parcele em até 12x
           </p>
           <div className="text-3xl font-black text-primary">
             R$ {coursePrice.toFixed(2).replace('.', ',')}
