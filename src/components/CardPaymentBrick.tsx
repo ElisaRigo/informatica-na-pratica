@@ -96,7 +96,11 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                           number: formData.cpf.replace(/\D/g, '')
                         },
                         first_name: firstName,
-                        last_name: lastName
+                        last_name: lastName,
+                        phone: formData.phone ? {
+                          area_code: formData.phone.replace(/\D/g, '').substring(0, 2),
+                          number: formData.phone.replace(/\D/g, '').substring(2)
+                        } : undefined
                       }
                     }
                   });

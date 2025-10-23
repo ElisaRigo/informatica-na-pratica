@@ -105,6 +105,31 @@ serve(async (req) => {
     const preference = await response.json();
     console.log("Preference created successfully:", preference.id);
 
+    // Criar conexão com Supabase
+    const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    // Salvar dados do estudante antes do redirecionamento
+    console.log("💾 Saving student data...");
+    const { error: studentError } = await supabase
+      .from("students")
+      .upsert({
+        email: email,
+        name: name,
+        phone: phone || null,
+        pagseguro_transaction_id: preference.id,
+        course_access: false,
+      }, {
+        onConflict: "email"
+      });
+
+    if (studentError) {
+      console.error("Error saving student:", studentError);
+    } else {
+      console.log("✅ Student data saved");
+    }
+
     return new Response(
       JSON.stringify({
         preferenceId: preference.id,
