@@ -53,7 +53,7 @@ export const VideoLesson = () => {
             ) : (
               <div style={{ position: "relative", paddingTop: "56.25%" }}>
                 <iframe
-                  src="https://iframe.mediadelivery.net/embed/492757/38d0f06a-a739-470f-9211-8e918933578a?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+                  src="https://iframe.mediadelivery.net/embed/492757/38d0f06a-a739-470f-9211-8e918933578a?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
                   loading="lazy"
                   style={{
                     border: 0,
@@ -63,7 +63,7 @@ export const VideoLesson = () => {
                     width: "100%",
                   }}
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-                  allowFullScreen
+                  allowFullScreen={true}
                   title="Aula gratuita - Como salvar arquivos no Word"
                 ></iframe>
               </div>
