@@ -18,13 +18,46 @@ export const VideoLesson = () => {
             </p>
           </div>
 
-          {/* Video Player */}
-          <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] border-4 border-primary/20">
-            {!isPlaying ? (
-              <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 aspect-video flex items-center justify-center">
-                {/* Thumbnail placeholder */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"></div>
-                
+         
+         {/* Video Player */}
+<div className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] border-4 border-primary/20">
+  {!isPlaying ? (
+    <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 aspect-video flex items-center justify-center">
+      {/* Botão Play */}
+      <button
+        onClick={() => setIsPlaying(true)}
+        className="relative z-10 group"
+        aria-label="Assista à aula gratuita"
+      >
+        <div className="relative">
+          {/* Efeito pulsante */}
+          <div className="absolute inset-0 bg-primary/30 rounded-2xl animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]"></div>
+          <div className="relative bg-primary/90 backdrop-blur-sm rounded-2xl p-8 transition-all duration-300 group-hover:scale-105">
+            <Play className="w-12 h-12 text-white fill-white" />
+          </div>
+        </div>
+      </button>
+    </div>
+  ) : (
+    // 👉 Aqui entra o vídeo do Bunny
+    <div className="aspect-video">
+      <iframe
+        src="https://iframe.mediadelivery.net/embed/492757/38d0f06a-a739-470f-9211-8e918933578a?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+        loading="lazy"
+        style={{
+          border: "0",
+          width: "100%",
+          height: "100%",
+          borderRadius: "12px",
+        }}
+        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+        allowFullScreen
+        title="Aula gratuita - Informática na Prática"
+      ></iframe>
+    </div>
+  )}
+</div>
+
                 {/* Play Button */}
                 <button
                   onClick={() => setIsPlaying(true)}
