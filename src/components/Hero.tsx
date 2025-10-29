@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import videoPoster from "@/assets/video-poster-hero.jpg";
-import heroVideo from "@/assets/hero-video-new.mp4";
+import videoPoster from "@/assets/hero-poster-free-lesson.png";
+import heroVideo from "@/assets/hero-video-free-lesson.mp4";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 
 export const Hero = () => {
@@ -47,33 +47,45 @@ export const Hero = () => {
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
           <div ref={containerRef} className="relative max-w-4xl mx-auto mb-4 md:mb-6">
+            {/* Selo de Aula Gratuita - Pulsante */}
+            <div className="absolute top-4 right-4 z-20 animate-pulse">
+              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">
+                🎁 AULA GRATUITA
+              </div>
+            </div>
+
             {shouldLoadVideo ? (
               <video 
                 ref={videoRef}
-                className="w-full aspect-video rounded-2xl"
+                className="w-full aspect-video rounded-2xl shadow-2xl"
                 playsInline
-                preload="none"
+                preload="metadata"
                 poster={videoPoster}
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
+                aria-label="Aula gratuita de informática - Veja como é fácil aprender"
               >
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeos HTML5.
               </video>
             ) : (
               <div 
-                className="w-full aspect-video rounded-2xl bg-cover bg-center"
+                className="w-full aspect-video rounded-2xl bg-cover bg-center shadow-2xl"
                 style={{ backgroundImage: `url(${videoPoster})` }}
+                role="img"
+                aria-label="Capa da aula gratuita de informática"
               />
             )}
             
             {!isPlaying && (
               <div 
-                className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                className="absolute inset-0 flex items-center justify-center cursor-pointer group"
                 onClick={handlePlayClick}
+                role="button"
+                aria-label="Reproduzir aula gratuita"
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/60 hover:bg-black/50 hover:scale-110 transition-all">
-                  <div className="w-0 h-0 border-l-[13px] md:border-l-[16px] border-l-white border-y-[8px] md:border-y-[10px] border-y-transparent ml-1"></div>
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/70 hover:bg-black/60 hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
+                  <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
                 </div>
               </div>
             )}
