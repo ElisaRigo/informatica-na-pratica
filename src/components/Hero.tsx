@@ -72,9 +72,7 @@ export const Hero = () => {
               <p className="text-lg md:text-2xl font-black text-foreground">
                 💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
               </p>
-              <p className="text-sm md:text-base text-muted-foreground font-semibold">
-                💳 ou parcele em até 12x no cartão
-              </p>
+              <p className="text-sm text-muted-foreground font-semibold md:text-base">💳 ou parcele em até 12 x R$ 30,22 (no cartão)</p>
               <p className="text-sm md:text-base text-accent font-bold mt-2">
                 🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
               </p>
