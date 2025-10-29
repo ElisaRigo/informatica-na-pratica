@@ -1,7 +1,6 @@
 import { lazy, Suspense, memo } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { VideoLesson } from "@/components/VideoLesson";
 import { AboutSection } from "@/components/AboutSection";
 import { Authority } from "@/components/Authority";
 import { Footer } from "@/components/Footer";
@@ -37,72 +36,69 @@ const Index = () => {
       <Header />
       <Hero />
       
-      {/* 2️⃣ AULA GRATUITA - Veja como é fácil aprender */}
-      <VideoLesson />
-      
-      {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
+      {/* 2️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
       <CourseContent />
       
-      {/* 4️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      {/* 3️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
       
-      {/* 5️⃣ DEPOIMENTOS - Prova Social */}
+      {/* 4️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />
       
-      {/* 6️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
       <Authority />
       
-      {/* 7️⃣ DEPOIS DO CURSO - Capacidades */}
+      {/* 6️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
         <ValueStack />
       </Suspense>
       
-      {/* 8️⃣ INVESTIMENTO - Proposta de valor */}
+      {/* 7️⃣ INVESTIMENTO - Proposta de valor */}
       <Suspense fallback={<LoadingFallback />}>
         <Possibilities />
       </Suspense>
       
-      {/* 9️⃣ PARA QUEM É - Público alvo */}
+      {/* 8️⃣ PARA QUEM É - Público alvo */}
       <Suspense fallback={<LoadingFallback />}>
         <TargetAudience />
       </Suspense>
       
-      {/* 🔟 OFERTA E PREÇO #1 */}
+      {/* 9️⃣ OFERTA E PREÇO #1 */}
       <Suspense fallback={<LoadingFallback />}>
         <Pricing />
       </Suspense>
       
-      {/* 1️⃣1️⃣ GARANTIA #1 */}
+      {/* 🔟 GARANTIA #1 */}
       <Suspense fallback={<LoadingFallback />}>
         <Guarantee />
       </Suspense>
       
-      {/* 1️⃣2️⃣ ANTES E DEPOIS - Transformação */}
+      {/* 1️⃣1️⃣ ANTES E DEPOIS - Transformação */}
       <Suspense fallback={<LoadingFallback />}>
         <Comparison />
       </Suspense>
       
-      {/* 1️⃣3️⃣ QUEM VAI TE ENSINAR - Sobre */}
+      {/* 1️⃣2️⃣ QUEM VAI TE ENSINAR - Sobre */}
       <AboutSection />
       
-      {/* 1️⃣4️⃣ OFERTA E PREÇO #2 */}
+      {/* 1️⃣3️⃣ OFERTA E PREÇO #2 */}
       <Suspense fallback={<LoadingFallback />}>
         <Pricing />
       </Suspense>
       
-      {/* 1️⃣5️⃣ PERGUNTAS FREQUENTES */}
+      {/* 1️⃣4️⃣ PERGUNTAS FREQUENTES */}
       <Suspense fallback={<LoadingFallback />}>
         <FAQ />
       </Suspense>
       
-      {/* 1️⃣6️⃣ GARANTIA #2 - Reduzir Risco */}
+      {/* 1️⃣5️⃣ GARANTIA #2 - Reduzir Risco */}
       <Suspense fallback={<LoadingFallback />}>
         <Guarantee />
       </Suspense>
       
-      {/* 1️⃣7️⃣ CTA FINAL ESTRATÉGICO */}
+      {/* 1️⃣6️⃣ CTA FINAL ESTRATÉGICO */}
       <Suspense fallback={<LoadingFallback />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>
