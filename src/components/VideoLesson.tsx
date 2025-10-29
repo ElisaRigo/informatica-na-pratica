@@ -1,199 +1,116 @@
-<!-- ====== INÍCIO: Seção de Vídeo Bunny ====== -->
-<section class="video-section">
-  <div class="video-container">
-    <!-- Cabeçalho -->
-    <div class="video-header">
-      <h2>Veja na prática como é fácil aprender comigo 💙</h2>
-      <p>
-        Assista à aula gratuita e sinta como é simples dominar informática de forma prática.
-        É rapidinho e direto ao ponto!
-      </p>
+import { useState } from "react";
+import { Play } from "lucide-react";
+
+export const VideoLesson = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <section className="py-12 md:py-20 bg-gradient-to-b from-background to-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto">
+          {/* Texto chamativo */}
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-5xl font-black mb-4 text-foreground">
+              Veja na Prática Como É Fácil Aprender Comigo!
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Quero que você tenha certeza que meu curso é para você. Assista a aula gratuita e veja como ensino de forma simples e prática — você vai se surpreender!
+            </p>
+          </div>
+
+         
+         {/* Video Player */}
+<div className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] border-4 border-primary/20">
+  {!isPlaying ? (
+    <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 aspect-video flex items-center justify-center">
+      {/* Botão Play */}
+      <button
+        onClick={() => setIsPlaying(true)}
+        className="relative z-10 group"
+        aria-label="Assista à aula gratuita"
+      >
+        <div className="relative">
+          {/* Efeito pulsante */}
+          <div className="absolute inset-0 bg-primary/30 rounded-2xl animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]"></div>
+          <div className="relative bg-primary/90 backdrop-blur-sm rounded-2xl p-8 transition-all duration-300 group-hover:scale-105">
+            <Play className="w-12 h-12 text-white fill-white" />
+          </div>
+        </div>
+      </button>
     </div>
+  ) : (
+    // 👉 Aqui entra o vídeo do Bunny
+    <div className="aspect-video">
+      <iframe
+        src="https://iframe.mediadelivery.net/embed/492757/38d0f06a-a739-470f-9211-8e918933578a?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+        loading="lazy"
+        style={{
+          border: "0",
+          width: "100%",
+          height: "100%",
+          borderRadius: "12px",
+        }}
+        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+        allowFullScreen
+        title="Aula gratuita - Informática na Prática"
+      ></iframe>
+    </div>
+  )}
+</div>
 
-    <!-- Cartão do Vídeo -->
-    <div class="video-card">
-      <div class="video-frame">
-        <iframe
-          id="bunnyPlayer"
-          src="https://iframe.mediadelivery.net/embed/492757/38d0f06a-a739-470f-9211-8e918933578a?autoplay=1&loop=0&muted=1&preload=1&responsive=1"
-          loading="lazy"
-          style="border:0;position:absolute;inset:0;width:100%;height:100%;"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"
-          title="Aula gratuita - Informática na Prática">
-        </iframe>
+                {/* Play Button */}
+                <button
+                  onClick={() => setIsPlaying(true)}
+                  className="relative z-10 group"
+                  aria-label="Assista a aula gratuita"
+                >
+                  <div className="relative">
+                    {/* Pulsing effect */}
+                    <div className="absolute inset-0 bg-primary/30 rounded-2xl animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite] scale-110"></div>
+                    <div className="absolute inset-0 bg-primary/20 rounded-2xl animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite] scale-125 animation-delay-150"></div>
+                    
+                    {/* Button */}
+                    <div className="relative bg-primary/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary shadow-[0_0_40px_rgba(var(--primary),0.5)]">
+                      <Play className="w-12 h-12 md:w-16 md:h-16 text-white fill-white" />
+                    </div>
+                  </div>
+                  
+                  {/* Text below button */}
+                  <div className="mt-6 text-center">
+                    <span className="text-xl md:text-2xl font-black text-foreground bg-background/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                      ▶️ Assista a Aula Gratuita
+                    </span>
+                  </div>
+                </button>
+              </div>
+            ) : (
+              <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                <iframe
+                  src="https://iframe.mediadelivery.net/embed/492757/38d0f06a-a739-470f-9211-8e918933578a?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+                  loading="lazy"
+                  style={{
+                    border: 0,
+                    position: "absolute",
+                    top: 0,
+                    height: "100%",
+                    width: "100%",
+                  }}
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+                  allowFullScreen={true}
+                  title="Aula gratuita - Como salvar arquivos no Word"
+                ></iframe>
+              </div>
+            )}
+          </div>
 
-        <!-- Sobreposição: Ativar som -->
-        <button class="sound-overlay" id="soundOverlay" aria-label="Ativar som e tocar vídeo">
-          <span class="sound-btn">🔊 Ativar som</span>
-        </button>
+          {/* Call to action após o vídeo */}
+          <div className="text-center mt-8 md:mt-12">
+            <p className="text-lg md:text-xl text-muted-foreground">
+              <strong className="text-foreground">Nesta aula:</strong> Você vai aprender como salvar arquivos no Word de forma profissional — uma das habilidades essenciais que ensino no curso completo.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Texto/CTA abaixo do vídeo -->
-    <div class="video-cta">
-      <p>
-        <strong>Nesta aula:</strong> você aprende a salvar arquivos no Word do jeito certo —
-        uma habilidade essencial que trabalhamos no curso completo.
-      </p>
-      <!-- Exemplo de CTA opcional:
-      <a href="https://api.whatsapp.com/send?phone=55XXXXXXXXXXX&text=Quero%20saber%20mais%20sobre%20o%20curso%20%F0%9F%92%99"
-         class="cta-btn">💬 Falar no WhatsApp</a>
-      -->
-    </div>
-  </div>
-</section>
-
-<style>
-  /* ====== Estilos da Seção ====== */
-  .video-section {
-    padding: 56px 0 72px;
-    background: linear-gradient(180deg, var(--bg1, #0b0d12) 0%, rgba(0,0,0,0.25) 100%);
-  }
-  .video-container {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
-  .video-header {
-    text-align: center;
-    margin-bottom: 28px;
-  }
-  .video-header h2 {
-    margin: 0 0 10px;
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1.15;
-    font-weight: 900;
-    color: var(--title, #ffffff);
-    letter-spacing: -0.02em;
-  }
-  .video-header p {
-    margin: 0 auto;
-    max-width: 760px;
-    font-size: clamp(16px, 2.4vw, 20px);
-    line-height: 1.6;
-    color: var(--muted, #cdd4df);
-  }
-
-  /* Cartão do vídeo */
-  .video-card {
-    border-radius: 22px;
-    border: 3px solid rgba(0, 170, 255, 0.22);
-    box-shadow:
-      0 22px 60px rgba(0, 0, 0, 0.45),
-      0 2px 0 rgba(255,255,255,0.04) inset;
-    overflow: hidden; /* faz o border-radius funcionar no iframe */
-    background:
-      radial-gradient(1200px 400px at 50% -20%, rgba(0,170,255,0.12), transparent 70%),
-      linear-gradient(180deg, rgba(0,0,0,0.32), rgba(0,0,0,0.24));
-  }
-
-  .video-frame {
-    position: relative;
-    padding-top: 56.25%; /* 16:9 */
-    border-radius: 20px;
-  }
-
-  /* Botão/overlay para ativar som */
-  .sound-overlay {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.35));
-    border: 0;
-    cursor: pointer;
-    transition: opacity 180ms ease;
-  }
-  .sound-overlay.hide { opacity: 0; pointer-events: none; }
-
-  .sound-btn {
-    display: inline-block;
-    padding: 14px 22px;
-    border-radius: 16px;
-    background: rgba(0, 140, 255, 0.92);
-    color: #fff;
-    font-weight: 800;
-    font-size: clamp(14px, 2.2vw, 18px);
-    letter-spacing: 0.3px;
-    box-shadow:
-      0 10px 30px rgba(0,140,255,0.45),
-      0 0 0 6px rgba(0,140,255,0.18);
-    transform: translateZ(0);
-    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-  }
-  .sound-overlay:hover .sound-btn {
-    transform: translateY(-1px);
-    box-shadow:
-      0 16px 44px rgba(0,140,255,0.5),
-      0 0 0 7px rgba(0,140,255,0.2);
-  }
-
-  /* CTA abaixo */
-  .video-cta {
-    text-align: center;
-    margin-top: 28px;
-    color: var(--muted, #cdd4df);
-    font-size: clamp(15px, 2.2vw, 19px);
-  }
-  .video-cta strong { color: var(--title, #fff); }
-
-  .cta-btn {
-    display: inline-block;
-    margin-top: 14px;
-    padding: 12px 18px;
-    border-radius: 999px;
-    background: #25d366;
-    color: #0e2116;
-    font-weight: 800;
-    text-decoration: none;
-    box-shadow: 0 10px 24px rgba(37,211,102,0.35);
-  }
-
-  /* Ajustes menores em telas muito pequenas */
-  @media (max-width: 420px) {
-    .sound-btn { padding: 12px 18px; border-radius: 14px; }
-    .video-section { padding: 44px 0 60px; }
-  }
-</style>
-
-<script>
-  // ====== Parâmetros (mude aqui se quiser outro comportamento) ======
-  const AUTOPLAY_DEFAULT = 1; // 1 = inicia tocando (muted), 0 = inicia pausado
-  const MUTED_DEFAULT = 1;    // 1 = mudo (recomendado para autoplay), 0 = com som
-
-  (function () {
-    const iframe = document.getElementById('bunnyPlayer');
-    const overlay = document.getElementById('soundOverlay');
-
-    // Garante que o src inicial está conforme os parâmetros
-    try {
-      const u = new URL(iframe.src);
-      u.searchParams.set('autoplay', String(AUTOPLAY_DEFAULT));
-      u.searchParams.set('muted', String(MUTED_DEFAULT));
-      u.searchParams.set('loop', '0');
-      u.searchParams.set('preload', '1');
-      u.searchParams.set('responsive', '1');
-      iframe.src = u.toString();
-    } catch (e) { /* silencioso se URL inválida */ }
-
-    // Clique em "Ativar som" => recarrega com som e autoplay
-    overlay.addEventListener('click', () => {
-      try {
-        const url = new URL(iframe.src);
-        url.searchParams.set('muted', '0');
-        url.searchParams.set('autoplay', '1');
-        iframe.src = url.toString();
-      } catch (e) { /* ignore */ }
-      overlay.classList.add('hide');
-    });
-
-    // Se você quiser que o overlay desapareça sozinho quando AUTOPLAY_DEFAULT=1,
-    // mantenha-o visível (usuário pode optar por ativar som depois).
-    // Se quiser ocultar imediatamente, descomente abaixo:
-    // if (AUTOPLAY_DEFAULT === 1) overlay.classList.add('hide');
-  })();
-</script>
-<!-- ====== FIM: Seção de Vídeo Bunny ====== -->
-
+    </section>
+  );
+};
