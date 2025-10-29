@@ -39,16 +39,16 @@ const Index = () => {
       {/* 2️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
       <CourseContent />
       
-      {/* 3️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      {/* 3️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      <Authority />
+      
+      {/* 4️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
       
-      {/* 4️⃣ DEPOIMENTOS - Prova Social */}
+      {/* 5️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />
-      
-      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
-      <Authority />
       
       {/* 6️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
