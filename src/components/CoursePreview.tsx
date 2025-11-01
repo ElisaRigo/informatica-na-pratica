@@ -1,15 +1,11 @@
 import { useState } from "react";
 import courseThumb from "@/assets/conheca-curso-thumb.jpg";
-
 export const CoursePreview = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
-
-  return (
-    <section className="py-8 md:py-12 bg-background">
+  return <section className="py-8 md:py-12 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
@@ -26,15 +22,10 @@ export const CoursePreview = () => {
               </div>
             </div>
 
-            {!isVideoLoaded ? (
-              // Thumbnail com botão de play
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
-                <img
-                  src={courseThumb}
-                  alt="Vídeo apresentando o curso de informática por dentro"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+            {!isVideoLoaded ?
+          // Thumbnail com botão de play
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
+                <img src={courseThumb} alt="Vídeo apresentando o curso de informática por dentro" className="w-full h-full object-cover" loading="lazy" />
                 
                 {/* Overlay escuro */}
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all" />
@@ -45,31 +36,17 @@ export const CoursePreview = () => {
                     <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              // YouTube iframe
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube-nocookie.com/embed/2Om_uoeKgU8?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                  title="Aula de Excel - Conheça o Curso por Dentro"
-                  frameBorder="0"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                />
-              </div>
-            )}
+              </div> :
+          // YouTube iframe
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+                <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/2Om_uoeKgU8?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Aula de Excel - Conheça o Curso por Dentro" frameBorder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute inset-0 w-full h-full" />
+              </div>}
           </div>
 
           {/* Texto descritivo */}
-          <p className="text-center text-base md:text-lg text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Assista ao vídeo e veja como o curso funciona na prática — aulas passo a passo para você dominar informática do zero!
-          </p>
+          <p className="text-center text-base md:text-lg text-muted-foreground mt-6 max-w-2xl mx-auto">Quero que tenha certeza de que este curso é exatamente o que você está procurando!
+        </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
