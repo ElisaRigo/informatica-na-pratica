@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { CourseContent } from "@/components/CourseContent";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { FreeLessonExcel } from "@/components/FreeLessonExcel";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
 // Lazy load componentes com prefetch
@@ -40,69 +41,72 @@ const Index = () => {
       {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
       <CoursePreview />
       
-      {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
+      {/* 3️⃣ AULA GRATUITA DE EXCEL */}
+      <FreeLessonExcel />
+      
+      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
       <CourseContent />
       
-      {/* 4️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
       <Authority />
       
-      {/* 5️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
       
-      {/* 6️⃣ DEPOIMENTOS - Prova Social */}
+      {/* 7️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />
       
-      {/* 7️⃣ DEPOIS DO CURSO - Capacidades */}
+      {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
         <ValueStack />
       </Suspense>
       
-      {/* 8️⃣ INVESTIMENTO - Proposta de valor */}
+      {/* 9️⃣ INVESTIMENTO - Proposta de valor */}
       <Suspense fallback={<LoadingFallback />}>
         <Possibilities />
       </Suspense>
       
-      {/* 9️⃣ PARA QUEM É - Público alvo */}
+      {/* 🔟 PARA QUEM É - Público alvo */}
       <Suspense fallback={<LoadingFallback />}>
         <TargetAudience />
       </Suspense>
       
-      {/* 🔟 OFERTA E PREÇO #1 */}
+      {/* 1️⃣1️⃣ OFERTA E PREÇO #1 */}
       <Suspense fallback={<LoadingFallback />}>
         <Pricing />
       </Suspense>
       
-      {/* 1️⃣1️⃣ GARANTIA #1 */}
+      {/* 1️⃣2️⃣ GARANTIA #1 */}
       <Suspense fallback={<LoadingFallback />}>
         <Guarantee />
       </Suspense>
       
-      {/* 1️⃣2️⃣ ANTES E DEPOIS - Transformação */}
+      {/* 1️⃣3️⃣ ANTES E DEPOIS - Transformação */}
       <Suspense fallback={<LoadingFallback />}>
         <Comparison />
       </Suspense>
       
-      {/* 1️⃣3️⃣ QUEM VAI TE ENSINAR - Sobre */}
+      {/* 1️⃣4️⃣ QUEM VAI TE ENSINAR - Sobre */}
       <AboutSection />
       
-      {/* 1️⃣4️⃣ OFERTA E PREÇO #2 */}
+      {/* 1️⃣5️⃣ OFERTA E PREÇO #2 */}
       <Suspense fallback={<LoadingFallback />}>
         <Pricing />
       </Suspense>
       
-      {/* 1️⃣5️⃣ PERGUNTAS FREQUENTES */}
+      {/* 1️⃣6️⃣ PERGUNTAS FREQUENTES */}
       <Suspense fallback={<LoadingFallback />}>
         <FAQ />
       </Suspense>
       
-      {/* 1️⃣6️⃣ GARANTIA #2 - Reduzir Risco */}
+      {/* 1️⃣7️⃣ GARANTIA #2 - Reduzir Risco */}
       <Suspense fallback={<LoadingFallback />}>
         <Guarantee />
       </Suspense>
       
-      {/* 1️⃣7️⃣ CTA FINAL ESTRATÉGICO */}
+      {/* 1️⃣8️⃣ CTA FINAL ESTRATÉGICO */}
       <Suspense fallback={<LoadingFallback />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>

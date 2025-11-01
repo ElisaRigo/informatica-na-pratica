@@ -28,7 +28,7 @@ export const CoursePreview = () => {
 
             {!isVideoLoaded ? (
               // Thumbnail com botão de play
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl cursor-pointer group" onClick={handlePlayClick}>
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
                 <img
                   src={courseThumb}
                   alt="Vídeo apresentando o curso de informática por dentro"
@@ -48,7 +48,7 @@ export const CoursePreview = () => {
               </div>
             ) : (
               // YouTube iframe
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
                 <iframe
                   width="100%"
                   height="100%"
