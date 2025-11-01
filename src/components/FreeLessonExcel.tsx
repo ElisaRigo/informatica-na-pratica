@@ -1,21 +1,17 @@
 import { useState } from "react";
 import excelThumb from "@/assets/aula-excel-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
-
 export const FreeLessonExcel = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
-
-  return (
-    <section className="py-8 md:py-12 bg-muted/30">
+  return <section className="py-8 md:py-12 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center text-foreground mb-6 md:mb-8">
-            🎁 <span className="text-primary">Aula Gratuita de Excel</span>
+            🎁 <span className="text-primary">Aula gratuita: veja como é fácil aprender Excel comigo</span>
           </h2>
 
           {/* Container do Vídeo */}
@@ -27,18 +23,10 @@ export const FreeLessonExcel = () => {
               </div>
             </div>
 
-            {!isVideoLoaded ? (
-              // Thumbnail com botão de play
-              <div 
-                className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" 
-                onClick={handlePlayClick}
-              >
-                <img 
-                  src={excelThumb} 
-                  alt="Aula gratuita de Excel - Aprenda do zero" 
-                  className="w-full h-full object-cover" 
-                  loading="lazy" 
-                />
+            {!isVideoLoaded ?
+          // Thumbnail com botão de play
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
+                <img src={excelThumb} alt="Aula gratuita de Excel - Aprenda do zero" className="w-full h-full object-cover" loading="lazy" />
 
                 {/* Botão de Play */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -46,23 +34,11 @@ export const FreeLessonExcel = () => {
                     <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              // YouTube iframe
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1" 
-                  title="Aula de Excel - Conheça o Curso por Dentro" 
-                  frameBorder="0" 
-                  loading="lazy" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen 
-                  className="absolute inset-0 w-full h-full" 
-                />
-              </div>
-            )}
+              </div> :
+          // YouTube iframe
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+                <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Aula de Excel - Conheça o Curso por Dentro" frameBorder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute inset-0 w-full h-full" />
+              </div>}
           </div>
 
           {/* CTA Estratégico */}
@@ -77,6 +53,5 @@ export const FreeLessonExcel = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
