@@ -1,18 +1,18 @@
 import { lazy, Suspense, memo } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { CoursePreview } from "@/components/CoursePreview";
+import { AboutSection } from "@/components/AboutSection";
+import { Authority } from "@/components/Authority";
 import { Footer } from "@/components/Footer";
+import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
+import { CourseContent } from "@/components/CourseContent";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { FreeLessonExcel } from "@/components/FreeLessonExcel";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
-// Lazy load TODOS os componentes abaixo da primeira dobra
-const CoursePreview = lazy(() => import("@/components/CoursePreview").then(m => ({ default: m.CoursePreview })));
-const FreeLessonExcel = lazy(() => import("@/components/FreeLessonExcel").then(m => ({ default: m.FreeLessonExcel })));
-const CourseContent = lazy(() => import("@/components/CourseContent").then(m => ({ default: m.CourseContent })));
-const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
-const Testimonials = lazy(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
-const AboutSection = lazy(() => import("@/components/AboutSection").then(m => ({ default: m.AboutSection })));
+// Lazy load componentes com prefetch
 const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
 const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
 const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
@@ -39,24 +39,16 @@ const Index = () => {
       <Hero />
       
       {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
-      <Suspense fallback={<LoadingFallback />}>
-        <CoursePreview />
-      </Suspense>
+      <CoursePreview />
       
       {/* 3️⃣ AULA GRATUITA DE EXCEL */}
-      <Suspense fallback={<LoadingFallback />}>
-        <FreeLessonExcel />
-      </Suspense>
+      <FreeLessonExcel />
       
       {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
-      <Suspense fallback={<LoadingFallback />}>
-        <CourseContent />
-      </Suspense>
+      <CourseContent />
       
       {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Authority />
-      </Suspense>
+      <Authority />
       
       {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
@@ -64,9 +56,7 @@ const Index = () => {
       </Suspense>
       
       {/* 7️⃣ DEPOIMENTOS - Prova Social */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Testimonials />
-      </Suspense>
+      <Testimonials />
       
       {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
@@ -99,9 +89,7 @@ const Index = () => {
       </Suspense>
       
       {/* 1️⃣4️⃣ QUEM VAI TE ENSINAR - Sobre */}
-      <Suspense fallback={<LoadingFallback />}>
-        <AboutSection />
-      </Suspense>
+      <AboutSection />
       
       {/* 1️⃣5️⃣ OFERTA E PREÇO #2 */}
       <Suspense fallback={<LoadingFallback />}>

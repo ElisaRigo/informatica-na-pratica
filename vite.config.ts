@@ -18,43 +18,19 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-              return 'react-vendor';
-            }
-            if (id.includes('@radix-ui')) {
-              return 'ui-vendor';
-            }
-            if (id.includes('react-hook-form') || id.includes('zod')) {
-              return 'form-vendor';
-            }
-            if (id.includes('@tanstack')) {
-              return 'query-vendor';
-            }
-            if (id.includes('lucide-react')) {
-              return 'icons';
-            }
-            return 'vendor';
-          }
-          // Chunk pesado de componentes
-          if (id.includes('/components/')) {
-            if (id.includes('Testimonials') || id.includes('CourseContent') || id.includes('Authority')) {
-              return 'heavy-components';
-            }
-            if (id.includes('Pricing') || id.includes('Checkout')) {
-              return 'checkout-components';
-            }
-          }
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-accordion', '@radix-ui/react-select'],
+          'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
+          'query-vendor': ['@tanstack/react-query'],
+          'icons': ['lucide-react'],
         },
       },
     },
     chunkSizeWarningLimit: 1000,
     minify: 'esbuild',
     cssMinify: 'esbuild',
-    target: 'es2020',
-    assetsInlineLimit: 2048,
-    cssCodeSplit: true,
-    reportCompressedSize: false,
+    target: 'es2015',
+    assetsInlineLimit: 4096,
   },
 }));
