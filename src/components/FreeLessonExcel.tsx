@@ -1,30 +1,24 @@
 import { useState, useEffect, useRef } from "react";
 import excelThumb from "@/assets/aula-excel-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
-
 export const FreeLessonExcel = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setShouldLoadVideo(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "100px" }
-    );
-
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setShouldLoadVideo(true);
+        observer.disconnect();
+      }
+    }, {
+      rootMargin: "100px"
+    });
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
-
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
@@ -45,19 +39,10 @@ export const FreeLessonExcel = () => {
               </div>
             </div>
 
-            {!isVideoLoaded ? (
-              // Thumbnail com botão de play
-              shouldLoadVideo && (
-                <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
-                  <img 
-                    src={excelThumb} 
-                    alt="Aula gratuita de Excel - Aprenda do zero" 
-                    className="w-full h-full object-cover" 
-                    loading="lazy"
-                    decoding="async"
-                    width="960"
-                    height="540"
-                  />
+            {!isVideoLoaded ?
+          // Thumbnail com botão de play
+          shouldLoadVideo && <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
+                  <img src={excelThumb} alt="Aula gratuita de Excel - Aprenda do zero" className="w-full h-full object-cover" loading="lazy" decoding="async" width="960" height="540" />
 
                   {/* Botão de Play */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -65,24 +50,11 @@ export const FreeLessonExcel = () => {
                       <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
                     </div>
                   </div>
-                </div>
-              )
-            ) : (
-              // YouTube iframe
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
-                <iframe 
-                  width="960" 
-                  height="540" 
-                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1" 
-                  title="Aula Gratuita de Excel" 
-                  frameBorder="0" 
-                  loading="lazy" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen 
-                  className="absolute inset-0 w-full h-full" 
-                />
-              </div>
-            )}
+                </div> :
+          // YouTube iframe
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+                <iframe width="960" height="540" src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Aula Gratuita de Excel" frameBorder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute inset-0 w-full h-full" />
+              </div>}
           </div>
 
           {/* CTA Estratégico */}
@@ -90,9 +62,7 @@ export const FreeLessonExcel = () => {
             <p className="text-xl md:text-2xl font-black text-foreground">
               😍 Gostou? Imagine o curso completo com <span className="text-primary">+90 aulas assim!</span>
             </p>
-            <p className="text-base md:text-lg text-muted-foreground font-semibold">
-              📱 Tire suas dúvidas direto com a Professora Elisa
-            </p>
+            <p className="text-base md:text-lg text-muted-foreground font-semibold">📱 Tire suas Dúvidas Comigo!</p>
             <WhatsAppCTA text="💬 Quero Falar com a Professora" className="mt-4" />
           </div>
         </div>
