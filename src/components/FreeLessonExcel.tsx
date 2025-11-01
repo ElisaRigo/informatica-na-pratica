@@ -1,16 +1,12 @@
 import { useState } from "react";
 import excelThumb from "@/assets/aula-excel-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
-
 export const FreeLessonExcel = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
-
-  return (
-    <section className="py-8 md:py-12 bg-muted/30">
+  return <section className="py-8 md:py-12 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
@@ -31,15 +27,10 @@ export const FreeLessonExcel = () => {
               </div>
             </div>
 
-            {!isVideoLoaded ? (
-              // Thumbnail com botão de play
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
-                <img
-                  src={excelThumb}
-                  alt="Aula gratuita de Excel - Aprenda do zero"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+            {!isVideoLoaded ?
+          // Thumbnail com botão de play
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
+                <img src={excelThumb} alt="Aula gratuita de Excel - Aprenda do zero" className="w-full h-full object-cover" loading="lazy" />
                 
                 {/* Overlay escuro */}
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all" />
@@ -50,40 +41,24 @@ export const FreeLessonExcel = () => {
                     <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              // YouTube iframe
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                  title="Aula de Excel - Conheça o Curso por Dentro"
-                  frameBorder="0"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                />
-              </div>
-            )}
+              </div> :
+          // YouTube iframe
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+                <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Aula de Excel - Conheça o Curso por Dentro" frameBorder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute inset-0 w-full h-full" />
+              </div>}
           </div>
 
           {/* CTA Estratégico */}
           <div className="text-center space-y-4">
             <p className="text-lg md:text-xl font-bold text-foreground">
-              💚 Gostou? Imagine o curso completo com <span className="text-primary">+50 aulas assim!</span>
+              💚 Gostou? Imagine o curso completo com <span className="text-primary">+90 aulas assim!</span>
             </p>
             <p className="text-base md:text-lg text-muted-foreground">
               Tire suas dúvidas direto com a Professora Elisa
             </p>
-            <WhatsAppCTA 
-              text="💬 Falar com a Professora Elisa"
-              className="mt-4"
-            />
+            <WhatsAppCTA text="💬 Falar com a Professora Elisa" className="mt-4" />
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
