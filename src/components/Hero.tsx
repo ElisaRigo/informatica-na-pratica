@@ -65,10 +65,12 @@ export const Hero = () => {
             Do <span className="text-primary font-black">zero ao profissional</span> — aulas <span className="text-primary font-black">simples e práticas</span> pra você dominar <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e muito mais.
           </p>
 
-          {/* CTA Principal DESTAQUE */}
+          {/* WhatsApp CTA */}
+          <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mb-6" />
+
+          {/* Preço em destaque */}
           <div className="mb-6 max-w-2xl mx-auto">
-            <Button size="lg" className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" onClick={() => (window as any).openCheckout?.()}>💻 Quero começar  meu curso agora</Button>
-            <div className="text-center mt-4 space-y-2">
+            <div className="text-center space-y-2">
               <p className="text-lg md:text-2xl font-black text-foreground">
                 💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
               </p>
@@ -80,7 +82,7 @@ export const Hero = () => {
           </div>
 
           {/* Benefícios Principais */}
-          <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto">
+          <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto mb-6">
             <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
               <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />
               <span className="font-bold text-sm md:text-base text-foreground">Acesso Imediato</span>
@@ -95,8 +97,10 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* WhatsApp CTA */}
-          <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mt-8" />
+          {/* CTA Principal DESTAQUE */}
+          <div className="max-w-2xl mx-auto">
+            <Button size="lg" className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" onClick={() => (window as any).openCheckout?.()}>💻 Quero começar meu curso agora</Button>
+          </div>
 
         </div>
       </div>
