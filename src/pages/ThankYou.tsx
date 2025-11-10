@@ -91,6 +91,17 @@ const ThankYou = () => {
         <meta property="og:title" content="Obrigada pela sua compra! - Informática na Prática" />
         <meta property="og:description" content="Parabéns! Sua compra foi confirmada." />
         <meta property="og:url" content="https://informaticanapratica.com.br/obrigada" />
+        
+        {/* Google Tag Manager */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17641842157"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17641842157');
+          `}
+        </script>
       </Helmet>
       
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
