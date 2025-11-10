@@ -40,6 +40,14 @@ const ThankYou = () => {
           'transaction_id': ''
         });
         
+        // Disparar evento de conversão de matrícula do Google Ads
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17641842157/B6aWCPfmzr0bEO3LpNxB',
+          'value': 1.0,
+          'currency': 'BRL',
+          'transaction_id': ''
+        });
+        
         console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
         return true;
       }
