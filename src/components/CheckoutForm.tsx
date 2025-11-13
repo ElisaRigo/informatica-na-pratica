@@ -47,6 +47,7 @@ export const CheckoutForm = () => {
   const [showCardPayment, setShowCardPayment] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
+  const [deviceId, setDeviceId] = useState<string>('');
 
   // Carregar reCAPTCHA
   useEffect(() => {
@@ -73,6 +74,26 @@ export const CheckoutForm = () => {
     };
 
     loadRecaptcha();
+  }, []);
+
+  // Carregar Device ID script do Mercado Pago (CRÍTICO para aprovação)
+  useEffect(() => {
+    const deviceScript = document.createElement('script');
+    deviceScript.src = 'https://www.mercadopago.com/v2/security.js';
+    deviceScript.setAttribute('view', 'checkout');
+    deviceScript.async = true;
+    deviceScript.onload = () => {
+      console.log('✅ Mercado Pago Device ID script loaded');
+      // Aguardar a criação da variável global MP_DEVICE_SESSION_ID
+      setTimeout(() => {
+        const generatedDeviceId = (window as any).MP_DEVICE_SESSION_ID;
+        if (generatedDeviceId) {
+          setDeviceId(generatedDeviceId);
+          console.log('✅ Device ID capturado:', generatedDeviceId);
+        }
+      }, 1000);
+    };
+    document.body.appendChild(deviceScript);
   }, []);
 
   // Carregar SDK do Mercado Pago
@@ -359,6 +380,30 @@ export const CheckoutForm = () => {
       setLoading(false);
       return;
     }
+
+    // Verificar se o Device ID foi capturado
+    if (!deviceId) {
+      toast({
+        title: "Aguarde um momento",
+        description: "Carregando informações de segurança...",
+        variant: "default"
+      });
+      
+      // Tentar novamente após um delay
+      setTimeout(() => {
+        const generatedDeviceId = (window as any).MP_DEVICE_SESSION_ID;
+        if (generatedDeviceId) {
+          setDeviceId(generatedDeviceId);
+          setLoading(false);
+          setShowCardPayment(true);
+        } else {
+          console.warn('⚠️ Device ID não disponível - continuando sem ele');
+          setLoading(false);
+          setShowCardPayment(true);
+        }
+      }, 1500);
+      return;
+    }
     
     setLoading(false);
     setShowCardPayment(true);
@@ -516,6 +561,11 @@ export const CheckoutForm = () => {
           <div className="text-3xl font-black text-primary">
             R$ {coursePrice.toFixed(2).replace('.', ',')}
           </div>
+          {deviceId && (
+            <p className="text-xs text-green-600 mt-2">
+              🔒 Pagamento seguro ativado
+            </p>
+          )}
         </div>
 
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
@@ -538,6 +588,7 @@ export const CheckoutForm = () => {
             }
           }}
           amount={coursePrice}
+          deviceId={deviceId}
           onSuccess={() => {
             toast({
               title: "✅ Pagamento aprovado!",

@@ -19,20 +19,32 @@ serve(async (req) => {
     const paymentData = await req.json();
     
     console.log("Processing card payment...");
+    console.log("Device ID received:", paymentData.device_id);
 
     const accessToken = Deno.env.get("MERCADO_PAGO_ACCESS_TOKEN");
     if (!accessToken) {
       throw new Error("Mercado Pago access token not configured");
     }
 
+    // Preparar headers com Device ID (CRÍTICO para aprovação)
+    const headers: Record<string, string> = {
+      "Authorization": `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+      "X-Idempotency-Key": `${paymentData.payer.email}-${Date.now()}`,
+    };
+
+    // Adicionar Device ID ao header se disponível
+    if (paymentData.device_id) {
+      headers["X-meli-session-id"] = paymentData.device_id;
+      console.log("✅ Device ID adicionado ao header X-meli-session-id");
+    } else {
+      console.warn("⚠️ Device ID não fornecido - pode afetar taxa de aprovação");
+    }
+
     // Criar pagamento com cartão
     const response = await fetch("https://api.mercadopago.com/v1/payments", {
       method: "POST",
-      headers: {
-        "Authorization": `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-        "X-Idempotency-Key": `${paymentData.payer.email}-${Date.now()}`,
-      },
+      headers,
       body: JSON.stringify({
         ...paymentData,
         description: "Curso Completo de Informática na Prática",
