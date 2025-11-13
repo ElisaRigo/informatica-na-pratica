@@ -52,9 +52,7 @@ serve(async (req) => {
           ],
           payer: {
             first_name: paymentData.payer.first_name,
-            last_name: paymentData.payer.last_name,
-            phone: paymentData.payer.phone,
-            address: paymentData.payer.address
+            last_name: paymentData.payer.last_name
           }
         }
       }),
