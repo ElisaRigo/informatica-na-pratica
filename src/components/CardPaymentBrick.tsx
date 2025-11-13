@@ -14,6 +14,15 @@ interface CardPaymentBrickProps {
     email: string;
     cpf: string;
     phone: string;
+    address: {
+      zip_code: string;
+      street_name: string;
+      street_number: string;
+      complement: string;
+      neighborhood: string;
+      city: string;
+      state: string;
+    };
   };
   amount: number;
   onSuccess: () => void;

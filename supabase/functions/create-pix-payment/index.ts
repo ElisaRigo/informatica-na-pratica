@@ -15,6 +15,15 @@ interface PixPaymentRequest {
   email: string;
   cpf: string;
   phone?: string;
+  address?: {
+    zip_code: string;
+    street_name: string;
+    street_number: string;
+    complement?: string;
+    neighborhood: string;
+    city: string;
+    state: string;
+  };
 }
 
 serve(async (req) => {
@@ -23,7 +32,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, cpf, phone }: PixPaymentRequest = await req.json();
+    const { name, email, cpf, phone, address }: PixPaymentRequest = await req.json();
 
     console.log("Creating PIX payment for:", { email, name });
 
@@ -56,6 +65,41 @@ serve(async (req) => {
           type: "CPF",
           number: cpf.replace(/\D/g, ""),
         },
+        address: address ? {
+          zip_code: address.zip_code,
+          street_name: address.street_name,
+          street_number: address.street_number,
+          neighborhood: address.neighborhood,
+          city: address.city,
+          federal_unit: address.state,
+        } : undefined,
+      },
+      additional_info: {
+        items: [
+          {
+            id: "curso-informatica",
+            title: "Curso Completo de Informática na Prática",
+            description: "Curso completo de informática com Word, Excel, PowerPoint, Windows e Internet",
+            category_id: "education",
+            quantity: 1,
+            unit_price: coursePrice
+          }
+        ],
+        payer: {
+          first_name: name.split(" ")[0],
+          last_name: name.split(" ").slice(1).join(" ") || ".",
+          phone: phone ? {
+            area_code: phone.substring(0, 2),
+            number: phone.substring(2)
+          } : undefined,
+          address: address ? {
+            zip_code: address.zip_code,
+            street_name: address.street_name,
+            street_number: address.street_number,
+            city_name: address.city,
+            state_name: address.state,
+          } : undefined
+        }
       },
       notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
       external_reference: `${email}-${Date.now()}`,
