@@ -31,7 +31,14 @@ export const CheckoutForm = () => {
     name: "",
     email: "",
     cpf: "",
-    phone: ""
+    phone: "",
+    zipCode: "",
+    street: "",
+    number: "",
+    complement: "",
+    neighborhood: "",
+    city: "",
+    state: "",
   });
   const [mpInstance, setMpInstance] = useState<any>(null);
   const [pixData, setPixData] = useState<PixData | null>(null);
@@ -129,11 +136,40 @@ export const CheckoutForm = () => {
     return value;
   };
 
+  const formatZipCode = (value: string) => {
+    const zip = value.replace(/\D/g, "");
+    return zip.replace(/(\d{5})(\d{0,3})/, "$1-$2");
+  };
+
+  const fetchAddressByZipCode = async (zipCode: string) => {
+    const zipClean = zipCode.replace(/\D/g, "");
+    if (zipClean.length === 8) {
+      try {
+        const response = await fetch(`https://viacep.com.br/ws/${zipClean}/json/`);
+        const data = await response.json();
+        
+        if (!data.erro) {
+          setFormData(prev => ({
+            ...prev,
+            street: data.logradouro || "",
+            neighborhood: data.bairro || "",
+            city: data.localidade || "",
+            state: data.uf || "",
+          }));
+        }
+      } catch (error) {
+        console.error("Erro ao buscar CEP:", error);
+      }
+    }
+  };
+
   const validateForm = () => {
-    if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
+    if (!formData.name || !formData.email || !formData.cpf || !formData.phone || 
+        !formData.zipCode || !formData.street || !formData.number || 
+        !formData.neighborhood || !formData.city || !formData.state) {
       toast({
         title: "Preencha todos os campos",
-        description: "Todos os campos são obrigatórios",
+        description: "Todos os campos obrigatórios devem ser preenchidos",
         variant: "destructive"
       });
       return false;
@@ -164,6 +200,16 @@ export const CheckoutForm = () => {
       toast({
         title: "E-mail inválido",
         description: "Digite um e-mail válido",
+        variant: "destructive"
+      });
+      return false;
+    }
+
+    const cleanZip = formData.zipCode.replace(/\D/g, '');
+    if (cleanZip.length !== 8) {
+      toast({
+        title: "CEP inválido",
+        description: "Digite um CEP válido com 8 dígitos",
         variant: "destructive"
       });
       return false;
@@ -236,7 +282,16 @@ export const CheckoutForm = () => {
           name: formData.name,
           email: formData.email,
           cpf: formData.cpf.replace(/\D/g, ''),
-          phone: formData.phone.replace(/\D/g, '')
+          phone: formData.phone.replace(/\D/g, ''),
+          address: {
+            zip_code: formData.zipCode.replace(/\D/g, ""),
+            street_name: formData.street,
+            street_number: formData.number,
+            complement: formData.complement,
+            neighborhood: formData.neighborhood,
+            city: formData.city,
+            state: formData.state,
+          },
         }
       });
 
@@ -336,7 +391,16 @@ export const CheckoutForm = () => {
           name: formData.name,
           email: formData.email,
           cpf: formData.cpf.replace(/\D/g, ''),
-          phone: formData.phone.replace(/\D/g, '')
+          phone: formData.phone.replace(/\D/g, ''),
+          address: {
+            zip_code: formData.zipCode.replace(/\D/g, ""),
+            street_name: formData.street,
+            street_number: formData.number,
+            complement: formData.complement,
+            neighborhood: formData.neighborhood,
+            city: formData.city,
+            state: formData.state,
+          },
         }
       });
 
@@ -687,6 +751,109 @@ export const CheckoutForm = () => {
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
+        </div>
+
+        {/* Seção de Endereço */}
+        <div className="pt-3 space-y-3 border-t">
+          <h3 className="text-xs md:text-sm font-bold text-foreground">📍 Endereço de Cobrança</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="space-y-1">
+              <Label htmlFor="zipCode" className="text-xs md:text-sm font-bold text-foreground">CEP *</Label>
+              <Input
+                id="zipCode"
+                placeholder="00000-000"
+                value={formData.zipCode}
+                onChange={(e) => {
+                  const formatted = formatZipCode(e.target.value);
+                  setFormData({ ...formData, zipCode: formatted });
+                  if (formatted.replace(/\D/g, "").length === 8) {
+                    fetchAddressByZipCode(formatted);
+                  }
+                }}
+                maxLength={9}
+                disabled={loading || !sdkLoaded}
+                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor="street" className="text-xs md:text-sm font-bold text-foreground">Rua *</Label>
+              <Input
+                id="street"
+                placeholder="Nome da rua"
+                value={formData.street}
+                onChange={(e) => setFormData({ ...formData, street: e.target.value })}
+                disabled={loading || !sdkLoaded}
+                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor="number" className="text-xs md:text-sm font-bold text-foreground">Número *</Label>
+              <Input
+                id="number"
+                placeholder="123"
+                value={formData.number}
+                onChange={(e) => setFormData({ ...formData, number: e.target.value })}
+                disabled={loading || !sdkLoaded}
+                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor="complement" className="text-xs md:text-sm font-bold text-foreground">Complemento</Label>
+              <Input
+                id="complement"
+                placeholder="Apto, Bloco, etc"
+                value={formData.complement}
+                onChange={(e) => setFormData({ ...formData, complement: e.target.value })}
+                disabled={loading || !sdkLoaded}
+                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor="neighborhood" className="text-xs md:text-sm font-bold text-foreground">Bairro *</Label>
+              <Input
+                id="neighborhood"
+                placeholder="Nome do bairro"
+                value={formData.neighborhood}
+                onChange={(e) => setFormData({ ...formData, neighborhood: e.target.value })}
+                disabled={loading || !sdkLoaded}
+                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor="city" className="text-xs md:text-sm font-bold text-foreground">Cidade *</Label>
+              <Input
+                id="city"
+                placeholder="Nome da cidade"
+                value={formData.city}
+                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                disabled={loading || !sdkLoaded}
+                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+              />
+            </div>
+
+            <div className="space-y-1 md:col-span-2">
+              <Label htmlFor="state" className="text-xs md:text-sm font-bold text-foreground">Estado (UF) *</Label>
+              <Input
+                id="state"
+                placeholder="SP"
+                value={formData.state}
+                onChange={(e) => setFormData({ ...formData, state: e.target.value.toUpperCase() })}
+                maxLength={2}
+                disabled={loading || !sdkLoaded}
+                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+              />
+            </div>
+          </div>
+
+          <p className="text-xs text-muted-foreground">
+            💡 Digite o CEP para preencher automaticamente o endereço
+          </p>
         </div>
       </div>
 
