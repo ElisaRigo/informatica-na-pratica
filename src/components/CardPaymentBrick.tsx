@@ -109,7 +109,15 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                         phone: formData.phone ? {
                           area_code: formData.phone.replace(/\D/g, '').substring(0, 2),
                           number: formData.phone.replace(/\D/g, '').substring(2)
-                        } : undefined
+                        } : undefined,
+                        address: {
+                          zip_code: formData.address.zip_code,
+                          street_name: formData.address.street_name,
+                          street_number: formData.address.street_number,
+                          neighborhood: formData.address.neighborhood,
+                          city: formData.address.city,
+                          federal_unit: formData.address.state,
+                        }
                       }
                     }
                   });

@@ -28,7 +28,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, cpf, phone }: CheckoutRequest = await req.json();
+    const { name, email, cpf, phone, address }: CheckoutRequest = await req.json();
 
     console.log("Creating Mercado Pago preference for:", { email, name });
 

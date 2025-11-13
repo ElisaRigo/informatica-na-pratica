@@ -39,6 +39,24 @@ serve(async (req) => {
         statement_descriptor: "INFORMATICA PRATICA",
         notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
         external_reference: `${paymentData.payer.email}-${Date.now()}`,
+        additional_info: {
+          items: [
+            {
+              id: "curso-informatica",
+              title: "Curso Completo de Informática na Prática",
+              description: "Curso completo de informática com Word, Excel, PowerPoint, Windows e Internet",
+              category_id: "education",
+              quantity: 1,
+              unit_price: paymentData.transaction_amount
+            }
+          ],
+          payer: {
+            first_name: paymentData.payer.first_name,
+            last_name: paymentData.payer.last_name,
+            phone: paymentData.payer.phone,
+            address: paymentData.payer.address
+          }
+        }
       }),
     });
 
