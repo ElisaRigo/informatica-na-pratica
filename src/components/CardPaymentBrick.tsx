@@ -141,18 +141,63 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                       window.location.href = '/aguardando';
                     }, 2000);
                   } else {
-                    throw new Error(data?.status_detail || 'Pagamento não aprovado');
+                    // Mapear códigos de erro para mensagens amigáveis
+                    let errorMessage = 'Pagamento não aprovado';
+                    let errorTitle = 'Erro no pagamento';
+                    
+                    const statusDetail = data?.status_detail || '';
+                    
+                    if (statusDetail.includes('cc_rejected_high_risk')) {
+                      errorTitle = 'Pagamento Recusado por Segurança';
+                      errorMessage = 'Seu pagamento foi recusado por questões de segurança. Por favor, tente com outro cartão ou entre em contato com seu banco.';
+                    } else if (statusDetail.includes('cc_rejected_insufficient_amount')) {
+                      errorTitle = 'Saldo Insuficiente';
+                      errorMessage = 'Seu cartão não possui saldo suficiente. Por favor, tente com outro cartão.';
+                    } else if (statusDetail.includes('cc_rejected_bad_filled')) {
+                      errorTitle = 'Dados Incorretos';
+                      errorMessage = 'Verifique os dados do cartão e tente novamente.';
+                    } else if (statusDetail.includes('cc_rejected_card_disabled')) {
+                      errorTitle = 'Cartão Desabilitado';
+                      errorMessage = 'Seu cartão está desabilitado. Entre em contato com seu banco.';
+                    } else if (statusDetail.includes('cc_rejected_invalid_installments')) {
+                      errorTitle = 'Parcelas Inválidas';
+                      errorMessage = 'O número de parcelas selecionado não é válido para este cartão.';
+                    } else if (statusDetail.includes('cc_rejected_blacklist')) {
+                      errorTitle = 'Pagamento Bloqueado';
+                      errorMessage = 'Não foi possível processar seu pagamento. Tente com outro cartão.';
+                    } else {
+                      errorMessage = statusDetail || errorMessage;
+                    }
+                    
+                    toast({
+                      variant: "destructive",
+                      title: errorTitle,
+                      description: errorMessage,
+                    });
+                    throw new Error(errorMessage);
                   }
 
                   return data;
                 } catch (err: any) {
                   console.error('Payment error:', err);
+                  
+                  // Se já temos uma mensagem de erro específica, usar ela
+                  const errorMessage = err.message || "Tente novamente ou use outro cartão";
+                  const errorTitle = errorMessage.includes('Segurança') || 
+                                   errorMessage.includes('Insuficiente') || 
+                                   errorMessage.includes('Incorretos') ||
+                                   errorMessage.includes('Desabilitado') ||
+                                   errorMessage.includes('Parcelas') ||
+                                   errorMessage.includes('Bloqueado')
+                    ? err.message.split(':')[0] || "Erro no pagamento"
+                    : "Erro no pagamento";
+                  
                   toast({
-                    title: "Erro no pagamento",
-                    description: err.message || "Tente novamente ou use outro cartão",
+                    title: errorTitle === err.message ? "Erro no pagamento" : errorTitle,
+                    description: errorMessage,
                     variant: "destructive"
                   });
-                  onError(err.message);
+                  onError(errorMessage);
                   throw err;
                 }
               },
