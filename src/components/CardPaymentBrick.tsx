@@ -25,11 +25,12 @@ interface CardPaymentBrickProps {
     };
   };
   amount: number;
+  deviceId?: string;
   onSuccess: () => void;
   onError: (error: string) => void;
 }
 
-export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardPaymentBrickProps) => {
+export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onError }: CardPaymentBrickProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
 
@@ -89,6 +90,7 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
               onSubmit: async (cardFormData: any) => {
                 try {
                   console.log('Processing payment...', cardFormData);
+                  console.log('Device ID:', deviceId);
 
                   // Criar o pagamento via edge function
                   const { data, error } = await supabase.functions.invoke('process-card-payment', {
@@ -98,6 +100,7 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                       installments: cardFormData.installments,
                       payment_method_id: cardFormData.payment_method_id,
                       issuer_id: cardFormData.issuer_id,
+                      device_id: deviceId, // CRÍTICO: Enviar Device ID
                       payer: {
                         email: formData.email,
                         identification: {
