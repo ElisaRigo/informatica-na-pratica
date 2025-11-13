@@ -806,7 +806,7 @@ export const CheckoutForm = () => {
 
         {/* Seção de Endereço */}
         <div className="pt-3 space-y-3 border-t">
-          <h3 className="text-xs md:text-sm font-bold text-foreground">📍 Endereço de Cobrança</h3>
+          <h3 className="text-xs md:text-sm font-bold text-foreground">📍 Onde você mora?</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div className="space-y-1">
