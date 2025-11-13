@@ -461,7 +461,18 @@ export const CheckoutForm = () => {
         </div>
 
         <CardPaymentBrick
-          formData={formData}
+          formData={{
+            ...formData,
+            address: {
+              zip_code: formData.zipCode.replace(/\D/g, ""),
+              street_name: formData.street,
+              street_number: formData.number,
+              complement: formData.complement,
+              neighborhood: formData.neighborhood,
+              city: formData.city,
+              state: formData.state,
+            }
+          }}
           amount={coursePrice}
           onSuccess={() => {
             toast({
