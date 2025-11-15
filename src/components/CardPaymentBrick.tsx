@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -34,11 +34,27 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
   const [initialized, setInitialized] = useState(false);
+  
+  // Usar refs para callbacks que mudam
+  const onErrorRef = useRef(onError);
+  const onSuccessRef = useRef(onSuccess);
+  
+  useEffect(() => {
+    onErrorRef.current = onError;
+    onSuccessRef.current = onSuccess;
+  }, [onError, onSuccess]);
+  
+  // Wrapper estável para toast
+  const showToast = useCallback((params: any) => {
+    toast(params);
+  }, [toast]);
 
   useEffect(() => {
     if (initialized) return;
     
     let mounted = true;
+    let sdkCheckInterval: NodeJS.Timeout;
+    let sdkTimeout: NodeJS.Timeout;
 
     const initBrick = async () => {
       try {
@@ -146,7 +162,7 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                 }
 
                 if (data?.status === 'approved') {
-                  toast({
+                  showToast({
                     title: "✅ Pagamento aprovado!",
                     description: "Redirecionando...",
                   });
@@ -154,7 +170,7 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                     window.location.href = '/obrigada';
                   }, 1500);
                 } else if (data?.status === 'pending') {
-                  toast({
+                  showToast({
                     title: "Pagamento em análise",
                     description: "Você receberá um e-mail quando for aprovado",
                   });
@@ -177,7 +193,7 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                     errorMessage = statusDetail;
                   }
                   
-                  toast({
+                  showToast({
                     variant: "destructive",
                     title: "Erro no pagamento",
                     description: errorMessage,
@@ -189,12 +205,12 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
               } catch (err: any) {
                 console.error('❌ Payment error:', err);
                 const errorMessage = err.message || "Erro ao processar pagamento";
-                toast({
+                showToast({
                   title: "Erro no pagamento",
                   description: errorMessage,
                   variant: "destructive"
                 });
-                onError(errorMessage);
+                onErrorRef.current(errorMessage);
                 throw err;
               }
             },
@@ -209,12 +225,12 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                 errorMessage = error.cause[0].description || errorMessage;
               }
               
-              toast({
+              showToast({
                 title: "Erro",
                 description: errorMessage,
                 variant: "destructive"
               });
-              onError(errorMessage);
+              onErrorRef.current(errorMessage);
             }
           }
         };
@@ -231,43 +247,43 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
         
         let errorMessage = error.message || 'Erro ao inicializar pagamento';
         
-        toast({
+        showToast({
           title: "Erro",
           description: errorMessage,
           variant: "destructive"
         });
         
-        onError(errorMessage);
+        onErrorRef.current(errorMessage);
       }
     };
 
-    const checkSDK = setInterval(() => {
+    sdkCheckInterval = setInterval(() => {
       if (window.MercadoPago) {
-        clearInterval(checkSDK);
+        clearInterval(sdkCheckInterval);
         initBrick();
       }
     }, 100);
 
-    const timeout = setTimeout(() => {
-      clearInterval(checkSDK);
+    sdkTimeout = setTimeout(() => {
+      clearInterval(sdkCheckInterval);
       if (!window.MercadoPago && mounted) {
         console.error('❌ SDK timeout');
         setLoading(false);
-        toast({
+        showToast({
           title: "Erro",
           description: "Erro ao carregar pagamento. Recarregue a página.",
           variant: "destructive"
         });
-        onError('Timeout');
+        onErrorRef.current('Timeout');
       }
     }, 10000);
 
     return () => {
       mounted = false;
-      clearInterval(checkSDK);
-      clearTimeout(timeout);
+      if (sdkCheckInterval) clearInterval(sdkCheckInterval);
+      if (sdkTimeout) clearTimeout(sdkTimeout);
     };
-  }, [initialized]);
+  }, [initialized, formData, amount, deviceId, showToast]);
 
   return (
     <div className="w-full">
