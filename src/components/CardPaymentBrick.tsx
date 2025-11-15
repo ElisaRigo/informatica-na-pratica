@@ -33,261 +33,206 @@ interface CardPaymentBrickProps {
 export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onError }: CardPaymentBrickProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
+    if (initialized) return;
+    
+    let mounted = true;
+
     const initBrick = async () => {
       try {
+        if (!mounted) return;
+        
         console.log('🔧 Initializing Card Payment Brick...');
         
-        // Verificar se o SDK do Mercado Pago está carregado
         if (!window.MercadoPago) {
           console.error('❌ Mercado Pago SDK not loaded');
           throw new Error('SDK do Mercado Pago não carregado');
         }
 
-        // Buscar chave pública
-        console.log('🔑 Fetching public key...');
         const { data: keyData, error: keyError } = await supabase.functions.invoke('get-mp-public-key');
         
-        if (keyError) {
-          console.error('❌ Error fetching public key:', keyError);
+        if (!mounted) return;
+        
+        if (keyError || !keyData?.MERCADO_PAGO_PUBLIC_KEY) {
+          console.error('❌ Error fetching public key');
           throw new Error('Erro ao buscar chave pública');
         }
-        
-        if (!keyData?.MERCADO_PAGO_PUBLIC_KEY) {
-          console.error('❌ Public key not found in response');
-          throw new Error('Chave pública não encontrada');
-        }
 
-        console.log('✅ Public key fetched successfully');
+        console.log('✅ Public key fetched');
         
-        // Criar instância do Mercado Pago
         const mp = new window.MercadoPago(keyData.MERCADO_PAGO_PUBLIC_KEY, {
           locale: 'pt-BR'
         });
-        
-        console.log('✅ Mercado Pago instance created');
 
-        // Separar nome e sobrenome
         const nameParts = formData.name.trim().split(' ');
         const firstName = nameParts[0];
         const lastName = nameParts.slice(1).join(' ') || nameParts[0];
 
         const bricksBuilder = mp.bricks();
 
-        const renderCardPaymentBrick = async () => {
-          console.log('🎨 Rendering Card Payment Brick...');
-          console.log('💰 Amount:', amount);
-          console.log('📧 Email:', formData.email);
-          console.log('🆔 CPF:', formData.cpf);
-          
-          const settings = {
-            initialization: {
-              amount: amount,
-              payer: {
-                email: formData.email,
-                identification: {
-                  type: 'CPF',
-                  number: formData.cpf.replace(/\D/g, '')
-                }
+        const settings = {
+          initialization: {
+            amount: amount,
+            payer: {
+              email: formData.email,
+              identification: {
+                type: 'CPF',
+                number: formData.cpf.replace(/\D/g, '')
+              }
+            }
+          },
+          customization: {
+            visual: {
+              style: {
+                theme: 'default'
               }
             },
-            customization: {
-              visual: {
-                style: {
-                  theme: 'default'
-                }
-              },
-              paymentMethods: {
-                maxInstallments: 12,
-                minInstallments: 1,
-                types: {
-                  excluded: [], // Não excluir nenhum método
-                  included: ['credit_card', 'debit_card'] // Incluir cartão de crédito e débito
-                }
+            paymentMethods: {
+              maxInstallments: 12,
+              minInstallments: 1,
+              types: {
+                excluded: [],
+                included: ['credit_card', 'debit_card']
               }
+            }
+          },
+          callbacks: {
+            onReady: () => {
+              if (!mounted) return;
+              console.log('✅ Brick ready');
+              setLoading(false);
             },
-            callbacks: {
-              onReady: () => {
-                console.log('✅ Card Payment Brick ready');
-                setLoading(false);
-              },
-              onSubmit: async (cardFormData: any) => {
-                try {
-                  console.log('🔄 Processing payment...', cardFormData);
-                  console.log('📱 Device ID:', deviceId);
-                  console.log('💳 Payment method:', cardFormData.payment_method_id);
-                  console.log('💰 Amount:', amount);
+            onSubmit: async (cardFormData: any) => {
+              try {
+                console.log('🔄 Processing payment...');
 
-                  // Criar o pagamento via edge function
-                  const { data, error } = await supabase.functions.invoke('process-card-payment', {
-                    body: {
-                      token: cardFormData.token,
-                      transaction_amount: amount,
-                      installments: cardFormData.installments,
-                      payment_method_id: cardFormData.payment_method_id,
-                      issuer_id: cardFormData.issuer_id,
-                      device_id: deviceId, // CRÍTICO: Enviar Device ID
-                      payer: {
-                        email: formData.email,
-                        identification: {
-                          type: 'CPF',
-                          number: formData.cpf.replace(/\D/g, '')
-                        },
-                        first_name: firstName,
-                        last_name: lastName,
-                        phone: formData.phone ? {
-                          area_code: formData.phone.replace(/\D/g, '').substring(0, 2),
-                          number: formData.phone.replace(/\D/g, '').substring(2)
-                        } : undefined,
-                        address: {
-                          zip_code: formData.address.zip_code,
-                          street_name: formData.address.street_name,
-                          street_number: formData.address.street_number,
-                          neighborhood: formData.address.neighborhood,
-                          city: formData.address.city,
-                          federal_unit: formData.address.state,
-                        }
+                const { data, error } = await supabase.functions.invoke('process-card-payment', {
+                  body: {
+                    token: cardFormData.token,
+                    transaction_amount: amount,
+                    installments: cardFormData.installments,
+                    payment_method_id: cardFormData.payment_method_id,
+                    issuer_id: cardFormData.issuer_id,
+                    device_id: deviceId,
+                    payer: {
+                      email: formData.email,
+                      identification: {
+                        type: 'CPF',
+                        number: formData.cpf.replace(/\D/g, '')
+                      },
+                      first_name: firstName,
+                      last_name: lastName,
+                      phone: formData.phone ? {
+                        area_code: formData.phone.replace(/\D/g, '').substring(0, 2),
+                        number: formData.phone.replace(/\D/g, '').substring(2)
+                      } : undefined,
+                      address: {
+                        zip_code: formData.address.zip_code,
+                        street_name: formData.address.street_name,
+                        street_number: formData.address.street_number,
+                        neighborhood: formData.address.neighborhood,
+                        city: formData.address.city,
+                        federal_unit: formData.address.state,
                       }
                     }
-                  });
-
-                  if (error) {
-                    console.error('❌ Supabase function error:', error);
-                    throw error;
                   }
-                  
-                  console.log('✅ Payment response:', data);
+                });
 
-                  if (data?.status === 'approved') {
-                    toast({
-                      title: "✅ Pagamento aprovado!",
-                      description: "Redirecionando...",
-                    });
-                    setTimeout(() => {
-                      window.location.href = '/obrigada';
-                    }, 1500);
-                  } else if (data?.status === 'pending') {
-                    toast({
-                      title: "Pagamento em análise",
-                      description: "Você receberá um e-mail quando for aprovado",
-                    });
-                    setTimeout(() => {
-                      window.location.href = '/aguardando';
-                    }, 2000);
-                  } else {
-                    // Mapear códigos de erro para mensagens amigáveis
-                    let errorMessage = 'Pagamento não aprovado';
-                    let errorTitle = 'Erro no pagamento';
-                    
-                    const statusDetail = data?.status_detail || '';
-                    
-                    if (statusDetail.includes('cc_rejected_high_risk')) {
-                      errorTitle = 'Pagamento Recusado por Segurança';
-                      errorMessage = 'Seu pagamento foi recusado por questões de segurança. Por favor, tente com outro cartão ou entre em contato com seu banco.';
-                    } else if (statusDetail.includes('cc_rejected_insufficient_amount')) {
-                      errorTitle = 'Saldo Insuficiente';
-                      errorMessage = 'Seu cartão não possui saldo suficiente. Por favor, tente com outro cartão.';
-                    } else if (statusDetail.includes('cc_rejected_bad_filled')) {
-                      errorTitle = 'Dados Incorretos';
-                      errorMessage = 'Verifique os dados do cartão e tente novamente.';
-                    } else if (statusDetail.includes('cc_rejected_card_disabled')) {
-                      errorTitle = 'Cartão Desabilitado';
-                      errorMessage = 'Seu cartão está desabilitado. Entre em contato com seu banco.';
-                    } else if (statusDetail.includes('cc_rejected_invalid_installments')) {
-                      errorTitle = 'Parcelas Inválidas';
-                      errorMessage = 'O número de parcelas selecionado não é válido para este cartão.';
-                    } else if (statusDetail.includes('cc_rejected_blacklist')) {
-                      errorTitle = 'Pagamento Bloqueado';
-                      errorMessage = 'Não foi possível processar seu pagamento. Tente com outro cartão.';
-                    } else {
-                      errorMessage = statusDetail || errorMessage;
-                    }
-                    
-                    toast({
-                      variant: "destructive",
-                      title: errorTitle,
-                      description: errorMessage,
-                    });
-                    throw new Error(errorMessage);
-                  }
+                if (error) {
+                  console.error('❌ Error:', error);
+                  throw error;
+                }
 
-                  return data;
-                } catch (err: any) {
-                  console.error('❌ Payment error details:', {
-                    message: err.message,
-                    error: err,
-                    fullError: JSON.stringify(err, null, 2)
+                if (data?.status === 'approved') {
+                  toast({
+                    title: "✅ Pagamento aprovado!",
+                    description: "Redirecionando...",
                   });
+                  setTimeout(() => {
+                    window.location.href = '/obrigada';
+                  }, 1500);
+                } else if (data?.status === 'pending') {
+                  toast({
+                    title: "Pagamento em análise",
+                    description: "Você receberá um e-mail quando for aprovado",
+                  });
+                  setTimeout(() => {
+                    window.location.href = '/aguardando';
+                  }, 2000);
+                } else {
+                  const statusDetail = data?.status_detail || '';
+                  let errorMessage = 'Pagamento não aprovado';
                   
-                  // Se já temos uma mensagem de erro específica, usar ela
-                  const errorMessage = err.message || "Erro ao processar pagamento. Tente novamente ou use outro cartão.";
-                  const errorTitle = errorMessage.includes('Segurança') || 
-                                   errorMessage.includes('Insuficiente') || 
-                                   errorMessage.includes('Incorretos') ||
-                                   errorMessage.includes('Desabilitado') ||
-                                   errorMessage.includes('Parcelas') ||
-                                   errorMessage.includes('Bloqueado')
-                    ? err.message.split(':')[0] || "Erro no pagamento"
-                    : "Erro no pagamento";
+                  if (statusDetail.includes('cc_rejected_high_risk')) {
+                    errorMessage = 'Pagamento recusado por segurança. Tente outro cartão.';
+                  } else if (statusDetail.includes('cc_rejected_insufficient_amount')) {
+                    errorMessage = 'Saldo insuficiente.';
+                  } else if (statusDetail.includes('cc_rejected_bad_filled')) {
+                    errorMessage = 'Dados incorretos. Verifique e tente novamente.';
+                  } else if (statusDetail.includes('cc_rejected_card_disabled')) {
+                    errorMessage = 'Cartão desabilitado.';
+                  } else if (statusDetail) {
+                    errorMessage = statusDetail;
+                  }
                   
                   toast({
-                    title: errorTitle === err.message ? "Erro no pagamento" : errorTitle,
+                    variant: "destructive",
+                    title: "Erro no pagamento",
                     description: errorMessage,
-                    variant: "destructive"
                   });
-                  onError(errorMessage);
-                  throw err;
+                  throw new Error(errorMessage);
                 }
-              },
-              onError: (error: any) => {
-                console.error('❌ Brick error:', error);
-                
-                // Mensagem mais específica baseada no tipo de erro
-                let errorMessage = "Não foi possível processar o pagamento";
-                
-                if (error.message) {
-                  errorMessage = error.message;
-                } else if (error.cause && error.cause[0]) {
-                  errorMessage = error.cause[0].description || errorMessage;
-                }
-                
+
+                return data;
+              } catch (err: any) {
+                console.error('❌ Payment error:', err);
+                const errorMessage = err.message || "Erro ao processar pagamento";
                 toast({
                   title: "Erro no pagamento",
                   description: errorMessage,
                   variant: "destructive"
                 });
                 onError(errorMessage);
+                throw err;
               }
+            },
+            onError: (error: any) => {
+              if (!mounted) return;
+              console.error('❌ Brick error:', error);
+              
+              let errorMessage = "Erro ao processar pagamento";
+              if (error.message) {
+                errorMessage = error.message;
+              } else if (error.cause && error.cause[0]) {
+                errorMessage = error.cause[0].description || errorMessage;
+              }
+              
+              toast({
+                title: "Erro",
+                description: errorMessage,
+                variant: "destructive"
+              });
+              onError(errorMessage);
             }
-          };
-
-          try {
-            await bricksBuilder.create('cardPayment', 'cardPaymentBrick_container', settings);
-            console.log('✅ Card Payment Brick created successfully');
-          } catch (brickError: any) {
-            console.error('❌ Error creating brick:', brickError);
-            throw new Error(`Erro ao criar formulário: ${brickError.message || 'Verifique os dados do cartão'}`);
           }
         };
 
-        renderCardPaymentBrick();
+        await bricksBuilder.create('cardPayment', 'cardPaymentBrick_container', settings);
+        console.log('✅ Brick created');
+        setInitialized(true);
 
       } catch (error: any) {
-        console.error('❌ Error initializing brick:', error);
+        if (!mounted) return;
+        
+        console.error('❌ Init error:', error);
         setLoading(false);
         
         let errorMessage = error.message || 'Erro ao inicializar pagamento';
         
-        // Mensagens mais específicas para erros comuns
-        if (error.message?.includes('SDK')) {
-          errorMessage = 'Erro ao carregar sistema de pagamento. Por favor, recarregue a página.';
-        } else if (error.message?.includes('chave')) {
-          errorMessage = 'Erro de configuração. Entre em contato com o suporte.';
-        }
-        
         toast({
-          title: "Erro ao inicializar pagamento",
+          title: "Erro",
           description: errorMessage,
           variant: "destructive"
         });
@@ -296,7 +241,6 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
       }
     };
 
-    // Aguardar o SDK estar disponível
     const checkSDK = setInterval(() => {
       if (window.MercadoPago) {
         clearInterval(checkSDK);
@@ -304,26 +248,26 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
       }
     }, 100);
 
-    // Timeout de 10 segundos
     const timeout = setTimeout(() => {
       clearInterval(checkSDK);
-      if (!window.MercadoPago) {
-        console.error('❌ Mercado Pago SDK timeout');
+      if (!window.MercadoPago && mounted) {
+        console.error('❌ SDK timeout');
         setLoading(false);
         toast({
-          title: "Erro ao carregar pagamento",
-          description: "Por favor, recarregue a página",
+          title: "Erro",
+          description: "Erro ao carregar pagamento. Recarregue a página.",
           variant: "destructive"
         });
-        onError('Timeout ao carregar SDK');
+        onError('Timeout');
       }
     }, 10000);
 
     return () => {
+      mounted = false;
       clearInterval(checkSDK);
       clearTimeout(timeout);
     };
-  }, [formData.email, formData.cpf, formData.name, amount, toast]);
+  }, [initialized]);
 
   return (
     <div className="w-full">
