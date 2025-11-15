@@ -49,6 +49,18 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
     toast(params);
   }, [toast]);
 
+  // Extrair valores primitivos para evitar problemas de referência
+  const name = formData.name;
+  const email = formData.email;
+  const cpf = formData.cpf;
+  const phone = formData.phone;
+  const zipCode = formData.address.zip_code;
+  const streetName = formData.address.street_name;
+  const streetNumber = formData.address.street_number;
+  const neighborhood = formData.address.neighborhood;
+  const city = formData.address.city;
+  const state = formData.address.state;
+
   useEffect(() => {
     if (initialized) return;
     
@@ -82,7 +94,7 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
           locale: 'pt-BR'
         });
 
-        const nameParts = formData.name.trim().split(' ');
+        const nameParts = name.trim().split(' ');
         const firstName = nameParts[0];
         const lastName = nameParts.slice(1).join(' ') || nameParts[0];
 
@@ -92,10 +104,10 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
           initialization: {
             amount: amount,
             payer: {
-              email: formData.email,
+              email: email,
               identification: {
                 type: 'CPF',
-                number: formData.cpf.replace(/\D/g, '')
+                number: cpf.replace(/\D/g, '')
               }
             }
           },
@@ -133,24 +145,24 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                     issuer_id: cardFormData.issuer_id,
                     device_id: deviceId,
                     payer: {
-                      email: formData.email,
+                      email: email,
                       identification: {
                         type: 'CPF',
-                        number: formData.cpf.replace(/\D/g, '')
+                        number: cpf.replace(/\D/g, '')
                       },
                       first_name: firstName,
                       last_name: lastName,
-                      phone: formData.phone ? {
-                        area_code: formData.phone.replace(/\D/g, '').substring(0, 2),
-                        number: formData.phone.replace(/\D/g, '').substring(2)
+                      phone: phone ? {
+                        area_code: phone.replace(/\D/g, '').substring(0, 2),
+                        number: phone.replace(/\D/g, '').substring(2)
                       } : undefined,
                       address: {
-                        zip_code: formData.address.zip_code,
-                        street_name: formData.address.street_name,
-                        street_number: formData.address.street_number,
-                        neighborhood: formData.address.neighborhood,
-                        city: formData.address.city,
-                        federal_unit: formData.address.state,
+                        zip_code: zipCode,
+                        street_name: streetName,
+                        street_number: streetNumber,
+                        neighborhood: neighborhood,
+                        city: city,
+                        federal_unit: state,
                       }
                     }
                   }
@@ -292,22 +304,7 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
       if (sdkCheckInterval) clearInterval(sdkCheckInterval);
       if (sdkTimeout) clearTimeout(sdkTimeout);
     };
-  }, [
-    initialized, 
-    formData.name, 
-    formData.email, 
-    formData.cpf, 
-    formData.phone,
-    formData.address.zip_code,
-    formData.address.street_name,
-    formData.address.street_number,
-    formData.address.neighborhood,
-    formData.address.city,
-    formData.address.state,
-    amount, 
-    deviceId, 
-    showToast
-  ]);
+  }, [initialized, name, email, cpf, phone, zipCode, streetName, streetNumber, neighborhood, city, state, amount, deviceId, showToast]);
 
   return (
     <div className="w-full">
