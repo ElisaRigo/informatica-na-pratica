@@ -96,8 +96,8 @@ serve(async (req) => {
             zip_code: address.zip_code,
             street_name: address.street_name,
             street_number: address.street_number,
-            city_name: address.city,
-            state_name: address.state,
+            city: address.city,
+            state: address.state,
           } : undefined
         }
       },
