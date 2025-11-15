@@ -91,13 +91,6 @@ serve(async (req) => {
           phone: phone ? {
             area_code: phone.substring(0, 2),
             number: phone.substring(2)
-          } : undefined,
-          address: address ? {
-            zip_code: address.zip_code,
-            street_name: address.street_name,
-            street_number: address.street_number,
-            city: address.city,
-            state: address.state,
           } : undefined
         }
       },
