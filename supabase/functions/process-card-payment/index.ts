@@ -95,7 +95,7 @@ serve(async (req) => {
     }
 
     const payment = await response.json();
-    console.log("Payment processed:", payment.id, "Status:", payment.status);
+    console.log("Payment processed:", payment.id, "Status:", payment.status, "Detail:", payment.status_detail);
 
     // CRÍTICO: Salvar estudante PRIMEIRO para que o webhook encontre
     console.log("💾 Saving student data...");
@@ -142,11 +142,16 @@ serve(async (req) => {
     // 4. Atualizar course_access para true
     console.log("✅ Payment created - webhook will handle Moodle enrollment and welcome email");
 
+    // Retornar resposta com informações adequadas
     return new Response(
       JSON.stringify({
         id: payment.id,
         status: payment.status,
         status_detail: payment.status_detail,
+        message: payment.status === 'approved' ? 'Pagamento aprovado!' :
+                 payment.status === 'in_process' ? 'Pagamento em análise. Aguarde aprovação.' :
+                 payment.status === 'pending' ? 'Pagamento pendente. Aguarde processamento.' :
+                 'Pagamento não aprovado'
       }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
