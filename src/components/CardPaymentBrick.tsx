@@ -216,13 +216,23 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                 }
               },
               onError: (error: any) => {
-                console.error('Brick error:', error);
+                console.error('❌ Brick error:', error);
+                
+                // Mensagem mais específica baseada no tipo de erro
+                let errorMessage = "Não foi possível processar o pagamento";
+                
+                if (error.message) {
+                  errorMessage = error.message;
+                } else if (error.cause && error.cause[0]) {
+                  errorMessage = error.cause[0].description || errorMessage;
+                }
+                
                 toast({
-                  title: "Erro",
-                  description: "Erro ao processar pagamento",
+                  title: "Erro no pagamento",
+                  description: errorMessage,
                   variant: "destructive"
                 });
-                onError(error.message);
+                onError(errorMessage);
               }
             }
           };
