@@ -173,22 +173,14 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                   throw error;
                 }
 
-                if (data?.status === 'approved') {
+                if (data?.status === 'approved' || data?.status === 'pending' || data?.status === 'in_process') {
                   showToast({
-                    title: "✅ Pagamento aprovado!",
+                    title: "✅ Pagamento processado!",
                     description: "Redirecionando...",
                   });
                   setTimeout(() => {
                     window.location.href = '/obrigada';
                   }, 1500);
-                } else if (data?.status === 'pending' || data?.status === 'in_process') {
-                  showToast({
-                    title: "Pagamento em análise",
-                    description: "Redirecionando para verificação automática...",
-                  });
-                  setTimeout(() => {
-                    window.location.href = `/aguardando?method=card&payment_intent=${data.id}`;
-                  }, 2000);
                 } else {
                   const statusDetail = data?.status_detail || '';
                   let errorMessage = 'Pagamento não aprovado';
