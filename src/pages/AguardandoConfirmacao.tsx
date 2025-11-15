@@ -8,6 +8,7 @@ const AguardandoConfirmacao = () => {
   const [elapsedTime, setElapsedTime] = useState(0);
   const paymentIntent = searchParams.get('payment_intent');
   const transactionId = searchParams.get('transaction_id');
+  const paymentMethod = searchParams.get('method') || 'boleto'; // 'boleto', 'pix', 'card'
 
   useEffect(() => {
     // Timer para mostrar tempo decorrido
@@ -49,10 +50,14 @@ const AguardandoConfirmacao = () => {
         {/* Main Message */}
         <div className="space-y-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
-            Boleto Gerado com Sucesso! 🎉
+            {paymentMethod === 'card' ? 'Pagamento em Análise! 🔍' : 
+             paymentMethod === 'pix' ? 'PIX Gerado com Sucesso! 🎉' : 
+             'Boleto Gerado com Sucesso! 🎉'}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-            Seu boleto foi gerado. Você receberá as instruções de pagamento por e-mail.
+            {paymentMethod === 'card' ? 'Seu pagamento está sendo analisado. Você receberá um e-mail com a confirmação em até 24-48h.' :
+             paymentMethod === 'pix' ? 'Seu PIX foi gerado. Você receberá as instruções de pagamento por e-mail.' :
+             'Seu boleto foi gerado. Você receberá as instruções de pagamento por e-mail.'}
           </p>
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <Clock className="w-5 h-5" />
@@ -66,15 +71,22 @@ const AguardandoConfirmacao = () => {
             <Mail className="w-8 h-8 text-primary mb-3 mx-auto" />
             <h3 className="font-semibold mb-2">Verifique seu E-mail</h3>
             <p className="text-sm text-muted-foreground">
-              Enviamos o boleto e as instruções para seu e-mail
+              {paymentMethod === 'card' ? 'Enviaremos a confirmação do pagamento para seu e-mail' :
+               `Enviamos o ${paymentMethod === 'pix' ? 'código PIX' : 'boleto'} e as instruções para seu e-mail`}
             </p>
           </div>
 
           <div className="bg-card border border-line rounded-xl p-6">
-            <FileText className="w-8 h-8 text-primary mb-3 mx-auto" />
-            <h3 className="font-semibold mb-2">Código de Barras</h3>
+            <Smartphone className="w-8 h-8 text-primary mb-3 mx-auto" />
+            <h3 className="font-semibold mb-2">
+              {paymentMethod === 'card' ? 'Análise Automática' : 
+               paymentMethod === 'pix' ? 'Pagamento Instantâneo' : 
+               'Código de Barras'}
+            </h3>
             <p className="text-sm text-muted-foreground">
-              Use o código de barras para pagar em qualquer banco
+              {paymentMethod === 'card' ? 'Nosso sistema está verificando o pagamento' :
+               paymentMethod === 'pix' ? 'Após o pagamento, o acesso é liberado automaticamente' :
+               'Use o código de barras para pagar em qualquer banco'}
             </p>
           </div>
         </div>
@@ -86,22 +98,37 @@ const AguardandoConfirmacao = () => {
             Informações Importantes
           </h3>
           <ul className="text-sm text-muted-foreground space-y-3">
-            <li className="flex gap-2">
-              <span className="text-primary">✓</span>
-              <span>O boleto pode levar até 3 dias úteis para ser compensado após o pagamento</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-primary">✓</span>
-              <span>Você receberá um e-mail de confirmação assim que o pagamento for identificado</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-primary">✓</span>
-              <span>O acesso ao curso será liberado automaticamente após a confirmação do pagamento</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-primary">✓</span>
-              <span>Guarde o número do boleto para acompanhamento</span>
-            </li>
+            {paymentMethod === 'card' ? (
+              <>
+                <li className="flex gap-2">
+                  <span className="text-primary">✓</span>
+                  <span>A análise do pagamento pode levar até 24-48 horas</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-primary">✓</span>
+                  <span>Você receberá um e-mail assim que o pagamento for aprovado</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-primary">✓</span>
+                  <span>O acesso ao curso será liberado automaticamente após a aprovação</span>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="flex gap-2">
+                  <span className="text-primary">✓</span>
+                  <span>O {paymentMethod === 'pix' ? 'PIX' : 'boleto'} pode levar até 3 dias úteis para ser compensado após o pagamento</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-primary">✓</span>
+                  <span>Você receberá um e-mail de confirmação assim que o pagamento for identificado</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-primary">✓</span>
+                  <span>Após a confirmação, você receberá os dados de acesso ao curso por e-mail</span>
+                </li>
+              </>
+            )}
           </ul>
           
           {paymentIntent && (
