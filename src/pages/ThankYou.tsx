@@ -49,6 +49,16 @@ const ThankYou = () => {
         });
         
         console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
+        
+        // Disparar conversão do Facebook Pixel
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Purchase', {
+            value: 297.00,
+            currency: 'BRL'
+          });
+          console.log('✅ Facebook Pixel conversion tracked successfully');
+        }
+        
         return true;
       }
       return false;
