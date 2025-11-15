@@ -184,11 +184,8 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                 } else if (data?.status === 'pending' || data?.status === 'in_process') {
                   showToast({
                     title: "Pagamento em análise",
-                    description: "Redirecionando... Aguarde a aprovação.",
+                    description: "Você receberá um e-mail quando for aprovado. Aguarde 24-48h.",
                   });
-                  setTimeout(() => {
-                    window.location.href = `/aguardando?method=card&payment_intent=${data.id}`;
-                  }, 2000);
                 } else {
                   const statusDetail = data?.status_detail || '';
                   let errorMessage = 'Pagamento não aprovado';
