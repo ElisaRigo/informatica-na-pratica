@@ -89,8 +89,10 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
               },
               onSubmit: async (cardFormData: any) => {
                 try {
-                  console.log('Processing payment...', cardFormData);
-                  console.log('Device ID:', deviceId);
+                  console.log('🔄 Processing payment...', cardFormData);
+                  console.log('📱 Device ID:', deviceId);
+                  console.log('💳 Payment method:', cardFormData.payment_method_id);
+                  console.log('💰 Amount:', amount);
 
                   // Criar o pagamento via edge function
                   const { data, error } = await supabase.functions.invoke('process-card-payment', {
@@ -125,7 +127,12 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                     }
                   });
 
-                  if (error) throw error;
+                  if (error) {
+                    console.error('❌ Supabase function error:', error);
+                    throw error;
+                  }
+                  
+                  console.log('✅ Payment response:', data);
 
                   if (data?.status === 'approved') {
                     toast({
@@ -182,10 +189,14 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
 
                   return data;
                 } catch (err: any) {
-                  console.error('Payment error:', err);
+                  console.error('❌ Payment error details:', {
+                    message: err.message,
+                    error: err,
+                    fullError: JSON.stringify(err, null, 2)
+                  });
                   
                   // Se já temos uma mensagem de erro específica, usar ela
-                  const errorMessage = err.message || "Tente novamente ou use outro cartão";
+                  const errorMessage = err.message || "Erro ao processar pagamento. Tente novamente ou use outro cartão.";
                   const errorTitle = errorMessage.includes('Segurança') || 
                                    errorMessage.includes('Insuficiente') || 
                                    errorMessage.includes('Incorretos') ||
