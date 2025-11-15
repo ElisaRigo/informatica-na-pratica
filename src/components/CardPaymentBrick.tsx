@@ -37,16 +37,36 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
   useEffect(() => {
     const initBrick = async () => {
       try {
+        console.log('🔧 Initializing Card Payment Brick...');
+        
+        // Verificar se o SDK do Mercado Pago está carregado
+        if (!window.MercadoPago) {
+          console.error('❌ Mercado Pago SDK not loaded');
+          throw new Error('SDK do Mercado Pago não carregado');
+        }
+
         // Buscar chave pública
-        const { data: keyData } = await supabase.functions.invoke('get-mp-public-key');
+        console.log('🔑 Fetching public key...');
+        const { data: keyData, error: keyError } = await supabase.functions.invoke('get-mp-public-key');
+        
+        if (keyError) {
+          console.error('❌ Error fetching public key:', keyError);
+          throw new Error('Erro ao buscar chave pública');
+        }
         
         if (!keyData?.MERCADO_PAGO_PUBLIC_KEY) {
+          console.error('❌ Public key not found in response');
           throw new Error('Chave pública não encontrada');
         }
 
+        console.log('✅ Public key fetched successfully');
+        
+        // Criar instância do Mercado Pago
         const mp = new window.MercadoPago(keyData.MERCADO_PAGO_PUBLIC_KEY, {
           locale: 'pt-BR'
         });
+        
+        console.log('✅ Mercado Pago instance created');
 
         // Separar nome e sobrenome
         const nameParts = formData.name.trim().split(' ');
@@ -56,6 +76,11 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
         const bricksBuilder = mp.bricks();
 
         const renderCardPaymentBrick = async () => {
+          console.log('🎨 Rendering Card Payment Brick...');
+          console.log('💰 Amount:', amount);
+          console.log('📧 Email:', formData.email);
+          console.log('🆔 CPF:', formData.cpf);
+          
           const settings = {
             initialization: {
               amount: amount,
@@ -84,7 +109,7 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
             },
             callbacks: {
               onReady: () => {
-                console.log('Card Payment Brick ready');
+                console.log('✅ Card Payment Brick ready');
                 setLoading(false);
               },
               onSubmit: async (cardFormData: any) => {
@@ -237,22 +262,68 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
             }
           };
 
-          await bricksBuilder.create('cardPayment', 'cardPaymentBrick_container', settings);
+          try {
+            await bricksBuilder.create('cardPayment', 'cardPaymentBrick_container', settings);
+            console.log('✅ Card Payment Brick created successfully');
+          } catch (brickError: any) {
+            console.error('❌ Error creating brick:', brickError);
+            throw new Error(`Erro ao criar formulário: ${brickError.message || 'Verifique os dados do cartão'}`);
+          }
         };
 
         renderCardPaymentBrick();
 
       } catch (error: any) {
-        console.error('Error initializing brick:', error);
+        console.error('❌ Error initializing brick:', error);
         setLoading(false);
-        onError(error.message);
+        
+        let errorMessage = error.message || 'Erro ao inicializar pagamento';
+        
+        // Mensagens mais específicas para erros comuns
+        if (error.message?.includes('SDK')) {
+          errorMessage = 'Erro ao carregar sistema de pagamento. Por favor, recarregue a página.';
+        } else if (error.message?.includes('chave')) {
+          errorMessage = 'Erro de configuração. Entre em contato com o suporte.';
+        }
+        
+        toast({
+          title: "Erro ao inicializar pagamento",
+          description: errorMessage,
+          variant: "destructive"
+        });
+        
+        onError(errorMessage);
       }
     };
 
-    if (window.MercadoPago) {
-      initBrick();
-    }
-  }, [formData, amount, onSuccess, onError, toast]);
+    // Aguardar o SDK estar disponível
+    const checkSDK = setInterval(() => {
+      if (window.MercadoPago) {
+        clearInterval(checkSDK);
+        initBrick();
+      }
+    }, 100);
+
+    // Timeout de 10 segundos
+    const timeout = setTimeout(() => {
+      clearInterval(checkSDK);
+      if (!window.MercadoPago) {
+        console.error('❌ Mercado Pago SDK timeout');
+        setLoading(false);
+        toast({
+          title: "Erro ao carregar pagamento",
+          description: "Por favor, recarregue a página",
+          variant: "destructive"
+        });
+        onError('Timeout ao carregar SDK');
+      }
+    }, 10000);
+
+    return () => {
+      clearInterval(checkSDK);
+      clearTimeout(timeout);
+    };
+  }, [formData, amount, deviceId, onSuccess, onError, toast]);
 
   return (
     <div className="w-full">
