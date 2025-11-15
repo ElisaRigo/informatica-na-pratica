@@ -323,7 +323,7 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
       clearInterval(checkSDK);
       clearTimeout(timeout);
     };
-  }, [formData, amount, deviceId, onSuccess, onError, toast]);
+  }, [formData.email, formData.cpf, formData.name, amount, toast]);
 
   return (
     <div className="w-full">
