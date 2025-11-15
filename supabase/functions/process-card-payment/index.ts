@@ -11,14 +11,19 @@ const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 serve(async (req) => {
+  console.log("🔵 Edge function process-card-payment called");
+  console.log("Method:", req.method);
+  
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    console.log("📥 Parsing request body...");
     const paymentData = await req.json();
     
-    console.log("Processing card payment...");
+    console.log("✅ Request body parsed");
+    console.log("Payment data keys:", Object.keys(paymentData));
     console.log("Device ID received:", paymentData.device_id);
 
     const accessToken = Deno.env.get("MERCADO_PAGO_ACCESS_TOKEN");
@@ -75,8 +80,18 @@ serve(async (req) => {
 
     if (!response.ok) {
       const errorData = await response.text();
-      console.error("Mercado Pago API error:", errorData);
-      throw new Error(`Erro ao processar pagamento: ${response.status}`);
+      console.error("❌ Mercado Pago API error - Status:", response.status);
+      console.error("Response body:", errorData);
+      
+      // Try to parse error details
+      try {
+        const errorJson = JSON.parse(errorData);
+        console.error("Error details:", JSON.stringify(errorJson, null, 2));
+      } catch (e) {
+        console.error("Could not parse error as JSON");
+      }
+      
+      throw new Error(`Erro ao processar pagamento: ${response.status} - ${errorData}`);
     }
 
     const payment = await response.json();
@@ -139,9 +154,16 @@ serve(async (req) => {
       }
     );
   } catch (error) {
-    console.error("Error processing card payment:", error);
+    console.error("❌ Error processing card payment:", error);
+    console.error("Error type:", typeof error);
+    console.error("Error details:", error instanceof Error ? error.message : String(error));
+    console.error("Stack trace:", error instanceof Error ? error.stack : "No stack");
+    
     return new Response(
-      JSON.stringify({ error: (error as Error).message }),
+      JSON.stringify({ 
+        error: error instanceof Error ? error.message : String(error),
+        details: "Check edge function logs for more information"
+      }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,
