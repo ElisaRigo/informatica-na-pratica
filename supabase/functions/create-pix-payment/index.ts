@@ -84,15 +84,7 @@ serve(async (req) => {
             quantity: 1,
             unit_price: coursePrice
           }
-        ],
-        payer: {
-          first_name: name.split(" ")[0],
-          last_name: name.split(" ").slice(1).join(" ") || ".",
-          phone: phone ? {
-            area_code: phone.substring(0, 2),
-            number: phone.substring(2)
-          } : undefined
-        }
+        ]
       },
       notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
       external_reference: `${email}-${Date.now()}`,
