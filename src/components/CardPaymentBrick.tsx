@@ -169,10 +169,10 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                   setTimeout(() => {
                     window.location.href = '/obrigada';
                   }, 1500);
-                } else if (data?.status === 'pending') {
+                } else if (data?.status === 'pending' || data?.status === 'in_process') {
                   showToast({
                     title: "Pagamento em análise",
-                    description: "Você receberá um e-mail quando for aprovado",
+                    description: "Você receberá um e-mail quando for aprovado. Aguarde 24-48h.",
                   });
                   setTimeout(() => {
                     window.location.href = '/aguardando';
@@ -181,16 +181,25 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                   const statusDetail = data?.status_detail || '';
                   let errorMessage = 'Pagamento não aprovado';
                   
+                  // Mensagens específicas por tipo de rejeição
                   if (statusDetail.includes('cc_rejected_high_risk')) {
-                    errorMessage = 'Pagamento recusado por segurança. Tente outro cartão.';
+                    errorMessage = '⚠️ Pagamento recusado por segurança. Tente outro cartão ou forma de pagamento.';
                   } else if (statusDetail.includes('cc_rejected_insufficient_amount')) {
-                    errorMessage = 'Saldo insuficiente.';
+                    errorMessage = '💳 Saldo insuficiente no cartão. Tente outro cartão.';
                   } else if (statusDetail.includes('cc_rejected_bad_filled')) {
-                    errorMessage = 'Dados incorretos. Verifique e tente novamente.';
+                    errorMessage = '📝 Dados do cartão incorretos. Verifique e tente novamente.';
                   } else if (statusDetail.includes('cc_rejected_card_disabled')) {
-                    errorMessage = 'Cartão desabilitado.';
+                    errorMessage = '🚫 Cartão desabilitado. Entre em contato com seu banco ou use outro cartão.';
+                  } else if (statusDetail.includes('cc_rejected_other_reason')) {
+                    errorMessage = '❌ Pagamento recusado. Tente outro cartão ou forma de pagamento.';
+                  } else if (statusDetail.includes('cc_rejected_call_for_authorize')) {
+                    errorMessage = '📞 Ligue para seu banco para autorizar o pagamento e tente novamente.';
+                  } else if (statusDetail.includes('cc_rejected_max_attempts')) {
+                    errorMessage = '⏱️ Muitas tentativas. Aguarde alguns minutos e tente novamente.';
+                  } else if (statusDetail.includes('pending_review_manual')) {
+                    errorMessage = '🔍 Pagamento em análise manual. Aguarde a aprovação (24-48h).';
                   } else if (statusDetail) {
-                    errorMessage = statusDetail;
+                    errorMessage = `❌ ${statusDetail.replace(/_/g, ' ')}`;
                   }
                   
                   showToast({
