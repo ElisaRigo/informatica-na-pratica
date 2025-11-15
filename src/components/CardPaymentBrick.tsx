@@ -283,7 +283,22 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
       if (sdkCheckInterval) clearInterval(sdkCheckInterval);
       if (sdkTimeout) clearTimeout(sdkTimeout);
     };
-  }, [initialized, formData, amount, deviceId, showToast]);
+  }, [
+    initialized, 
+    formData.name, 
+    formData.email, 
+    formData.cpf, 
+    formData.phone,
+    formData.address.zip_code,
+    formData.address.street_name,
+    formData.address.street_number,
+    formData.address.neighborhood,
+    formData.address.city,
+    formData.address.state,
+    amount, 
+    deviceId, 
+    showToast
+  ]);
 
   return (
     <div className="w-full">
