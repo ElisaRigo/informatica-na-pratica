@@ -186,9 +186,6 @@ export const CardPaymentBrick = ({ formData, amount, deviceId, onSuccess, onErro
                     title: "Pagamento em análise",
                     description: "Você receberá um e-mail quando for aprovado. Aguarde 24-48h.",
                   });
-                  setTimeout(() => {
-                    window.location.href = '/aguardando?method=card';
-                  }, 2000);
                 } else {
                   const statusDetail = data?.status_detail || '';
                   let errorMessage = 'Pagamento não aprovado';
