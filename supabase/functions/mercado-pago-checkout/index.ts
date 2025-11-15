@@ -11,15 +11,6 @@ interface CheckoutRequest {
   email: string;
   cpf: string;
   phone?: string;
-  address?: {
-    zip_code: string;
-    street_name: string;
-    street_number: string;
-    complement?: string;
-    neighborhood: string;
-    city: string;
-    state: string;
-  };
 }
 
 serve(async (req) => {
@@ -28,7 +19,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, cpf, phone, address }: CheckoutRequest = await req.json();
+    const { name, email, cpf, phone }: CheckoutRequest = await req.json();
 
     console.log("Creating Mercado Pago preference for:", { email, name });
 
@@ -72,13 +63,7 @@ serve(async (req) => {
           type: "CPF",
           number: cpf.replace(/\D/g, ""),
         },
-        address: address ? {
-          zip_code: address.zip_code,
-          street_name: address.street_name,
-          street_number: parseInt(address.street_number) || 1,
-          city_name: address.city,
-          state_name: address.state,
-        } : {
+        address: {
           zip_code: "00000000",
           street_name: "Rua",
           street_number: 1

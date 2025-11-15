@@ -11,91 +11,45 @@ const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 serve(async (req) => {
-  console.log("🔵 Edge function process-card-payment called");
-  console.log("Method:", req.method);
-  
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    console.log("📥 Parsing request body...");
     const paymentData = await req.json();
     
-    console.log("✅ Request body parsed");
-    console.log("Payment data keys:", Object.keys(paymentData));
-    console.log("Device ID received:", paymentData.device_id);
+    console.log("Processing card payment...");
 
     const accessToken = Deno.env.get("MERCADO_PAGO_ACCESS_TOKEN");
     if (!accessToken) {
       throw new Error("Mercado Pago access token not configured");
     }
 
-    // Preparar headers com Device ID (CRÍTICO para aprovação)
-    const headers: Record<string, string> = {
-      "Authorization": `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-      "X-Idempotency-Key": `${paymentData.payer.email}-${Date.now()}`,
-    };
-
-    // Adicionar Device ID ao header se disponível
-    if (paymentData.device_id) {
-      headers["X-meli-session-id"] = paymentData.device_id;
-      console.log("✅ Device ID adicionado ao header X-meli-session-id");
-    } else {
-      console.warn("⚠️ Device ID não fornecido - pode afetar taxa de aprovação");
-    }
-
-    // Preparar dados do pagamento (SEM device_id no body - vai apenas no header)
-    const { device_id, ...paymentDataWithoutDeviceId } = paymentData;
-
     // Criar pagamento com cartão
     const response = await fetch("https://api.mercadopago.com/v1/payments", {
       method: "POST",
-      headers,
+      headers: {
+        "Authorization": `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+        "X-Idempotency-Key": `${paymentData.payer.email}-${Date.now()}`,
+      },
       body: JSON.stringify({
-        ...paymentDataWithoutDeviceId,
+        ...paymentData,
         description: "Curso Completo de Informática na Prática",
         statement_descriptor: "INFORMATICA PRATICA",
         notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
         external_reference: `${paymentData.payer.email}-${Date.now()}`,
-        additional_info: {
-          items: [
-            {
-              id: "curso-informatica",
-              title: "Curso Completo de Informática na Prática",
-              description: "Curso completo de informática com Word, Excel, PowerPoint, Windows e Internet",
-              category_id: "education",
-              quantity: 1,
-              unit_price: paymentData.transaction_amount
-            }
-          ],
-          payer: {
-            first_name: paymentData.payer.first_name,
-            last_name: paymentData.payer.last_name
-          }
-        }
       }),
     });
 
     if (!response.ok) {
       const errorData = await response.text();
-      console.error("❌ Mercado Pago API error - Status:", response.status);
-      console.error("Response body:", errorData);
-      
-      // Try to parse error details
-      try {
-        const errorJson = JSON.parse(errorData);
-        console.error("Error details:", JSON.stringify(errorJson, null, 2));
-      } catch (e) {
-        console.error("Could not parse error as JSON");
-      }
-      
-      throw new Error(`Erro ao processar pagamento: ${response.status} - ${errorData}`);
+      console.error("Mercado Pago API error:", errorData);
+      throw new Error(`Erro ao processar pagamento: ${response.status}`);
     }
 
     const payment = await response.json();
-    console.log("Payment processed:", payment.id, "Status:", payment.status, "Detail:", payment.status_detail);
+    console.log("Payment processed:", payment.id, "Status:", payment.status);
 
     // CRÍTICO: Salvar estudante PRIMEIRO para que o webhook encontre
     console.log("💾 Saving student data...");
@@ -142,16 +96,11 @@ serve(async (req) => {
     // 4. Atualizar course_access para true
     console.log("✅ Payment created - webhook will handle Moodle enrollment and welcome email");
 
-    // Retornar resposta com informações adequadas
     return new Response(
       JSON.stringify({
         id: payment.id,
         status: payment.status,
         status_detail: payment.status_detail,
-        message: payment.status === 'approved' ? 'Pagamento aprovado!' :
-                 payment.status === 'in_process' ? 'Pagamento em análise. Aguarde aprovação.' :
-                 payment.status === 'pending' ? 'Pagamento pendente. Aguarde processamento.' :
-                 'Pagamento não aprovado'
       }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -159,16 +108,9 @@ serve(async (req) => {
       }
     );
   } catch (error) {
-    console.error("❌ Error processing card payment:", error);
-    console.error("Error type:", typeof error);
-    console.error("Error details:", error instanceof Error ? error.message : String(error));
-    console.error("Stack trace:", error instanceof Error ? error.stack : "No stack");
-    
+    console.error("Error processing card payment:", error);
     return new Response(
-      JSON.stringify({ 
-        error: error instanceof Error ? error.message : String(error),
-        details: "Check edge function logs for more information"
-      }),
+      JSON.stringify({ error: (error as Error).message }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,

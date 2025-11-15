@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Clock, CheckCircle2, FileText, Mail, Smartphone, Copy } from "lucide-react";
+import { Clock, CheckCircle2, FileText, Mail, Smartphone } from "lucide-react";
 import logoImage from "@/assets/logo-new.png";
-import { supabase } from "@/integrations/supabase/client";
-import { Button } from "@/components/ui/button";
 
 const AguardandoConfirmacao = () => {
   const [searchParams] = useSearchParams();
   const [elapsedTime, setElapsedTime] = useState(0);
   const paymentIntent = searchParams.get('payment_intent');
   const transactionId = searchParams.get('transaction_id');
-  const qrCode = searchParams.get('qr_code');
-  const paymentMethod = searchParams.get('method') || 'boleto'; // 'boleto', 'pix', 'card'
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     // Timer para mostrar tempo decorrido
@@ -23,62 +18,10 @@ const AguardandoConfirmacao = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Verificar automaticamente se o pagamento foi aprovado
-  useEffect(() => {
-    if (!paymentIntent && !transactionId) return;
-
-    const checkPaymentStatus = async () => {
-      try {
-        const paymentId = paymentIntent || transactionId;
-        if (!paymentId) return;
-
-        console.log('🔍 Verificando status do pagamento:', paymentId);
-
-        const { data: payment, error } = await supabase
-          .from('payments')
-          .select('status')
-          .eq('pagseguro_transaction_id', paymentId)
-          .maybeSingle();
-
-        if (error) {
-          console.error('Erro ao verificar pagamento:', error);
-          return;
-        }
-
-        if (payment?.status === 'approved') {
-          console.log('✅ Pagamento aprovado! Redirecionando...');
-          window.location.href = '/obrigada';
-        }
-      } catch (error) {
-        console.error('Erro ao verificar status:', error);
-      }
-    };
-
-    // Verificar imediatamente
-    checkPaymentStatus();
-
-    // Continuar verificando a cada 5 segundos por até 10 minutos
-    const intervalId = setInterval(checkPaymentStatus, 5000);
-    const timeoutId = setTimeout(() => clearInterval(intervalId), 600000); // 10 minutos
-
-    return () => {
-      clearInterval(intervalId);
-      clearTimeout(timeoutId);
-    };
-  }, [paymentIntent, transactionId]);
-
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
-
-  const copyToClipboard = () => {
-    if (qrCode) {
-      navigator.clipboard.writeText(qrCode);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
   };
 
   return (
@@ -106,14 +49,10 @@ const AguardandoConfirmacao = () => {
         {/* Main Message */}
         <div className="space-y-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient">
-            {paymentMethod === 'card' ? 'Pagamento em Análise! 🔍' : 
-             paymentMethod === 'pix' ? 'PIX Gerado com Sucesso! 🎉' : 
-             'Boleto Gerado com Sucesso! 🎉'}
+            Boleto Gerado com Sucesso! 🎉
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
-            {paymentMethod === 'card' ? 'Seu pagamento está sendo analisado. Você será redirecionado automaticamente quando for aprovado.' :
-             paymentMethod === 'pix' ? 'Escaneie o QR Code abaixo ou copie o código PIX para pagar. Você será redirecionado automaticamente após o pagamento.' :
-             'Seu boleto foi gerado. Você receberá as instruções de pagamento por e-mail.'}
+            Seu boleto foi gerado. Você receberá as instruções de pagamento por e-mail.
           </p>
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <Clock className="w-5 h-5" />
@@ -121,57 +60,21 @@ const AguardandoConfirmacao = () => {
           </div>
         </div>
 
-        {/* QR Code PIX */}
-        {paymentMethod === 'pix' && qrCode && (
-          <div className="bg-card border border-line rounded-xl p-6 max-w-md mx-auto">
-            <h3 className="font-semibold text-lg mb-4 text-center">Código PIX</h3>
-            <div className="bg-white p-4 rounded-lg mb-4">
-              <div className="text-xs break-all font-mono text-black p-2 bg-gray-50 rounded border">
-                {qrCode}
-              </div>
-            </div>
-            <Button 
-              onClick={copyToClipboard}
-              className="w-full"
-              variant="default"
-            >
-              {copied ? (
-                <>
-                  <CheckCircle2 className="w-4 h-4 mr-2" />
-                  Código Copiado!
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4 mr-2" />
-                  Copiar Código PIX
-                </>
-              )}
-            </Button>
-          </div>
-        )}
-
         {/* Info Cards */}
         <div className="grid md:grid-cols-2 gap-4 max-w-xl mx-auto">
           <div className="bg-card border border-line rounded-xl p-6">
             <Mail className="w-8 h-8 text-primary mb-3 mx-auto" />
             <h3 className="font-semibold mb-2">Verifique seu E-mail</h3>
             <p className="text-sm text-muted-foreground">
-              {paymentMethod === 'card' ? 'Enviaremos a confirmação do pagamento para seu e-mail' :
-               `Enviamos o ${paymentMethod === 'pix' ? 'código PIX' : 'boleto'} e as instruções para seu e-mail`}
+              Enviamos o boleto e as instruções para seu e-mail
             </p>
           </div>
 
           <div className="bg-card border border-line rounded-xl p-6">
-            <Smartphone className="w-8 h-8 text-primary mb-3 mx-auto" />
-            <h3 className="font-semibold mb-2">
-              {paymentMethod === 'card' ? 'Análise Automática' : 
-               paymentMethod === 'pix' ? 'Pagamento Instantâneo' : 
-               'Código de Barras'}
-            </h3>
+            <FileText className="w-8 h-8 text-primary mb-3 mx-auto" />
+            <h3 className="font-semibold mb-2">Código de Barras</h3>
             <p className="text-sm text-muted-foreground">
-              {paymentMethod === 'card' ? 'Nosso sistema está verificando o pagamento' :
-               paymentMethod === 'pix' ? 'Após o pagamento, o acesso é liberado automaticamente' :
-               'Use o código de barras para pagar em qualquer banco'}
+              Use o código de barras para pagar em qualquer banco
             </p>
           </div>
         </div>
@@ -183,52 +86,22 @@ const AguardandoConfirmacao = () => {
             Informações Importantes
           </h3>
           <ul className="text-sm text-muted-foreground space-y-3">
-            {paymentMethod === 'card' ? (
-              <>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>Estamos verificando automaticamente o status do seu pagamento</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>Você será redirecionado automaticamente assim que o pagamento for aprovado</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>A análise pode levar até 24-48 horas. Você também receberá um e-mail de confirmação</span>
-                </li>
-              </>
-            ) : paymentMethod === 'pix' ? (
-              <>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>Escaneie o QR Code ou copie o código PIX acima para pagar</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>Você será redirecionado automaticamente assim que o pagamento for confirmado</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>A confirmação geralmente é instantânea após o pagamento</span>
-                </li>
-              </>
-            ) : (
-              <>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>O boleto pode levar até 3 dias úteis para ser compensado após o pagamento</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>Você receberá um e-mail de confirmação assim que o pagamento for identificado</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary">✓</span>
-                  <span>Após a confirmação, você receberá os dados de acesso ao curso por e-mail</span>
-                </li>
-              </>
-            )}
+            <li className="flex gap-2">
+              <span className="text-primary">✓</span>
+              <span>O boleto pode levar até 3 dias úteis para ser compensado após o pagamento</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-primary">✓</span>
+              <span>Você receberá um e-mail de confirmação assim que o pagamento for identificado</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-primary">✓</span>
+              <span>O acesso ao curso será liberado automaticamente após a confirmação do pagamento</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-primary">✓</span>
+              <span>Guarde o número do boleto para acompanhamento</span>
+            </li>
           </ul>
           
           {paymentIntent && (
