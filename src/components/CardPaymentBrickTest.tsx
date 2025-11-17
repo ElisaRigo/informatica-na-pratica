@@ -211,7 +211,20 @@ export const CardPaymentBrickTest = ({ formData, amount, onSuccess, onError }: C
   }, [formData, amount, onSuccess, onError, toast]);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
+      {/* Valor do Curso */}
+      <div className="text-center py-4 bg-primary/5 rounded-lg border-2 border-primary/20">
+        <div className="text-4xl font-black text-primary mb-1">
+          R$ {amount.toFixed(2).replace('.', ',')}
+        </div>
+        <div className="text-sm text-muted-foreground">
+          Acesso completo por 2 anos • Certificado incluso
+        </div>
+        <div className="text-xs text-primary font-semibold mt-1">
+          Parcele em até 12x no cartão
+        </div>
+      </div>
+
       {loading && (
         <div className="flex items-center justify-center py-8">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
