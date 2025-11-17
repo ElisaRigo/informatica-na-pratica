@@ -43,7 +43,7 @@ export const CheckoutFormTest = () => {
   const [mpInstance, setMpInstance] = useState<any>(null);
   const [pixData, setPixData] = useState<PixData | null>(null);
   const [checkingPayment, setCheckingPayment] = useState(false);
-  const [coursePrice, setCoursePrice] = useState<number>(297.00);
+  const [coursePrice] = useState<number>(5.00); // Valor fixo para teste
   const [showCardPayment, setShowCardPayment] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
@@ -83,23 +83,15 @@ export const CheckoutFormTest = () => {
       console.log('Mercado Pago SDK loaded');
       
       try {
-        const [keyResponse, priceResponse] = await Promise.all([
-          supabase.functions.invoke('get-mp-public-key'),
-          supabase.functions.invoke('get-course-price')
-        ]);
+        const { data: keyData } = await supabase.functions.invoke('get-mp-public-key');
         
-        if (keyResponse.data?.MERCADO_PAGO_PUBLIC_KEY) {
-          const mp = new window.MercadoPago(keyResponse.data.MERCADO_PAGO_PUBLIC_KEY, {
+        if (keyData?.MERCADO_PAGO_PUBLIC_KEY) {
+          const mp = new window.MercadoPago(keyData.MERCADO_PAGO_PUBLIC_KEY, {
             locale: 'pt-BR'
           });
           setMpInstance(mp);
           setSdkLoaded(true);
           console.log('Mercado Pago initialized');
-        }
-        
-        if (priceResponse.data?.price) {
-          setCoursePrice(priceResponse.data.price);
-          console.log('Course price loaded:', priceResponse.data.price);
         }
       } catch (error) {
         console.error('Error loading MP key:', error);
