@@ -663,39 +663,54 @@ export const CheckoutFormTest = () => {
           <Button
             onClick={handleCardPayment}
             disabled={loading || !sdkLoaded}
-            className="w-full h-auto py-4 text-left justify-start"
+            className="w-full h-auto py-4 text-left justify-between"
             variant="outline"
           >
-            <CreditCard className="w-6 h-6 mr-3 text-primary" />
-            <div className="flex-1">
-              <div className="font-bold">Cartão de Crédito</div>
-              <div className="text-xs text-muted-foreground">Parcelamento em até 12x</div>
+            <div className="flex items-center flex-1">
+              <CreditCard className="w-6 h-6 mr-3 text-primary" />
+              <div className="flex-1">
+                <div className="font-bold">Cartão de Crédito</div>
+                <div className="text-xs text-muted-foreground">Parcelamento em até 12x</div>
+              </div>
+            </div>
+            <div className="text-right ml-3">
+              <div className="font-bold text-primary">R$ {coursePrice.toFixed(2).replace('.', ',')}</div>
             </div>
           </Button>
 
           <Button
             onClick={handlePixPayment}
             disabled={loading || !sdkLoaded}
-            className="w-full h-auto py-4 text-left justify-start"
+            className="w-full h-auto py-4 text-left justify-between"
             variant="outline"
           >
-            <Smartphone className="w-6 h-6 mr-3 text-primary" />
-            <div className="flex-1">
-              <div className="font-bold">PIX</div>
-              <div className="text-xs text-muted-foreground">Aprovação imediata</div>
+            <div className="flex items-center flex-1">
+              <Smartphone className="w-6 h-6 mr-3 text-primary" />
+              <div className="flex-1">
+                <div className="font-bold">PIX</div>
+                <div className="text-xs text-muted-foreground">Aprovação imediata</div>
+              </div>
+            </div>
+            <div className="text-right ml-3">
+              <div className="font-bold text-primary">R$ {coursePrice.toFixed(2).replace('.', ',')}</div>
             </div>
           </Button>
 
           <Button
             onClick={() => handleOtherPayment('boleto')}
             disabled={loading || !sdkLoaded}
-            className="w-full h-auto py-4 text-left justify-start"
+            className="w-full h-auto py-4 text-left justify-between"
             variant="outline"
           >
-            <Receipt className="w-6 h-6 mr-3 text-primary" />
-            <div className="flex-1">
-              <div className="font-bold">Boleto</div>
-              <div className="text-xs text-muted-foreground">Vence em 3 dias úteis</div>
+            <div className="flex items-center flex-1">
+              <Receipt className="w-6 h-6 mr-3 text-primary" />
+              <div className="flex-1">
+                <div className="font-bold">Boleto</div>
+                <div className="text-xs text-muted-foreground">Vence em 3 dias úteis</div>
+              </div>
+            </div>
+            <div className="text-right ml-3">
+              <div className="font-bold text-primary">R$ {coursePrice.toFixed(2).replace('.', ',')}</div>
             </div>
           </Button>
         </div>
