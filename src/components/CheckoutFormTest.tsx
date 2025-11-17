@@ -463,6 +463,14 @@ export const CheckoutFormTest = () => {
             />
           </div>
 
+          {/* Valor a pagar */}
+          <div className="text-center py-3">
+            <p className="text-sm text-muted-foreground mb-1">Valor a pagar</p>
+            <p className="text-4xl font-black text-primary">
+              R$ {coursePrice.toFixed(2).replace('.', ',')}
+            </p>
+          </div>
+
           <div className="space-y-3">
             <div className="flex gap-2">
               <Input

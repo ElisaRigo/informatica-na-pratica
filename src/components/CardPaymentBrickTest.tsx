@@ -77,6 +77,15 @@ export const CardPaymentBrickTest = ({ formData, amount, onSuccess, onError }: C
                 }
               }
             },
+            options: {
+              enableReviewStep: false,
+              enableTwoStepPayment: false
+            },
+            features: {
+              tdsV2: {
+                enabled: true
+              }
+            },
             callbacks: {
               onReady: () => {
                 console.log('Card Payment Brick ready');
