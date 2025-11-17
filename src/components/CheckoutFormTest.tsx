@@ -529,6 +529,19 @@ export const CheckoutFormTest = () => {
 
   return (
     <div className="space-y-6">
+      {/* Valor do Curso */}
+      <div className="text-center py-4 bg-primary/5 rounded-lg border-2 border-primary/20">
+        <div className="text-4xl font-black text-primary mb-1">
+          R$ {coursePrice.toFixed(2).replace('.', ',')}
+        </div>
+        <div className="text-sm text-muted-foreground">
+          Acesso completo por 2 anos • Certificado incluso
+        </div>
+        <div className="text-xs text-primary font-semibold mt-1">
+          Parcele em até 12x no cartão
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="name">Nome Completo *</Label>
