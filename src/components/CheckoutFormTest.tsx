@@ -43,7 +43,7 @@ export const CheckoutFormTest = () => {
   const [mpInstance, setMpInstance] = useState<any>(null);
   const [pixData, setPixData] = useState<PixData | null>(null);
   const [checkingPayment, setCheckingPayment] = useState(false);
-  const [coursePrice] = useState<number>(5.00); // Valor fixo para teste
+  const coursePrice = 5.00; // Valor fixo para teste - R$ 5,00
   const [showCardPayment, setShowCardPayment] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
