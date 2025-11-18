@@ -96,13 +96,16 @@ export const CheckoutForm = () => {
     if (numbers.length <= 8) {
       return numbers.replace(/(\d{5})(\d)/, '$1-$2');
     }
-    return numbers.substring(0, 8).replace(/(\d{5})(\d)/, '$1-$2');
+    return value;
   };
 
   const formatCPF = (value: string) => {
     const numbers = value.replace(/\D/g, '');
     if (numbers.length <= 11) {
-      return numbers.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+      return numbers
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
     }
     return value;
   };
@@ -110,16 +113,21 @@ export const CheckoutForm = () => {
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, '');
     if (numbers.length <= 11) {
-      return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+      return numbers
+        .replace(/(\d{2})(\d)/, '($1) $2')
+        .replace(/(\d{5})(\d)/, '$1-$2');
     }
     return value;
   };
 
   const validateForm = () => {
-    if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
+    const requiredFields = ['name', 'email', 'cpf', 'phone', 'cep', 'street', 'number', 'neighborhood', 'city', 'state'];
+    const emptyFields = requiredFields.filter(field => !formData[field as keyof typeof formData]);
+    
+    if (emptyFields.length > 0) {
       toast({
-        title: "Preencha todos os campos",
-        description: "Todos os campos são obrigatórios",
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos obrigatórios.",
         variant: "destructive"
       });
       return false;
