@@ -25,14 +25,25 @@ serve(async (req) => {
       throw new Error("Mercado Pago access token not configured");
     }
 
+    // Preparar headers com Device ID (se disponível)
+    const headers: Record<string, string> = {
+      "Authorization": `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+      "X-Idempotency-Key": `${paymentData.payer.email}-${Date.now()}`,
+    };
+
+    // Adicionar Device ID ao header se disponível (CRÍTICO para aprovação)
+    if (paymentData.device_id) {
+      headers["X-meli-session-id"] = paymentData.device_id;
+      console.log("✅ Device ID incluído no pagamento:", paymentData.device_id);
+    } else {
+      console.warn("⚠️ Pagamento sem Device ID - pode afetar aprovação");
+    }
+
     // Criar pagamento com cartão
     const response = await fetch("https://api.mercadopago.com/v1/payments", {
       method: "POST",
-      headers: {
-        "Authorization": `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-        "X-Idempotency-Key": `${paymentData.payer.email}-${Date.now()}`,
-      },
+      headers,
       body: JSON.stringify({
         ...paymentData,
         description: "Curso Completo de Informática na Prática",
