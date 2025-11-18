@@ -197,33 +197,9 @@ export const CheckoutFormTest = () => {
   };
 
   const verifyRecaptcha = async (action: string): Promise<boolean> => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Skipping reCAPTCHA in development');
-      return true;
-    }
-
-    if (!recaptchaLoaded || !window.grecaptcha || !recaptchaSiteKey) {
-      console.error('reCAPTCHA not loaded or missing site key');
-      return true;
-    }
-
-    try {
-      const token = await window.grecaptcha.execute(recaptchaSiteKey, { action });
-      
-      const { data, error } = await supabase.functions.invoke('verify-recaptcha', {
-        body: { token, action }
-      });
-
-      if (error) {
-        console.error('reCAPTCHA verification error:', error);
-        return false;
-      }
-
-      return data?.success || false;
-    } catch (error) {
-      console.error('reCAPTCHA execution error:', error);
-      return false;
-    }
+    // Skip reCAPTCHA on test page to allow payment testing
+    console.log('Skipping reCAPTCHA verification on test page');
+    return true;
   };
 
   const handlePixPayment = async () => {
