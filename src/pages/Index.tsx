@@ -1,30 +1,31 @@
-import { lazy, Suspense, memo } from "react";
+import { lazy, Suspense } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { CoursePreview } from "@/components/CoursePreview";
+import { SocialProof } from "@/components/SocialProof";
 import { AboutSection } from "@/components/AboutSection";
-import { Authority } from "@/components/Authority";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
-import { CheckoutDialog } from "@/components/CheckoutDialog";
-import { CourseContent } from "@/components/CourseContent";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { FreeLessonExcel } from "@/components/FreeLessonExcel";
+import { CheckoutDialogTest } from "@/components/CheckoutDialogTest";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
-// Lazy load componentes com prefetch
-const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
-const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
-const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
+// Lazy load componentes em blocos separados para carregamento progressivo
+const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
 const TargetAudience = lazy(() => import("@/components/TargetAudience").then(m => ({ default: m.TargetAudience })));
-const Comparison = lazy(() => import("@/components/Comparison").then(m => ({ default: m.Comparison })));
-const Pricing = lazy(() => import("@/components/Pricing").then(m => ({ default: m.Pricing })));
-const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
-const Guarantee = lazy(() => import("@/components/Guarantee").then(m => ({ default: m.Guarantee })));
+const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
+const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
+const ContentGrid = lazy(() => import("@/components/ContentGrid").then(m => ({ default: m.ContentGrid })));
 const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({ default: m.StrategicCTA })));
-
-// Loading placeholder otimizado
-const LoadingFallback = memo(() => <div className="h-32" />);
+const Comparison = lazy(() => import("@/components/Comparison").then(m => ({ default: m.Comparison })));
+const EmotionalBenefits = lazy(() => import("@/components/EmotionalBenefits").then(m => ({ default: m.EmotionalBenefits })));
+const NotForYou = lazy(() => import("@/components/NotForYou").then(m => ({ default: m.NotForYou })));
+const Pricing = lazy(() => import("@/components/Pricing").then(m => ({ default: m.Pricing })));
+const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
+const Guarantee = lazy(() => import("@/components/Guarantee").then(m => ({ default: m.Guarantee })));
+const Objections = lazy(() => import("@/components/Objections").then(m => ({ default: m.Objections })));
+const FinalTestimonials = lazy(() => import("@/components/FinalTestimonials").then(m => ({ default: m.FinalTestimonials })));
+const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 
 const Index = () => {
   const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
@@ -34,87 +35,76 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
-      {/* 1️⃣ PRIMEIRA DOBRA - Vídeo + Promessa + CTA */}
       <Header />
       <Hero />
-      
-      {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
-      <CoursePreview />
-      
-      {/* 3️⃣ AULA GRATUITA DE EXCEL */}
-      <FreeLessonExcel />
-      
-      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
-      <CourseContent />
-      
-      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
-      <Authority />
-      
-      {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Bonus />
-      </Suspense>
-      
-      {/* 7️⃣ DEPOIMENTOS - Prova Social */}
-      <Testimonials />
-      
-      {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
-      <Suspense fallback={<LoadingFallback />}>
-        <ValueStack />
-      </Suspense>
-      
-      {/* 9️⃣ INVESTIMENTO - Proposta de valor */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Possibilities />
-      </Suspense>
-      
-      {/* 🔟 PARA QUEM É - Público alvo */}
-      <Suspense fallback={<LoadingFallback />}>
+      {/* IDENTIFICAÇÃO */}
+      <Suspense fallback={<div className="h-32" />}>
         <TargetAudience />
       </Suspense>
-      
-      {/* 1️⃣1️⃣ OFERTA E PREÇO #1 */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Pricing />
+      {/* VALOR - O que vai aprender */}
+      <Suspense fallback={<div className="h-32" />}>
+        <ContentGrid />
       </Suspense>
-      
-      {/* 1️⃣2️⃣ GARANTIA #1 */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Guarantee />
+      {/* PROVA SOCIAL */}
+      <Testimonials />
+      {/* AUTORIDADE & CREDIBILIDADE */}
+      <AboutSection />
+      <Suspense fallback={<div className="h-32" />}>
+        <Authority />
       </Suspense>
-      
-      {/* 1️⃣3️⃣ ANTES E DEPOIS - Transformação */}
-      <Suspense fallback={<LoadingFallback />}>
+      <SocialProof />
+      {/* PERCEPÇÃO DE VALOR */}
+      <Suspense fallback={<div className="h-32" />}>
+        <ValueStack />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
+        <Possibilities />
+      </Suspense>
+      {/* TRANSFORMAÇÃO */}
+      <Suspense fallback={<div className="h-32" />}>
+        <EmotionalBenefits />
+      </Suspense>
+      {/* GATILHO MENTAL */}
+      <Suspense fallback={<div className="h-32" />}>
+        <StrategicCTA />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
         <Comparison />
       </Suspense>
-      
-      {/* 1️⃣4️⃣ QUEM VAI TE ENSINAR - Sobre */}
-      <AboutSection />
-      
-      {/* 1️⃣5️⃣ OFERTA E PREÇO #2 */}
-      <Suspense fallback={<LoadingFallback />}>
+      {/* QUALIFICAÇÃO */}
+      <Suspense fallback={<div className="h-32" />}>
+        <NotForYou />
+      </Suspense>
+      {/* OFERTA COM URGÊNCIA */}
+      <Suspense fallback={<div className="h-32" />}>
         <Pricing />
       </Suspense>
-      
-      {/* 1️⃣6️⃣ PERGUNTAS FREQUENTES */}
-      <Suspense fallback={<LoadingFallback />}>
-        <FAQ />
+      <Suspense fallback={<div className="h-32" />}>
+        <Bonus />
       </Suspense>
-      
-      {/* 1️⃣7️⃣ GARANTIA #2 - Reduzir Risco */}
-      <Suspense fallback={<LoadingFallback />}>
+      <Suspense fallback={<div className="h-32" />}>
         <Guarantee />
       </Suspense>
-      
-      {/* 1️⃣8️⃣ CTA FINAL ESTRATÉGICO */}
-      <Suspense fallback={<LoadingFallback />}>
-        <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
+      {/* PROVA SOCIAL FINAL */}
+      <Suspense fallback={<div className="h-32" />}>
+        <FinalTestimonials />
       </Suspense>
-      
+      {/* ÚLTIMAS OBJEÇÕES */}
+      <Suspense fallback={<div className="h-32" />}>
+        <Objections />
+      </Suspense>
+      <Suspense fallback={<div className="h-32" />}>
+        <FAQ />
+      </Suspense>
+      {/* CTA FINAL */}
+      <Suspense fallback={<div className="h-32" />}>
+        <StrategicCTA context="pronto para começar sua transformação digital" />
+      </Suspense>
       <Footer />
+      <WhatsAppFloat />
       <WhatsAppButton />
       
-      <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
+      <CheckoutDialogTest open={isOpen} onOpenChange={closeCheckout} />
     </div>
   );
 };
