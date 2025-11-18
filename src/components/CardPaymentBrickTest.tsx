@@ -30,6 +30,29 @@ interface CardPaymentBrickTestProps {
 export const CardPaymentBrickTest = ({ formData, amount, onSuccess, onError }: CardPaymentBrickTestProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
+  const [deviceId, setDeviceId] = useState<string | null>(null);
+
+  // Capturar Device ID do Mercado Pago
+  useEffect(() => {
+    const captureDeviceId = () => {
+      try {
+        // Aguarda 1 segundo para garantir que o script de segurança foi carregado
+        setTimeout(() => {
+          const mpDeviceId = (window as any).MP_DEVICE_SESSION_ID;
+          if (mpDeviceId) {
+            console.log('✅ Device ID capturado:', mpDeviceId);
+            setDeviceId(mpDeviceId);
+          } else {
+            console.warn('⚠️ Device ID não disponível - continuando sem ele');
+          }
+        }, 1000);
+      } catch (error) {
+        console.warn('⚠️ Erro ao capturar Device ID:', error);
+      }
+    };
+
+    captureDeviceId();
+  }, []);
 
   useEffect(() => {
     const initBrick = async () => {
@@ -108,6 +131,7 @@ export const CardPaymentBrickTest = ({ formData, amount, onSuccess, onError }: C
               onSubmit: async (cardFormData: any) => {
                 try {
                   console.log('Processing payment with address...', cardFormData);
+                  console.log('Device ID sendo enviado:', deviceId || 'não disponível');
 
                   const { data, error } = await supabase.functions.invoke('process-card-payment', {
                     body: {
@@ -116,6 +140,7 @@ export const CardPaymentBrickTest = ({ formData, amount, onSuccess, onError }: C
                       installments: cardFormData.installments,
                       payment_method_id: cardFormData.payment_method_id,
                       issuer_id: cardFormData.issuer_id,
+                      device_id: deviceId, // Enviar Device ID (pode ser null)
                       payer: {
                         email: formData.email,
                         identification: {
