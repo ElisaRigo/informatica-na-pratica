@@ -59,6 +59,16 @@ export const CardPaymentBrickTest = ({ formData, amount, onSuccess, onError }: C
                 identification: {
                   type: 'CPF',
                   number: formData.cpf.replace(/\D/g, '')
+                },
+                firstName: firstName,
+                lastName: lastName,
+                address: {
+                  zipCode: formData.cep.replace(/\D/g, ''),
+                  streetName: formData.street,
+                  streetNumber: formData.number,
+                  neighborhood: formData.neighborhood,
+                  city: formData.city,
+                  federalUnit: formData.state
                 }
               }
             },
