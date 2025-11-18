@@ -62,6 +62,10 @@ export const CardPaymentBrickTest = ({ formData, amount, onSuccess, onError }: C
                 },
                 firstName: firstName,
                 lastName: lastName,
+                phone: formData.phone ? {
+                  areaCode: formData.phone.replace(/\D/g, '').substring(0, 2),
+                  number: formData.phone.replace(/\D/g, '').substring(2)
+                } : undefined,
                 address: {
                   zipCode: formData.cep.replace(/\D/g, ''),
                   streetName: formData.street,
