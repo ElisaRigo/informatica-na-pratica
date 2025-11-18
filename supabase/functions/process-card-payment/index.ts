@@ -40,12 +40,15 @@ serve(async (req) => {
       console.warn("⚠️ Pagamento sem Device ID - pode afetar aprovação");
     }
 
+    // Remover device_id do corpo (deve ir apenas no header)
+    const { device_id, ...paymentBody } = paymentData;
+
     // Criar pagamento com cartão
     const response = await fetch("https://api.mercadopago.com/v1/payments", {
       method: "POST",
       headers,
       body: JSON.stringify({
-        ...paymentData,
+        ...paymentBody,
         description: "Curso Completo de Informática na Prática",
         statement_descriptor: "INFORMATICA PRATICA",
         notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
