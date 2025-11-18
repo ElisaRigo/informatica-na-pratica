@@ -11,7 +11,6 @@ import { CardPaymentBrickTest } from "./CardPaymentBrickTest";
 declare global {
   interface Window {
     MercadoPago: any;
-    grecaptcha: any;
   }
 }
 
@@ -45,34 +44,6 @@ export const CheckoutFormTest = () => {
   const [checkingPayment, setCheckingPayment] = useState(false);
   const coursePrice = 297.00; // Valor do curso - R$ 297,00
   const [showCardPayment, setShowCardPayment] = useState(false);
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
-  const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
-
-  // Carregar reCAPTCHA
-  useEffect(() => {
-    const loadRecaptcha = async () => {
-      try {
-        const { data: keyData } = await supabase.functions.invoke('get-recaptcha-site-key');
-        
-        if (keyData?.siteKey) {
-          setRecaptchaSiteKey(keyData.siteKey);
-          
-          const script = document.createElement('script');
-          script.src = `https://www.google.com/recaptcha/api.js?render=${keyData.siteKey}`;
-          script.async = true;
-          script.onload = () => {
-            console.log('reCAPTCHA loaded');
-            setRecaptchaLoaded(true);
-          };
-          document.body.appendChild(script);
-        }
-      } catch (error) {
-        console.error('Error loading reCAPTCHA:', error);
-      }
-    };
-
-    loadRecaptcha();
-  }, []);
 
   // Carregar SDK do Mercado Pago
   useEffect(() => {
