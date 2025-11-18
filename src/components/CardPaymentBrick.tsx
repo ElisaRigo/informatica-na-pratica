@@ -14,6 +14,13 @@ interface CardPaymentBrickProps {
     email: string;
     cpf: string;
     phone: string;
+    cep: string;
+    street: string;
+    number: string;
+    complement: string;
+    neighborhood: string;
+    city: string;
+    state: string;
   };
   amount: number;
   onSuccess: () => void;
@@ -23,6 +30,29 @@ interface CardPaymentBrickProps {
 export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardPaymentBrickProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
+  const [deviceId, setDeviceId] = useState<string | null>(null);
+
+  // Capturar Device ID do Mercado Pago
+  useEffect(() => {
+    const captureDeviceId = () => {
+      try {
+        // Aguarda 1 segundo para garantir que o script de segurança foi carregado
+        setTimeout(() => {
+          const mpDeviceId = (window as any).MP_DEVICE_SESSION_ID;
+          if (mpDeviceId) {
+            console.log('✅ Device ID capturado:', mpDeviceId);
+            setDeviceId(mpDeviceId);
+          } else {
+            console.warn('⚠️ Device ID não disponível - continuando sem ele');
+          }
+        }, 1000);
+      } catch (error) {
+        console.warn('⚠️ Erro ao capturar Device ID:', error);
+      }
+    };
+
+    captureDeviceId();
+  }, []);
 
   useEffect(() => {
     const initBrick = async () => {
@@ -54,6 +84,20 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                 identification: {
                   type: 'CPF',
                   number: formData.cpf.replace(/\D/g, '')
+                },
+                firstName: firstName,
+                lastName: lastName,
+                phone: formData.phone ? {
+                  areaCode: formData.phone.replace(/\D/g, '').substring(0, 2),
+                  number: formData.phone.replace(/\D/g, '').substring(2)
+                } : undefined,
+                address: {
+                  zipCode: formData.cep.replace(/\D/g, ''),
+                  streetName: formData.street,
+                  streetNumber: formData.number,
+                  neighborhood: formData.neighborhood,
+                  city: formData.city,
+                  federalUnit: formData.state
                 }
               }
             },
@@ -67,9 +111,18 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                 maxInstallments: 12,
                 minInstallments: 1,
                 types: {
-                  excluded: [], // Não excluir nenhum método
-                  included: ['credit_card', 'debit_card'] // Incluir cartão de crédito e débito
+                  excluded: [],
+                  included: ['credit_card', 'debit_card']
                 }
+              }
+            },
+            options: {
+              enableReviewStep: false,
+              enableTwoStepPayment: false
+            },
+            features: {
+              tdsV2: {
+                enabled: true
               }
             },
             callbacks: {
@@ -79,9 +132,9 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
               },
               onSubmit: async (cardFormData: any) => {
                 try {
-                  console.log('Processing payment...', cardFormData);
+                  console.log('Processing payment with address...', cardFormData);
+                  console.log('Device ID sendo enviado:', deviceId || 'não disponível');
 
-                  // Criar o pagamento via edge function
                   const { data, error } = await supabase.functions.invoke('process-card-payment', {
                     body: {
                       token: cardFormData.token,
@@ -89,6 +142,7 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                       installments: cardFormData.installments,
                       payment_method_id: cardFormData.payment_method_id,
                       issuer_id: cardFormData.issuer_id,
+                      device_id: deviceId,
                       payer: {
                         email: formData.email,
                         identification: {
@@ -100,7 +154,36 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                         phone: formData.phone ? {
                           area_code: formData.phone.replace(/\D/g, '').substring(0, 2),
                           number: formData.phone.replace(/\D/g, '').substring(2)
-                        } : undefined
+                        } : undefined,
+                        address: {
+                          zip_code: formData.cep.replace(/\D/g, ''),
+                          street_name: formData.street,
+                          street_number: formData.number,
+                          neighborhood: formData.neighborhood,
+                          city: formData.city,
+                          federal_unit: formData.state
+                        }
+                      },
+                      additional_info: {
+                        items: [{
+                          id: "curso-informatica-idoso",
+                          title: "Curso de Informática para Idosos",
+                          description: "Aprenda a usar o computador do zero: Word, Excel, PowerPoint, Internet e muito mais",
+                          category_id: "education",
+                          quantity: 1,
+                          unit_price: amount
+                        }],
+                        payer: {
+                          first_name: firstName,
+                          last_name: lastName,
+                          phone: formData.phone ? {
+                            area_code: formData.phone.replace(/\D/g, '').substring(0, 2),
+                            number: formData.phone.replace(/\D/g, '').substring(2)
+                          } : undefined,
+                          address: {
+                            zip_code: formData.cep.replace(/\D/g, '')
+                          }
+                        }
                       }
                     }
                   });
@@ -166,13 +249,26 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
     if (window.MercadoPago) {
       initBrick();
     }
-  }, [formData, amount, onSuccess, onError, toast]);
+  }, [formData, amount, onSuccess, onError, toast, deviceId]);
 
   return (
-    <div className="w-full">
+    <div className="space-y-6">
+      {/* Valor do Curso */}
+      <div className="text-center py-4 bg-primary/5 rounded-lg border-2 border-primary/20">
+        <div className="text-4xl font-black text-primary mb-1">
+          R$ {amount.toFixed(2).replace('.', ',')}
+        </div>
+        <div className="text-sm text-muted-foreground">
+          Acesso completo por 2 anos • Certificado incluso
+        </div>
+        <div className="text-xs text-primary font-semibold mt-1">
+          Parcele em até 12x no cartão
+        </div>
+      </div>
+
       {loading && (
-        <div className="text-center py-4">
-          <p className="text-sm text-muted-foreground">Carregando formulário de pagamento...</p>
+        <div className="flex items-center justify-center py-8">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
         </div>
       )}
       <div id="cardPaymentBrick_container"></div>
