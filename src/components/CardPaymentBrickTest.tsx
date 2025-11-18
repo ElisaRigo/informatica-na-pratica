@@ -179,12 +179,7 @@ export const CardPaymentBrickTest = ({ formData, amount, onSuccess, onError }: C
                             number: formData.phone.replace(/\D/g, '').substring(2)
                           } : undefined,
                           address: {
-                            zip_code: formData.cep.replace(/\D/g, ''),
-                            street_name: formData.street,
-                            street_number: parseInt(formData.number) || 0,
-                            neighborhood: formData.neighborhood,
-                            city: formData.city,
-                            federal_unit: formData.state
+                            zip_code: formData.cep.replace(/\D/g, '')
                           }
                         }
                       }
