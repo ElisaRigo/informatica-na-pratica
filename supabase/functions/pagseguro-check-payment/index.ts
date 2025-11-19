@@ -29,7 +29,7 @@ serve(async (req) => {
     console.log('🔍 Consultando pedido:', orderId);
 
     // Consultar pedido no PagSeguro
-    const response = await fetch(`https://sandbox.api.pagseguro.com/orders/${orderId}`, {
+    const response = await fetch(`https://api.pagseguro.com/orders/${orderId}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${PAGSEGURO_TOKEN}`
