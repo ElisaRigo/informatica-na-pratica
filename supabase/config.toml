@@ -14,3 +14,12 @@ verify_jwt = false
 
 [functions.create-pix-payment]
 verify_jwt = false
+
+[functions.pagseguro-create-order-card]
+verify_jwt = false
+
+[functions.pagseguro-create-order-pix]
+verify_jwt = false
+
+[functions.pagseguro-check-payment]
+verify_jwt = false
