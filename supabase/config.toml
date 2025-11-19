@@ -1,5 +1,8 @@
 project_id = "exncvylyygvctgwyqpin"
 
+[functions.pagseguro-connect-token]
+verify_jwt = false
+
 [functions.mercado-pago-checkout]
 verify_jwt = false
 
