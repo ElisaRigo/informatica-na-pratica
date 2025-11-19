@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { PagSeguroRedirectCheckout } from "./PagSeguroRedirectCheckout";
+import { CheckoutFormPagSeguro } from "./CheckoutFormPagSeguro";
 
 interface CheckoutDialogPagSeguroProps {
   open: boolean;
@@ -26,7 +26,7 @@ export const CheckoutDialogPagSeguro = ({ open, onOpenChange }: CheckoutDialogPa
             </p>
           </div>
         </DialogHeader>
-        <PagSeguroRedirectCheckout />
+        <CheckoutFormPagSeguro />
         <p className="text-xs md:text-sm text-center text-muted-foreground border-t pt-4 flex items-center justify-center gap-2">
           🔒 Compra 100% segura • Acesso imediato após o pagamento
         </p>
