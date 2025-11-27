@@ -31,20 +31,42 @@ export const CheckoutForm = () => {
     name: "",
     email: "",
     cpf: "",
-    phone: "",
-    cep: "",
-    street: "",
-    number: "",
-    complement: "",
-    neighborhood: "",
-    city: "",
-    state: ""
+    phone: ""
   });
   const [mpInstance, setMpInstance] = useState<any>(null);
   const [pixData, setPixData] = useState<PixData | null>(null);
   const [checkingPayment, setCheckingPayment] = useState(false);
   const [coursePrice, setCoursePrice] = useState<number>(297.00);
   const [showCardPayment, setShowCardPayment] = useState(false);
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
+
+  // Carregar reCAPTCHA
+  useEffect(() => {
+    const loadRecaptcha = async () => {
+      try {
+        // Buscar a site key dos secrets
+        const { data: keyData } = await supabase.functions.invoke('get-recaptcha-site-key');
+        
+        if (keyData?.siteKey) {
+          setRecaptchaSiteKey(keyData.siteKey);
+          
+          const script = document.createElement('script');
+          script.src = `https://www.google.com/recaptcha/api.js?render=${keyData.siteKey}`;
+          script.async = true;
+          script.onload = () => {
+            console.log('reCAPTCHA loaded');
+            setRecaptchaLoaded(true);
+          };
+          document.body.appendChild(script);
+        }
+      } catch (error) {
+        console.error('Error loading reCAPTCHA:', error);
+      }
+    };
+
+    loadRecaptcha();
+  }, []);
 
   // Carregar SDK do Mercado Pago
   useEffect(() => {
@@ -91,21 +113,10 @@ export const CheckoutForm = () => {
     };
   }, []);
 
-  const formatCEP = (value: string) => {
-    const numbers = value.replace(/\D/g, '');
-    if (numbers.length <= 8) {
-      return numbers.replace(/(\d{5})(\d)/, '$1-$2');
-    }
-    return value;
-  };
-
   const formatCPF = (value: string) => {
     const numbers = value.replace(/\D/g, '');
     if (numbers.length <= 11) {
-      return numbers
-        .replace(/(\d{3})(\d)/, '$1.$2')
-        .replace(/(\d{3})(\d)/, '$1.$2')
-        .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      return numbers.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     }
     return value;
   };
@@ -113,21 +124,16 @@ export const CheckoutForm = () => {
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, '');
     if (numbers.length <= 11) {
-      return numbers
-        .replace(/(\d{2})(\d)/, '($1) $2')
-        .replace(/(\d{5})(\d)/, '$1-$2');
+      return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
     }
     return value;
   };
 
   const validateForm = () => {
-    const requiredFields = ['name', 'email', 'cpf', 'phone', 'cep', 'street', 'number', 'neighborhood', 'city', 'state'];
-    const emptyFields = requiredFields.filter(field => !formData[field as keyof typeof formData]);
-    
-    if (emptyFields.length > 0) {
+    if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
       toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha todos os campos obrigatórios.",
+        title: "Preencha todos os campos",
+        description: "Todos os campos são obrigatórios",
         variant: "destructive"
       });
       return false;
@@ -166,6 +172,43 @@ export const CheckoutForm = () => {
     return true;
   };
 
+  // Verificar reCAPTCHA antes de processar pagamento
+  const verifyRecaptcha = async (action: string): Promise<boolean> => {
+    // Em desenvolvimento/staging, não bloquear o checkout
+    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
+                         window.location.hostname === 'www.informaticanapratica.com.br';
+    
+    if (!isProduction) {
+      console.log('reCAPTCHA: ambiente de desenvolvimento - verificação desabilitada');
+      return true;
+    }
+
+    if (!recaptchaLoaded || !recaptchaSiteKey) {
+      console.warn('reCAPTCHA not loaded, allowing checkout');
+      return true;
+    }
+
+    try {
+      const token = await window.grecaptcha.execute(recaptchaSiteKey, { action });
+      
+      const { data, error } = await supabase.functions.invoke('verify-recaptcha', {
+        body: { token }
+      });
+
+      if (error || !data?.success) {
+        console.warn('reCAPTCHA verification failed, allowing checkout in production');
+        // Em produção, logar mas não bloquear para evitar falsos positivos
+        return true;
+      }
+
+      console.log('reCAPTCHA verified successfully, score:', data.score);
+      return true;
+    } catch (error) {
+      console.error('reCAPTCHA error:', error);
+      return true;
+    }
+  };
+
   const handlePixPayment = async () => {
     if (!validateForm()) return;
     if (!sdkLoaded) {
@@ -177,6 +220,13 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
+
+    // Verificar reCAPTCHA antes de processar
+    const recaptchaValid = await verifyRecaptcha('pix_payment');
+    if (!recaptchaValid) {
+      setLoading(false);
+      return;
+    }
 
     try {
       console.log('Creating PIX payment...');
@@ -246,6 +296,16 @@ export const CheckoutForm = () => {
   const handleCardPayment = async () => {
     if (!validateForm()) return;
     
+    setLoading(true);
+    
+    // Verificar reCAPTCHA antes de mostrar formulário de cartão
+    const recaptchaValid = await verifyRecaptcha('card_payment');
+    if (!recaptchaValid) {
+      setLoading(false);
+      return;
+    }
+    
+    setLoading(false);
     setShowCardPayment(true);
   };
 
@@ -260,6 +320,13 @@ export const CheckoutForm = () => {
     }
 
     setLoading(true);
+
+    // Verificar reCAPTCHA antes de processar
+    const recaptchaValid = await verifyRecaptcha('boleto_payment');
+    if (!recaptchaValid) {
+      setLoading(false);
+      return;
+    }
 
     try {
       console.log(`Creating checkout for ${method}...`);
@@ -609,103 +676,6 @@ export const CheckoutForm = () => {
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
-        </div>
-
-        {/* Campos de Endereço */}
-        <div className="pt-2 border-t">
-          <h3 className="text-xs md:text-sm font-bold text-foreground mb-3">Complete seus dados</h3>
-          
-          <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-3">
-              <div className="space-y-1">
-                <Label htmlFor="cep" className="text-xs md:text-sm font-bold text-foreground">CEP *</Label>
-                <Input
-                  id="cep"
-                  placeholder="00000-000"
-                  value={formData.cep}
-                  onChange={(e) => setFormData({ ...formData, cep: formatCEP(e.target.value) })}
-                  maxLength={9}
-                  disabled={loading || !sdkLoaded}
-                  className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
-                />
-              </div>
-              
-              <div className="space-y-1">
-                <Label htmlFor="number" className="text-xs md:text-sm font-bold text-foreground">Número *</Label>
-                <Input
-                  id="number"
-                  placeholder="123"
-                  value={formData.number}
-                  onChange={(e) => setFormData({ ...formData, number: e.target.value })}
-                  disabled={loading || !sdkLoaded}
-                  className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <Label htmlFor="street" className="text-xs md:text-sm font-bold text-foreground">Endereço *</Label>
-              <Input
-                id="street"
-                placeholder="Rua, Avenida, etc."
-                value={formData.street}
-                onChange={(e) => setFormData({ ...formData, street: e.target.value })}
-                disabled={loading || !sdkLoaded}
-                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
-              />
-            </div>
-
-            <div className="space-y-1">
-              <Label htmlFor="complement" className="text-xs md:text-sm font-bold text-foreground">Complemento</Label>
-              <Input
-                id="complement"
-                placeholder="Apto, Bloco, etc. (opcional)"
-                value={formData.complement}
-                onChange={(e) => setFormData({ ...formData, complement: e.target.value })}
-                disabled={loading || !sdkLoaded}
-                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
-              />
-            </div>
-
-            <div className="space-y-1">
-              <Label htmlFor="neighborhood" className="text-xs md:text-sm font-bold text-foreground">Bairro *</Label>
-              <Input
-                id="neighborhood"
-                placeholder="Seu bairro"
-                value={formData.neighborhood}
-                onChange={(e) => setFormData({ ...formData, neighborhood: e.target.value })}
-                disabled={loading || !sdkLoaded}
-                className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div className="space-y-1">
-                <Label htmlFor="city" className="text-xs md:text-sm font-bold text-foreground">Cidade *</Label>
-                <Input
-                  id="city"
-                  placeholder="Sua cidade"
-                  value={formData.city}
-                  onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                  disabled={loading || !sdkLoaded}
-                  className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
-                />
-              </div>
-
-              <div className="space-y-1">
-                <Label htmlFor="state" className="text-xs md:text-sm font-bold text-foreground">Estado *</Label>
-                <Input
-                  id="state"
-                  placeholder="UF"
-                  value={formData.state}
-                  onChange={(e) => setFormData({ ...formData, state: e.target.value.toUpperCase() })}
-                  maxLength={2}
-                  disabled={loading || !sdkLoaded}
-                  className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
