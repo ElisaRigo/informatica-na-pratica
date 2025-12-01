@@ -1,16 +1,16 @@
 import { lazy, Suspense, memo, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { AboutSection } from "@/components/AboutSection";
-import { Authority } from "@/components/Authority";
-import { Footer } from "@/components/Footer";
-import { Testimonials } from "@/components/Testimonials";
-import { CourseContent } from "@/components/CourseContent";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { FreeLessonExcel } from "@/components/FreeLessonExcel";
 import { useHotmart, openHotmartCheckout } from "@/hooks/useHotmart";
 
-// Lazy load componentes com prefetch
+// Lazy load de TODOS os componentes abaixo da primeira dobra para melhorar LCP/FID
+const FreeLessonExcel = lazy(() => import("@/components/FreeLessonExcel").then(m => ({ default: m.FreeLessonExcel })));
+const CourseContent = lazy(() => import("@/components/CourseContent").then(m => ({ default: m.CourseContent })));
+const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
+const Testimonials = lazy(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
+const AboutSection = lazy(() => import("@/components/AboutSection").then(m => ({ default: m.AboutSection })));
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton").then(m => ({ default: m.WhatsAppButton })));
 const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
 const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
 const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
@@ -21,8 +21,8 @@ const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })
 const Guarantee = lazy(() => import("@/components/Guarantee").then(m => ({ default: m.Guarantee })));
 const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({ default: m.StrategicCTA })));
 
-// Loading placeholder otimizado
-const LoadingFallback = memo(() => <div className="h-32" />);
+// Loading placeholder minimalista para evitar CLS
+const LoadingFallback = memo(() => <div className="min-h-[100px]" aria-hidden="true" />);
 
 const Index = () => {
   // Initialize Hotmart checkout
@@ -40,13 +40,19 @@ const Index = () => {
       <Hero />
       
       {/* 2️⃣ AULA GRATUITA DE EXCEL */}
-      <FreeLessonExcel />
+      <Suspense fallback={<LoadingFallback />}>
+        <FreeLessonExcel />
+      </Suspense>
       
       {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
-      <CourseContent />
+      <Suspense fallback={<LoadingFallback />}>
+        <CourseContent />
+      </Suspense>
       
       {/* 4️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
-      <Authority />
+      <Suspense fallback={<LoadingFallback />}>
+        <Authority />
+      </Suspense>
       
       {/* 5️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
@@ -54,7 +60,9 @@ const Index = () => {
       </Suspense>
       
       {/* 6️⃣ DEPOIMENTOS - Prova Social */}
-      <Testimonials />
+      <Suspense fallback={<LoadingFallback />}>
+        <Testimonials />
+      </Suspense>
       
       {/* 7️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
@@ -87,7 +95,9 @@ const Index = () => {
       </Suspense>
       
       {/* 1️⃣3️⃣ QUEM VAI TE ENSINAR - Sobre */}
-      <AboutSection />
+      <Suspense fallback={<LoadingFallback />}>
+        <AboutSection />
+      </Suspense>
       
       {/* 1️⃣4️⃣ OFERTA E PREÇO #2 */}
       <Suspense fallback={<LoadingFallback />}>
@@ -109,8 +119,12 @@ const Index = () => {
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
       </Suspense>
       
-      <Footer />
-      <WhatsAppButton />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+      <Suspense fallback={null}>
+        <WhatsAppButton />
+      </Suspense>
     </div>
   );
 };
