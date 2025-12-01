@@ -17,21 +17,28 @@ export const useHotmart = () => {
     link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
     document.head.appendChild(link);
 
+    // Create hidden anchor for Hotmart widget
+    const anchor = document.createElement('a');
+    anchor.id = 'hotmart-checkout-anchor';
+    anchor.href = HOTMART_CHECKOUT_URL;
+    anchor.className = 'hotmart-fb hotmart__button-checkout';
+    anchor.style.display = 'none';
+    anchor.onclick = () => false;
+    document.body.appendChild(anchor);
+
     return () => {
-      // Cleanup if needed
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-      if (link.parentNode) {
-        link.parentNode.removeChild(link);
-      }
+      if (script.parentNode) script.parentNode.removeChild(script);
+      if (link.parentNode) link.parentNode.removeChild(link);
+      if (anchor.parentNode) anchor.parentNode.removeChild(anchor);
     };
   }, []);
 };
 
 export const openHotmartCheckout = () => {
-  // The Hotmart widget handles the modal checkout
-  window.open(HOTMART_CHECKOUT_URL, '_blank');
+  const anchor = document.getElementById('hotmart-checkout-anchor');
+  if (anchor) {
+    anchor.click();
+  }
 };
 
 // Make it globally accessible
