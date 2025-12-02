@@ -4,10 +4,12 @@ import { useState, useRef } from "react";
 import videoPoster from "@/assets/hero-poster-free-lesson.png";
 import heroVideo from "@/assets/hero-video-free-lesson.mp4";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+
 export const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
   const handlePlayClick = () => {
     if (!videoLoaded) {
       setVideoLoaded(true);
@@ -21,12 +23,14 @@ export const Hero = () => {
       }
     }, 100);
   };
-  return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
+
+  return (
+    <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo */}
-          <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">Chega de perder Oportunidades 
-por não saber Informática <span className="text-primary">dominar Informática</span> e conquistar seu <span className="text-primary">certificado profissional</span> em poucas semanas.
+          <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
+            Vou te Ajudar a <span className="text-primary">dominar Informática</span> e conquistar seu <span className="text-primary">certificado profissional</span> em poucas semanas.
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra (LCP) */}
@@ -38,20 +42,49 @@ por não saber Informática <span className="text-primary">dominar Informática
               </div>
             </div>
 
-            {videoLoaded ? <video ref={videoRef} className="w-full aspect-video rounded-2xl shadow-2xl" playsInline preload="auto" poster={videoPoster} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} aria-label="Aula gratuita de informática - Veja como é fácil aprender">
+            {videoLoaded ? (
+              <video 
+                ref={videoRef} 
+                className="w-full aspect-video rounded-2xl shadow-2xl" 
+                playsInline 
+                preload="auto" 
+                poster={videoPoster} 
+                onPlay={() => setIsPlaying(true)} 
+                onPause={() => setIsPlaying(false)} 
+                aria-label="Aula gratuita de informática - Veja como é fácil aprender"
+              >
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeos HTML5.
-              </video> : <img src={videoPoster} alt="Capa da aula gratuita de informática - Curso de Word, Excel e PowerPoint" className="w-full aspect-video rounded-2xl object-cover shadow-2xl" width="960" height="540" fetchPriority="high" decoding="async" />}
+              </video>
+            ) : (
+              <img 
+                src={videoPoster} 
+                alt="Capa da aula gratuita de informática - Curso de Word, Excel e PowerPoint" 
+                className="w-full aspect-video rounded-2xl object-cover shadow-2xl" 
+                width="960" 
+                height="540" 
+                fetchPriority="high" 
+                decoding="async" 
+              />
+            )}
             
-            {!isPlaying && <div className="absolute inset-0 flex items-center justify-center cursor-pointer group" onClick={handlePlayClick} role="button" aria-label="Reproduzir aula gratuita">
+            {!isPlaying && (
+              <div 
+                className="absolute inset-0 flex items-center justify-center cursor-pointer group" 
+                onClick={handlePlayClick} 
+                role="button" 
+                aria-label="Reproduzir aula gratuita"
+              >
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/70 hover:bg-black/60 hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
                   <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
                 </div>
-              </div>}
+              </div>
+            )}
           </div>
 
           {/* Texto abaixo do vídeo */}
-          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">Aprenda do zero ao profissional — aulas simples e práticas pra você dominar Word, Excel e muito mais.<span className="text-primary font-black">zero ao profissional</span> — aulas <span className="text-primary font-black">simples e práticas</span> pra você dominar <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e muito mais.
+          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
+            Do <span className="text-primary font-black">zero ao profissional</span> — aulas <span className="text-primary font-black">simples e práticas</span> pra você dominar <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e muito mais.
           </p>
 
           {/* WhatsApp CTA */}
@@ -88,11 +121,16 @@ por não saber Informática <span className="text-primary">dominar Informática
 
           {/* CTA Principal DESTAQUE */}
           <div className="max-w-2xl mx-auto">
-            <Button size="lg" className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" onClick={() => (window as any).openCheckout?.()}>
+            <Button 
+              size="lg" 
+              className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" 
+              onClick={() => (window as any).openCheckout?.()}
+            >
               💻 Quero começar meu curso agora
             </Button>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
