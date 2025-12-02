@@ -25,7 +25,7 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo - Impactante */}
-          <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-foreground mb-6 md:mb-10 leading-[1.1] tracking-tight">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 md:mb-10 leading-[1.1] tracking-tight">
             <span className="text-destructive font-black">Pare de Perder Oportunidades</span>
             <br />
             <span className="text-foreground">Por Não Saber Informática</span>
@@ -59,7 +59,25 @@ export const Hero = () => {
             <span className="text-foreground">Mesmo Começando do Zero</span>
           </h2>
 
-          {/* Benefícios Principais */}
+          {/* CTA Principal DESTAQUE */}
+          <div className="max-w-2xl mx-auto mb-4">
+            <Button size="lg" className="w-full text-base md:text-2xl font-black px-6 md:px-16 py-7 md:py-9 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--success)/0.5)] bg-success hover:bg-success/90 text-white border-0" onClick={() => (window as any).openCheckout?.()}>
+              ✨ Quero Começar Agora
+            </Button>
+            
+            {/* Preço em destaque - logo abaixo do CTA */}
+            <div className="text-center space-y-2 mt-4">
+              <p className="text-lg md:text-2xl font-black text-foreground">
+                💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-accent font-black text-2xl md:text-3xl">R$ 297,00</span>
+              </p>
+              <p className="text-sm text-muted-foreground font-semibold md:text-base">💳 ou parcele em até 12 x R$ 30,22 (no cartão)</p>
+              <p className="text-sm md:text-base text-primary font-bold mt-2">
+                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
+              </p>
+            </div>
+          </div>
+
+          {/* Benefícios Principais - Acima do WhatsApp */}
           <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto mb-6">
             <div className="flex items-center gap-2 bg-card border-2 border-border px-4 md:px-6 py-2 md:py-3 rounded-full shadow-sm">
               <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />
@@ -75,22 +93,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* CTA Principal DESTAQUE */}
-          <div className="max-w-2xl mx-auto mb-4">
-            <Button size="lg" className="w-full text-base md:text-2xl font-black px-6 md:px-16 py-7 md:py-9 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--success)/0.5)] bg-success hover:bg-success/90 text-white border-0" onClick={() => (window as any).openCheckout?.()}>
-              ✨ Quero Começar Agora
-            </Button>
-            
-            {/* Preço em destaque - logo abaixo do CTA */}
-            <div className="text-center space-y-2 mt-4">
-              <p className="text-lg md:text-2xl font-black text-foreground">
-                💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-accent font-black text-2xl md:text-3xl">R$ 297,00</span>
-              </p>
-              <p className="text-sm text-muted-foreground font-semibold md:text-base">💳 ou parcele em até 12 x R$ 30,22 (no cartão)</p>
-            </div>
-          </div>
-
-          {/* WhatsApp CTA - Abaixo do preço */}
+          {/* WhatsApp CTA - Abaixo dos badges */}
           <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mb-6" />
         </div>
       </div>
