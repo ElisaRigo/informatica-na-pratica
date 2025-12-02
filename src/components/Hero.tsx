@@ -26,7 +26,7 @@ export const Hero = () => {
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo - Impactante */}
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 md:mb-10 leading-[1.1] tracking-tight">
-            <span className="text-destructive font-black">Pare de Perder Oportunidades</span>
+            <strong className="text-destructive font-black">Pare de Perder Oportunidades</strong>
             <br />
             <span className="text-foreground">Por Não Saber Informática</span>
           </h1>

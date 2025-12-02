@@ -54,29 +54,29 @@ const Index = () => {
         <Authority />
       </Suspense>
       
-      {/* 5️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Bonus />
-      </Suspense>
-      
-      {/* 6️⃣ DEPOIMENTOS - Prova Social */}
+      {/* 5️⃣ DEPOIMENTOS - Prova Social */}
       <Suspense fallback={<LoadingFallback />}>
         <Testimonials />
       </Suspense>
       
-      {/* 7️⃣ DEPOIS DO CURSO - Capacidades */}
+      {/* 6️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
         <ValueStack />
       </Suspense>
       
-      {/* 8️⃣ INVESTIMENTO - Proposta de valor */}
+      {/* 7️⃣ INVESTIMENTO - Proposta de valor */}
       <Suspense fallback={<LoadingFallback />}>
         <Possibilities />
       </Suspense>
       
-      {/* 9️⃣ PARA QUEM É - Público alvo */}
+      {/* 8️⃣ PARA QUEM É - Público alvo */}
       <Suspense fallback={<LoadingFallback />}>
         <TargetAudience />
+      </Suspense>
+      
+      {/* 9️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      <Suspense fallback={<LoadingFallback />}>
+        <Bonus />
       </Suspense>
       
       {/* 🔟 OFERTA E PREÇO #1 */}
