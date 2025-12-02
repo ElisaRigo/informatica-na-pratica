@@ -21,16 +21,18 @@ export const Hero = () => {
       }
     }, 100);
   };
-  return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
+  return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-8 md:py-12 lg:py-16">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
-          {/* Texto acima do vídeo */}
-          <p className="text-2xl md:text-3xl font-black text-foreground mb-6 md:mb-8 leading-tight lg:text-6xl">Chega de perder Oportunidades 
-por não saber Informática <span className="text-primary">dominar Informática</span> e conquistar seu <span className="text-primary">certificado profissional</span> em poucas semanas.
-          </p>
+          {/* Texto acima do vídeo - Impactante */}
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-foreground mb-6 md:mb-10 leading-[1.1] tracking-tight italic">
+            <span className="text-accent">Pare de Perder Oportunidades</span>
+            <br />
+            <span className="text-foreground">Por Não Saber Informática</span>
+          </h1>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra (LCP) */}
-          <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
+          <div className="relative max-w-4xl mx-auto mb-6 md:mb-10">
             {/* Selo de Aula Gratuita - Pulsante */}
             <div className="absolute top-4 right-4 z-20 animate-pulse">
               <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">
@@ -50,48 +52,53 @@ por não saber Informática <span className="text-primary">dominar Informática
               </div>}
           </div>
 
-          {/* Texto abaixo do vídeo */}
-          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
-            Do <span className="text-primary font-black">zero ao profissional</span> — aulas <span className="text-primary font-black">simples e práticas</span> pra você dominar <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e muito mais.
-          </p>
+          {/* Texto abaixo do vídeo - Impactante */}
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 md:mb-8 max-w-4xl mx-auto leading-tight">
+            Domine <span className="text-primary">Word, Excel e mais...</span>
+            <br />
+            <span className="text-foreground">Mesmo Começando do Zero</span>
+          </h2>
 
-          {/* WhatsApp CTA */}
+          {/* Benefícios Principais */}
+          <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto mb-6">
+            <div className="flex items-center gap-2 bg-card border-2 border-border px-4 md:px-6 py-2 md:py-3 rounded-full shadow-sm">
+              <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+              <span className="font-bold text-sm md:text-base text-foreground">Acesso Imediato</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card border-2 border-border px-4 md:px-6 py-2 md:py-3 rounded-full shadow-sm">
+              <Shield className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+              <span className="font-bold text-sm md:text-base text-foreground">Garantia 7 dias</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card border-2 border-border px-4 md:px-6 py-2 md:py-3 rounded-full shadow-sm">
+              <Award className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+              <span className="font-bold text-sm md:text-base text-foreground">Certificado incluso</span>
+            </div>
+          </div>
+
+          {/* CTA Principal DESTAQUE - Acima do WhatsApp */}
+          <div className="max-w-2xl mx-auto mb-4">
+            <Button size="lg" className="w-full text-base md:text-2xl font-black px-6 md:px-16 py-7 md:py-9 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--success)/0.5)] bg-success hover:bg-success/90 text-white border-0" onClick={() => (window as any).openCheckout?.()}>
+              ✨ Sim, quero mudar minha vida
+            </Button>
+            <p className="text-sm md:text-base text-muted-foreground font-semibold mt-3">
+              💰 Investimento: Menos de R$ 1 por dia nos próximos 12 meses
+            </p>
+          </div>
+
+          {/* WhatsApp CTA - Abaixo do botão principal */}
           <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mb-6" />
 
           {/* Preço em destaque */}
           <div className="mb-6 max-w-2xl mx-auto">
             <div className="text-center space-y-2">
               <p className="text-lg md:text-2xl font-black text-foreground">
-                💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
+                💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-accent font-black text-2xl md:text-3xl">R$ 297,00</span>
               </p>
               <p className="text-sm text-muted-foreground font-semibold md:text-base">💳 ou parcele em até 12 x R$ 30,22 (no cartão)</p>
               <p className="text-sm md:text-base text-accent font-bold mt-2">
                 🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
               </p>
             </div>
-          </div>
-
-          {/* Benefícios Principais */}
-          <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto mb-6">
-            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
-              <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              <span className="font-bold text-sm md:text-base text-foreground">Acesso Imediato</span>
-            </div>
-            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
-              <Shield className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              <span className="font-bold text-sm md:text-base text-foreground">Garantia 7 dias</span>
-            </div>
-            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
-              <Award className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              <span className="font-bold text-sm md:text-base text-foreground">Certificado incluso</span>
-            </div>
-          </div>
-
-          {/* CTA Principal DESTAQUE */}
-          <div className="max-w-2xl mx-auto">
-            <Button size="lg" className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" onClick={() => (window as any).openCheckout?.()}>
-              💻 Quero começar meu curso agora
-            </Button>
           </div>
         </div>
       </div>
