@@ -14,3 +14,6 @@ verify_jwt = false
 
 [functions.create-pix-payment]
 verify_jwt = false
+
+[functions.eduzz-webhook]
+verify_jwt = false
