@@ -7,7 +7,7 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
-import { CheckoutDialogTest } from "@/components/CheckoutDialogTest";
+import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
 // Lazy load componentes em blocos separados para carregamento progressivo
@@ -101,7 +101,7 @@ const VendaTeste = () => {
       <WhatsAppFloat />
       <WhatsAppButton />
       
-      <CheckoutDialogTest open={isOpen} onOpenChange={closeCheckout} />
+      <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
   );
 };
