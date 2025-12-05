@@ -1,25 +1,35 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import videoPoster from "@/assets/hero-poster-free-lesson.png";
 import heroVideo from "@/assets/hero-video-free-lesson.mp4";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 export const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const handlePlayClick = () => {
-    if (!videoLoaded) {
-      setVideoLoaded(true);
-    }
-    // Wait for video to be ready then play
-    setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.controls = true;
-        videoRef.current.play();
-        setIsPlaying(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Lazy load video usando Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setShouldLoadVideo(true);
       }
-    }, 100);
+    }, {
+      rootMargin: "50px"
+    });
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+  const handlePlayClick = () => {
+    if (videoRef.current) {
+      videoRef.current.controls = true;
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
   };
   return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
       <div className="container mx-auto px-4 relative z-10">
@@ -29,19 +39,19 @@ export const Hero = () => {
             Vou te Ajudar a <span className="text-primary">dominar Informática</span> e conquistar seu <span className="text-primary">certificado profissional</span> em poucas semanas.
           </p>
           
-          {/* Vídeo em destaque - Elemento principal da primeira dobra (LCP) */}
-          <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
+          {/* Vídeo em destaque - Elemento principal da primeira dobra */}
+          <div ref={containerRef} className="relative max-w-4xl mx-auto mb-4 md:mb-6">
             {/* Selo de Aula Gratuita - Pulsante */}
             <div className="absolute top-4 right-4 z-20 animate-pulse">
-              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">
-                🎁 Prévia do Curso
-              </div>
+              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">🎁 Prévia do Curso</div>
             </div>
 
-            {videoLoaded ? <video ref={videoRef} className="w-full aspect-video rounded-2xl shadow-2xl" playsInline preload="auto" poster={videoPoster} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} aria-label="Aula gratuita de informática - Veja como é fácil aprender">
+            {shouldLoadVideo ? <video ref={videoRef} className="w-full aspect-video rounded-2xl shadow-2xl" playsInline preload="metadata" poster={videoPoster} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} aria-label="Aula gratuita de informática - Veja como é fácil aprender">
                 <source src={heroVideo} type="video/mp4" />
                 Seu navegador não suporta vídeos HTML5.
-              </video> : <img src={videoPoster} alt="Capa da aula gratuita de informática - Curso de Word, Excel e PowerPoint" className="w-full aspect-video rounded-2xl object-cover shadow-2xl" width="960" height="540" fetchPriority="high" decoding="async" />}
+              </video> : <div className="w-full aspect-video rounded-2xl bg-cover bg-center shadow-2xl" style={{
+            backgroundImage: `url(${videoPoster})`
+          }} role="img" aria-label="Capa da aula gratuita de informática" />}
             
             {!isPlaying && <div className="absolute inset-0 flex items-center justify-center cursor-pointer group" onClick={handlePlayClick} role="button" aria-label="Reproduzir aula gratuita">
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/70 hover:bg-black/60 hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
@@ -65,7 +75,9 @@ export const Hero = () => {
                 💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
               </p>
               <p className="text-sm text-muted-foreground font-semibold md:text-base">💳 ou parcele em até 12 x R$ 30,22 (no cartão)</p>
-              <p className="text-sm md:text-base text-accent font-bold mt-2">🔒 Compra 100% Segura! Satisfação Garantida ou Seu Dinheiro de Volta em 7 Dias.</p>
+              <p className="text-sm md:text-base text-accent font-bold mt-2">
+                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
+              </p>
             </div>
           </div>
 
@@ -87,10 +99,9 @@ export const Hero = () => {
 
           {/* CTA Principal DESTAQUE */}
           <div className="max-w-2xl mx-auto">
-            <Button size="lg" className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" onClick={() => (window as any).openCheckout?.()}>
-              💻 Quero começar meu curso agora
-            </Button>
+            <Button size="lg" className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" onClick={() => (window as any).openCheckout?.()}>💻 Quero começar meu curso agora</Button>
           </div>
+
         </div>
       </div>
     </section>;
