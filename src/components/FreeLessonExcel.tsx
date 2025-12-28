@@ -26,7 +26,7 @@ export const FreeLessonExcel = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center text-foreground mb-6 md:mb-8">🎁 Aula gratuita: veja como é fácil aprender!<span className="text-primary">Aula gratuita: veja como é fácil aprender Excel comigo</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center text-foreground mb-6 md:mb-8"><span className="text-primary">Aula gratuita: veja como é fácil aprender Excel comigo</span>
           </h2>
 
           {/* Container do Vídeo */}
