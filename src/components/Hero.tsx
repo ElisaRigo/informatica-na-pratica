@@ -63,7 +63,7 @@ export const Hero = () => {
           </p>
 
           {/* WhatsApp CTA */}
-          <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mb-6" />
+          <WhatsAppCTA text="Tire suas Dúvidas com a prof. Elisa" className="mb-6" isPulsing />
 
           {/* Benefícios Principais */}
           <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto">
