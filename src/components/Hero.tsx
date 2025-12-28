@@ -36,7 +36,7 @@ export const Hero = () => {
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo */}
           <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
-            Vou te Ajudar a <span className="text-primary">dominar Informática</span> e conquistar seu <span className="text-primary">certificado profissional</span> em poucas semanas.
+            Quer Aprender <span className="text-primary">Informática</span> de Forma <span className="text-primary">Rápida</span> e sem <span className="text-primary">Enrolação</span>?
           </p>
           
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
@@ -62,7 +62,7 @@ export const Hero = () => {
 
           {/* Texto abaixo do vídeo */}
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
-            Do <span className="text-primary font-black">zero ao profissional</span> — aulas <span className="text-primary font-black">simples e práticas</span> pra você dominar <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e muito mais.
+            Aulas passo a passo, <span className="text-primary font-black">simples</span> e <span className="text-primary font-black">Práticas</span> - Começando do <span className="text-primary font-black">Zero</span>!
           </p>
 
           {/* WhatsApp CTA */}
