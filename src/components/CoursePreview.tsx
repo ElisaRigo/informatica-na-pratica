@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import courseThumb from "@/assets/course-preview-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
-
 export const CoursePreview = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
@@ -21,11 +19,9 @@ export const CoursePreview = () => {
     }
     return () => observer.disconnect();
   }, []);
-  
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
-  
   return <section className="py-8 md:py-12 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
@@ -68,8 +64,7 @@ export const CoursePreview = () => {
 
           {/* CTA Estratégico */}
           <div className="text-center space-y-4 mt-8">
-            <p className="text-lg md:text-xl font-bold text-foreground">
-              ✨ Viu como o curso é completo? <span className="text-primary">Garanta sua vaga agora!</span>
+            <p className="text-lg md:text-xl font-bold text-foreground"> Garanta sua vaga agora!<span className="text-primary">Garanta sua vaga agora!</span>
             </p>
             <p className="text-base md:text-lg text-muted-foreground">Alguma dúvida? Me chame para conversar!</p>
             <WhatsAppCTA text="💬 Tirar Dúvidas no WhatsApp" className="mt-4" />
