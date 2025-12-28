@@ -21,11 +21,10 @@ export const Hero = () => {
             <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden">
               <iframe 
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/6l0dJZUMl6o?si=ktvvC3YCJcddmjzb&start=0" 
-                title="Aula gratuita de informática - Veja como é fácil aprender"
+                src="https://www.youtube.com/embed/6l0dJZUMl6o?rel=0&modestbranding=1&controls=1&showinfo=0" 
+                title="YouTube video player"
                 frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen
               />
             </div>
