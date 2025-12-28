@@ -20,12 +20,12 @@ export const SupportBanner = () => {
 
           {/* Main headline */}
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-3">
-            Você <span className="text-primary">não está sozinha</span> nessa jornada
+            Você <span className="text-primary">não está sozinho</span> nessa jornada
           </h2>
 
           {/* Emotional subtitle */}
           <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-            Qualquer dúvida, estou aqui para ajudar. Sem pressa, sem julgamento. 
+            Durante o curso você terá suporte via WhatsApp para tirar todas as suas dúvidas.
             <span className="text-foreground font-medium"> Aprender é mais fácil quando você tem alguém do seu lado.</span>
           </p>
 
