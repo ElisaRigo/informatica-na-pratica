@@ -39,27 +39,22 @@ const Index = () => {
       <Header />
       <Hero />
       
-      {/* SUPORTE - Banner de confiança (logo abaixo da Hero) */}
+      {/* SUPORTE - Banner de confiança */}
       <SupportBanner />
       
-      {/* 2️⃣ VÍDEO - Aprenda comigo no seu ritmo */}
+      {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
       <CoursePreview />
       
-      {/* 3️⃣ OFERTA E PREÇO - Logo após o vídeo de apresentação */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Pricing />
-      </Suspense>
-      
-      {/* 4️⃣ AULA GRATUITA DE EXCEL */}
+      {/* 3️⃣ AULA GRATUITA DE EXCEL */}
       <FreeLessonExcel />
       
-      {/* 5️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
+      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
       <CourseContent />
       
-      {/* 6️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
       <Authority />
       
-      {/* 7️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
@@ -77,9 +72,14 @@ const Index = () => {
         <Possibilities />
       </Suspense>
       
-      {/* 1️⃣0️⃣ PARA QUEM É - Público alvo */}
+      {/* 🔟 PARA QUEM É - Público alvo */}
       <Suspense fallback={<LoadingFallback />}>
         <TargetAudience />
+      </Suspense>
+      
+      {/* 1️⃣1️⃣ OFERTA E PREÇO #1 */}
+      <Suspense fallback={<LoadingFallback />}>
+        <Pricing />
       </Suspense>
       
       {/* 1️⃣2️⃣ GARANTIA #1 */}
