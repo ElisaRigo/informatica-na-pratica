@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import excelThumb from "@/assets/capa-aula-excel.jpg";
+import excelThumb from "@/assets/aula-excel-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 export const FreeLessonExcel = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -31,7 +31,7 @@ export const FreeLessonExcel = () => {
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center text-foreground mb-6 md:mb-8">
-            🎁 <span className="text-primary">Aula gratuita: veja como é fácil aprender!</span>
+            🎁 <span className="text-primary">Aula gratuita: veja como é fácil aprender Excel comigo</span>
           </h2>
 
           {/* Container do Vídeo */}
@@ -91,8 +91,8 @@ export const FreeLessonExcel = () => {
             <p className="text-xl md:text-2xl font-black text-foreground">
               😍 Gostou? Imagine o curso completo com <span className="text-primary">+90 aulas assim!</span>
             </p>
-            <p className="text-base md:text-lg text-muted-foreground font-semibold">📱 Tire suas Dúvidas Comigo!</p>
-            <WhatsAppCTA text="💬 Quero Falar com a Professora" className="mt-4" />
+            <p className="text-base md:text-lg text-muted-foreground font-semibold"> Tire suas Dúvidas Comigo!</p>
+            <WhatsAppCTA text=" Quero Falar com a Professora" className="mt-4" />
           </div>
         </div>
       </div>
