@@ -67,16 +67,16 @@ const Index = () => {
       {/* 3️⃣ AULA GRATUITA DE EXCEL */}
       <FreeLessonExcel />
       
-      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
-      <CourseContent />
-      
-      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
-      <Authority />
-      
-      {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      {/* 4️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
+      
+      {/* 5️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
+      <CourseContent />
+      
+      {/* 6️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      <Authority />
       
       {/* 7️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />
