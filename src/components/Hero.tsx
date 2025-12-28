@@ -21,7 +21,7 @@ export const Hero = () => {
             <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden">
               <iframe 
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/6l0dJZUMl6o?si=ktvvC3YCJcddmjzb&start=1" 
+                src="https://www.youtube.com/embed/6l0dJZUMl6o?si=ktvvC3YCJcddmjzb&start=0" 
                 title="Aula gratuita de informática - Veja como é fácil aprender"
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
