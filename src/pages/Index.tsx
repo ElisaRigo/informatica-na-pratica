@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { SupportBanner } from "@/components/SupportBanner";
 import { CoursePreview } from "@/components/CoursePreview";
+import { PriceHighlight } from "@/components/PriceHighlight";
 import { AboutSection } from "@/components/AboutSection";
 import { Authority } from "@/components/Authority";
 import { Footer } from "@/components/Footer";
@@ -14,46 +15,27 @@ import { FreeLessonExcel } from "@/components/FreeLessonExcel";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
 // Lazy load componentes com prefetch
-const Bonus = lazy(() => import("@/components/Bonus").then(m => ({
-  default: m.Bonus
-})));
-const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({
-  default: m.ValueStack
-})));
-const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({
-  default: m.Possibilities
-})));
-const TargetAudience = lazy(() => import("@/components/TargetAudience").then(m => ({
-  default: m.TargetAudience
-})));
-const Comparison = lazy(() => import("@/components/Comparison").then(m => ({
-  default: m.Comparison
-})));
-const Pricing = lazy(() => import("@/components/Pricing").then(m => ({
-  default: m.Pricing
-})));
-const FAQ = lazy(() => import("@/components/FAQ").then(m => ({
-  default: m.FAQ
-})));
-const Guarantee = lazy(() => import("@/components/Guarantee").then(m => ({
-  default: m.Guarantee
-})));
-const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({
-  default: m.StrategicCTA
-})));
+const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
+const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
+const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
+const TargetAudience = lazy(() => import("@/components/TargetAudience").then(m => ({ default: m.TargetAudience })));
+const Comparison = lazy(() => import("@/components/Comparison").then(m => ({ default: m.Comparison })));
+const Pricing = lazy(() => import("@/components/Pricing").then(m => ({ default: m.Pricing })));
+const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
+const Guarantee = lazy(() => import("@/components/Guarantee").then(m => ({ default: m.Guarantee })));
+const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({ default: m.StrategicCTA })));
 
 // Loading placeholder otimizado
 const LoadingFallback = memo(() => <div className="h-32" />);
-const Index = () => {
-  const {
-    isOpen,
-    openCheckout,
-    closeCheckout
-  } = useCheckoutDialog();
 
+const Index = () => {
+  const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
+  
   // Make openCheckout globally accessible
   (window as any).openCheckout = openCheckout;
-  return <div className="min-h-screen">
+  
+  return (
+    <div className="min-h-screen">
       {/* 1️⃣ PRIMEIRA DOBRA - Vídeo + Promessa + CTA */}
       <Header />
       <Hero />
@@ -64,22 +46,25 @@ const Index = () => {
       {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
       <CoursePreview />
       
-      {/* 3️⃣ AULA GRATUITA DE EXCEL */}
-      <FreeLessonExcel />
+      {/* PREÇO EM DESTAQUE */}
+      <PriceHighlight />
       
-      {/* 4️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      {/* 3️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      <Authority />
+      
+      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
+      <CourseContent />
+      
+      {/* 5️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
       
-      {/* 5️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
-      <CourseContent />
-      
-      {/* 6️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
-      <Authority />
-      
-      {/* 7️⃣ DEPOIMENTOS - Prova Social */}
+      {/* 6️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />
+      
+      {/* 7️⃣ AULA GRATUITA DE EXCEL */}
+      <FreeLessonExcel />
       
       {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
@@ -102,7 +87,9 @@ const Index = () => {
       </Suspense>
       
       {/* 1️⃣2️⃣ GARANTIA #1 */}
-      
+      <Suspense fallback={<LoadingFallback />}>
+        <Guarantee />
+      </Suspense>
       
       {/* 1️⃣3️⃣ ANTES E DEPOIS - Transformação */}
       <Suspense fallback={<LoadingFallback />}>
@@ -136,6 +123,8 @@ const Index = () => {
       <WhatsAppButton />
       
       <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
