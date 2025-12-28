@@ -39,6 +39,9 @@ const Index = () => {
       <Header />
       <Hero />
       
+      {/* SUPORTE - Banner de confiança */}
+      <SupportBanner />
+      
       {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
       <CoursePreview />
       
@@ -58,9 +61,6 @@ const Index = () => {
       
       {/* 7️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />
-      
-      {/* SUPORTE - Banner de confiança */}
-      <SupportBanner />
       
       {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
