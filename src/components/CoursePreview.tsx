@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import courseThumb from "@/assets/conheca-curso-thumb.jpg";
+import courseThumb from "@/assets/course-preview-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
+
 export const CoursePreview = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
@@ -19,16 +21,23 @@ export const CoursePreview = () => {
     }
     return () => observer.disconnect();
   }, []);
+  
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
+  
   return <section className="py-8 md:py-12 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center text-foreground mb-6 md:mb-8">
-            Veja o Curso <span className="text-primary">Conheça Por Dentro</span>
-          </h2>
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-3">
+              Aprenda comigo <span className="text-primary">no seu ritmo</span>
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Aulas calmas, simples e didáticas para quem está começando ou quer aprender com segurança.
+            </p>
+          </div>
 
           {/* Container do Vídeo */}
           <div ref={containerRef} className="relative max-w-4xl mx-auto">
@@ -53,7 +62,7 @@ export const CoursePreview = () => {
                 </div> :
           // YouTube iframe
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
-                <iframe width="960" height="540" src="https://www.youtube-nocookie.com/embed/2Om_uoeKgU8?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Aula de Excel - Conheça o Curso por Dentro" frameBorder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute inset-0 w-full h-full" />
+                <iframe width="960" height="540" src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Aprenda comigo no seu ritmo" frameBorder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 w-full h-full" />
               </div>}
           </div>
 
