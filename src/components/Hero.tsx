@@ -62,7 +62,7 @@ export const Hero = () => {
 
           {/* Texto abaixo do vídeo */}
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
-            Aulas passo a passo, <span className="text-primary font-black">simples</span> e <span className="text-primary font-black">Práticas</span> - Começando do <span className="text-primary font-black">Zero</span>!
+            Aulas passo a passo, <span className="text-primary font-black">simples</span> <span className="text-primary font-black">e</span> <span className="text-primary font-black">Práticas</span> - Começando do <span className="text-primary font-black">Zero</span><span className="text-primary font-black">!</span>
           </p>
 
           {/* WhatsApp CTA */}

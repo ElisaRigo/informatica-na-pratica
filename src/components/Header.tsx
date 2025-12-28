@@ -16,7 +16,7 @@ export const Header = () => {
           />
         </div>
         <h1 className="text-base md:text-xl lg:text-2xl text-foreground mt-2 tracking-tight leading-tight px-2">
-          Curso de Informática Online completo - Começando do <span className="text-primary font-bold">Zero</span>
+          Curso de <span className="text-primary font-bold">Informática Online</span> completo - Começando do <span className="text-primary font-bold">Zero</span>
         </h1>
       </div>
     </header>
