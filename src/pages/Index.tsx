@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { SupportBanner } from "@/components/SupportBanner";
 import { CoursePreview } from "@/components/CoursePreview";
+import { PriceHighlight } from "@/components/PriceHighlight";
 import { AboutSection } from "@/components/AboutSection";
 import { Authority } from "@/components/Authority";
 import { Footer } from "@/components/Footer";
@@ -44,6 +45,9 @@ const Index = () => {
       
       {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
       <CoursePreview />
+      
+      {/* PREÇO EM DESTAQUE */}
+      <PriceHighlight />
       
       {/* 3️⃣ AULA GRATUITA DE EXCEL */}
       <FreeLessonExcel />
