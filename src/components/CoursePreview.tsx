@@ -99,10 +99,10 @@ export const CoursePreview = () => {
           {/* CTA Estratégico */}
           <div className="text-center space-y-4 mt-8">
             <p className="text-lg md:text-xl font-bold text-foreground">
-              <span className="text-primary">Garanta sua vaga agora!</span>
+              ✨ Viu como o curso é completo? <span className="text-primary">Garanta sua vaga agora!</span>
             </p>
             <p className="text-base md:text-lg text-muted-foreground">Alguma dúvida? Me chame para conversar!</p>
-            <WhatsAppCTA text="💬 Tirar Dúvidas no WhatsApp" className="mt-4" />
+            <WhatsAppCTA text=" Tirar Dúvidas no WhatsApp" className="mt-4" />
           </div>
         </div>
       </div>
