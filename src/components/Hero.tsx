@@ -66,19 +66,6 @@ export const Hero = () => {
           {/* WhatsApp CTA */}
           <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mb-6" />
 
-          {/* Preço em destaque */}
-          <div className="mb-6 max-w-2xl mx-auto">
-            <div className="text-center space-y-2">
-              <p className="text-lg md:text-2xl font-black text-foreground">
-                💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
-              </p>
-              <p className="text-sm text-muted-foreground font-semibold md:text-base">💳 ou parcele em até 12 x R$ 30,22 (no cartão)</p>
-              <p className="text-sm md:text-base text-accent font-bold mt-2">
-                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
-              </p>
-            </div>
-          </div>
-
           {/* Benefícios Principais */}
           <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto mb-6">
             <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
