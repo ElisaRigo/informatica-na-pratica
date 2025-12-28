@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Shield, Award, Zap } from "lucide-react";
+import { Shield, Award, Zap, Play } from "lucide-react";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import heroVideoThumb from "@/assets/hero-video-thumb.jpg";
 
 export const Hero = () => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  const handlePlayClick = () => {
+    setIsVideoLoaded(true);
+  };
+
   return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
@@ -19,14 +27,34 @@ export const Hero = () => {
             </div>
 
             <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden">
-              <iframe 
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/6l0dJZUMl6o?rel=0&modestbranding=1&controls=1&showinfo=0" 
-                title="YouTube video player"
-                frameBorder="0" 
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-              />
+              {!isVideoLoaded ? (
+                <div 
+                  className="relative w-full h-full cursor-pointer group"
+                  onClick={handlePlayClick}
+                >
+                  <img 
+                    src={heroVideoThumb} 
+                    alt="Prévia do curso de informática"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                  {/* Botão de play transparente */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/50 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/30">
+                      <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <iframe 
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/6l0dJZUMl6o?rel=0&modestbranding=1&controls=1&showinfo=0&autoplay=1" 
+                  title="YouTube video player"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                />
+              )}
             </div>
           </div>
 
