@@ -41,7 +41,7 @@ export const Hero = () => {
           {/* Texto acima do vídeo */}
           <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
             Quer Aprender <span className="text-primary"> Informática </span> de forma{" "}
-            <span className="text-primary"> Rápida </span> e sem Enrolação?
+            <span className="text-primary"> Rápida </span> e sem <span className="text-primary"> Enrolação?
           </p>
 
           {/* Vídeo em destaque - Elemento principal da primeira dobra */}
