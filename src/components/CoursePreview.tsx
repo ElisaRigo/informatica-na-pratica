@@ -1,28 +1,36 @@
 import { useState, useEffect, useRef } from "react";
 import courseThumb from "@/assets/course-preview-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
+
 export const CoursePreview = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        setShouldLoadVideo(true);
-        observer.disconnect();
-      }
-    }, {
-      rootMargin: "100px"
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoadVideo(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "100px",
+      },
+    );
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
     return () => observer.disconnect();
   }, []);
+
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
-  return <section className="py-8 md:py-12 bg-background">
+
+  return (
+    <section className="py-8 md:py-12 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
@@ -44,10 +52,22 @@ export const CoursePreview = () => {
               </div>
             </div>
 
-            {!isVideoLoaded ?
-          // Thumbnail com botão de play
-          shouldLoadVideo && <div className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group" onClick={handlePlayClick}>
-                  <img src={courseThumb} alt="Vídeo apresentando o curso de informática por dentro" className="w-full h-full object-cover" loading="lazy" decoding="async" width="960" height="540" />
+            {!isVideoLoaded ? (
+              // Thumbnail com botão de play
+              shouldLoadVideo && (
+                <div
+                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
+                  onClick={handlePlayClick}
+                >
+                  <img
+                    src={courseThumb}
+                    alt="Vídeo apresentando o curso de informática por dentro"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width="960"
+                    height="540"
+                  />
 
                   {/* Botão de Play */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -55,21 +75,37 @@ export const CoursePreview = () => {
                       <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
                     </div>
                   </div>
-                </div> :
-          // YouTube iframe
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
-                <iframe width="960" height="540" src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Aprenda comigo no seu ritmo" frameBorder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 w-full h-full" />
-              </div>}
+                </div>
+              )
+            ) : (
+              // YouTube iframe
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+                <iframe
+                  width="960"
+                  height="540"
+                  src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  title="Aprenda comigo no seu ritmo"
+                  frameBorder="0"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+            )}
           </div>
 
           {/* CTA Estratégico */}
           <div className="text-center space-y-4 mt-8">
-            <p className="text-lg md:text-xl font-bold text-foreground"> Garanta sua vaga agora!<span className="text-primary">Garanta sua vaga agora!</span>
+            <p className="text-lg md:text-xl font-bold text-foreground">
+              <span className="text-primary">Garanta sua vaga agora!</span>
             </p>
             <p className="text-base md:text-lg text-muted-foreground">Alguma dúvida? Me chame para conversar!</p>
             <WhatsAppCTA text="💬 Tirar Dúvidas no WhatsApp" className="mt-4" />
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
