@@ -49,22 +49,22 @@ const Index = () => {
       {/* PREÇO EM DESTAQUE */}
       <PriceHighlight />
       
-      {/* 3️⃣ AULA GRATUITA DE EXCEL */}
-      <FreeLessonExcel />
-      
-      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
-      <CourseContent />
-      
-      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      {/* 3️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
       <Authority />
       
-      {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
+      <CourseContent />
+      
+      {/* 5️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
       
-      {/* 7️⃣ DEPOIMENTOS - Prova Social */}
+      {/* 6️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />
+      
+      {/* 7️⃣ AULA GRATUITA DE EXCEL */}
+      <FreeLessonExcel />
       
       {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>
