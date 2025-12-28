@@ -55,13 +55,13 @@ const Index = () => {
       {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
       <CourseContent />
       
-      {/* 5️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      {/* 5️⃣ DEPOIMENTOS - Prova Social */}
+      <Testimonials />
+      
+      {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
-      
-      {/* 6️⃣ DEPOIMENTOS - Prova Social */}
-      <Testimonials />
       
       {/* 7️⃣ AULA GRATUITA DE EXCEL */}
       <FreeLessonExcel />
