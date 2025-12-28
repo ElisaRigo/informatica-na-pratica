@@ -1,6 +1,7 @@
 import { lazy, Suspense, memo } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { SupportBanner } from "@/components/SupportBanner";
 import { CoursePreview } from "@/components/CoursePreview";
 import { AboutSection } from "@/components/AboutSection";
 import { Authority } from "@/components/Authority";
@@ -37,6 +38,9 @@ const Index = () => {
       {/* 1️⃣ PRIMEIRA DOBRA - Vídeo + Promessa + CTA */}
       <Header />
       <Hero />
+      
+      {/* SUPORTE - Banner de confiança */}
+      <SupportBanner />
       
       {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
       <CoursePreview />
