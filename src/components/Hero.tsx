@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap, Play } from "lucide-react";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import heroVideoThumb from "@/assets/hero-video-thumb.jpg";
@@ -67,7 +66,7 @@ export const Hero = () => {
           <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mb-6" />
 
           {/* Benefícios Principais */}
-          <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto mb-6">
+          <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto">
             <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
               <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />
               <span className="font-bold text-sm md:text-base text-foreground">Acesso Imediato</span>
@@ -80,11 +79,6 @@ export const Hero = () => {
               <Award className="w-5 h-5 md:w-6 md:h-6 text-primary" />
               <span className="font-bold text-sm md:text-base text-foreground">Certificado incluso</span>
             </div>
-          </div>
-
-          {/* CTA Principal DESTAQUE */}
-          <div className="max-w-2xl mx-auto">
-            <Button size="lg" className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" onClick={() => (window as any).openCheckout?.()}>💻 Quero começar meu curso agora</Button>
           </div>
 
         </div>
