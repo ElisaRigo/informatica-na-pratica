@@ -1,55 +1,53 @@
-import { MessageCircleHeart, HeartHandshake, Users } from "lucide-react";
+import { MessageCircleHeart, HeartHandshake, Sparkles } from "lucide-react";
 
 export const SupportBanner = () => {
   return (
-    <section className="relative py-8 md:py-12 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-y border-primary/20 overflow-hidden">
-      {/* Background glow effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-50" />
+    <section className="relative py-4 md:py-5 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 overflow-hidden">
+      {/* Animated background shimmer */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+      
+      {/* Glow effect */}
+      <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(255,255,255,0.3)]" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Icon with pulse effect */}
-          <div className="inline-flex items-center justify-center mb-4">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/30 rounded-full blur-xl animate-pulse" />
-              <div className="relative bg-primary/20 p-4 rounded-full border border-primary/30">
-                <HeartHandshake className="w-8 h-8 md:w-10 md:h-10 text-primary" />
-              </div>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6">
+          {/* Icon with pulse */}
+          <div className="relative flex-shrink-0">
+            <div className="absolute inset-0 bg-white/40 rounded-full blur-lg animate-pulse" />
+            <div className="relative bg-white/20 p-2.5 rounded-full border-2 border-white/50 backdrop-blur-sm">
+              <HeartHandshake className="w-6 h-6 md:w-7 md:h-7 text-white" />
             </div>
           </div>
 
-          {/* Main headline */}
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-3">
-            Você <span className="text-primary">não está sozinho</span> nessa jornada
-          </h2>
-
-          {/* Emotional subtitle */}
-          <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-            Durante o curso você terá suporte via WhatsApp para tirar todas as suas dúvidas.
-            <span className="text-foreground font-medium"> Aprender é mais fácil quando você tem alguém do seu lado.</span>
-          </p>
-
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-            <div className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
-              <MessageCircleHeart className="w-5 h-5 text-primary" />
-              <span>Suporte humanizado</span>
+          {/* Main content */}
+          <div className="text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+              <Sparkles className="w-4 h-4 text-yellow-300 animate-pulse" />
+              <span className="text-xs md:text-sm font-bold text-yellow-200 uppercase tracking-wider">
+                Diferencial Exclusivo
+              </span>
+              <Sparkles className="w-4 h-4 text-yellow-300 animate-pulse" />
             </div>
-            <div className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
-              <Users className="w-5 h-5 text-primary" />
-              <span>Resposta rápida</span>
+            <h2 className="text-lg md:text-xl lg:text-2xl font-extrabold text-white drop-shadow-lg">
+              Você <span className="text-yellow-300">não está sozinho</span> nessa jornada!
+            </h2>
+            <p className="text-sm md:text-base text-white/90 mt-1 max-w-xl">
+              <MessageCircleHeart className="w-4 h-4 inline-block mr-1 text-yellow-300" />
+              Suporte via WhatsApp com a Prof. Elisa para tirar todas as suas dúvidas
+            </p>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex gap-3 md:gap-4 flex-shrink-0">
+            <div className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/30">
+              <span className="text-xs md:text-sm font-semibold text-white whitespace-nowrap">✓ Resposta Rápida</span>
             </div>
-            <div className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
-              <HeartHandshake className="w-5 h-5 text-primary" />
-              <span>Acompanhamento pessoal</span>
+            <div className="hidden sm:block bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/30">
+              <span className="text-xs md:text-sm font-semibold text-white whitespace-nowrap">✓ Suporte Humanizado</span>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
     </section>
   );
 };
