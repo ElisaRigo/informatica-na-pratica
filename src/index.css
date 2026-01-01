@@ -146,20 +146,6 @@ All colors MUST be HSL.
   }
 }
 
-/* Shimmer animation */
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer 2s infinite;
-}
-
 /* Customização do player de vídeo */
 video::-webkit-media-controls-play-button {
   transform: scale(0.6);
