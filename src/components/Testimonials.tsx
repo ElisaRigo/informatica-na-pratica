@@ -1,7 +1,6 @@
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { AnchorLink } from "./AnchorLink";
 import alinePhoto from "@/assets/testimonial-new-1.jpg";
 import joaoPhoto from "@/assets/testimonial-new-3.jpg";
 import carlaPhoto from "@/assets/testimonial-new-2.jpg";
@@ -44,26 +43,41 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section id="depoimentos" className="py-8 md:py-12">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
-          Histórias reais de quem saiu do zero e aprendeu de verdade
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-          Veja o que os alunos têm a dizer sobre sua transformação
-        </p>
+    <section id="depoimentos" className="py-12 md:py-16 bg-gradient-to-b from-background via-panel/50 to-background relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 text-accent px-4 py-2 rounded-full mb-4">
+            <Star className="w-4 h-4 fill-accent" />
+            <span className="font-bold text-sm">Histórias de Sucesso</span>
+            <Star className="w-4 h-4 fill-accent" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-black mb-4">
+            Histórias reais de quem saiu do <span className="text-accent">zero</span> e aprendeu de <span className="text-primary">verdade</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Veja o que os alunos têm a dizer sobre sua transformação
+          </p>
+        </div>
+        
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-card border border-line rounded-2xl p-8 hover:border-accent/50 transition-all"
+              className="bg-card border-2 border-primary/30 rounded-2xl p-8 hover:border-accent/50 transition-all hover:scale-105 relative group"
             >
-              <Quote className="w-10 h-10 text-accent/50 mb-4" />
-              <p className="text-lg italic mb-6 leading-relaxed">
+              {/* Glow on hover */}
+              <div className="absolute inset-0 bg-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-xl" />
+              
+              <Quote className="w-10 h-10 text-accent mb-4" />
+              <p className="text-lg italic mb-6 leading-relaxed text-foreground">
                 "{testimonial.text}"
               </p>
               <div className="flex items-center gap-3">
-                <Avatar className="w-12 h-12">
+                <Avatar className="w-12 h-12 border-2 border-primary/30">
                   <AvatarImage 
                     src={testimonial.image} 
                     alt={`Foto de ${testimonial.author} - Aluna do Curso de Informática na Prática`}
@@ -72,7 +86,7 @@ export const Testimonials = () => {
                     width="48"
                     height="48"
                   />
-                  <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
+                  <AvatarFallback className="bg-primary text-primary-foreground">{testimonial.author.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="text-sm text-muted-foreground font-semibold">
                   — {testimonial.author}
@@ -81,10 +95,11 @@ export const Testimonials = () => {
             </div>
           ))}
         </div>
+        
         <div className="flex justify-center">
           <Button 
             size="lg" 
-            className="font-extrabold px-4 md:px-8 py-6 rounded-2xl text-xs md:text-base hover:scale-105 transition-transform w-full md:w-auto"
+            className="font-extrabold px-6 md:px-10 py-6 md:py-7 rounded-2xl text-sm md:text-lg hover:scale-105 transition-transform bg-gradient-to-r from-accent to-warning hover:from-warning hover:to-accent border-2 border-accent/50 glow-accent text-accent-foreground"
             onClick={() => (window as any).openCheckout?.()}
           >
             💪 Quero ser o próximo aluno!

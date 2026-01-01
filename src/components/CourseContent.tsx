@@ -43,11 +43,16 @@ const modules = [
 
 export const CourseContent = () => {
   return (
-    <section id="conteudo" className="py-12 md:py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="conteudo" className="py-12 md:py-20 bg-background relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-foreground">
-            Veja tudo o que você vai dominar no curso
+            Veja tudo o que você vai <span className="text-gradient">dominar</span> no curso
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Do zero ao profissional — aprenda as ferramentas que vão transformar sua rotina e abrir portas no mercado de trabalho.
@@ -58,16 +63,21 @@ export const CourseContent = () => {
           {modules.map((module, index) => (
             <div
               key={index}
-              className="bg-card border-2 border-line rounded-2xl p-8 text-center hover:border-primary/50 transition-all hover:scale-105"
+              className="bg-card border-2 border-primary/30 rounded-2xl p-8 text-center hover:border-accent/50 transition-all hover:scale-105 group relative"
             >
-              <img
-                src={module.icon}
-                alt={`Ícone do curso de ${module.title} - Aprenda informática do zero ao profissional`}
-                className="w-16 h-16 mx-auto mb-4"
-                loading="lazy"
-                width="64"
-                height="64"
-              />
+              {/* Glow on hover */}
+              <div className="absolute inset-0 bg-primary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-xl" />
+              
+              <div className="w-20 h-20 mx-auto mb-4 bg-secondary/50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <img
+                  src={module.icon}
+                  alt={`Ícone do curso de ${module.title} - Aprenda informática do zero ao profissional`}
+                  className="w-12 h-12"
+                  loading="lazy"
+                  width="48"
+                  height="48"
+                />
+              </div>
               <h3 className="text-xl font-bold mb-3 text-foreground">{module.title}</h3>
               <p className="text-muted-foreground">{module.description}</p>
             </div>
@@ -77,7 +87,7 @@ export const CourseContent = () => {
         {/* Chamada final transformacional */}
         <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <CheckCircle2 className="w-8 h-8 text-primary flex-shrink-0" />
+            <CheckCircle2 className="w-8 h-8 text-success flex-shrink-0" />
             <p className="text-xl md:text-2xl font-bold text-foreground">
               Com essas habilidades, você vai usar o computador com confiança e estará preparado para qualquer desafio do mercado.
             </p>
@@ -86,7 +96,7 @@ export const CourseContent = () => {
           {/* CTA */}
           <Button 
             size="lg" 
-            className="text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--primary)/0.4)] bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary border-2 border-primary/30 w-full md:w-auto"
+            className="text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all bg-gradient-to-r from-accent via-warning to-accent hover:from-warning hover:via-accent hover:to-warning border-2 border-accent/50 glow-accent text-accent-foreground"
             onClick={() => (window as any).openCheckout?.()}
           >
             ✅ Quero Aprender Tudo Isso Agora

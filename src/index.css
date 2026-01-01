@@ -4,95 +4,110 @@
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
+HIGH CONVERSION DESIGN - Blue/Orange contrast theme
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 30% 10%;
+    /* Dark theme for high contrast and conversion */
+    --background: 210 35% 9%;
+    --foreground: 0 0% 98%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 210 30% 10%;
+    --card: 210 30% 12%;
+    --card-foreground: 0 0% 98%;
     
-    --panel: 200 25% 98%;
-    --line: 200 15% 85%;
+    --panel: 210 32% 7%;
+    --line: 210 25% 20%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 30% 10%;
+    --popover: 210 30% 12%;
+    --popover-foreground: 0 0% 98%;
     
-    --primary: 195 100% 35%;
+    /* Primary - Vibrant Blue from logo */
+    --primary: 200 100% 45%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 200 20% 92%;
-    --secondary-foreground: 210 30% 10%;
+    --secondary: 210 25% 18%;
+    --secondary-foreground: 0 0% 98%;
     
-    --muted: 200 15% 90%;
-    --muted-foreground: 210 20% 35%;
+    --muted: 210 20% 22%;
+    --muted-foreground: 210 15% 65%;
     
-    --accent: 150 75% 40%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent - Conversion Orange/Gold for CTAs */
+    --accent: 38 100% 50%;
+    --accent-foreground: 0 0% 5%;
     
-    --success: 150 80% 38%;
+    /* Success - Bright Green */
+    --success: 145 80% 45%;
     --success-foreground: 0 0% 100%;
     
-    --warning: 38 95% 55%;
-    --warning-foreground: 0 0% 100%;
+    /* Warning - Bright Yellow */
+    --warning: 45 100% 55%;
+    --warning-foreground: 0 0% 5%;
     
-    --destructive: 0 85% 50%;
+    /* Urgent - Hot Red for urgency */
+    --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 200 15% 82%;
-    --input: 200 15% 82%;
-    --ring: 195 100% 35%;
+    --border: 210 20% 22%;
+    --input: 210 20% 22%;
+    --ring: 200 100% 50%;
     
     --radius: 0.75rem;
     
-    --gradient-hero: linear-gradient(135deg, hsl(195 100% 97%), hsl(200 100% 98%));
-    --gradient-premium: linear-gradient(135deg, hsl(195 100% 35%), hsl(150 75% 40%));
-    --gradient-cta: linear-gradient(135deg, hsl(150 75% 40%), hsl(150 80% 35%));
+    /* Premium gradients for conversion */
+    --gradient-hero: linear-gradient(180deg, hsl(210 35% 6%), hsl(210 35% 12%));
+    --gradient-premium: linear-gradient(135deg, hsl(200 100% 45%), hsl(200 100% 35%));
+    --gradient-cta: linear-gradient(135deg, hsl(38 100% 55%), hsl(28 100% 50%));
+    --gradient-cta-hover: linear-gradient(135deg, hsl(28 100% 50%), hsl(18 100% 45%));
+    --gradient-urgent: linear-gradient(135deg, hsl(0 85% 55%), hsl(350 85% 45%));
+    --gradient-success: linear-gradient(135deg, hsl(145 80% 45%), hsl(160 80% 40%));
     
-    --shadow-glow: 0 8px 32px hsl(195 100% 35% / 0.15);
-    --shadow-card: 0 2px 16px hsl(210 30% 10% / 0.08);
-    --shadow-cta: 0 12px 40px hsl(150 75% 40% / 0.3);
+    /* Glowing shadows for attention */
+    --shadow-glow: 0 0 40px hsl(200 100% 50% / 0.25);
+    --shadow-glow-accent: 0 0 50px hsl(38 100% 50% / 0.35);
+    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.4);
+    --shadow-cta: 0 8px 32px hsl(38 100% 50% / 0.4);
+    --shadow-urgent: 0 0 30px hsl(0 85% 55% / 0.3);
   }
   
   .dark {
-    --background: 210 25% 8%;
+    /* Same as root - dark theme is default for conversion */
+    --background: 210 35% 9%;
     --foreground: 0 0% 98%;
     
-    --card: 210 22% 11%;
+    --card: 210 30% 12%;
     --card-foreground: 0 0% 98%;
     
-    --panel: 210 25% 7%;
-    --line: 210 18% 20%;
+    --panel: 210 32% 7%;
+    --line: 210 25% 20%;
     
-    --popover: 210 22% 11%;
+    --popover: 210 30% 12%;
     --popover-foreground: 0 0% 98%;
     
-    --primary: 195 100% 45%;
+    --primary: 200 100% 45%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 210 18% 22%;
+    --secondary: 210 25% 18%;
     --secondary-foreground: 0 0% 98%;
     
-    --muted: 210 18% 22%;
-    --muted-foreground: 210 10% 70%;
+    --muted: 210 20% 22%;
+    --muted-foreground: 210 15% 65%;
     
-    --accent: 150 75% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 38 100% 50%;
+    --accent-foreground: 0 0% 5%;
     
-    --success: 150 80% 45%;
+    --success: 145 80% 45%;
     --success-foreground: 0 0% 100%;
     
-    --warning: 38 95% 55%;
-    --warning-foreground: 0 0% 100%;
+    --warning: 45 100% 55%;
+    --warning-foreground: 0 0% 5%;
     
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 210 18% 20%;
-    --input: 210 18% 20%;
-    --ring: 195 100% 45%;
+    --border: 210 20% 22%;
+    --input: 210 20% 22%;
+    --ring: 200 100% 50%;
   }
 }
 
@@ -117,12 +132,40 @@ All colors MUST be HSL.
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
   
+  .text-gradient-warm {
+    @apply bg-gradient-to-r from-accent to-warning bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-cool {
+    @apply bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent;
+  }
+  
+  .glow-primary {
+    box-shadow: 0 0 40px hsl(200 100% 50% / 0.3), 0 0 80px hsl(200 100% 50% / 0.15);
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 40px hsl(38 100% 50% / 0.4), 0 0 80px hsl(38 100% 50% / 0.2);
+  }
+  
+  .glow-success {
+    box-shadow: 0 0 30px hsl(145 80% 45% / 0.3);
+  }
+  
   .animate-fade-in {
     animation: fade-in 0.6s ease-out forwards;
   }
   
   .animate-slide-up {
     animation: slide-up 0.8s ease-out forwards;
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
 }
 
@@ -146,6 +189,24 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(38 100% 50% / 0.4), 0 0 40px hsl(38 100% 50% / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(38 100% 50% / 0.6), 0 0 80px hsl(38 100% 50% / 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 /* Customização do player de vídeo */
 video::-webkit-media-controls-play-button {
   transform: scale(0.6);
@@ -156,4 +217,19 @@ video::-webkit-media-controls-play-button {
 
 video::-webkit-media-controls-panel {
   background: linear-gradient(to top, hsl(var(--background) / 0.85), transparent);
+}
+
+/* Scroll highlight effect */
+.highlight-section {
+  position: relative;
+}
+
+.highlight-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)), transparent);
 }
