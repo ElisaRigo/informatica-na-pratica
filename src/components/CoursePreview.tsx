@@ -35,13 +35,10 @@ export const CoursePreview = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-3">
+          <div className="text-center mb-4 md:mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground">
               Aprenda comigo <span className="text-primary">no seu ritmo</span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Aulas calmas, simples e didáticas para quem está começando ou quer aprender com segurança.
-            </p>
           </div>
 
           {/* Container do Vídeo */}
