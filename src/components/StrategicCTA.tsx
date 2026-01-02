@@ -6,7 +6,7 @@ interface StrategicCTAProps {
 export const StrategicCTA = ({
   context = "depois de ver tudo isso"
 }: StrategicCTAProps) => {
-  return <div className="py-6 md:py-8">
+  return <div className="py-4 md:py-6">
       
     </div>;
 };
