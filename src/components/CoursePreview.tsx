@@ -43,13 +43,6 @@ export const CoursePreview = () => {
 
           {/* Container do Vídeo */}
           <div ref={containerRef} className="relative max-w-4xl mx-auto">
-            {/* Selo Pulsante */}
-            <div className="absolute top-4 right-4 z-20 animate-pulse">
-              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">
-                🎬 Conheça o Curso
-              </div>
-            </div>
-
             {!isVideoLoaded ? (
               // Thumbnail com botão de play
               shouldLoadVideo && (
