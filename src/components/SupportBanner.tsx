@@ -3,7 +3,7 @@ import { MessageCircleHeart, HeartHandshake, Users } from "lucide-react";
 export const SupportBanner = () => {
   return (
     <>
-      <section className="relative py-5 md:py-8 bg-gradient-to-r from-primary/20 via-primary/15 to-primary/20 border-y border-primary/30 overflow-hidden">
+      <section className="relative py-3 md:py-5 bg-gradient-to-r from-primary/20 via-primary/15 to-primary/20 border-y border-primary/30 overflow-hidden">
         {/* Background glow effect */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/30 via-transparent to-transparent opacity-60" />
         
@@ -40,7 +40,7 @@ export const SupportBanner = () => {
       </section>
 
       {/* Trust badges below */}
-      <div className="bg-background py-3 md:py-4">
+      <div className="bg-background py-2 md:py-3">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
