@@ -25,9 +25,11 @@ export const SupportBanner = () => {
             </h2>
 
             {/* Emotional subtitle */}
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-4">
               Durante o curso você terá suporte via WhatsApp para tirar todas as suas dúvidas.
-              <span className="text-foreground font-medium"> Aprender é mais fácil quando você tem alguém do seu lado.</span>
+            </p>
+            <p className="text-lg md:text-xl lg:text-2xl font-bold text-primary bg-primary/10 inline-block px-4 py-2 rounded-lg border border-primary/20">
+              Aprender é mais fácil quando você tem alguém do seu lado.
             </p>
           </div>
         </div>
