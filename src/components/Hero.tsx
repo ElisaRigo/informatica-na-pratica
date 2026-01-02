@@ -20,12 +20,7 @@ export const Hero = () => {
           
           {/* Vídeo do YouTube em destaque */}
           <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
-            {/* Selo de Aula Gratuita - Pulsante */}
-            <div className="absolute -top-3 right-4 z-20 animate-pulse">
-              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">🎓 Conheça o Curso!</div>
-            </div>
-
-            <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden">
+            <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden relative">
               {!isVideoLoaded ? (
                 <div 
                   className="relative w-full h-full cursor-pointer group"
@@ -37,11 +32,15 @@ export const Hero = () => {
                     className="w-full h-full object-cover"
                     loading="eager"
                   />
-                  {/* Botão de play transparente */}
+                  {/* Botão de play transparente e menor */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/50 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/30">
-                      <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
+                    <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
+                      <Play className="w-5 h-5 md:w-7 md:h-7 text-black fill-black ml-0.5" />
                     </div>
+                  </div>
+                  {/* Selo Conheça o Curso - Canto inferior direito */}
+                  <div className="absolute bottom-3 right-3 z-20 animate-pulse">
+                    <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">🎓 Conheça o Curso!</div>
                   </div>
                 </div>
               ) : (
