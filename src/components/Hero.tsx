@@ -32,10 +32,10 @@ export const Hero = () => {
                     className="w-full h-full object-cover"
                     loading="eager"
                   />
-                  {/* Botão de play transparente e menor */}
+                  {/* Botão de play destacado */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
-                      <Play className="w-5 h-5 md:w-7 md:h-7 text-black fill-black ml-0.5" />
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:shadow-2xl cursor-pointer">
+                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                     </div>
                   </div>
                   {/* Selo Conheça o Curso - Canto inferior direito */}
