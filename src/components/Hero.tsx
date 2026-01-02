@@ -20,7 +20,7 @@ export const Hero = () => {
           
           {/* Vídeo do YouTube em destaque */}
           <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
-            <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden relative">
+            <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden relative border border-primary/20">
               {!isVideoLoaded ? (
                 <div 
                   className="relative w-full h-full cursor-pointer group"
