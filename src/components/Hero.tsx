@@ -22,7 +22,7 @@ export const Hero = () => {
           <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
             {/* Selo de Aula Gratuita - Pulsante */}
             <div className="absolute -top-3 right-4 z-20 animate-pulse">
-              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">🎁 Prévia do Curso</div>
+              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">💬 Curso Com Suporte de Verdade</div>
             </div>
 
             <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden">
