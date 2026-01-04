@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import excelThumb from "@/assets/aula-excel-thumb.jpg";
+import excelThumb from "@/assets/capa-aula-excel.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 export const FreeLessonExcel = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -26,16 +26,16 @@ export const FreeLessonExcel = () => {
     setIsVideoLoaded(true);
   };
   return (
-    <section className="py-4 md:py-6 bg-muted/30">
+    <section className="py-8 md:py-12 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center text-foreground mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center text-foreground mb-6 md:mb-8">
             🎁 <span className="text-primary">Aula gratuita: veja como é fácil aprender!</span>
           </h2>
 
           {/* Container do Vídeo */}
-          <div ref={containerRef} className="relative max-w-4xl mx-auto mb-4">
+          <div ref={containerRef} className="relative max-w-4xl mx-auto mb-6">
             {/* Selo Pulsante */}
             <div className="absolute top-4 right-4 z-20 animate-pulse">
               <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm border-2 border-white/30 shadow-lg">

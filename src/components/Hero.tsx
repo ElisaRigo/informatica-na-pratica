@@ -10,7 +10,7 @@ export const Hero = () => {
     setIsVideoLoaded(true);
   };
 
-  return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-4 md:py-6 lg:py-8">
+  return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo */}
@@ -20,7 +20,12 @@ export const Hero = () => {
           
           {/* Vídeo do YouTube em destaque */}
           <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
-            <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden relative border border-primary/20">
+            {/* Selo de Aula Gratuita - Pulsante */}
+            <div className="absolute -top-3 right-4 z-20 animate-pulse">
+              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">🎁 Prévia do Curso</div>
+            </div>
+
+            <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden">
               {!isVideoLoaded ? (
                 <div 
                   className="relative w-full h-full cursor-pointer group"
@@ -32,15 +37,11 @@ export const Hero = () => {
                     className="w-full h-full object-cover"
                     loading="eager"
                   />
-                  {/* Botão de play destacado */}
+                  {/* Botão de play transparente */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/50 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/30">
+                      <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
                     </div>
-                  </div>
-                  {/* Selo Conheça o Curso - Canto inferior direito */}
-                  <div className="absolute bottom-3 right-3 z-20 animate-pulse">
-                    <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">🎓 Conheça o Curso!</div>
                   </div>
                 </div>
               ) : (
