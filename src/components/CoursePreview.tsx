@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import courseThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import courseThumb from "@/assets/hero-video-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 import { Play } from "lucide-react";
 
@@ -74,7 +74,7 @@ export const CoursePreview = () => {
                 <iframe
                   width="960"
                   height="540"
-                  src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  src="https://www.youtube.com/embed/6l0dJZUMl6o?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                   title="Aprenda comigo no seu ritmo"
                   frameBorder="0"
                   loading="lazy"
