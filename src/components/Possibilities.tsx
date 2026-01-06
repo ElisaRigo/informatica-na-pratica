@@ -21,7 +21,7 @@ const currentSituation = [
 
 export const Possibilities = () => {
   return (
-    <section className="py-6 md:py-10 bg-gradient-to-br from-primary/5 to-accent/5">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 to-accent/5">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
@@ -33,7 +33,7 @@ export const Possibilities = () => {
             </h2>
           </div>
           
-          <p className="text-lg md:text-xl text-center text-muted-foreground mb-6 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
             <span className="font-bold text-foreground">Invista no seu futuro:</span> Desenvolva competências valorizadas pelo mercado de trabalho
           </p>
 
@@ -87,7 +87,7 @@ export const Possibilities = () => {
             </div>
           </div>
 
-          <div className="mt-6 text-center bg-success/10 border-2 border-success/30 rounded-2xl p-4 md:p-6">
+          <div className="mt-10 md:mt-12 text-center bg-success/10 border-2 border-success/30 rounded-2xl p-6 md:p-8">
             <p className="text-xl md:text-2xl font-black mb-4">
               Invista no seu desenvolvimento <span className="text-success">profissional</span>
             </p>

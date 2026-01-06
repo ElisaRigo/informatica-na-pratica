@@ -44,12 +44,12 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section id="depoimentos" className="py-6 md:py-8">
+    <section id="depoimentos" className="py-8 md:py-12">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
           Histórias reais de quem saiu do zero e aprendeu de verdade
         </h2>
-        <p className="text-center text-muted-foreground mb-6 text-lg max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
           Veja o que os alunos têm a dizer sobre sua transformação
         </p>
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">

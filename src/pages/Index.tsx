@@ -49,11 +49,11 @@ const Index = () => {
       {/* PREÇO EM DESTAQUE */}
       <PriceHighlight />
       
-      {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
-      <CourseContent />
-      
-      {/* 4️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      {/* 3️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
       <Authority />
+      
+      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
+      <CourseContent />
       
       {/* 5️⃣ DEPOIMENTOS - Prova Social */}
       <Testimonials />

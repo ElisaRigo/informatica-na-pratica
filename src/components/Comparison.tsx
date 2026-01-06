@@ -17,16 +17,16 @@ export const Comparison = () => {
   ];
 
   return (
-    <section className="py-8 md:py-12">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
           Sua escolha define seu futuro
         </h2>
-        <p className="text-center text-muted-foreground mb-6 text-lg max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
           Compare onde você estará em alguns meses:
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-6">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
           {/* Com o curso - AGORA À ESQUERDA */}
           <div className="bg-gradient-to-br from-success/10 to-accent/10 border-2 border-success/30 rounded-3xl p-8">
             <div className="text-center mb-6">
