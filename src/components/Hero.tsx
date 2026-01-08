@@ -46,7 +46,7 @@ export const Hero = () => {
               ) : (
                 <iframe 
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/zMbhcS6-iOo?rel=0&modestbranding=1&playsinline=1&autoplay=1" 
+                  src="https://www.youtube.com/embed/zMbhcS6-iOo?rel=0&modestbranding=1&playsinline=1&autoplay=1&vq=hd1080&hd=1" 
                   title="YouTube video player"
                   frameBorder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
