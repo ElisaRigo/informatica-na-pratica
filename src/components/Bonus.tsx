@@ -75,9 +75,9 @@ export const Bonus = () => {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <section id="bonus" className="py-20 bg-gradient-to-br from-success/5 to-primary/5">
+    <section id="bonus" className="py-8 md:py-12 bg-gradient-to-br from-success/5 to-primary/5">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 bg-success/10 text-success px-4 py-2 rounded-full mb-4">
             <Gift className="w-5 h-5" />
             <span className="font-bold">Bônus Exclusivos</span>
@@ -138,7 +138,7 @@ export const Bonus = () => {
           })}
         </div>
 
-        <div className="mt-12 md:mt-16 text-center max-w-4xl mx-auto">
+        <div className="mt-6 md:mt-8 text-center max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-success/20 via-primary/10 to-success/5 border-2 border-success/40 rounded-3xl p-8 md:p-10 shadow-2xl">
             <div className="mb-6">
               <p className="text-sm md:text-base text-muted-foreground mb-2 uppercase tracking-wide">
