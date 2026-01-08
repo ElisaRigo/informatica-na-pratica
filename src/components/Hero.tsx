@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Shield, Award, Zap, Play } from "lucide-react";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
-import heroVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import heroVideoThumb from "@/assets/capa-hero.png";
 
 export const Hero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -46,7 +46,7 @@ export const Hero = () => {
               ) : (
                 <iframe 
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&controls=1&showinfo=0&autoplay=1" 
+                  src="https://www.youtube.com/embed/zMbhcS6-iOo?rel=0&modestbranding=1&playsinline=1&autoplay=1" 
                   title="YouTube video player"
                   frameBorder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
