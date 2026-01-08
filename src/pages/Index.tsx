@@ -2,6 +2,7 @@ import { lazy, Suspense, memo } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { SupportBanner } from "@/components/SupportBanner";
+import { EasyToLearn } from "@/components/EasyToLearn";
 import { CoursePreview } from "@/components/CoursePreview";
 import { PriceHighlight } from "@/components/PriceHighlight";
 import { AboutSection } from "@/components/AboutSection";
@@ -43,7 +44,10 @@ const Index = () => {
       {/* SUPORTE - Banner de confiança */}
       <SupportBanner />
       
-      {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
+      {/* VEJA COMO É FÁCIL APRENDER - Tirar medo */}
+      <EasyToLearn />
+      
+      {/* 2️⃣ VÍDEO - Aprenda comigo no seu ritmo */}
       <CoursePreview />
       
       {/* PREÇO EM DESTAQUE */}
