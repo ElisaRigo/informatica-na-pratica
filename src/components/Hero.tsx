@@ -46,7 +46,7 @@ export const Hero = () => {
               ) : (
                 <div style={{position: 'relative', paddingTop: '56.25%'}}>
                   <iframe 
-                    src="https://www.youtube.com/embed/zMbhcS6-iOo?modestbranding=1&playsinline=1&autoplay=1"
+                    src="https://www.youtube.com/embed/zMbhcS6-iOo?modestbranding=1&playsinline=1&autoplay=1&vq=hd1080&hd=1"
                     title="Mensagem da Professora"
                     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
                     frameBorder="0"
