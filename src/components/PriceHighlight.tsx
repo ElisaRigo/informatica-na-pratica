@@ -11,7 +11,7 @@ export const PriceHighlight = () => {
               Oferta por tempo limitado
             </p>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground">
-              Perca o medo de aprender Informática e comece sua <span className="text-primary">transformação</span> hoje!
+              Comece sua <span className="text-primary">transformação</span> hoje!
             </h2>
           </div>
           
