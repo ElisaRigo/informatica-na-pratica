@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export const PriceHighlight = () => {
   return (
-    <section className="py-8 md:py-12 bg-gradient-to-b from-panel via-background to-background">
+    <section className="py-4 md:py-6 bg-gradient-to-b from-panel via-background to-background">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Título de Conversão */}

@@ -31,7 +31,7 @@ export const CoursePreview = () => {
   };
 
   return (
-    <section className="py-4 md:py-6 bg-background">
+    <section className="pt-6 md:pt-8 pb-4 md:pb-6 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
