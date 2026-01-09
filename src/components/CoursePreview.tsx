@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import courseThumb from "@/assets/hero-video-thumb.jpg";
-import { WhatsAppCTA } from "./WhatsAppCTA";
-import { Play } from "lucide-react";
+import { Play, ShieldCheck, Clock, Award, CreditCard } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const CoursePreview = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -29,6 +29,13 @@ export const CoursePreview = () => {
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
+
+  const benefits = [
+    { icon: ShieldCheck, text: "Garantia de 7 dias" },
+    { icon: Clock, text: "Acesso vitalício" },
+    { icon: Award, text: "Certificado incluso" },
+    { icon: CreditCard, text: "Parcele em até 12x" },
+  ];
 
   return (
     <section className="py-4 md:py-6 bg-background">
@@ -87,11 +94,55 @@ export const CoursePreview = () => {
             )}
           </div>
 
-          {/* CTA Estratégico */}
-          <div className="text-center mt-8">
-            <p className="text-lg md:text-xl font-bold text-foreground">
-              <span className="text-primary">Garanta sua vaga agora!</span>
-            </p>
+          {/* CTA Destacado com Vantagens */}
+          <div className="mt-8 md:mt-12 max-w-3xl mx-auto">
+            <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 border-2 border-primary/30 rounded-3xl p-6 md:p-10 text-center relative overflow-hidden">
+              {/* Efeito de brilho */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse" />
+              
+              <div className="relative z-10">
+                <p className="text-lg md:text-xl font-bold text-foreground mb-2">
+                  🎯 Pronto para transformar sua vida?
+                </p>
+                <p className="text-muted-foreground mb-6 text-sm md:text-base">
+                  Comece hoje mesmo sua jornada rumo à independência digital
+                </p>
+
+                {/* Botão Principal Grande */}
+                <Button 
+                  size="lg"
+                  onClick={() => (window as any).openCheckout?.()}
+                  className="w-full md:w-auto min-w-[280px] h-16 md:h-20 text-lg md:text-xl font-black rounded-2xl bg-primary hover:bg-primary/90 shadow-2xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all duration-300 animate-pulse hover:animate-none"
+                >
+                  <span className="flex items-center gap-3">
+                    🛒 QUERO COMPRAR AGORA
+                  </span>
+                </Button>
+
+                {/* Vantagens em Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-8">
+                  {benefits.map((benefit, index) => (
+                    <div 
+                      key={index}
+                      className="flex flex-col items-center gap-2 p-3 bg-background/50 rounded-xl border border-line"
+                    >
+                      <benefit.icon className="w-6 h-6 text-primary" />
+                      <span className="text-xs md:text-sm font-semibold text-foreground text-center">
+                        {benefit.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Garantia destacada */}
+                <div className="mt-6 flex items-center justify-center gap-2 text-success">
+                  <ShieldCheck className="w-5 h-5" />
+                  <span className="text-sm font-semibold">
+                    Satisfação garantida ou seu dinheiro de volta
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
