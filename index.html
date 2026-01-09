@@ -216,6 +216,9 @@
     }
     </script>
     
+    <!-- Preload da imagem hero LCP crítica -->
+    <link rel="preload" href="/capa-hero.png" as="image" type="image/png" fetchpriority="high">
+    
     <!-- Critical CSS inline -->
     <style>
       body{margin:0;font-family:system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
@@ -224,18 +227,19 @@
       .aspect-video{aspect-ratio:16/9}
     </style>
     
-    <!-- Preconnect para APIs críticas -->
-    <link rel="preconnect" href="https://exncvylyygvctgwyqpin.supabase.co" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- Preconnect para fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Font com display swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font com display swap e preload -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"></noscript>
     
-    <!-- DNS Prefetch para scripts externos -->
+    <!-- DNS Prefetch para scripts externos (defer) -->
     <link rel="dns-prefetch" href="https://www.facebook.com">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://exncvylyygvctgwyqpin.supabase.co">
   </head>
 
   <body>
