@@ -5,14 +5,6 @@ export const PriceHighlight = () => {
     <section className="py-4 md:py-6 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center space-y-3">
-          {/* CTA Button */}
-          <Button 
-            size="lg" 
-            className="w-full max-w-md text-sm md:text-lg font-black px-4 md:px-12 py-5 md:py-7 rounded-full hover:scale-105 transition-all shadow-[0_8px_30px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent" 
-            onClick={() => (window as any).openCheckout?.()}
-          >
-            💻 Quero começar agora
-          </Button>
           
           {/* Preço */}
           <p className="text-lg md:text-2xl font-bold text-foreground">
