@@ -31,6 +31,10 @@ export const Hero = () => {
                     alt="Prévia do curso de informática"
                     className="w-full h-full object-cover"
                     loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    width="960"
+                    height="540"
                   />
                   {/* Botão de play destacado */}
                   <div className="absolute inset-0 flex items-center justify-center">
