@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { Shield, Award, Zap, Play } from "lucide-react";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
-import heroVideoThumb from "@/assets/capa-hero.png";
 
-export const Hero = () => {
+// Usar URL direta ao invés de import para a imagem crítica LCP
+const HERO_IMAGE_URL = "/capa-hero.png";
+
+export const Hero = memo(() => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const handlePlayClick = () => {
@@ -28,14 +30,14 @@ export const Hero = () => {
                   onClick={handlePlayClick}
                 >
                   <img 
-                    src={heroVideoThumb} 
+                    src={HERO_IMAGE_URL} 
                     alt="Prévia do curso de informática"
                     className="w-full h-full object-cover"
                     loading="eager"
                     fetchPriority="high"
-                    decoding="async"
-                    width="960"
-                    height="540"
+                    decoding="sync"
+                    width={960}
+                    height={540}
                   />
                   {/* Botão de play destacado */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -94,4 +96,6 @@ export const Hero = () => {
       </div>
     </section>
   );
-};
+});
+
+Hero.displayName = "Hero";

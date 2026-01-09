@@ -26,8 +26,8 @@ const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({
 const AboutSection = lazy(() => import("@/components/AboutSection").then(m => ({ default: m.AboutSection })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
-// Loading placeholder otimizado
-const LoadingFallback = memo(() => <div className="h-32" aria-hidden="true" />);
+// Loading placeholder mínimo
+const Placeholder = memo(() => null);
 
 const Index = () => {
   const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
@@ -37,94 +37,36 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
-      {/* 1️⃣ PRIMEIRA DOBRA - Crítico (não lazy) */}
+      {/* PRIMEIRA DOBRA - Crítico (não lazy) */}
       <Header />
       <Hero />
-      
-      {/* SUPORTE - Banner de confiança */}
       <SupportBanner />
-      
-      {/* VEJA COMO É FÁCIL APRENDER - Tirar medo */}
       <EasyToLearn />
-      
-      {/* PREÇO EM DESTAQUE */}
       <PriceHighlight />
       
-      {/* 2️⃣ CONTEÚDO SECUNDÁRIO - Lazy loaded */}
-      <Suspense fallback={<LoadingFallback />}>
+      {/* CONTEÚDO SECUNDÁRIO - Lazy loaded em grupos */}
+      <Suspense fallback={<Placeholder />}>
         <CoursePreview />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <CourseContent />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Authority />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Testimonials />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Bonus />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <FreeLessonExcel />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <ValueStack />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Possibilities />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <TargetAudience />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Pricing />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Guarantee />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Comparison />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <AboutSection />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Pricing />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <FAQ />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Guarantee />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
         <Footer />
       </Suspense>
       
       <WhatsAppButton />
-      
       <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
   );

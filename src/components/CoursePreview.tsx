@@ -1,24 +1,25 @@
-import { useState, useEffect, useRef } from "react";
-import courseThumb from "@/assets/hero-video-thumb.jpg";
+import { useState, useEffect, useRef, memo } from "react";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export const CoursePreview = () => {
+// Usar thumbnail do YouTube diretamente (maxresdefault para qualidade alta)
+const YOUTUBE_VIDEO_ID = "6l0dJZUMl6o";
+const YOUTUBE_THUMB_URL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`;
+
+export const CoursePreview = memo(() => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setShouldLoadVideo(true);
+          setIsInView(true);
           observer.disconnect();
         }
       },
-      {
-        rootMargin: "100px",
-      },
+      { rootMargin: "200px" }
     );
     if (containerRef.current) {
       observer.observe(containerRef.current);
@@ -43,38 +44,36 @@ export const CoursePreview = () => {
 
           {/* Container do Vídeo */}
           <div ref={containerRef} className="relative max-w-4xl mx-auto">
-            {!isVideoLoaded ? (
-              // Thumbnail com botão de play
-              shouldLoadVideo && (
-                <div
-                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
-                  onClick={handlePlayClick}
-                >
-                  <img
-                    src={courseThumb}
-                    alt="Vídeo apresentando o curso de informática por dentro"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width="960"
-                    height="540"
-                  />
+            {isInView && !isVideoLoaded && (
+              <div
+                className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
+                onClick={handlePlayClick}
+              >
+                <img
+                  src={YOUTUBE_THUMB_URL}
+                  alt="Vídeo apresentando o curso de informática por dentro"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width={960}
+                  height={540}
+                />
 
-                  {/* Botão de Play */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
-                    </div>
+                {/* Botão de Play */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                    <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                   </div>
                 </div>
-              )
-            ) : (
-              // YouTube iframe
+              </div>
+            )}
+            
+            {isVideoLoaded && (
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
                 <iframe
-                  width="960"
-                  height="540"
-                  src="https://www.youtube.com/embed/6l0dJZUMl6o?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  width={960}
+                  height={540}
+                  src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&modestbranding=1&playsinline=1&autoplay=1`}
                   title="Aprenda comigo no seu ritmo"
                   frameBorder="0"
                   loading="lazy"
@@ -85,6 +84,8 @@ export const CoursePreview = () => {
                 />
               </div>
             )}
+            
+            {!isInView && <div className="w-full aspect-video bg-muted rounded-2xl" />}
           </div>
 
           {/* CTA de Compra */}
@@ -101,4 +102,6 @@ export const CoursePreview = () => {
       </div>
     </section>
   );
-};
+});
+
+CoursePreview.displayName = "CoursePreview";
