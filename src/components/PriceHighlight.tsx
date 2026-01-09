@@ -5,6 +5,16 @@ export const PriceHighlight = () => {
     <section className="py-8 md:py-12 bg-gradient-to-b from-panel via-background to-background">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
+          {/* Título de Conversão */}
+          <div className="text-center mb-6">
+            <p className="text-sm md:text-base text-primary font-bold uppercase tracking-wide mb-2">
+              Oferta por tempo limitado
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground">
+              Comece sua <span className="text-primary">transformação</span> hoje!
+            </h2>
+          </div>
+          
           {/* Card de Preço */}
           <div className="bg-card border-2 border-primary/30 rounded-2xl p-6 md:p-8 shadow-lg text-center space-y-4">
             {/* Preço */}
