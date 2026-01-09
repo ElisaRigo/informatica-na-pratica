@@ -30,23 +30,25 @@ export const CoursePreview = () => {
   };
 
   return (
-    <section className="py-4 md:py-6 bg-background">
+    <section className="py-6 md:py-8 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 border-y border-primary/20">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          {/* Título da Seção */}
-          <div className="text-center mb-4 md:mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10 max-w-6xl mx-auto">
+          {/* Texto do Banner */}
+          <div className="flex-1 text-center lg:text-left">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-2">
               Aprenda comigo <span className="text-primary">no seu ritmo</span>
             </h2>
+            <p className="text-muted-foreground text-sm md:text-base max-w-md mx-auto lg:mx-0">
+              Assista uma prévia do curso e veja como as aulas são simples e didáticas
+            </p>
           </div>
 
-          {/* Container do Vídeo */}
-          <div ref={containerRef} className="relative max-w-4xl mx-auto">
+          {/* Vídeo Compacto */}
+          <div ref={containerRef} className="flex-1 w-full max-w-md lg:max-w-lg">
             {!isVideoLoaded ? (
-              // Thumbnail com botão de play
               shouldLoadVideo && (
                 <div
-                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
+                  className="relative w-full aspect-video rounded-xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-shadow"
                   onClick={handlePlayClick}
                 >
                   <img
@@ -55,24 +57,21 @@ export const CoursePreview = () => {
                     className="w-full h-full object-cover"
                     loading="lazy"
                     decoding="async"
-                    width="960"
-                    height="540"
+                    width="640"
+                    height="360"
                   />
-
-                  {/* Botão de Play */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/20 transition-colors">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/80 shadow-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                      <Play className="w-6 h-6 md:w-7 md:h-7 text-primary fill-primary ml-0.5" />
                     </div>
                   </div>
                 </div>
               )
             ) : (
-              // YouTube iframe
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
                 <iframe
-                  width="960"
-                  height="540"
+                  width="640"
+                  height="360"
                   src="https://www.youtube.com/embed/6l0dJZUMl6o?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                   title="Aprenda comigo no seu ritmo"
                   frameBorder="0"
