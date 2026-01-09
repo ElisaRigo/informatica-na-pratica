@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import courseThumb from "@/assets/hero-video-thumb.jpg";
-import { Play, ShieldCheck, Clock, Award, CreditCard } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Play } from "lucide-react";
 
 export const CoursePreview = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -29,13 +28,6 @@ export const CoursePreview = () => {
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
-
-  const benefits = [
-    { icon: ShieldCheck, text: "Garantia de 7 dias" },
-    { icon: Clock, text: "Acesso vitalício" },
-    { icon: Award, text: "Certificado incluso" },
-    { icon: CreditCard, text: "Parcele em até 12x" },
-  ];
 
   return (
     <section className="py-4 md:py-6 bg-background">
@@ -92,34 +84,6 @@ export const CoursePreview = () => {
                 />
               </div>
             )}
-          </div>
-
-          {/* CTA Simples e Direto */}
-          <div className="mt-10 md:mt-14 text-center">
-            {/* Botão Principal Gigante */}
-            <Button 
-              size="lg"
-              onClick={() => (window as any).openCheckout?.()}
-              className="w-full md:w-auto min-w-[320px] h-16 md:h-20 text-lg md:text-2xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.4)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.5)] hover:scale-105 transition-all duration-300"
-            >
-              🛒 QUERO COMPRAR AGORA
-            </Button>
-
-            {/* Badges de confiança em linha */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 mt-6">
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <ShieldCheck className="w-5 h-5 text-success" />
-                <span className="text-sm font-medium">Garantia 7 dias</span>
-              </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Clock className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Acesso vitalício</span>
-              </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <CreditCard className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">12x no cartão</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
