@@ -94,53 +94,30 @@ export const CoursePreview = () => {
             )}
           </div>
 
-          {/* CTA Destacado com Vantagens */}
-          <div className="mt-8 md:mt-12 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 border-2 border-primary/30 rounded-3xl p-6 md:p-10 text-center relative overflow-hidden">
-              {/* Efeito de brilho */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse" />
-              
-              <div className="relative z-10">
-                <p className="text-lg md:text-xl font-bold text-foreground mb-2">
-                  🎯 Pronto para transformar sua vida?
-                </p>
-                <p className="text-muted-foreground mb-6 text-sm md:text-base">
-                  Comece hoje mesmo sua jornada rumo à independência digital
-                </p>
+          {/* CTA Simples e Direto */}
+          <div className="mt-10 md:mt-14 text-center">
+            {/* Botão Principal Gigante */}
+            <Button 
+              size="lg"
+              onClick={() => (window as any).openCheckout?.()}
+              className="w-full md:w-auto min-w-[320px] h-16 md:h-20 text-lg md:text-2xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.4)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.5)] hover:scale-105 transition-all duration-300"
+            >
+              🛒 QUERO COMPRAR AGORA
+            </Button>
 
-                {/* Botão Principal Grande */}
-                <Button 
-                  size="lg"
-                  onClick={() => (window as any).openCheckout?.()}
-                  className="w-full md:w-auto min-w-[280px] h-16 md:h-20 text-lg md:text-xl font-black rounded-2xl bg-primary hover:bg-primary/90 shadow-2xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all duration-300 animate-pulse hover:animate-none"
-                >
-                  <span className="flex items-center gap-3">
-                    🛒 QUERO COMPRAR AGORA
-                  </span>
-                </Button>
-
-                {/* Vantagens em Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-8">
-                  {benefits.map((benefit, index) => (
-                    <div 
-                      key={index}
-                      className="flex flex-col items-center gap-2 p-3 bg-background/50 rounded-xl border border-line"
-                    >
-                      <benefit.icon className="w-6 h-6 text-primary" />
-                      <span className="text-xs md:text-sm font-semibold text-foreground text-center">
-                        {benefit.text}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Garantia destacada */}
-                <div className="mt-6 flex items-center justify-center gap-2 text-success">
-                  <ShieldCheck className="w-5 h-5" />
-                  <span className="text-sm font-semibold">
-                    Satisfação garantida ou seu dinheiro de volta
-                  </span>
-                </div>
+            {/* Badges de confiança em linha */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 mt-6">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <ShieldCheck className="w-5 h-5 text-success" />
+                <span className="text-sm font-medium">Garantia 7 dias</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Clock className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium">Acesso vitalício</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <CreditCard className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium">12x no cartão</span>
               </div>
             </div>
           </div>
