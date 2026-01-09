@@ -46,11 +46,12 @@ export const Hero = () => {
               ) : (
                 <div style={{position: 'relative', paddingTop: '56.25%'}}>
                   <iframe 
-                    src="https://www.youtube.com/embed/zMbhcS6-iOo?modestbranding=1&playsinline=1&autoplay=1&vq=hd1080&hd=1"
-                    title="Mensagem da Professora"
+                    src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                    title="Vídeo institucional"
                     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
                     frameBorder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   />
                 </div>
