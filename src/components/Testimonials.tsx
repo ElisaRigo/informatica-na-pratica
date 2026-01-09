@@ -1,42 +1,48 @@
-import { memo } from "react";
 import { Quote } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { AnchorLink } from "./AnchorLink";
+import alinePhoto from "@/assets/testimonial-new-1.jpg";
+import joaoPhoto from "@/assets/testimonial-new-3.jpg";
+import carlaPhoto from "@/assets/testimonial-new-2.jpg";
+import mariaPhoto from "@/assets/testimonial-new-4.jpg";
+import robertoPhoto from "@/assets/testimonial-new-6.jpg";
+import sandraPhoto from "@/assets/testimonial-new-5.jpg";
 
 const testimonials = [
   {
     text: "Eu tinha medo de mexer no computador. Com a Elisa, aprendi de um jeito leve e hoje faço tudo no trabalho!",
     author: "Aline S.",
-    image: "/testimonials/testimonial-new-1.jpg",
+    image: alinePhoto,
   },
   {
     text: "As aulas são diretas. Em poucos dias já estava criando planilhas e documentos.",
     author: "João M.",
-    image: "/testimonials/testimonial-new-3.jpg",
+    image: joaoPhoto,
   },
   {
     text: "O suporte da Elisa fez toda a diferença. Recomendo para quem quer aprender de verdade.",
     author: "Carla T.",
-    image: "/testimonials/testimonial-new-2.jpg",
+    image: carlaPhoto,
   },
   {
     text: "Finalmente consigo fazer meu currículo sozinha! Não sabia que era tão fácil.",
     author: "Maria L.",
-    image: "/testimonials/testimonial-new-4.jpg",
+    image: mariaPhoto,
   },
   {
     text: "Nunca imaginei que ia aprender a usar Excel. Agora uso no dia a dia e me sinto mais confiante.",
     author: "Roberto P.",
-    image: "/testimonials/testimonial-new-6.jpg",
+    image: robertoPhoto,
   },
   {
     text: "A prof. Elisa explica com paciência e clareza. Eu que achava impossível, hoje me viro super bem!",
     author: "Sandra F.",
-    image: "/testimonials/testimonial-new-5.jpg",
+    image: sandraPhoto,
   },
 ];
 
-export const Testimonials = memo(() => {
+export const Testimonials = () => {
   return (
     <section id="depoimentos" className="py-6 md:py-8">
       <div className="container mx-auto px-4">
@@ -63,6 +69,8 @@ export const Testimonials = memo(() => {
                     alt={`Foto de ${testimonial.author} - Aluna do Curso de Informática na Prática`}
                     loading="lazy"
                     decoding="async"
+                    width="48"
+                    height="48"
                   />
                   <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
                 </Avatar>
@@ -85,6 +93,4 @@ export const Testimonials = memo(() => {
       </div>
     </section>
   );
-});
-
-Testimonials.displayName = "Testimonials";
+};

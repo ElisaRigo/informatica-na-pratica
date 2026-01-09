@@ -3,18 +3,20 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { SupportBanner } from "@/components/SupportBanner";
 import { EasyToLearn } from "@/components/EasyToLearn";
+import { CoursePreview } from "@/components/CoursePreview";
 import { PriceHighlight } from "@/components/PriceHighlight";
+import { AboutSection } from "@/components/AboutSection";
+import { Authority } from "@/components/Authority";
+import { Footer } from "@/components/Footer";
+import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
+import { CourseContent } from "@/components/CourseContent";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { FreeLessonExcel } from "@/components/FreeLessonExcel";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 
-// Lazy load componentes não críticos (abaixo da primeira dobra)
-const CoursePreview = lazy(() => import("@/components/CoursePreview").then(m => ({ default: m.CoursePreview })));
-const CourseContent = lazy(() => import("@/components/CourseContent").then(m => ({ default: m.CourseContent })));
-const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
-const Testimonials = lazy(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
+// Lazy load componentes com prefetch
 const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
-const FreeLessonExcel = lazy(() => import("@/components/FreeLessonExcel").then(m => ({ default: m.FreeLessonExcel })));
 const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
 const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
 const TargetAudience = lazy(() => import("@/components/TargetAudience").then(m => ({ default: m.TargetAudience })));
@@ -23,11 +25,9 @@ const Pricing = lazy(() => import("@/components/Pricing").then(m => ({ default: 
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 const Guarantee = lazy(() => import("@/components/Guarantee").then(m => ({ default: m.Guarantee })));
 const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({ default: m.StrategicCTA })));
-const AboutSection = lazy(() => import("@/components/AboutSection").then(m => ({ default: m.AboutSection })));
-const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
-// Loading placeholder mínimo
-const Placeholder = memo(() => null);
+// Loading placeholder otimizado
+const LoadingFallback = memo(() => <div className="h-32" />);
 
 const Index = () => {
   const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
@@ -37,36 +37,95 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
-      {/* PRIMEIRA DOBRA - Crítico (não lazy) */}
+      {/* 1️⃣ PRIMEIRA DOBRA - Vídeo + Promessa + CTA */}
       <Header />
       <Hero />
+      
+      {/* SUPORTE - Banner de confiança */}
       <SupportBanner />
+      
+      {/* VEJA COMO É FÁCIL APRENDER - Tirar medo */}
       <EasyToLearn />
+      
+      {/* PREÇO EM DESTAQUE */}
       <PriceHighlight />
       
-      {/* CONTEÚDO SECUNDÁRIO - Lazy loaded em grupos */}
-      <Suspense fallback={<Placeholder />}>
-        <CoursePreview />
-        <CourseContent />
-        <Authority />
-        <Testimonials />
+      {/* 2️⃣ VÍDEO - Aprenda comigo no seu ritmo */}
+      <CoursePreview />
+      
+      {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
+      <CourseContent />
+      
+      {/* 4️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      <Authority />
+      
+      {/* 5️⃣ DEPOIMENTOS - Prova Social */}
+      <Testimonials />
+      
+      {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
+      <Suspense fallback={<LoadingFallback />}>
         <Bonus />
-        <FreeLessonExcel />
-        <ValueStack />
-        <Possibilities />
-        <TargetAudience />
-        <Pricing />
-        <Guarantee />
-        <Comparison />
-        <AboutSection />
-        <Pricing />
-        <FAQ />
-        <Guarantee />
-        <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
-        <Footer />
       </Suspense>
       
+      {/* 7️⃣ AULA GRATUITA DE EXCEL */}
+      <FreeLessonExcel />
+      
+      {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
+      <Suspense fallback={<LoadingFallback />}>
+        <ValueStack />
+      </Suspense>
+      
+      {/* 9️⃣ INVESTIMENTO - Proposta de valor */}
+      <Suspense fallback={<LoadingFallback />}>
+        <Possibilities />
+      </Suspense>
+      
+      {/* 🔟 PARA QUEM É - Público alvo */}
+      <Suspense fallback={<LoadingFallback />}>
+        <TargetAudience />
+      </Suspense>
+      
+      {/* 1️⃣1️⃣ OFERTA E PREÇO #1 */}
+      <Suspense fallback={<LoadingFallback />}>
+        <Pricing />
+      </Suspense>
+      
+      {/* 1️⃣2️⃣ GARANTIA #1 */}
+      <Suspense fallback={<LoadingFallback />}>
+        <Guarantee />
+      </Suspense>
+      
+      {/* 1️⃣3️⃣ ANTES E DEPOIS - Transformação */}
+      <Suspense fallback={<LoadingFallback />}>
+        <Comparison />
+      </Suspense>
+      
+      {/* 1️⃣4️⃣ QUEM VAI TE ENSINAR - Sobre */}
+      <AboutSection />
+      
+      {/* 1️⃣5️⃣ OFERTA E PREÇO #2 */}
+      <Suspense fallback={<LoadingFallback />}>
+        <Pricing />
+      </Suspense>
+      
+      {/* 1️⃣6️⃣ PERGUNTAS FREQUENTES */}
+      <Suspense fallback={<LoadingFallback />}>
+        <FAQ />
+      </Suspense>
+      
+      {/* 1️⃣7️⃣ GARANTIA #2 - Reduzir Risco */}
+      <Suspense fallback={<LoadingFallback />}>
+        <Guarantee />
+      </Suspense>
+      
+      {/* 1️⃣8️⃣ CTA FINAL ESTRATÉGICO */}
+      <Suspense fallback={<LoadingFallback />}>
+        <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
+      </Suspense>
+      
+      <Footer />
       <WhatsAppButton />
+      
       <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
   );

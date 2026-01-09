@@ -1,8 +1,18 @@
 // Service Worker para cache de assets estáticos
-const CACHE_NAME = 'informatica-pratica-v3';
+const CACHE_NAME = 'informatica-pratica-v2';
+const urlsToCache = [
+  '/',
+  '/src/assets/logo-new.png',
+  '/src/assets/video-poster-hero.jpg',
+  '/src/assets/hero-video-new.mp4',
+];
 
 // Instalar e fazer cache dos recursos
 self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(urlsToCache))
+  );
   self.skipWaiting();
 });
 
@@ -22,48 +32,33 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Estratégia: Stale While Revalidate para assets
+// Estratégia: Network First, fallback para Cache
 self.addEventListener('fetch', (event) => {
   // Só fazer cache de GET requests
   if (event.request.method !== 'GET') return;
   
   // Não fazer cache de APIs
-  const url = event.request.url;
-  if (url.includes('/functions/') || 
-      url.includes('supabase.co') ||
-      url.includes('mercadopago') ||
-      url.includes('youtube') ||
-      url.includes('google')) {
+  if (event.request.url.includes('/functions/') || 
+      event.request.url.includes('supabase.co') ||
+      event.request.url.includes('mercadopago')) {
     return;
   }
 
-  // Cache first para assets estáticos
-  if (url.includes('/assets/') || url.endsWith('.png') || url.endsWith('.jpg') || url.endsWith('.webp')) {
-    event.respondWith(
-      caches.match(event.request).then((cached) => {
-        const fetched = fetch(event.request).then((response) => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-          }
-          return response;
-        });
-        return cached || fetched;
-      })
-    );
-    return;
-  }
-
-  // Network first para HTML e JS
   event.respondWith(
     fetch(event.request)
       .then((response) => {
+        // Se a resposta é válida, clonar e salvar no cache
         if (response && response.status === 200) {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
         }
         return response;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => {
+        // Se falhar, tentar buscar do cache
+        return caches.match(event.request);
+      })
   );
 });

@@ -1,35 +1,30 @@
-import { useState, useEffect, useRef, memo } from "react";
+import { useState, useEffect, useRef } from "react";
+import excelThumb from "@/assets/aula-excel-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
-
-// Usar thumbnail do YouTube diretamente
-const YOUTUBE_VIDEO_ID = "V6GW8bsOhpU";
-const YOUTUBE_THUMB_URL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`;
-
-export const FreeLessonExcel = memo(() => {
+export const FreeLessonExcel = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setIsInView(true);
+          setShouldLoadVideo(true);
           observer.disconnect();
         }
       },
-      { rootMargin: "200px" }
+      {
+        rootMargin: "100px",
+      },
     );
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
     return () => observer.disconnect();
   }, []);
-
   const handlePlayClick = () => {
     setIsVideoLoaded(true);
   };
-
   return (
     <section className="py-4 md:py-6 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -42,44 +37,44 @@ export const FreeLessonExcel = memo(() => {
           {/* Container do Vídeo */}
           <div ref={containerRef} className="relative max-w-4xl mx-auto mb-4">
             {/* Selo Pulsante */}
-            {isInView && (
-              <div className="absolute top-4 right-4 z-20 animate-pulse">
-                <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm border-2 border-white/30 shadow-lg">
-                  🎬 Aula Real
-                </div>
+            <div className="absolute top-4 right-4 z-20 animate-pulse">
+              <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm border-2 border-white/30 shadow-lg">
+                🎬 Aula Real
               </div>
-            )}
+            </div>
 
-            {isInView && !isVideoLoaded && (
-              <div
-                className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
-                onClick={handlePlayClick}
-              >
-                <img
-                  src={YOUTUBE_THUMB_URL}
-                  alt="Aula gratuita de Excel - Aprenda do zero"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                  width={960}
-                  height={540}
-                />
+            {!isVideoLoaded ? (
+              // Thumbnail com botão de play
+              shouldLoadVideo && (
+                <div
+                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
+                  onClick={handlePlayClick}
+                >
+                  <img
+                    src={excelThumb}
+                    alt="Aula gratuita de Excel - Aprenda do zero"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width="960"
+                    height="540"
+                  />
 
-                {/* Botão de Play */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white hover:bg-black/80 hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
-                    <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
+                  {/* Botão de Play */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 md:w-24 md:h-24 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white hover:bg-black/80 hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
+                      <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-            
-            {isVideoLoaded && (
+              )
+            ) : (
+              // YouTube iframe
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
                 <iframe
-                  width={960}
-                  height={540}
-                  src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&modestbranding=1&playsinline=1&autoplay=1`}
+                  width="960"
+                  height="540"
+                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                   title="Aula Gratuita de Excel"
                   frameBorder="0"
                   loading="lazy"
@@ -89,8 +84,6 @@ export const FreeLessonExcel = memo(() => {
                 />
               </div>
             )}
-            
-            {!isInView && <div className="w-full aspect-video bg-muted rounded-2xl" />}
           </div>
 
           {/* CTA Estratégico */}
@@ -105,6 +98,4 @@ export const FreeLessonExcel = memo(() => {
       </div>
     </section>
   );
-});
-
-FreeLessonExcel.displayName = "FreeLessonExcel";
+};

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { Play, CheckCircle } from "lucide-react";
 import heroVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import { Play, CheckCircle } from "lucide-react";
 
 export const EasyToLearn = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -16,7 +16,7 @@ export const EasyToLearn = () => {
         }
       },
       {
-        rootMargin: "200px",
+        rootMargin: "100px",
       },
     );
     if (containerRef.current) {
@@ -49,9 +49,9 @@ export const EasyToLearn = () => {
           {/* Container do Vídeo */}
           <div ref={containerRef} className="relative max-w-4xl mx-auto">
             {!isVideoLoaded ? (
-              shouldLoadVideo ? (
+              shouldLoadVideo && (
                 <div
-                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group shadow-lg border border-primary/20"
+                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group shadow-xl border-2 border-primary/20"
                   onClick={handlePlayClick}
                 >
                   <img
@@ -66,23 +66,21 @@ export const EasyToLearn = () => {
 
                   {/* Botão de Play */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/70 shadow-xl flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
                       <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                     </div>
                   </div>
 
                   {/* Selo */}
                   <div className="absolute bottom-3 right-3 z-20">
-                    <div className="bg-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-lg">
+                    <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-lg border-2 border-white/30">
                       ▶ Aula Demonstrativa
                     </div>
                   </div>
                 </div>
-              ) : (
-                <div className="w-full aspect-video rounded-2xl bg-muted" />
               )
             ) : (
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-primary/20">
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border-2 border-primary/20">
                 <iframe
                   width="960"
                   height="540"
