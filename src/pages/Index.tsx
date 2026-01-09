@@ -44,14 +44,14 @@ const Index = () => {
       {/* SUPORTE - Banner de confiança */}
       <SupportBanner />
       
+      {/* PREÇO EM DESTAQUE */}
+      <PriceHighlight />
+      
       {/* VEJA COMO É FÁCIL APRENDER - Tirar medo */}
       <EasyToLearn />
       
       {/* 2️⃣ VÍDEO - Aprenda comigo no seu ritmo */}
       <CoursePreview />
-      
-      {/* PREÇO EM DESTAQUE */}
-      <PriceHighlight />
       
       {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
       <CourseContent />
