@@ -42,7 +42,7 @@ export const PriceHighlight = () => {
             <Button
               size="lg"
               onClick={() => (window as any).openCheckout?.()}
-              className="w-full md:w-auto min-w-[300px] md:min-w-[420px] h-14 md:h-16 text-base md:text-xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.45)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.55)] hover:scale-105 transition-all duration-300 px-6 md:px-8"
+              className="w-full h-14 md:h-16 text-sm md:text-xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.45)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.55)] hover:scale-105 transition-all duration-300 px-4 md:px-8"
             >
               🎯 QUERO COMEÇAR MEU CURSO AGORA!
             </Button>

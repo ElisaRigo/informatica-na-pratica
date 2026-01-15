@@ -69,9 +69,9 @@ export const Hero = () => {
             <Button
               size="lg"
               onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
-              className="h-14 md:h-16 px-8 md:px-12 text-lg md:text-xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.45)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.55)] hover:scale-105 transition-all duration-300 animate-pulse"
+              className="h-14 md:h-16 px-8 md:px-12 text-lg md:text-xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.45)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.55)] hover:scale-105 transition-all duration-300 animate-[pulse_3s_ease-in-out_infinite]"
             >
-              Quero começar a aprender do zero
+              ✨ Sim! Quero Dominar a Informática Agora
             </Button>
           </div>
 
