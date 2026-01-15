@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Shield, Award, Zap, Play } from "lucide-react";
-import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { Button } from "@/components/ui/button";
 import heroVideoThumb from "@/assets/capa-hero.png";
 
 export const Hero = () => {
@@ -64,8 +64,16 @@ export const Hero = () => {
             Aulas passo a passo, <span className="text-primary font-black">simples</span> <span className="text-primary font-black">e</span> <span className="text-primary font-black">Práticas</span> - Começando do <span className="text-primary font-black">Zero</span><span className="text-primary font-black">!</span>
           </p>
 
-          {/* WhatsApp CTA */}
-          <WhatsAppCTA text="Quero começar a aprender do zero" className="mb-6" isPulsing />
+          {/* CTA para seção de preço */}
+          <div className="flex justify-center mb-6">
+            <Button
+              size="lg"
+              onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="h-14 md:h-16 px-8 md:px-12 text-lg md:text-xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.45)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.55)] hover:scale-105 transition-all duration-300 animate-pulse"
+            >
+              Quero começar a aprender do zero
+            </Button>
+          </div>
 
           {/* Benefícios Principais */}
           <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto">
