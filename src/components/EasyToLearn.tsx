@@ -84,8 +84,8 @@ export const EasyToLearn = () => {
                 <iframe
                   width="960"
                   height="540"
-                  src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                  title="Veja como é fácil aprender"
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  title="Vídeo institucional"
                   frameBorder="0"
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
