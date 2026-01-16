@@ -64,8 +64,8 @@ export const Hero = () => {
             Aulas passo a passo, <span className="text-primary font-black">simples</span> <span className="text-primary font-black">e</span> <span className="text-primary font-black">Práticas</span> - Começando do <span className="text-primary font-black">Zero</span><span className="text-primary font-black">!</span>
           </p>
 
-          {/* Seção de Preço Compacta */}
-          <div className="max-w-xl mx-auto bg-card/90 backdrop-blur-sm rounded-2xl border border-border/50 shadow-xl p-4 md:p-6 mb-6">
+          {/* Seção de Preço - Sem Container */}
+          <div className="max-w-xl mx-auto mb-6">
             {/* CTA Principal */}
             <Button
               size="lg"
