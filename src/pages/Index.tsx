@@ -47,14 +47,14 @@ const Index = () => {
       {/* VEJA COMO É FÁCIL APRENDER - Tirar medo */}
       <EasyToLearn />
       
-      {/* PREÇO EM DESTAQUE */}
-      <PriceHighlight />
-      
       {/* 2️⃣ VÍDEO - Aprenda comigo no seu ritmo */}
       <CoursePreview />
       
       {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
       <CourseContent />
+      
+      {/* PREÇO EM DESTAQUE */}
+      <PriceHighlight />
       
       {/* 4️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
       <Authority />
