@@ -3,7 +3,7 @@ import { ShieldCheck } from "lucide-react";
 
 export const Guarantee = () => {
   return (
-    <section id="garantia" className="py-20 bg-panel">
+    <section id="garantia" className="py-8 md:py-12 bg-panel">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <ShieldCheck className="w-20 h-20 text-success mx-auto mb-6" />

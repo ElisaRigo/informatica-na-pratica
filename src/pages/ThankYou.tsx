@@ -40,7 +40,25 @@ const ThankYou = () => {
           'transaction_id': ''
         });
         
+        // Disparar evento de conversão de matrícula do Google Ads
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17641842157/B6aWCPfmzr0bEO3LpNxB',
+          'value': 1.0,
+          'currency': 'BRL',
+          'transaction_id': ''
+        });
+        
         console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
+        
+        // Disparar conversão do Facebook Pixel
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Purchase', {
+            value: 297.00,
+            currency: 'BRL'
+          });
+          console.log('✅ Facebook Pixel conversion tracked successfully');
+        }
+        
         return true;
       }
       return false;
@@ -83,6 +101,17 @@ const ThankYou = () => {
         <meta property="og:title" content="Obrigada pela sua compra! - Informática na Prática" />
         <meta property="og:description" content="Parabéns! Sua compra foi confirmada." />
         <meta property="og:url" content="https://informaticanapratica.com.br/obrigada" />
+        
+        {/* Google Tag Manager */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17641842157"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17641842157');
+          `}
+        </script>
       </Helmet>
       
       <div className="min-h-screen bg-background flex items-center justify-center p-4">

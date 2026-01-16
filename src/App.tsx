@@ -11,6 +11,7 @@ const Admin = lazy(() => import("./pages/Admin"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const AguardandoConfirmacao = lazy(() => import("./pages/AguardandoConfirmacao"));
 const VendaTeste = lazy(() => import("./pages/VendaTeste"));
+const VendaConversao = lazy(() => import("./pages/VendaConversao"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AdminRegister = lazy(() => import("./components/admin/AdminRegister").then(m => ({ default: m.AdminRegister })));
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso").then(m => ({ default: m.TermosDeUso })));
@@ -29,6 +30,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
+            <Route path="/venda-conversao" element={<VendaConversao />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/aguardando" element={<AguardandoConfirmacao />} />
