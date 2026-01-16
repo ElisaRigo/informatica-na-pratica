@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Shield, Award, Zap, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroVideoThumb from "@/assets/capa-hero.png";
+import heroVideoThumb from "@/assets/hero-video-cover.png";
 
 export const Hero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
