@@ -64,31 +64,58 @@ export const Hero = () => {
             Aulas passo a passo, <span className="text-primary font-black">simples</span> <span className="text-primary font-black">e</span> <span className="text-primary font-black">Práticas</span> - Começando do <span className="text-primary font-black">Zero</span><span className="text-primary font-black">!</span>
           </p>
 
-          {/* CTA para seção de preço */}
-          <div className="flex justify-center mb-6">
+          {/* Seção de Preço Compacta */}
+          <div className="max-w-xl mx-auto bg-card/90 backdrop-blur-sm rounded-2xl border border-border/50 shadow-xl p-4 md:p-6 mb-6">
+            {/* CTA Principal */}
             <Button
               size="lg"
               onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
-              className="h-14 md:h-16 px-8 md:px-12 text-lg md:text-xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.45)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.55)] hover:scale-105 transition-all duration-300"
+              className="w-full h-12 md:h-14 text-base md:text-lg font-black rounded-full bg-gradient-to-r from-primary to-accent text-white shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 mb-4"
             >
-              Quero começar a aprender do zero
+              🎓 Quero começar meu curso agora
             </Button>
-          </div>
 
-          {/* Benefícios Principais */}
-          <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-3xl mx-auto">
-            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
-              <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              <span className="font-bold text-sm md:text-base text-foreground">Acesso Imediato</span>
+            {/* Preço */}
+            <div className="text-center mb-3">
+              <p className="text-lg md:text-xl font-bold text-foreground">
+                💰 De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas{" "}
+                <span className="text-success text-2xl md:text-3xl font-black">R$ 297,00</span>
+              </p>
+              <p className="text-sm md:text-base text-muted-foreground mt-1">
+                💳 ou parcele em até 12 x R$ 30,22 (no cartão)
+              </p>
             </div>
-            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
-              <Shield className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              <span className="font-bold text-sm md:text-base text-foreground">Garantia 7 dias</span>
+
+            {/* Urgência */}
+            <p className="text-center text-sm md:text-base font-semibold text-accent mb-4">
+              🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
+            </p>
+
+            {/* Benefícios */}
+            <div className="flex flex-wrap gap-2 md:gap-3 justify-center items-center mb-4">
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Zap className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-foreground">Acesso Imediato</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Shield className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-foreground">Garantia 7 dias</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Award className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-foreground">Certificado incluso</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border-2 border-primary/30 px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-sm">
-              <Award className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-              <span className="font-bold text-sm md:text-base text-foreground">Certificado incluso</span>
-            </div>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/5500000000000?text=Olá! Tenho dúvidas sobre o curso."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full h-12 bg-success/10 hover:bg-success/20 border-2 border-success text-success font-bold rounded-full transition-all duration-300"
+            >
+              💬 <span className="text-destructive font-black">?</span> Tire suas dúvidas com a Professora Elisa
+            </a>
           </div>
 
         </div>
