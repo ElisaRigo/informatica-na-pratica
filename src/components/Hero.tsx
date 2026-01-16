@@ -72,7 +72,7 @@ export const Hero = () => {
               onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
               className="w-full h-16 md:h-18 text-xl md:text-2xl font-bold rounded-full bg-success text-white shadow-lg hover:shadow-xl hover:bg-success/90 hover:scale-[1.02] transition-all duration-300 mb-4"
             >
-              Quero começar a aprender do zero
+              Quero começar a aprender do Zero
             </Button>
 
             {/* Benefícios */}
