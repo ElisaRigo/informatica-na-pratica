@@ -12,9 +12,9 @@ const benefits = [
 
 export const ValueStack = () => {
   return (
-    <section className="py-8 md:py-12">
+    <section className="py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-6">
+        <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
           ✅ Depois do curso, você será capaz de...
         </h2>
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -29,7 +29,7 @@ export const ValueStack = () => {
           ))}
         </div>
 
-        <div className="mt-6 max-w-4xl mx-auto">
+        <div className="mt-12 max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 border-2 border-primary/30 rounded-3xl p-8 md:p-10 text-center">
             <Clock className="w-16 h-16 text-primary mx-auto mb-4" />
             <h3 className="text-2xl md:text-3xl font-black mb-3">

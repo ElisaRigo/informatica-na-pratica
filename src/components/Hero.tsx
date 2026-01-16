@@ -1,78 +1,82 @@
-import { useState } from "react";
-import { Shield, Award, Zap, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroVideoThumb from "@/assets/capa-hero.png";
-
+import { Shield, Award, Zap } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import videoPoster from "@/assets/hero-poster-free-lesson.png";
+import heroVideo from "@/assets/hero-video-free-lesson.mp4";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 export const Hero = () => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Lazy load video usando Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setShouldLoadVideo(true);
+      }
+    }, {
+      rootMargin: "50px"
+    });
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
   const handlePlayClick = () => {
-    setIsVideoLoaded(true);
+    if (videoRef.current) {
+      videoRef.current.controls = true;
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
   };
-
-  return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-4 md:py-6 lg:py-8">
+  return <section className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-panel via-background to-background py-6 md:py-8 lg:py-12">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo */}
           <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
-            Quer Aprender <span className="text-primary font-black">Informática</span> de Forma <span className="text-primary font-black">Rápida</span> e sem <span className="text-primary font-black">Enrolação</span>?
+            Vou te Ajudar a <span className="text-primary">dominar Informática</span> e conquistar seu <span className="text-primary">certificado profissional</span> em poucas semanas.
           </p>
           
-          {/* Vídeo do YouTube em destaque */}
-          <div className="relative max-w-4xl mx-auto mb-4 md:mb-6">
-            <div className="w-full aspect-video rounded-2xl shadow-2xl overflow-hidden relative border border-primary/20">
-              {!isVideoLoaded ? (
-                <div 
-                  className="relative w-full h-full cursor-pointer group"
-                  onClick={handlePlayClick}
-                >
-                  <img 
-                    src={heroVideoThumb} 
-                    alt="Prévia do curso de informática"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
-                  {/* Botão de play destacado */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
-                    </div>
-                  </div>
-                  {/* Selo Conheça o Curso - Canto inferior direito */}
-                  <div className="absolute bottom-3 right-3 z-20 animate-pulse">
-                    <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">🎓 Conheça o Curso!</div>
-                  </div>
-                </div>
-              ) : (
-                <div style={{position: 'relative', paddingTop: '56.25%'}}>
-                  <iframe 
-                    src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
-                    title="Vídeo institucional"
-                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
-                </div>
-              )}
+          {/* Vídeo em destaque - Elemento principal da primeira dobra */}
+          <div ref={containerRef} className="relative max-w-4xl mx-auto mb-4 md:mb-6">
+            {/* Selo de Aula Gratuita - Pulsante */}
+            <div className="absolute top-4 right-4 z-20 animate-pulse">
+              <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">🎁 Prévia do Curso</div>
             </div>
+
+            {shouldLoadVideo ? <video ref={videoRef} className="w-full aspect-video rounded-2xl shadow-2xl" playsInline preload="metadata" poster={videoPoster} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} aria-label="Aula gratuita de informática - Veja como é fácil aprender">
+                <source src={heroVideo} type="video/mp4" />
+                Seu navegador não suporta vídeos HTML5.
+              </video> : <div className="w-full aspect-video rounded-2xl bg-cover bg-center shadow-2xl" style={{
+            backgroundImage: `url(${videoPoster})`
+          }} role="img" aria-label="Capa da aula gratuita de informática" />}
+            
+            {!isPlaying && <div className="absolute inset-0 flex items-center justify-center cursor-pointer group" onClick={handlePlayClick} role="button" aria-label="Reproduzir aula gratuita">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/70 hover:bg-black/60 hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
+                  <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
+                </div>
+              </div>}
           </div>
 
           {/* Texto abaixo do vídeo */}
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
-            Aulas passo a passo, <span className="text-primary font-black">simples</span> <span className="text-primary font-black">e</span> <span className="text-primary font-black">Práticas</span> - Começando do <span className="text-primary font-black">Zero</span><span className="text-primary font-black">!</span>
+            Do <span className="text-primary font-black">zero ao profissional</span> — aulas <span className="text-primary font-black">simples e práticas</span> pra você dominar <span className="text-primary font-black">Word</span>, <span className="text-primary font-black">Excel</span> e muito mais.
           </p>
 
-          {/* CTA para seção de preço */}
-          <div className="flex justify-center mb-6">
-            <Button
-              size="lg"
-              onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
-              className="h-14 md:h-16 px-8 md:px-12 text-lg md:text-xl font-black rounded-full bg-success hover:bg-success/90 text-white shadow-[0_8px_30px_rgba(34,197,94,0.45)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.55)] hover:scale-105 transition-all duration-300"
-            >
-              Quero começar a aprender do zero
-            </Button>
+          {/* CTA Principal DESTAQUE */}
+          <div className="mb-6 max-w-2xl mx-auto">
+            <Button size="lg" className="w-full text-sm md:text-xl font-black px-4 md:px-16 py-6 md:py-8 rounded-2xl hover:scale-105 transition-all shadow-[0_12px_40px_hsl(var(--accent)/0.4)] bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent border-2 border-accent/30" onClick={() => (window as any).openCheckout?.()}>💻 Quero começar  meu curso agora</Button>
+            <div className="text-center mt-4 space-y-2">
+              <p className="text-lg md:text-2xl font-black text-foreground">
+                💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas <span className="text-primary">R$ 297,00</span>
+              </p>
+              <p className="text-sm text-muted-foreground font-semibold md:text-base">💳 ou parcele em até 12 x R$ 30,22 (no cartão)</p>
+              <p className="text-sm md:text-base text-accent font-bold mt-2">
+                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
+              </p>
+            </div>
           </div>
 
           {/* Benefícios Principais */}
@@ -90,6 +94,9 @@ export const Hero = () => {
               <span className="font-bold text-sm md:text-base text-foreground">Certificado incluso</span>
             </div>
           </div>
+
+          {/* WhatsApp CTA */}
+          <WhatsAppCTA text="❓ Tire suas dúvidas com a Professora Elisa" className="mt-8" />
 
         </div>
       </div>

@@ -91,6 +91,7 @@ export type Database = {
           created_at: string | null
           email: string
           id: string
+          moodle_password: string | null
           moodle_user_id: number | null
           moodle_username: string | null
           name: string
@@ -103,6 +104,7 @@ export type Database = {
           created_at?: string | null
           email: string
           id?: string
+          moodle_password?: string | null
           moodle_user_id?: number | null
           moodle_username?: string | null
           name: string
@@ -115,6 +117,7 @@ export type Database = {
           created_at?: string | null
           email?: string
           id?: string
+          moodle_password?: string | null
           moodle_user_id?: number | null
           moodle_username?: string | null
           name?: string

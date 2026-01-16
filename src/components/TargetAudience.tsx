@@ -22,10 +22,10 @@ const targetProfiles = [
 
 export const TargetAudience = () => {
   return (
-    <section className="py-6 md:py-10 bg-background">
+    <section className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-6">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
               Para quem é <span className="text-primary">este curso?</span>
             </h2>
@@ -51,7 +51,7 @@ export const TargetAudience = () => {
             ))}
           </div>
 
-          <div className="mt-6 text-center bg-primary/5 border border-primary/20 rounded-2xl p-4 md:p-6">
+          <div className="mt-10 md:mt-12 text-center bg-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8">
             <p className="text-base md:text-lg font-semibold mb-2">
               💡 <span className="text-primary">Não importa sua idade ou experiência</span>
             </p>
