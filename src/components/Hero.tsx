@@ -15,7 +15,7 @@ export const Hero = () => {
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo */}
           <p className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
-            Nunca mexeu no computador? Aprenda <span className="text-primary font-black">Informática</span> do <span className="text-primary font-black">Zero</span>, sem <span className="text-primary font-black">complicação</span>.
+            Quer Aprender <span className="text-primary font-black">Informática</span> de Forma <span className="text-primary font-black">Rápida</span> e sem <span className="text-primary font-black">Enrolação</span>?
           </p>
           
           {/* Vídeo do YouTube em destaque */}
