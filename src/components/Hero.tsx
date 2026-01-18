@@ -72,7 +72,7 @@ export const Hero = () => {
               onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
               className="w-full h-14 md:h-16 text-base md:text-xl lg:text-2xl font-bold rounded-full bg-success text-white shadow-lg hover:shadow-xl hover:bg-success/90 hover:scale-[1.02] transition-all duration-300 mb-4 px-4 md:px-6"
             >
-              Quero começar a aprender do Zero
+              Quero Aprender Informática sem Medo
             </Button>
 
             {/* Benefícios */}
@@ -97,11 +97,11 @@ export const Hero = () => {
 
             {/* Preço */}
             <div className="text-center mb-3">
-              <p className="text-lg md:text-xl font-bold text-foreground">
+              <p className="text-base md:text-lg font-bold text-foreground">
                 💰 De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas{" "}
-                <span className="text-success text-2xl md:text-3xl font-black">R$ 297,00</span>
+                <span className="text-success text-xl md:text-2xl font-black">R$ 297,00</span>
               </p>
-              <p className="text-sm md:text-base text-muted-foreground mt-1">
+              <p className="text-xs md:text-sm text-muted-foreground mt-1">
                 💳 ou parcele em até 12 x R$ 30,22 (no cartão)
               </p>
             </div>
