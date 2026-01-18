@@ -66,6 +66,13 @@ export const Hero = () => {
 
           {/* Seção de Preço - Sem Container */}
           <div className="max-w-xl mx-auto mb-6">
+            {/* Card de destaque */}
+            <div className="bg-primary/10 border border-primary/20 rounded-lg px-4 py-2 mb-3 inline-block">
+              <p className="text-sm md:text-base font-semibold text-primary">
+                💡 Curso pensado para quem nunca teve facilidade com computador
+              </p>
+            </div>
+
             {/* CTA Principal */}
             <Button
               size="lg"
