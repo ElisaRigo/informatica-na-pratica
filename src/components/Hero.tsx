@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Shield, Award, Zap, Play } from "lucide-react";
+import { Shield, Award, Zap, Play, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroVideoThumb from "@/assets/hero-video-cover.png";
 
@@ -88,6 +88,10 @@ export const Hero = () => {
               <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
                 <Award className="w-4 h-4 text-primary" />
                 <span className="font-semibold text-xs md:text-sm text-foreground">Certificado incluso</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Headphones className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-foreground">Suporte ao aluno</span>
               </div>
             </div>
 
