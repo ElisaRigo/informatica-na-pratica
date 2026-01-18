@@ -14,8 +14,8 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto animate-fade-in">
           {/* Texto acima do vídeo */}
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 md:mb-8 leading-tight">
-            Chega de <span className="text-accent font-black">perder oportunidades</span> por não saber usar o <span className="text-primary font-black">computador</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 md:mb-8 leading-tight">
+            Chega de <span className="text-primary font-black">"perder oportunidades"</span> por não saber usar o <span className="text-primary font-black">computador</span>
           </h1>
           
           {/* Vídeo do YouTube em destaque */}
@@ -60,8 +60,8 @@ export const Hero = () => {
           </div>
 
           {/* Texto abaixo do vídeo */}
-          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
-            Aprenda informática do <span className="text-primary font-black">ZERO</span>, <span className="text-success font-black">sem medo</span>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-tight">
+            Aprenda informática do <span className="text-primary font-black">"ZERO"</span>, <span className="text-primary font-black">sem medo!</span>
           </p>
 
           {/* Seção de Preço - Sem Container */}
