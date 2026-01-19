@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { SupportBanner } from "@/components/SupportBanner";
 import { EasyToLearn } from "@/components/EasyToLearn";
+import { HeroCTA } from "@/components/HeroCTA";
 import { CoursePreview } from "@/components/CoursePreview";
 import { PriceHighlight } from "@/components/PriceHighlight";
 import { AboutSection } from "@/components/AboutSection";
@@ -14,7 +15,6 @@ import { CourseContent } from "@/components/CourseContent";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { FreeLessonExcel } from "@/components/FreeLessonExcel";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
-
 // Lazy load componentes com prefetch
 const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
 const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
@@ -46,6 +46,9 @@ const Index = () => {
       
       {/* VEJA COMO É FÁCIL APRENDER - Tirar medo */}
       <EasyToLearn />
+      
+      {/* CTA + PREÇO - Movido para depois do EasyToLearn */}
+      <HeroCTA />
       
       {/* 2️⃣ VÍDEO - Aprenda comigo no seu ritmo */}
       <CoursePreview />
