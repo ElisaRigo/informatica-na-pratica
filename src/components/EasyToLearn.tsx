@@ -113,100 +113,26 @@ export const EasyToLearn = () => {
             </div>
           </div>
 
-          {/* Seção de Vantagens + Preço */}
+          {/* Seção de Preço */}
           <div className="max-w-2xl mx-auto mt-10">
-            {/* Título da oferta */}
+            {/* Frase de impacto */}
             <div className="text-center mb-6">
-              <p className="text-primary font-bold uppercase tracking-wide text-sm mb-2">
-                ✨ Oferta Especial por Tempo Limitado
-              </p>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-foreground">
-                Tudo isso por um valor <span className="text-primary">imperdível!</span>
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-tight">
+                🚀 Invista em você por <span className="text-primary">menos de R$ 1 por dia</span> e transforme sua vida!
               </h3>
-            </div>
-
-            {/* Lista de Vantagens */}
-            <div className="bg-panel border border-border rounded-2xl p-6 md:p-8 mb-6">
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle className="w-4 h-4 text-success" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">Curso Completo de Informática</p>
-                    <p className="text-sm text-muted-foreground">Word, Excel, PowerPoint, Internet e mais</p>
-                  </div>
-                  <span className="ml-auto text-sm text-muted-foreground line-through">R$ 297</span>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle className="w-4 h-4 text-success" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">Acesso Vitalício</p>
-                    <p className="text-sm text-muted-foreground">Estude quando e onde quiser, para sempre</p>
-                  </div>
-                  <span className="ml-auto text-sm text-muted-foreground line-through">R$ 97</span>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle className="w-4 h-4 text-success" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">Certificado de Conclusão</p>
-                    <p className="text-sm text-muted-foreground">Reconhecido e válido para o mercado</p>
-                  </div>
-                  <span className="ml-auto text-sm text-muted-foreground line-through">R$ 47</span>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle className="w-4 h-4 text-success" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">Suporte Direto com a Professora</p>
-                    <p className="text-sm text-muted-foreground">Tire suas dúvidas pelo WhatsApp</p>
-                  </div>
-                  <span className="ml-auto text-sm text-muted-foreground line-through">R$ 97</span>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle className="w-4 h-4 text-success" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">Garantia de 7 Dias</p>
-                    <p className="text-sm text-muted-foreground">Se não gostar, devolvemos seu dinheiro</p>
-                  </div>
-                  <span className="ml-auto text-sm text-primary font-bold">GRÁTIS</span>
-                </div>
-
-                {/* Linha divisória */}
-                <div className="border-t border-border pt-4 mt-4">
-                  <div className="flex items-center justify-between">
-                    <p className="font-bold text-foreground">Valor Total:</p>
-                    <span className="text-lg text-muted-foreground line-through">R$ 538,00</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Card de Preço Final */}
             <div className="bg-gradient-to-br from-success/10 to-primary/10 border-2 border-success/30 rounded-2xl p-6 md:p-8 text-center shadow-xl">
-              <p className="text-sm md:text-base font-semibold text-foreground mb-2">
-                🎉 Apenas HOJE você leva tudo isso por:
-              </p>
               <div className="mb-3">
-                <span className="text-lg text-muted-foreground line-through mr-2">R$ 538,00</span>
+                <span className="text-lg text-muted-foreground line-through mr-2">R$ 497,00</span>
                 <span className="text-4xl md:text-5xl font-black text-success">R$ 297,00</span>
               </div>
               <p className="text-sm text-muted-foreground mb-4">
                 💳 ou parcele em até <strong>12x de R$ 30,22</strong> no cartão
               </p>
               <p className="text-sm md:text-base font-semibold text-accent mb-5">
-                🔥 Economize mais de R$ 200 aproveitando agora!
+                🔥 Aproveite o valor promocional de hoje!
               </p>
               <button
                 onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
