@@ -123,9 +123,15 @@ export const EasyToLearn = () => {
               <p className="text-xs md:text-sm text-muted-foreground mb-3">
                 💳 ou parcele em até 12 x R$ 30,22 (no cartão)
               </p>
-              <p className="text-sm md:text-base font-semibold text-accent">
+              <p className="text-sm md:text-base font-semibold text-accent mb-4">
                 🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
               </p>
+              <button
+                onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full h-14 md:h-16 text-lg md:text-2xl font-bold rounded-full bg-success text-white shadow-lg hover:shadow-xl hover:bg-success/90 hover:scale-[1.02] transition-all duration-300"
+              >
+                Quero Aprender Informática sem Medo
+              </button>
             </div>
           </div>
         </div>
