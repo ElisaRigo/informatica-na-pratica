@@ -102,22 +102,6 @@ export const Hero = () => {
               </div>
             </div>
 
-            {/* Preço */}
-            <div className="text-center mb-2">
-              <p className="text-base md:text-lg font-bold text-foreground">
-                💰 De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas{" "}
-                <span className="text-success text-xl md:text-2xl font-black">R$ 297,00</span>
-              </p>
-              <p className="text-xs md:text-sm text-muted-foreground mt-1">
-                💳 ou parcele em até 12 x R$ 30,22 (no cartão)
-              </p>
-            </div>
-
-            {/* Urgência */}
-            <p className="text-center text-sm md:text-base font-semibold text-accent mb-3">
-              🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
-            </p>
-
             {/* WhatsApp */}
             <a
               href="https://wa.me/5500000000000?text=Olá! Tenho dúvidas sobre o curso."

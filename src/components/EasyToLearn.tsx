@@ -112,6 +112,22 @@ export const EasyToLearn = () => {
               <span className="text-sm md:text-base font-medium">Sem complicação</span>
             </div>
           </div>
+
+          {/* Seção de Preço */}
+          <div className="max-w-xl mx-auto mt-8 text-center">
+            <div className="bg-background/80 border border-border rounded-xl p-6 shadow-lg">
+              <p className="text-base md:text-lg font-bold text-foreground mb-2">
+                💰 De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas{" "}
+                <span className="text-success text-xl md:text-2xl font-black">R$ 297,00</span>
+              </p>
+              <p className="text-xs md:text-sm text-muted-foreground mb-3">
+                💳 ou parcele em até 12 x R$ 30,22 (no cartão)
+              </p>
+              <p className="text-sm md:text-base font-semibold text-accent">
+                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
