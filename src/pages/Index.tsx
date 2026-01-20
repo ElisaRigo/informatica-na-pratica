@@ -1,7 +1,10 @@
 import { lazy, Suspense, memo } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { SupportBanner } from "@/components/SupportBanner";
+import { EasyToLearn } from "@/components/EasyToLearn";
 import { CoursePreview } from "@/components/CoursePreview";
+import { PriceHighlight } from "@/components/PriceHighlight";
 import { AboutSection } from "@/components/AboutSection";
 import { Authority } from "@/components/Authority";
 import { Footer } from "@/components/Footer";
@@ -38,25 +41,34 @@ const Index = () => {
       <Header />
       <Hero />
       
-      {/* 2️⃣ VÍDEO - Conheça o Curso por Dentro */}
+      {/* SUPORTE - Banner de confiança */}
+      <SupportBanner />
+      
+      {/* VEJA COMO É FÁCIL APRENDER - Tirar medo */}
+      <EasyToLearn />
+      
+      {/* 2️⃣ VÍDEO - Aprenda comigo no seu ritmo */}
       <CoursePreview />
       
-      {/* 3️⃣ AULA GRATUITA DE EXCEL */}
-      <FreeLessonExcel />
-      
-      {/* 4️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais (única seção combinada) */}
+      {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
       <CourseContent />
       
-      {/* 5️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
+      {/* PREÇO EM DESTAQUE */}
+      <PriceHighlight />
+      
+      {/* 4️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
       <Authority />
+      
+      {/* 5️⃣ DEPOIMENTOS - Prova Social */}
+      <Testimonials />
       
       {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
       <Suspense fallback={<LoadingFallback />}>
         <Bonus />
       </Suspense>
       
-      {/* 7️⃣ DEPOIMENTOS - Prova Social */}
-      <Testimonials />
+      {/* 7️⃣ AULA GRATUITA DE EXCEL */}
+      <FreeLessonExcel />
       
       {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
       <Suspense fallback={<LoadingFallback />}>

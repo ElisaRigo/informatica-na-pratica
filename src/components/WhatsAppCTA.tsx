@@ -3,11 +3,13 @@ import { MessageCircle } from "lucide-react";
 interface WhatsAppCTAProps {
   text?: string;
   className?: string;
+  isPulsing?: boolean;
 }
 
 export const WhatsAppCTA = ({ 
   text = "💬 Fale com a Professora Elisa no WhatsApp", 
-  className = "" 
+  className = "",
+  isPulsing = false
 }: WhatsAppCTAProps) => {
   const handleWhatsAppClick = () => {
     const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
@@ -29,7 +31,7 @@ export const WhatsAppCTA = ({
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleWhatsAppClick}
-        className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-6 md:px-8 py-4 md:py-5 rounded-2xl shadow-lg transition-all hover:scale-105 text-base md:text-lg group"
+        className={`inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-6 md:px-8 py-4 md:py-5 rounded-2xl shadow-lg transition-all hover:scale-105 text-base md:text-lg group ${isPulsing ? 'animate-pulse' : ''}`}
       >
         <MessageCircle className="w-6 h-6 md:w-7 md:h-7 group-hover:animate-bounce" />
         <span>{text}</span>
