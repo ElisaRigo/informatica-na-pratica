@@ -83,12 +83,12 @@ const faqs = [
 
 export const FAQ = () => {
   return (
-    <section id="faq" className="py-8 md:py-12">
+    <section id="faq" className="py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-6">
+        <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
           Dúvidas frequentes
         </h2>
-        <Accordion type="single" collapsible className="max-w-3xl mx-auto space-y-3 mb-6">
+        <Accordion type="single" collapsible className="max-w-3xl mx-auto space-y-4 mb-12">
           {faqs.map((faq, index) => (
             <AccordionItem 
               key={index} 
