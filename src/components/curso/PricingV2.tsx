@@ -12,9 +12,10 @@ const included = [
 ];
 
 const bonuses = [
-  { icon: Gift, text: "BÔNUS: Atalhos que economizam tempo", value: "R$ 97" },
-  { icon: Gift, text: "BÔNUS: Guia de segurança na internet", value: "R$ 47" },
-  { icon: Gift, text: "BÔNUS: Comunidade exclusiva no WhatsApp", value: "R$ 97" },
+  { icon: Gift, text: "BÔNUS: E-mail Profissional", value: "R$ 97" },
+  { icon: Gift, text: "BÔNUS: Mercado de Trabalho", value: "R$ 127" },
+  { icon: Gift, text: "BÔNUS: Atalhos Essenciais", value: "R$ 47" },
+  { icon: Gift, text: "BÔNUS: Currículo Profissional", value: "R$ 97" },
 ];
 
 export const PricingV2 = () => {
