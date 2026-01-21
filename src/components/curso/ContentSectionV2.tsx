@@ -11,37 +11,31 @@ const modules = [
     icon: windowsIcon,
     title: "Windows e Organização",
     description: "Organize arquivos e use o computador com segurança e autonomia.",
-    lessons: "12 aulas",
   },
   {
     icon: wordIcon,
     title: "Word Profissional",
     description: "Crie documentos e currículos impecáveis, que impressionam recrutadores.",
-    lessons: "15 aulas",
   },
   {
     icon: excelIcon,
     title: "Excel na Prática",
     description: "Monte planilhas profissionais e domine fórmulas com confiança.",
-    lessons: "18 aulas",
   },
   {
     icon: powerpointIcon,
     title: "PowerPoint Impactante",
     description: "Faça apresentações bonitas e eficazes, mesmo sem experiência.",
-    lessons: "10 aulas",
   },
   {
     icon: internetIcon,
     title: "Internet e E-mail",
     description: "Navegue, pesquise e se comunique com segurança no dia a dia e no trabalho.",
-    lessons: "8 aulas",
   },
   {
     icon: typingIcon,
     title: "Digitação Profissional",
     description: "Ganhe velocidade e produtividade para se destacar no trabalho.",
-    lessons: "6 aulas",
   },
 ];
 
@@ -59,7 +53,7 @@ export const ContentSectionV2 = () => {
             <span className="text-primary">dominar</span> o computador
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            +90 videoaulas passo a passo, do básico ao avançado, com explicações simples que qualquer pessoa consegue acompanhar.
+            +90 videoaulas passo a passo, do básico ao mercado de trabalho, com explicações simples que qualquer pessoa consegue acompanhar.
           </p>
         </div>
 
@@ -83,8 +77,7 @@ export const ContentSectionV2 = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-foreground mb-1">{module.title}</h3>
-                    <span className="text-sm text-primary font-medium">{module.lessons}</span>
+                    <h3 className="text-xl font-bold text-foreground">{module.title}</h3>
                   </div>
                 </div>
                 

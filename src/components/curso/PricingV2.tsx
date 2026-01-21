@@ -1,7 +1,7 @@
 import { Check, Zap, Shield, Gift, Clock, Award, Users, Headphones } from "lucide-react";
 
 const included = [
-  { icon: Check, text: "Acesso completo a +70 videoaulas" },
+  { icon: Check, text: "Acesso completo a +90 videoaulas" },
   { icon: Check, text: "Windows, Word, Excel, PowerPoint, Internet" },
   { icon: Check, text: "Módulo de Digitação Profissional" },
   { icon: Check, text: "Certificado de conclusão" },
@@ -113,7 +113,7 @@ export const PricingV2 = () => {
                     {[
                       { icon: Clock, text: "2 anos de acesso" },
                       { icon: Award, text: "Certificado incluso" },
-                      { icon: Users, text: "+2.000 alunos" },
+                      { icon: Users, text: "+15.000 alunos" },
                       { icon: Headphones, text: "Suporte humanizado" },
                     ].map((badge, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground bg-slate-50 rounded-lg p-2">

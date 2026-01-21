@@ -114,7 +114,7 @@ export const EasyToLearnV2 = () => {
 
           {/* Benefits below video */}
           <div className="flex flex-wrap gap-4 md:gap-6 justify-center mb-10">
-            {["Linguagem simples", "Passo a passo", "Sem complicação", "Do zero ao avançado"].map((benefit, index) => (
+            {["Linguagem simples", "Passo a passo", "Sem complicação", "Do zero ao mercado de trabalho"].map((benefit, index) => (
               <div key={index} className="flex items-center gap-2 bg-slate-800/60 border border-slate-700 px-4 py-2 rounded-full">
                 <CheckCircle2 className="w-5 h-5 text-primary" />
                 <span className="text-sm md:text-base font-medium text-white">{benefit}</span>
