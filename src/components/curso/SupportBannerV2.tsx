@@ -26,7 +26,7 @@ export const SupportBannerV2 = () => {
 
           {/* Emotional subtitle */}
           <p className="text-base md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
-            Sabemos que aprender algo novo pode parecer assustador. Por isso, você terá 
+            Eu sei que aprender algo novo pode parecer assustador. Por isso, você terá 
             <strong className="text-white"> suporte via WhatsApp</strong> para tirar 
             <strong className="text-white"> todas as suas dúvidas</strong>.
           </p>

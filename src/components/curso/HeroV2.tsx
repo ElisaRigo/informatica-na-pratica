@@ -57,7 +57,7 @@ export const HeroV2 = () => {
               </span>
             </span>
           </h1>
-          <p className="text-base md:text-2xl lg:text-3xl text-slate-300 font-medium mb-2">
+          <p className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium mb-2">
             Mesmo começando do zero
           </p>
           <p className="text-[10px] md:text-xs text-slate-500 max-w-md mx-auto px-4">
