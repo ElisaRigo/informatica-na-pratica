@@ -48,6 +48,9 @@ export const HeroV2 = () => {
             O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
+          <p className="text-xs text-slate-500 mt-3 max-w-2xl mx-auto">
+            *Resultados podem variar de acordo com a dedicação e ritmo de cada aluno. O prazo de 30 dias é uma estimativa baseada em estudos de 1h por dia.
+          </p>
         </div>
 
         {/* Video Container */}
