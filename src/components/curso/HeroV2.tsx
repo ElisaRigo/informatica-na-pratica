@@ -35,7 +35,12 @@ export const HeroV2 = () => {
       <div className="container mx-auto px-4 py-4 md:py-8 relative z-10">
         {/* Logo */}
         <div className="flex justify-center mb-3 md:mb-6">
-          <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 lg:h-28" />
+          <div className="relative group">
+            <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-white/20 shadow-lg">
+              <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-lg" />
+            </div>
+          </div>
         </div>
 
         {/* Headline principal */}
