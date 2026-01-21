@@ -17,7 +17,7 @@ export const HeroV2 = () => {
       <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <img src={logo} alt="Informática na Prática" className="h-12 md:h-16" />
+          <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 lg:h-28" />
         </div>
 
         {/* Badge de urgência */}
