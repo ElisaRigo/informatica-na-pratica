@@ -44,17 +44,10 @@ export const HeroV2 = () => {
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
-            assim como você, tinham medo de errar e vergonha de pedir ajuda.
-          </p>
-          <p className="text-xs text-slate-500 mt-3 max-w-2xl mx-auto">
-            *Resultados podem variar de acordo com a dedicação e ritmo de cada aluno. O prazo de 30 dias é uma estimativa baseada em estudos de 1h por dia.
-          </p>
         </div>
 
         {/* Video Container - Mesmo da Home */}
-        <div className="max-w-4xl mx-auto mb-8">
+        <div className="max-w-4xl mx-auto mb-6">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
             {!isPlaying ? (
               <div 
@@ -96,6 +89,15 @@ export const HeroV2 = () => {
               </div>
             )}
           </div>
+          
+          {/* Texto de prova social abaixo do vídeo */}
+          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-6">
+            O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
+            assim como você, tinham medo de errar e vergonha de pedir ajuda.
+          </p>
+          <p className="text-xs text-slate-500 mt-3 max-w-2xl mx-auto text-center">
+            *Resultados podem variar de acordo com a dedicação e ritmo de cada aluno. O prazo de 30 dias é uma estimativa baseada em estudos de 1h por dia.
+          </p>
         </div>
 
         {/* Preço na Hero */}
