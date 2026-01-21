@@ -1,20 +1,25 @@
 import { Play, Shield, Clock, Award, Users } from "lucide-react";
 import { useState, useRef } from "react";
+import logo from "@/assets/logo.png";
 
 export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLIFrameElement>(null);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-primary/20 overflow-hidden">
-      {/* Animated background elements */}
+    <section className="relative min-h-screen bg-slate-900 overflow-hidden">
+      {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/5 to-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
+      <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+        {/* Logo */}
+        <div className="flex justify-center mb-6">
+          <img src={logo} alt="Informática na Prática" className="h-12 md:h-16" />
+        </div>
+
         {/* Badge de urgência */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 bg-warning/20 border border-warning/40 text-warning px-4 py-2 rounded-full text-sm font-bold animate-pulse">
@@ -40,7 +45,7 @@ export const HeroV2 = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            O método passo a passo que já transformou a vida de <strong className="text-white">+2.000 alunos</strong> que, 
+            O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
         </div>
@@ -109,7 +114,7 @@ export const HeroV2 = () => {
             { icon: Clock, label: "Acesso por 2 Anos", sublabel: "Estude no seu ritmo" },
             { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
             { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+2.000 Alunos", sublabel: "Comunidade ativa" },
+            { icon: Users, label: "+15.000 Alunos", sublabel: "Comunidade ativa" },
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
               <item.icon className="w-8 h-8 text-primary mb-2" />
