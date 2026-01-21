@@ -70,7 +70,7 @@ export const HeroV2 = () => {
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
             {!isPlaying ? (
               <div 
-                className="relative aspect-video bg-slate-800 cursor-pointer group"
+                className="relative aspect-video cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
                 <img 
@@ -79,7 +79,6 @@ export const HeroV2 = () => {
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all" />
                 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
