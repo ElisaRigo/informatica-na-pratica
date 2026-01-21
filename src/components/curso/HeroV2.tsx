@@ -40,7 +40,7 @@ export const HeroV2 = () => {
 
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-2 md:mb-4">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2 md:mb-4">
             <span className="block">Domine o Computador</span>
             <span className="block">
               em{" "}
