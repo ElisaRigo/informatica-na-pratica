@@ -67,7 +67,7 @@ export const TestimonialsV2 = () => {
           </span>
           
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-            Mais de <span className="text-accent">2.000 vidas</span> transformadas
+            Mais de <span className="text-accent">15.000 vidas</span> transformadas
           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
             Veja o que nossos alunos estão dizendo sobre o curso
