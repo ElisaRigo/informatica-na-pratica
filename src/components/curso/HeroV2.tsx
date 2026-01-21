@@ -113,7 +113,7 @@ export const HeroV2 = () => {
           {/* Quick Navigation CTAs */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-4">
             <button
-              onClick={() => setIsPlaying(true)}
+              onClick={() => document.getElementById('aula-gratis')?.scrollIntoView({ behavior: 'smooth' })}
               className="flex items-center gap-1.5 bg-primary/20 hover:bg-primary/30 border border-primary/40 text-primary px-3 py-2 md:px-4 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105"
             >
               <Play className="w-3.5 h-3.5 md:w-4 md:h-4" />

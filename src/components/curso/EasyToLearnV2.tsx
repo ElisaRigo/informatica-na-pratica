@@ -32,7 +32,7 @@ export const EasyToLearnV2 = () => {
   };
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 relative overflow-hidden">
+    <section id="aula-gratis" className="py-12 md:py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent opacity-40" />
       
