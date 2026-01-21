@@ -1,4 +1,4 @@
-import { Play, Shield, Clock, Award, Users } from "lucide-react";
+import { Play, Shield, Clock, Award, Users, BookOpen, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -105,10 +105,35 @@ export const HeroV2 = () => {
           </div>
           
           {/* Texto de prova social abaixo do vídeo */}
-          <p className="text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-4 px-2">
+          <p className="text-sm md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
             O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
+
+          {/* Quick Navigation CTAs */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-4">
+            <button
+              onClick={() => setIsPlaying(true)}
+              className="flex items-center gap-1.5 bg-primary/20 hover:bg-primary/30 border border-primary/40 text-primary px-3 py-2 md:px-4 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105"
+            >
+              <Play className="w-3.5 h-3.5 md:w-4 md:h-4" />
+              Assistir Aula
+            </button>
+            <button
+              onClick={() => document.getElementById('conteudo')?.scrollIntoView({ behavior: 'smooth' })}
+              className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-3 py-2 md:px-4 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105"
+            >
+              <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4" />
+              Ver Conteúdo
+            </button>
+            <button
+              onClick={() => document.getElementById('professora')?.scrollIntoView({ behavior: 'smooth' })}
+              className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-3 py-2 md:px-4 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105"
+            >
+              <GraduationCap className="w-3.5 h-3.5 md:w-4 md:h-4" />
+              Conhecer Professora
+            </button>
+          </div>
         </div>
 
         {/* Preço na Hero */}
