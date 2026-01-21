@@ -15,7 +15,7 @@ export const DisclaimerSection = () => {
               Sobre o Prazo de 30 Dias
             </h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              Transparência é fundamental. Entenda como funciona nossa estimativa de aprendizado.
+              Transparência é fundamental. Entenda como funciona minha estimativa de aprendizado.
             </p>
           </div>
 
@@ -30,9 +30,9 @@ export const DisclaimerSection = () => {
                   O prazo de "30 dias" é uma estimativa
                 </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  O período de 30 dias mencionado em nossos materiais de divulgação é uma <strong>estimativa baseada 
+                  O período de 30 dias mencionado nos meus materiais de divulgação é uma <strong>estimativa baseada 
                   em estudos de aproximadamente 1 hora por dia</strong>. Este prazo foi calculado considerando o 
-                  progresso médio de nossos alunos que seguem o cronograma sugerido.
+                  progresso médio dos meus alunos que seguem o cronograma sugerido.
                 </p>
               </div>
             </div>
@@ -84,7 +84,7 @@ export const DisclaimerSection = () => {
                   <li>• O prazo de 30 dias <strong>não é uma garantia</strong> de domínio completo do conteúdo.</li>
                   <li>• Resultados variam conforme a dedicação, disponibilidade e ritmo de aprendizado de cada aluno.</li>
                   <li>• O curso oferece todo o conteúdo necessário, mas o progresso depende do esforço individual.</li>
-                  <li>• Oferecemos <strong>garantia de 7 dias</strong> para reembolso integral caso não esteja satisfeito.</li>
+                  <li>• Ofereço <strong>garantia de 7 dias</strong> para reembolso integral caso não esteja satisfeito.</li>
                 </ul>
               </div>
             </div>
@@ -92,7 +92,7 @@ export const DisclaimerSection = () => {
 
           {/* Reassurance */}
           <p className="text-center text-slate-500 text-sm mt-6">
-            📚 Nosso compromisso é fornecer o melhor conteúdo e suporte para sua jornada de aprendizado.
+            📚 Meu compromisso é fornecer o melhor conteúdo e suporte para sua jornada de aprendizado.
           </p>
         </div>
       </div>
