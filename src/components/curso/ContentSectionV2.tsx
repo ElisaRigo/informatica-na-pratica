@@ -83,10 +83,6 @@ export const ContentSectionV2 = () => {
                 
                 <p className="text-muted-foreground">{module.description}</p>
                 
-                <div className="mt-4 flex items-center gap-2 text-sm text-accent font-medium">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>Acesso vitalício</span>
-                </div>
               </div>
             </div>
           ))}
