@@ -46,6 +46,29 @@ export const TermosDeUso = () => {
           </section>
 
           <section>
+            <h2 className="text-2xl font-bold text-foreground mb-3">3. Esclarecimento sobre o Prazo de 30 Dias</h2>
+            <p className="mb-2">
+              O prazo de "30 dias" mencionado em nossos materiais de divulgação é uma <strong>estimativa baseada em estudos 
+              de aproximadamente 1 hora por dia</strong>, considerando um aluno com dedicação regular e ambiente adequado de estudo.
+            </p>
+            <p className="mb-2">
+              Este prazo <strong>não constitui promessa ou garantia</strong> de que todos os alunos dominarão completamente 
+              todos os conteúdos neste período. Cada pessoa possui seu próprio ritmo de aprendizado, e fatores como 
+              disponibilidade de tempo, familiaridade prévia com tecnologia e frequência de prática podem influenciar 
+              significativamente o tempo necessário para conclusão.
+            </p>
+            <p className="mb-2">
+              O aluno declara estar ciente de que:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mb-4">
+              <li>O prazo de 30 dias é uma estimativa, não uma garantia;</li>
+              <li>Os resultados dependem do seu esforço e dedicação individual;</li>
+              <li>O acesso ao curso é válido por 2 anos, permitindo que estude no seu próprio ritmo;</li>
+              <li>Não há penalidades ou limitações caso o aluno necessite de mais tempo para concluir o curso.</li>
+            </ul>
+          </section>
+
+          <section>
             <h2 className="text-2xl font-bold text-foreground mb-3">3. Uso da Plataforma</h2>
             <p className="mb-2">
               O acesso ao curso é pessoal e intransferível. O aluno se compromete a:
