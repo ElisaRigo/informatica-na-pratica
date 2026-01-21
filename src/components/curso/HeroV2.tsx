@@ -45,7 +45,7 @@ export const HeroV2 = () => {
 
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-2 md:mb-4">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2 md:mb-4">
             <span className="block">Domine o Computador</span>
             <span className="block">
               em{" "}
@@ -57,7 +57,7 @@ export const HeroV2 = () => {
               </span>
             </span>
           </h1>
-          <p className="text-xl md:text-4xl lg:text-5xl text-slate-300 font-medium mb-2">
+          <p className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium mb-2">
             Mesmo começando do zero
           </p>
           <p className="text-[10px] md:text-xs text-slate-500 max-w-md mx-auto px-4">
