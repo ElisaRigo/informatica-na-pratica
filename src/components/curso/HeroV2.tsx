@@ -1,6 +1,6 @@
 import { Play, Shield, Clock, Award, Users, BookOpen, GraduationCap } from "lucide-react";
 import { useState } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
 
 export const HeroV2 = () => {
@@ -35,7 +35,7 @@ export const HeroV2 = () => {
       <div className="container mx-auto px-4 py-4 md:py-8 relative z-10">
         {/* Logo */}
         <div className="flex justify-center mb-3 md:mb-6">
-          <img src={logo} alt="Informática na Prática" className="h-12 md:h-20 lg:h-24" />
+          <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 lg:h-28" />
         </div>
 
         {/* Headline principal */}
