@@ -52,7 +52,7 @@ export const InstructorSection = () => {
             {/* Content */}
             <div>
               <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                👩‍🏫 Sua Instrutora
+                👩‍🏫 Sua Professora
               </span>
 
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
