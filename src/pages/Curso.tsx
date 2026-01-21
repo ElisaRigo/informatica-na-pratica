@@ -5,9 +5,11 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 // Componentes da nova página
 import { HeroV2 } from "@/components/curso/HeroV2";
 import { ProblemSection } from "@/components/curso/ProblemSection";
+import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
 import { TransformationSection } from "@/components/curso/TransformationSection";
 import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
 import { InstructorSection } from "@/components/curso/InstructorSection";
+import { EasyToLearnV2 } from "@/components/curso/EasyToLearnV2";
 import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
 import { PricingV2 } from "@/components/curso/PricingV2";
 import { FAQV2 } from "@/components/curso/FAQV2";
@@ -28,25 +30,31 @@ const Curso = () => {
       {/* 2️⃣ PROBLEMA - Identifique a dor */}
       <ProblemSection />
       
-      {/* 3️⃣ TRANSFORMAÇÃO - Mostre o depois */}
+      {/* 3️⃣ SUPORTE - Você não está sozinho */}
+      <SupportBannerV2 />
+      
+      {/* 4️⃣ TRANSFORMAÇÃO - Mostre o depois */}
       <TransformationSection />
       
-      {/* 4️⃣ CONTEÚDO - O que está incluído */}
+      {/* 5️⃣ CONTEÚDO - O que está incluído */}
       <ContentSectionV2 />
       
-      {/* 5️⃣ INSTRUTORA - Autoridade */}
+      {/* 6️⃣ INSTRUTORA - Autoridade */}
       <InstructorSection />
       
-      {/* 6️⃣ DEPOIMENTOS - Prova social */}
+      {/* 7️⃣ MEDO DE APRENDER - Prova que é fácil */}
+      <EasyToLearnV2 />
+      
+      {/* 8️⃣ DEPOIMENTOS - Prova social */}
       <TestimonialsV2 />
       
-      {/* 7️⃣ PREÇO - Oferta + Garantia */}
+      {/* 9️⃣ PREÇO - Oferta + Garantia */}
       <PricingV2 />
       
-      {/* 8️⃣ FAQ - Quebre objeções */}
+      {/* 🔟 FAQ - Quebre objeções */}
       <FAQV2 />
       
-      {/* 9️⃣ CTA FINAL - Última chamada */}
+      {/* 1️⃣1️⃣ CTA FINAL - Última chamada */}
       <FinalCTA />
       
       {/* FOOTER */}
