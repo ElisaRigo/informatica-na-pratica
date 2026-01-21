@@ -15,6 +15,7 @@ import { PricingV2 } from "@/components/curso/PricingV2";
 import { FAQV2 } from "@/components/curso/FAQV2";
 import { FinalCTA } from "@/components/curso/FinalCTA";
 import { FooterV2 } from "@/components/curso/FooterV2";
+import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 
 const Curso = () => {
   const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
@@ -54,7 +55,10 @@ const Curso = () => {
       {/* 🔟 FAQ - Quebre objeções */}
       <FAQV2 />
       
-      {/* 1️⃣1️⃣ CTA FINAL - Última chamada */}
+      {/* 1️⃣1️⃣ DISCLAIMER - Proteção legal sobre o prazo */}
+      <DisclaimerSection />
+      
+      {/* 1️⃣2️⃣ CTA FINAL - Última chamada */}
       <FinalCTA />
       
       {/* FOOTER */}
