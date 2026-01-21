@@ -76,10 +76,10 @@ export const HeroV2 = () => {
                   </div>
                 </div>
 
-                {/* Badge Conheça o Curso */}
-                <div className="absolute bottom-3 right-3 z-20 animate-pulse">
-                  <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">
-                    🎓 Conheça o Curso!
+                {/* Badge Assista Agora */}
+                <div className="absolute top-3 right-3 z-20 animate-pulse">
+                  <div className="bg-destructive text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-lg">
+                    ▶ ASSISTA AGORA
                   </div>
                 </div>
               </div>
