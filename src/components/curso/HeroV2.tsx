@@ -1,7 +1,7 @@
 import { Play, Shield, Clock, Award, Users } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
-import heroVideoThumb from "@/assets/hero-video-cover.png";
+import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
 
 export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
