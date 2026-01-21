@@ -679,6 +679,14 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
+      {/* Aviso sobre envio dos dados de acesso */}
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4">
+        <p className="text-xs md:text-sm text-blue-800 text-center font-medium flex items-center justify-center gap-2">
+          <span>📧</span>
+          <span>Após a confirmação do pagamento, você receberá os <strong>dados de acesso ao curso</strong> no e-mail informado acima.</span>
+        </p>
+      </div>
+
       {/* Título das Opções */}
       <div className="pt-1">
         <h3 className="text-sm md:text-lg font-black text-center mb-2 md:mb-3 text-foreground">Escolha a forma de pagamento</h3>
