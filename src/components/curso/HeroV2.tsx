@@ -43,7 +43,7 @@ export const HeroV2 = () => {
               Mesmo que você nunca tenha ligado um
             </span>
           </h1>
-          <p className="text-xs text-slate-500 mt-3 max-w-2xl mx-auto">
+          <p className="text-sm text-slate-500 mt-3 max-w-2xl mx-auto">
             *Resultados podem variar de acordo com a dedicação e ritmo de cada aluno. O prazo de 30 dias é uma estimativa baseada em estudos de 1h por dia.
           </p>
         </div>
