@@ -2,7 +2,7 @@ import { ArrowRight, Shield, Clock, Zap } from "lucide-react";
 
 export const FinalCTA = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-primary/30 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
