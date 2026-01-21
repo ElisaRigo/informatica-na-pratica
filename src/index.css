@@ -157,3 +157,18 @@ video::-webkit-media-controls-play-button {
 video::-webkit-media-controls-panel {
   background: linear-gradient(to top, hsl(var(--background) / 0.85), transparent);
 }
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 15s linear infinite;
+}
