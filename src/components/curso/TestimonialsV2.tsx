@@ -115,7 +115,7 @@ export const TestimonialsV2 = () => {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-12">
           {[
-            { number: "2.147", label: "Alunos" },
+            { number: "15.000+", label: "Alunos" },
             { number: "98%", label: "Satisfação" },
             { number: "4.9", label: "Avaliação" },
           ].map((stat, i) => (

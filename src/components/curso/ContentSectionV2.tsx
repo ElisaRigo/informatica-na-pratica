@@ -59,7 +59,7 @@ export const ContentSectionV2 = () => {
             <span className="text-primary">dominar</span> o computador
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            +70 videoaulas práticas, do básico ao avançado, com explicações simples que qualquer pessoa consegue acompanhar.
+            +90 videoaulas passo a passo, do básico ao avançado, com explicações simples que qualquer pessoa consegue acompanhar.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export const ContentSectionV2 = () => {
           <div className="inline-flex items-center gap-4 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl p-6 md:p-8">
             <div className="text-left">
               <p className="text-lg md:text-xl font-bold mb-1">
-                +70 aulas • +30 horas de conteúdo
+                +90 aulas passo a passo
               </p>
               <p className="text-slate-400 text-sm md:text-base">
                 Certificado de conclusão incluso
