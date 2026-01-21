@@ -17,6 +17,7 @@ const AdminRegister = lazy(() => import("./components/admin/AdminRegister").then
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso").then(m => ({ default: m.TermosDeUso })));
 const PoliticaDePrivacidade = lazy(() => import("./pages/PoliticaDePrivacidade").then(m => ({ default: m.PoliticaDePrivacidade })));
 const GerarLinkMercadoPago = lazy(() => import("./pages/GerarLinkMercadoPago"));
+const Curso = lazy(() => import("./pages/Curso"));
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
             <Route path="/admin" element={<Admin />} />
