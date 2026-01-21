@@ -1,10 +1,10 @@
 import { Play, Shield, Clock, Award, Users } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import logo from "@/assets/logo.png";
+import heroVideoThumb from "@/assets/hero-video-cover.png";
 
 export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLIFrameElement>(null);
 
   return (
     <section className="relative min-h-screen bg-slate-900 overflow-hidden">
@@ -53,42 +53,44 @@ export const HeroV2 = () => {
           </p>
         </div>
 
-        {/* Video Container */}
-        <div className="max-w-4xl mx-auto mb-10">
+        {/* Video Container - Mesmo da Home */}
+        <div className="max-w-4xl mx-auto mb-8">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
-            {/* Video Thumbnail or Embed */}
             {!isPlaying ? (
               <div 
                 className="relative aspect-video bg-slate-800 cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
                 <img 
-                  src="https://img.youtube.com/vi/tsmVK7T59bc/maxresdefault.jpg"
-                  alt="Apresentação do curso"
+                  src={heroVideoThumb}
+                  alt="Prévia do curso de informática"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all" />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all" />
                 
-                {/* Play Button */}
+                {/* Play Button - Estilo da Home */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-2xl shadow-primary/50 group-hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="white" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                    <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                   </div>
                 </div>
 
-                {/* Badge */}
-                <div className="absolute top-4 right-4 bg-destructive text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
-                  ▶ ASSISTA AGORA
+                {/* Badge Conheça o Curso */}
+                <div className="absolute bottom-3 right-3 z-20 animate-pulse">
+                  <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-black text-xs md:text-sm shadow-lg border-2 border-white/30">
+                    🎓 Conheça o Curso!
+                  </div>
                 </div>
               </div>
             ) : (
               <div className="aspect-video">
                 <iframe
-                  ref={videoRef}
-                  src="https://www.youtube.com/embed/tsmVK7T59bc?autoplay=1&rel=0"
-                  title="Apresentação do curso"
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                  title="Veja como é fácil aprender"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
               </div>
@@ -96,19 +98,32 @@ export const HeroV2 = () => {
           </div>
         </div>
 
-        {/* CTA Principal */}
-        <div className="text-center mb-10">
-          <button
-            onClick={() => (window as any).openCheckout?.()}
-            className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-accent to-success text-white font-black text-lg md:text-2xl px-8 md:px-16 py-5 md:py-6 rounded-full shadow-2xl shadow-accent/40 hover:shadow-accent/60 hover:scale-105 transition-all duration-300 overflow-hidden"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative">QUERO COMEÇAR AGORA</span>
-          </button>
-          
-          <p className="text-slate-400 text-sm mt-4">
-            Acesso imediato • Garantia de 7 dias • Pagamento seguro
-          </p>
+        {/* Preço na Hero */}
+        <div className="max-w-xl mx-auto mb-8">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+            <p className="text-lg text-slate-400 mb-2">
+              De <span className="line-through text-slate-500">R$ 497,00</span> por apenas
+            </p>
+            <p className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent mb-2">
+              R$ 297,00
+            </p>
+            <p className="text-sm text-slate-400 mb-5">
+              💳 ou parcele em até <strong className="text-white">12x de R$ 30,22</strong> no cartão
+            </p>
+            
+            {/* CTA Principal */}
+            <button
+              onClick={() => (window as any).openCheckout?.()}
+              className="group relative w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-success to-accent text-white font-black text-lg md:text-xl px-8 py-5 rounded-full shadow-2xl shadow-success/40 hover:shadow-success/60 hover:scale-105 transition-all duration-300 overflow-hidden"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <span className="relative">🎯 QUERO COMEÇAR AGORA!</span>
+            </button>
+            
+            <p className="text-slate-500 text-xs mt-4">
+              🔒 Pagamento 100% seguro • Acesso imediato após a compra
+            </p>
+          </div>
         </div>
 
         {/* Trust Badges */}
