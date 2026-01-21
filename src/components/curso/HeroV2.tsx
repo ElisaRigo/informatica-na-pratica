@@ -40,21 +40,23 @@ export const HeroV2 = () => {
 
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-3 md:mb-4">
-            Domine o Computador em{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                30 Dias
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-2 md:mb-4">
+            <span className="block">Domine o Computador</span>
+            <span className="block">
+              em{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  30 Dias
+                </span>
+                <span className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-primary/30 to-accent/30 -skew-x-12" />
               </span>
-              <span className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-primary/30 to-accent/30 -skew-x-12" />
-            </span>
-            <br />
-            <span className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium mt-2 block">
-              Mesmo que você nunca tenha ligado um
             </span>
           </h1>
-          <p className="text-xs md:text-sm text-slate-500 mt-2 max-w-xl mx-auto px-2">
-            *Resultados podem variar de acordo com a dedicação e ritmo de cada aluno. O prazo de 30 dias é uma estimativa baseada em estudos de 1h por dia.
+          <p className="text-base md:text-2xl lg:text-3xl text-slate-300 font-medium mb-2">
+            Mesmo começando do zero
+          </p>
+          <p className="text-[10px] md:text-xs text-slate-500 max-w-md mx-auto px-4">
+            *Resultados variam conforme dedicação. Estimativa baseada em 1h/dia de estudo.
           </p>
         </div>
 
