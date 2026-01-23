@@ -165,22 +165,22 @@ export const AudioTestimonialsV2 = () => {
               <Smartphone className="w-5 h-5 text-primary" />
               <h3 className="text-lg font-bold text-white">Prints de Conversas</h3>
             </div>
-            <div className="grid gap-4">
+            <div className="grid grid-cols-2 gap-3">
               {whatsappScreenshots.map((screenshot, index) => (
                 <div 
                   key={index} 
-                  className="bg-slate-800 rounded-2xl p-2 shadow-xl max-w-[280px] mx-auto lg:mx-0"
+                  className="bg-slate-800 rounded-xl p-1.5 shadow-xl"
                 >
                   {/* Phone Frame */}
-                  <div className="bg-slate-700 rounded-t-xl pt-2 pb-1 px-4">
+                  <div className="bg-slate-700 rounded-t-lg pt-1.5 pb-0.5 px-3">
                     <div className="flex items-center justify-center">
-                      <div className="w-16 h-1 bg-slate-600 rounded-full"></div>
+                      <div className="w-10 h-0.5 bg-slate-600 rounded-full"></div>
                     </div>
                   </div>
                   <img 
                     src={screenshot.image} 
                     alt={screenshot.description}
-                    className="w-full h-auto rounded-b-lg"
+                    className="w-full h-auto rounded-b-md"
                     loading="lazy"
                   />
                 </div>
