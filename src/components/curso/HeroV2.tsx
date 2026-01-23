@@ -365,11 +365,11 @@ export const HeroV2 = () => {
             ))}
           </div>
 
-          {/* CTA diferenciado - Estilo banner escuro */}
+          {/* CTA diferenciado - Estilo azul claro transparente */}
           <div className="text-center">
             <button
               onClick={() => (window as any).openCheckout?.()}
-              className="group relative w-full max-w-2xl mx-auto flex items-center justify-center gap-2 bg-slate-800/90 backdrop-blur-sm text-white font-semibold text-base md:text-lg px-6 md:px-10 py-4 md:py-5 rounded-full border border-slate-700/50 hover:border-success/50 hover:bg-slate-700/90 transition-all duration-300 shadow-lg"
+              className="group relative w-full max-w-2xl mx-auto flex items-center justify-center gap-2 bg-primary/15 backdrop-blur-sm text-white font-semibold text-base md:text-lg px-6 md:px-10 py-4 md:py-5 rounded-full border border-primary/30 hover:border-primary/50 hover:bg-primary/25 transition-all duration-300 shadow-lg"
             >
               <span className="text-xl text-success">💚</span>
               <span>
