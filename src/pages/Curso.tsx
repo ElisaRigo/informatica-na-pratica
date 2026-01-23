@@ -10,7 +10,7 @@ import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
 import { TransformationSection } from "@/components/curso/TransformationSection";
 import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
 import { InstructorSection } from "@/components/curso/InstructorSection";
-import { EasyToLearnV2 } from "@/components/curso/EasyToLearnV2";
+
 import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
 import { PricingV2 } from "@/components/curso/PricingV2";
 import { FAQV2 } from "@/components/curso/FAQV2";
@@ -47,8 +47,6 @@ const Curso = () => {
       {/* 6️⃣ INSTRUTORA - Autoridade */}
       <InstructorSection />
       
-      {/* 7️⃣ MEDO DE APRENDER - Prova que é fácil */}
-      <EasyToLearnV2 />
       
       {/* 8️⃣ DEPOIMENTOS - Prova social */}
       <TestimonialsV2 />
