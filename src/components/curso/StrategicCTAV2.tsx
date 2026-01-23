@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 interface StrategicCTAV2Props {
   headline?: string;
   buttonText?: string;
-  variant?: "default" | "accent" | "minimal";
+  variant?: "default" | "accent" | "minimal" | "light";
 }
 
 export const StrategicCTAV2 = ({
@@ -11,12 +11,20 @@ export const StrategicCTAV2 = ({
   buttonText = "Quero Aprender Informática sem Medo",
   variant = "default"
 }: StrategicCTAV2Props) => {
+  const isLight = variant === "light";
+  
   return (
-    <section className={`py-8 md:py-12 ${variant === "minimal" ? "bg-slate-800/50" : "bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"}`}>
+    <section className={`py-8 md:py-12 ${
+      isLight 
+        ? "bg-white" 
+        : variant === "minimal" 
+          ? "bg-slate-800/50" 
+          : "bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"
+    }`}>
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
           {/* Headline */}
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-6">
+          <h3 className={`text-2xl md:text-3xl lg:text-4xl font-black mb-6 ${isLight ? "text-slate-900" : "text-white"}`}>
             {headline.includes("!") ? (
               <>
                 {headline.replace("!", "")}
@@ -40,7 +48,7 @@ export const StrategicCTAV2 = ({
           </button>
 
           {/* Trust text */}
-          <p className="text-slate-400 text-xs md:text-sm mt-4">
+          <p className={`text-xs md:text-sm mt-4 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
             🔒 Pagamento seguro • Garantia de 7 dias • Acesso imediato
           </p>
         </div>
