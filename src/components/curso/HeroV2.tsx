@@ -50,7 +50,7 @@ export const HeroV2 = () => {
         {/* Trust Badges */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
           {[
-            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Nunca fica sozinho(a)" },
+            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
             { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
             { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
             { icon: Users, label: "+15.000 Alunos", sublabel: "Comunidade ativa" },
