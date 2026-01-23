@@ -147,7 +147,7 @@ export const HeroV2 = () => {
 
           {/* Video da aula gratuita */}
           {shouldLoadFreeClass && (
-            <div className="relative rounded-xl overflow-hidden shadow-xl border border-primary/30 mb-3">
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
               {!isFreeClassPlaying ? (
                 <div 
                   className="relative aspect-video cursor-pointer group"
@@ -162,18 +162,15 @@ export const HeroV2 = () => {
                   
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-primary/50 rounded-full blur-xl scale-150 animate-pulse" />
-                      <div className="relative w-14 h-14 md:w-18 md:h-18 rounded-full bg-primary/90 shadow-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-primary">
-                        <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1" />
-                      </div>
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                      <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                     </div>
                   </div>
 
                   {/* Badge */}
-                  <div className="absolute bottom-2 right-2 z-20">
-                    <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg border border-white/20">
-                      ▶ Aula Demonstrativa
+                  <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
+                    <div className="bg-destructive text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm shadow-lg">
+                      ▶ AULA GRÁTIS
                     </div>
                   </div>
                 </div>
