@@ -221,23 +221,23 @@ export const HeroV2 = () => {
         {/* Faixa acolhedora acima do preço - Full width */}
         <div className="absolute left-0 right-0 -mx-4 md:-mx-8 lg:-mx-16">
           <div className="bg-gradient-to-r from-primary via-primary/90 to-primary overflow-hidden border-y border-primary/60">
-            <div className="animate-marquee whitespace-nowrap py-3">
-              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
+          <div className="animate-marquee whitespace-nowrap py-3">
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
-              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
-              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
-              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
-              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
-              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
             </div>
