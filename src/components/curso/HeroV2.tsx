@@ -53,7 +53,7 @@ export const HeroV2 = () => {
             { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
             { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
             { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "Comunidade ativa" },
+            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
               <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
