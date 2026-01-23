@@ -29,6 +29,9 @@ export const DisclaimerSection = () => {
                 <h3 className="text-lg font-bold text-slate-800 mb-2">
                   O prazo de "30 dias" é uma estimativa
                 </h3>
+                <p className="text-slate-600 leading-relaxed mb-3">
+                  <em className="text-amber-700 font-medium">*Resultados variam conforme dedicação. Estimativa baseada em 1h/dia de estudo.</em>
+                </p>
                 <p className="text-slate-600 leading-relaxed">
                   O período de 30 dias mencionado nos meus materiais de divulgação é uma <strong>estimativa baseada 
                   em estudos de aproximadamente 1 hora por dia</strong>. Este prazo foi calculado considerando o 

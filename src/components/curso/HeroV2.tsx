@@ -60,12 +60,25 @@ export const HeroV2 = () => {
               </span>
             </span>
           </h1>
-          <p className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium mb-2">
+          <p className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium">
             Mesmo começando do zero
           </p>
-          <p className="text-[10px] md:text-xs text-slate-500 max-w-md mx-auto px-4">
-            *Resultados variam conforme dedicação. Estimativa baseada em 1h/dia de estudo.
-          </p>
+        </div>
+
+        {/* Trust Badges - Movidos para cima */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
+          {[
+            { icon: Clock, label: "Acesso por 2 Anos", sublabel: "Estude no seu ritmo" },
+            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
+            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
+            { icon: Users, label: "+15.000 Alunos", sublabel: "Comunidade ativa" },
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
+            </div>
+          ))}
         </div>
 
         {/* Video Container */}
@@ -117,7 +130,7 @@ export const HeroV2 = () => {
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
 
-          {/* Quick Navigation CTAs */}
+          {/* Quick Navigation CTAs - Movidos para baixo do texto */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-4">
             <button
               onClick={() => document.getElementById('aula-gratis')?.scrollIntoView({ behavior: 'smooth' })}
@@ -171,21 +184,6 @@ export const HeroV2 = () => {
           </div>
         </div>
 
-        {/* Trust Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
-          {[
-            { icon: Clock, label: "Acesso por 2 Anos", sublabel: "Estude no seu ritmo" },
-            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
-            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "Comunidade ativa" },
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
-              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
-              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Scroll indicator - hidden on mobile */}
