@@ -55,11 +55,11 @@ const Curso = () => {
       {/* 🔟 FAQ - Quebre objeções */}
       <FAQV2 />
       
-      {/* 1️⃣1️⃣ DISCLAIMER - Proteção legal sobre o prazo */}
-      <DisclaimerSection />
-      
-      {/* 1️⃣2️⃣ CTA FINAL - Última chamada */}
+      {/* 1️⃣1️⃣ CTA FINAL - Última chamada */}
       <FinalCTA />
+      
+      {/* 1️⃣2️⃣ DISCLAIMER - Proteção legal sobre o prazo (última seção) */}
+      <DisclaimerSection />
       
       {/* FOOTER */}
       <FooterV2 />
