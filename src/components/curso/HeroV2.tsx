@@ -114,25 +114,33 @@ export const HeroV2 = () => {
 
         </div>
 
-        {/* Faixa acolhedora acima do preço */}
-        <div className="max-w-xl mx-auto mb-3 overflow-hidden rounded-full">
-          <div className="bg-primary/20 border border-primary/40 overflow-hidden rounded-full">
-            <div className="animate-marquee whitespace-nowrap py-2">
-              <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+        {/* Faixa acolhedora acima do preço - Full width */}
+        <div className="absolute left-0 right-0 -mx-4 md:-mx-8 lg:-mx-16">
+          <div className="bg-gradient-to-r from-primary via-primary/90 to-primary overflow-hidden border-y border-primary/60">
+            <div className="animate-marquee whitespace-nowrap py-3">
+              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
-              <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
-              <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
-              <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-bold mx-6">
                 ✨ Você é capaz de aprender — Venha comigo!
               </span>
             </div>
           </div>
         </div>
+
+        <div className="h-12 md:h-14"></div>
 
         {/* Preço na Hero */}
         <div className="max-w-xl mx-auto mb-4 md:mb-6">
