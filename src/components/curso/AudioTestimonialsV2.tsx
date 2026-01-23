@@ -3,34 +3,14 @@ import { useState, useRef } from "react";
 
 const audioTestimonials = [
   {
-    name: "Aluna",
-    description: "Depoimento emocionante sobre a transformação",
-    audioSrc: "/audio/aluna.aac",
+    name: "Antonio",
+    description: "Depoimento sobre sua experiência com o curso",
+    audioSrc: "/audio/antonio-1.ogg",
   },
   {
     name: "Antonio",
-    description: "Como o curso mudou sua vida profissional",
-    audioSrc: "/audio/antonio-novo.ogg",
-  },
-  {
-    name: "Maria",
-    description: "Superou o medo do computador",
-    audioSrc: "/audio/depoimento-1.mp4",
-  },
-  {
-    name: "José",
-    description: "Aprendeu do zero e hoje usa no trabalho",
-    audioSrc: "/audio/depoimento-2.ogg",
-  },
-  {
-    name: "Sandra",
-    description: "Gratidão pelo método da professora",
-    audioSrc: "/audio/depoimento-3.ogg",
-  },
-  {
-    name: "Antonio",
-    description: "Recomenda para todos que têm dificuldade",
-    audioSrc: "/audio/antonio.ogg",
+    description: "Continuação do depoimento",
+    audioSrc: "/audio/antonio-2.ogg",
   },
 ];
 
