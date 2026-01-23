@@ -1,33 +1,23 @@
-import { lazy, Suspense, memo } from "react";
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { SupportBanner } from "@/components/SupportBanner";
-import { EasyToLearn } from "@/components/EasyToLearn";
-import { CoursePreview } from "@/components/CoursePreview";
-import { PriceHighlight } from "@/components/PriceHighlight";
-import { AboutSection } from "@/components/AboutSection";
-import { Authority } from "@/components/Authority";
-import { Footer } from "@/components/Footer";
-import { Testimonials } from "@/components/Testimonials";
-import { CheckoutDialog } from "@/components/CheckoutDialog";
-import { CourseContent } from "@/components/CourseContent";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { FreeLessonExcel } from "@/components/FreeLessonExcel";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
+import { CheckoutDialog } from "@/components/CheckoutDialog";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-// Lazy load componentes com prefetch
-const Bonus = lazy(() => import("@/components/Bonus").then(m => ({ default: m.Bonus })));
-const ValueStack = lazy(() => import("@/components/ValueStack").then(m => ({ default: m.ValueStack })));
-const Possibilities = lazy(() => import("@/components/Possibilities").then(m => ({ default: m.Possibilities })));
-const TargetAudience = lazy(() => import("@/components/TargetAudience").then(m => ({ default: m.TargetAudience })));
-const Comparison = lazy(() => import("@/components/Comparison").then(m => ({ default: m.Comparison })));
-const Pricing = lazy(() => import("@/components/Pricing").then(m => ({ default: m.Pricing })));
-const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
-const Guarantee = lazy(() => import("@/components/Guarantee").then(m => ({ default: m.Guarantee })));
-const StrategicCTA = lazy(() => import("@/components/StrategicCTA").then(m => ({ default: m.StrategicCTA })));
+// Componentes da nova página
+import { HeroV2 } from "@/components/curso/HeroV2";
+import { ProblemSection } from "@/components/curso/ProblemSection";
+import { AudioTestimonialsV2 } from "@/components/curso/AudioTestimonialsV2";
+import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
+import { TransformationSection } from "@/components/curso/TransformationSection";
+import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
+import { InstructorSection } from "@/components/curso/InstructorSection";
+import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
 
-// Loading placeholder otimizado
-const LoadingFallback = memo(() => <div className="h-32" />);
+import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
+import { PricingV2 } from "@/components/curso/PricingV2";
+import { FAQV2 } from "@/components/curso/FAQV2";
+import { FinalCTA } from "@/components/curso/FinalCTA";
+import { FooterV2 } from "@/components/curso/FooterV2";
+import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 
 const Index = () => {
   const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
@@ -37,95 +27,62 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
-      {/* 1️⃣ PRIMEIRA DOBRA - Vídeo + Promessa + CTA */}
-      <Header />
-      <Hero />
+      {/* 1️⃣ HERO - Headline forte + Vídeo + CTA */}
+      <HeroV2 />
       
-      {/* SUPORTE - Banner de confiança */}
-      <SupportBanner />
+      {/* 2️⃣ PROBLEMA - Identifique a dor */}
+      <ProblemSection />
       
-      {/* VEJA COMO É FÁCIL APRENDER - Tirar medo */}
-      <EasyToLearn />
+      {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
+      <AudioTestimonialsV2 />
       
-      {/* 2️⃣ VÍDEO - Aprenda comigo no seu ritmo */}
-      <CoursePreview />
+      {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
+      <StrategicCTAV2 
+        headline="Eu também quero aprender!"
+        buttonText="Quero Aprender Informática sem Medo"
+      />
       
-      {/* 3️⃣ O QUE VOCÊ VAI DOMINAR - Conteúdos principais */}
-      <CourseContent />
+      {/* 3️⃣ SUPORTE - Você não está sozinho */}
+      <SupportBannerV2 />
       
-      {/* PREÇO EM DESTAQUE */}
-      <PriceHighlight />
+      {/* 4️⃣ TRANSFORMAÇÃO - Mostre o depois */}
+      <TransformationSection />
       
-      {/* 4️⃣ QUEM É A PROFESSORA ELISA - Autoridade */}
-      <Authority />
+      {/* 5️⃣ CONTEÚDO - O que está incluído */}
+      <ContentSectionV2 />
       
-      {/* 5️⃣ DEPOIMENTOS - Prova Social */}
-      <Testimonials />
+      {/* 6️⃣ INSTRUTORA - Autoridade */}
+      <InstructorSection />
       
-      {/* 6️⃣ BÔNUS - Benefícios extras + Escassez + CTA */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Bonus />
-      </Suspense>
+      {/* 🎯 CTA ESTRATÉGICO 3 - Após conhecer a professora */}
+      <StrategicCTAV2 
+        headline="Quero aprender com a Elisa!"
+        buttonText="Sim, Quero Ser Aluno(a)"
+        variant="light"
+      />
       
-      {/* 7️⃣ AULA GRATUITA DE EXCEL */}
-      <FreeLessonExcel />
+      {/* 8️⃣ DEPOIMENTOS - Prova social */}
+      <TestimonialsV2 />
       
-      {/* 8️⃣ DEPOIS DO CURSO - Capacidades */}
-      <Suspense fallback={<LoadingFallback />}>
-        <ValueStack />
-      </Suspense>
+      {/* 9️⃣ PREÇO - Oferta + Garantia */}
+      <PricingV2 />
       
-      {/* 9️⃣ INVESTIMENTO - Proposta de valor */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Possibilities />
-      </Suspense>
+      {/* 🔟 FAQ - Quebre objeções */}
+      <FAQV2 />
       
-      {/* 🔟 PARA QUEM É - Público alvo */}
-      <Suspense fallback={<LoadingFallback />}>
-        <TargetAudience />
-      </Suspense>
+      {/* 1️⃣1️⃣ CTA FINAL - Última chamada */}
+      <FinalCTA />
       
-      {/* 1️⃣1️⃣ OFERTA E PREÇO #1 */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Pricing />
-      </Suspense>
+      {/* 1️⃣2️⃣ DISCLAIMER - Proteção legal sobre o prazo (última seção) */}
+      <DisclaimerSection />
       
-      {/* 1️⃣2️⃣ GARANTIA #1 */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Guarantee />
-      </Suspense>
+      {/* FOOTER */}
+      <FooterV2 />
       
-      {/* 1️⃣3️⃣ ANTES E DEPOIS - Transformação */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Comparison />
-      </Suspense>
-      
-      {/* 1️⃣4️⃣ QUEM VAI TE ENSINAR - Sobre */}
-      <AboutSection />
-      
-      {/* 1️⃣5️⃣ OFERTA E PREÇO #2 */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Pricing />
-      </Suspense>
-      
-      {/* 1️⃣6️⃣ PERGUNTAS FREQUENTES */}
-      <Suspense fallback={<LoadingFallback />}>
-        <FAQ />
-      </Suspense>
-      
-      {/* 1️⃣7️⃣ GARANTIA #2 - Reduzir Risco */}
-      <Suspense fallback={<LoadingFallback />}>
-        <Guarantee />
-      </Suspense>
-      
-      {/* 1️⃣8️⃣ CTA FINAL ESTRATÉGICO */}
-      <Suspense fallback={<LoadingFallback />}>
-        <StrategicCTA context="com todas as suas dúvidas esclarecidas" />
-      </Suspense>
-      
-      <Footer />
+      {/* ELEMENTOS FLUTUANTES */}
       <WhatsAppButton />
       
+      {/* CHECKOUT MODAL */}
       <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
   );
