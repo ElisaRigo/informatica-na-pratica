@@ -164,7 +164,7 @@ export const HeroV2 = () => {
               <span className="relative">🎯 QUERO COMEÇAR AGORA!</span>
             </button>
             
-            <p className="text-slate-500 text-[10px] md:text-xs mt-3">
+            <p className="text-slate-300 text-[10px] md:text-xs mt-3">
               🔒 Pagamento 100% seguro • Acesso imediato após a compra
             </p>
           </div>
