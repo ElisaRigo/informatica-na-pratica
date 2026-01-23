@@ -10,6 +10,7 @@ import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
 import { TransformationSection } from "@/components/curso/TransformationSection";
 import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
 import { InstructorSection } from "@/components/curso/InstructorSection";
+import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
 
 import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
 import { PricingV2 } from "@/components/curso/PricingV2";
@@ -35,11 +36,24 @@ const Curso = () => {
       {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
       <AudioTestimonialsV2 />
       
+      {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
+      <StrategicCTAV2 
+        headline="Eu também quero aprender!"
+        buttonText="Quero Aprender Informática sem Medo"
+      />
+      
       {/* 3️⃣ SUPORTE - Você não está sozinho */}
       <SupportBannerV2 />
       
       {/* 4️⃣ TRANSFORMAÇÃO - Mostre o depois */}
       <TransformationSection />
+      
+      {/* 🎯 CTA ESTRATÉGICO 2 - Após transformação */}
+      <StrategicCTAV2 
+        headline="Chegou a sua vez de aprender!"
+        buttonText="Quero Começar Minha Transformação"
+        variant="minimal"
+      />
       
       {/* 5️⃣ CONTEÚDO - O que está incluído */}
       <ContentSectionV2 />
@@ -47,6 +61,11 @@ const Curso = () => {
       {/* 6️⃣ INSTRUTORA - Autoridade */}
       <InstructorSection />
       
+      {/* 🎯 CTA ESTRATÉGICO 3 - Após conhecer a professora */}
+      <StrategicCTAV2 
+        headline="Quero aprender com a Elisa!"
+        buttonText="Sim, Quero Ser Aluno(a)"
+      />
       
       {/* 8️⃣ DEPOIMENTOS - Prova social */}
       <TestimonialsV2 />
