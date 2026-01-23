@@ -1,5 +1,6 @@
-import { MessageCircle, Play, Pause, Volume2 } from "lucide-react";
+import { MessageCircle, Play, Pause, Volume2, Smartphone } from "lucide-react";
 import { useState, useRef } from "react";
+import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 
 const audioTestimonials = [
   {
@@ -26,6 +27,13 @@ const audioTestimonials = [
     name: "Bruna",
     description: "Gratidão pelo aprendizado",
     audioSrc: "/audio/bruna.aac",
+  },
+];
+
+const whatsappScreenshots = [
+  {
+    image: whatsappTestimonial1,
+    description: "Mãe de aluna elogiando o curso e voltando para comprar outro",
   },
 ];
 
@@ -131,10 +139,35 @@ export const AudioTestimonialsV2 = () => {
         </div>
 
         {/* Audio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-10">
           {audioTestimonials.map((testimonial, index) => (
             <AudioPlayer key={index} testimonial={testimonial} />
           ))}
+        </div>
+
+        {/* WhatsApp Screenshots Section */}
+        <div className="mt-10">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <Smartphone className="w-5 h-5 text-primary" />
+            <h3 className="text-xl font-bold text-white">Prints de Conversas</h3>
+          </div>
+          
+          <div className="flex justify-center gap-4 flex-wrap max-w-4xl mx-auto">
+            {whatsappScreenshots.map((screenshot, index) => (
+              <div 
+                key={index} 
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-3 hover:border-primary/30 transition-all max-w-xs"
+              >
+                <img 
+                  src={screenshot.image} 
+                  alt={screenshot.description}
+                  className="rounded-lg w-full h-auto shadow-lg"
+                  loading="lazy"
+                />
+                <p className="text-slate-400 text-xs text-center mt-2">{screenshot.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Footer text */}
