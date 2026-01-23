@@ -1,4 +1,4 @@
-import { Play, Shield, Headphones, Award, Users, Sparkles, MessageCircle, Footprints, Smile, Rocket, GraduationCap } from "lucide-react";
+import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, GraduationCap, Clock, Zap, ArrowRight, Headphones, Users } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -349,12 +349,12 @@ export const HeroV2 = () => {
             </div>
           )}
 
-          {/* Benefícios do ambiente */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
+          {/* Benefícios do ambiente - Foco em confiança */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-6">
             {[
-              { icon: Shield, label: "Ambiente Seguro", sublabel: "100% protegido" },
-              { icon: Headphones, label: "Suporte Dedicado", sublabel: "Sempre com você" },
-              { icon: Users, label: "Comunidade Ativa", sublabel: "Aprenda junto" },
+              { icon: Clock, label: "Estude no Seu Ritmo", sublabel: "Sem pressa" },
+              { icon: Zap, label: "Acesso Imediato", sublabel: "Comece agora" },
+              { icon: Shield, label: "Risco Zero", sublabel: "Teste por 7 dias" },
               { icon: Award, label: "Acesso Completo", sublabel: "Todo o conteúdo" },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
@@ -363,6 +363,21 @@ export const HeroV2 = () => {
                 <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
               </div>
             ))}
+          </div>
+
+          {/* CTA diferenciado - Bora começar */}
+          <div className="text-center">
+            <button
+              onClick={() => (window as any).openCheckout?.()}
+              className="group relative inline-flex items-center justify-center gap-3 bg-white text-slate-900 font-black text-base md:text-lg px-8 md:px-10 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-primary/20"
+            >
+              <span className="text-2xl">🚀</span>
+              <span>Bora começar essa jornada comigo?</span>
+              <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
+            </button>
+            <p className="text-slate-400 text-xs mt-3">
+              ✨ Milhares de alunos já transformaram suas vidas
+            </p>
           </div>
         </div>
 
