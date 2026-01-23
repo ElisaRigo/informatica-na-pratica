@@ -5,6 +5,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 // Componentes da nova página
 import { HeroV2 } from "@/components/curso/HeroV2";
 import { ProblemSection } from "@/components/curso/ProblemSection";
+import { AudioTestimonialsV2 } from "@/components/curso/AudioTestimonialsV2";
 import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
 import { TransformationSection } from "@/components/curso/TransformationSection";
 import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
@@ -30,6 +31,9 @@ const Curso = () => {
       
       {/* 2️⃣ PROBLEMA - Identifique a dor */}
       <ProblemSection />
+      
+      {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
+      <AudioTestimonialsV2 />
       
       {/* 3️⃣ SUPORTE - Você não está sozinho */}
       <SupportBannerV2 />
