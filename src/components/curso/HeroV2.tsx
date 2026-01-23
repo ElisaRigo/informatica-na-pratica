@@ -8,20 +8,20 @@ export const HeroV2 = () => {
 
   return (
     <section className="relative min-h-screen bg-slate-900 overflow-hidden">
-      {/* Faixa de urgência - Marquee infinito */}
-      <div className="bg-warning/20 border-b border-warning/40 overflow-hidden">
+      {/* Faixa acolhedora - Marquee infinito */}
+      <div className="bg-primary/20 border-b border-primary/40 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap py-2">
-          <span className="inline-flex items-center gap-2 text-warning text-xs md:text-sm font-bold mx-4">
-            🔥 VAGAS LIMITADAS — Oferta especial por tempo limitado
+          <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+            ✨ Você é capaz de aprender — Venha comigo!
           </span>
-          <span className="inline-flex items-center gap-2 text-warning text-xs md:text-sm font-bold mx-4">
-            🔥 VAGAS LIMITADAS — Oferta especial por tempo limitado
+          <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+            ✨ Você é capaz de aprender — Venha comigo!
           </span>
-          <span className="inline-flex items-center gap-2 text-warning text-xs md:text-sm font-bold mx-4">
-            🔥 VAGAS LIMITADAS — Oferta especial por tempo limitado
+          <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+            ✨ Você é capaz de aprender — Venha comigo!
           </span>
-          <span className="inline-flex items-center gap-2 text-warning text-xs md:text-sm font-bold mx-4">
-            🔥 VAGAS LIMITADAS — Oferta especial por tempo limitado
+          <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+            ✨ Você é capaz de aprender — Venha comigo!
           </span>
         </div>
       </div>
