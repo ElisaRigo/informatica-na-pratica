@@ -32,14 +32,15 @@ const audioTestimonials = [
 const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [hasError, setHasError] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
-    if (audioRef.current) {
+    if (audioRef.current && !hasError) {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch(() => setHasError(true));
       }
       setIsPlaying(!isPlaying);
     }
@@ -57,21 +58,28 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
     setProgress(0);
   };
 
+  const handleError = () => {
+    setHasError(true);
+    setIsPlaying(false);
+  };
+
   return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-primary/30 transition-all">
+    <div className={`bg-white/5 backdrop-blur-sm border rounded-xl p-4 transition-all ${hasError ? 'border-red-500/30 opacity-50' : 'border-white/10 hover:border-primary/30'}`}>
       <audio
         ref={audioRef}
         src={testimonial.audioSrc}
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleEnded}
-        preload="metadata"
+        onError={handleError}
+        preload="auto"
       />
       
       <div className="flex items-center gap-3">
         {/* Play/Pause Button */}
         <button
           onClick={togglePlay}
-          className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center hover:scale-105 transition-transform shadow-lg"
+          disabled={hasError}
+          className={`w-12 h-12 rounded-full flex items-center justify-center transition-transform shadow-lg ${hasError ? 'bg-gray-500 cursor-not-allowed' : 'bg-gradient-to-r from-primary to-accent hover:scale-105'}`}
         >
           {isPlaying ? (
             <Pause className="w-5 h-5 text-white" />
@@ -86,7 +94,9 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
             <span className="text-white font-semibold text-sm">{testimonial.name}</span>
             <Volume2 className="w-3 h-3 text-primary" />
           </div>
-          <p className="text-slate-400 text-xs mb-2">{testimonial.description}</p>
+          <p className="text-slate-400 text-xs mb-2">
+            {hasError ? "Áudio não disponível" : testimonial.description}
+          </p>
           
           {/* Progress Bar */}
           <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
