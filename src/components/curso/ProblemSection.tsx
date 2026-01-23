@@ -1,4 +1,4 @@
-import { XCircle, AlertTriangle, Play, BookOpen, GraduationCap } from "lucide-react";
+import { XCircle, AlertTriangle } from "lucide-react";
 
 const problems = [
   "Fica nervoso(a) quando precisa usar o computador no trabalho?",
@@ -58,30 +58,6 @@ export const ProblemSection = () => {
             </div>
           </div>
 
-          {/* Quick Navigation CTAs */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-8">
-            <button
-              onClick={() => document.getElementById('aula-gratis')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-white px-4 py-2.5 md:px-5 md:py-3 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105 shadow-lg"
-            >
-              <Play className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              Assistir Aula Grátis
-            </button>
-            <button
-              onClick={() => document.getElementById('conteudo')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2.5 md:px-5 md:py-3 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105 shadow-lg"
-            >
-              <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              Ver Conteúdo
-            </button>
-            <button
-              onClick={() => document.getElementById('professora')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2.5 md:px-5 md:py-3 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105 shadow-lg"
-            >
-              <GraduationCap className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              Conhecer Professora
-            </button>
-          </div>
         </div>
       </div>
     </section>
