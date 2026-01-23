@@ -1,4 +1,4 @@
-import { Play, Shield, Clock, Award, Users, BookOpen, GraduationCap } from "lucide-react";
+import { Play, Shield, Headphones, Award, Users, BookOpen, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -50,7 +50,7 @@ export const HeroV2 = () => {
         {/* Trust Badges */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
           {[
-            { icon: Clock, label: "Acesso por 2 Anos", sublabel: "Estude no seu ritmo" },
+            { icon: Headphones, label: "Suporte Dedicado", sublabel: "Tire suas dúvidas" },
             { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
             { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
             { icon: Users, label: "+15.000 Alunos", sublabel: "Comunidade ativa" },
