@@ -1,10 +1,30 @@
-import { Play, Shield, Headphones, Award, Users, BookOpen, GraduationCap } from "lucide-react";
-import { useState } from "react";
+import { Play, Shield, Headphones, Award, Users, CheckCircle2, Sparkles } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
+import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 
 export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
+  const [shouldLoadFreeClass, setShouldLoadFreeClass] = useState(false);
+  const freeClassRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoadFreeClass(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100px" }
+    );
+    if (freeClassRef.current) {
+      observer.observe(freeClassRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="relative min-h-screen bg-slate-900 overflow-hidden">
@@ -111,7 +131,76 @@ export const HeroV2 = () => {
             O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
+        </div>
 
+        {/* Seção Aula Gratuita - Acima da faixa azul */}
+        <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
+          <div className="text-center mb-3">
+            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-3 py-1.5 rounded-full text-xs md:text-sm font-bold mb-2 border border-accent/30">
+              <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
+              🎁 Aula Gratuita
+            </div>
+            <h3 className="text-xl md:text-2xl font-black text-white">
+              Veja como é <span className="text-primary">fácil aprender!</span>
+            </h3>
+          </div>
+
+          {/* Video da aula gratuita */}
+          {shouldLoadFreeClass && (
+            <div className="relative rounded-xl overflow-hidden shadow-xl border border-primary/30 mb-3">
+              {!isFreeClassPlaying ? (
+                <div 
+                  className="relative aspect-video cursor-pointer group"
+                  onClick={() => setIsFreeClassPlaying(true)}
+                >
+                  <img 
+                    src={freeClassThumb}
+                    alt="Aula demonstrativa gratuita"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-primary/50 rounded-full blur-xl scale-150 animate-pulse" />
+                      <div className="relative w-14 h-14 md:w-18 md:h-18 rounded-full bg-primary/90 shadow-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-primary">
+                        <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Badge */}
+                  <div className="absolute bottom-2 right-2 z-20">
+                    <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg border border-white/20">
+                      ▶ Aula Demonstrativa
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                    title="Aula gratuita"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Selos compactos lado a lado */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            {["Linguagem simples", "Passo a passo", "Sem complicação", "Do zero ao mercado"].map((benefit, i) => (
+              <div key={i} className="flex items-center gap-1.5 bg-slate-800/60 border border-slate-700 px-3 py-1.5 rounded-full">
+                <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                <span className="text-xs md:text-sm font-medium text-white">{benefit}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Faixa acolhedora acima do preço - Full width */}
