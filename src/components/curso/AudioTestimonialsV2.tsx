@@ -131,42 +131,56 @@ export const AudioTestimonialsV2 = () => {
           </div>
           
           <h2 className="text-2xl md:text-4xl font-black text-white mb-3">
-            Ouça quem já transformou sua vida
+            Ouça e veja quem já transformou sua vida
           </h2>
           <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
-            Áudios reais de alunos que começaram do zero e hoje dominam o computador
+            Depoimentos reais de alunos que começaram do zero e hoje dominam o computador
           </p>
         </div>
 
-        {/* Audio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-10">
-          {audioTestimonials.map((testimonial, index) => (
-            <AudioPlayer key={index} testimonial={testimonial} />
-          ))}
-        </div>
-
-        {/* WhatsApp Screenshots Section */}
-        <div className="mt-10">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Smartphone className="w-5 h-5 text-primary" />
-            <h3 className="text-xl font-bold text-white">Prints de Conversas</h3>
-          </div>
+        {/* Two Column Layout: Audios + Screenshots */}
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
-          <div className="flex justify-center gap-4 flex-wrap max-w-4xl mx-auto">
-            {whatsappScreenshots.map((screenshot, index) => (
-              <div 
-                key={index} 
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-3 hover:border-primary/30 transition-all max-w-xs"
-              >
-                <img 
-                  src={screenshot.image} 
-                  alt={screenshot.description}
-                  className="rounded-lg w-full h-auto shadow-lg"
-                  loading="lazy"
-                />
-                <p className="text-slate-400 text-xs text-center mt-2">{screenshot.description}</p>
-              </div>
-            ))}
+          {/* Left Column: Audio Players */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <Volume2 className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
+            </div>
+            <div className="space-y-3">
+              {audioTestimonials.map((testimonial, index) => (
+                <AudioPlayer key={index} testimonial={testimonial} />
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: WhatsApp Screenshots */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <Smartphone className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-bold text-white">Prints de Conversas</h3>
+            </div>
+            <div className="grid gap-4">
+              {whatsappScreenshots.map((screenshot, index) => (
+                <div 
+                  key={index} 
+                  className="bg-slate-800 rounded-2xl p-2 shadow-xl max-w-[280px] mx-auto lg:mx-0"
+                >
+                  {/* Phone Frame */}
+                  <div className="bg-slate-700 rounded-t-xl pt-2 pb-1 px-4">
+                    <div className="flex items-center justify-center">
+                      <div className="w-16 h-1 bg-slate-600 rounded-full"></div>
+                    </div>
+                  </div>
+                  <img 
+                    src={screenshot.image} 
+                    alt={screenshot.description}
+                    className="w-full h-auto rounded-b-lg"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
