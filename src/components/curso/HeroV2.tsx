@@ -314,7 +314,7 @@ export const HeroV2 = () => {
                   onClick={() => setIsEnvironmentPlaying(true)}
                 >
                   <img 
-                    src="https://img.youtube.com/vi/zIL-XdCqbMg/maxresdefault.jpg"
+                    src="/images/ambiente-aula-thumb.jpg"
                     alt="Conheça o ambiente de aula"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -337,7 +337,7 @@ export const HeroV2 = () => {
               ) : (
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/zIL-XdCqbMg?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                    src="https://www.youtube.com/embed/9E3ePRqhMOM?modestbranding=1&rel=0&showinfo=0&controls=1&fs=1&autoplay=1"
                     title="Conheça seu ambiente de aula"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
