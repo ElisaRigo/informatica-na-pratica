@@ -1,6 +1,7 @@
 import { MessageCircle, Play, Pause, Volume2, Smartphone } from "lucide-react";
 import { useState, useRef } from "react";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
+import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 
 const audioTestimonials = [
   {
@@ -34,6 +35,10 @@ const whatsappScreenshots = [
   {
     image: whatsappTestimonial1,
     description: "Mãe de aluna elogiando o curso e voltando para comprar outro",
+  },
+  {
+    image: whatsappTestimonial2,
+    description: "Aluno Roberto agradecendo pela didática das aulas de planilha",
   },
 ];
 
