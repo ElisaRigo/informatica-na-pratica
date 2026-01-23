@@ -231,13 +231,18 @@ export const HeroV2 = () => {
         {/* Preço na Hero */}
         <div className="max-w-xl mx-auto mb-4 md:mb-6">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 text-center">
+            {/* Frase de impacto */}
+            <p className="text-base md:text-xl font-bold text-white mb-3">
+              🚀 Invista em você por <span className="text-primary">menos de R$ 1 por dia</span>
+            </p>
+            
             <p className="text-sm md:text-lg text-slate-400 mb-1">
               De <span className="line-through text-slate-500">R$ 497,00</span> por apenas
             </p>
             <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent mb-1">
               R$ 297,00
             </p>
-            <p className="text-xs md:text-sm text-slate-400 mb-3 md:mb-5">
+            <p className="text-xs md:text-sm text-slate-400 mb-4">
               💳 ou parcele em até <strong className="text-white">12x de R$ 30,22</strong> no cartão
             </p>
             
@@ -250,7 +255,18 @@ export const HeroV2 = () => {
               <span className="relative">🎯 QUERO COMEÇAR AGORA!</span>
             </button>
             
-            <p className="text-slate-300 text-[10px] md:text-xs mt-3">
+            {/* Garantia reforçada */}
+            <div className="mt-4 p-3 bg-success/10 border border-success/30 rounded-xl">
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <Shield className="w-5 h-5 text-success" />
+                <span className="text-success font-bold text-sm md:text-base">Garantia Incondicional de 7 Dias</span>
+              </div>
+              <p className="text-slate-300 text-xs md:text-sm">
+                Se você não gostar do curso por qualquer motivo, devolvemos <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
+              </p>
+            </div>
+            
+            <p className="text-slate-400 text-[10px] md:text-xs mt-3">
               🔒 Pagamento 100% seguro • Acesso imediato após a compra
             </p>
           </div>
