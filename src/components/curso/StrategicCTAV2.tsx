@@ -14,7 +14,7 @@ export const StrategicCTAV2 = ({
   const isLight = variant === "light";
   
   return (
-    <section className={`py-8 md:py-12 ${
+    <section className={`py-6 md:py-8 ${
       isLight 
         ? "bg-white" 
         : variant === "minimal" 
@@ -24,7 +24,7 @@ export const StrategicCTAV2 = ({
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
           {/* Headline */}
-          <h3 className={`text-2xl md:text-3xl lg:text-4xl font-black mb-6 ${isLight ? "text-slate-900" : "text-white"}`}>
+          <h3 className={`text-xl md:text-2xl lg:text-3xl font-black mb-4 ${isLight ? "text-slate-900" : "text-white"}`}>
             {headline.includes("!") ? (
               <>
                 {headline.replace("!", "")}

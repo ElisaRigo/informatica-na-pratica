@@ -126,10 +126,10 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
 
 export const AudioTestimonialsV2 = () => {
   return (
-    <section className="py-12 md:py-16 bg-slate-900">
+    <section className="py-8 md:py-10 bg-slate-900">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-6 md:mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4">
             <MessageCircle className="w-4 h-4 text-primary" />
             <span className="text-primary text-sm font-medium">Direto do WhatsApp</span>

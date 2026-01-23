@@ -41,9 +41,9 @@ const modules = [
 
 export const ContentSectionV2 = () => {
   return (
-    <section id="conteudo" className="py-16 md:py-24 bg-white">
+    <section id="conteudo" className="py-10 md:py-14 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
             📚 Conteúdo Completo
           </span>
