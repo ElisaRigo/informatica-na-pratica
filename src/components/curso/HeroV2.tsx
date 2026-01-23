@@ -8,24 +8,6 @@ export const HeroV2 = () => {
 
   return (
     <section className="relative min-h-screen bg-slate-900 overflow-hidden">
-      {/* Faixa acolhedora - Marquee infinito */}
-      <div className="bg-primary/20 border-b border-primary/40 overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap py-2">
-          <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
-            ✨ Você é capaz de aprender — Venha comigo!
-          </span>
-          <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
-            ✨ Você é capaz de aprender — Venha comigo!
-          </span>
-          <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
-            ✨ Você é capaz de aprender — Venha comigo!
-          </span>
-          <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
-            ✨ Você é capaz de aprender — Venha comigo!
-          </span>
-        </div>
-      </div>
-
       {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -65,7 +47,7 @@ export const HeroV2 = () => {
           </p>
         </div>
 
-        {/* Trust Badges - Movidos para cima */}
+        {/* Trust Badges */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
           {[
             { icon: Clock, label: "Acesso por 2 Anos", sublabel: "Estude no seu ritmo" },
@@ -130,6 +112,26 @@ export const HeroV2 = () => {
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
 
+        </div>
+
+        {/* Faixa acolhedora acima do preço */}
+        <div className="max-w-xl mx-auto mb-3 overflow-hidden rounded-full">
+          <div className="bg-primary/20 border border-primary/40 overflow-hidden rounded-full">
+            <div className="animate-marquee whitespace-nowrap py-2">
+              <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-bold mx-4">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Preço na Hero */}
