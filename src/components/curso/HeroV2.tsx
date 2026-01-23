@@ -189,17 +189,18 @@ export const HeroV2 = () => {
             </div>
           )}
 
-          {/* Selos compactos lado a lado */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+          {/* Selos de benefícios - mesmo formato dos selos de confiança */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
             {[
-              { icon: MessageCircle, label: "Linguagem simples" },
-              { icon: Footprints, label: "Passo a passo" },
-              { icon: Smile, label: "Sem complicação" },
-              { icon: Rocket, label: "Do zero ao mercado" },
-            ].map((benefit, i) => (
-              <div key={i} className="flex items-center gap-1.5 bg-slate-800/60 border border-slate-700 px-3 py-1.5 rounded-full">
-                <benefit.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
-                <span className="text-xs md:text-sm font-medium text-white">{benefit.label}</span>
+              { icon: MessageCircle, label: "Linguagem Simples", sublabel: "Fácil de entender" },
+              { icon: Footprints, label: "Passo a Passo", sublabel: "Sem pular etapas" },
+              { icon: Smile, label: "Sem Complicação", sublabel: "Direto ao ponto" },
+              { icon: Rocket, label: "Do Zero ao Mercado", sublabel: "Preparação completa" },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
               </div>
             ))}
           </div>
