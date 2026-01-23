@@ -130,30 +130,6 @@ export const HeroV2 = () => {
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
 
-          {/* Quick Navigation CTAs - Movidos para baixo do texto */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-4">
-            <button
-              onClick={() => document.getElementById('aula-gratis')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center gap-1.5 bg-primary/20 hover:bg-primary/30 border border-primary/40 text-primary px-3 py-2 md:px-4 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105"
-            >
-              <Play className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              Assistir Aula
-            </button>
-            <button
-              onClick={() => document.getElementById('conteudo')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-3 py-2 md:px-4 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105"
-            >
-              <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              Ver Conteúdo
-            </button>
-            <button
-              onClick={() => document.getElementById('professora')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-3 py-2 md:px-4 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all hover:scale-105"
-            >
-              <GraduationCap className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              Conhecer Professora
-            </button>
-          </div>
         </div>
 
         {/* Preço na Hero */}
