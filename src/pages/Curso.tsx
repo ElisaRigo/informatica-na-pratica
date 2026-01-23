@@ -48,13 +48,6 @@ const Curso = () => {
       {/* 4️⃣ TRANSFORMAÇÃO - Mostre o depois */}
       <TransformationSection />
       
-      {/* 🎯 CTA ESTRATÉGICO 2 - Após transformação */}
-      <StrategicCTAV2 
-        headline="Chegou a sua vez de aprender!"
-        buttonText="Quero Começar Minha Transformação"
-        variant="minimal"
-      />
-      
       {/* 5️⃣ CONTEÚDO - O que está incluído */}
       <ContentSectionV2 />
       
@@ -65,6 +58,7 @@ const Curso = () => {
       <StrategicCTAV2 
         headline="Quero aprender com a Elisa!"
         buttonText="Sim, Quero Ser Aluno(a)"
+        variant="light"
       />
       
       {/* 8️⃣ DEPOIMENTOS - Prova social */}
