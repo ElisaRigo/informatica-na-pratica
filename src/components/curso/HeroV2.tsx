@@ -365,19 +365,18 @@ export const HeroV2 = () => {
             ))}
           </div>
 
-          {/* CTA diferenciado - Bora começar */}
+          {/* CTA diferenciado - Estilo banner escuro */}
           <div className="text-center">
             <button
               onClick={() => (window as any).openCheckout?.()}
-              className="group relative inline-flex items-center justify-center gap-3 bg-white text-slate-900 font-black text-base md:text-lg px-8 md:px-10 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-primary/20"
+              className="group relative w-full max-w-2xl mx-auto flex items-center justify-center gap-2 bg-slate-800/90 backdrop-blur-sm text-white font-semibold text-base md:text-lg px-6 md:px-10 py-4 md:py-5 rounded-full border border-slate-700/50 hover:border-success/50 hover:bg-slate-700/90 transition-all duration-300 shadow-lg"
             >
-              <span className="text-2xl">🚀</span>
-              <span>Bora começar essa jornada comigo?</span>
-              <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
+              <span className="text-xl text-success">💚</span>
+              <span>
+                Bora começar essa jornada{" "}
+                <span className="text-success font-bold">comigo?</span>
+              </span>
             </button>
-            <p className="text-slate-400 text-xs mt-3">
-              ✨ Milhares de alunos já transformaram suas vidas
-            </p>
           </div>
         </div>
 
