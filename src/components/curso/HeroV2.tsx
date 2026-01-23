@@ -1,4 +1,4 @@
-import { Play, Shield, Headphones, Award, Users, CheckCircle2, Sparkles } from "lucide-react";
+import { Play, Shield, Headphones, Award, Users, Sparkles, MessageCircle, Footprints, Smile, Rocket } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -191,10 +191,15 @@ export const HeroV2 = () => {
 
           {/* Selos compactos lado a lado */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-            {["Linguagem simples", "Passo a passo", "Sem complicação", "Do zero ao mercado"].map((benefit, i) => (
+            {[
+              { icon: MessageCircle, label: "Linguagem simples" },
+              { icon: Footprints, label: "Passo a passo" },
+              { icon: Smile, label: "Sem complicação" },
+              { icon: Rocket, label: "Do zero ao mercado" },
+            ].map((benefit, i) => (
               <div key={i} className="flex items-center gap-1.5 bg-slate-800/60 border border-slate-700 px-3 py-1.5 rounded-full">
-                <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
-                <span className="text-xs md:text-sm font-medium text-white">{benefit}</span>
+                <benefit.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                <span className="text-xs md:text-sm font-medium text-white">{benefit.label}</span>
               </div>
             ))}
           </div>
@@ -262,7 +267,7 @@ export const HeroV2 = () => {
                 <span className="text-success font-bold text-sm md:text-base">Garantia Incondicional de 7 Dias</span>
               </div>
               <p className="text-slate-300 text-xs md:text-sm">
-                Se você não gostar do curso por qualquer motivo, devolvemos <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
+                Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
               </p>
             </div>
             
