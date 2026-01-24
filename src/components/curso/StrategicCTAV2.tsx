@@ -35,16 +35,13 @@ export const StrategicCTAV2 = ({
             )}
           </h3>
 
-          {/* CTA Button - Mesmo padrão do Hero */}
+          {/* CTA Button - Compacto e elegante */}
           <button
             onClick={() => (window as any).openCheckout?.()}
-            className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-success to-accent text-white font-black text-base md:text-xl px-8 md:px-12 py-4 md:py-5 rounded-full shadow-2xl shadow-success/40 hover:shadow-success/60 hover:scale-105 transition-all duration-300 overflow-hidden"
+            className="group inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative flex items-center gap-2">
-              🎯 {buttonText}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
+            {buttonText}
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
           {/* Trust text */}
