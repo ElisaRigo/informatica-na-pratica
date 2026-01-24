@@ -11,6 +11,7 @@ import { TransformationSection } from "@/components/curso/TransformationSection"
 import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
 import { InstructorSection } from "@/components/curso/InstructorSection";
 import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
+import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
 
 import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
 import { PricingV2 } from "@/components/curso/PricingV2";
@@ -41,6 +42,9 @@ const Curso = () => {
         headline="Eu também quero aprender!"
         buttonText="Quero Aprender Informática sem Medo"
       />
+      
+      {/* 🏠 AMBIENTE DE AULA - Antes do suporte */}
+      <EnvironmentSection />
       
       {/* 3️⃣ SUPORTE - Você não está sozinho */}
       <SupportBannerV2 />
