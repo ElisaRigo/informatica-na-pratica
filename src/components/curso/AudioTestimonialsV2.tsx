@@ -126,20 +126,26 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
 
 export const AudioTestimonialsV2 = () => {
   return (
-    <section className="py-8 md:py-10 bg-slate-900">
-      <div className="container mx-auto px-4">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-success/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-6 md:mb-8">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4">
-            <MessageCircle className="w-4 h-4 text-primary" />
-            <span className="text-primary text-sm font-medium">Direto do WhatsApp</span>
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-flex items-center gap-2 bg-success/20 border-2 border-success/50 rounded-full px-5 py-2.5 mb-5 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+            <MessageCircle className="w-5 h-5 text-success animate-pulse" />
+            <span className="text-success text-sm md:text-base font-bold uppercase tracking-wide">Provas Reais • Direto do WhatsApp</span>
           </div>
           
-          <h2 className="text-2xl md:text-4xl font-black text-white mb-3">
-            Ouça e veja quem já transformou sua vida
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
+            🎧 Escute com Seus Próprios Ouvidos
           </h2>
-          <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
-            Depoimentos reais de alunos que começaram do zero e hoje dominam o computador
+          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-medium">
+            Esses são <span className="text-success font-bold">depoimentos espontâneos</span> de alunos que começaram do zero e hoje usam o computador com confiança
           </p>
         </div>
 
@@ -190,9 +196,14 @@ export const AudioTestimonialsV2 = () => {
         </div>
 
         {/* Footer text */}
-        <p className="text-center text-slate-500 text-sm mt-8">
-          💬 Depoimentos espontâneos recebidos no WhatsApp
-        </p>
+        <div className="text-center mt-10">
+          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
+            <span className="text-2xl">💬</span>
+            <span className="text-slate-300 text-sm md:text-base font-medium">
+              Depoimentos <span className="text-success font-bold">100% reais</span> recebidos no WhatsApp
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );
