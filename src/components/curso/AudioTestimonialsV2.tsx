@@ -142,10 +142,10 @@ export const AudioTestimonialsV2 = () => {
           </div>
           
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
-            🎧 Escute com Seus Próprios Ouvidos
+            Vidas Transformadas <span className="text-success">pela Informática</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-medium">
-            Esses são <span className="text-success font-bold">depoimentos espontâneos</span> de alunos que começaram do zero e hoje usam o computador com confiança
+            Alunos que começaram do zero compartilham suas <span className="text-success font-bold">histórias reais</span> de superação
           </p>
         </div>
 
