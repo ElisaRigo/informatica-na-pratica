@@ -7,6 +7,7 @@ import { HeroV2 } from "@/components/curso/HeroV2";
 import { ProblemSection } from "@/components/curso/ProblemSection";
 import { AudioTestimonialsV2 } from "@/components/curso/AudioTestimonialsV2";
 import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
+import { EnvironmentTourSection } from "@/components/curso/EnvironmentTourSection";
 import { TransformationSection } from "@/components/curso/TransformationSection";
 import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
 import { InstructorSection } from "@/components/curso/InstructorSection";
@@ -44,6 +45,9 @@ const Index = () => {
       
       {/* 3️⃣ SUPORTE - Você não está sozinho */}
       <SupportBannerV2 />
+      
+      {/* 3.5️⃣ AMBIENTE DE AULA - Tour pelo ambiente */}
+      <EnvironmentTourSection />
       
       {/* 4️⃣ TRANSFORMAÇÃO - Mostre o depois */}
       <TransformationSection />
