@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "Quanto tempo leva para concluir o curso?",
-    answer: "O curso tem mais de 90 aulas rápidas. Estudando 30 minutos por dia, você conclui em cerca de 30 dias. Mas você tem 2 anos de acesso para aprender no seu ritmo!",
+    answer: "O curso tem mais de 90 aulas rápidas. Estudando 30 minutos por dia, você conclui em cerca de 30 dias. E o melhor: você tem acesso vitalício para aprender no seu ritmo!",
   },
   {
     question: "Tenho pouco tempo. Vou dar conta?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "Como funciona o acesso ao curso?",
-    answer: "Logo após a confirmação do pagamento, você recebe por e-mail seu login e senha para acessar a plataforma. O acesso é imediato e válido por 2 anos completos.",
+    answer: "Logo após a confirmação do pagamento, você recebe por e-mail seu login e senha para acessar a plataforma. O acesso é imediato e vitalício.",
   },
   {
     question: "Posso parcelar o curso?",
@@ -72,8 +72,8 @@ const faqs = [
     answer: "Já são mais de 15.000 alunos formados, avaliação 4.8/5, garantia incondicional de 7 dias e certificado reconhecido. Você não corre nenhum risco!",
   },
   {
-    question: "O que acontece após os 2 anos de acesso?",
-    answer: "Após 2 anos, você pode renovar o acesso por um valor simbólico caso queira. Mas 2 anos é tempo mais que suficiente para dominar todo o conteúdo e revisitar quantas vezes precisar.",
+    question: "O acesso é realmente vitalício?",
+    answer: "Sim! O acesso é vitalício, ou seja, você pode estudar para sempre, no seu ritmo, revisitando o conteúdo quantas vezes precisar.",
   },
   {
     question: "Posso presentear alguém com o curso?",
@@ -113,7 +113,7 @@ export const FAQ = () => {
             Então é hora de dar o primeiro passo
           </p>
           <p className="text-base text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Você tem <strong className="text-foreground">garantia de 7 dias</strong>, suporte direto comigo e 2 anos de acesso completo. Não há motivo para adiar sua transformação.
+            Você tem <strong className="text-foreground">garantia de 7 dias</strong>, suporte direto comigo e acesso vitalício. Não há motivo para adiar sua transformação.
           </p>
           
           <div className="flex flex-col gap-4 justify-center items-center mb-6">

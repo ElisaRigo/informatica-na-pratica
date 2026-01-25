@@ -63,7 +63,7 @@ export const TermosDeUso = () => {
             <ul className="list-disc pl-6 space-y-2 mb-4">
               <li>O prazo de 30 dias é uma estimativa, não uma garantia;</li>
               <li>Os resultados dependem do seu esforço e dedicação individual;</li>
-              <li>O acesso ao curso é válido por 2 anos, permitindo que estude no seu próprio ritmo;</li>
+              <li>O acesso ao curso é vitalício, permitindo que estude no seu próprio ritmo;</li>
               <li>Não há penalidades ou limitações caso o aluno necessite de mais tempo para concluir o curso.</li>
             </ul>
           </section>
@@ -105,8 +105,7 @@ export const TermosDeUso = () => {
           <section>
             <h2 className="text-2xl font-bold text-foreground mb-3">6. Acesso ao Curso</h2>
             <p>
-              O acesso ao curso é válido por 2 anos a partir da data de confirmação do pagamento. 
-              Após este período, o acesso pode ser renovado mediante pagamento de taxa de renovação.
+              O acesso ao curso é vitalício a partir da data de confirmação do pagamento.
             </p>
           </section>
 
