@@ -49,9 +49,9 @@ export const CertificateSection = () => {
               </div>
             </div>
             
-            {/* Example badge - discreto */}
+            {/* Example badge - discreto mas visível */}
             <div className="absolute -bottom-2 right-4">
-              <span className="text-[10px] text-slate-500 italic">
+              <span className="text-xs md:text-sm text-slate-300 font-medium">
                 *Exemplo ilustrativo
               </span>
             </div>
