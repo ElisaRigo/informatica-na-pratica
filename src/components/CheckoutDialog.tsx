@@ -45,33 +45,25 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
           {/* Grid 2x2 de Garantias */}
           <div className="grid grid-cols-2 gap-2">
-            <div className="bg-muted/50 rounded-lg p-3 flex items-start gap-2">
-              <CheckCircle2 className="w-5 h-5 text-success shrink-0" />
-              <div>
-                <p className="text-xs font-bold text-foreground">Acesso imediato</p>
-                <p className="text-[10px] text-muted-foreground">Login enviado por e-mail</p>
-              </div>
+            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
+              <CheckCircle2 className="w-5 h-5 text-success" />
+              <p className="text-xs font-bold text-foreground">Acesso imediato</p>
+              <p className="text-[10px] text-muted-foreground">Login enviado por e-mail</p>
             </div>
-            <div className="bg-muted/50 rounded-lg p-3 flex items-start gap-2">
-              <ShieldCheck className="w-5 h-5 text-success shrink-0" />
-              <div>
-                <p className="text-xs font-bold text-foreground">Garantia 7 dias</p>
-                <p className="text-[10px] text-muted-foreground">100% do dinheiro de volta</p>
-              </div>
+            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
+              <ShieldCheck className="w-5 h-5 text-success" />
+              <p className="text-xs font-bold text-foreground">Garantia 7 dias</p>
+              <p className="text-[10px] text-muted-foreground">100% do dinheiro de volta</p>
             </div>
-            <div className="bg-muted/50 rounded-lg p-3 flex items-start gap-2">
-              <Headphones className="w-5 h-5 text-success shrink-0" />
-              <div>
-                <p className="text-xs font-bold text-foreground">Suporte humanizado</p>
-                <p className="text-[10px] text-muted-foreground">Tire dúvidas pelo WhatsApp</p>
-              </div>
+            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
+              <Headphones className="w-5 h-5 text-success" />
+              <p className="text-xs font-bold text-foreground">Suporte humanizado</p>
+              <p className="text-[10px] text-muted-foreground">Tire dúvidas pelo WhatsApp</p>
             </div>
-            <div className="bg-muted/50 rounded-lg p-3 flex items-start gap-2">
-              <Infinity className="w-5 h-5 text-success shrink-0" />
-              <div>
-                <p className="text-xs font-bold text-foreground">Acesso vitalício</p>
-                <p className="text-[10px] text-muted-foreground">Assista quando quiser</p>
-              </div>
+            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
+              <Infinity className="w-5 h-5 text-success" />
+              <p className="text-xs font-bold text-foreground">Acesso vitalício</p>
+              <p className="text-[10px] text-muted-foreground">Assista quando quiser</p>
             </div>
           </div>
         </DialogHeader>
