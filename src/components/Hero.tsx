@@ -73,6 +73,15 @@ export const Hero = () => {
               </p>
             </div>
 
+            {/* Destaque Acesso Vitalício */}
+            <div className="flex justify-center mb-3">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-accent/20 border-2 border-primary/40 px-4 py-2.5 rounded-full animate-pulse">
+                <span className="text-xl">♾️</span>
+                <span className="font-black text-sm md:text-base text-primary">ACESSO VITALÍCIO</span>
+                <span className="text-xs md:text-sm text-foreground/80">— Seu para sempre!</span>
+              </div>
+            </div>
+
             {/* Benefícios */}
             <div className="flex flex-wrap gap-2 justify-center items-center mb-3">
               <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">

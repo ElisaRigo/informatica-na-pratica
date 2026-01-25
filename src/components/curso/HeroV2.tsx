@@ -67,6 +67,17 @@ export const HeroV2 = () => {
           </p>
         </div>
 
+        {/* Destaque Acesso Vitalício */}
+        <div className="flex justify-center mb-4 md:mb-6">
+          <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-accent/30 to-primary/30 border-2 border-accent/50 px-5 py-3 md:px-6 md:py-4 rounded-full shadow-lg shadow-accent/20">
+            <span className="text-2xl md:text-3xl">♾️</span>
+            <div className="flex flex-col md:flex-row md:items-center md:gap-2">
+              <span className="font-black text-base md:text-xl text-accent">ACESSO VITALÍCIO</span>
+              <span className="text-sm md:text-base text-white/90">— Seu para sempre!</span>
+            </div>
+          </div>
+        </div>
+
         {/* Trust Badges */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
           {[
