@@ -592,66 +592,55 @@ export const CheckoutForm = () => {
 
   // Formulário inicial
   return (
-    <div className="space-y-5">
-      {/* Header de Segurança - Primeira impressão */}
-      <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <Lock className="w-5 h-5 text-green-600" />
-          <span className="text-green-800 font-bold text-sm md:text-base">Ambiente 100% Seguro</span>
-          <Lock className="w-5 h-5 text-green-600" />
-        </div>
-        <p className="text-green-700 text-xs md:text-sm">
-          Seus dados estão protegidos com criptografia de ponta a ponta
-        </p>
-      </div>
-
-      {/* Preço em Destaque */}
-      <div className="text-center py-4 bg-slate-50 rounded-xl border">
-        <img src={logoBlue} alt="Informática na Prática" className="h-10 mx-auto mb-3" />
-        <div className="text-4xl md:text-5xl font-black text-primary mb-1">
-          R$ {coursePrice.toFixed(2).replace('.', ',')}
-        </div>
-        <div className="text-lg md:text-xl font-bold text-accent">
-          ou 12x de R$ 30,22
-        </div>
-        <div className="text-xs text-muted-foreground mt-2">
-          Acesso completo por 2 anos • Certificado incluso
+    <div className="space-y-6">
+      {/* Header com Preço em Destaque */}
+      <div className="text-center space-y-2 pb-4 border-b">
+        <img src={logoBlue} alt="Informática na Prática - Logo do Curso" className="h-10 md:h-14 mx-auto" />
+        <div>
+          <div className="text-3xl md:text-5xl font-black text-primary mb-1">
+            R$ {coursePrice.toFixed(2).replace('.', ',')}
+          </div>
+          <div className="text-xs md:text-sm font-bold text-foreground">
+            Acesso completo por 2 anos • Certificado incluso
+          </div>
+          <div className="text-xs text-success font-semibold mt-1">
+            Parcele em até 12x no cartão
+          </div>
         </div>
       </div>
 
-      {/* Logos de Cartões e Selos de Confiança */}
-      <div className="flex flex-wrap items-center justify-center gap-3 py-3">
-        {/* Bandeiras de Cartão */}
-        <div className="flex items-center gap-2 px-3 py-2 bg-white border rounded-lg shadow-sm">
-          <svg viewBox="0 0 48 48" className="w-8 h-8"><rect fill="#1565C0" width="48" height="48" rx="4"/><path fill="#FFF" d="M21.7 25.2l1.4-8.5h2.2l-1.4 8.5zM32.9 17c-.4-.2-1.1-.4-2-.4-2.2 0-3.7 1.1-3.7 2.8 0 1.2 1.1 1.9 2 2.3.9.4 1.2.7 1.2 1.1 0 .6-.7.9-1.4.9-1 0-1.5-.1-2.3-.5l-.3-.1-.3 2c.6.3 1.6.5 2.7.5 2.3 0 3.8-1.1 3.8-2.9 0-1-.6-1.7-1.9-2.3-.8-.4-1.3-.7-1.3-1.1 0-.4.4-.8 1.3-.8.7 0 1.3.1 1.7.3l.2.1.3-1.9zM37 16.7h-1.7c-.5 0-.9.1-1.1.6l-3.2 7.9h2.3l.5-1.3h2.8l.3 1.3h2l-1.9-8.5zm-2.7 5.5l.9-2.4.5 2.4h-1.4zM18.1 16.7l-2.2 5.8-.2-1.2c-.4-1.4-1.7-2.9-3.1-3.6l1.9 7.4h2.3l3.5-8.5h-2.2z"/><path fill="#FFC107" d="M13.5 16.7H9.8l-.1.2c2.8.7 4.6 2.4 5.4 4.5l-.8-4c-.1-.5-.5-.6-1-.7z"/></svg>
-          <svg viewBox="0 0 48 48" className="w-8 h-8"><rect fill="#FF5722" width="48" height="48" rx="4"/><circle cx="19" cy="24" r="10" fill="#FF9800"/><circle cx="29" cy="24" r="10" fill="#F44336"/><path fill="#FF5722" d="M24 17c2.4 1.8 4 4.6 4 7.9s-1.6 6.1-4 7.9c-2.4-1.8-4-4.6-4-7.9s1.6-6.1 4-7.9z"/></svg>
-          <svg viewBox="0 0 48 48" className="w-8 h-8"><rect fill="#1A1F71" width="48" height="48" rx="4"/><path fill="#FFF" d="M11 31h4l2.5-14h-4L11 31zm23.5-14l-3.8 9.6-.4-2-.3-1.5c-.6-1.9-2.3-4-4.3-5l3.2 12.9h4.2l6.2-14h-4.8zm-11.5 0h-3.8l-.1.3c5 1.3 8.3 4.4 9.7 8.1l-1.4-7c-.2-.9-.9-1.3-1.7-1.4h-2.7z"/></svg>
-          <svg viewBox="0 0 48 48" className="w-8 h-8"><rect fill="#26A69A" width="48" height="48" rx="4"/><text x="24" y="28" textAnchor="middle" fill="#FFF" fontSize="10" fontWeight="bold">ELO</text></svg>
+      {/* Badges de Segurança */}
+      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 py-2 md:py-3 px-2 bg-gradient-to-r from-success/10 to-primary/10 rounded-lg border border-success/20">
+        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
+          <Lock className="w-3 h-3 md:w-4 md:h-4 text-success" />
+          <span className="font-semibold text-foreground">Seguro</span>
         </div>
-        
-        {/* Selo Mercado Pago */}
-        <div className="flex items-center gap-2 px-3 py-2 bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-lg">
-          <ShieldCheck className="w-5 h-5 text-[#00AEEF]" />
-          <span className="text-[#00AEEF] text-xs font-bold">Mercado Pago</span>
+        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
+          <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-success" />
+          <span className="font-semibold text-foreground">Mercado Pago</span>
+        </div>
+        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
+          <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 text-success" />
+          <span className="font-semibold text-foreground">Garantia 7 dias</span>
         </div>
       </div>
 
-      {/* Formulário - Campos preservados */}
-      <div className="space-y-3">
+      {/* Formulário */}
+      <div className="space-y-3 md:space-y-4">
         <div className="space-y-1">
-          <Label htmlFor="name" className="text-xs md:text-sm font-semibold text-foreground">Nome Completo *</Label>
+          <Label htmlFor="name" className="text-xs md:text-sm font-bold text-foreground">Nome Completo *</Label>
           <Input
             id="name"
-            placeholder="Digite seu nome completo"
+            placeholder="Seu nome completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-11 text-base border-2 border-slate-200 focus:border-primary rounded-lg"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="email" className="text-xs md:text-sm font-semibold text-foreground">E-mail *</Label>
+          <Label htmlFor="email" className="text-xs md:text-sm font-bold text-foreground">E-mail *</Label>
           <Input
             id="email"
             type="email"
@@ -659,66 +648,64 @@ export const CheckoutForm = () => {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-11 text-base border-2 border-slate-200 focus:border-primary rounded-lg"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <div className="space-y-1">
-            <Label htmlFor="cpf" className="text-xs md:text-sm font-semibold text-foreground">CPF *</Label>
-            <Input
-              id="cpf"
-              placeholder="000.000.000-00"
-              value={formData.cpf}
-              onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-              maxLength={14}
-              disabled={loading || !sdkLoaded}
-              className="h-11 text-base border-2 border-slate-200 focus:border-primary rounded-lg"
-            />
-          </div>
+        <div className="space-y-1">
+          <Label htmlFor="cpf" className="text-xs md:text-sm font-bold text-foreground">CPF *</Label>
+          <Input
+            id="cpf"
+            placeholder="000.000.000-00"
+            value={formData.cpf}
+            onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+            maxLength={14}
+            disabled={loading || !sdkLoaded}
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+          />
+        </div>
 
-          <div className="space-y-1">
-            <Label htmlFor="phone" className="text-xs md:text-sm font-semibold text-foreground">Telefone *</Label>
-            <Input
-              id="phone"
-              placeholder="(11) 99999-9999"
-              value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-              maxLength={15}
-              disabled={loading || !sdkLoaded}
-              className="h-11 text-base border-2 border-slate-200 focus:border-primary rounded-lg"
-            />
-          </div>
+        <div className="space-y-1">
+          <Label htmlFor="phone" className="text-xs md:text-sm font-bold text-foreground">Telefone com DDD *</Label>
+          <Input
+            id="phone"
+            placeholder="(11) 99999-9999"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+            maxLength={15}
+            disabled={loading || !sdkLoaded}
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+          />
         </div>
       </div>
 
       {/* Aviso sobre envio dos dados de acesso */}
-      <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
-        <p className="text-xs text-blue-700 text-center flex items-center justify-center gap-2">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4">
+        <p className="text-xs md:text-sm text-blue-800 text-center font-medium flex items-center justify-center gap-2">
           <span>📧</span>
-          <span>Após o pagamento, você receberá os dados de acesso no e-mail informado.</span>
+          <span>Após a confirmação do pagamento, você receberá os <strong>dados de acesso ao curso</strong> no e-mail informado acima.</span>
         </p>
       </div>
 
       {/* Título das Opções */}
-      <div>
-        <h3 className="text-sm font-bold text-center text-foreground mb-3">Escolha como pagar</h3>
+      <div className="pt-1">
+        <h3 className="text-sm md:text-lg font-black text-center mb-2 md:mb-3 text-foreground">Escolha a forma de pagamento</h3>
       </div>
 
-      {/* Opções de Pagamento - Design limpo */}
-      <div className="grid grid-cols-3 gap-2">
+      {/* Opções de Pagamento - Melhoradas */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
         {/* Cartão */}
         <button
           onClick={handleCardPayment}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-2 p-3 md:p-4 rounded-xl border-2 border-slate-200 hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed bg-white shadow-sm"
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
-          <div className="p-2 rounded-full bg-primary/10">
-            <CreditCard className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+          <div className="p-2 md:p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+            <CreditCard className="w-5 h-5 md:w-8 md:h-8 text-primary" />
           </div>
           <div className="text-center">
-            <div className="font-bold text-xs md:text-sm text-foreground">Cartão</div>
-            <div className="text-[10px] md:text-xs text-primary font-semibold">até 12x</div>
+            <div className="font-black text-xs md:text-base">Cartão de Crédito</div>
+            <div className="text-[10px] md:text-sm text-primary font-bold mt-1">Parcele em até 12x</div>
           </div>
         </button>
 
@@ -726,14 +713,14 @@ export const CheckoutForm = () => {
         <button
           onClick={handlePixPayment}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-2 p-3 md:p-4 rounded-xl border-2 border-slate-200 hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed bg-white shadow-sm"
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
-          <div className="p-2 rounded-full bg-success/10">
-            <Smartphone className="w-5 h-5 md:w-6 md:h-6 text-success" />
+          <div className="p-2 md:p-3 rounded-full bg-success/10 group-hover:bg-success/20 transition-colors">
+            <Smartphone className="w-5 h-5 md:w-8 md:h-8 text-success" />
           </div>
           <div className="text-center">
-            <div className="font-bold text-xs md:text-sm text-foreground">PIX</div>
-            <div className="text-[10px] md:text-xs text-success font-semibold">Imediato</div>
+            <div className="font-black text-xs md:text-base">PIX</div>
+            <div className="text-[10px] md:text-sm text-success font-bold mt-1">Aprovação imediata</div>
           </div>
         </button>
 
@@ -741,49 +728,37 @@ export const CheckoutForm = () => {
         <button
           onClick={() => handleOtherPayment('boleto')}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-2 p-3 md:p-4 rounded-xl border-2 border-slate-200 hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed bg-white shadow-sm"
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
         >
-          <div className="p-2 rounded-full bg-warning/10">
-            <Receipt className="w-5 h-5 md:w-6 md:h-6 text-warning" />
+          <div className="p-2 md:p-3 rounded-full bg-warning/10 group-hover:bg-warning/20 transition-colors">
+            <Receipt className="w-5 h-5 md:w-8 md:h-8 text-warning" />
           </div>
           <div className="text-center">
-            <div className="font-bold text-xs md:text-sm text-foreground">Boleto</div>
-            <div className="text-[10px] md:text-xs text-warning font-semibold">3 dias</div>
+            <div className="font-black text-xs md:text-base">Boleto</div>
+            <div className="text-[10px] md:text-sm text-warning font-bold mt-1">Até 3 dias úteis</div>
           </div>
         </button>
       </div>
 
       {/* Loading State */}
       {loading && (
-        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-3">
+        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-4">
           <Loader2 className="w-4 h-4 animate-spin" />
           <span>Processando...</span>
         </div>
       )}
 
       {!sdkLoaded && (
-        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-3">
+        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-4">
           <Loader2 className="w-4 h-4 animate-spin" />
-          <span>Carregando...</span>
+          <span>Carregando sistema de pagamento...</span>
         </div>
       )}
 
-      {/* Selos de Confiança no Rodapé */}
-      <div className="pt-4 border-t border-slate-100">
-        <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-          <div className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-green-600" />
-            <span>Compra Segura</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Lock className="w-4 h-4 text-green-600" />
-            <span>Dados Protegidos</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4 text-green-600" />
-            <span>Garantia 7 Dias</span>
-          </div>
-        </div>
+      {/* Footer Info */}
+      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2 border-t">
+        <ShieldCheck className="w-4 h-4" />
+        <span>Pagamento 100% Seguro • Garantia Total de 7 Dias</span>
       </div>
     </div>
   );
