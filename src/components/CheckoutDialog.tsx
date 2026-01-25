@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Clock, Headphones, Infinity } from "lucide-react";
+import logoBlue from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -25,35 +26,52 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             Complete sua inscrição
           </DialogTitle>
           
-          {/* Preço em destaque */}
-          <div className="text-center py-2">
-            <p className="text-3xl md:text-4xl font-black text-primary">
-              R$ 297<span className="text-lg">,00</span>
-            </p>
-            <p className="text-sm text-success font-semibold">
-              ou 12x de R$ 30,22 no cartão
-            </p>
+          {/* Logo + Preço em destaque */}
+          <div className="flex items-center justify-center gap-4 py-2">
+            <img 
+              src={logoBlue} 
+              alt="Informática Descomplicada" 
+              className="h-12 md:h-14 object-contain"
+            />
+            <div className="text-left">
+              <p className="text-3xl md:text-4xl font-black text-primary">
+                R$ 297<span className="text-lg">,00</span>
+              </p>
+              <p className="text-sm text-success font-semibold">
+                ou 12x de R$ 30,22
+              </p>
+            </div>
           </div>
 
-          {/* Garantias que quebram objeções */}
-          <div className="bg-muted/50 rounded-lg p-3 space-y-2">
-            <div className="flex items-start gap-2">
-              <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-              <p className="text-xs text-muted-foreground">
-                <span className="font-semibold text-foreground">Acesso imediato:</span> Receba os dados de login no seu e-mail assim que o pagamento for confirmado
-              </p>
+          {/* Grid 2x2 de Garantias */}
+          <div className="grid grid-cols-2 gap-2">
+            <div className="bg-muted/50 rounded-lg p-3 flex items-start gap-2">
+              <CheckCircle2 className="w-5 h-5 text-success shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-foreground">Acesso imediato</p>
+                <p className="text-[10px] text-muted-foreground">Login enviado por e-mail</p>
+              </div>
             </div>
-            <div className="flex items-start gap-2">
-              <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-              <p className="text-xs text-muted-foreground">
-                <span className="font-semibold text-foreground">Garantia de 7 dias:</span> Se não gostar, devolvo 100% do seu dinheiro, sem perguntas
-              </p>
+            <div className="bg-muted/50 rounded-lg p-3 flex items-start gap-2">
+              <ShieldCheck className="w-5 h-5 text-success shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-foreground">Garantia 7 dias</p>
+                <p className="text-[10px] text-muted-foreground">100% do dinheiro de volta</p>
+              </div>
             </div>
-            <div className="flex items-start gap-2">
-              <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-              <p className="text-xs text-muted-foreground">
-                <span className="font-semibold text-foreground">Suporte humanizado:</span> Tire dúvidas diretamente comigo pelo WhatsApp
-              </p>
+            <div className="bg-muted/50 rounded-lg p-3 flex items-start gap-2">
+              <Headphones className="w-5 h-5 text-success shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-foreground">Suporte humanizado</p>
+                <p className="text-[10px] text-muted-foreground">Tire dúvidas pelo WhatsApp</p>
+              </div>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-3 flex items-start gap-2">
+              <Infinity className="w-5 h-5 text-success shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-foreground">Acesso vitalício</p>
+                <p className="text-[10px] text-muted-foreground">Assista quando quiser</p>
+              </div>
             </div>
           </div>
         </DialogHeader>
