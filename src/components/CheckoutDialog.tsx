@@ -81,8 +81,18 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
         <CheckoutForm />
 
-        {/* Rodapé simplificado */}
-        <div className="border-t border-border pt-3">
+        {/* Rodapé com selos de confiança */}
+        <div className="border-t pt-4 space-y-3">
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <Lock className="w-3.5 h-3.5" />
+              <span>Compra Segura</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Garantia 7 Dias</span>
+            </div>
+          </div>
           <p className="text-[10px] text-center text-muted-foreground">
             Pagamento processado com segurança pelo Mercado Pago
           </p>
