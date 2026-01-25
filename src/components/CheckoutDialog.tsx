@@ -81,10 +81,10 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
         <CheckoutForm />
 
-        {/* Rodapé simplificado */}
-        <div className="border-t border-border pt-3">
-          <p className="text-[10px] text-center text-muted-foreground">
-            Pagamento processado com segurança pelo Mercado Pago
+        {/* Rodapé */}
+        <div className="border-t border-border pt-4">
+          <p className="text-sm text-center text-muted-foreground font-medium">
+            🔒 Pagamento processado com segurança pelo Mercado Pago
           </p>
         </div>
       </DialogContent>
