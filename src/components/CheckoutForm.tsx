@@ -444,19 +444,6 @@ export const CheckoutForm = () => {
           <div className="w-20"></div>
         </div>
 
-        <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-foreground">Pagamento com Cartão</h3>
-          <p className="text-sm text-muted-foreground">
-            Parcele em até 12x
-          </p>
-        </div>
-
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
-          <p className="text-sm text-blue-900 font-medium">
-            💳 Digite o número do cartão para ver as opções de parcelamento disponíveis
-          </p>
-        </div>
-
         <CardPaymentBrick
           formData={formData}
           amount={coursePrice}
