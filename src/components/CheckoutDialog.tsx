@@ -71,12 +71,6 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             </div>
           </div>
 
-          {/* CTA de incentivo */}
-          <div className="bg-primary/10 border border-primary/20 rounded-lg px-4 py-3 text-center">
-            <p className="text-sm font-bold text-primary">
-              👇 Preencha seus dados abaixo e comece ainda hoje!
-            </p>
-          </div>
         </DialogHeader>
 
         <CheckoutForm />

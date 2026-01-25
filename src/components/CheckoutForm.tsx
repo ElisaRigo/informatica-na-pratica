@@ -428,9 +428,9 @@ export const CheckoutForm = () => {
   // Se está mostrando pagamento com cartão
   if (showCardPayment) {
     return (
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between pb-6 border-b">
+      <div className="space-y-4">
+        {/* Header com botão voltar */}
+        <div className="flex items-center pb-4 border-b">
           <Button
             variant="ghost"
             size="sm"
@@ -440,20 +440,12 @@ export const CheckoutForm = () => {
             <ArrowLeft className="w-4 h-4" />
             Voltar
           </Button>
-          <img src={logoBlue} alt="Informática na Prática - Curso de Informática Online" className="h-12" />
-          <div className="w-20"></div>
         </div>
 
         <div className="text-center space-y-1">
           <h3 className="text-xl font-bold text-foreground">Pagamento com Cartão</h3>
           <p className="text-sm text-muted-foreground">
             Parcele em até 12x
-          </p>
-        </div>
-
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
-          <p className="text-sm text-blue-900 font-medium">
-            💳 Digite o número do cartão para ver as opções de parcelamento disponíveis
           </p>
         </div>
 
