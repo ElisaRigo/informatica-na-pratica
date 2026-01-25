@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Clock, Headphones, Infinity } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
@@ -23,7 +23,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
         <DialogHeader className="space-y-2">
           <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-6 h-6 text-success" />
+            <Monitor className="w-6 h-6 text-primary" />
             Falta pouco para você começar!
           </DialogTitle>
           <p className="text-sm text-center text-muted-foreground">
