@@ -449,6 +449,9 @@ export const CheckoutForm = () => {
           <p className="text-sm text-muted-foreground">
             Parcele em até 12x
           </p>
+          <div className="text-3xl font-black text-primary">
+            R$ {coursePrice.toFixed(2).replace('.', ',')}
+          </div>
         </div>
 
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
