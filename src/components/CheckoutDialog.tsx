@@ -81,21 +81,21 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
         <CheckoutForm />
 
-        {/* Rodapé com selos de confiança */}
+        {/* Rodapé com Mercado Pago */}
         <div className="border-t pt-4 space-y-3">
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <Lock className="w-3.5 h-3.5" />
-              <span>Compra Segura</span>
-            </div>
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Garantia 7 Dias</span>
-            </div>
+          <div className="flex items-center justify-center gap-2">
+            <Lock className="w-4 h-4 text-muted-foreground" />
+            <p className="text-sm text-center text-muted-foreground font-medium">
+              Pagamento processado com segurança por
+            </p>
           </div>
-          <p className="text-[10px] text-center text-muted-foreground">
-            Pagamento processado com segurança pelo Mercado Pago
-          </p>
+          <div className="flex justify-center">
+            <img 
+              src="https://http2.mlstatic.com/frontend-assets/mp-web-navigation/ui-navigation/6.6.92/mercadopago/logo__large.png" 
+              alt="Mercado Pago" 
+              className="h-8"
+            />
+          </div>
         </div>
       </DialogContent>
     </Dialog>
