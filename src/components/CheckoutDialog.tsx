@@ -23,8 +23,11 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
         <DialogHeader className="space-y-2">
           <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground">
-            Complete sua inscrição
+            Falta pouco para você começar!
           </DialogTitle>
+          <p className="text-sm text-center text-muted-foreground">
+            Pagamento 100% seguro e acesso imediato ao curso.
+          </p>
           
           {/* Logo + Preço em destaque */}
           <div className="flex items-center justify-center gap-4 py-2">
