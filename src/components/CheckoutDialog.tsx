@@ -22,7 +22,8 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
         </div>
 
         <DialogHeader className="space-y-2">
-          <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground">
+          <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-6 h-6 text-success" />
             Falta pouco para você começar!
           </DialogTitle>
           <p className="text-sm text-center text-muted-foreground">
