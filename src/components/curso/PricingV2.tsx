@@ -6,7 +6,7 @@ const included = [
   { icon: Check, text: "Módulo de Digitação Profissional" },
   { icon: Check, text: "Certificado de conclusão" },
   { icon: Check, text: "Suporte direto com a professora" },
-  { icon: Check, text: "Acesso por 2 anos" },
+  { icon: Check, text: "Acesso Vitalício" },
   { icon: Check, text: "Atualizações gratuitas" },
   { icon: Check, text: "Material de apoio em PDF" },
 ];
@@ -112,7 +112,7 @@ export const PricingV2 = () => {
                   {/* Trust badges */}
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { icon: Clock, text: "2 anos de acesso" },
+                      { icon: Clock, text: "Acesso Vitalício" },
                       { icon: Award, text: "Certificado incluso" },
                       { icon: Users, text: "+15.000 alunos" },
                       { icon: Headphones, text: "Suporte humanizado" },
