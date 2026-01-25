@@ -592,38 +592,7 @@ export const CheckoutForm = () => {
 
   // Formulário inicial
   return (
-    <div className="space-y-6">
-      {/* Header com Preço em Destaque */}
-      <div className="text-center space-y-2 pb-4 border-b">
-        <img src={logoBlue} alt="Informática na Prática - Logo do Curso" className="h-10 md:h-14 mx-auto" />
-        <div>
-          <div className="text-3xl md:text-5xl font-black text-primary mb-1">
-            R$ {coursePrice.toFixed(2).replace('.', ',')}
-          </div>
-          <div className="text-xs md:text-sm font-bold text-foreground">
-            Acesso completo por 2 anos • Certificado incluso
-          </div>
-          <div className="text-xs text-success font-semibold mt-1">
-            Parcele em até 12x no cartão
-          </div>
-        </div>
-      </div>
-
-      {/* Badges de Segurança */}
-      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 py-2 md:py-3 px-2 bg-gradient-to-r from-success/10 to-primary/10 rounded-lg border border-success/20">
-        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
-          <Lock className="w-3 h-3 md:w-4 md:h-4 text-success" />
-          <span className="font-semibold text-foreground">Seguro</span>
-        </div>
-        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
-          <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-success" />
-          <span className="font-semibold text-foreground">Mercado Pago</span>
-        </div>
-        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
-          <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 text-success" />
-          <span className="font-semibold text-foreground">Garantia 7 dias</span>
-        </div>
-      </div>
+    <div className="space-y-4">
 
       {/* Formulário */}
       <div className="space-y-3 md:space-y-4">
