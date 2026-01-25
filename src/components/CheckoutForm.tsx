@@ -23,7 +23,11 @@ interface PixData {
   expirationDate?: string;
 }
 
-export const CheckoutForm = () => {
+export interface CheckoutFormProps {
+  onCardPaymentChange?: (isActive: boolean) => void;
+}
+
+export const CheckoutForm = ({ onCardPaymentChange }: CheckoutFormProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [sdkLoaded, setSdkLoaded] = useState(false);
@@ -40,6 +44,11 @@ export const CheckoutForm = () => {
   const [showCardPayment, setShowCardPayment] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
+
+  // Notificar quando o modo cartão muda
+  useEffect(() => {
+    onCardPaymentChange?.(showCardPayment);
+  }, [showCardPayment, onCardPaymentChange]);
 
   // Carregar reCAPTCHA
   useEffect(() => {
@@ -428,20 +437,18 @@ export const CheckoutForm = () => {
   // Se está mostrando pagamento com cartão
   if (showCardPayment) {
     return (
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between pb-6 border-b">
+      <div className="space-y-4">
+        {/* Header simples */}
+        <div className="flex items-center pb-4 border-b border-border">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setShowCardPayment(false)}
-            className="gap-2"
+            className="gap-2 text-muted-foreground hover:text-foreground"
           >
             <ArrowLeft className="w-4 h-4" />
             Voltar
           </Button>
-          <img src={logoBlue} alt="Informática na Prática - Curso de Informática Online" className="h-12" />
-          <div className="w-20"></div>
         </div>
 
         <div className="text-center space-y-1">
