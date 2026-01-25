@@ -49,11 +49,10 @@ export const CertificateSection = () => {
               </div>
             </div>
             
-            {/* Example badge */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2">
-              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-800 to-slate-700 text-white text-xs md:text-sm font-semibold px-5 py-2 rounded-full shadow-xl border border-slate-600">
-                <GraduationCap className="w-4 h-4 text-amber-400" />
-                Exemplo de Certificado
+            {/* Example badge - discreto */}
+            <div className="absolute -bottom-2 right-4">
+              <span className="text-[10px] text-slate-500 italic">
+                *Exemplo ilustrativo
               </span>
             </div>
           </div>

@@ -38,6 +38,9 @@ const Curso = () => {
       {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
       <AudioTestimonialsV2 />
       
+      {/* 📜 CERTIFICADO - Prova tangível de conquista */}
+      <CertificateSection />
+      
       {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
       <StrategicCTAV2 
         headline="Eu também quero aprender!"
@@ -55,9 +58,6 @@ const Curso = () => {
       
       {/* 5️⃣ CONTEÚDO - O que está incluído */}
       <ContentSectionV2 />
-      
-      {/* 📜 CERTIFICADO - Prova tangível de conquista */}
-      <CertificateSection />
       
       {/* 6️⃣ INSTRUTORA - Autoridade */}
       <InstructorSection />
