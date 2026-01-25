@@ -12,6 +12,7 @@ import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
 import { InstructorSection } from "@/components/curso/InstructorSection";
 import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
 import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
+import { CertificateSection } from "@/components/curso/CertificateSection";
 
 import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
 import { PricingV2 } from "@/components/curso/PricingV2";
@@ -54,6 +55,9 @@ const Curso = () => {
       
       {/* 5️⃣ CONTEÚDO - O que está incluído */}
       <ContentSectionV2 />
+      
+      {/* 📜 CERTIFICADO - Prova tangível de conquista */}
+      <CertificateSection />
       
       {/* 6️⃣ INSTRUTORA - Autoridade */}
       <InstructorSection />
