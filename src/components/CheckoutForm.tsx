@@ -449,9 +449,10 @@ export const CheckoutForm = () => {
           </p>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
-          <p className="text-sm text-blue-900">
-            💳 Digite o número do cartão para ver as opções de parcelamento disponíveis
+        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-3 text-center">
+          <p className="text-sm text-success font-medium flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4" />
+            Acesso enviado no seu e-mail após a compra!
           </p>
         </div>
 
@@ -481,9 +482,8 @@ export const CheckoutForm = () => {
   if (pixData) {
     return (
       <div className="space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between pb-6 border-b">
-          <img src={logoBlue} alt="Informática na Prática - Curso de Informática com Professora Elisa" className="h-12" />
+        {/* Header com botão fechar */}
+        <div className="flex items-center justify-end pb-4 border-b">
           <Button
             variant="ghost"
             size="icon"
@@ -494,6 +494,14 @@ export const CheckoutForm = () => {
           >
             <X className="w-5 h-5" />
           </Button>
+        </div>
+
+        {/* Faixa de confirmação */}
+        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-3 text-center">
+          <p className="text-sm text-success font-medium flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4" />
+            Acesso enviado no seu e-mail após a compra!
+          </p>
         </div>
 
         {/* QR Code do PIX */}
