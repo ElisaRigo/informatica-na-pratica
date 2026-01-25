@@ -81,21 +81,11 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
         <CheckoutForm />
 
-        {/* Rodapé com Mercado Pago */}
-        <div className="border-t pt-4 space-y-3">
-          <div className="flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-muted-foreground" />
-            <p className="text-sm text-center text-muted-foreground font-medium">
-              Pagamento processado com segurança por
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <img 
-              src="https://http2.mlstatic.com/frontend-assets/mp-web-navigation/ui-navigation/6.6.92/mercadopago/logo__large.png" 
-              alt="Mercado Pago" 
-              className="h-8"
-            />
-          </div>
+        {/* Rodapé simplificado */}
+        <div className="border-t border-border pt-3">
+          <p className="text-[10px] text-center text-muted-foreground">
+            Pagamento processado com segurança pelo Mercado Pago
+          </p>
         </div>
       </DialogContent>
     </Dialog>

@@ -724,11 +724,7 @@ export const CheckoutForm = () => {
         </div>
       )}
 
-      {/* Footer Info */}
-      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2 border-t">
-        <ShieldCheck className="w-4 h-4" />
-        <span>Pagamento 100% Seguro • Garantia Total de 7 Dias</span>
-      </div>
+      {/* Footer removido - já existe no CheckoutDialog */}
     </div>
   );
 };
