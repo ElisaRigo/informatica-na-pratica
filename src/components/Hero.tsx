@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Shield, Award, Zap, Play, Headphones } from "lucide-react";
+import { Shield, Award, Zap, Play, Headphones, Infinity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroVideoThumb from "@/assets/hero-video-cover.png";
 
@@ -75,10 +75,10 @@ export const Hero = () => {
 
             {/* Destaque Acesso Vitalício */}
             <div className="flex justify-center mb-3">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-accent/20 border-2 border-primary/40 px-4 py-2.5 rounded-full animate-pulse">
-                <span className="text-xl">♾️</span>
-                <span className="font-black text-sm md:text-base text-primary">ACESSO VITALÍCIO</span>
-                <span className="text-xs md:text-sm text-foreground/80">— Seu para sempre!</span>
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/10 border border-primary/30 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+                <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
+                <span className="text-[10px] md:text-xs text-foreground/70">— Seu para sempre!</span>
               </div>
             </div>
 

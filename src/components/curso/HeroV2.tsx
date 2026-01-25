@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users } from "lucide-react";
+import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -68,13 +68,11 @@ export const HeroV2 = () => {
         </div>
 
         {/* Destaque Acesso Vitalício */}
-        <div className="flex justify-center mb-4 md:mb-6">
-          <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-accent/30 to-primary/30 border-2 border-accent/50 px-5 py-3 md:px-6 md:py-4 rounded-full shadow-lg shadow-accent/20">
-            <span className="text-2xl md:text-3xl">♾️</span>
-            <div className="flex flex-col md:flex-row md:items-center md:gap-2">
-              <span className="font-black text-base md:text-xl text-accent">ACESSO VITALÍCIO</span>
-              <span className="text-sm md:text-base text-white/90">— Seu para sempre!</span>
-            </div>
+        <div className="flex justify-center mb-3 md:mb-5">
+          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+            <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
+            <span className="text-[10px] md:text-xs text-white/70">— Seu para sempre!</span>
           </div>
         </div>
 
