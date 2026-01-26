@@ -22,14 +22,14 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Pedro Junk",
-    role: "Secretário",
+    name: "Pedro Junk, 38 anos",
+    role: "Empresário",
     text: "Ganhei uma promoção porque agora domino Word e Excel. O investimento se pagou em menos de um mês.",
     image: testimonial3,
     rating: 5,
   },
   {
-    name: "Toberta Silva, 28 anos",
+    name: "Roberta Silva, 28 anos",
     role: "Autônoma",
     text: "A didática da professora é incrível. Ela explica de um jeito que até quem nunca usou computador entende.",
     image: testimonial4,
