@@ -36,16 +36,28 @@ export const CertificateSection = () => {
             
             {/* Certificate frame */}
             <div className="relative bg-gradient-to-b from-slate-800 to-slate-900 p-3 md:p-5 rounded-2xl shadow-2xl border border-amber-500/20">
-              <div className="relative overflow-hidden rounded-xl">
+              <div 
+                className="relative overflow-hidden rounded-xl select-none"
+                onContextMenu={(e) => e.preventDefault()}
+              >
                 <img 
                   src={certificadoExemplo}
                   alt="Exemplo de Certificado do Curso de Informática - 120 horas"
-                  className="w-full h-auto transform group-hover:scale-[1.02] transition-transform duration-500"
+                  className="w-full h-auto transform group-hover:scale-[1.02] transition-transform duration-500 pointer-events-none"
                   loading="lazy"
+                  draggable="false"
+                  onDragStart={(e) => e.preventDefault()}
                 />
                 
+                {/* Watermark overlay */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span className="text-4xl md:text-6xl lg:text-7xl font-black text-red-500/30 rotate-[-25deg] select-none tracking-widest">
+                    EXEMPLO
+                  </span>
+                </div>
+                
                 {/* Shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               </div>
             </div>
             
