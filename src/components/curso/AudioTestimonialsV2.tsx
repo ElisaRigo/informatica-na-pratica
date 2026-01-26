@@ -149,24 +149,11 @@ export const AudioTestimonialsV2 = () => {
           </p>
         </div>
 
-        {/* Two Column Layout: Audios + Screenshots */}
+        {/* Two Column Layout: Screenshots first on mobile, Audios + Screenshots side by side on desktop */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
-          {/* Left Column: Audio Players */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Volume2 className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
-            </div>
-            <div className="space-y-3">
-              {audioTestimonials.map((testimonial, index) => (
-                <AudioPlayer key={index} testimonial={testimonial} />
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column: WhatsApp Screenshots */}
-          <div>
+          {/* WhatsApp Screenshots - First on mobile (order-1 on mobile, order-2 on lg) */}
+          <div className="order-1 lg:order-2">
             <div className="flex items-center gap-2 mb-4">
               <Smartphone className="w-5 h-5 text-primary" />
               <h3 className="text-lg font-bold text-white">Prints de Conversas</h3>
@@ -190,6 +177,19 @@ export const AudioTestimonialsV2 = () => {
                     loading="lazy"
                   />
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Audio Players - Second on mobile (order-2 on mobile, order-1 on lg) */}
+          <div className="order-2 lg:order-1">
+            <div className="flex items-center gap-2 mb-4">
+              <Volume2 className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
+            </div>
+            <div className="space-y-3">
+              {audioTestimonials.map((testimonial, index) => (
+                <AudioPlayer key={index} testimonial={testimonial} />
               ))}
             </div>
           </div>
