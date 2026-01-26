@@ -44,18 +44,6 @@ export const CertificateSection = () => {
                   loading="lazy"
                 />
                 
-                {/* Watermark overlay */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="rotate-[-30deg] opacity-20 select-none">
-                    <p className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-600 whitespace-nowrap tracking-wider">
-                      EXEMPLO • EXEMPLO • EXEMPLO
-                    </p>
-                    <p className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-600 whitespace-nowrap tracking-wider mt-4 text-center">
-                      AMOSTRA
-                    </p>
-                  </div>
-                </div>
-                
                 {/* Shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
