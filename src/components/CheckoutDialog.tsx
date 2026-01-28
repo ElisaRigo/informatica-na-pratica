@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor, Laptop } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import elisaPhoto from "@/assets/elisa-checkout.jpg";
 
@@ -26,7 +26,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
           {/* Badge do Curso */}
           <div className="flex justify-center">
             <span className="bg-primary text-primary-foreground text-sm md:text-base font-bold px-4 py-1.5 rounded-full shadow-md flex items-center gap-2">
-              <Monitor className="w-4 h-4 md:w-5 md:h-5" /> Curso Completo de Informática
+              <Laptop className="w-4 h-4 md:w-5 md:h-5" /> Curso Completo de Informática
             </span>
           </div>
           
