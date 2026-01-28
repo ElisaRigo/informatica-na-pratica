@@ -23,6 +23,13 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
         </div>
 
         <DialogHeader className="space-y-2">
+          {/* Badge do Curso */}
+          <div className="flex justify-center">
+            <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+              📚 Curso Completo de Informática
+            </span>
+          </div>
+          
           <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground flex items-center justify-center gap-2">
             <Monitor className="w-6 h-6 text-primary" />
             Falta pouco para você começar!
