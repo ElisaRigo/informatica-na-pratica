@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor, Laptop } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import elisaPhoto from "@/assets/elisa-checkout.jpg";
 
@@ -28,18 +28,17 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
           </div>
         </div>
 
-        <DialogHeader className="space-y-1.5">
-          {/* Badge do Curso */}
-          <div className="flex justify-center">
-            <span className="bg-primary text-primary-foreground text-sm md:text-base font-bold px-4 py-1.5 rounded-full shadow-md flex items-center gap-2">
-              <Laptop className="w-4 h-4 md:w-5 md:h-5" /> Curso Completo de Informática
-            </span>
-          </div>
-          
+        <DialogHeader className="space-y-1">
+          {/* Título Principal */}
           <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground flex items-center justify-center gap-2">
             <Monitor className="w-6 h-6 text-primary" />
-            Falta pouco para você começar!
+            Curso Completo de Informática
           </DialogTitle>
+          
+          {/* Subtítulo */}
+          <p className="text-base md:text-lg font-bold text-center text-primary">
+            Falta pouco para você começar!
+          </p>
           
           {/* Foto + Preço em destaque */}
           <div className="flex items-center justify-center gap-4 py-2">
