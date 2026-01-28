@@ -1,7 +1,8 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
 import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
-import logoBlue from "@/assets/logo-blue.png";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import elisaPhoto from "@/assets/elisa-checkout.jpg";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -30,13 +31,16 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             Pagamento 100% seguro e acesso imediato ao curso.
           </p>
           
-          {/* Logo + Preço em destaque */}
+          {/* Foto + Preço em destaque */}
           <div className="flex items-center justify-center gap-4 py-2">
-            <img 
-              src={logoBlue} 
-              alt="Informática Descomplicada" 
-              className="h-12 md:h-14 object-contain"
-            />
+            <Avatar className="h-16 w-16 md:h-20 md:w-20 border-2 border-primary shadow-lg">
+              <AvatarImage 
+                src={elisaPhoto} 
+                alt="Professora Elisangela Néri Rigo" 
+                className="object-cover object-top"
+              />
+              <AvatarFallback className="bg-primary text-primary-foreground text-xl font-bold">ER</AvatarFallback>
+            </Avatar>
             <div className="text-left">
               <p className="text-3xl md:text-4xl font-black text-primary">
                 R$ 297<span className="text-lg">,00</span>
@@ -45,6 +49,12 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
                 ou 12x de R$ 30,22
               </p>
             </div>
+          </div>
+
+          {/* Faixa da Professora */}
+          <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-2 text-center">
+            <p className="text-xs text-muted-foreground">Professora Responsável</p>
+            <p className="text-sm font-bold text-primary">Elisangela Néri Rigo</p>
           </div>
 
           {/* Grid 2x2 de Garantias */}
