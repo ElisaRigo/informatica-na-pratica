@@ -27,19 +27,20 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             <Monitor className="w-6 h-6 text-primary" />
             Falta pouco para você começar!
           </DialogTitle>
-          <p className="text-sm text-center text-muted-foreground">
-            Pagamento 100% seguro e acesso imediato ao curso.
+          <p className="text-sm text-center text-muted-foreground flex items-center justify-center gap-1">
+            <Lock className="w-3.5 h-3.5" />
+            Pagamento 100% seguro e acesso imediato.
           </p>
           
           {/* Foto + Preço em destaque */}
           <div className="flex items-center justify-center gap-4 py-2">
-            <Avatar className="h-16 w-16 md:h-20 md:w-20 border-2 border-primary shadow-lg">
+            <Avatar className="h-20 w-20 md:h-24 md:w-24 border-3 border-primary shadow-lg">
               <AvatarImage 
                 src={elisaPhoto} 
                 alt="Professora Elisangela Néri Rigo" 
                 className="object-cover object-top"
               />
-              <AvatarFallback className="bg-primary text-primary-foreground text-xl font-bold">ER</AvatarFallback>
+              <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-bold">ER</AvatarFallback>
             </Avatar>
             <div className="text-left">
               <p className="text-3xl md:text-4xl font-black text-primary">
@@ -52,9 +53,9 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
           </div>
 
           {/* Faixa da Professora */}
-          <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-2 text-center">
+          <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-2.5 text-center">
             <p className="text-xs text-muted-foreground">Professora Responsável</p>
-            <p className="text-sm font-bold text-primary">Elisangela Néri Rigo</p>
+            <p className="text-base font-bold text-primary">Elisangela Néri Rigo</p>
           </div>
 
           {/* Grid 2x2 de Garantias */}
