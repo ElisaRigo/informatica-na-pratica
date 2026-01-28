@@ -25,7 +25,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
         <DialogHeader className="space-y-2">
           {/* Badge do Curso */}
           <div className="flex justify-center">
-            <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+            <span className="bg-primary text-primary-foreground text-sm md:text-base font-bold px-4 py-1.5 rounded-full shadow-md">
               📚 Curso Completo de Informática
             </span>
           </div>
