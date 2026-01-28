@@ -15,10 +15,16 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-6">
         {/* Header de Segurança */}
         <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-2 mb-2">
-          <div className="flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-success" />
-            <span className="text-sm font-bold text-success">Ambiente 100% Seguro</span>
-            <ShieldCheck className="w-4 h-4 text-success" />
+          <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center gap-1">
+              <Lock className="w-4 h-4 text-success" />
+              <span className="text-sm font-bold text-success">Ambiente 100% Seguro</span>
+            </div>
+            <span className="text-success">•</span>
+            <div className="flex items-center gap-1">
+              <CheckCircle2 className="w-4 h-4 text-success" />
+              <span className="text-sm font-bold text-success">Acesso Imediato</span>
+            </div>
           </div>
         </div>
 
@@ -34,10 +40,6 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             <Monitor className="w-6 h-6 text-primary" />
             Falta pouco para você começar!
           </DialogTitle>
-          <p className="text-sm text-center text-muted-foreground flex items-center justify-center gap-1">
-            <Lock className="w-3.5 h-3.5" />
-            Pagamento 100% seguro e acesso imediato.
-          </p>
           
           {/* Foto + Preço em destaque */}
           <div className="flex items-center justify-center gap-4 py-2">
