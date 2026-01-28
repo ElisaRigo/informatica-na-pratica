@@ -12,23 +12,23 @@ interface CheckoutDialogProps {
 export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-6">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-3 md:p-5">
         {/* Header de Segurança */}
-        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-2 mb-2">
-          <div className="flex items-center justify-center gap-3">
+        <div className="bg-success/10 border border-success/30 rounded-lg px-3 py-1.5 mb-1">
+          <div className="flex items-center justify-center gap-2 flex-wrap">
             <div className="flex items-center gap-1">
-              <Lock className="w-4 h-4 text-success" />
-              <span className="text-sm font-bold text-success">Ambiente 100% Seguro</span>
+              <Lock className="w-3.5 h-3.5 text-success" />
+              <span className="text-xs font-bold text-success">Ambiente 100% Seguro</span>
             </div>
-            <span className="text-success">•</span>
+            <span className="text-success text-xs">•</span>
             <div className="flex items-center gap-1">
-              <CheckCircle2 className="w-4 h-4 text-success" />
-              <span className="text-sm font-bold text-success">Acesso Imediato</span>
+              <CheckCircle2 className="w-3.5 h-3.5 text-success" />
+              <span className="text-xs font-bold text-success">Acesso Imediato</span>
             </div>
           </div>
         </div>
 
-        <DialogHeader className="space-y-2">
+        <DialogHeader className="space-y-1.5">
           {/* Badge do Curso */}
           <div className="flex justify-center">
             <span className="bg-primary text-primary-foreground text-sm md:text-base font-bold px-4 py-1.5 rounded-full shadow-md flex items-center gap-2">
