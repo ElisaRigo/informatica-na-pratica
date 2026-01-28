@@ -61,9 +61,8 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
           </div>
 
           {/* Faixa da Professora */}
-          <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-2.5 text-center">
-            <p className="text-xs text-muted-foreground">Professora Responsável</p>
-            <p className="text-base font-bold text-primary">Elisangela Néri Rigo</p>
+          <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-2 text-center">
+            <p className="text-sm font-bold text-primary">Professora - Elisangela Néri Rigo</p>
           </div>
 
           {/* Grid 2x2 de Garantias */}
