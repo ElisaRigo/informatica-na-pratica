@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
 import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
@@ -10,6 +11,18 @@ interface CheckoutDialogProps {
 }
 
 export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
+  // Track form_start event when checkout opens
+  useEffect(() => {
+    if (open) {
+      const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
+                           window.location.hostname === 'www.informaticanapratica.com.br';
+      
+      if (isProduction && typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'form_start', {});
+      }
+    }
+  }, [open]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-3 md:p-5">
