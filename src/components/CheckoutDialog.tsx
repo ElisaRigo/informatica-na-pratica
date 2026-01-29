@@ -24,8 +24,12 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
   }, [open]);
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-3 md:p-5">
+    <>
+      {/* Preload da imagem da instrutora */}
+      <img src={elisaPhoto} alt="" className="hidden" aria-hidden="true" />
+      
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-3 md:p-5">
         {/* Header de Segurança */}
         <div className="bg-success/10 border border-success/30 rounded-lg px-3 py-1.5 mb-1">
           <div className="flex items-center justify-center gap-2 flex-wrap">
@@ -114,7 +118,8 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             🔒 Pagamento processado com segurança pelo Mercado Pago
           </p>
         </div>
-      </DialogContent>
-    </Dialog>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
