@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import elisaPhoto from "@/assets/elisa-checkout.jpg";
+import logoImage from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -46,16 +47,22 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
         </div>
 
         <DialogHeader className="space-y-1">
-          {/* Título Principal */}
-          <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground flex items-center justify-center gap-2">
-            <Monitor className="w-6 h-6 text-primary" />
-            Curso Completo de Informática
-          </DialogTitle>
-          
-          {/* Subtítulo */}
-          <p className="text-base md:text-lg font-bold text-center text-primary">
-            Falta pouco para você começar!
-          </p>
+          {/* Logo + Título + Subtítulo */}
+          <div className="flex items-center justify-center gap-3">
+            <img 
+              src={logoImage} 
+              alt="Informática na Prática" 
+              className="w-14 h-14 md:w-16 md:h-16 object-contain"
+            />
+            <div className="text-left">
+              <DialogTitle className="text-lg md:text-xl font-black text-foreground">
+                Curso Completo de Informática
+              </DialogTitle>
+              <p className="text-sm md:text-base font-bold text-primary">
+                Falta pouco para você começar!
+              </p>
+            </div>
+          </div>
           
           {/* Foto + Preço em destaque */}
           <div className="flex items-center justify-center gap-4 py-2">
