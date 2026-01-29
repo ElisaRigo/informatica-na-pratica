@@ -60,6 +60,8 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
                 src={elisaPhoto} 
                 alt="Professora Elisangela Néri Rigo" 
                 className="object-cover object-top"
+                loading="eager"
+                {...{ fetchpriority: 'high' } as any}
               />
               <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-bold">ER</AvatarFallback>
             </Avatar>
