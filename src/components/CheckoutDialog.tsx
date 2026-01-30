@@ -1,10 +1,8 @@
-import { useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import elisaPhoto from "@/assets/elisa-checkout.jpg";
-import logoImage from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -12,25 +10,9 @@ interface CheckoutDialogProps {
 }
 
 export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
-  // Track form_start event when checkout opens
-  useEffect(() => {
-    if (open) {
-      const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
-                           window.location.hostname === 'www.informaticanapratica.com.br';
-      
-      if (isProduction && typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'form_start', {});
-      }
-    }
-  }, [open]);
-
   return (
-    <>
-      {/* Preload da imagem da instrutora */}
-      <img src={elisaPhoto} alt="" className="hidden" aria-hidden="true" />
-      
-      <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-3 md:p-5">
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-3 md:p-5">
         {/* Header de Segurança */}
         <div className="bg-success/10 border border-success/30 rounded-lg px-3 py-1.5 mb-1">
           <div className="flex items-center justify-center gap-2 flex-wrap">
@@ -47,22 +29,16 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
         </div>
 
         <DialogHeader className="space-y-1">
-          {/* Logo + Título + Subtítulo */}
-          <div className="flex items-center justify-center gap-3">
-            <img 
-              src={logoImage} 
-              alt="Informática na Prática" 
-              className="w-14 h-14 md:w-16 md:h-16 object-contain"
-            />
-            <div className="text-left">
-              <DialogTitle className="text-lg md:text-xl font-black text-foreground">
-                Curso Completo de Informática
-              </DialogTitle>
-              <p className="text-sm md:text-base font-bold text-primary">
-                Falta pouco para você começar!
-              </p>
-            </div>
-          </div>
+          {/* Título Principal */}
+          <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground flex items-center justify-center gap-2">
+            <Monitor className="w-6 h-6 text-primary" />
+            Curso Completo de Informática
+          </DialogTitle>
+          
+          {/* Subtítulo */}
+          <p className="text-base md:text-lg font-bold text-center text-primary">
+            Falta pouco para você começar!
+          </p>
           
           {/* Foto + Preço em destaque */}
           <div className="flex items-center justify-center gap-4 py-2">
@@ -71,8 +47,6 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
                 src={elisaPhoto} 
                 alt="Professora Elisangela Néri Rigo" 
                 className="object-cover object-top"
-                loading="eager"
-                {...{ fetchpriority: 'high' } as any}
               />
               <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-bold">ER</AvatarFallback>
             </Avatar>
@@ -125,8 +99,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             🔒 Pagamento processado com segurança pelo Mercado Pago
           </p>
         </div>
-        </DialogContent>
-      </Dialog>
-    </>
+      </DialogContent>
+    </Dialog>
   );
 };
