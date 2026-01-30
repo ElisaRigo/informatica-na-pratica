@@ -604,12 +604,6 @@ export const CheckoutForm = () => {
   // Formulário inicial
   return (
     <div className="space-y-4">
-      {/* CTA para preencher dados */}
-      <div className="bg-primary/10 border border-primary/30 rounded-lg p-2.5 text-center">
-        <p className="text-sm font-bold text-primary">
-          ✍️ Preencha seus dados:
-        </p>
-      </div>
 
       {/* Formulário */}
       <div className="space-y-3 md:space-y-4">
