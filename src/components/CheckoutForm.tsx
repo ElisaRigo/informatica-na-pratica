@@ -134,24 +134,49 @@ export const CheckoutForm = () => {
     try {
       const cleanCPF = formData.cpf.replace(/\D/g, '');
       const cleanPhone = formData.phone.replace(/\D/g, '');
+      const email = formData.email.trim().toLowerCase();
       
-      const { error } = await supabase
+      // Verificar se lead já existe
+      const { data: existingLead } = await supabase
         .from('leads')
-        .upsert({
-          name: formData.name.trim(),
-          email: formData.email.trim().toLowerCase(),
-          phone: cleanPhone || null,
-          cpf: cleanCPF || null,
-          source: 'checkout',
-          converted: false
-        }, {
-          onConflict: 'email'
-        });
+        .select('id')
+        .eq('email', email)
+        .maybeSingle();
 
-      if (error) {
-        console.error('Error saving lead:', error);
+      if (existingLead) {
+        // Atualizar lead existente
+        const { error } = await supabase
+          .from('leads')
+          .update({
+            name: formData.name.trim(),
+            phone: cleanPhone || null,
+            cpf: cleanCPF || null,
+          })
+          .eq('id', existingLead.id);
+
+        if (error) {
+          console.error('Error updating lead:', error);
+        } else {
+          console.log('✅ Lead atualizado:', email);
+        }
       } else {
-        console.log('✅ Lead salvo:', formData.email);
+        // Inserir novo lead
+        const { error } = await supabase
+          .from('leads')
+          .insert({
+            name: formData.name.trim(),
+            email: email,
+            phone: cleanPhone || null,
+            cpf: cleanCPF || null,
+            source: 'checkout',
+            converted: false
+          });
+
+        if (error) {
+          console.error('Error saving lead:', error);
+        } else {
+          console.log('✅ Lead salvo:', email);
+        }
       }
     } catch (error) {
       console.error('Error saving lead:', error);
