@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Star } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
@@ -104,78 +104,60 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
       hasTrackedRef.current = false;
     }
   }, [open]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-6">
-        {/* Header de Segurança */}
-        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-2 mb-2">
-          <div className="flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-success" />
-            <span className="text-sm font-bold text-success">Ambiente 100% Seguro</span>
-            <ShieldCheck className="w-4 h-4 text-success" />
+      <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-5 gap-3">
+        {/* Header minimalista - só o essencial */}
+        <div className="flex items-center justify-between gap-3 pb-3 border-b border-border">
+          <img 
+            src={logoBlue} 
+            alt="Informática Descomplicada" 
+            className="h-8 md:h-10 object-contain"
+          />
+          <div className="text-right">
+            <p className="text-2xl md:text-3xl font-black text-primary leading-none">
+              R$ 297
+            </p>
+            <p className="text-xs text-success font-semibold">
+              ou 12x de R$ 30,22
+            </p>
           </div>
         </div>
 
-        <DialogHeader className="space-y-2">
-          <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground flex items-center justify-center gap-2">
-            <Monitor className="w-6 h-6 text-primary" />
-            Falta pouco para você começar!
-          </DialogTitle>
-          <p className="text-sm text-center text-muted-foreground">
-            Pagamento 100% seguro e acesso imediato ao curso.
-          </p>
-          
-          {/* Logo + Preço em destaque */}
-          <div className="flex items-center justify-center gap-4 py-2">
-            <img 
-              src={logoBlue} 
-              alt="Informática Descomplicada" 
-              className="h-12 md:h-14 object-contain"
-            />
-            <div className="text-left">
-              <p className="text-3xl md:text-4xl font-black text-primary">
-                R$ 297<span className="text-lg">,00</span>
-              </p>
-              <p className="text-sm text-success font-semibold">
-                ou 12x de R$ 30,22
-              </p>
-            </div>
+        {/* Barra de confiança compacta */}
+        <div className="flex items-center justify-center gap-4 py-2 bg-muted/30 rounded-lg text-xs">
+          <span className="flex items-center gap-1 text-muted-foreground">
+            <Lock className="w-3 h-3 text-success" />
+            Seguro
+          </span>
+          <span className="flex items-center gap-1 text-muted-foreground">
+            <ShieldCheck className="w-3 h-3 text-success" />
+            7 dias garantia
+          </span>
+          <span className="flex items-center gap-1 text-muted-foreground">
+            <CheckCircle2 className="w-3 h-3 text-success" />
+            Acesso imediato
+          </span>
+        </div>
+
+        {/* Social proof rápido */}
+        <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
+          <div className="flex -space-x-1">
+            {[1,2,3,4,5].map(i => (
+              <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+            ))}
           </div>
+          <span className="ml-1">+2.500 alunos já transformaram suas vidas</span>
+        </div>
 
-          {/* Grid 2x2 de Garantias */}
-          <div className="grid grid-cols-2 gap-2">
-            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
-              <CheckCircle2 className="w-5 h-5 text-success" />
-              <p className="text-xs font-bold text-foreground">Acesso imediato</p>
-              <p className="text-[10px] text-muted-foreground">Login enviado por e-mail</p>
-            </div>
-            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
-              <ShieldCheck className="w-5 h-5 text-success" />
-              <p className="text-xs font-bold text-foreground">Garantia 7 dias</p>
-              <p className="text-[10px] text-muted-foreground">100% do dinheiro de volta</p>
-            </div>
-            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
-              <Headphones className="w-5 h-5 text-success" />
-              <p className="text-xs font-bold text-foreground">Suporte humanizado</p>
-              <p className="text-[10px] text-muted-foreground">Tire dúvidas pelo WhatsApp</p>
-            </div>
-            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
-              <Infinity className="w-5 h-5 text-success" />
-              <p className="text-xs font-bold text-foreground">Acesso vitalício</p>
-              <p className="text-[10px] text-muted-foreground">Assista quando quiser</p>
-            </div>
-          </div>
-
-        </DialogHeader>
-
+        {/* Formulário - protagonista */}
         <CheckoutForm />
 
-        {/* Rodapé */}
-        <div className="border-t border-border pt-4">
-          <p className="text-sm text-center text-muted-foreground font-medium">
-            🔒 Pagamento processado com segurança pelo Mercado Pago
-          </p>
-        </div>
+        {/* Rodapé mínimo */}
+        <p className="text-[10px] text-center text-muted-foreground pt-2 border-t border-border">
+          🔒 Pagamento processado com segurança pelo Mercado Pago
+        </p>
       </DialogContent>
     </Dialog>
   );
