@@ -46,40 +46,46 @@ const ThankYou = () => {
       return false;
     };
 
-    // Função para disparar conversões do Google
+    // Função para disparar conversões do Google (GA4 + Google Ads)
     const trackGoogleConversion = () => {
       if (typeof window !== 'undefined' && (window as any).gtag) {
-        // Disparar evento de conversão do Google Analytics
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'G-08B5E33G3F',
-          'transaction_id': '',
-          'value': 297.0,
-          'currency': 'BRL'
+        // GA4 - Evento purchase padrão e-commerce (correto para conversões)
+        (window as any).gtag('event', 'purchase', {
+          transaction_id: `txn_${Date.now()}`,
+          value: 297.0,
+          currency: 'BRL',
+          items: [{
+            item_name: 'Curso Informática na Prática',
+            price: 297.0,
+            quantity: 1
+          }]
+        });
+        console.log('✅ [GA4] purchase event disparado - R$ 297,00');
+        
+        // Pageview da página de obrigado
+        (window as any).gtag('config', 'G-08B5E33G3F', {
+          page_path: '/obrigada',
+          page_title: 'Obrigada - Compra Confirmada'
         });
         
-      // Disparar pageview para garantir que o GA4 rastreie a página
-      (window as any).gtag('config', 'G-08B5E33G3F', {
-        page_path: '/obrigada',
-        page_title: 'Obrigada - Compra Confirmada'
-      });
-        
-        // Disparar evento de conversão do Google Ads
+        // Google Ads - Conversão de venda
         (window as any).gtag('event', 'conversion', {
           'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
           'value': 297.0,
           'currency': 'BRL',
-          'transaction_id': ''
+          'transaction_id': `txn_${Date.now()}`
         });
+        console.log('✅ [GAds] conversion event disparado - R$ 297,00');
         
-        // Disparar evento de conversão de matrícula do Google Ads
+        // Google Ads - Conversão de matrícula
         (window as any).gtag('event', 'conversion', {
           'send_to': 'AW-17641842157/B6aWCPfmzr0bEO3LpNxB',
           'value': 1.0,
           'currency': 'BRL',
-          'transaction_id': ''
+          'transaction_id': `txn_${Date.now()}`
         });
+        console.log('✅ [GAds] matrícula conversion disparado');
         
-        console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
         return true;
       }
       return false;
@@ -87,14 +93,14 @@ const ThankYou = () => {
 
     // Tentar disparar Facebook Pixel imediatamente ou com retry
     if (!trackFacebookConversion()) {
-      console.log('⏳ Aguardando Facebook Pixel carregar...');
+      console.log('⏳ [FB] Aguardando fbq carregar...');
       let fbAttempts = 0;
       const fbInterval = setInterval(() => {
         fbAttempts++;
         if (trackFacebookConversion()) {
           clearInterval(fbInterval);
         } else if (fbAttempts >= 50) {
-          console.error('❌ Facebook Pixel não carregou após 5 segundos');
+          console.error('❌ [FB] fbq não carregou após 5s - Purchase perdido');
           clearInterval(fbInterval);
         }
       }, 100);
@@ -102,14 +108,14 @@ const ThankYou = () => {
 
     // Tentar disparar Google Analytics/Ads imediatamente ou com retry
     if (!trackGoogleConversion()) {
-      console.log('⏳ Aguardando gtag carregar...');
+      console.log('⏳ [GA4/GAds] Aguardando gtag carregar...');
       let gtagAttempts = 0;
       const gtagInterval = setInterval(() => {
         gtagAttempts++;
         if (trackGoogleConversion()) {
           clearInterval(gtagInterval);
         } else if (gtagAttempts >= 50) {
-          console.error('❌ gtag não carregou após 5 segundos');
+          console.error('❌ [GA4/GAds] gtag não carregou após 5s - conversão perdida');
           clearInterval(gtagInterval);
         }
       }, 100);
