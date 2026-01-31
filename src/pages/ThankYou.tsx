@@ -15,8 +15,23 @@ const ThankYou = () => {
       return;
     }
 
-    // Função para disparar as conversões
-    const trackConversion = () => {
+    // Função para disparar conversão do Facebook Pixel
+    const trackFacebookConversion = () => {
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Purchase', {
+          value: 297.00,
+          currency: 'BRL',
+          content_type: 'product',
+          content_name: 'Curso Informática na Prática'
+        });
+        console.log('✅ Facebook Pixel Purchase event tracked - Value: R$ 297,00');
+        return true;
+      }
+      return false;
+    };
+
+    // Função para disparar conversões do Google
+    const trackGoogleConversion = () => {
       if (typeof window !== 'undefined' && (window as any).gtag) {
         // Disparar evento de conversão do Google Analytics
         (window as any).gtag('event', 'conversion', {
@@ -49,43 +64,44 @@ const ThankYou = () => {
         });
         
         console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
-        
-        // Disparar conversão do Facebook Pixel
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Purchase', {
-            value: 297.00,
-            currency: 'BRL'
-          });
-          console.log('✅ Facebook Pixel conversion tracked successfully');
-        }
-        
         return true;
       }
       return false;
     };
 
-    // Tentar disparar imediatamente
-    if (trackConversion()) {
-      return;
+    // Tentar disparar Facebook Pixel imediatamente ou com retry
+    if (!trackFacebookConversion()) {
+      console.log('⏳ Aguardando Facebook Pixel carregar...');
+      let fbAttempts = 0;
+      const fbInterval = setInterval(() => {
+        fbAttempts++;
+        if (trackFacebookConversion()) {
+          clearInterval(fbInterval);
+        } else if (fbAttempts >= 50) {
+          console.error('❌ Facebook Pixel não carregou após 5 segundos');
+          clearInterval(fbInterval);
+        }
+      }, 100);
     }
 
-    // Se gtag não estiver disponível, esperar até que esteja (max 5 segundos)
-    console.log('⏳ Aguardando gtag carregar...');
-    let attempts = 0;
-    const maxAttempts = 50; // 5 segundos (50 * 100ms)
-    
-    const interval = setInterval(() => {
-      attempts++;
-      
-      if (trackConversion()) {
-        clearInterval(interval);
-      } else if (attempts >= maxAttempts) {
-        console.error('❌ gtag não carregou após 5 segundos');
-        clearInterval(interval);
-      }
-    }, 100);
+    // Tentar disparar Google Analytics/Ads imediatamente ou com retry
+    if (!trackGoogleConversion()) {
+      console.log('⏳ Aguardando gtag carregar...');
+      let gtagAttempts = 0;
+      const gtagInterval = setInterval(() => {
+        gtagAttempts++;
+        if (trackGoogleConversion()) {
+          clearInterval(gtagInterval);
+        } else if (gtagAttempts >= 50) {
+          console.error('❌ gtag não carregou após 5 segundos');
+          clearInterval(gtagInterval);
+        }
+      }, 100);
+    }
 
-    return () => clearInterval(interval);
+    return () => {
+      // Cleanup handled by individual intervals
+    };
   }, []);
 
 
