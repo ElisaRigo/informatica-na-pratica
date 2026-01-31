@@ -7,11 +7,12 @@ import { AddStudent } from './AddStudent';
 import { PaymentsList } from './PaymentsList';
 import { AdminSettings } from './AdminSettings';
 import { ReprocessPayment } from './ReprocessPayment';
-import { LogOut } from 'lucide-react';
+import { LeadsList } from './LeadsList';
+import { LogOut, Users, UserPlus, CreditCard, Settings, Target } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState('students');
+  const [activeTab, setActiveTab] = useState('leads');
 
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
@@ -36,20 +37,32 @@ export const AdminDashboard = () => {
 
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="mb-8 w-full justify-start gap-2 bg-card border border-border p-2">
-            <TabsTrigger value="students" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+          <TabsList className="mb-8 w-full justify-start gap-2 bg-card border border-border p-2 flex-wrap">
+            <TabsTrigger value="leads" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
+              <Target className="w-4 h-4" />
+              Leads
+            </TabsTrigger>
+            <TabsTrigger value="students" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
+              <Users className="w-4 h-4" />
               Alunos
             </TabsTrigger>
-            <TabsTrigger value="add" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-              Adicionar Aluno
+            <TabsTrigger value="add" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
+              <UserPlus className="w-4 h-4" />
+              Adicionar
             </TabsTrigger>
-            <TabsTrigger value="payments" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <TabsTrigger value="payments" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
+              <CreditCard className="w-4 h-4" />
               Pagamentos
             </TabsTrigger>
-            <TabsTrigger value="settings" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-              Configurações
+            <TabsTrigger value="settings" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
+              <Settings className="w-4 h-4" />
+              Config
             </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="leads">
+            <LeadsList />
+          </TabsContent>
 
           <TabsContent value="students">
             <StudentsList />

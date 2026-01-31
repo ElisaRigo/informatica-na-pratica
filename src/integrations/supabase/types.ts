@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      leads: {
+        Row: {
+          converted: boolean | null
+          cpf: string | null
+          created_at: string
+          email: string
+          id: string
+          name: string
+          phone: string | null
+          source: string | null
+          updated_at: string
+        }
+        Insert: {
+          converted?: boolean | null
+          cpf?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          phone?: string | null
+          source?: string | null
+          updated_at?: string
+        }
+        Update: {
+          converted?: boolean | null
+          cpf?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          phone?: string | null
+          source?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       payment_access_logs: {
         Row: {
           accessed_at: string | null

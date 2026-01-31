@@ -129,6 +129,35 @@ export const CheckoutForm = () => {
     return value;
   };
 
+  // Salvar lead quando formulário é validado
+  const saveLead = async () => {
+    try {
+      const cleanCPF = formData.cpf.replace(/\D/g, '');
+      const cleanPhone = formData.phone.replace(/\D/g, '');
+      
+      const { error } = await supabase
+        .from('leads')
+        .upsert({
+          name: formData.name.trim(),
+          email: formData.email.trim().toLowerCase(),
+          phone: cleanPhone || null,
+          cpf: cleanCPF || null,
+          source: 'checkout',
+          converted: false
+        }, {
+          onConflict: 'email'
+        });
+
+      if (error) {
+        console.error('Error saving lead:', error);
+      } else {
+        console.log('✅ Lead salvo:', formData.email);
+      }
+    } catch (error) {
+      console.error('Error saving lead:', error);
+    }
+  };
+
   const validateForm = () => {
     if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
       toast({
@@ -168,6 +197,9 @@ export const CheckoutForm = () => {
       });
       return false;
     }
+
+    // Salvar lead após validação bem-sucedida
+    saveLead();
 
     return true;
   };
