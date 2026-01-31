@@ -43,6 +43,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
       // Função para disparar Google Analytics/Ads InitiateCheckout
       const trackGoogleInitiateCheckout = () => {
         if (typeof window !== 'undefined' && (window as any).gtag) {
+          // GA4 - begin_checkout
           (window as any).gtag('event', 'begin_checkout', {
             currency: 'BRL',
             value: 297.00,
@@ -53,6 +54,15 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             }]
           });
           console.log('✅ [GA4] begin_checkout disparado - R$ 297,00');
+          
+          // Google Ads - form_start conversion
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'AW-17641842157/-qUVCOSN474bEO3LpNxB',
+            'value': 20.0,
+            'currency': 'BRL'
+          });
+          console.log('✅ [GAds] form_start conversion disparado');
+          
           return true;
         }
         return false;
