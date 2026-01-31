@@ -512,12 +512,6 @@ export const CheckoutForm = () => {
           </p>
         </div>
 
-        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-3 text-center">
-          <p className="text-sm text-success font-medium flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-4 h-4" />
-            Acesso enviado no seu e-mail após a compra!
-          </p>
-        </div>
 
         <CardPaymentBrick
           formData={formData}
