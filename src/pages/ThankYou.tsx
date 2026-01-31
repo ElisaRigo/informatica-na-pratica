@@ -15,9 +15,25 @@ const ThankYou = () => {
       return;
     }
 
-    // Função para disparar conversão do Facebook Pixel
+    // Obter parâmetros da URL (email e telefone podem ser passados pelo checkout)
+    const urlParams = new URLSearchParams(window.location.search);
+    const userEmail = urlParams.get('email') || '';
+    const userPhone = urlParams.get('phone') || '';
+
+    // Função para disparar conversão do Facebook Pixel com Advanced Matching
     const trackFacebookConversion = () => {
       if (typeof window !== 'undefined' && (window as any).fbq) {
+        // Se temos dados do usuário, fazer init com Advanced Matching
+        if (userEmail || userPhone) {
+          const advancedMatchingData: { em?: string; ph?: string } = {};
+          if (userEmail) advancedMatchingData.em = userEmail.toLowerCase().trim();
+          if (userPhone) advancedMatchingData.ph = userPhone.replace(/\D/g, ''); // Remove não-numéricos
+          
+          (window as any).fbq('init', '787096354071974', advancedMatchingData);
+          console.log('✅ Facebook Pixel init com Advanced Matching:', advancedMatchingData);
+        }
+        
+        // Disparar evento Purchase com valor
         (window as any).fbq('track', 'Purchase', {
           value: 297.00,
           currency: 'BRL',
