@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
 import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
@@ -9,6 +10,32 @@ interface CheckoutDialogProps {
 }
 
 export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
+  const hasTrackedRef = useRef(false);
+
+  useEffect(() => {
+    // Disparar InitiateCheckout apenas uma vez quando o dialog abre
+    if (open && !hasTrackedRef.current) {
+      hasTrackedRef.current = true;
+      
+      const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
+                           window.location.hostname === 'www.informaticanapratica.com.br';
+      
+      if (isProduction && typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'InitiateCheckout', {
+          value: 297.00,
+          currency: 'BRL',
+          content_type: 'product',
+          content_name: 'Curso Informática na Prática'
+        });
+        console.log('✅ Facebook Pixel InitiateCheckout event tracked - Value: R$ 297,00');
+      }
+    }
+    
+    // Reset quando fecha
+    if (!open) {
+      hasTrackedRef.current = false;
+    }
+  }, [open]);
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-6">
