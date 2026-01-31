@@ -110,11 +110,17 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
       <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-5 gap-3">
         {/* Header minimalista - só o essencial */}
         <div className="flex items-center justify-between gap-3 pb-3 border-b border-border">
-          <img 
-            src={logoBlue} 
-            alt="Informática Descomplicada" 
-            className="h-8 md:h-10 object-contain"
-          />
+          <div className="flex items-center gap-2">
+            <img 
+              src={logoBlue} 
+              alt="Informática Descomplicada" 
+              className="h-8 md:h-10 object-contain"
+            />
+            <div>
+              <p className="text-sm md:text-base font-bold text-foreground leading-tight">Curso de Informática</p>
+              <p className="text-[10px] md:text-xs text-muted-foreground">Professora Elisangela Néri Rigo</p>
+            </div>
+          </div>
           <div className="text-right">
             <p className="text-2xl md:text-3xl font-black text-primary leading-none">
               R$ 297
