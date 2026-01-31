@@ -20,14 +20,72 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
       const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
                            window.location.hostname === 'www.informaticanapratica.com.br';
       
-      if (isProduction && typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'InitiateCheckout', {
-          value: 297.00,
-          currency: 'BRL',
-          content_type: 'product',
-          content_name: 'Curso Informática na Prática'
-        });
-        console.log('✅ Facebook Pixel InitiateCheckout event tracked - Value: R$ 297,00');
+      if (!isProduction) {
+        console.log('🔍 [DIAG] InitiateCheckout skipped - not production');
+        return;
+      }
+
+      // Função para disparar Facebook Pixel InitiateCheckout
+      const trackFbInitiateCheckout = () => {
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'InitiateCheckout', {
+            value: 297.00,
+            currency: 'BRL',
+            content_type: 'product',
+            content_name: 'Curso Informática na Prática'
+          });
+          console.log('✅ [FB] InitiateCheckout disparado - R$ 297,00');
+          return true;
+        }
+        return false;
+      };
+
+      // Função para disparar Google Analytics/Ads InitiateCheckout
+      const trackGoogleInitiateCheckout = () => {
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'begin_checkout', {
+            currency: 'BRL',
+            value: 297.00,
+            items: [{
+              item_name: 'Curso Informática na Prática',
+              price: 297.00,
+              quantity: 1
+            }]
+          });
+          console.log('✅ [GA4] begin_checkout disparado - R$ 297,00');
+          return true;
+        }
+        return false;
+      };
+
+      // Tentar disparar FB imediatamente ou com retry
+      if (!trackFbInitiateCheckout()) {
+        console.log('⏳ [FB] Aguardando fbq carregar...');
+        let fbAttempts = 0;
+        const fbInterval = setInterval(() => {
+          fbAttempts++;
+          if (trackFbInitiateCheckout()) {
+            clearInterval(fbInterval);
+          } else if (fbAttempts >= 50) {
+            console.error('❌ [FB] fbq não carregou após 5s - InitiateCheckout perdido');
+            clearInterval(fbInterval);
+          }
+        }, 100);
+      }
+
+      // Tentar disparar GA4 imediatamente ou com retry
+      if (!trackGoogleInitiateCheckout()) {
+        console.log('⏳ [GA4] Aguardando gtag carregar...');
+        let gaAttempts = 0;
+        const gaInterval = setInterval(() => {
+          gaAttempts++;
+          if (trackGoogleInitiateCheckout()) {
+            clearInterval(gaInterval);
+          } else if (gaAttempts >= 50) {
+            console.error('❌ [GA4] gtag não carregou após 5s - begin_checkout perdido');
+            clearInterval(gaInterval);
+          }
+        }, 100);
       }
     }
     
