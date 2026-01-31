@@ -154,7 +154,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
               <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
             ))}
           </div>
-          <span className="ml-1">+2.500 alunos já transformaram suas vidas</span>
+          <span className="ml-1">+15.000 alunos já transformaram suas vidas</span>
         </div>
 
         {/* Formulário - protagonista */}
