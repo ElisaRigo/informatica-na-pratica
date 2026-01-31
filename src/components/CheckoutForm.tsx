@@ -658,26 +658,25 @@ export const CheckoutForm = () => {
     );
   }
 
-  // Formulário inicial
+  // Formulário inicial - otimizado para conversão
   return (
-    <div className="space-y-4">
-
-      {/* Formulário */}
-      <div className="space-y-3 md:space-y-4">
+    <div className="space-y-3">
+      {/* Formulário compacto 2x2 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
         <div className="space-y-1">
-          <Label htmlFor="name" className="text-xs md:text-sm font-bold text-foreground">Nome Completo *</Label>
+          <Label htmlFor="name" className="text-xs font-semibold text-foreground">Nome Completo</Label>
           <Input
             id="name"
-            placeholder="Seu nome completo"
+            placeholder="Seu nome"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+            className="h-10 text-sm border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="email" className="text-xs md:text-sm font-bold text-foreground">E-mail *</Label>
+          <Label htmlFor="email" className="text-xs font-semibold text-foreground">E-mail</Label>
           <Input
             id="email"
             type="email"
@@ -685,12 +684,12 @@ export const CheckoutForm = () => {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+            className="h-10 text-sm border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="cpf" className="text-xs md:text-sm font-bold text-foreground">CPF *</Label>
+          <Label htmlFor="cpf" className="text-xs font-semibold text-foreground">CPF</Label>
           <Input
             id="cpf"
             placeholder="000.000.000-00"
@@ -698,12 +697,12 @@ export const CheckoutForm = () => {
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
             maxLength={14}
             disabled={loading || !sdkLoaded}
-            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+            className="h-10 text-sm border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="phone" className="text-xs md:text-sm font-bold text-foreground">Telefone com DDD *</Label>
+          <Label htmlFor="phone" className="text-xs font-semibold text-foreground">Telefone</Label>
           <Input
             id="phone"
             placeholder="(11) 99999-9999"
@@ -711,88 +710,60 @@ export const CheckoutForm = () => {
             onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
             maxLength={15}
             disabled={loading || !sdkLoaded}
-            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
+            className="h-10 text-sm border-2 focus:border-primary"
           />
         </div>
       </div>
 
-      {/* Aviso sobre envio dos dados de acesso */}
-      <div className="bg-success/10 border border-success/30 rounded-lg p-3 md:p-4">
-        <p className="text-xs md:text-sm text-success text-center font-bold flex items-center justify-center gap-2">
-          <CheckCircle2 className="w-4 h-4" />
-          <span>Acesso enviado no seu e-mail após a compra!</span>
-        </p>
-      </div>
-
-      {/* Título das Opções */}
-      <div className="pt-1">
-        <h3 className="text-sm md:text-lg font-black text-center mb-2 md:mb-3 text-foreground">Escolha a forma de pagamento</h3>
-      </div>
-
-      {/* Opções de Pagamento - Melhoradas */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
-        {/* Cartão */}
-        <button
-          onClick={handleCardPayment}
-          disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
-        >
-          <div className="p-2 md:p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-            <CreditCard className="w-5 h-5 md:w-8 md:h-8 text-primary" />
-          </div>
-          <div className="text-center">
-            <div className="font-black text-xs md:text-base">Cartão de Crédito</div>
-            <div className="text-[10px] md:text-sm text-primary font-bold mt-1">Parcele em até 12x</div>
-          </div>
-        </button>
-
-        {/* PIX */}
+      {/* CTA Principal - PIX em destaque */}
+      <div className="space-y-2 pt-1">
         <button
           onClick={handlePixPayment}
           disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
+          className="w-full flex items-center justify-center gap-3 bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 hover:scale-[1.01] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <div className="p-2 md:p-3 rounded-full bg-success/10 group-hover:bg-success/20 transition-colors">
-            <Smartphone className="w-5 h-5 md:w-8 md:h-8 text-success" />
-          </div>
-          <div className="text-center">
-            <div className="font-black text-xs md:text-base">PIX</div>
-            <div className="text-[10px] md:text-sm text-success font-bold mt-1">Aprovação imediata</div>
-          </div>
+          {loading ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" />
+              Processando...
+            </>
+          ) : (
+            <>
+              <Smartphone className="w-5 h-5" />
+              Pagar com PIX - Acesso Imediato
+            </>
+          )}
         </button>
 
-        {/* Boleto */}
-        <button
-          onClick={() => handleOtherPayment('boleto')}
-          disabled={loading || !sdkLoaded}
-          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
-        >
-          <div className="p-2 md:p-3 rounded-full bg-warning/10 group-hover:bg-warning/20 transition-colors">
-            <Receipt className="w-5 h-5 md:w-8 md:h-8 text-warning" />
-          </div>
-          <div className="text-center">
-            <div className="font-black text-xs md:text-base">Boleto</div>
-            <div className="text-[10px] md:text-sm text-warning font-bold mt-1">Até 3 dias úteis</div>
-          </div>
-        </button>
+        {/* Opções secundárias */}
+        <div className="flex gap-2">
+          <button
+            onClick={handleCardPayment}
+            disabled={loading || !sdkLoaded}
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 text-sm font-semibold"
+          >
+            <CreditCard className="w-4 h-4 text-primary" />
+            <span>Cartão <span className="hidden md:inline">12x</span></span>
+          </button>
+          
+          <button
+            onClick={() => handleOtherPayment('boleto')}
+            disabled={loading || !sdkLoaded}
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 text-sm font-semibold"
+          >
+            <Receipt className="w-4 h-4 text-warning" />
+            Boleto
+          </button>
+        </div>
       </div>
 
-      {/* Loading State */}
-      {loading && (
-        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-4">
-          <Loader2 className="w-4 h-4 animate-spin" />
-          <span>Processando...</span>
-        </div>
-      )}
-
+      {/* Loading SDK */}
       {!sdkLoaded && (
-        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-4">
-          <Loader2 className="w-4 h-4 animate-spin" />
-          <span>Carregando sistema de pagamento...</span>
+        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+          <Loader2 className="w-3 h-3 animate-spin" />
+          <span>Carregando...</span>
         </div>
       )}
-
-      {/* Footer removido - já existe no CheckoutDialog */}
     </div>
   );
 };
