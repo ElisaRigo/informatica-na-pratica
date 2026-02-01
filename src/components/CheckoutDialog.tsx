@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Star } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
+import { Link } from "react-router-dom";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -107,63 +108,55 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-5 gap-3">
-        {/* Header minimalista - só o essencial */}
-        <div className="flex items-center justify-between gap-3 pb-3 border-b border-border">
-          <div className="flex items-center gap-2">
-            <img 
-              src={logoBlue} 
-              alt="Informática Descomplicada" 
-              className="h-8 md:h-10 object-contain"
-            />
-            <div>
-              <p className="text-sm md:text-base font-bold text-foreground leading-tight">Curso de Informática</p>
-              <p className="text-[10px] md:text-xs text-muted-foreground">Professora Elisangela Néri Rigo</p>
+      <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-6 gap-4 bg-background">
+        {/* Header - Imagem + Título + Preço */}
+        <div className="flex items-start gap-3 pb-4 border-b border-border">
+          <img 
+            src={logoBlue} 
+            alt="Curso de Informática" 
+            className="w-20 h-20 object-contain rounded-lg bg-muted/30 p-1"
+          />
+          <div className="flex-1">
+            <h2 className="font-bold text-foreground text-base md:text-lg leading-tight">
+              Curso Completo de Informática
+            </h2>
+            <p className="text-xs text-muted-foreground">
+              Professora Elisangela Néri Rigo
+            </p>
+            {/* Preço - Parcelado primeiro, à vista abaixo */}
+            <div className="mt-2 text-right">
+              <p className="text-lg md:text-xl font-black text-foreground">
+                12x <span className="text-primary">R$ 30,22</span>
+              </p>
+              <p className="text-xs text-muted-foreground">
+                ou R$ 297,00 à vista
+              </p>
             </div>
           </div>
-          <div className="text-right">
-            <p className="text-2xl md:text-3xl font-black text-primary leading-none">
-              R$ 297
-            </p>
-            <p className="text-xs text-success font-semibold">
-              ou 12x de R$ 30,22
-            </p>
-          </div>
-        </div>
-
-        {/* Barra de confiança compacta */}
-        <div className="flex items-center justify-center gap-4 py-2 bg-muted/30 rounded-lg text-xs">
-          <span className="flex items-center gap-1 text-muted-foreground">
-            <Lock className="w-3 h-3 text-success" />
-            Seguro
-          </span>
-          <span className="flex items-center gap-1 text-muted-foreground">
-            <ShieldCheck className="w-3 h-3 text-success" />
-            7 dias garantia
-          </span>
-          <span className="flex items-center gap-1 text-muted-foreground">
-            <CheckCircle2 className="w-3 h-3 text-success" />
-            Acesso imediato
-          </span>
-        </div>
-
-        {/* Social proof rápido */}
-        <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
-          <div className="flex -space-x-1">
-            {[1,2,3,4,5].map(i => (
-              <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-            ))}
-          </div>
-          <span className="ml-1">+15.000 alunos já transformaram suas vidas</span>
         </div>
 
         {/* Formulário - protagonista */}
         <CheckoutForm />
 
-        {/* Rodapé mínimo */}
-        <p className="text-[10px] text-center text-muted-foreground pt-2 border-t border-border">
-          🔒 Pagamento processado com segurança pelo Mercado Pago
-        </p>
+        {/* Badge de segurança */}
+        <div className="flex items-center justify-center gap-2 pt-3 border-t border-border">
+          <ShieldCheck className="w-5 h-5 text-success" />
+          <div className="text-center">
+            <p className="text-xs font-semibold text-success">Compra 100% Segura</p>
+            <p className="text-[10px] text-muted-foreground">Verificado e protegido</p>
+          </div>
+        </div>
+
+        {/* Links legais */}
+        <div className="flex items-center justify-center gap-3 text-[10px] text-muted-foreground">
+          <Link to="/politica-de-privacidade" className="hover:underline">
+            Política de privacidade
+          </Link>
+          <span>|</span>
+          <Link to="/termos-de-uso" className="hover:underline">
+            Termos de compra
+          </Link>
+        </div>
       </DialogContent>
     </Dialog>
   );
