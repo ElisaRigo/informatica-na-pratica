@@ -20,8 +20,8 @@ const ThankYou = () => {
     const userEmail = urlParams.get('email') || '';
     const userPhone = urlParams.get('phone') || '';
 
-    // Função para disparar conversão do Facebook Pixel com Advanced Matching
-    const trackFacebookConversion = () => {
+    // Função para disparar conversão do Facebook Pixel ORIGINAL (787096354071974) com Advanced Matching
+    const trackFacebookConversionOriginal = () => {
       if (typeof window !== 'undefined' && (window as any).fbq) {
         // Se temos dados do usuário, fazer init com Advanced Matching
         if (userEmail || userPhone) {
@@ -30,17 +30,46 @@ const ThankYou = () => {
           if (userPhone) advancedMatchingData.ph = userPhone.replace(/\D/g, ''); // Remove não-numéricos
           
           (window as any).fbq('init', '787096354071974', advancedMatchingData);
-          console.log('✅ Facebook Pixel init com Advanced Matching:', advancedMatchingData);
+          console.log('✅ [PIXEL 1] Facebook Pixel 787096354071974 init com Advanced Matching:', advancedMatchingData);
         }
         
-        // Disparar evento Purchase com valor
+        // Disparar evento Purchase com valor para o pixel original
         (window as any).fbq('track', 'Purchase', {
           value: 297.00,
           currency: 'BRL',
           content_type: 'product',
           content_name: 'Curso Informática na Prática'
         });
-        console.log('✅ Facebook Pixel Purchase event tracked - Value: R$ 297,00');
+        console.log('✅ [PIXEL 1] Facebook Pixel 787096354071974 Purchase event tracked - Value: R$ 297,00');
+        return true;
+      }
+      return false;
+    };
+
+    // Função para disparar conversão do NOVO Facebook Pixel (782038007591576)
+    const trackFacebookConversionNew = () => {
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        // Inicializar o segundo pixel
+        if (userEmail || userPhone) {
+          const advancedMatchingData: { em?: string; ph?: string } = {};
+          if (userEmail) advancedMatchingData.em = userEmail.toLowerCase().trim();
+          if (userPhone) advancedMatchingData.ph = userPhone.replace(/\D/g, '');
+          
+          (window as any).fbq('init', '782038007591576', advancedMatchingData);
+          console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 init com Advanced Matching:', advancedMatchingData);
+        } else {
+          (window as any).fbq('init', '782038007591576');
+          console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 inicializado');
+        }
+        
+        // Disparar evento Purchase com valor para o novo pixel
+        (window as any).fbq('track', 'Purchase', {
+          value: 297.00,
+          currency: 'BRL',
+          content_type: 'product',
+          content_name: 'Curso Informática na Prática'
+        });
+        console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 Purchase event tracked - Value: R$ 297,00');
         return true;
       }
       return false;
@@ -91,17 +120,32 @@ const ThankYou = () => {
       return false;
     };
 
-    // Tentar disparar Facebook Pixel imediatamente ou com retry
-    if (!trackFacebookConversion()) {
-      console.log('⏳ [FB] Aguardando fbq carregar...');
+    // Tentar disparar Facebook Pixel ORIGINAL imediatamente ou com retry
+    if (!trackFacebookConversionOriginal()) {
+      console.log('⏳ [PIXEL 1] Aguardando fbq carregar...');
       let fbAttempts = 0;
       const fbInterval = setInterval(() => {
         fbAttempts++;
-        if (trackFacebookConversion()) {
+        if (trackFacebookConversionOriginal()) {
           clearInterval(fbInterval);
         } else if (fbAttempts >= 50) {
-          console.error('❌ [FB] fbq não carregou após 5s - Purchase perdido');
+          console.error('❌ [PIXEL 1] fbq não carregou após 5s - Purchase perdido');
           clearInterval(fbInterval);
+        }
+      }, 100);
+    }
+
+    // Tentar disparar NOVO Facebook Pixel imediatamente ou com retry
+    if (!trackFacebookConversionNew()) {
+      console.log('⏳ [PIXEL 2] Aguardando fbq carregar para novo pixel...');
+      let fbAttempts2 = 0;
+      const fbInterval2 = setInterval(() => {
+        fbAttempts2++;
+        if (trackFacebookConversionNew()) {
+          clearInterval(fbInterval2);
+        } else if (fbAttempts2 >= 50) {
+          console.error('❌ [PIXEL 2] fbq não carregou após 5s - Purchase perdido');
+          clearInterval(fbInterval2);
         }
       }, 100);
     }
