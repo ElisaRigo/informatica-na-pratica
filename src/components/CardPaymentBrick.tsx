@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-// CPF removido do checkout
 
 declare global {
   interface Window {
@@ -13,6 +12,7 @@ interface CardPaymentBrickProps {
   formData: {
     name: string;
     email: string;
+    cpf: string;
     phone: string;
   };
   amount: number;
@@ -50,7 +50,11 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
             initialization: {
               amount: amount,
               payer: {
-                email: formData.email
+                email: formData.email,
+                identification: {
+                  type: 'CPF',
+                  number: formData.cpf.replace(/\D/g, '')
+                }
               }
             },
             customization: {
@@ -63,8 +67,8 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                 maxInstallments: 12,
                 minInstallments: 1,
                 types: {
-                  excluded: [],
-                  included: ['credit_card', 'debit_card']
+                  excluded: [], // Não excluir nenhum método
+                  included: ['credit_card', 'debit_card'] // Incluir cartão de crédito e débito
                 }
               }
             },
@@ -87,6 +91,10 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                       issuer_id: cardFormData.issuer_id,
                       payer: {
                         email: formData.email,
+                        identification: {
+                          type: 'CPF',
+                          number: formData.cpf.replace(/\D/g, '')
+                        },
                         first_name: firstName,
                         last_name: lastName,
                         phone: formData.phone ? {
