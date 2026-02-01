@@ -723,8 +723,8 @@ export const CheckoutForm = () => {
             </>
           ) : (
             <>
-              <Smartphone className="w-5 h-5" />
-              Pagar com PIX - Acesso Imediato
+              <ShieldCheck className="w-5 h-5" />
+              Finalizar Inscrição com Segurança
             </>
           )}
         </button>

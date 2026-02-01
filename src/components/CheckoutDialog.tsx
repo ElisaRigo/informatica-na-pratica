@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Star } from "lucide-react";
-import logoBlue from "@/assets/logo-blue.png";
+import { ShieldCheck, Lock, CheckCircle2, Award } from "lucide-react";
+import elisaPhoto from "@/assets/elisa-photo.jpg";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -108,18 +108,23 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-5 gap-3">
-        {/* Header minimalista - só o essencial */}
-        <div className="flex items-center justify-between gap-3 pb-3 border-b border-border">
-          <div className="flex items-center gap-2">
-            <img 
-              src={logoBlue} 
-              alt="Informática Descomplicada" 
-              className="h-8 md:h-10 object-contain"
-            />
-            <div>
-              <p className="text-sm md:text-base font-bold text-foreground leading-tight">Curso de Informática</p>
-              <p className="text-[10px] md:text-xs text-muted-foreground">Professora Elisangela Néri Rigo</p>
-            </div>
+        {/* Título acessível (visualmente oculto) */}
+        <DialogTitle className="sr-only">Finalizar Inscrição no Curso</DialogTitle>
+        
+        {/* Header com foto da professora - humanização */}
+        <div className="flex items-center gap-3 pb-3 border-b border-border">
+          <img 
+            src={elisaPhoto} 
+            alt="Professora Elisangela" 
+            className="w-14 h-14 rounded-full object-cover border-2 border-primary shadow-md"
+          />
+          <div className="flex-1">
+            <p className="text-sm md:text-base font-bold text-foreground leading-tight">
+              Parabéns pela decisão! 🎉
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Te vejo na área de alunos! — Profª Elisangela
+            </p>
           </div>
           <div className="text-right">
             <p className="text-2xl md:text-3xl font-black text-primary leading-none">
@@ -131,30 +136,35 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
           </div>
         </div>
 
+        {/* GARANTIA DESTACADA - Grande e colorida */}
+        <div className="bg-gradient-to-r from-success/10 to-success/5 border-2 border-success rounded-xl p-3 flex items-center gap-3">
+          <div className="w-12 h-12 bg-success rounded-full flex items-center justify-center flex-shrink-0">
+            <ShieldCheck className="w-7 h-7 text-white" />
+          </div>
+          <div>
+            <p className="font-bold text-success text-sm md:text-base">
+              Garantia Total de 7 Dias
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Não gostou? Devolvemos 100% do seu dinheiro. Sem perguntas!
+            </p>
+          </div>
+        </div>
+
         {/* Barra de confiança compacta */}
         <div className="flex items-center justify-center gap-4 py-2 bg-muted/30 rounded-lg text-xs">
           <span className="flex items-center gap-1 text-muted-foreground">
             <Lock className="w-3 h-3 text-success" />
-            Seguro
-          </span>
-          <span className="flex items-center gap-1 text-muted-foreground">
-            <ShieldCheck className="w-3 h-3 text-success" />
-            7 dias garantia
+            Dados Protegidos
           </span>
           <span className="flex items-center gap-1 text-muted-foreground">
             <CheckCircle2 className="w-3 h-3 text-success" />
-            Acesso imediato
+            Acesso Imediato
           </span>
-        </div>
-
-        {/* Social proof rápido */}
-        <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
-          <div className="flex -space-x-1">
-            {[1,2,3,4,5].map(i => (
-              <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-            ))}
-          </div>
-          <span className="ml-1">+15.000 alunos já transformaram suas vidas</span>
+          <span className="flex items-center gap-1 text-muted-foreground">
+            <Award className="w-3 h-3 text-success" />
+            +15.000 alunos
+          </span>
         </div>
 
         {/* Formulário - protagonista */}
@@ -162,7 +172,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
 
         {/* Rodapé mínimo */}
         <p className="text-[10px] text-center text-muted-foreground pt-2 border-t border-border">
-          🔒 Pagamento processado com segurança pelo Mercado Pago
+          🔒 Pagamento 100% seguro processado pelo Mercado Pago
         </p>
       </DialogContent>
     </Dialog>
