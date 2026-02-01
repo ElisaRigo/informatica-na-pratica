@@ -27,10 +27,10 @@ export const CheckoutForm = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [sdkLoaded, setSdkLoaded] = useState(false);
-  const [formData, setFormData] = useState({
+  // CPF removido do checkout conforme decisão do usuário
+  const [formData, setFormData] = useState<{ name: string; email: string; phone: string }>({
     name: "",
     email: "",
-    cpf: "",
     phone: ""
   });
   const [mpInstance, setMpInstance] = useState<any>(null);
@@ -113,13 +113,7 @@ export const CheckoutForm = () => {
     };
   }, []);
 
-  const formatCPF = (value: string) => {
-    const numbers = value.replace(/\D/g, '');
-    if (numbers.length <= 11) {
-      return numbers.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-    }
-    return value;
-  };
+  // CPF removido do checkout conforme decisão do usuário
 
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, '');
@@ -132,7 +126,6 @@ export const CheckoutForm = () => {
   // Salvar lead quando formulário é validado
   const saveLead = async () => {
     try {
-      const cleanCPF = formData.cpf.replace(/\D/g, '');
       const cleanPhone = formData.phone.replace(/\D/g, '');
       const email = formData.email.trim().toLowerCase();
       
@@ -150,7 +143,6 @@ export const CheckoutForm = () => {
           .update({
             name: formData.name.trim(),
             phone: cleanPhone || null,
-            cpf: cleanCPF || null,
           })
           .eq('id', existingLead.id);
 
@@ -167,7 +159,6 @@ export const CheckoutForm = () => {
             name: formData.name.trim(),
             email: email,
             phone: cleanPhone || null,
-            cpf: cleanCPF || null,
             source: 'checkout',
             converted: false
           });
@@ -184,20 +175,10 @@ export const CheckoutForm = () => {
   };
 
   const validateForm = () => {
-    if (!formData.name || !formData.email || !formData.cpf || !formData.phone) {
+    if (!formData.name || !formData.email || !formData.phone) {
       toast({
         title: "Preencha todos os campos",
-        description: "Todos os campos são obrigatórios",
-        variant: "destructive"
-      });
-      return false;
-    }
-
-    const cleanCPF = formData.cpf.replace(/\D/g, '');
-    if (cleanCPF.length !== 11) {
-      toast({
-        title: "CPF inválido",
-        description: "Digite um CPF válido com 11 dígitos",
+        description: "Nome, e-mail e telefone são obrigatórios",
         variant: "destructive"
       });
       return false;
@@ -292,7 +273,6 @@ export const CheckoutForm = () => {
         body: {
           name: formData.name,
           email: formData.email,
-          cpf: formData.cpf.replace(/\D/g, ''),
           phone: formData.phone.replace(/\D/g, '')
         }
       });
@@ -392,7 +372,6 @@ export const CheckoutForm = () => {
         body: {
           name: formData.name,
           email: formData.email,
-          cpf: formData.cpf.replace(/\D/g, ''),
           phone: formData.phone.replace(/\D/g, '')
         }
       });
@@ -677,19 +656,6 @@ export const CheckoutForm = () => {
             placeholder="seu@email.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
-          />
-        </div>
-
-        <div className="space-y-1">
-          <Label htmlFor="cpf" className="text-xs font-semibold text-foreground">CPF</Label>
-          <Input
-            id="cpf"
-            placeholder="000.000.000-00"
-            value={formData.cpf}
-            onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-            maxLength={14}
             disabled={loading || !sdkLoaded}
             className="h-10 text-sm border-2 focus:border-primary"
           />
