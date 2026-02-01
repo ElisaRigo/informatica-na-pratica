@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
+import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity, Wifi } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -67,8 +67,13 @@ export const HeroV2 = () => {
           </p>
         </div>
 
-        {/* Destaque Acesso Vitalício */}
-        <div className="flex justify-center mb-3 md:mb-5">
+        {/* Destaques: 100% Online + Acesso Vitalício */}
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-3 md:mb-5">
+          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+            <Wifi className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+            <span className="font-bold text-xs md:text-sm text-accent">100% ONLINE</span>
+            <span className="text-[10px] md:text-xs text-white/70">— Assista de qualquer lugar</span>
+          </div>
           <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
             <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
             <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
