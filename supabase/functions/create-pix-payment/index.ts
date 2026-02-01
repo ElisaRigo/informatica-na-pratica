@@ -13,7 +13,7 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 interface PixPaymentRequest {
   name: string;
   email: string;
-  cpf: string;
+  cpf?: string;
   phone?: string;
 }
 
@@ -27,8 +27,8 @@ serve(async (req) => {
 
     console.log("Creating PIX payment for:", { email, name });
 
-    if (!name || !email || !cpf) {
-      throw new Error("Nome, email e CPF são obrigatórios");
+    if (!name || !email) {
+      throw new Error("Nome e email são obrigatórios");
     }
 
     const accessToken = Deno.env.get("MERCADO_PAGO_ACCESS_TOKEN");
@@ -40,7 +40,7 @@ serve(async (req) => {
     const coursePrice = parseFloat(Deno.env.get("COURSE_PRICE") || "297.00");
     
     // Criar pagamento PIX direto
-    const paymentData = {
+    const paymentData: any = {
       transaction_amount: coursePrice,
       description: "Curso Completo de Informática na Prática",
       payment_method_id: "pix",
@@ -48,19 +48,27 @@ serve(async (req) => {
         email: email,
         first_name: name.split(" ")[0],
         last_name: name.split(" ").slice(1).join(" ") || ".",
-        phone: phone ? {
-          area_code: phone.substring(0, 2),
-          number: phone.substring(2)
-        } : undefined,
-        identification: {
-          type: "CPF",
-          number: cpf.replace(/\D/g, ""),
-        },
       },
       notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
       external_reference: `${email}-${Date.now()}`,
       statement_descriptor: "INFORMATICA PRATICA",
     };
+
+    // Adicionar telefone se fornecido
+    if (phone) {
+      paymentData.payer.phone = {
+        area_code: phone.substring(0, 2),
+        number: phone.substring(2)
+      };
+    }
+
+    // Adicionar CPF se fornecido
+    if (cpf) {
+      paymentData.payer.identification = {
+        type: "CPF",
+        number: cpf.replace(/\D/g, ""),
+      };
+    }
 
     console.log("Creating PIX payment...");
 

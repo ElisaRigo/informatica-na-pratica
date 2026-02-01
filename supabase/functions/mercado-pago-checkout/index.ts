@@ -9,7 +9,7 @@ const corsHeaders = {
 interface CheckoutRequest {
   name: string;
   email: string;
-  cpf: string;
+  cpf?: string;
   phone?: string;
 }
 
@@ -23,9 +23,9 @@ serve(async (req) => {
 
     console.log("Creating Mercado Pago preference for:", { email, name });
 
-    // Validate input
-    if (!name || !email || !cpf) {
-      throw new Error("Nome, email e CPF são obrigatórios");
+    // Validate input - CPF agora é opcional
+    if (!name || !email) {
+      throw new Error("Nome e email são obrigatórios");
     }
 
     const accessToken = Deno.env.get("MERCADO_PAGO_ACCESS_TOKEN");
@@ -42,6 +42,28 @@ serve(async (req) => {
     const lastName = nameParts.slice(1).join(' ') || nameParts[0];
 
     // Create preference com todas as informações necessárias
+    const payerData: any = {
+      name: firstName,
+      surname: lastName,
+      email: email,
+    };
+
+    // Adicionar telefone se fornecido
+    if (phone) {
+      payerData.phone = {
+        area_code: phone.substring(0, 2),
+        number: phone.substring(2)
+      };
+    }
+
+    // Adicionar CPF se fornecido
+    if (cpf) {
+      payerData.identification = {
+        type: "CPF",
+        number: cpf.replace(/\D/g, ""),
+      };
+    }
+
     const preferenceData = {
       items: [
         {
@@ -51,24 +73,7 @@ serve(async (req) => {
           currency_id: "BRL",
         },
       ],
-      payer: {
-        name: firstName,
-        surname: lastName,
-        email: email,
-        phone: {
-          area_code: phone ? phone.substring(0, 2) : "11",
-          number: phone ? phone.substring(2) : "999999999"
-        },
-        identification: {
-          type: "CPF",
-          number: cpf.replace(/\D/g, ""),
-        },
-        address: {
-          zip_code: "00000000",
-          street_name: "Rua",
-          street_number: 1
-        }
-      },
+      payer: payerData,
       payment_methods: {
         installments: 12,
         default_installments: 1,
