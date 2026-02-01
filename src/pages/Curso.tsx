@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -23,6 +24,36 @@ import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 
 const Curso = () => {
   const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
+  
+  // Inicializar o NOVO Facebook Pixel específico para /curso (substitui o global)
+  useEffect(() => {
+    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
+                         window.location.hostname === 'www.informaticanapratica.com.br';
+    
+    if (!isProduction) {
+      console.log('🔍 [CURSO] Pixel específico skipped - not on production domain');
+      return;
+    }
+
+    // Reinicializar o Pixel com o novo ID específico para /curso
+    if (typeof (window as any).fbq !== 'undefined') {
+      // Resetar e inicializar com o novo pixel ID
+      (window as any).fbq('init', '782038007591576');
+      (window as any).fbq('track', 'PageView');
+      console.log('✅ [CURSO] Novo Facebook Pixel 782038007591576 inicializado');
+    } else {
+      // Se fbq não existir ainda, carregar o script manualmente
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      script.onload = () => {
+        (window as any).fbq('init', '782038007591576');
+        (window as any).fbq('track', 'PageView');
+        console.log('✅ [CURSO] Novo Facebook Pixel 782038007591576 carregado e inicializado');
+      };
+      document.head.appendChild(script);
+    }
+  }, []);
   
   // Make openCheckout globally accessible
   (window as any).openCheckout = openCheckout;
