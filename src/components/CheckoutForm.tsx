@@ -652,103 +652,109 @@ export const CheckoutForm = () => {
     );
   }
 
-  // Formulário inicial - otimizado para conversão
+  // Formulário inicial - modelo eduzz
   return (
-    <div className="space-y-3">
-      {/* Formulário compacto 2x2 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+    <div className="space-y-4">
+      {/* Campos do formulário - empilhados como na referência */}
+      <div className="space-y-3">
         <div className="space-y-1">
-          <Label htmlFor="name" className="text-xs font-semibold text-foreground">Nome Completo</Label>
           <Input
             id="name"
-            placeholder="Seu nome"
+            placeholder="Nome Completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
+            className="h-12 text-base border border-border rounded-lg px-4 focus:border-primary focus:ring-1 focus:ring-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="email" className="text-xs font-semibold text-foreground">E-mail</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="seu@email.com"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
-          />
-        </div>
-
-        <div className="space-y-1">
-          <Label htmlFor="cpf" className="text-xs font-semibold text-foreground">CPF</Label>
           <Input
             id="cpf"
-            placeholder="000.000.000-00"
+            placeholder="CPF ou CNPJ"
             value={formData.cpf}
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
             maxLength={14}
             disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
+            className="h-12 text-base border border-border rounded-lg px-4 focus:border-primary focus:ring-1 focus:ring-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="phone" className="text-xs font-semibold text-foreground">Telefone</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="E-mail"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            disabled={loading || !sdkLoaded}
+            className="h-12 text-base border border-border rounded-lg px-4 focus:border-primary focus:ring-1 focus:ring-primary"
+          />
+        </div>
+
+        <div className="space-y-1">
+          <Input
+            id="emailConfirm"
+            type="email"
+            placeholder="Confirmar e-mail"
+            disabled={loading || !sdkLoaded}
+            className="h-12 text-base border border-border rounded-lg px-4 focus:border-primary focus:ring-1 focus:ring-primary"
+          />
+        </div>
+
+        {/* DDI + Celular lado a lado */}
+        <div className="flex gap-2">
+          <div className="flex items-center gap-2 px-3 h-12 border border-border rounded-lg bg-muted/30 shrink-0">
+            <span className="text-lg">🇧🇷</span>
+            <span className="text-sm text-foreground font-medium">+55</span>
+          </div>
           <Input
             id="phone"
-            placeholder="(11) 99999-9999"
+            placeholder="Celular"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
             maxLength={15}
             disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
+            className="h-12 text-base border border-border rounded-lg px-4 focus:border-primary focus:ring-1 focus:ring-primary flex-1"
           />
         </div>
       </div>
 
-      {/* CTA Principal - PIX em destaque */}
-      <div className="space-y-2 pt-1">
-        <button
-          onClick={handlePixPayment}
-          disabled={loading || !sdkLoaded}
-          className="w-full flex items-center justify-center gap-3 bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 hover:scale-[1.01] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {loading ? (
-            <>
-              <Loader2 className="w-5 h-5 animate-spin" />
-              Processando...
-            </>
-          ) : (
-            <>
-              <Smartphone className="w-5 h-5" />
-              Pagar com PIX - Acesso Imediato
-            </>
-          )}
-        </button>
+      {/* Botão Continuar - verde como na referência */}
+      <button
+        onClick={handlePixPayment}
+        disabled={loading || !sdkLoaded}
+        className="w-full flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg py-4 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {loading ? (
+          <>
+            <Loader2 className="w-5 h-5 animate-spin" />
+            Processando...
+          </>
+        ) : (
+          "Continuar"
+        )}
+      </button>
 
-        {/* Opções secundárias */}
-        <div className="flex gap-2">
-          <button
-            onClick={handleCardPayment}
-            disabled={loading || !sdkLoaded}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 text-sm font-semibold"
-          >
-            <CreditCard className="w-4 h-4 text-primary" />
-            <span>Cartão <span className="hidden md:inline">12x</span></span>
-          </button>
-          
-          <button
-            onClick={() => handleOtherPayment('boleto')}
-            disabled={loading || !sdkLoaded}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 text-sm font-semibold"
-          >
-            <Receipt className="w-4 h-4 text-warning" />
-            Boleto
-          </button>
-        </div>
+      {/* Opções de pagamento alternativas - discretas */}
+      <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+        <button
+          onClick={handleCardPayment}
+          disabled={loading || !sdkLoaded}
+          className="flex items-center gap-1 hover:text-primary transition-colors disabled:opacity-50"
+        >
+          <CreditCard className="w-3 h-3" />
+          Cartão 12x
+        </button>
+        <span className="text-border">•</span>
+        <button
+          onClick={() => handleOtherPayment('boleto')}
+          disabled={loading || !sdkLoaded}
+          className="flex items-center gap-1 hover:text-warning transition-colors disabled:opacity-50"
+        >
+          <Receipt className="w-3 h-3" />
+          Boleto
+        </button>
       </div>
 
       {/* Loading SDK */}
