@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -25,41 +26,31 @@ import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 const Curso = () => {
   const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
   
-  // Inicializar o NOVO Facebook Pixel específico para /curso (substitui o global)
-  useEffect(() => {
-    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
-                         window.location.hostname === 'www.informaticanapratica.com.br';
-    
-    if (!isProduction) {
-      console.log('🔍 [CURSO] Pixel específico skipped - not on production domain');
-      return;
-    }
-
-    // Reinicializar o Pixel com o novo ID específico para /curso
-    if (typeof (window as any).fbq !== 'undefined') {
-      // Resetar e inicializar com o novo pixel ID
-      (window as any).fbq('init', '782038007591576');
-      (window as any).fbq('track', 'PageView');
-      console.log('✅ [CURSO] Novo Facebook Pixel 782038007591576 inicializado');
-    } else {
-      // Se fbq não existir ainda, carregar o script manualmente
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://connect.facebook.net/en_US/fbevents.js';
-      script.onload = () => {
-        (window as any).fbq('init', '782038007591576');
-        (window as any).fbq('track', 'PageView');
-        console.log('✅ [CURSO] Novo Facebook Pixel 782038007591576 carregado e inicializado');
-      };
-      document.head.appendChild(script);
-    }
-  }, []);
-  
   // Make openCheckout globally accessible
   (window as any).openCheckout = openCheckout;
   
   return (
-    <div className="min-h-screen">
+    <>
+      <Helmet>
+        <script>
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '782038007591576');
+            fbq('track', 'PageView');
+          `}
+        </script>
+        <noscript>
+          {`<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=782038007591576&ev=PageView&noscript=1" />`}
+        </noscript>
+      </Helmet>
+      <div className="min-h-screen">
       {/* 1️⃣ HERO - Headline forte + Vídeo + CTA */}
       <HeroV2 />
       
@@ -124,6 +115,7 @@ const Curso = () => {
       {/* CHECKOUT MODAL */}
       <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
+    </>
   );
 };
 
