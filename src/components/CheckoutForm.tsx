@@ -709,8 +709,39 @@ export const CheckoutForm = () => {
         </div>
       </div>
 
-      {/* CTA Principal - PIX em destaque */}
-      <div className="space-y-2 pt-1">
+      {/* Seletor de forma de pagamento */}
+      <div className="space-y-3 pt-1">
+        {/* Opções de pagamento lado a lado */}
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            onClick={handlePixPayment}
+            disabled={loading || !sdkLoaded}
+            className="flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 border-success bg-success/5 hover:bg-success/10 transition-all disabled:opacity-50 text-sm font-semibold"
+          >
+            <Smartphone className="w-5 h-5 text-success" />
+            <span className="text-success">PIX</span>
+          </button>
+          
+          <button
+            onClick={handleCardPayment}
+            disabled={loading || !sdkLoaded}
+            className="flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 text-sm font-semibold"
+          >
+            <CreditCard className="w-5 h-5 text-primary" />
+            <span>Cartão</span>
+          </button>
+          
+          <button
+            onClick={() => handleOtherPayment('boleto')}
+            disabled={loading || !sdkLoaded}
+            className="flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 text-sm font-semibold"
+          >
+            <Receipt className="w-5 h-5 text-warning" />
+            <span>Boleto</span>
+          </button>
+        </div>
+
+        {/* CTA Principal */}
         <button
           onClick={handlePixPayment}
           disabled={loading || !sdkLoaded}
@@ -723,32 +754,11 @@ export const CheckoutForm = () => {
             </>
           ) : (
             <>
-              <Smartphone className="w-5 h-5" />
-              Pagar com PIX - Acesso Imediato
+              <ShieldCheck className="w-5 h-5" />
+              Finalizar Inscrição com Segurança
             </>
           )}
         </button>
-
-        {/* Opções secundárias */}
-        <div className="flex gap-2">
-          <button
-            onClick={handleCardPayment}
-            disabled={loading || !sdkLoaded}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 text-sm font-semibold"
-          >
-            <CreditCard className="w-4 h-4 text-primary" />
-            <span>Cartão <span className="hidden md:inline">12x</span></span>
-          </button>
-          
-          <button
-            onClick={() => handleOtherPayment('boleto')}
-            disabled={loading || !sdkLoaded}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 text-sm font-semibold"
-          >
-            <Receipt className="w-4 h-4 text-warning" />
-            Boleto
-          </button>
-        </div>
       </div>
 
       {/* Loading SDK */}

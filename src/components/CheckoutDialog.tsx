@@ -122,11 +122,11 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             </div>
           </div>
           <div className="text-right">
-            <p className="text-2xl md:text-3xl font-black text-primary leading-none">
-              R$ 297
+            <p className="text-xl md:text-2xl font-black text-primary leading-none">
+              12x R$ 30,22
             </p>
-            <p className="text-xs text-success font-semibold">
-              ou 12x de R$ 30,22
+            <p className="text-[10px] md:text-xs text-muted-foreground">
+              ou R$ 297,00 à vista
             </p>
           </div>
         </div>
