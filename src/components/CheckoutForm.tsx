@@ -655,8 +655,8 @@ export const CheckoutForm = () => {
   // Formulário inicial - otimizado para conversão
   return (
     <div className="space-y-3">
-      {/* Formulário compacto 2x2 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+      {/* Formulário em coluna única */}
+      <div className="space-y-2">
         <div className="space-y-1">
           <Label htmlFor="name" className="text-xs font-semibold text-foreground">Nome Completo</Label>
           <Input
@@ -755,7 +755,7 @@ export const CheckoutForm = () => {
           ) : (
             <>
               <ShieldCheck className="w-5 h-5" />
-              Finalizar Inscrição com Segurança
+              Continuar com Segurança
             </>
           )}
         </button>

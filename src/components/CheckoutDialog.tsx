@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
 import { ShieldCheck, Lock, CheckCircle2, Star } from "lucide-react";
-import logoBlue from "@/assets/logo-blue.png";
+import elisaCheckout from "@/assets/elisa-checkout.jpg";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -108,20 +108,20 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-5 gap-3">
-        {/* Header minimalista - só o essencial */}
-        <div className="flex items-center justify-between gap-3 pb-3 border-b border-border">
-          <div className="flex items-center gap-2">
-            <img 
-              src={logoBlue} 
-              alt="Informática Descomplicada" 
-              className="h-8 md:h-10 object-contain"
-            />
-            <div>
-              <p className="text-sm md:text-base font-bold text-foreground leading-tight">Curso de Informática</p>
-              <p className="text-[10px] md:text-xs text-muted-foreground">Professora Elisangela Néri Rigo</p>
-            </div>
-          </div>
-          <div className="text-right">
+        {/* Header com foto da professora e frase motivacional */}
+        <div className="flex flex-col items-center text-center pb-3 border-b border-border">
+          <img 
+            src={elisaCheckout} 
+            alt="Professora Elisangela" 
+            className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover object-top border-4 border-primary/20 shadow-lg mb-3"
+          />
+          <h3 className="text-lg md:text-xl font-bold text-foreground">
+            Falta pouco para você começar!
+          </h3>
+          <p className="text-sm text-muted-foreground">
+            Te vejo na área de alunos, até mais 😉
+          </p>
+          <div className="mt-3">
             <p className="text-xl md:text-2xl font-black text-primary leading-none">
               12x R$ 30,22
             </p>
