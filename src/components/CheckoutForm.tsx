@@ -780,6 +780,15 @@ export const CheckoutForm = () => {
             </>
           )}
         </button>
+
+        {/* Selo de segurança */}
+        <div className="flex items-center justify-center gap-2 py-2 px-4 bg-success/10 rounded-lg border border-success/20">
+          <ShieldCheck className="w-4 h-4 text-success" />
+          <div className="text-center">
+            <p className="text-xs font-semibold text-success">Compra 100% Segura</p>
+            <p className="text-[10px] text-muted-foreground">Verificado e protegido</p>
+          </div>
+        </div>
       </div>
 
       {/* Loading SDK */}
