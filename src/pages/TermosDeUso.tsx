@@ -127,8 +127,7 @@ export const TermosDeUso = () => {
             <ul className="list-disc pl-6 space-y-2">
               <li>O certificado não será emitido durante o período de garantia de 7 dias;</li>
               <li>A solicitação de reembolso cancela automaticamente o direito ao certificado;</li>
-              <li>O prazo mínimo de 15 dias visa assegurar a qualidade do processo de aprendizagem;</li>
-              <li>Alunos que solicitarem reembolso após obterem o certificado estarão sujeitos às medidas legais cabíveis.</li>
+              <li>O prazo mínimo de 15 dias visa assegurar a qualidade do processo de aprendizagem.</li>
             </ul>
           </section>
 
