@@ -115,7 +115,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
             alt="Professora Elisangela" 
             className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover object-top border-4 border-primary/20 shadow-lg flex-shrink-0"
           />
-          <div className="flex-1">
+          <div className="flex-1 text-center">
             <h3 className="text-lg md:text-xl font-bold text-foreground">
               Falta pouco para você começar!
             </h3>
