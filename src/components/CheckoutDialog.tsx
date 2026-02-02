@@ -109,25 +109,27 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-5 gap-3">
         {/* Header com foto da professora e frase motivacional */}
-        <div className="flex flex-col items-center text-center pb-3 border-b border-border">
+        <div className="flex items-center gap-4 pb-3 border-b border-border">
           <img 
             src={elisaCheckout} 
             alt="Professora Elisangela" 
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover object-top border-4 border-primary/20 shadow-lg mb-3"
+            className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover object-top border-4 border-primary/20 shadow-lg flex-shrink-0"
           />
-          <h3 className="text-lg md:text-xl font-bold text-foreground">
-            Falta pouco para você começar!
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            Te vejo na área de alunos, até mais 😉
-          </p>
-          <div className="mt-3">
-            <p className="text-xl md:text-2xl font-black text-primary leading-none">
-              12x R$ 30,22
+          <div className="flex-1">
+            <h3 className="text-lg md:text-xl font-bold text-foreground">
+              Falta pouco para você começar!
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Te vejo na área de alunos, até mais 😉
             </p>
-            <p className="text-[10px] md:text-xs text-muted-foreground">
-              ou R$ 297,00 à vista
-            </p>
+            <div className="mt-2">
+              <p className="text-xl md:text-2xl font-black text-primary leading-none">
+                12x R$ 30,22
+              </p>
+              <p className="text-[10px] md:text-xs text-muted-foreground">
+                ou R$ 297,00 à vista
+              </p>
+            </div>
           </div>
         </div>
 
