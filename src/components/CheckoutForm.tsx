@@ -40,6 +40,7 @@ export const CheckoutForm = () => {
   const [showCardPayment, setShowCardPayment] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'pix' | 'card' | 'boleto'>('pix');
 
   // Carregar reCAPTCHA
   useEffect(() => {
@@ -714,36 +715,56 @@ export const CheckoutForm = () => {
         {/* Opções de pagamento lado a lado */}
         <div className="grid grid-cols-3 gap-2">
           <button
-            onClick={handlePixPayment}
+            onClick={() => setSelectedPaymentMethod('pix')}
             disabled={loading || !sdkLoaded}
-            className="flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 border-success bg-success/5 hover:bg-success/10 transition-all disabled:opacity-50 text-sm font-semibold"
+            className={`flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 transition-all disabled:opacity-50 text-sm font-semibold ${
+              selectedPaymentMethod === 'pix' 
+                ? 'border-success bg-success/10' 
+                : 'border-border hover:border-success hover:bg-success/5'
+            }`}
           >
-            <Smartphone className="w-5 h-5 text-success" />
-            <span className="text-success">PIX</span>
+            <Smartphone className={`w-5 h-5 ${selectedPaymentMethod === 'pix' ? 'text-success' : 'text-muted-foreground'}`} />
+            <span className={selectedPaymentMethod === 'pix' ? 'text-success' : ''}>PIX</span>
           </button>
           
           <button
-            onClick={handleCardPayment}
+            onClick={() => setSelectedPaymentMethod('card')}
             disabled={loading || !sdkLoaded}
-            className="flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 text-sm font-semibold"
+            className={`flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 transition-all disabled:opacity-50 text-sm font-semibold ${
+              selectedPaymentMethod === 'card' 
+                ? 'border-primary bg-primary/10' 
+                : 'border-border hover:border-primary hover:bg-primary/5'
+            }`}
           >
-            <CreditCard className="w-5 h-5 text-primary" />
-            <span>Cartão</span>
+            <CreditCard className={`w-5 h-5 ${selectedPaymentMethod === 'card' ? 'text-primary' : 'text-muted-foreground'}`} />
+            <span className={selectedPaymentMethod === 'card' ? 'text-primary' : ''}>Cartão</span>
           </button>
           
           <button
-            onClick={() => handleOtherPayment('boleto')}
+            onClick={() => setSelectedPaymentMethod('boleto')}
             disabled={loading || !sdkLoaded}
-            className="flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 text-sm font-semibold"
+            className={`flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 transition-all disabled:opacity-50 text-sm font-semibold ${
+              selectedPaymentMethod === 'boleto' 
+                ? 'border-warning bg-warning/10' 
+                : 'border-border hover:border-warning hover:bg-warning/5'
+            }`}
           >
-            <Receipt className="w-5 h-5 text-warning" />
-            <span>Boleto</span>
+            <Receipt className={`w-5 h-5 ${selectedPaymentMethod === 'boleto' ? 'text-warning' : 'text-muted-foreground'}`} />
+            <span className={selectedPaymentMethod === 'boleto' ? 'text-warning' : ''}>Boleto</span>
           </button>
         </div>
 
-        {/* CTA Principal */}
+        {/* CTA Principal - agora aciona o método selecionado */}
         <button
-          onClick={handlePixPayment}
+          onClick={() => {
+            if (selectedPaymentMethod === 'pix') {
+              handlePixPayment();
+            } else if (selectedPaymentMethod === 'card') {
+              handleCardPayment();
+            } else if (selectedPaymentMethod === 'boleto') {
+              handleOtherPayment('boleto');
+            }
+          }}
           disabled={loading || !sdkLoaded}
           className="w-full flex items-center justify-center gap-3 bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 hover:scale-[1.01] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
