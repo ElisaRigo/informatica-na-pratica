@@ -42,76 +42,59 @@ export const CheckoutForm = () => {
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'pix' | 'card' | 'boleto'>('pix');
 
-  // Carregar reCAPTCHA
+  // Carregar SDKs em paralelo sem bloquear a UI
   useEffect(() => {
-    const loadRecaptcha = async () => {
-      try {
-        // Buscar a site key dos secrets
-        const { data: keyData } = await supabase.functions.invoke('get-recaptcha-site-key');
-        
-        if (keyData?.siteKey) {
-          setRecaptchaSiteKey(keyData.siteKey);
-          
-          const script = document.createElement('script');
-          script.src = `https://www.google.com/recaptcha/api.js?render=${keyData.siteKey}`;
-          script.async = true;
-          script.onload = () => {
-            console.log('reCAPTCHA loaded');
-            setRecaptchaLoaded(true);
-          };
-          document.body.appendChild(script);
-        }
-      } catch (error) {
-        console.error('Error loading reCAPTCHA:', error);
-      }
-    };
-
-    loadRecaptcha();
-  }, []);
-
-  // Carregar SDK do Mercado Pago
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://sdk.mercadopago.com/js/v2';
-    script.async = true;
-    script.onload = async () => {
-      console.log('Mercado Pago SDK loaded');
+    // Marcar como pronto imediatamente para UI responsiva
+    setSdkLoaded(true);
+    
+    const loadScripts = async () => {
+      // Carregar reCAPTCHA e MP SDK em paralelo
+      const [keyResponse, priceResponse, recaptchaResponse] = await Promise.all([
+        supabase.functions.invoke('get-mp-public-key').catch(() => ({ data: null })),
+        supabase.functions.invoke('get-course-price').catch(() => ({ data: { price: 297 } })),
+        supabase.functions.invoke('get-recaptcha-site-key').catch(() => ({ data: null }))
+      ]);
       
-      try {
-        const [keyResponse, priceResponse] = await Promise.all([
-          supabase.functions.invoke('get-mp-public-key'),
-          supabase.functions.invoke('get-course-price')
-        ]);
-        
-        if (keyResponse.data?.MERCADO_PAGO_PUBLIC_KEY) {
-          const mp = new window.MercadoPago(keyResponse.data.MERCADO_PAGO_PUBLIC_KEY, {
-            locale: 'pt-BR'
-          });
-          setMpInstance(mp);
-          setSdkLoaded(true);
-          console.log('Mercado Pago initialized');
+      // Atualizar preço
+      if (priceResponse.data?.price) {
+        setCoursePrice(priceResponse.data.price);
+      }
+      
+      // Carregar reCAPTCHA script se tiver key
+      if (recaptchaResponse.data?.siteKey) {
+        setRecaptchaSiteKey(recaptchaResponse.data.siteKey);
+        if (!document.querySelector('script[src*="recaptcha"]')) {
+          const recaptchaScript = document.createElement('script');
+          recaptchaScript.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaResponse.data.siteKey}`;
+          recaptchaScript.async = true;
+          recaptchaScript.onload = () => setRecaptchaLoaded(true);
+          document.body.appendChild(recaptchaScript);
         }
-        
-        if (priceResponse.data?.price) {
-          setCoursePrice(priceResponse.data.price);
-          console.log('Course price loaded:', priceResponse.data.price);
-        }
-      } catch (error) {
-        console.error('Error loading MP key:', error);
-        toast({
-          title: "Erro ao carregar",
-          description: "Não foi possível carregar o sistema de pagamento",
-          variant: "destructive"
+      }
+      
+      // Carregar MP SDK se não existir
+      if (!window.MercadoPago && !document.querySelector('script[src*="mercadopago"]')) {
+        const mpScript = document.createElement('script');
+        mpScript.src = 'https://sdk.mercadopago.com/js/v2';
+        mpScript.async = true;
+        mpScript.onload = () => {
+          if (keyResponse.data?.MERCADO_PAGO_PUBLIC_KEY && window.MercadoPago) {
+            const mp = new window.MercadoPago(keyResponse.data.MERCADO_PAGO_PUBLIC_KEY, {
+              locale: 'pt-BR'
+            });
+            setMpInstance(mp);
+          }
+        };
+        document.body.appendChild(mpScript);
+      } else if (window.MercadoPago && keyResponse.data?.MERCADO_PAGO_PUBLIC_KEY) {
+        const mp = new window.MercadoPago(keyResponse.data.MERCADO_PAGO_PUBLIC_KEY, {
+          locale: 'pt-BR'
         });
+        setMpInstance(mp);
       }
     };
-    document.body.appendChild(script);
 
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
+    loadScripts();
   }, []);
 
   const formatCPF = (value: string) => {
