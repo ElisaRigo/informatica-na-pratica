@@ -111,10 +111,25 @@ export const TermosDeUso = () => {
 
           <section>
             <h2 className="text-2xl font-bold text-foreground mb-3">7. Certificado</h2>
-            <p>
+            <p className="mb-2">
               O certificado de conclusão será emitido após a conclusão de todos os módulos do curso. 
               O certificado é digital e pode ser usado em currículos e processos seletivos.
             </p>
+            <p className="mb-2">
+              <strong>Prazo Mínimo para Emissão:</strong> O certificado somente poderá ser emitido após um 
+              período mínimo de <strong>15 (quinze) dias corridos</strong> a partir da data de confirmação 
+              do pagamento, independentemente do progresso do aluno no curso. Este prazo é necessário para 
+              garantir o aproveitamento adequado do conteúdo pedagógico e a validação da conclusão.
+            </p>
+            <p className="mb-2">
+              O aluno declara estar ciente de que:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>O certificado não será emitido durante o período de garantia de 7 dias;</li>
+              <li>A solicitação de reembolso cancela automaticamente o direito ao certificado;</li>
+              <li>O prazo mínimo de 15 dias visa assegurar a qualidade do processo de aprendizagem;</li>
+              <li>Alunos que solicitarem reembolso após obterem o certificado estarão sujeitos às medidas legais cabíveis.</li>
+            </ul>
           </section>
 
           <section>
