@@ -18,7 +18,6 @@ const TermosDeUso = lazy(() => import("./pages/TermosDeUso").then(m => ({ defaul
 const PoliticaDePrivacidade = lazy(() => import("./pages/PoliticaDePrivacidade").then(m => ({ default: m.PoliticaDePrivacidade })));
 const GerarLinkMercadoPago = lazy(() => import("./pages/GerarLinkMercadoPago"));
 const Curso = lazy(() => import("./pages/Curso"));
-const Pagamento = lazy(() => import("./pages/Pagamento"));
 
 const queryClient = new QueryClient();
 
@@ -32,7 +31,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/curso" element={<Curso />} />
-            <Route path="/pagamento" element={<Pagamento />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
             <Route path="/admin" element={<Admin />} />
