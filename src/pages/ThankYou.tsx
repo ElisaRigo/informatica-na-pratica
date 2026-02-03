@@ -20,26 +20,32 @@ const ThankYou = () => {
     const userEmail = urlParams.get('email') || '';
     const userPhone = urlParams.get('phone') || '';
 
+    // Parâmetros completos do evento Purchase
+    const purchaseParams = {
+      value: 297.00,
+      currency: 'BRL',
+      content_type: 'product',
+      content_name: 'Curso Informática na Prática',
+      content_ids: ['curso-informatica-pratica'],
+      num_items: 1
+    };
+
+    // Preparar dados de correspondência avançada
+    const advancedMatchingData: { em?: string; ph?: string } = {};
+    if (userEmail) advancedMatchingData.em = userEmail.toLowerCase().trim();
+    if (userPhone) advancedMatchingData.ph = userPhone.replace(/\D/g, '');
+
     // Função para disparar conversão do Facebook Pixel ORIGINAL (787096354071974) com Advanced Matching
     const trackFacebookConversionOriginal = () => {
       if (typeof window !== 'undefined' && (window as any).fbq) {
-        // Se temos dados do usuário, fazer init com Advanced Matching
+        // Re-inicializar pixel com Advanced Matching se temos dados do usuário
         if (userEmail || userPhone) {
-          const advancedMatchingData: { em?: string; ph?: string } = {};
-          if (userEmail) advancedMatchingData.em = userEmail.toLowerCase().trim();
-          if (userPhone) advancedMatchingData.ph = userPhone.replace(/\D/g, ''); // Remove não-numéricos
-          
           (window as any).fbq('init', '787096354071974', advancedMatchingData);
           console.log('✅ [PIXEL 1] Facebook Pixel 787096354071974 init com Advanced Matching:', advancedMatchingData);
         }
         
-        // Disparar evento Purchase com valor para o pixel original
-        (window as any).fbq('track', 'Purchase', {
-          value: 297.00,
-          currency: 'BRL',
-          content_type: 'product',
-          content_name: 'Curso Informática na Prática'
-        });
+        // Disparar evento Purchase usando trackSingle para garantir parâmetros corretos
+        (window as any).fbq('trackSingle', '787096354071974', 'Purchase', purchaseParams);
         console.log('✅ [PIXEL 1] Facebook Pixel 787096354071974 Purchase event tracked - Value: R$ 297,00');
         return true;
       }
@@ -49,12 +55,8 @@ const ThankYou = () => {
     // Função para disparar conversão do NOVO Facebook Pixel (782038007591576)
     const trackFacebookConversionNew = () => {
       if (typeof window !== 'undefined' && (window as any).fbq) {
-        // Inicializar o segundo pixel
+        // Inicializar o segundo pixel com Advanced Matching se temos dados
         if (userEmail || userPhone) {
-          const advancedMatchingData: { em?: string; ph?: string } = {};
-          if (userEmail) advancedMatchingData.em = userEmail.toLowerCase().trim();
-          if (userPhone) advancedMatchingData.ph = userPhone.replace(/\D/g, '');
-          
           (window as any).fbq('init', '782038007591576', advancedMatchingData);
           console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 init com Advanced Matching:', advancedMatchingData);
         } else {
@@ -62,13 +64,8 @@ const ThankYou = () => {
           console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 inicializado');
         }
         
-        // Disparar evento Purchase com valor para o novo pixel
-        (window as any).fbq('track', 'Purchase', {
-          value: 297.00,
-          currency: 'BRL',
-          content_type: 'product',
-          content_name: 'Curso Informática na Prática'
-        });
+        // Disparar evento Purchase usando trackSingle para garantir parâmetros corretos
+        (window as any).fbq('trackSingle', '782038007591576', 'Purchase', purchaseParams);
         console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 Purchase event tracked - Value: R$ 297,00');
         return true;
       }
