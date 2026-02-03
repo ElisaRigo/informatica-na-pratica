@@ -737,10 +737,6 @@ export const CheckoutForm = () => {
           </button>
         </div>
 
-        {/* Identificação da vendedora */}
-        <p className="text-center text-xs text-muted-foreground">
-          Pagamento processado para: <span className="font-semibold text-foreground">Professora Elisangela Neri Rigo</span>
-        </p>
 
         {/* CTA Principal - agora aciona o método selecionado */}
         <button
