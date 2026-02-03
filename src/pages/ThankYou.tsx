@@ -15,156 +15,77 @@ const ThankYou = () => {
       return;
     }
 
-    // Obter parâmetros da URL (email e telefone podem ser passados pelo checkout)
-    const urlParams = new URLSearchParams(window.location.search);
-    const userEmail = urlParams.get('email') || '';
-    const userPhone = urlParams.get('phone') || '';
-
-    // Parâmetros completos do evento Purchase
-    const purchaseParams = {
-      value: 297.00,
-      currency: 'BRL',
-      content_type: 'product',
-      content_name: 'Curso Informática na Prática',
-      content_ids: ['curso-informatica-pratica'],
-      num_items: 1
-    };
-
-    // Preparar dados de correspondência avançada
-    const advancedMatchingData: { em?: string; ph?: string } = {};
-    if (userEmail) advancedMatchingData.em = userEmail.toLowerCase().trim();
-    if (userPhone) advancedMatchingData.ph = userPhone.replace(/\D/g, '');
-
-    // Função para disparar conversão do Facebook Pixel ORIGINAL (787096354071974) com Advanced Matching
-    const trackFacebookConversionOriginal = () => {
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        // Re-inicializar pixel com Advanced Matching se temos dados do usuário
-        if (userEmail || userPhone) {
-          (window as any).fbq('init', '787096354071974', advancedMatchingData);
-          console.log('✅ [PIXEL 1] Facebook Pixel 787096354071974 init com Advanced Matching:', advancedMatchingData);
-        }
-        
-        // Disparar evento Purchase usando trackSingle para garantir parâmetros corretos
-        (window as any).fbq('trackSingle', '787096354071974', 'Purchase', purchaseParams);
-        console.log('✅ [PIXEL 1] Facebook Pixel 787096354071974 Purchase event tracked - Value: R$ 297,00');
-        return true;
-      }
-      return false;
-    };
-
-    // Função para disparar conversão do NOVO Facebook Pixel (782038007591576)
-    const trackFacebookConversionNew = () => {
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        // Inicializar o segundo pixel com Advanced Matching se temos dados
-        if (userEmail || userPhone) {
-          (window as any).fbq('init', '782038007591576', advancedMatchingData);
-          console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 init com Advanced Matching:', advancedMatchingData);
-        } else {
-          (window as any).fbq('init', '782038007591576');
-          console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 inicializado');
-        }
-        
-        // Disparar evento Purchase usando trackSingle para garantir parâmetros corretos
-        (window as any).fbq('trackSingle', '782038007591576', 'Purchase', purchaseParams);
-        console.log('✅ [PIXEL 2] Facebook Pixel 782038007591576 Purchase event tracked - Value: R$ 297,00');
-        return true;
-      }
-      return false;
-    };
-
-    // Função para disparar conversões do Google (GA4 + Google Ads)
-    const trackGoogleConversion = () => {
+    // Função para disparar as conversões
+    const trackConversion = () => {
       if (typeof window !== 'undefined' && (window as any).gtag) {
-        // GA4 - Evento purchase padrão e-commerce (correto para conversões)
-        (window as any).gtag('event', 'purchase', {
-          transaction_id: `txn_${Date.now()}`,
-          value: 297.0,
-          currency: 'BRL',
-          items: [{
-            item_name: 'Curso Informática na Prática',
-            price: 297.0,
-            quantity: 1
-          }]
-        });
-        console.log('✅ [GA4] purchase event disparado - R$ 297,00');
-        
-        // Pageview da página de obrigado
-        (window as any).gtag('config', 'G-08B5E33G3F', {
-          page_path: '/obrigada',
-          page_title: 'Obrigada - Compra Confirmada'
+        // Disparar evento de conversão do Google Analytics
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'G-08B5E33G3F',
+          'transaction_id': '',
+          'value': 297.0,
+          'currency': 'BRL'
         });
         
-        // Google Ads - Conversão de venda
+      // Disparar pageview para garantir que o GA4 rastreie a página
+      (window as any).gtag('config', 'G-08B5E33G3F', {
+        page_path: '/obrigada',
+        page_title: 'Obrigada - Compra Confirmada'
+      });
+        
+        // Disparar evento de conversão do Google Ads
         (window as any).gtag('event', 'conversion', {
           'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
           'value': 297.0,
           'currency': 'BRL',
-          'transaction_id': `txn_${Date.now()}`
+          'transaction_id': ''
         });
-        console.log('✅ [GAds] conversion event disparado - R$ 297,00');
         
-        // Google Ads - Conversão de matrícula
+        // Disparar evento de conversão de matrícula do Google Ads
         (window as any).gtag('event', 'conversion', {
           'send_to': 'AW-17641842157/B6aWCPfmzr0bEO3LpNxB',
           'value': 1.0,
           'currency': 'BRL',
-          'transaction_id': `txn_${Date.now()}`
+          'transaction_id': ''
         });
-        console.log('✅ [GAds] matrícula conversion disparado');
+        
+        console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
+        
+        // Disparar conversão do Facebook Pixel
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Purchase', {
+            value: 297.00,
+            currency: 'BRL'
+          });
+          console.log('✅ Facebook Pixel conversion tracked successfully');
+        }
         
         return true;
       }
       return false;
     };
 
-    // Tentar disparar Facebook Pixel ORIGINAL imediatamente ou com retry
-    if (!trackFacebookConversionOriginal()) {
-      console.log('⏳ [PIXEL 1] Aguardando fbq carregar...');
-      let fbAttempts = 0;
-      const fbInterval = setInterval(() => {
-        fbAttempts++;
-        if (trackFacebookConversionOriginal()) {
-          clearInterval(fbInterval);
-        } else if (fbAttempts >= 50) {
-          console.error('❌ [PIXEL 1] fbq não carregou após 5s - Purchase perdido');
-          clearInterval(fbInterval);
-        }
-      }, 100);
+    // Tentar disparar imediatamente
+    if (trackConversion()) {
+      return;
     }
 
-    // Tentar disparar NOVO Facebook Pixel imediatamente ou com retry
-    if (!trackFacebookConversionNew()) {
-      console.log('⏳ [PIXEL 2] Aguardando fbq carregar para novo pixel...');
-      let fbAttempts2 = 0;
-      const fbInterval2 = setInterval(() => {
-        fbAttempts2++;
-        if (trackFacebookConversionNew()) {
-          clearInterval(fbInterval2);
-        } else if (fbAttempts2 >= 50) {
-          console.error('❌ [PIXEL 2] fbq não carregou após 5s - Purchase perdido');
-          clearInterval(fbInterval2);
-        }
-      }, 100);
-    }
+    // Se gtag não estiver disponível, esperar até que esteja (max 5 segundos)
+    console.log('⏳ Aguardando gtag carregar...');
+    let attempts = 0;
+    const maxAttempts = 50; // 5 segundos (50 * 100ms)
+    
+    const interval = setInterval(() => {
+      attempts++;
+      
+      if (trackConversion()) {
+        clearInterval(interval);
+      } else if (attempts >= maxAttempts) {
+        console.error('❌ gtag não carregou após 5 segundos');
+        clearInterval(interval);
+      }
+    }, 100);
 
-    // Tentar disparar Google Analytics/Ads imediatamente ou com retry
-    if (!trackGoogleConversion()) {
-      console.log('⏳ [GA4/GAds] Aguardando gtag carregar...');
-      let gtagAttempts = 0;
-      const gtagInterval = setInterval(() => {
-        gtagAttempts++;
-        if (trackGoogleConversion()) {
-          clearInterval(gtagInterval);
-        } else if (gtagAttempts >= 50) {
-          console.error('❌ [GA4/GAds] gtag não carregou após 5s - conversão perdida');
-          clearInterval(gtagInterval);
-        }
-      }, 100);
-    }
-
-    return () => {
-      // Cleanup handled by individual intervals
-    };
+    return () => clearInterval(interval);
   }, []);
 
 
@@ -191,25 +112,6 @@ const ThankYou = () => {
             gtag('config', 'AW-17641842157');
           `}
         </script>
-        
-        {/* Meta Pixel Code - Novo Pixel 782038007591576 */}
-        <script>
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '782038007591576');
-            fbq('track', 'PageView');
-          `}
-        </script>
-        <noscript>
-          {`<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=782038007591576&ev=PageView&noscript=1" />`}
-        </noscript>
       </Helmet>
       
       <div className="min-h-screen bg-background flex items-center justify-center p-4">

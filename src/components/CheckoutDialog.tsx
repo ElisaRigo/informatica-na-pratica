@@ -1,8 +1,7 @@
-import { useEffect, useRef } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Star } from "lucide-react";
-import elisaCheckout from "@/assets/elisa-checkout.jpg";
+import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
+import logoBlue from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -10,132 +9,78 @@ interface CheckoutDialogProps {
 }
 
 export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
-  const hasTrackedRef = useRef(false);
-
-  useEffect(() => {
-    // Disparar eventos apenas uma vez quando o dialog abre
-    if (open && !hasTrackedRef.current) {
-      hasTrackedRef.current = true;
-      
-      const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
-                           window.location.hostname === 'www.informaticanapratica.com.br';
-      
-      if (!isProduction) {
-        console.log('🔍 [DIAG] Tracking skipped - not production');
-        return;
-      }
-
-      // Função para disparar GA4 begin_checkout e form_start
-      const trackGA4Events = () => {
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          // GA4 - begin_checkout
-          (window as any).gtag('event', 'begin_checkout', {
-            currency: 'BRL',
-            value: 297.00,
-            items: [{
-              item_name: 'Curso Informática na Prática',
-              price: 297.00,
-              quantity: 1
-            }]
-          });
-          console.log('✅ [GA4] begin_checkout disparado - R$ 297,00');
-          
-          // GA4 - form_start (custom event)
-          (window as any).gtag('event', 'form_start', {
-            form_name: 'checkout',
-            currency: 'BRL',
-            value: 297.00
-          });
-          console.log('✅ [GA4] form_start disparado');
-          
-          return true;
-        }
-        return false;
-      };
-
-      // Tentar disparar GA4 imediatamente ou com retry
-      if (!trackGA4Events()) {
-        console.log('⏳ [GA4] Aguardando gtag carregar...');
-        let gaAttempts = 0;
-        const gaInterval = setInterval(() => {
-          gaAttempts++;
-          if (trackGA4Events()) {
-            clearInterval(gaInterval);
-          } else if (gaAttempts >= 50) {
-            console.error('❌ [GA4] gtag não carregou após 5s - eventos perdidos');
-            clearInterval(gaInterval);
-          }
-        }, 100);
-      }
-    }
-    
-    // Reset quando fecha
-    if (!open) {
-      hasTrackedRef.current = false;
-    }
-  }, [open]);
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-5 gap-3">
-        {/* Header com foto da professora e frase motivacional */}
-        <div className="flex items-center gap-4 pb-3 border-b border-border">
-          <img 
-            src={elisaCheckout} 
-            alt="Professora Elisangela" 
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover object-top border-4 border-primary/20 shadow-lg flex-shrink-0"
-          />
-          <div className="flex-1 text-center">
-            <h3 className="text-lg md:text-xl font-bold text-foreground">
-              Falta pouco para você começar!
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Te vejo na área de alunos, até mais 😉
-            </p>
-            <div className="mt-2">
-              <p className="text-xl md:text-2xl font-black text-primary leading-none">
-                12x R$ 30,22
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-6">
+        {/* Header de Segurança */}
+        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-2 mb-2">
+          <div className="flex items-center justify-center gap-2">
+            <Lock className="w-4 h-4 text-success" />
+            <span className="text-sm font-bold text-success">Ambiente 100% Seguro</span>
+            <ShieldCheck className="w-4 h-4 text-success" />
+          </div>
+        </div>
+
+        <DialogHeader className="space-y-2">
+          <DialogTitle className="text-xl md:text-2xl font-black text-center text-foreground flex items-center justify-center gap-2">
+            <Monitor className="w-6 h-6 text-primary" />
+            Falta pouco para você começar!
+          </DialogTitle>
+          <p className="text-sm text-center text-muted-foreground">
+            Pagamento 100% seguro e acesso imediato ao curso.
+          </p>
+          
+          {/* Logo + Preço em destaque */}
+          <div className="flex items-center justify-center gap-4 py-2">
+            <img 
+              src={logoBlue} 
+              alt="Informática Descomplicada" 
+              className="h-12 md:h-14 object-contain"
+            />
+            <div className="text-left">
+              <p className="text-3xl md:text-4xl font-black text-primary">
+                R$ 297<span className="text-lg">,00</span>
               </p>
-              <p className="text-[10px] md:text-xs text-muted-foreground">
-                ou R$ 297,00 à vista
+              <p className="text-sm text-success font-semibold">
+                ou 12x de R$ 30,22
               </p>
             </div>
           </div>
-        </div>
 
-        {/* Barra de confiança - mais visível */}
-        <div className="grid grid-cols-3 gap-2 py-3 bg-muted/50 rounded-xl border border-border">
-          <div className="flex flex-col items-center gap-1">
-            <Lock className="w-5 h-5 text-success" />
-            <span className="text-xs font-semibold text-foreground">Seguro</span>
+          {/* Grid 2x2 de Garantias */}
+          <div className="grid grid-cols-2 gap-2">
+            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
+              <CheckCircle2 className="w-5 h-5 text-success" />
+              <p className="text-xs font-bold text-foreground">Acesso imediato</p>
+              <p className="text-[10px] text-muted-foreground">Login enviado por e-mail</p>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
+              <ShieldCheck className="w-5 h-5 text-success" />
+              <p className="text-xs font-bold text-foreground">Garantia 7 dias</p>
+              <p className="text-[10px] text-muted-foreground">100% do dinheiro de volta</p>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
+              <Headphones className="w-5 h-5 text-success" />
+              <p className="text-xs font-bold text-foreground">Suporte humanizado</p>
+              <p className="text-[10px] text-muted-foreground">Tire dúvidas pelo WhatsApp</p>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-3 flex flex-col items-center text-center gap-1">
+              <Infinity className="w-5 h-5 text-success" />
+              <p className="text-xs font-bold text-foreground">Acesso vitalício</p>
+              <p className="text-[10px] text-muted-foreground">Assista quando quiser</p>
+            </div>
           </div>
-          <div className="flex flex-col items-center gap-1">
-            <ShieldCheck className="w-5 h-5 text-success" />
-            <span className="text-xs font-semibold text-foreground">7 dias garantia</span>
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <CheckCircle2 className="w-5 h-5 text-success" />
-            <span className="text-xs font-semibold text-foreground">Acesso imediato</span>
-          </div>
-        </div>
 
-        {/* Social proof rápido */}
-        <div className="flex items-center justify-center gap-1.5 text-xs">
-          <div className="flex -space-x-0.5">
-            {[1,2,3,4,5].map(i => (
-              <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            ))}
-          </div>
-          <span className="text-muted-foreground">+15.000 alunos já transformaram suas vidas</span>
-        </div>
+        </DialogHeader>
 
-        {/* Formulário - protagonista */}
         <CheckoutForm />
 
-        {/* Rodapé mínimo */}
-        <p className="text-[10px] text-center text-muted-foreground pt-2 border-t border-border">
-          🔒 Pagamento processado com segurança pelo Mercado Pago
-        </p>
+        {/* Rodapé */}
+        <div className="border-t border-border pt-4">
+          <p className="text-sm text-center text-muted-foreground font-medium">
+            🔒 Pagamento processado com segurança pelo Mercado Pago
+          </p>
+        </div>
       </DialogContent>
     </Dialog>
   );

@@ -7,7 +7,7 @@ import { AddStudent } from './AddStudent';
 import { PaymentsList } from './PaymentsList';
 import { AdminSettings } from './AdminSettings';
 import { ReprocessPayment } from './ReprocessPayment';
-import { LogOut, Users, UserPlus, CreditCard, Settings } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const AdminDashboard = () => {
@@ -36,22 +36,18 @@ export const AdminDashboard = () => {
 
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="mb-8 w-full justify-start gap-2 bg-card border border-border p-2 flex-wrap">
-            <TabsTrigger value="students" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
-              <Users className="w-4 h-4" />
+          <TabsList className="mb-8 w-full justify-start gap-2 bg-card border border-border p-2">
+            <TabsTrigger value="students" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Alunos
             </TabsTrigger>
-            <TabsTrigger value="add" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
-              <UserPlus className="w-4 h-4" />
-              Adicionar
+            <TabsTrigger value="add" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Adicionar Aluno
             </TabsTrigger>
-            <TabsTrigger value="payments" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
-              <CreditCard className="w-4 h-4" />
+            <TabsTrigger value="payments" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Pagamentos
             </TabsTrigger>
-            <TabsTrigger value="settings" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-2">
-              <Settings className="w-4 h-4" />
-              Config
+            <TabsTrigger value="settings" className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Configurações
             </TabsTrigger>
           </TabsList>
 

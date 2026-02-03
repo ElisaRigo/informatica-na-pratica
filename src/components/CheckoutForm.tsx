@@ -40,61 +40,77 @@ export const CheckoutForm = () => {
   const [showCardPayment, setShowCardPayment] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'pix' | 'card' | 'boleto'>('pix');
 
-  // Carregar SDKs em paralelo sem bloquear a UI
+  // Carregar reCAPTCHA
   useEffect(() => {
-    // Marcar como pronto imediatamente para UI responsiva
-    setSdkLoaded(true);
-    
-    const loadScripts = async () => {
-      // Carregar reCAPTCHA e MP SDK em paralelo
-      const [keyResponse, priceResponse, recaptchaResponse] = await Promise.all([
-        supabase.functions.invoke('get-mp-public-key').catch(() => ({ data: null })),
-        supabase.functions.invoke('get-course-price').catch(() => ({ data: { price: 297 } })),
-        supabase.functions.invoke('get-recaptcha-site-key').catch(() => ({ data: null }))
-      ]);
-      
-      // Atualizar preço
-      if (priceResponse.data?.price) {
-        setCoursePrice(priceResponse.data.price);
-      }
-      
-      // Carregar reCAPTCHA script se tiver key
-      if (recaptchaResponse.data?.siteKey) {
-        setRecaptchaSiteKey(recaptchaResponse.data.siteKey);
-        if (!document.querySelector('script[src*="recaptcha"]')) {
-          const recaptchaScript = document.createElement('script');
-          recaptchaScript.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaResponse.data.siteKey}`;
-          recaptchaScript.async = true;
-          recaptchaScript.onload = () => setRecaptchaLoaded(true);
-          document.body.appendChild(recaptchaScript);
+    const loadRecaptcha = async () => {
+      try {
+        // Buscar a site key dos secrets
+        const { data: keyData } = await supabase.functions.invoke('get-recaptcha-site-key');
+        
+        if (keyData?.siteKey) {
+          setRecaptchaSiteKey(keyData.siteKey);
+          
+          const script = document.createElement('script');
+          script.src = `https://www.google.com/recaptcha/api.js?render=${keyData.siteKey}`;
+          script.async = true;
+          script.onload = () => {
+            console.log('reCAPTCHA loaded');
+            setRecaptchaLoaded(true);
+          };
+          document.body.appendChild(script);
         }
-      }
-      
-      // Carregar MP SDK se não existir
-      if (!window.MercadoPago && !document.querySelector('script[src*="mercadopago"]')) {
-        const mpScript = document.createElement('script');
-        mpScript.src = 'https://sdk.mercadopago.com/js/v2';
-        mpScript.async = true;
-        mpScript.onload = () => {
-          if (keyResponse.data?.MERCADO_PAGO_PUBLIC_KEY && window.MercadoPago) {
-            const mp = new window.MercadoPago(keyResponse.data.MERCADO_PAGO_PUBLIC_KEY, {
-              locale: 'pt-BR'
-            });
-            setMpInstance(mp);
-          }
-        };
-        document.body.appendChild(mpScript);
-      } else if (window.MercadoPago && keyResponse.data?.MERCADO_PAGO_PUBLIC_KEY) {
-        const mp = new window.MercadoPago(keyResponse.data.MERCADO_PAGO_PUBLIC_KEY, {
-          locale: 'pt-BR'
-        });
-        setMpInstance(mp);
+      } catch (error) {
+        console.error('Error loading reCAPTCHA:', error);
       }
     };
 
-    loadScripts();
+    loadRecaptcha();
+  }, []);
+
+  // Carregar SDK do Mercado Pago
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://sdk.mercadopago.com/js/v2';
+    script.async = true;
+    script.onload = async () => {
+      console.log('Mercado Pago SDK loaded');
+      
+      try {
+        const [keyResponse, priceResponse] = await Promise.all([
+          supabase.functions.invoke('get-mp-public-key'),
+          supabase.functions.invoke('get-course-price')
+        ]);
+        
+        if (keyResponse.data?.MERCADO_PAGO_PUBLIC_KEY) {
+          const mp = new window.MercadoPago(keyResponse.data.MERCADO_PAGO_PUBLIC_KEY, {
+            locale: 'pt-BR'
+          });
+          setMpInstance(mp);
+          setSdkLoaded(true);
+          console.log('Mercado Pago initialized');
+        }
+        
+        if (priceResponse.data?.price) {
+          setCoursePrice(priceResponse.data.price);
+          console.log('Course price loaded:', priceResponse.data.price);
+        }
+      } catch (error) {
+        console.error('Error loading MP key:', error);
+        toast({
+          title: "Erro ao carregar",
+          description: "Não foi possível carregar o sistema de pagamento",
+          variant: "destructive"
+        });
+      }
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
   }, []);
 
   const formatCPF = (value: string) => {
@@ -111,60 +127,6 @@ export const CheckoutForm = () => {
       return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
     }
     return value;
-  };
-
-  // Salvar lead quando formulário é validado
-  const saveLead = async () => {
-    try {
-      const cleanCPF = formData.cpf.replace(/\D/g, '');
-      const cleanPhone = formData.phone.replace(/\D/g, '');
-      const email = formData.email.trim().toLowerCase();
-      
-      // Verificar se lead já existe
-      const { data: existingLead } = await supabase
-        .from('leads')
-        .select('id')
-        .eq('email', email)
-        .maybeSingle();
-
-      if (existingLead) {
-        // Atualizar lead existente
-        const { error } = await supabase
-          .from('leads')
-          .update({
-            name: formData.name.trim(),
-            phone: cleanPhone || null,
-            cpf: cleanCPF || null,
-          })
-          .eq('id', existingLead.id);
-
-        if (error) {
-          console.error('Error updating lead:', error);
-        } else {
-          console.log('✅ Lead atualizado:', email);
-        }
-      } else {
-        // Inserir novo lead
-        const { error } = await supabase
-          .from('leads')
-          .insert({
-            name: formData.name.trim(),
-            email: email,
-            phone: cleanPhone || null,
-            cpf: cleanCPF || null,
-            source: 'checkout',
-            converted: false
-          });
-
-        if (error) {
-          console.error('Error saving lead:', error);
-        } else {
-          console.log('✅ Lead salvo:', email);
-        }
-      }
-    } catch (error) {
-      console.error('Error saving lead:', error);
-    }
   };
 
   const validateForm = () => {
@@ -206,9 +168,6 @@ export const CheckoutForm = () => {
       });
       return false;
     }
-
-    // Salvar lead após validação bem-sucedida
-    saveLead();
 
     return true;
   };
@@ -496,6 +455,12 @@ export const CheckoutForm = () => {
           </p>
         </div>
 
+        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-3 text-center">
+          <p className="text-sm text-success font-medium flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4" />
+            Acesso enviado no seu e-mail após a compra!
+          </p>
+        </div>
 
         <CardPaymentBrick
           formData={formData}
@@ -636,25 +601,26 @@ export const CheckoutForm = () => {
     );
   }
 
-  // Formulário inicial - otimizado para conversão
+  // Formulário inicial
   return (
-    <div className="space-y-3">
-      {/* Formulário em coluna única */}
-      <div className="space-y-2">
+    <div className="space-y-4">
+
+      {/* Formulário */}
+      <div className="space-y-3 md:space-y-4">
         <div className="space-y-1">
-          <Label htmlFor="name" className="text-xs font-semibold text-foreground">Nome Completo</Label>
+          <Label htmlFor="name" className="text-xs md:text-sm font-bold text-foreground">Nome Completo *</Label>
           <Input
             id="name"
-            placeholder="Seu nome"
+            placeholder="Seu nome completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="email" className="text-xs font-semibold text-foreground">E-mail</Label>
+          <Label htmlFor="email" className="text-xs md:text-sm font-bold text-foreground">E-mail *</Label>
           <Input
             id="email"
             type="email"
@@ -662,12 +628,12 @@ export const CheckoutForm = () => {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="cpf" className="text-xs font-semibold text-foreground">CPF</Label>
+          <Label htmlFor="cpf" className="text-xs md:text-sm font-bold text-foreground">CPF *</Label>
           <Input
             id="cpf"
             placeholder="000.000.000-00"
@@ -675,12 +641,12 @@ export const CheckoutForm = () => {
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
             maxLength={14}
             disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="phone" className="text-xs font-semibold text-foreground">Telefone</Label>
+          <Label htmlFor="phone" className="text-xs md:text-sm font-bold text-foreground">Telefone com DDD *</Label>
           <Input
             id="phone"
             placeholder="(11) 99999-9999"
@@ -688,104 +654,88 @@ export const CheckoutForm = () => {
             onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
             maxLength={15}
             disabled={loading || !sdkLoaded}
-            className="h-10 text-sm border-2 focus:border-primary"
+            className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
       </div>
 
-      {/* Seletor de forma de pagamento */}
-      <div className="space-y-3 pt-1">
-        {/* Opções de pagamento lado a lado */}
-        <div className="grid grid-cols-3 gap-2">
-          <button
-            onClick={() => setSelectedPaymentMethod('pix')}
-            disabled={loading || !sdkLoaded}
-            className={`flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 transition-all disabled:opacity-50 text-sm font-semibold ${
-              selectedPaymentMethod === 'pix' 
-                ? 'border-success bg-success/10' 
-                : 'border-border hover:border-success hover:bg-success/5'
-            }`}
-          >
-            <Smartphone className={`w-5 h-5 ${selectedPaymentMethod === 'pix' ? 'text-success' : 'text-muted-foreground'}`} />
-            <span className={selectedPaymentMethod === 'pix' ? 'text-success' : ''}>PIX</span>
-          </button>
-          
-          <button
-            onClick={() => setSelectedPaymentMethod('card')}
-            disabled={loading || !sdkLoaded}
-            className={`flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 transition-all disabled:opacity-50 text-sm font-semibold ${
-              selectedPaymentMethod === 'card' 
-                ? 'border-primary bg-primary/10' 
-                : 'border-border hover:border-primary hover:bg-primary/5'
-            }`}
-          >
-            <CreditCard className={`w-5 h-5 ${selectedPaymentMethod === 'card' ? 'text-primary' : 'text-muted-foreground'}`} />
-            <span className={selectedPaymentMethod === 'card' ? 'text-primary' : ''}>Cartão</span>
-          </button>
-          
-          <button
-            onClick={() => setSelectedPaymentMethod('boleto')}
-            disabled={loading || !sdkLoaded}
-            className={`flex flex-col items-center justify-center gap-1.5 py-3 rounded-lg border-2 transition-all disabled:opacity-50 text-sm font-semibold ${
-              selectedPaymentMethod === 'boleto' 
-                ? 'border-warning bg-warning/10' 
-                : 'border-border hover:border-warning hover:bg-warning/5'
-            }`}
-          >
-            <Receipt className={`w-5 h-5 ${selectedPaymentMethod === 'boleto' ? 'text-warning' : 'text-muted-foreground'}`} />
-            <span className={selectedPaymentMethod === 'boleto' ? 'text-warning' : ''}>Boleto</span>
-          </button>
-        </div>
-
-        {/* Identificação da vendedora */}
-        <p className="text-center text-xs text-muted-foreground">
-          Pagamento processado para: <span className="font-semibold text-foreground">Professora Elisangela Neri Rigo</span>
+      {/* Aviso sobre envio dos dados de acesso */}
+      <div className="bg-success/10 border border-success/30 rounded-lg p-3 md:p-4">
+        <p className="text-xs md:text-sm text-success text-center font-bold flex items-center justify-center gap-2">
+          <CheckCircle2 className="w-4 h-4" />
+          <span>Acesso enviado no seu e-mail após a compra!</span>
         </p>
-
-        {/* CTA Principal - agora aciona o método selecionado */}
-        <button
-          onClick={() => {
-            if (selectedPaymentMethod === 'pix') {
-              handlePixPayment();
-            } else if (selectedPaymentMethod === 'card') {
-              handleCardPayment();
-            } else if (selectedPaymentMethod === 'boleto') {
-              handleOtherPayment('boleto');
-            }
-          }}
-          disabled={loading || !sdkLoaded}
-          className="w-full flex items-center justify-center gap-3 bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 hover:scale-[1.01] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {loading ? (
-            <>
-              <Loader2 className="w-5 h-5 animate-spin" />
-              Processando...
-            </>
-          ) : (
-            <>
-              <ShieldCheck className="w-5 h-5" />
-              Continuar com Segurança
-            </>
-          )}
-        </button>
-
-        {/* Selo de segurança */}
-        <div className="flex items-center justify-center gap-2 py-2 px-4 bg-success/10 rounded-lg border border-success/20">
-          <ShieldCheck className="w-4 h-4 text-success" />
-          <div className="text-center">
-            <p className="text-xs font-semibold text-success">Compra 100% Segura</p>
-            <p className="text-[10px] text-muted-foreground">Verificado e protegido</p>
-          </div>
-        </div>
       </div>
 
-      {/* Loading SDK */}
-      {!sdkLoaded && (
-        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-          <Loader2 className="w-3 h-3 animate-spin" />
-          <span>Carregando...</span>
+      {/* Título das Opções */}
+      <div className="pt-1">
+        <h3 className="text-sm md:text-lg font-black text-center mb-2 md:mb-3 text-foreground">Escolha a forma de pagamento</h3>
+      </div>
+
+      {/* Opções de Pagamento - Melhoradas */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
+        {/* Cartão */}
+        <button
+          onClick={handleCardPayment}
+          disabled={loading || !sdkLoaded}
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
+        >
+          <div className="p-2 md:p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+            <CreditCard className="w-5 h-5 md:w-8 md:h-8 text-primary" />
+          </div>
+          <div className="text-center">
+            <div className="font-black text-xs md:text-base">Cartão de Crédito</div>
+            <div className="text-[10px] md:text-sm text-primary font-bold mt-1">Parcele em até 12x</div>
+          </div>
+        </button>
+
+        {/* PIX */}
+        <button
+          onClick={handlePixPayment}
+          disabled={loading || !sdkLoaded}
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-success hover:bg-success/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
+        >
+          <div className="p-2 md:p-3 rounded-full bg-success/10 group-hover:bg-success/20 transition-colors">
+            <Smartphone className="w-5 h-5 md:w-8 md:h-8 text-success" />
+          </div>
+          <div className="text-center">
+            <div className="font-black text-xs md:text-base">PIX</div>
+            <div className="text-[10px] md:text-sm text-success font-bold mt-1">Aprovação imediata</div>
+          </div>
+        </button>
+
+        {/* Boleto */}
+        <button
+          onClick={() => handleOtherPayment('boleto')}
+          disabled={loading || !sdkLoaded}
+          className="flex flex-col items-center justify-center gap-2 p-4 md:p-6 rounded-xl border-2 border-border hover:border-warning hover:bg-warning/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-sm hover:shadow-lg"
+        >
+          <div className="p-2 md:p-3 rounded-full bg-warning/10 group-hover:bg-warning/20 transition-colors">
+            <Receipt className="w-5 h-5 md:w-8 md:h-8 text-warning" />
+          </div>
+          <div className="text-center">
+            <div className="font-black text-xs md:text-base">Boleto</div>
+            <div className="text-[10px] md:text-sm text-warning font-bold mt-1">Até 3 dias úteis</div>
+          </div>
+        </button>
+      </div>
+
+      {/* Loading State */}
+      {loading && (
+        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-4">
+          <Loader2 className="w-4 h-4 animate-spin" />
+          <span>Processando...</span>
         </div>
       )}
+
+      {!sdkLoaded && (
+        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground py-4">
+          <Loader2 className="w-4 h-4 animate-spin" />
+          <span>Carregando sistema de pagamento...</span>
+        </div>
+      )}
+
+      {/* Footer removido - já existe no CheckoutDialog */}
     </div>
   );
 };

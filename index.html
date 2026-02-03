@@ -263,44 +263,55 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Analytics scripts - carregados imediatamente para garantir rastreamento -->
-    <script>
+    <!-- Analytics scripts moved to end for better performance with defer -->
+    <script defer>
       // Só carregar scripts de rastreamento no domínio de produção
       (function() {
         const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
                              window.location.hostname === 'www.informaticanapratica.com.br';
         
         if (!isProduction) {
-          console.log('🔍 [DIAG] Analytics scripts skipped - not on production domain');
+          console.log('Analytics scripts skipped - not on production domain');
           return;
         }
 
-        // Facebook Pixel - carregar imediatamente
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '787096354071974');
-        fbq('track', 'PageView');
-        console.log('✅ [FB] Pixel carregado e PageView disparado');
+        // Facebook Pixel - com delay de 2s para mobile
+        setTimeout(function() {
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '787096354071974');
+          fbq('track', 'PageView');
+        }, 2000);
 
-        // Google Analytics GA4 + Google Ads - carregar imediatamente
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){dataLayer.push(arguments);};
-        window.gtag('js', new Date());
+        // Google Analytics GA4 - com delay de 2s para mobile
+        setTimeout(function() {
+          var gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-08B5E33G3F';
+          document.head.appendChild(gaScript);
+          
+          // Definir gtag globalmente
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function(){dataLayer.push(arguments);}
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-08B5E33G3F');
+
+          // Google Ads
+          var adsScript = document.createElement('script');
+          adsScript.async = true;
+          adsScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17641842157';
+          document.head.appendChild(adsScript);
+          
+          window.gtag('config', 'AW-17641842157');
+        }, 2000);
         
-        var gaScript = document.createElement('script');
-        gaScript.async = true;
-        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-08B5E33G3F';
-        document.head.appendChild(gaScript);
-        
-        window.gtag('config', 'G-08B5E33G3F');
-        window.gtag('config', 'AW-17641842157');
-        console.log('✅ [GA4/GAds] Scripts carregados');
+        console.log('Analytics scripts loaded on production domain');
       })();
     </script>
   </body>
