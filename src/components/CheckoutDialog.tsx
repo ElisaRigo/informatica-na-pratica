@@ -25,16 +25,29 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
         return;
       }
 
+      // Parâmetros completos do evento (obrigatório: value + currency)
+      const eventParams = {
+        value: 297.00,
+        currency: 'BRL',
+        content_type: 'product',
+        content_name: 'Curso Informática na Prática',
+        content_ids: ['curso-informatica-pratica'],
+        num_items: 1
+      };
+
       // Função para disparar Facebook Pixel InitiateCheckout
       const trackFbInitiateCheckout = () => {
         if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'InitiateCheckout', {
-            value: 297.00,
-            currency: 'BRL',
-            content_type: 'product',
-            content_name: 'Curso Informática na Prática'
-          });
-          console.log('✅ [FB] InitiateCheckout disparado - R$ 297,00');
+          // Disparar para o pixel principal (787096354071974)
+          (window as any).fbq('trackSingle', '787096354071974', 'InitiateCheckout', eventParams);
+          console.log('✅ [FB] InitiateCheckout disparado para pixel principal - R$ 297,00');
+          
+          // Verificar se estamos na página /curso e disparar também para o pixel da oferta
+          if (window.location.pathname === '/curso' || window.location.pathname === '/curso/') {
+            (window as any).fbq('trackSingle', '782038007591576', 'InitiateCheckout', eventParams);
+            console.log('✅ [FB] InitiateCheckout disparado para pixel da oferta - R$ 297,00');
+          }
+          
           return true;
         }
         return false;
