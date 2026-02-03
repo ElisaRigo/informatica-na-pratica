@@ -13,7 +13,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
   const hasTrackedRef = useRef(false);
 
   useEffect(() => {
-    // Disparar InitiateCheckout apenas uma vez quando o dialog abre
+    // Disparar eventos apenas uma vez quando o dialog abre
     if (open && !hasTrackedRef.current) {
       hasTrackedRef.current = true;
       
@@ -21,40 +21,12 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
                            window.location.hostname === 'www.informaticanapratica.com.br';
       
       if (!isProduction) {
-        console.log('🔍 [DIAG] InitiateCheckout skipped - not production');
+        console.log('🔍 [DIAG] Tracking skipped - not production');
         return;
       }
 
-      // Parâmetros completos do evento (obrigatório: value + currency)
-      const eventParams = {
-        value: 297.00,
-        currency: 'BRL',
-        content_type: 'product',
-        content_name: 'Curso Informática na Prática',
-        content_ids: ['curso-informatica-pratica'],
-        num_items: 1
-      };
-
-      // Função para disparar Facebook Pixel InitiateCheckout
-      const trackFbInitiateCheckout = () => {
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          // Disparar para o pixel principal (787096354071974)
-          (window as any).fbq('trackSingle', '787096354071974', 'InitiateCheckout', eventParams);
-          console.log('✅ [FB] InitiateCheckout disparado para pixel principal - R$ 297,00');
-          
-          // Verificar se estamos na página /curso e disparar também para o pixel da oferta
-          if (window.location.pathname === '/curso' || window.location.pathname === '/curso/') {
-            (window as any).fbq('trackSingle', '782038007591576', 'InitiateCheckout', eventParams);
-            console.log('✅ [FB] InitiateCheckout disparado para pixel da oferta - R$ 297,00');
-          }
-          
-          return true;
-        }
-        return false;
-      };
-
-      // Função para disparar Google Analytics/Ads InitiateCheckout
-      const trackGoogleInitiateCheckout = () => {
+      // Função para disparar GA4 begin_checkout e form_start
+      const trackGA4Events = () => {
         if (typeof window !== 'undefined' && (window as any).gtag) {
           // GA4 - begin_checkout
           (window as any).gtag('event', 'begin_checkout', {
@@ -68,44 +40,29 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
           });
           console.log('✅ [GA4] begin_checkout disparado - R$ 297,00');
           
-          // Google Ads - form_start conversion
-          (window as any).gtag('event', 'conversion', {
-            'send_to': 'AW-17641842157/-qUVCOSN474bEO3LpNxB',
-            'value': 20.0,
-            'currency': 'BRL'
+          // GA4 - form_start (custom event)
+          (window as any).gtag('event', 'form_start', {
+            form_name: 'checkout',
+            currency: 'BRL',
+            value: 297.00
           });
-          console.log('✅ [GAds] form_start conversion disparado');
+          console.log('✅ [GA4] form_start disparado');
           
           return true;
         }
         return false;
       };
 
-      // Tentar disparar FB imediatamente ou com retry
-      if (!trackFbInitiateCheckout()) {
-        console.log('⏳ [FB] Aguardando fbq carregar...');
-        let fbAttempts = 0;
-        const fbInterval = setInterval(() => {
-          fbAttempts++;
-          if (trackFbInitiateCheckout()) {
-            clearInterval(fbInterval);
-          } else if (fbAttempts >= 50) {
-            console.error('❌ [FB] fbq não carregou após 5s - InitiateCheckout perdido');
-            clearInterval(fbInterval);
-          }
-        }, 100);
-      }
-
       // Tentar disparar GA4 imediatamente ou com retry
-      if (!trackGoogleInitiateCheckout()) {
+      if (!trackGA4Events()) {
         console.log('⏳ [GA4] Aguardando gtag carregar...');
         let gaAttempts = 0;
         const gaInterval = setInterval(() => {
           gaAttempts++;
-          if (trackGoogleInitiateCheckout()) {
+          if (trackGA4Events()) {
             clearInterval(gaInterval);
           } else if (gaAttempts >= 50) {
-            console.error('❌ [GA4] gtag não carregou após 5s - begin_checkout perdido');
+            console.error('❌ [GA4] gtag não carregou após 5s - eventos perdidos');
             clearInterval(gaInterval);
           }
         }, 100);
