@@ -380,196 +380,321 @@ const Checkout = () => {
         </div>
       </div>
 
-      {/* Conteúdo Principal */}
+      {/* Conteúdo Principal - Layout com sidebar */}
       <div className="container mx-auto px-4 py-6">
-        <div className="max-w-xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto">
           
-          {/* Card do Produto */}
-          <div className="bg-white rounded-xl shadow-card p-4 mb-4 flex items-center gap-4">
-            <img 
-              src={elisaCheckout} 
-              alt="Professora Elisa" 
-              className="w-16 h-16 rounded-lg object-cover object-top"
-            />
-            <div className="flex-1">
-              <p className="text-xs text-success font-semibold">🔒 Alterar plano</p>
-              <h2 className="font-bold text-foreground">Curso Informática na Prática</h2>
-              <div className="flex items-baseline gap-2">
-                <span className="text-lg font-black text-primary">12x R$ 30,72</span>
-                <span className="text-xs text-muted-foreground">ou R$ 297,00 à vista</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Formulário */}
-          <div className="bg-white rounded-xl shadow-card p-5">
+          {/* Coluna Esquerda - Formulário */}
+          <div className="flex-1 max-w-xl">
             
-            {/* Campos de dados pessoais */}
-            <div className="space-y-4 mb-6">
-              <div>
-                <Label htmlFor="name" className="text-xs font-semibold text-foreground">Nome Completo</Label>
-                <Input
-                  id="name"
-                  placeholder="Digite seu nome completo"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="mt-1"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="cpf" className="text-xs font-semibold text-foreground">CPF</Label>
-                <Input
-                  id="cpf"
-                  placeholder="000.000.000-00"
-                  value={formData.cpf}
-                  onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-                  maxLength={14}
-                  className="mt-1"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="email" className="text-xs font-semibold text-foreground">E-mail</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="seu@email.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="mt-1"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="phone" className="text-xs font-semibold text-foreground">Celular</Label>
-                <Input
-                  id="phone"
-                  placeholder="(00) 00000-0000"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-                  maxLength={15}
-                  className="mt-1"
-                />
+            {/* Card do Produto */}
+            <div className="bg-white rounded-xl shadow-card p-4 mb-4 flex items-center gap-4">
+              <img 
+                src={elisaCheckout} 
+                alt="Professora Elisa" 
+                className="w-16 h-16 rounded-lg object-cover object-top"
+              />
+              <div className="flex-1">
+                <p className="text-xs text-success font-semibold">🔒 Alterar plano</p>
+                <h2 className="font-bold text-foreground">Curso Informática na Prática</h2>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-lg font-black text-primary">12x R$ 30,72</span>
+                  <span className="text-xs text-muted-foreground">ou R$ 297,00 à vista</span>
+                </div>
               </div>
             </div>
 
-            {/* Aviso de segurança */}
-            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-4">
-              <Lock className="w-3.5 h-3.5" />
-              <span>Seus dados serão mantidos em sigilo</span>
-            </div>
+            {/* Formulário */}
+            <div className="bg-white rounded-xl shadow-card p-5">
+              
+              {/* Campos de dados pessoais */}
+              <div className="space-y-4 mb-6">
+                <div>
+                  <Label htmlFor="name" className="text-xs font-semibold text-foreground">Nome Completo</Label>
+                  <Input
+                    id="name"
+                    placeholder="Digite seu nome completo"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="mt-1"
+                  />
+                </div>
 
-            {/* Seletor de método de pagamento */}
-            <p className="text-xs font-semibold text-center text-foreground mb-3">
-              SELECIONE UM MÉTODO DE PAGAMENTO
-            </p>
-            
-            <div className="grid grid-cols-3 gap-2 mb-6">
-              <button
-                type="button"
-                onClick={() => setSelectedPaymentMethod('card')}
-                className={`flex flex-col items-center gap-1 p-3 rounded-lg border-2 transition-all ${
-                  selectedPaymentMethod === 'card' 
-                    ? 'border-primary bg-primary/5' 
-                    : 'border-border hover:border-primary/50'
-                }`}
-              >
-                <CreditCard className={`w-5 h-5 ${selectedPaymentMethod === 'card' ? 'text-primary' : 'text-muted-foreground'}`} />
-                <span className={`text-xs font-medium ${selectedPaymentMethod === 'card' ? 'text-primary' : 'text-muted-foreground'}`}>
-                  Cartão
-                </span>
-              </button>
+                <div>
+                  <Label htmlFor="cpf" className="text-xs font-semibold text-foreground">CPF</Label>
+                  <Input
+                    id="cpf"
+                    placeholder="000.000.000-00"
+                    value={formData.cpf}
+                    onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+                    maxLength={14}
+                    className="mt-1"
+                  />
+                </div>
 
-              <button
-                type="button"
-                onClick={() => setSelectedPaymentMethod('pix')}
-                className={`flex flex-col items-center gap-1 p-3 rounded-lg border-2 transition-all ${
-                  selectedPaymentMethod === 'pix' 
-                    ? 'border-primary bg-primary/5' 
-                    : 'border-border hover:border-primary/50'
-                }`}
-              >
-                <Smartphone className={`w-5 h-5 ${selectedPaymentMethod === 'pix' ? 'text-primary' : 'text-muted-foreground'}`} />
-                <span className={`text-xs font-medium ${selectedPaymentMethod === 'pix' ? 'text-primary' : 'text-muted-foreground'}`}>
-                  PIX
-                </span>
-              </button>
+                <div>
+                  <Label htmlFor="email" className="text-xs font-semibold text-foreground">E-mail</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="seu@email.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="mt-1"
+                  />
+                </div>
 
-              <button
-                type="button"
-                onClick={() => setSelectedPaymentMethod('boleto')}
-                className={`flex flex-col items-center gap-1 p-3 rounded-lg border-2 transition-all ${
-                  selectedPaymentMethod === 'boleto' 
-                    ? 'border-primary bg-primary/5' 
-                    : 'border-border hover:border-primary/50'
-                }`}
-              >
-                <Receipt className={`w-5 h-5 ${selectedPaymentMethod === 'boleto' ? 'text-primary' : 'text-muted-foreground'}`} />
-                <span className={`text-xs font-medium ${selectedPaymentMethod === 'boleto' ? 'text-primary' : 'text-muted-foreground'}`}>
-                  Boleto
-                </span>
-              </button>
-            </div>
+                <div>
+                  <Label htmlFor="phone" className="text-xs font-semibold text-foreground">Celular</Label>
+                  <Input
+                    id="phone"
+                    placeholder="(00) 00000-0000"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+                    maxLength={15}
+                    className="mt-1"
+                  />
+                </div>
+              </div>
 
-            {/* Botão de finalizar */}
-            <Button 
-              onClick={handleSubmit}
-              disabled={loading}
-              className="w-full bg-success hover:bg-success/90 text-white font-bold py-6 text-base"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Processando...
-                </>
-              ) : (
-                <>
-                  <Lock className="w-4 h-4 mr-2" />
-                  Finalizar Pagamento
-                </>
+              {/* Aviso de segurança */}
+              <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-4">
+                <Lock className="w-3.5 h-3.5" />
+                <span>Seus dados serão mantidos em sigilo</span>
+              </div>
+
+              {/* Seletor de método de pagamento */}
+              <p className="text-xs font-semibold text-center text-foreground mb-3">
+                SELECIONE UM MÉTODO DE PAGAMENTO
+              </p>
+              
+              <div className="grid grid-cols-3 gap-2 mb-6">
+                <button
+                  type="button"
+                  onClick={() => setSelectedPaymentMethod('card')}
+                  className={`flex flex-col items-center gap-1 p-3 rounded-lg border-2 transition-all ${
+                    selectedPaymentMethod === 'card' 
+                      ? 'border-primary bg-primary/5' 
+                      : 'border-border hover:border-primary/50'
+                  }`}
+                >
+                  <CreditCard className={`w-5 h-5 ${selectedPaymentMethod === 'card' ? 'text-primary' : 'text-muted-foreground'}`} />
+                  <span className={`text-xs font-medium ${selectedPaymentMethod === 'card' ? 'text-primary' : 'text-muted-foreground'}`}>
+                    Cartão
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedPaymentMethod('pix')}
+                  className={`flex flex-col items-center gap-1 p-3 rounded-lg border-2 transition-all ${
+                    selectedPaymentMethod === 'pix' 
+                      ? 'border-primary bg-primary/5' 
+                      : 'border-border hover:border-primary/50'
+                  }`}
+                >
+                  <Smartphone className={`w-5 h-5 ${selectedPaymentMethod === 'pix' ? 'text-primary' : 'text-muted-foreground'}`} />
+                  <span className={`text-xs font-medium ${selectedPaymentMethod === 'pix' ? 'text-primary' : 'text-muted-foreground'}`}>
+                    PIX
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedPaymentMethod('boleto')}
+                  className={`flex flex-col items-center gap-1 p-3 rounded-lg border-2 transition-all ${
+                    selectedPaymentMethod === 'boleto' 
+                      ? 'border-primary bg-primary/5' 
+                      : 'border-border hover:border-primary/50'
+                  }`}
+                >
+                  <Receipt className={`w-5 h-5 ${selectedPaymentMethod === 'boleto' ? 'text-primary' : 'text-muted-foreground'}`} />
+                  <span className={`text-xs font-medium ${selectedPaymentMethod === 'boleto' ? 'text-primary' : 'text-muted-foreground'}`}>
+                    Boleto
+                  </span>
+                </button>
+              </div>
+
+              {/* Campos de Cartão (inline quando cartão selecionado) */}
+              {selectedPaymentMethod === 'card' && (
+                <div className="space-y-4 mb-6 p-4 bg-muted/30 rounded-lg border border-border">
+                  <div>
+                    <Label htmlFor="cardNumber" className="text-xs font-semibold text-foreground">Número do Cartão</Label>
+                    <Input
+                      id="cardNumber"
+                      placeholder="0000 0000 0000 0000"
+                      className="mt-1"
+                    />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="cardExpiry" className="text-xs font-semibold text-foreground">Validade (MM/AA)</Label>
+                      <Input
+                        id="cardExpiry"
+                        placeholder="MM/AA"
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="cardCvv" className="text-xs font-semibold text-foreground">Cód Segurança</Label>
+                      <Input
+                        id="cardCvv"
+                        placeholder="CVV"
+                        maxLength={4}
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="cardName" className="text-xs font-semibold text-foreground">Nome impresso no cartão</Label>
+                    <Input
+                      id="cardName"
+                      placeholder="Nome como está no cartão"
+                      className="mt-1"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="installments" className="text-xs font-semibold text-foreground">Parcelas</Label>
+                    <select
+                      id="installments"
+                      className="mt-1 w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                    >
+                      <option value="12">12x de R$ 30,72 *</option>
+                      <option value="11">11x de R$ 33,17 *</option>
+                      <option value="10">10x de R$ 36,14 *</option>
+                      <option value="9">9x de R$ 39,78 *</option>
+                      <option value="8">8x de R$ 44,33 *</option>
+                      <option value="7">7x de R$ 50,20 *</option>
+                      <option value="6">6x de R$ 58,06 *</option>
+                      <option value="5">5x de R$ 69,02 *</option>
+                      <option value="4">4x de R$ 85,52 *</option>
+                      <option value="3">3x de R$ 113,04 *</option>
+                      <option value="2">2x de R$ 168,06 *</option>
+                      <option value="1">1x de R$ 297,00 (à vista)</option>
+                    </select>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <input type="checkbox" id="saveCard" className="rounded border-border" />
+                    <label htmlFor="saveCard" className="text-xs text-muted-foreground">
+                      Usar esses dados nas próximas compras
+                    </label>
+                  </div>
+                </div>
               )}
-            </Button>
 
-            {/* Selos de garantia */}
-            <div className="flex items-center justify-center gap-4 mt-6 pt-4 border-t border-border">
-              <div className="flex items-center gap-1.5">
-                <div className="w-8 h-8 rounded-full bg-success/10 flex items-center justify-center">
-                  <ShieldCheck className="w-4 h-4 text-success" />
-                </div>
-                <div className="text-left">
-                  <p className="text-[10px] font-semibold text-foreground leading-tight">COMPRA</p>
-                  <p className="text-[10px] text-muted-foreground leading-tight">100% SEGURA</p>
-                </div>
-              </div>
+              {/* Botão de finalizar */}
+              <Button 
+                onClick={handleSubmit}
+                disabled={loading}
+                className="w-full bg-success hover:bg-success/90 text-white font-bold py-6 text-base"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Processando...
+                  </>
+                ) : (
+                  <>
+                    <Lock className="w-4 h-4 mr-2" />
+                    Finalizar Pagamento
+                  </>
+                )}
+              </Button>
 
-              <div className="flex items-center gap-1.5">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Lock className="w-4 h-4 text-primary" />
+              {/* Selos de garantia */}
+              <div className="flex items-center justify-center gap-4 mt-6 pt-4 border-t border-border">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-8 h-8 rounded-full bg-success/10 flex items-center justify-center">
+                    <ShieldCheck className="w-4 h-4 text-success" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] font-semibold text-foreground leading-tight">COMPRA</p>
+                    <p className="text-[10px] text-muted-foreground leading-tight">100% SEGURA</p>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <p className="text-[10px] font-semibold text-foreground leading-tight">PRIVACIDADE</p>
-                  <p className="text-[10px] text-muted-foreground leading-tight">PROTEGIDA</p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-1.5">
-                <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500" />
+                <div className="flex items-center gap-1.5">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Lock className="w-4 h-4 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] font-semibold text-foreground leading-tight">PRIVACIDADE</p>
+                    <p className="text-[10px] text-muted-foreground leading-tight">PROTEGIDA</p>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <p className="text-[10px] font-semibold text-foreground leading-tight">GARANTIA</p>
-                  <p className="text-[10px] text-muted-foreground leading-tight">7 DIAS</p>
+
+                <div className="flex items-center gap-1.5">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center">
+                    <CheckCircle2 className="w-4 h-4 text-amber-500" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] font-semibold text-foreground leading-tight">GARANTIA</p>
+                    <p className="text-[10px] text-muted-foreground leading-tight">7 DIAS</p>
+                  </div>
                 </div>
               </div>
             </div>
+
+            {/* Rodapé */}
+            <div className="text-center mt-6">
+              <p className="text-[10px] text-muted-foreground">
+                * Pagamento processado com acréscimo de 2,47% a.m. | Política de privacidade | Termos de compra
+              </p>
+            </div>
           </div>
 
-          {/* Rodapé */}
-          <div className="text-center mt-6">
-            <p className="text-[10px] text-muted-foreground">
-              * Pagamento processado com acréscimo de 2,47% a.m. | Política de privacidade | Termos de compra
-            </p>
+          {/* Coluna Direita - Faixa Promocional */}
+          <div className="hidden lg:block w-80 flex-shrink-0">
+            <div className="sticky top-6">
+              <div className="rounded-xl overflow-hidden shadow-card">
+                <img 
+                  src={checkoutBannerElisa} 
+                  alt="Professora Elisa - Curso Informática na Prática" 
+                  className="w-full h-auto object-cover"
+                />
+                <div className="bg-gradient-to-b from-primary to-primary/90 p-6 text-center text-white">
+                  <h3 className="font-black text-xl mb-2">INFORMÁTICA</h3>
+                  <p className="text-3xl font-black">NA PRÁTICA</p>
+                  <p className="text-sm mt-3 text-white/80">Domine o computador de uma vez por todas!</p>
+                  
+                  <div className="mt-6 space-y-2 text-left text-sm">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-success" />
+                      <span>Acesso vitalício</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-success" />
+                      <span>Certificado incluso</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-success" />
+                      <span>Suporte exclusivo</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-success" />
+                      <span>+15.000 alunos</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Segunda imagem da professora */}
+              <div className="mt-4 rounded-xl overflow-hidden shadow-card">
+                <img 
+                  src={elisaCheckout} 
+                  alt="Professora Elisa" 
+                  className="w-full h-48 object-cover object-top"
+                />
+                <div className="bg-white p-4 text-center">
+                  <p className="font-bold text-foreground">Professora Elisangela</p>
+                  <p className="text-xs text-muted-foreground">Te espero na área de alunos!</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
