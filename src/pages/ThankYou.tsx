@@ -50,13 +50,25 @@ const ThankYou = () => {
         
         console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
         
-        // Disparar conversão do Facebook Pixel
+        // Disparar conversão do Facebook Pixel com Advanced Matching
         if (typeof window !== 'undefined' && (window as any).fbq) {
+          // Tentar obter dados do usuário da URL ou localStorage
+          const urlParams = new URLSearchParams(window.location.search);
+          const userEmail = urlParams.get('email') || localStorage.getItem('checkout_email') || '';
+          const userPhone = urlParams.get('phone') || localStorage.getItem('checkout_phone') || '';
+          
+          // Reinicializar o pixel com Advanced Matching
+          (window as any).fbq('init', '787096354071974', {
+            em: userEmail,  // Email - será hasheado automaticamente pelo pixel usando SHA-256
+            ph: userPhone,  // Telefone - será hasheado automaticamente
+          });
+          
+          // Disparar evento de Purchase
           (window as any).fbq('track', 'Purchase', {
             value: 297.00,
             currency: 'BRL'
           });
-          console.log('✅ Facebook Pixel conversion tracked successfully');
+          console.log('✅ Facebook Pixel conversion tracked with Advanced Matching');
         }
         
         return true;
