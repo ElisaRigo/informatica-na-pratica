@@ -18,6 +18,19 @@ const ThankYou = () => {
     // Função para disparar as conversões
     const trackConversion = () => {
       if (typeof window !== 'undefined' && (window as any).gtag) {
+        // Disparar evento begin_checkout no GA4
+        (window as any).gtag('event', 'begin_checkout', {
+          currency: 'BRL',
+          value: 297.00,
+          items: [{
+            item_id: 'curso-informatica',
+            item_name: 'Curso Informática na Prática',
+            price: 297.00,
+            quantity: 1
+          }]
+        });
+        console.log('✅ GA4 begin_checkout tracked on thank you page');
+        
         // Disparar evento de conversão do Google Analytics
         (window as any).gtag('event', 'conversion', {
           'send_to': 'G-08B5E33G3F',
@@ -26,11 +39,11 @@ const ThankYou = () => {
           'currency': 'BRL'
         });
         
-      // Disparar pageview para garantir que o GA4 rastreie a página
-      (window as any).gtag('config', 'G-08B5E33G3F', {
-        page_path: '/obrigada',
-        page_title: 'Obrigada - Compra Confirmada'
-      });
+        // Disparar pageview para garantir que o GA4 rastreie a página
+        (window as any).gtag('config', 'G-08B5E33G3F', {
+          page_path: '/obrigada',
+          page_title: 'Obrigada - Compra Confirmada'
+        });
         
         // Disparar evento de conversão do Google Ads
         (window as any).gtag('event', 'conversion', {
