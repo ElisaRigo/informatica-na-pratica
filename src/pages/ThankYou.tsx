@@ -50,25 +50,13 @@ const ThankYou = () => {
         
         console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
         
-        // Disparar conversão do Facebook Pixel com Advanced Matching
+        // Disparar conversão do Facebook Pixel
         if (typeof window !== 'undefined' && (window as any).fbq) {
-          // Tentar obter dados do usuário da URL ou localStorage
-          const urlParams = new URLSearchParams(window.location.search);
-          const userEmail = urlParams.get('email') || localStorage.getItem('checkout_email') || '';
-          const userPhone = urlParams.get('phone') || localStorage.getItem('checkout_phone') || '';
-          
-          // Reinicializar o pixel com Advanced Matching
-          (window as any).fbq('init', '787096354071974', {
-            em: userEmail,  // Email - será hasheado automaticamente pelo pixel usando SHA-256
-            ph: userPhone,  // Telefone - será hasheado automaticamente
-          });
-          
-          // Disparar evento de Purchase
           (window as any).fbq('track', 'Purchase', {
             value: 297.00,
             currency: 'BRL'
           });
-          console.log('✅ Facebook Pixel conversion tracked with Advanced Matching');
+          console.log('✅ Facebook Pixel conversion tracked successfully');
         }
         
         return true;
@@ -124,23 +112,6 @@ const ThankYou = () => {
             gtag('config', 'AW-17641842157');
           `}
         </script>
-        
-        {/* Facebook Pixel Base Code */}
-        <script>
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-          `}
-        </script>
-        <noscript>
-          {`<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=787096354071974&ev=PageView&noscript=1" />`}
-        </noscript>
       </Helmet>
       
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
