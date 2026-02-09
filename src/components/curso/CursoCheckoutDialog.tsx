@@ -175,7 +175,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
           <p className="text-2xl md:text-3xl font-black text-success">
             12x R$ 30,22
           </p>
-          <p className="text-sm text-muted-foreground font-medium">
+          <p className="text-base text-muted-foreground font-bold">
             ou R$ 297,00 à vista
           </p>
         </div>
