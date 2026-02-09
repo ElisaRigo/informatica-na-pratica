@@ -1,7 +1,7 @@
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { Lock, ShieldCheck, CheckCircle2, Star } from "lucide-react";
-import elisaPhoto from "@/assets/elisa-photo.jpg";
+import { Lock, ShieldCheck, CheckCircle2, Headphones, Monitor, Infinity } from "lucide-react";
+import logoBlue from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -11,58 +11,62 @@ interface CheckoutDialogProps {
 export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md max-h-[95vh] overflow-y-auto p-4 md:p-6">
-        {/* Header com foto da instrutora */}
-        <div className="flex items-center gap-3 mb-1">
-          <img 
-            src={elisaPhoto} 
-            alt="Professora Elisa" 
-            className="w-12 h-12 rounded-full object-cover border-2 border-success/30 flex-shrink-0"
-          />
-          <div className="text-center flex-1 pr-6">
-            <h2 className="text-lg md:text-xl font-black text-foreground">
+      <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-6">
+        {/* Banner Ambiente 100% Seguro */}
+        <div className="bg-primary rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 -mt-1">
+          <Lock className="w-4 h-4 text-primary-foreground" />
+          <span className="text-sm font-bold text-primary-foreground">Ambiente 100% Seguro</span>
+          <ShieldCheck className="w-4 h-4 text-success" />
+        </div>
+
+        {/* Título com ícone de monitor */}
+        <div className="text-center space-y-1 py-2">
+          <div className="flex items-center justify-center gap-2">
+            <Monitor className="w-5 h-5 text-primary" />
+            <h2 className="text-xl md:text-2xl font-black text-foreground">
               Falta pouco para você começar!
             </h2>
-            <p className="text-xs text-muted-foreground">
-              Te vejo na área de alunos, até mais 🤗
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Pagamento 100% seguro e acesso imediato ao curso.
+          </p>
+        </div>
+
+        {/* Preço com logo */}
+        <div className="flex items-center justify-center gap-3 py-2">
+          <img src={logoBlue} alt="Informática na Prática" className="w-12 h-12 object-contain" />
+          <div>
+            <p className="text-3xl md:text-4xl font-black text-primary">
+              R$ 297<span className="text-xl">,00</span>
+            </p>
+            <p className="text-sm text-success font-medium">
+              ou 12x de R$ 30,22
             </p>
           </div>
         </div>
 
-        {/* Preço em destaque */}
-        <div className="text-center py-2">
-          <p className="text-2xl md:text-3xl font-black text-success">
-            12x R$ 30,22
-          </p>
-          <p className="text-sm text-muted-foreground">
-            ou R$ 297,00 à vista
-          </p>
-        </div>
-
-        {/* Trust badges em linha */}
-        <div className="flex justify-center gap-3 py-2">
-          <div className="flex flex-col items-center gap-1 px-4 py-2 bg-muted/50 rounded-lg">
-            <Lock className="w-4 h-4 text-success" />
-            <span className="text-[10px] font-bold text-foreground">Seguro</span>
+        {/* 4 Cards de benefícios */}
+        <div className="grid grid-cols-2 gap-2 py-2">
+          <div className="flex flex-col items-center gap-1 p-3 rounded-xl border border-border bg-background">
+            <CheckCircle2 className="w-5 h-5 text-success" />
+            <span className="text-xs font-bold text-foreground">Acesso imediato</span>
+            <span className="text-[10px] text-muted-foreground">Login enviado por e-mail</span>
           </div>
-          <div className="flex flex-col items-center gap-1 px-4 py-2 bg-muted/50 rounded-lg">
-            <ShieldCheck className="w-4 h-4 text-success" />
-            <span className="text-[10px] font-bold text-foreground">7 dias garantia</span>
+          <div className="flex flex-col items-center gap-1 p-3 rounded-xl border border-border bg-background">
+            <ShieldCheck className="w-5 h-5 text-success" />
+            <span className="text-xs font-bold text-foreground">Garantia 7 dias</span>
+            <span className="text-[10px] text-muted-foreground">100% do dinheiro de volta</span>
           </div>
-          <div className="flex flex-col items-center gap-1 px-4 py-2 bg-muted/50 rounded-lg">
-            <CheckCircle2 className="w-4 h-4 text-success" />
-            <span className="text-[10px] font-bold text-foreground">Acesso imediato</span>
+          <div className="flex flex-col items-center gap-1 p-3 rounded-xl border border-border bg-background">
+            <Headphones className="w-5 h-5 text-primary" />
+            <span className="text-xs font-bold text-foreground">Suporte humanizado</span>
+            <span className="text-[10px] text-muted-foreground">Tire dúvidas pelo WhatsApp</span>
           </div>
-        </div>
-
-        {/* Social proof */}
-        <div className="flex items-center justify-center gap-1.5 pb-2">
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            ))}
+          <div className="flex flex-col items-center gap-1 p-3 rounded-xl border border-border bg-background">
+            <Infinity className="w-5 h-5 text-primary" />
+            <span className="text-xs font-bold text-foreground">Acesso vitalício</span>
+            <span className="text-[10px] text-muted-foreground">Assista quando quiser</span>
           </div>
-          <span className="text-xs text-muted-foreground">+15.000 alunos já transformaram suas vidas</span>
         </div>
 
         {/* Formulário */}
