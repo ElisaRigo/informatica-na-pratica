@@ -154,17 +154,17 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-5 md:p-6 gap-0">
         {/* Header: Photo + Title */}
-        <div className="flex items-center gap-3 mb-1">
+        <div className="flex flex-col items-center text-center gap-2 mb-1">
           <img
             src={elisaPhoto}
             alt="Prof. Elisa"
-            className="w-12 h-12 rounded-full object-cover object-top border-2 border-success/40 shrink-0"
+            className="w-20 h-20 rounded-full object-cover object-top border-3 border-success/40 shrink-0"
           />
           <div>
-            <h2 className="text-base md:text-lg font-extrabold text-foreground leading-tight">
+            <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
               Falta pouco para você começar!
             </h2>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               Te vejo na área de alunos, até mais 🥳
             </p>
           </div>
@@ -175,7 +175,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
           <p className="text-2xl md:text-3xl font-black text-success">
             12x R$ 30,22
           </p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground font-medium">
             ou R$ 297,00 à vista
           </p>
         </div>
@@ -184,7 +184,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
         <div className="flex items-center justify-center gap-2 mb-2">
           <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg px-3 py-2">
             <Lock className="w-4 h-4 text-success" />
-            <span className="text-xs font-bold text-foreground">Seguro</span>
+            <span className="text-xs font-bold text-foreground">100% Seguro</span>
           </div>
           <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg px-3 py-2">
             <ShieldCheck className="w-4 h-4 text-success" />
@@ -258,7 +258,8 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
         </div>
 
         {/* Payment method tabs */}
-        <div className="flex gap-2 mt-4 mb-3">
+        <p className="text-sm font-bold text-foreground text-center mt-4 mb-2">Escolha uma forma de pagamento</p>
+        <div className="flex gap-2 mb-3">
           <button
             onClick={() => setSelectedMethod("pix")}
             className={`flex-1 flex flex-col items-center gap-1 py-3 rounded-lg border-2 transition-all ${
