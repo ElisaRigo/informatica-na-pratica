@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -40,6 +40,25 @@ export const CheckoutForm = () => {
   const [showCardPayment, setShowCardPayment] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
+  const formStartFired = useRef(false);
+
+  const trackFormStart = () => {
+    if (formStartFired.current) return;
+    formStartFired.current = true;
+    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
+                         window.location.hostname === 'www.informaticanapratica.com.br';
+    if (!isProduction) {
+      console.log('GA4 form_start skipped - not on production domain');
+      return;
+    }
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'form_start', {
+        currency: 'BRL',
+        value: 297.00,
+      });
+      console.log('✅ GA4 form_start tracked');
+    }
+  };
 
   // Carregar reCAPTCHA
   useEffect(() => {
@@ -614,6 +633,7 @@ export const CheckoutForm = () => {
             placeholder="Seu nome completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onFocus={trackFormStart}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
@@ -627,6 +647,7 @@ export const CheckoutForm = () => {
             placeholder="seu@email.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onFocus={trackFormStart}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
@@ -639,6 +660,7 @@ export const CheckoutForm = () => {
             placeholder="000.000.000-00"
             value={formData.cpf}
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+            onFocus={trackFormStart}
             maxLength={14}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
@@ -652,6 +674,7 @@ export const CheckoutForm = () => {
             placeholder="(11) 99999-9999"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+            onFocus={trackFormStart}
             maxLength={15}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
