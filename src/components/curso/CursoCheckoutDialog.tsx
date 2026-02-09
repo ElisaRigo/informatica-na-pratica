@@ -154,7 +154,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-5 md:p-6 gap-0">
         {/* Header: Photo + Title */}
-        <div className="flex flex-col items-center text-center gap-2 mb-1">
+        <div className="flex items-center gap-3 mb-1">
           <img
             src={elisaPhoto}
             alt="Prof. Elisa"
