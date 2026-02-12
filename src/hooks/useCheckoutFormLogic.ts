@@ -20,7 +20,7 @@ interface PixData {
 export const useCheckoutFormLogic = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
-  const [sdkLoaded, setSdkLoaded] = useState(false);
+  const [sdkLoaded, setSdkLoaded] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
