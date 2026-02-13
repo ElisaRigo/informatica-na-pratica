@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard, Receipt, Copy, ArrowLeft, Star, Users } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard, Receipt, Copy, ArrowLeft, Star, Users, GraduationCap, MonitorPlay, Clock, MessageCircle, Award, Flame, Gift, BadgePercent } from "lucide-react";
 import { CardPaymentBrick } from "@/components/CardPaymentBrick";
 import { useCheckoutFormLogic } from "@/hooks/useCheckoutFormLogic";
 import logoNew from "@/assets/logo-new.png";
@@ -170,49 +170,67 @@ const Matricula = () => {
         </p>
       </div>
 
-      <div className="max-w-lg mx-auto px-4 py-5">
-        {/* Header with logo + title */}
-        <div className="text-center mb-4 space-y-2">
-          <div className="flex items-center justify-center gap-2 mb-1">
-            <img src={logoNew} alt="Logo" className="h-8" />
+      <div className="max-w-lg mx-auto px-4 py-4">
+        {/* Header */}
+        <div className="text-center mb-3 space-y-1.5">
+          <div className="flex items-center justify-center gap-2">
+            <img src={logoNew} alt="Logo" className="h-7" />
           </div>
-          <h1 className="text-xl font-black text-foreground leading-tight">
-            Garanta sua vaga no curso<br />
-            <span className="text-primary">Informática na Prática</span>
+          <h1 className="text-lg font-black text-foreground leading-tight">
+            💻 Curso de Informática — <span className="text-primary">Online</span>
           </h1>
           <div className="flex items-center justify-center gap-2">
-            <img src={ELISA_PHOTO} alt="Prof. Elisa" className="w-8 h-8 rounded-full object-cover object-top border-2 border-primary/30" />
-            <p className="text-xs text-muted-foreground">com <span className="font-bold text-foreground">Prof. Elisa</span></p>
+            <img src={ELISA_PHOTO} alt="Prof. Elisa" className="w-7 h-7 rounded-full object-cover object-top border-2 border-primary/30" />
+            <p className="text-[11px] text-muted-foreground">com <span className="font-bold text-foreground">Prof. Elisa</span></p>
           </div>
         </div>
 
-        {/* Trust badges bar */}
-        <div className="grid grid-cols-3 gap-1.5 mb-4">
+        {/* Benefits strip */}
+        <div className="grid grid-cols-2 gap-1.5 mb-3">
           {[
-            { icon: <ShieldCheck className="w-4 h-4" />, text: "7 dias de\ngarantia" },
-            { icon: <CheckCircle2 className="w-4 h-4" />, text: "Acesso\nimediato" },
-            { icon: <Lock className="w-4 h-4" />, text: "Compra\n100% segura" },
+            { icon: <GraduationCap className="w-3.5 h-3.5" />, text: "Do Zero ao Mercado" },
+            { icon: <Award className="w-3.5 h-3.5" />, text: "Certificado incluso" },
+            { icon: <MonitorPlay className="w-3.5 h-3.5" />, text: "Aulas práticas" },
+            { icon: <Clock className="w-3.5 h-3.5" />, text: "Estude no seu ritmo" },
+            { icon: <MessageCircle className="w-3.5 h-3.5" />, text: "Suporte p/ dúvidas" },
+            { icon: <CheckCircle2 className="w-3.5 h-3.5" />, text: "Acesso vitalício" },
           ].map((b, i) => (
-            <div key={i} className="flex flex-col items-center gap-1 bg-primary/5 border border-primary/15 rounded-xl py-2 px-1 text-center">
-              <div className="text-primary">{b.icon}</div>
-              <span className="text-[10px] font-bold text-foreground leading-tight whitespace-pre-line">{b.text}</span>
+            <div key={i} className="flex items-center gap-1.5 bg-primary/5 border border-primary/10 rounded-lg py-1.5 px-2">
+              <span className="text-primary">{b.icon}</span>
+              <span className="text-[10px] font-bold text-foreground">{b.text}</span>
             </div>
           ))}
         </div>
 
         {/* Checkout card */}
-        <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-5 space-y-4">
-          {/* Price */}
-          <div className="bg-gradient-to-r from-primary/5 to-success/5 rounded-xl p-3 text-center border border-primary/10">
-            <p className="text-2xl font-black text-success">12x R$ 30,22</p>
-            <p className="text-sm text-muted-foreground font-bold">ou R$ 297,00 à vista</p>
+        <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-4 space-y-3">
+          
+          {/* Discount banner */}
+          <div className="bg-gradient-to-r from-primary to-primary/80 rounded-xl p-3 text-center text-white space-y-1">
+            <div className="flex items-center justify-center gap-1.5">
+              <BadgePercent className="w-4 h-4" />
+              <span className="text-[11px] font-bold uppercase tracking-wide">Desconto exclusivo de 50%</span>
+            </div>
+            <p className="text-xs line-through opacity-70">De R$ 497,00</p>
+            <div className="flex items-center justify-center gap-2">
+              <Flame className="w-5 h-5 text-yellow-300" />
+              <p className="text-2xl font-black">R$ 297,00</p>
+            </div>
+            <p className="text-xs font-bold opacity-90">ou 12x de R$ 30,22</p>
           </div>
 
-          {/* Trust chips */}
+          {/* Value reinforcement */}
+          <div className="flex items-center justify-center gap-1.5 text-[10px]">
+            <Gift className="w-3 h-3 text-primary" />
+            <span className="font-bold text-foreground">Valor único, sem mensalidades</span>
+            <span className="text-muted-foreground">• Acesso imediato</span>
+          </div>
+
+          {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-1.5">
             {[
-              { icon: <Lock className="w-3 h-3" />, text: "Seguro" },
               { icon: <ShieldCheck className="w-3 h-3" />, text: "7 dias garantia" },
+              { icon: <Lock className="w-3 h-3" />, text: "Compra segura" },
               { icon: <CheckCircle2 className="w-3 h-3" />, text: "Acesso imediato" },
             ].map((b, i) => (
               <span key={i} className="inline-flex items-center gap-1 bg-success/10 text-success rounded-full px-2.5 py-1 text-[10px] font-bold">
@@ -222,7 +240,7 @@ const Matricula = () => {
           </div>
 
           {/* Form */}
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             <div>
               <Label htmlFor="m-name" className="text-xs font-bold">Nome Completo</Label>
               <Input id="m-name" placeholder="Seu nome" value={formData.name}
@@ -237,7 +255,7 @@ const Matricula = () => {
                 onFocus={trackFormStart} disabled={loading || !sdkLoaded}
                 className="h-10 text-sm mt-1" />
             </div>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-2 gap-2">
               <div>
                 <Label htmlFor="m-cpf" className="text-xs font-bold">CPF</Label>
                 <Input id="m-cpf" placeholder="000.000.000-00" value={formData.cpf}
@@ -287,7 +305,6 @@ const Matricula = () => {
             )}
           </Button>
 
-          {/* Security footer */}
           <p className="text-[10px] text-center text-muted-foreground">
             🔒 Pagamento seguro via Mercado Pago
           </p>
@@ -300,8 +317,8 @@ const Matricula = () => {
           )}
         </div>
 
-        {/* Mini social proof */}
-        <div className="flex items-center justify-center gap-2 mt-4 text-xs text-muted-foreground">
+        {/* Social proof */}
+        <div className="flex items-center justify-center gap-2 mt-3 text-xs text-muted-foreground">
           <div className="flex">{[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />)}</div>
           <span className="font-bold">4.9</span>
           <span>•</span>
@@ -310,7 +327,7 @@ const Matricula = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-4 pb-4">
+        <div className="text-center mt-3 pb-4">
           <p className="text-[10px] text-muted-foreground">© {new Date().getFullYear()} Informática na Prática</p>
           <div className="flex items-center justify-center gap-4 mt-1 text-[10px] text-muted-foreground">
             <a href="/termos-de-uso" className="hover:underline">Termos</a>
