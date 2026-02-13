@@ -3,11 +3,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard, Receipt, Copy, ArrowLeft, Star } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard, Receipt, Copy, ArrowLeft, Star, Flame, Gift, Percent } from "lucide-react";
 import { CardPaymentBrick } from "@/components/CardPaymentBrick";
 import { useCheckoutFormLogic } from "@/hooks/useCheckoutFormLogic";
 
 const ELISA_PHOTO = "/images/elisa-checkout.jpg";
+const MATRICULA_PRICE = 248.50;
 
 const Matricula = () => {
   const { toast } = useToast();
@@ -26,7 +27,7 @@ const Matricula = () => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'form_start', {
         currency: 'BRL',
-        value: 297.00,
+        value: MATRICULA_PRICE,
       });
       console.log('✅ GA4 form_start tracked');
     }
@@ -51,7 +52,7 @@ const Matricula = () => {
     handleOtherPayment,
     copyPixCode,
     checkPaymentStatus,
-  } = useCheckoutFormLogic();
+  } = useCheckoutFormLogic(MATRICULA_PRICE);
 
   const handleContinue = () => {
     if (selectedMethod === "pix") {
@@ -186,14 +187,27 @@ const Matricula = () => {
           </div>
         </div>
 
-        {/* Price */}
-        <div className="text-center py-2">
-          <p className="text-2xl md:text-3xl font-black text-success">
-            12x R$ 30,22
-          </p>
-          <p className="text-base text-muted-foreground font-bold">
-            ou R$ 297,00 à vista
-          </p>
+        {/* Discount Banner */}
+        <div className="bg-gradient-to-r from-red-600 to-red-500 rounded-xl p-3 text-center space-y-1 my-2 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMS41IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIi8+PC9zdmc+')] opacity-50"></div>
+          <div className="relative">
+            <div className="flex items-center justify-center gap-1.5 mb-1">
+              <Gift className="w-4 h-4 text-yellow-300 animate-pulse" />
+              <span className="text-xs font-bold text-yellow-300 uppercase tracking-wider">Desconto Exclusivo WhatsApp</span>
+              <Gift className="w-4 h-4 text-yellow-300 animate-pulse" />
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <span className="text-sm text-white/60 line-through">R$ 497,00</span>
+              <span className="bg-yellow-400 text-red-700 text-xs font-black px-2 py-0.5 rounded-full">-50%</span>
+            </div>
+            <div className="flex items-center justify-center gap-1 mt-1">
+              <Flame className="w-5 h-5 text-yellow-300" />
+              <span className="text-2xl md:text-3xl font-black text-white">R$ 248,50</span>
+              <span className="text-sm text-white/80 font-medium">à vista</span>
+            </div>
+            <p className="text-xs text-white/90 mt-1">ou até <span className="font-bold">12x no cartão</span></p>
+            <p className="text-[10px] text-yellow-200/80 mt-0.5">⏰ Oferta válida apenas por este link</p>
+          </div>
         </div>
 
         {/* Trust badges row */}

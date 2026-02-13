@@ -17,7 +17,7 @@ interface PixData {
   expirationDate?: string;
 }
 
-export const useCheckoutFormLogic = () => {
+export const useCheckoutFormLogic = (overridePrice?: number) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [sdkLoaded, setSdkLoaded] = useState(true);
@@ -74,7 +74,9 @@ export const useCheckoutFormLogic = () => {
           setMpInstance(mp);
           setSdkLoaded(true);
         }
-        if (priceResponse.data?.price) {
+        if (overridePrice) {
+          setCoursePrice(overridePrice);
+        } else if (priceResponse.data?.price) {
           setCoursePrice(priceResponse.data.price);
         }
       } catch (error) {
@@ -141,7 +143,7 @@ export const useCheckoutFormLogic = () => {
     if (!recaptchaValid) { setLoading(false); return; }
     try {
       const { data, error } = await supabase.functions.invoke('create-pix-payment', {
-        body: { name: formData.name, email: formData.email, cpf: formData.cpf.replace(/\D/g, ''), phone: formData.phone.replace(/\D/g, '') }
+        body: { name: formData.name, email: formData.email, cpf: formData.cpf.replace(/\D/g, ''), phone: formData.phone.replace(/\D/g, ''), ...(overridePrice ? { amount: overridePrice } : {}) }
       });
       if (error) throw error;
       if (!data?.qrCode) throw new Error('Erro ao gerar PIX');
@@ -182,7 +184,7 @@ export const useCheckoutFormLogic = () => {
     if (!recaptchaValid) { setLoading(false); return; }
     try {
       const { data, error } = await supabase.functions.invoke('mercado-pago-checkout', {
-        body: { name: formData.name, email: formData.email, cpf: formData.cpf.replace(/\D/g, ''), phone: formData.phone.replace(/\D/g, '') }
+        body: { name: formData.name, email: formData.email, cpf: formData.cpf.replace(/\D/g, ''), phone: formData.phone.replace(/\D/g, ''), ...(overridePrice ? { amount: overridePrice } : {}) }
       });
       if (error) throw error;
       if (!data?.initPoint) throw new Error('Erro ao criar checkout');
