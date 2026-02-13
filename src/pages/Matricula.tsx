@@ -214,7 +214,7 @@ const Matricula = () => {
             <div className="flex items-center justify-center gap-2">
               <span className="relative text-base font-semibold text-muted-foreground">
                 R$ 497,00
-                <span className="absolute inset-0 flex items-center justify-center text-destructive/30 font-black text-2xl pointer-events-none">✕</span>
+                <span className="absolute inset-0 flex items-center justify-center text-destructive/50 font-black text-4xl pointer-events-none">✕</span>
               </span>
               <span className="text-base md:text-lg font-extrabold text-foreground">à vista R$ 248,50</span>
             </div>
