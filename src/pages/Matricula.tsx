@@ -177,9 +177,9 @@ const Matricula = () => {
           <ShieldCheck className="w-3.5 h-3.5 text-success" />
         </div>
 
-        <div className="p-5 md:p-8 space-y-5">
+        <div className="p-4 md:p-6 space-y-3">
         {/* Header: Photo + Title centered */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <div className="flex flex-col items-center text-center gap-1.5">
           <img
             src={ELISA_PHOTO}
             alt="Prof. Elisa"
@@ -212,34 +212,34 @@ const Matricula = () => {
         </div>
 
         {/* Trust badges row */}
-        <div className="flex items-center justify-center gap-2">
-          <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg px-3 py-2">
-            <Lock className="w-4 h-4 text-success" />
-            <span className="text-xs font-bold text-foreground">100% Seguro</span>
+        <div className="flex items-center justify-center gap-1.5">
+          <div className="flex items-center gap-1 bg-muted/50 rounded-lg px-2 py-1.5">
+            <Lock className="w-3.5 h-3.5 text-success" />
+            <span className="text-[10px] font-bold text-foreground">Seguro</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg px-3 py-2">
-            <ShieldCheck className="w-4 h-4 text-success" />
-            <span className="text-xs font-bold text-foreground">7 dias garantia</span>
+          <div className="flex items-center gap-1 bg-muted/50 rounded-lg px-2 py-1.5">
+            <ShieldCheck className="w-3.5 h-3.5 text-success" />
+            <span className="text-[10px] font-bold text-foreground">7 dias garantia</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg px-3 py-2">
-            <CheckCircle2 className="w-4 h-4 text-success" />
-            <span className="text-xs font-bold text-foreground">Acesso imediato</span>
+          <div className="flex items-center gap-1 bg-muted/50 rounded-lg px-2 py-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-success" />
+            <span className="text-[10px] font-bold text-foreground">Acesso imediato</span>
           </div>
         </div>
 
         {/* Stars + social proof */}
-        <div className="flex items-center justify-center gap-1.5">
+        <div className="flex items-center justify-center gap-1">
           <div className="flex">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+              <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
             ))}
           </div>
-          <span className="text-xs text-muted-foreground">+15.000 alunos já transformaram suas vidas</span>
+          <span className="text-[10px] text-muted-foreground whitespace-nowrap">+15.000 alunos transformados</span>
         </div>
 
         {/* Section title */}
         <h3 className="text-base md:text-lg font-extrabold text-foreground text-center w-full">
-          Garanta sua vaga para o curso de Informática
+          Garanta sua vaga
         </h3>
 
         {/* Form fields */}
