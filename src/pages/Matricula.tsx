@@ -186,7 +186,7 @@ const Matricula = () => {
             className="w-12 h-12 rounded-full object-cover object-top border-2 border-success/40 shrink-0"
           />
           <div>
-            <h2 className="text-base md:text-lg font-extrabold text-foreground leading-tight">
+            <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
               Falta pouco para você começar!
             </h2>
             <p className="text-xs text-muted-foreground">
