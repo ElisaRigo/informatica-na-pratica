@@ -169,9 +169,9 @@ const Matricula = () => {
   // Main checkout form — identical to CursoCheckoutDialog
   return (
     <div className={cardWrapper}>
-      <div className="w-full max-w-lg bg-background rounded-lg shadow-lg border p-5 md:p-6 space-y-0">
+      <div className="w-full max-w-lg bg-background rounded-lg shadow-lg border p-5 md:p-8 space-y-5">
         {/* Header: Photo + Title */}
-        <div className="flex items-center gap-3 mb-1">
+        <div className="flex items-center gap-3">
           <img
             src={ELISA_PHOTO}
             alt="Prof. Elisa"
@@ -188,7 +188,7 @@ const Matricula = () => {
         </div>
 
         {/* Discount Banner — above trust badges */}
-        <div className="bg-primary/10 border border-primary/20 rounded-lg px-4 py-2.5 text-center my-3">
+        <div className="bg-primary/10 border border-primary/20 rounded-lg px-4 py-2.5 text-center">
           <div className="flex items-center justify-center gap-2">
             <Percent className="w-4 h-4 text-primary" />
             <span className="text-xs font-bold text-primary uppercase tracking-wide">Desconto Exclusivo — Apenas hoje: 50% OFF</span>
@@ -201,7 +201,7 @@ const Matricula = () => {
         </div>
 
         {/* Trust badges row */}
-        <div className="flex items-center justify-center gap-2 mt-4 mb-3">
+        <div className="flex items-center justify-center gap-2">
           <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg px-3 py-2">
             <Lock className="w-4 h-4 text-success" />
             <span className="text-xs font-bold text-foreground">100% Seguro</span>
@@ -217,7 +217,7 @@ const Matricula = () => {
         </div>
 
         {/* Stars + social proof */}
-        <div className="flex items-center justify-center gap-1.5 mb-2">
+        <div className="flex items-center justify-center gap-1.5">
           <div className="flex">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
@@ -227,7 +227,7 @@ const Matricula = () => {
         </div>
 
         {/* Section title */}
-        <h3 className="text-sm font-bold text-foreground text-center mt-4 mb-3">
+        <h3 className="text-sm font-bold text-foreground text-center">
           Garanta sua vaga para o curso de Informática
         </h3>
 
@@ -287,8 +287,8 @@ const Matricula = () => {
         </div>
 
         {/* Payment method tabs */}
-        <p className="text-sm font-bold text-foreground text-center mt-6 mb-3">Escolha uma forma de pagamento</p>
-        <div className="flex gap-2 mb-5">
+        <p className="text-sm font-bold text-foreground text-center">Escolha uma forma de pagamento</p>
+        <div className="flex gap-2">
           <button
             onClick={() => setSelectedMethod("pix")}
             className={`flex-1 flex flex-col items-center gap-1 py-3 rounded-lg border-2 transition-all ${
@@ -325,7 +325,7 @@ const Matricula = () => {
         </div>
 
         {/* Continue button */}
-        <div className="mt-5">
+        <div>
         <Button
           onClick={handleContinue}
           disabled={loading || !sdkLoaded}
@@ -341,7 +341,7 @@ const Matricula = () => {
         </div>
 
         {/* Security badge */}
-        <div className="bg-success/10 border border-success/30 rounded-lg py-2 px-4 text-center mt-4">
+        <div className="bg-success/10 border border-success/30 rounded-lg py-2 px-4 text-center">
           <p className="text-xs font-bold text-success flex items-center justify-center gap-1.5">
             <ShieldCheck className="w-4 h-4" /> Compra 100% Segura
           </p>
@@ -349,7 +349,7 @@ const Matricula = () => {
         </div>
 
         {/* Footer */}
-        <p className="text-[10px] text-center text-muted-foreground mt-3">
+        <p className="text-[10px] text-center text-muted-foreground">
           🔒 Pagamento processado com segurança pelo Mercado Pago
         </p>
 
