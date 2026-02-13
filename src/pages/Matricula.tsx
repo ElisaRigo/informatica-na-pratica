@@ -169,13 +169,21 @@ const Matricula = () => {
   // Main checkout form — identical to CursoCheckoutDialog
   return (
     <div className={cardWrapper}>
-      <div className="w-full max-w-lg bg-background rounded-lg shadow-lg border p-5 md:p-8 space-y-5">
-        {/* Header: Photo + Title */}
-        <div className="flex items-center gap-3">
+      <div className="w-full max-w-lg bg-background rounded-lg shadow-lg border overflow-hidden">
+        {/* Top security strip */}
+        <div className="bg-success/10 border-b border-success/20 px-4 py-2 flex items-center justify-center gap-2">
+          <Lock className="w-3.5 h-3.5 text-success" />
+          <span className="text-xs font-semibold text-success">Ambiente 100% Seguro</span>
+          <ShieldCheck className="w-3.5 h-3.5 text-success" />
+        </div>
+
+        <div className="p-5 md:p-8 space-y-5">
+        {/* Header: Photo + Title centered */}
+        <div className="flex flex-col items-center text-center gap-2">
           <img
             src={ELISA_PHOTO}
             alt="Prof. Elisa"
-            className="w-20 h-20 rounded-full object-cover object-top border-3 border-success/40 shrink-0"
+            className="w-14 h-14 rounded-full object-cover object-top border-2 border-success/40 shrink-0"
           />
           <div>
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
@@ -187,17 +195,19 @@ const Matricula = () => {
           </div>
         </div>
 
-        {/* Discount Banner */}
-        <div className="bg-primary/10 border border-primary/20 rounded-xl px-5 py-4 text-center">
-          <p className="text-sm md:text-base font-extrabold text-primary uppercase tracking-wide">
-            🔴 50% DE DESCONTO – SOMENTE HOJE
+        {/* Discount Banner — compact with design */}
+        <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-xl px-4 py-3 text-center">
+          <p className="text-xs md:text-sm font-extrabold text-primary uppercase tracking-wider flex items-center justify-center gap-1.5">
+            <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
+            50% DE DESCONTO – SOMENTE HOJE
+            <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
           </p>
-          <div className="mt-3">
-            <span className="text-3xl md:text-4xl font-black text-primary">12x R$ 25,30</span>
+          <div className="mt-2">
+            <span className="text-2xl md:text-3xl font-black text-primary">12x R$ 25,30</span>
           </div>
-          <div className="flex items-center justify-center gap-2 mt-2">
-            <span className="text-sm text-muted-foreground line-through">R$ 497,00</span>
-            <span className="text-lg md:text-xl font-bold text-foreground">à vista R$ 248,50</span>
+          <div className="flex items-center justify-center gap-2 mt-1.5">
+            <span className="text-xs text-muted-foreground line-through">R$ 497,00</span>
+            <span className="text-base md:text-lg font-bold text-foreground">à vista R$ 248,50</span>
           </div>
         </div>
 
@@ -361,6 +371,7 @@ const Matricula = () => {
             <span>Carregando sistema de pagamento...</span>
           </div>
         )}
+      </div>
       </div>
     </div>
   );
