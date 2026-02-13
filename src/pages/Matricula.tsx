@@ -171,14 +171,33 @@ const Matricula = () => {
       </div>
 
       <div className="max-w-lg mx-auto px-4 py-5">
-        {/* Logo + mini instructor */}
-        <div className="flex items-center gap-3 mb-4">
-          <img src={ELISA_PHOTO} alt="Prof. Elisa" className="w-11 h-11 rounded-full object-cover object-top border-2 border-success/40" />
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-bold text-foreground truncate">Informática na Prática</p>
-            <p className="text-xs text-muted-foreground">com Prof. Elisa</p>
+        {/* Header with logo + title */}
+        <div className="text-center mb-4 space-y-2">
+          <div className="flex items-center justify-center gap-2 mb-1">
+            <img src={logoNew} alt="Logo" className="h-8" />
           </div>
-          <img src={logoNew} alt="Logo" className="h-7" />
+          <h1 className="text-xl font-black text-foreground leading-tight">
+            Garanta sua vaga no curso<br />
+            <span className="text-primary">Informática na Prática</span>
+          </h1>
+          <div className="flex items-center justify-center gap-2">
+            <img src={ELISA_PHOTO} alt="Prof. Elisa" className="w-8 h-8 rounded-full object-cover object-top border-2 border-primary/30" />
+            <p className="text-xs text-muted-foreground">com <span className="font-bold text-foreground">Prof. Elisa</span></p>
+          </div>
+        </div>
+
+        {/* Trust badges bar */}
+        <div className="grid grid-cols-3 gap-1.5 mb-4">
+          {[
+            { icon: <ShieldCheck className="w-4 h-4" />, text: "7 dias de\ngarantia" },
+            { icon: <CheckCircle2 className="w-4 h-4" />, text: "Acesso\nimediato" },
+            { icon: <Lock className="w-4 h-4" />, text: "Compra\n100% segura" },
+          ].map((b, i) => (
+            <div key={i} className="flex flex-col items-center gap-1 bg-primary/5 border border-primary/15 rounded-xl py-2 px-1 text-center">
+              <div className="text-primary">{b.icon}</div>
+              <span className="text-[10px] font-bold text-foreground leading-tight whitespace-pre-line">{b.text}</span>
+            </div>
+          ))}
         </div>
 
         {/* Checkout card */}
