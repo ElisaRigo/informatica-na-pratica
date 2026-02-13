@@ -186,11 +186,11 @@ const Matricula = () => {
             alt="Prof. Elisa"
             className="w-14 h-14 rounded-full object-cover object-top border-2 border-success/40 shrink-0"
           />
-          <div>
+          <div className="flex-1 min-w-0">
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
               Falta pouco para você começar!
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground text-center">
               Te vejo na área de alunos 🥳
             </p>
           </div>
