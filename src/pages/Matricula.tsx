@@ -80,7 +80,8 @@ const Matricula = () => {
             </div>
             <div className="text-center space-y-1">
               <h3 className="text-xl font-bold text-foreground">Pagamento com Cartão</h3>
-              <p className="text-sm text-muted-foreground">Parcele em até 12x</p>
+              <p className="text-2xl font-black text-primary">12x R$ 25,30</p>
+              <p className="text-sm text-muted-foreground">ou R$ 248,50 à vista</p>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
               <p className="text-sm text-blue-900">💳 Digite o número do cartão para ver as opções de parcelamento</p>
