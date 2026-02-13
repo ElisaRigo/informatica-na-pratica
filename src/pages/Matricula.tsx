@@ -195,19 +195,26 @@ const Matricula = () => {
           </div>
         </div>
 
-        {/* Discount Banner — compact with design */}
-        <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-xl px-4 py-2 text-center space-y-1">
-          <p className="text-xs md:text-sm font-extrabold text-primary uppercase tracking-wider flex items-center justify-center gap-1.5">
-            <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
-            <span className="text-base md:text-lg">50%</span> DE DESCONTO – SOMENTE HOJE
-            <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
-          </p>
-          <div>
-            <span className="text-2xl md:text-3xl font-black text-primary">12x R$ 25,30</span>
+        {/* Discount Banner — high conversion */}
+        <div className="rounded-xl overflow-hidden border border-primary/30 shadow-md">
+          {/* Urgency strip */}
+          <div className="bg-primary px-4 py-1.5 flex items-center justify-center gap-1.5">
+            <Flame className="w-3.5 h-3.5 text-white" />
+            <span className="text-[11px] md:text-xs font-bold text-white uppercase tracking-widest">
+              50% OFF – Só hoje · Últimas vagas
+            </span>
+            <Flame className="w-3.5 h-3.5 text-white" />
           </div>
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-xs text-muted-foreground line-through">R$ 497,00</span>
-            <span className="text-base md:text-lg font-bold text-foreground">à vista R$ 248,50</span>
+          {/* Price body */}
+          <div className="bg-gradient-to-b from-primary/10 to-primary/5 px-4 py-3 text-center space-y-0.5">
+            <div>
+              <span className="text-2xl md:text-3xl font-black text-primary">12x R$ 25,30</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <span className="text-sm text-muted-foreground line-through decoration-destructive decoration-2">R$ 497,00</span>
+              <span className="text-base md:text-lg font-extrabold text-foreground">à vista R$ 248,50</span>
+            </div>
+            <p className="text-[10px] text-muted-foreground">Invista em você por menos de R$ 1 por dia</p>
           </div>
         </div>
 
