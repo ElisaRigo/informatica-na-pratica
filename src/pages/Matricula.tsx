@@ -187,17 +187,18 @@ const Matricula = () => {
           </div>
         </div>
 
-        {/* Discount Banner — above trust badges */}
-        <div className="bg-primary/10 border border-primary/20 rounded-lg px-4 py-2.5 text-center">
-          <div className="flex items-center justify-center gap-2">
-            <Percent className="w-4 h-4 text-primary" />
-            <span className="text-xs font-bold text-primary uppercase tracking-wide">Desconto Exclusivo — Apenas hoje: 50% OFF</span>
+        {/* Discount Banner */}
+        <div className="bg-primary/10 border border-primary/20 rounded-xl px-5 py-4 text-center">
+          <p className="text-sm md:text-base font-extrabold text-primary uppercase tracking-wide">
+            🔴 50% DE DESCONTO – SOMENTE HOJE
+          </p>
+          <div className="mt-3">
+            <span className="text-3xl md:text-4xl font-black text-primary">12x R$ 25,30</span>
           </div>
-          <div className="flex items-center justify-center gap-2 mt-1.5">
+          <div className="flex items-center justify-center gap-2 mt-2">
             <span className="text-sm text-muted-foreground line-through">R$ 497,00</span>
-            <span className="text-2xl md:text-3xl font-black text-primary">R$ 248,50</span>
+            <span className="text-lg md:text-xl font-bold text-foreground">à vista R$ 248,50</span>
           </div>
-          <p className="text-xs text-muted-foreground mt-1">à vista ou até <span className="font-bold text-foreground">12x no cartão</span></p>
         </div>
 
         {/* Trust badges row */}
@@ -227,7 +228,7 @@ const Matricula = () => {
         </div>
 
         {/* Section title */}
-        <h3 className="text-sm font-bold text-foreground text-center">
+        <h3 className="text-base md:text-lg font-extrabold text-foreground text-center w-full">
           Garanta sua vaga para o curso de Informática
         </h3>
 
