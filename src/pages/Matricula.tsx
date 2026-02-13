@@ -212,7 +212,7 @@ const Matricula = () => {
               <span className="text-2xl md:text-3xl font-black text-primary">12x R$ 25,30</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <span className="text-sm text-muted-foreground line-through decoration-destructive decoration-2">R$ 497,00</span>
+              <span className="text-sm text-muted-foreground line-through decoration-muted-foreground/50 decoration-1">R$ 497,00</span>
               <span className="text-base md:text-lg font-extrabold text-foreground">à vista R$ 248,50</span>
             </div>
             <p className="text-[10px] text-muted-foreground">Invista em você por menos de R$ 1 por dia</p>
