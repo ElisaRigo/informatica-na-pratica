@@ -180,11 +180,11 @@ const Matricula = () => {
 
         <div className="p-4 md:p-6 space-y-3">
         {/* Header: Photo + Title centered */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <img
             src={ELISA_PHOTO}
             alt="Prof. Elisa"
-            className="w-12 h-12 rounded-full object-cover object-top border-2 border-success/40 shrink-0"
+            className="w-14 h-14 rounded-full object-cover object-top border-2 border-success/40 shrink-0"
           />
           <div>
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
