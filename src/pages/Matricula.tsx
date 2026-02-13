@@ -196,16 +196,16 @@ const Matricula = () => {
         </div>
 
         {/* Discount Banner — compact with design */}
-        <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-xl px-4 py-3 text-center">
+        <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-xl px-4 py-2 text-center space-y-1">
           <p className="text-xs md:text-sm font-extrabold text-primary uppercase tracking-wider flex items-center justify-center gap-1.5">
             <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
-            50% DE DESCONTO – SOMENTE HOJE
+            <span className="text-base md:text-lg">50%</span> DE DESCONTO – SOMENTE HOJE
             <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
           </p>
-          <div className="mt-2">
+          <div>
             <span className="text-2xl md:text-3xl font-black text-primary">12x R$ 25,30</span>
           </div>
-          <div className="flex items-center justify-center gap-2 mt-1.5">
+          <div className="flex items-center justify-center gap-2">
             <span className="text-xs text-muted-foreground line-through">R$ 497,00</span>
             <span className="text-base md:text-lg font-bold text-foreground">à vista R$ 248,50</span>
           </div>
