@@ -189,7 +189,7 @@ const Matricula = () => {
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
               Falta pouco para você começar!
             </h2>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               Te vejo na área de alunos 🥳
             </p>
           </div>
