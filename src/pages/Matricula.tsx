@@ -245,8 +245,8 @@ const Matricula = () => {
         </div>
 
         {/* Section title */}
-        <h3 className="text-base md:text-lg font-extrabold text-foreground text-center w-full">
-          Garanta sua vaga
+        <h3 className="text-base md:text-lg font-extrabold text-foreground flex items-center gap-1.5">
+          👇 Garanta sua vaga
         </h3>
 
         {/* Form fields */}
