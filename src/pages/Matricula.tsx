@@ -246,7 +246,7 @@ const Matricula = () => {
 
         {/* Section title */}
         <h3 className="text-base md:text-lg font-extrabold text-foreground flex items-center gap-2">
-          👇 Garanta sua vaga com <span className="text-primary">50% OFF</span> 🔥
+          👇 Garanta sua vaga com 🔥<span className="text-primary">50% OFF</span>🔥
         </h3>
 
         {/* Form fields */}
