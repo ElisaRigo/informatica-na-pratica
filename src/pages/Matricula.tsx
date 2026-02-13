@@ -187,31 +187,21 @@ const Matricula = () => {
           </div>
         </div>
 
-        {/* Discount Banner */}
-        <div className="bg-gradient-to-r from-red-600 to-red-500 rounded-xl p-3 text-center space-y-1 my-2 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMS41IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIi8+PC9zdmc+')] opacity-50"></div>
-          <div className="relative">
-            <div className="flex items-center justify-center gap-1.5 mb-1">
-              <Gift className="w-4 h-4 text-yellow-300 animate-pulse" />
-              <span className="text-xs font-bold text-yellow-300 uppercase tracking-wider">Desconto Exclusivo WhatsApp</span>
-              <Gift className="w-4 h-4 text-yellow-300 animate-pulse" />
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-sm text-white/60 line-through">R$ 497,00</span>
-              <span className="bg-yellow-400 text-red-700 text-xs font-black px-2 py-0.5 rounded-full">-50%</span>
-            </div>
-            <div className="flex items-center justify-center gap-1 mt-1">
-              <Flame className="w-5 h-5 text-yellow-300" />
-              <span className="text-2xl md:text-3xl font-black text-white">R$ 248,50</span>
-              <span className="text-sm text-white/80 font-medium">à vista</span>
-            </div>
-            <p className="text-xs text-white/90 mt-1">ou até <span className="font-bold">12x no cartão</span></p>
-            <p className="text-[10px] text-yellow-200/80 mt-0.5">⏰ Oferta válida apenas por este link</p>
+        {/* Discount Banner — above trust badges */}
+        <div className="bg-primary/10 border border-primary/20 rounded-lg px-4 py-2.5 text-center my-3">
+          <div className="flex items-center justify-center gap-2">
+            <Percent className="w-4 h-4 text-primary" />
+            <span className="text-xs font-bold text-primary uppercase tracking-wide">Desconto Exclusivo — Apenas hoje: 50% OFF</span>
           </div>
+          <div className="flex items-center justify-center gap-2 mt-1.5">
+            <span className="text-sm text-muted-foreground line-through">R$ 497,00</span>
+            <span className="text-2xl md:text-3xl font-black text-primary">R$ 248,50</span>
+          </div>
+          <p className="text-xs text-muted-foreground mt-1">à vista ou até <span className="font-bold text-foreground">12x no cartão</span></p>
         </div>
 
         {/* Trust badges row */}
-        <div className="flex items-center justify-center gap-2 mb-2">
+        <div className="flex items-center justify-center gap-2 my-3">
           <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg px-3 py-2">
             <Lock className="w-4 h-4 text-success" />
             <span className="text-xs font-bold text-foreground">100% Seguro</span>
@@ -235,6 +225,11 @@ const Matricula = () => {
           </div>
           <span className="text-xs text-muted-foreground">+15.000 alunos já transformaram suas vidas</span>
         </div>
+
+        {/* Section title */}
+        <h3 className="text-sm font-bold text-foreground text-center mb-3">
+          Garanta sua vaga para o curso de Informática
+        </h3>
 
         {/* Form fields */}
         <div className="space-y-3">
@@ -292,8 +287,8 @@ const Matricula = () => {
         </div>
 
         {/* Payment method tabs */}
-        <p className="text-sm font-bold text-foreground text-center mt-4 mb-2">Escolha uma forma de pagamento</p>
-        <div className="flex gap-2 mb-3">
+        <p className="text-sm font-bold text-foreground text-center mt-5 mb-3">Escolha uma forma de pagamento</p>
+        <div className="flex gap-2 mb-4">
           <button
             onClick={() => setSelectedMethod("pix")}
             className={`flex-1 flex flex-col items-center gap-1 py-3 rounded-lg border-2 transition-all ${
@@ -330,6 +325,7 @@ const Matricula = () => {
         </div>
 
         {/* Continue button */}
+        <div className="mt-4">
         <Button
           onClick={handleContinue}
           disabled={loading || !sdkLoaded}
@@ -342,6 +338,7 @@ const Matricula = () => {
             <><ShieldCheck className="w-5 h-5" /> Continuar com Segurança</>
           )}
         </Button>
+        </div>
 
         {/* Security badge */}
         <div className="bg-success/10 border border-success/30 rounded-lg py-2 px-4 text-center mt-2">
