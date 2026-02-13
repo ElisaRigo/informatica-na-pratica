@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard, Receipt, Copy, ArrowLeft, Star, Flame, Gift, Percent } from "lucide-react";
+import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard, Receipt, Copy, ArrowLeft, Star, Percent } from "lucide-react";
 import { CardPaymentBrick } from "@/components/CardPaymentBrick";
 import { useCheckoutFormLogic } from "@/hooks/useCheckoutFormLogic";
 
@@ -170,43 +170,31 @@ const Matricula = () => {
   return (
     <div className={cardWrapper}>
       <div className="w-full max-w-lg bg-background rounded-lg shadow-lg border p-5 md:p-6 space-y-0">
+        {/* Discount Banner — compact & elegant */}
+        <div className="bg-primary/10 border border-primary/20 rounded-lg px-4 py-2.5 text-center mb-3">
+          <div className="flex items-center justify-center gap-2">
+            <Percent className="w-4 h-4 text-primary" />
+            <span className="text-sm font-bold text-primary">Apenas hoje: 50% OFF</span>
+            <span className="text-xs text-muted-foreground line-through">R$ 497</span>
+            <span className="text-sm font-black text-primary">R$ 248,50</span>
+          </div>
+          <p className="text-[11px] text-muted-foreground mt-0.5">🎁 Garanta sua inscrição com 50% de desconto — oferta exclusiva por este link</p>
+        </div>
+
         {/* Header: Photo + Title */}
-        <div className="flex items-center gap-3 mb-1">
+        <div className="flex flex-col items-center text-center gap-2 mb-3">
           <img
             src={ELISA_PHOTO}
             alt="Prof. Elisa"
-            className="w-20 h-20 rounded-full object-cover object-top border-3 border-success/40 shrink-0"
+            className="w-16 h-16 rounded-full object-cover object-top border-2 border-primary/30 shrink-0"
           />
           <div>
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
               Falta pouco para você começar!
             </h2>
-            <p className="text-sm text-muted-foreground">
-              Te vejo na área de alunos, até mais 🥳
+            <p className="text-sm text-muted-foreground mt-0.5">
+              Te vejo na área de alunos 🥳
             </p>
-          </div>
-        </div>
-
-        {/* Discount Banner */}
-        <div className="bg-gradient-to-r from-red-600 to-red-500 rounded-xl p-3 text-center space-y-1 my-2 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMS41IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIi8+PC9zdmc+')] opacity-50"></div>
-          <div className="relative">
-            <div className="flex items-center justify-center gap-1.5 mb-1">
-              <Gift className="w-4 h-4 text-yellow-300 animate-pulse" />
-              <span className="text-xs font-bold text-yellow-300 uppercase tracking-wider">Desconto Exclusivo WhatsApp</span>
-              <Gift className="w-4 h-4 text-yellow-300 animate-pulse" />
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-sm text-white/60 line-through">R$ 497,00</span>
-              <span className="bg-yellow-400 text-red-700 text-xs font-black px-2 py-0.5 rounded-full">-50%</span>
-            </div>
-            <div className="flex items-center justify-center gap-1 mt-1">
-              <Flame className="w-5 h-5 text-yellow-300" />
-              <span className="text-2xl md:text-3xl font-black text-white">R$ 248,50</span>
-              <span className="text-sm text-white/80 font-medium">à vista</span>
-            </div>
-            <p className="text-xs text-white/90 mt-1">ou até <span className="font-bold">12x no cartão</span></p>
-            <p className="text-[10px] text-yellow-200/80 mt-0.5">⏰ Oferta válida apenas por este link</p>
           </div>
         </div>
 
