@@ -200,7 +200,7 @@ const Matricula = () => {
           {/* Urgency strip */}
           <div className="bg-primary px-4 py-1.5 flex items-center justify-center gap-1.5">
             <Flame className="w-3.5 h-3.5 text-white" />
-            <span className="text-sm md:text-base font-black text-white uppercase tracking-widest">
+            <span className="text-[11px] md:text-xs font-bold text-white uppercase tracking-widest">
               50% OFF – Só hoje · Últimas vagas
             </span>
             <Flame className="w-3.5 h-3.5 text-white" />
