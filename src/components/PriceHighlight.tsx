@@ -23,14 +23,14 @@ export const PriceHighlight = () => {
               <p className="text-lg md:text-2xl font-bold text-foreground">
                 💰 De <span className="line-through text-muted-foreground text-base md:text-lg">R$ 497,00</span> por apenas
               </p>
-              <p className="text-3xl md:text-5xl font-black text-success">
-                12x de R$ 30,22
+              <p className="text-3xl md:text-5xl font-black text-primary">
+                R$ 297,00
               </p>
             </div>
             
-            {/* Valor à vista */}
-            <p className="text-base md:text-xl text-muted-foreground">
-              ou <span className="font-bold text-foreground text-lg md:text-2xl">R$ 297,00</span> à vista
+            {/* Parcelamento */}
+            <p className="text-sm md:text-base text-muted-foreground">
+              💳 ou parcele em até 12x no cartão
             </p>
             
             {/* Urgência */}

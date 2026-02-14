@@ -111,11 +111,11 @@ export const Pricing = () => {
                 <p className="text-base md:text-lg font-bold text-muted-foreground mb-2 text-center">
                   💰 Investimento que transforma:
                 </p>
-                <p className="text-4xl md:text-6xl font-black text-success mb-2 text-center">
-                  12x de R$ 30,22
+                <p className="text-4xl md:text-6xl font-black text-accent mb-2 text-center">
+                  R$ 297
                 </p>
-                <p className="text-base md:text-xl font-semibold text-muted-foreground mb-2 text-center">
-                  ou <span className="font-bold text-foreground text-lg md:text-2xl">R$ 297,00</span> à vista
+                <p className="text-sm md:text-base font-semibold text-success mb-2 text-center">
+                  Opções de parcelamento em até 12x
                 </p>
                 <div className="bg-card/50 backdrop-blur rounded-lg p-3 mt-3">
                   <p className="text-sm md:text-base text-muted-foreground text-center">
