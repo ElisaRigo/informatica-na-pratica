@@ -1,5 +1,5 @@
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
-import { CheckoutDialog } from "@/components/CheckoutDialog";
+import { CursoCheckoutDialog } from "@/components/curso/CursoCheckoutDialog";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 // Componentes da nova página
@@ -91,7 +91,7 @@ const Index = () => {
       <WhatsAppButton />
       
       {/* CHECKOUT MODAL */}
-      <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
+      <CursoCheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
   );
 };
