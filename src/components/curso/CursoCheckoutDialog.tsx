@@ -245,8 +245,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
               id="curso-name"
               placeholder="Seu nome"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              onFocus={trackFormStart}
+              onChange={(e) => { trackFormStart(); setFormData({ ...formData, name: e.target.value }); }}
               disabled={loading || !sdkLoaded}
               className="h-10 text-sm border border-border focus:border-primary"
             />
@@ -258,8 +257,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
               type="email"
               placeholder="seu@email.com"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              onFocus={trackFormStart}
+              onChange={(e) => { trackFormStart(); setFormData({ ...formData, email: e.target.value }); }}
               disabled={loading || !sdkLoaded}
               className="h-10 text-sm border border-border focus:border-primary"
             />
@@ -270,8 +268,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
               id="curso-cpf"
               placeholder="000.000.000-00"
               value={formData.cpf}
-              onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
-              onFocus={trackFormStart}
+              onChange={(e) => { trackFormStart(); setFormData({ ...formData, cpf: formatCPF(e.target.value) }); }}
               maxLength={14}
               disabled={loading || !sdkLoaded}
               className="h-10 text-sm border border-border focus:border-primary"
@@ -283,8 +280,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
               id="curso-phone"
               placeholder="(11) 99999-9999"
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-              onFocus={trackFormStart}
+              onChange={(e) => { trackFormStart(); setFormData({ ...formData, phone: formatPhone(e.target.value) }); }}
               maxLength={15}
               disabled={loading || !sdkLoaded}
               className="h-10 text-sm border border-border focus:border-primary"
