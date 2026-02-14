@@ -5,14 +5,6 @@ let openCheckoutCallback: (() => void) | null = null;
 // Função para disparar evento begin_checkout no GA4
 const trackBeginCheckout = () => {
   console.log('🔵 begin_checkout triggered');
-  
-  const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
-                       window.location.hostname === 'www.informaticanapratica.com.br';
-  
-  if (!isProduction) {
-    console.log('GA4 begin_checkout skipped - not on production domain');
-    return;
-  }
 
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', 'begin_checkout', {
@@ -28,7 +20,6 @@ const trackBeginCheckout = () => {
     console.log('✅ GA4 begin_checkout tracked');
   }
 
-  // Meta Pixel InitiateCheckout
   if (typeof window !== 'undefined' && (window as any).fbq) {
     (window as any).fbq('track', 'InitiateCheckout', {
       value: 297.00,
