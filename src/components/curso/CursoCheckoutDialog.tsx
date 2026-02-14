@@ -292,8 +292,16 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
           </div>
         </div>
 
+        {/* Aviso sobre envio dos dados de acesso */}
+        <div className="bg-success/10 border border-success/30 rounded-lg p-3 mt-4">
+          <p className="text-xs md:text-sm text-success text-center font-bold flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>Acesso enviado no seu e-mail após a compra!</span>
+          </p>
+        </div>
+
         {/* Payment method tabs */}
-        <p className="text-sm font-bold text-foreground text-center mt-4 mb-2">Escolha uma forma de pagamento</p>
+        <p className="text-sm font-bold text-foreground text-center mt-3 mb-2">Escolha uma forma de pagamento</p>
         <div className="flex gap-2 mb-3">
           <button
             onClick={() => setSelectedMethod("pix")}
