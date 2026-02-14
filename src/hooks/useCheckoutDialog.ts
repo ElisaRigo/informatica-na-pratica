@@ -25,6 +25,18 @@ const trackBeginCheckout = () => {
     });
     console.log('✅ GA4 begin_checkout tracked');
   }
+
+  // Meta Pixel InitiateCheckout
+  if (typeof window !== 'undefined' && (window as any).fbq) {
+    (window as any).fbq('track', 'InitiateCheckout', {
+      value: 297.00,
+      currency: 'BRL',
+      content_name: 'Curso Informática na Prática',
+      content_ids: ['curso-informatica'],
+      num_items: 1
+    });
+    console.log('✅ Meta Pixel InitiateCheckout tracked');
+  }
 };
 
 export const useCheckoutDialog = () => {

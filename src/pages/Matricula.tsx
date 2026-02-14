@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -32,6 +32,41 @@ const Matricula = () => {
       console.log('✅ GA4 form_start tracked');
     }
   };
+
+  // Disparar InitiateCheckout e begin_checkout ao carregar a página de matrícula
+  useEffect(() => {
+    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
+                         window.location.hostname === 'www.informaticanapratica.com.br';
+    if (!isProduction) {
+      console.log('Checkout tracking skipped - not on production domain');
+      return;
+    }
+
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        value: MATRICULA_PRICE,
+        currency: 'BRL',
+        content_name: 'Curso Informática na Prática - Matrícula',
+        content_ids: ['curso-informatica'],
+        num_items: 1
+      });
+      console.log('✅ Meta Pixel InitiateCheckout tracked on /matricula');
+    }
+
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'begin_checkout', {
+        currency: 'BRL',
+        value: MATRICULA_PRICE,
+        items: [{
+          item_id: 'curso-informatica',
+          item_name: 'Curso Informática na Prática',
+          price: MATRICULA_PRICE,
+          quantity: 1
+        }]
+      });
+      console.log('✅ GA4 begin_checkout tracked on /matricula');
+    }
+  }, []);
 
   const {
     formData,
