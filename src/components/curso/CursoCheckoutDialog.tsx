@@ -188,7 +188,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
             alt="Informática na Prática"
             className="w-20 h-20 rounded-full object-cover bg-white border-[3px] border-success/40 shrink-0"
           />
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center items-center text-center">
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
               Falta pouco para você começar!
             </h2>
