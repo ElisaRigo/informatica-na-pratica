@@ -251,7 +251,7 @@ export const HeroV2 = () => {
               R$ 297,00
             </p>
             <p className="text-sm md:text-lg text-slate-400 mb-4">
-              💳 ou parcele em até <strong className="text-white text-base md:text-xl font-black">12x de R$ 30,22</strong> no cartão
+              💳 ou parcele em até <strong className="text-white text-base md:text-xl font-black">12x de R$ 30,22</strong>
             </p>
             
             {/* CTA Principal */}
