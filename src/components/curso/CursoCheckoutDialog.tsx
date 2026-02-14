@@ -8,8 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard, Receipt, Copy, ArrowLeft, Star } from "lucide-react";
 import { CardPaymentBrick } from "@/components/CardPaymentBrick";
 import { useCheckoutFormLogic } from "@/hooks/useCheckoutFormLogic";
-
-const ELISA_PHOTO = "/images/elisa-checkout.jpg";
+import logoImage from "@/assets/logo-blue.png";
 
 interface CursoCheckoutDialogProps {
   open: boolean;
@@ -176,9 +175,9 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
         {/* Header: Photo + Title */}
         <div className="flex items-center gap-3 mb-1">
           <img
-            src={ELISA_PHOTO}
-            alt="Prof. Elisa"
-            className="w-20 h-20 rounded-full object-cover object-top border-3 border-success/40 shrink-0"
+            src={logoImage}
+            alt="Informática na Prática"
+            className="w-20 h-20 rounded-full object-contain bg-white border-3 border-success/40 shrink-0 p-2"
           />
           <div>
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
