@@ -29,8 +29,8 @@ export const PriceHighlight = () => {
             </div>
             
             {/* Valor à vista */}
-            <p className="text-sm md:text-base text-muted-foreground">
-              ou <span className="font-bold text-foreground">R$ 297,00</span> à vista no cartão
+            <p className="text-base md:text-xl text-muted-foreground">
+              ou <span className="font-bold text-foreground text-lg md:text-2xl">R$ 297,00</span> à vista
             </p>
             
             {/* Urgência */}
