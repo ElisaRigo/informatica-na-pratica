@@ -186,7 +186,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
           <img
             src={logoImage}
             alt="Informática na Prática"
-            className="w-20 h-20 rounded-full object-cover bg-white border-[3px] border-success/40 shrink-0"
+            className="w-[88px] h-[88px] rounded-full object-cover bg-white border-[3px] border-success/40 shrink-0"
           />
           <div>
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
