@@ -73,7 +73,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
   if (showCardPayment) {
     return (
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-6">
+        <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-6" onOpenAutoFocus={(e) => e.preventDefault()}>
           <div className="space-y-4">
             <div className="flex items-center pb-3 border-b">
               <Button variant="ghost" size="sm" onClick={() => setShowCardPayment(false)} className="gap-2">
@@ -112,7 +112,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
   if (pixData) {
     return (
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-6">
+        <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-4 md:p-6" onOpenAutoFocus={(e) => e.preventDefault()}>
           <div className="space-y-4">
             <div className="flex items-center pb-3 border-b">
               <Button variant="ghost" size="sm" onClick={() => { setPixData(null); setLoading(false); }} className="gap-2">
@@ -171,7 +171,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
   // Main checkout form (matching the screenshot)
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-5 md:p-6 gap-0">
+      <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-5 md:p-6 gap-0" onOpenAutoFocus={(e) => e.preventDefault()}>
         {/* Header de Segurança */}
         <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-2 mb-2">
           <div className="flex items-center justify-center gap-2">
