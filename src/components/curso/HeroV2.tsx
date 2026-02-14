@@ -148,11 +148,7 @@ export const HeroV2 = () => {
         {/* Seção Aula Gratuita - Acima da faixa azul */}
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
           <div className="text-center mb-4">
-            <div className="inline-flex items-center gap-2.5 bg-accent/20 text-accent px-4 py-2 rounded-full text-sm md:text-base font-bold mb-3 border border-accent/30">
-              <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
-              🎁 Aula Gratuita
-            </div>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
               Veja como é <span className="text-primary">fácil aprender!</span>
             </h3>
           </div>
@@ -179,12 +175,6 @@ export const HeroV2 = () => {
                     </div>
                   </div>
 
-                  {/* Badge */}
-                  <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
-                    <div className="bg-destructive text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm shadow-lg">
-                      ▶ AULA GRÁTIS
-                    </div>
-                  </div>
                 </div>
               ) : (
                 <div className="aspect-video">
