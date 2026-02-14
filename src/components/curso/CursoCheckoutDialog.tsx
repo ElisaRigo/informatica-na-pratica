@@ -196,7 +196,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
               Curso Completo de Informática 💻
             </p>
             <p className="text-sm text-muted-foreground font-medium">
-              Do Zero ao Mercado de Trabalho
+              🎯 Do Zero ao Mercado de Trabalho
             </p>
           </div>
         </div>
