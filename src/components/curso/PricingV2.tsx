@@ -84,13 +84,12 @@ export const PricingV2 = () => {
                   <div className="text-center mb-6">
                     <p className="text-muted-foreground mb-2">De <span className="line-through">R$ 697,00</span> por apenas:</p>
                     
-                    <div className="mb-2">
-                      <span className="text-5xl md:text-7xl font-black text-accent">R$ 297</span>
-                      <span className="text-2xl text-muted-foreground">,00</span>
+                    <div className="mb-1">
+                      <span className="text-4xl md:text-6xl font-black text-success">12x de R$ 30,22</span>
                     </div>
                     
-                    <p className="text-lg text-foreground font-semibold">
-                      ou <span className="text-primary font-bold">12x de R$ 30,22</span>
+                    <p className="text-lg text-muted-foreground font-semibold">
+                      ou <span className="font-bold text-foreground">R$ 297,00</span> à vista
                     </p>
                     <p className="text-sm text-muted-foreground">
                       no cartão de crédito
