@@ -192,6 +192,9 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
             <h2 className="text-lg md:text-xl font-extrabold text-foreground leading-tight">
               Falta pouco para você começar!
             </h2>
+            <p className="text-sm font-semibold text-primary">
+              Curso Completo de Informática
+            </p>
             <p className="text-sm text-muted-foreground">
               Te vejo na área de alunos, até mais 🥳
             </p>
