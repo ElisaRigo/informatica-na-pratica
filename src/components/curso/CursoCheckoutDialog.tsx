@@ -172,7 +172,16 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg max-h-[95vh] overflow-y-auto p-5 md:p-6 gap-0">
-        {/* Header: Photo + Title */}
+        {/* Header de Segurança */}
+        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-2 mb-2">
+          <div className="flex items-center justify-center gap-2">
+            <Lock className="w-4 h-4 text-success" />
+            <span className="text-sm font-bold text-success">Ambiente 100% Seguro</span>
+            <ShieldCheck className="w-4 h-4 text-success" />
+          </div>
+        </div>
+
+        {/* Header: Logo + Title */}
         <div className="flex items-center gap-3 mb-1">
           <img
             src={logoImage}
