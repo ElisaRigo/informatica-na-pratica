@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import heroVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
-import { Play, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
+import { Play, CheckCircle2, ArrowRight } from "lucide-react";
 
 export const EasyToLearnV2 = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -40,10 +40,9 @@ export const EasyToLearnV2 = () => {
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-10">
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-bold mb-4 border border-accent/30">
-              <Sparkles className="w-4 h-4" />
+            <p className="text-sm md:text-base text-accent font-bold uppercase tracking-wide mb-4">
               Ainda tem medo de não conseguir?
-            </div>
+            </p>
             
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
               Veja como é <span className="text-primary">fácil aprender!</span>
@@ -86,12 +85,6 @@ export const EasyToLearnV2 = () => {
                     </div>
                   </div>
 
-                  {/* Badge */}
-                  <div className="absolute bottom-4 right-4 z-20">
-                    <div className="bg-gradient-to-r from-accent to-primary text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg border border-white/20">
-                      ▶ Aula Demonstrativa Gratuita
-                    </div>
-                  </div>
                 </div>
               )
             ) : (
