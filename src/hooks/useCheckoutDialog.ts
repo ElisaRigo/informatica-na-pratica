@@ -4,6 +4,8 @@ let openCheckoutCallback: (() => void) | null = null;
 
 // Função para disparar evento begin_checkout no GA4
 const trackBeginCheckout = () => {
+  console.log('🔵 begin_checkout triggered');
+  
   const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
                        window.location.hostname === 'www.informaticanapratica.com.br';
   
