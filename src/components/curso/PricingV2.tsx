@@ -88,11 +88,8 @@ export const PricingV2 = () => {
                       <span className="text-4xl md:text-6xl font-black text-success">12x de R$ 30,22</span>
                     </div>
                     
-                    <p className="text-lg text-muted-foreground font-semibold">
-                      ou <span className="font-bold text-foreground">R$ 297,00</span> à vista
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      no cartão de crédito
+                    <p className="text-xl md:text-2xl text-muted-foreground font-semibold">
+                      ou <span className="font-bold text-foreground text-2xl md:text-3xl">R$ 297,00</span> à vista
                     </p>
                   </div>
 

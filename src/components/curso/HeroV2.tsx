@@ -250,8 +250,8 @@ export const HeroV2 = () => {
             <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent mb-1">
               12x de R$ 30,22
             </p>
-            <p className="text-xs md:text-sm text-slate-400 mb-4">
-              ou <strong className="text-white">R$ 297,00</strong> à vista no cartão
+            <p className="text-sm md:text-lg text-slate-400 mb-4">
+              ou <strong className="text-white text-base md:text-xl">R$ 297,00</strong> à vista
             </p>
             
             {/* CTA Principal */}
