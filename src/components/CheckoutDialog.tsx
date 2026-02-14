@@ -11,7 +11,7 @@ interface CheckoutDialogProps {
 export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-6">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-6" onOpenAutoFocus={(e) => e.preventDefault()}>
         {/* Header de Segurança */}
         <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-2 mb-2">
           <div className="flex items-center justify-center gap-2">
