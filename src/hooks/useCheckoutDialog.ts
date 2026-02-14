@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 let openCheckoutCallback: (() => void) | null = null;
 
@@ -42,15 +42,18 @@ const trackBeginCheckout = () => {
 export const useCheckoutDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpenCheckout = () => {
+  const handleOpenCheckout = useCallback(() => {
     setIsOpen(true);
     trackBeginCheckout();
-  };
+  }, []);
 
-  // Register the callback when component mounts
-  if (!openCheckoutCallback) {
+  // Always keep the callback updated
+  useEffect(() => {
     openCheckoutCallback = handleOpenCheckout;
-  }
+    return () => {
+      openCheckoutCallback = null;
+    };
+  }, [handleOpenCheckout]);
 
   return {
     isOpen,
