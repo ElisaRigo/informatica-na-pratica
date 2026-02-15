@@ -255,7 +255,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
         </div>
 
         {/* Form fields */}
-        <p className="text-sm text-foreground font-bold text-center mb-1">✏️ Preencha seus dados e garanta sua vaga!</p>
+        <p className="text-sm text-foreground font-bold text-center mb-1">📋 Seus dados para finalizar a compra</p>
         <div className="space-y-3">
           <div className="space-y-1">
             <Label htmlFor="curso-name" className="text-xs font-bold text-foreground">Nome Completo</Label>
