@@ -244,14 +244,14 @@ export const HeroV2 = () => {
               🚀 Invista em você por <span className="text-primary">menos de R$ 1 por dia</span>
             </p>
             
-            <p className="text-base md:text-xl text-slate-400 mb-1">
-              De <span className="line-through text-slate-300 text-xl md:text-3xl font-bold">R$ 497,00</span> por apenas
+            <p className="text-sm md:text-lg text-slate-400 mb-1">
+              💳 Parcele em até
             </p>
-            <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent mb-1">
-              R$ 297,00
+            <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent mb-2">
+              12x de R$ 30,22
             </p>
-            <p className="text-sm md:text-lg text-slate-400 mb-4">
-              💳 ou parcele em até <strong className="text-white text-base md:text-xl font-black">12x de R$ 30,22</strong>
+            <p className="text-base md:text-xl text-slate-400 mb-4">
+              ou <span className="line-through text-slate-300 font-bold">R$ 497,00</span> por <strong className="text-white text-lg md:text-2xl font-black">R$ 297,00</strong> à vista
             </p>
             
             {/* CTA Principal */}
