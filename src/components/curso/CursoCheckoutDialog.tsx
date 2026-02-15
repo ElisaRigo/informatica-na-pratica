@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,6 +19,25 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
   const { toast } = useToast();
   const [selectedMethod, setSelectedMethod] = useState<"pix" | "cartao" | "boleto">("pix");
   const formStartFired = useRef(false);
+
+  // Intercept browser back button to close checkout instead of navigating away
+  useEffect(() => {
+    if (!open) return;
+
+    // Push a fake history state when checkout opens
+    window.history.pushState({ checkout: true }, '');
+
+    const handlePopState = (e: PopStateEvent) => {
+      // Close checkout instead of navigating back
+      onOpenChange(false);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [open, onOpenChange]);
 
   const trackFormStart = () => {
     if (formStartFired.current) return;
