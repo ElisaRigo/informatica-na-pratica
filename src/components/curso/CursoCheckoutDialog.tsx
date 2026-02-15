@@ -159,9 +159,8 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
                 </ol>
               </div>
               <Button onClick={checkPaymentStatus} disabled={checkingPayment} size="lg" className="w-full bg-success hover:bg-success/90 text-white font-bold">
-                {checkingPayment ? (<><Loader2 className="w-4 h-4 animate-spin mr-2" />Verificando...</>) : (<><CheckCircle2 className="w-4 h-4 mr-2" />Confirmar meu pagamento</>)}
+                {checkingPayment ? (<><Loader2 className="w-4 h-4 animate-spin mr-2" />Verificando...</>) : (<><CheckCircle2 className="w-4 h-4 mr-2" />Status do pagamento</>)}
               </Button>
-              <p className="text-xs text-muted-foreground text-center">Clique após realizar o pagamento para liberar seu acesso</p>
             </div>
           </div>
         </DialogContent>
