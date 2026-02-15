@@ -251,7 +251,7 @@ export const HeroV2 = () => {
               12x de R$ 30,22
             </p>
             <p className="text-base md:text-xl text-slate-400 mb-4">
-              ou <span className="line-through text-slate-300 font-bold">R$ 497,00</span> por <strong className="text-white text-lg md:text-2xl font-black">R$ 297,00</strong> à vista
+              ou à vista de <span className="line-through text-slate-300 font-bold">R$ 497,00</span> por <strong className="text-white text-lg md:text-2xl font-black">R$ 297,00</strong>
             </p>
             
             {/* CTA Principal */}
