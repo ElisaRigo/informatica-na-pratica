@@ -249,14 +249,14 @@ export const HeroV2 = () => {
               </p>
             </div>
             
-            <p className="text-sm md:text-lg text-slate-400 mb-1">
-              💳 Parcele em até
+            <p className="text-sm md:text-lg text-slate-400 mb-2">
+              De <span className="line-through text-slate-300 font-bold">R$ 497,00</span> por apenas
             </p>
-            <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent mb-2">
+            <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent mb-1">
               12x de R$ 30,22
             </p>
             <p className="text-base md:text-xl text-slate-400 mb-4">
-              ou à vista de <span className="line-through text-slate-300 font-bold">R$ 497,00</span> por <strong className="text-white text-lg md:text-2xl font-black">R$ 297,00</strong>
+              ou <strong className="text-white font-black">R$ 297,00</strong> à vista
             </p>
             
             {/* CTA Principal */}
