@@ -17,7 +17,7 @@ interface CursoCheckoutDialogProps {
 
 export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogProps) => {
   const { toast } = useToast();
-  const [selectedMethod, setSelectedMethod] = useState<"pix" | "cartao" | "boleto">("pix");
+  const [selectedMethod, setSelectedMethod] = useState<"pix" | "cartao" | "boleto" | null>(null);
   const formStartFired = useRef(false);
 
   // Intercept browser back button to close checkout instead of navigating away
@@ -79,6 +79,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
   } = useCheckoutFormLogic();
 
   const handleContinue = () => {
+    if (!selectedMethod) return;
     if (selectedMethod === "pix") {
       handlePixPayment();
     } else if (selectedMethod === "cartao") {
@@ -356,7 +357,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
         {/* Continue button */}
         <Button
           onClick={handleContinue}
-          disabled={loading || !sdkLoaded}
+          disabled={loading || !sdkLoaded || !selectedMethod}
           size="lg"
           className="w-full bg-success hover:bg-success/90 text-white font-extrabold text-base py-6 rounded-xl gap-2"
         >
