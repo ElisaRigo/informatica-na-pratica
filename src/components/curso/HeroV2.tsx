@@ -240,9 +240,14 @@ export const HeroV2 = () => {
         <div className="max-w-xl mx-auto mb-4 md:mb-6">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 text-center">
             {/* Frase de impacto */}
-            <p className="text-base md:text-xl font-bold text-white mb-3">
-              🚀 Chega de perder oportunidades. <span className="text-primary">Aprenda informática de uma vez por todas!</span>
-            </p>
+            <div className="text-center mb-3">
+              <p className="text-lg md:text-2xl font-black text-white">
+                💻 Chega de perder oportunidades.
+              </p>
+              <p className="text-base md:text-xl font-bold text-slate-300 mt-1">
+                Aprenda informática de uma vez por todas!
+              </p>
+            </div>
             
             <p className="text-sm md:text-lg text-slate-400 mb-1">
               💳 Parcele em até
