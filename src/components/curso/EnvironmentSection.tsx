@@ -36,13 +36,13 @@ export const EnvironmentSection = () => {
           <div className="text-center mb-4">
             <div className="inline-flex items-center gap-2.5 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm md:text-base font-bold mb-3 border border-primary/30">
               <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
-              🎓 Aula Grátis para Você Experimentar
+              🎓 Veja Mais uma Aula Real
             </div>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2">
-              Veja uma <span className="text-primary">Aula de Excel</span> ao Vivo
+              Aprenda <span className="text-primary">Excel do Zero</span> Comigo
             </h3>
             <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
-              Assista a uma aula real e veja como é fácil aprender comigo. Didática simples, passo a passo, sem complicação!
+              Essa é uma das +90 aulas do curso. Veja como é simples, passo a passo, sem enrolação. Imagina dominar tudo isso!
             </p>
           </div>
 
