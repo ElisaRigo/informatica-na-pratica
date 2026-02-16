@@ -24,7 +24,7 @@ import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 const Index = () => {
   // Redirect all checkout buttons to Hotmart
   (window as any).openCheckout = () => {
-    window.open('https://pay.hotmart.com/L103057645P', '_blank');
+    window.open('https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card', '_blank');
   };
   
   return (
