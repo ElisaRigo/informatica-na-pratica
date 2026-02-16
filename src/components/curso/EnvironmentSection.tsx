@@ -1,23 +1,24 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, GraduationCap, Clock, Zap, Shield, Award, ArrowRight } from "lucide-react";
+import excelThumb from "@/assets/aula-excel-thumb.jpg";
 
 export const EnvironmentSection = () => {
-  const [isEnvironmentPlaying, setIsEnvironmentPlaying] = useState(false);
-  const [shouldLoadEnvironment, setShouldLoadEnvironment] = useState(false);
-  const environmentRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setShouldLoadEnvironment(true);
+          setShouldLoad(true);
           observer.disconnect();
         }
       },
       { rootMargin: "100px" }
     );
-    if (environmentRef.current) {
-      observer.observe(environmentRef.current);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
     return () => observer.disconnect();
   }, []);
@@ -31,31 +32,31 @@ export const EnvironmentSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div ref={environmentRef} className="max-w-4xl mx-auto">
+        <div ref={sectionRef} className="max-w-4xl mx-auto">
           <div className="text-center mb-4">
             <div className="inline-flex items-center gap-2.5 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm md:text-base font-bold mb-3 border border-primary/30">
               <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
-              🏠 Seu Novo Espaço de Aprendizado
+              🎓 Aula Grátis para Você Experimentar
             </div>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2">
-              Conheça seu <span className="text-primary">Ambiente de Aula</span>
+              Veja uma <span className="text-primary">Aula de Excel</span> ao Vivo
             </h3>
             <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
-              Veja como é simples e acolhedor o lugar onde você vai aprender. Tudo foi pensado para você se sentir em casa!
+              Assista a uma aula real e veja como é fácil aprender comigo. Didática simples, passo a passo, sem complicação!
             </p>
           </div>
 
-          {/* Video do ambiente */}
-          {shouldLoadEnvironment && (
+          {/* Video da aula */}
+          {shouldLoad && (
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
-              {!isEnvironmentPlaying ? (
+              {!isPlaying ? (
                 <div 
                   className="relative aspect-video cursor-pointer group"
-                  onClick={() => setIsEnvironmentPlaying(true)}
+                  onClick={() => setIsPlaying(true)}
                 >
                   <img 
-                    src="/images/ambiente-aula-thumb.jpg"
-                    alt="Conheça o ambiente de aula"
+                    src={excelThumb}
+                    alt="Aula gratuita de Excel - Aprenda do zero"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -69,16 +70,16 @@ export const EnvironmentSection = () => {
 
                   {/* Badge */}
                   <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
-                    <div className="bg-primary text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm shadow-lg">
-                      ▶ FAÇA UM TOUR
+                    <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm border-2 border-white/30 shadow-lg">
+                      🎬 Aula Real
                     </div>
                   </div>
                 </div>
               ) : (
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/9E3ePRqhMOM?modestbranding=1&rel=0&showinfo=0&controls=1&fs=1&autoplay=1"
-                    title="Conheça seu ambiente de aula"
+                    src="https://www.youtube.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&autoplay=1"
+                    title="Aula de Excel - CNT Informática"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -89,13 +90,13 @@ export const EnvironmentSection = () => {
             </div>
           )}
 
-          {/* Benefícios do ambiente */}
+          {/* Benefícios */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-6">
             {[
-              { icon: Clock, label: "Estude no Seu Ritmo", sublabel: "Sem pressa" },
-              { icon: Zap, label: "Acesso Imediato", sublabel: "Comece agora" },
+              { icon: Clock, label: "Didática Simples", sublabel: "Passo a passo" },
+              { icon: Zap, label: "Aprenda Rápido", sublabel: "Sem enrolação" },
               { icon: Shield, label: "Risco Zero", sublabel: "Teste por 7 dias" },
-              { icon: Award, label: "Acesso Completo", sublabel: "Todo o conteúdo" },
+              { icon: Award, label: "+90 Aulas Assim", sublabel: "Curso completo" },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
                 <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
