@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, GraduationCap, Clock, Zap, Shield, Award, ArrowRight } from "lucide-react";
-import excelThumb from "@/assets/aula-excel-thumb.jpg";
+import environmentThumb from "@/assets/environment-thumb.jpg";
 
 export const EnvironmentSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -55,7 +55,7 @@ export const EnvironmentSection = () => {
                   onClick={() => setIsPlaying(true)}
                 >
                   <img 
-                    src={excelThumb}
+                    src={environmentThumb}
                     alt="Aula gratuita de Excel - Aprenda do zero"
                     className="w-full h-full object-cover"
                     loading="lazy"
