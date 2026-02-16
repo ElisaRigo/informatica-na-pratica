@@ -42,7 +42,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
                 R$ 297<span className="text-lg">,00</span>
               </p>
               <p className="text-sm text-success font-semibold">
-                ou 12x de R$ 30,22
+                ou 12x de R$ 30,72
               </p>
             </div>
           </div>

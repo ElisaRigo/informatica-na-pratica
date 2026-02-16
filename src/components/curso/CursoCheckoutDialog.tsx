@@ -221,7 +221,7 @@ export const CursoCheckoutDialog = ({ open, onOpenChange }: CursoCheckoutDialogP
         {/* Price */}
         <div className="text-center py-2">
           <p className="text-2xl md:text-3xl font-black text-success">
-            12x R$ 30,22
+            12x R$ 30,72
           </p>
           <p className="text-base text-muted-foreground font-bold">
             ou R$ 297,00 à vista

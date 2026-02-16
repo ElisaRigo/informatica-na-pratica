@@ -120,7 +120,7 @@ export const EasyToLearn = () => {
                 <span className="text-4xl md:text-5xl font-black text-success">R$ 297,00</span>
               </div>
               <p className="text-sm text-muted-foreground mb-4">
-                💳 ou parcele em até <strong>12x de R$ 30,22</strong> no cartão
+                💳 ou parcele em até <strong>12x de R$ 30,72</strong> no cartão
               </p>
               <p className="text-sm md:text-base font-semibold text-accent mb-5">
                 🔥 Aproveite o valor promocional de hoje!
