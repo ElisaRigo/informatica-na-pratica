@@ -110,13 +110,13 @@ const FloatingParticles = () => (
 );
 
 const VendaConversao = () => {
-  const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
   const [isPlaying, setIsPlaying] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
+  const openCheckout = () => window.open('https://pay.hotmart.com/L103057645P', '_blank');
   (window as any).openCheckout = openCheckout;
 
   useEffect(() => {
@@ -579,8 +579,7 @@ const VendaConversao = () => {
         </Suspense>
       </div>
 
-      {/* Checkout */}
-      <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
+      {/* CHECKOUT - Redirecionando para Hotmart */}
     </div>
   );
 };

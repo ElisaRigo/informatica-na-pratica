@@ -22,10 +22,10 @@ import { FooterV2 } from "@/components/curso/FooterV2";
 import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 
 const Index = () => {
-  const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
-  
-  // Make openCheckout globally accessible
-  (window as any).openCheckout = openCheckout;
+  // Redirect all checkout buttons to Hotmart
+  (window as any).openCheckout = () => {
+    window.open('https://pay.hotmart.com/L103057645P', '_blank');
+  };
   
   return (
     <div className="min-h-screen">
@@ -90,8 +90,7 @@ const Index = () => {
       {/* ELEMENTOS FLUTUANTES */}
       <WhatsAppButton />
       
-      {/* CHECKOUT MODAL */}
-      <CursoCheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
+      {/* CHECKOUT - Redirecionando para Hotmart */}
     </div>
   );
 };
