@@ -28,10 +28,10 @@ const FinalTestimonials = lazy(() => import("@/components/FinalTestimonials").th
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 
 const VendaTeste = () => {
-  const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
-  
-  // Make openCheckout globally accessible
-  (window as any).openCheckout = openCheckout;
+  // Redirect all checkout buttons to Hotmart
+  (window as any).openCheckout = () => {
+    window.open('https://pay.hotmart.com/L103057645P', '_blank');
+  };
   
   return (
     <div className="min-h-screen">
@@ -101,7 +101,7 @@ const VendaTeste = () => {
       <WhatsAppFloat />
       <WhatsAppButton />
       
-      <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
+      {/* CHECKOUT - Redirecionando para Hotmart */}
     </div>
   );
 };
