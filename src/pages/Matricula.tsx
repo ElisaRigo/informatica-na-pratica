@@ -115,7 +115,7 @@ const Matricula = () => {
             </div>
             <div className="text-center space-y-1">
               <h3 className="text-xl font-bold text-foreground">Pagamento com Cartão</h3>
-              <p className="text-2xl font-black text-primary">12x R$ 25,30</p>
+              <p className="text-2xl font-black text-primary">12x R$ 30,72</p>
               <p className="text-sm text-muted-foreground">ou R$ 248,50 à vista</p>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
@@ -244,7 +244,7 @@ const Matricula = () => {
           {/* Price body */}
           <div className="bg-gradient-to-b from-primary/10 to-primary/5 px-4 py-3 text-center space-y-0.5">
             <div>
-              <span className="text-2xl md:text-3xl font-black text-primary">12x R$ 25,30</span>
+              <span className="text-2xl md:text-3xl font-black text-primary">12x R$ 30,72</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <span className="relative text-base font-semibold text-muted-foreground">

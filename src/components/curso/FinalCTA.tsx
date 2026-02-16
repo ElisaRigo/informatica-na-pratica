@@ -42,7 +42,7 @@ export const FinalCTA = () => {
               <div className="h-12 w-px bg-white/20 hidden md:block" />
               <div>
                 <p className="text-slate-400 text-sm">ou em até</p>
-                <p className="text-2xl font-bold text-accent">12x R$ 30,22</p>
+                <p className="text-2xl font-bold text-accent">12x R$ 30,72</p>
               </div>
             </div>
           </div>

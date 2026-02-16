@@ -90,7 +90,7 @@ export const PricingV2 = () => {
                     </div>
                     
                     <p className="text-lg text-foreground font-semibold">
-                      ou <span className="text-primary font-bold">12x de R$ 30,22</span>
+                      ou <span className="text-primary font-bold">12x de R$ 30,72</span>
                     </p>
                     <p className="text-sm text-muted-foreground">
                       no cartão de crédito

@@ -128,7 +128,7 @@ export const EasyToLearnV2 = () => {
               </div>
               
               <p className="text-sm md:text-base text-slate-300 mb-6">
-                💳 ou parcele em até <strong className="text-white">12x de R$ 30,22</strong> no cartão
+                💳 ou parcele em até <strong className="text-white">12x de R$ 30,72</strong> no cartão
               </p>
               
               <button
