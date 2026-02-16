@@ -28,8 +28,19 @@ const FinalTestimonials = lazy(() => import("@/components/FinalTestimonials").th
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 
 const VendaTeste = () => {
-  // Redirect all checkout buttons to Hotmart
+  // Redirect all checkout buttons to Hotmart with tracking
   (window as any).openCheckout = () => {
+    if ((window as any).gtag) {
+      (window as any).gtag('event', 'begin_checkout', {
+        currency: 'BRL', value: 297.00,
+        items: [{ item_id: 'curso-informatica', item_name: 'Curso Informática na Prática', price: 297.00, quantity: 1 }]
+      });
+    }
+    if ((window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        value: 297.00, currency: 'BRL', content_name: 'Curso Informática na Prática', content_ids: ['curso-informatica'], num_items: 1
+      });
+    }
     window.open('https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card', '_blank');
   };
   
