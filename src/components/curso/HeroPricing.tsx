@@ -1,46 +1,8 @@
-import { Shield, Clock, Award, Infinity, Headphones, BookOpen, Monitor, Gift } from "lucide-react";
-import { useState, useEffect } from "react";
-
-const useCountdown = () => {
-  const getTargetTime = () => {
-    const stored = localStorage.getItem("promo_end");
-    if (stored) {
-      const target = parseInt(stored, 10);
-      if (target > Date.now()) return target;
-    }
-    // 2 hours from now
-    const target = Date.now() + 2 * 60 * 60 * 1000;
-    localStorage.setItem("promo_end", target.toString());
-    return target;
-  };
-
-  const [target] = useState(getTargetTime);
-  const [timeLeft, setTimeLeft] = useState(() => Math.max(0, target - Date.now()));
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const remaining = Math.max(0, target - Date.now());
-      setTimeLeft(remaining);
-      if (remaining <= 0) {
-        // Reset for next 2 hours
-        const newTarget = Date.now() + 2 * 60 * 60 * 1000;
-        localStorage.setItem("promo_end", newTarget.toString());
-        clearInterval(interval);
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [target]);
-
-  const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-  return { hours, minutes, seconds };
-};
+import { Shield, Award, Infinity, Headphones, BookOpen, Monitor, Gift } from "lucide-react";
 
 const valueItems = [
   { icon: Monitor, label: "+90 Videoaulas" },
-  { icon: BookOpen, label: "5 Módulos Completos" },
+  { icon: BookOpen, label: "Curso Completo" },
   { icon: Award, label: "Certificado Incluso" },
   { icon: Infinity, label: "Acesso Vitalício" },
   { icon: Headphones, label: "Suporte Direto" },
@@ -48,9 +10,6 @@ const valueItems = [
 ];
 
 export const HeroPricing = () => {
-  const { hours, minutes, seconds } = useCountdown();
-
-  const pad = (n: number) => n.toString().padStart(2, "0");
 
   return (
     <div className="max-w-xl mx-auto mb-4 md:mb-6">
@@ -66,35 +25,13 @@ export const HeroPricing = () => {
 
       <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl overflow-hidden">
         {/* Urgency banner */}
-        <div className="bg-gradient-to-r from-destructive to-destructive/80 py-2.5 px-4">
-          <p className="text-white font-black text-center text-sm md:text-base tracking-wide animate-pulse">
+        <div className="bg-gradient-to-r from-destructive to-destructive/80 py-4 px-4">
+          <p className="text-white font-black text-center text-lg md:text-2xl tracking-wide animate-pulse">
             🔥 ÚLTIMAS VAGAS COM 40% OFF!
           </p>
         </div>
 
         <div className="p-4 md:p-6">
-          {/* Countdown */}
-          <div className="mb-4">
-            <p className="text-slate-400 text-xs md:text-sm text-center mb-2 font-medium">
-              ⏰ Esta oferta expira em:
-            </p>
-            <div className="flex items-center justify-center gap-2 md:gap-3">
-              {[
-                { value: pad(hours), label: "hrs" },
-                { value: pad(minutes), label: "min" },
-                { value: pad(seconds), label: "seg" },
-              ].map((unit, i) => (
-                <div key={i} className="flex flex-col items-center">
-                  <div className="bg-white/10 border border-white/20 rounded-lg px-3 py-2 md:px-4 md:py-2.5 min-w-[52px] md:min-w-[64px]">
-                    <span className="text-2xl md:text-3xl font-black text-white tabular-nums">
-                      {unit.value}
-                    </span>
-                  </div>
-                  <span className="text-slate-400 text-[10px] md:text-xs mt-1">{unit.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Value seals - grid compacto */}
           <div className="grid grid-cols-3 gap-1.5 md:gap-2 mb-4">
