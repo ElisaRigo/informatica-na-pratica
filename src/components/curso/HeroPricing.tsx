@@ -16,7 +16,7 @@ export const HeroPricing = () => {
       {/* Título da seção */}
       <div className="text-center mb-4">
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
-          Chega de <span className="text-primary">perder oportunidades!</span>
+          Chega de perder oportunidades!
         </h3>
         <p className="text-base md:text-lg text-slate-300">
           Economize R$ 200,00 e comece hoje mesmo a transformar sua carreira.
