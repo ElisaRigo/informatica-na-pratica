@@ -15,8 +15,8 @@ export const HeroPricing = () => {
     <div className="max-w-xl mx-auto mb-4 md:mb-6">
       {/* Título da seção */}
       <div className="text-center mb-4">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
-          Chega de perder oportunidades!
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white">
+          Chega de <span className="text-primary">perder oportunidades!</span>
         </h3>
       </div>
 
