@@ -235,7 +235,7 @@ export const HeroV2 = () => {
           </div>
         </div>
 
-        <div className="h-12 md:h-14"></div>
+        <div className="h-16 md:h-20"></div>
 
         {/* Preço na Hero */}
         <HeroPricing />

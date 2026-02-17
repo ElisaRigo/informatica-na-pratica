@@ -13,13 +13,13 @@ export const HeroPricing = () => {
 
   return (
     <div className="max-w-xl mx-auto mb-4 md:mb-6">
-      {/* Título da seção - frase motivacional */}
+      {/* Título da seção */}
       <div className="text-center mb-4">
-        <p className="text-lg md:text-2xl font-black text-white">
-          💻 Chega de perder oportunidades.
-        </p>
-        <p className="text-base md:text-xl font-bold text-slate-300 mt-1">
-          Aprenda informática de uma vez por todas!
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
+          Chega de <span className="text-primary">perder oportunidades!</span>
+        </h3>
+        <p className="text-base md:text-lg text-slate-300">
+          Economize R$ 200,00 e comece hoje mesmo a transformar sua carreira.
         </p>
       </div>
 
