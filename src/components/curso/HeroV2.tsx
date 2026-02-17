@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import { HeroPricing } from "./HeroPricing";
 
 export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -237,53 +238,7 @@ export const HeroV2 = () => {
         <div className="h-12 md:h-14"></div>
 
         {/* Preço na Hero */}
-        <div className="max-w-xl mx-auto mb-4 md:mb-6">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 text-center">
-            {/* Frase de impacto */}
-            <div className="text-center mb-3">
-              <p className="text-lg md:text-2xl font-black text-white">
-                💻 Chega de perder oportunidades.
-              </p>
-              <p className="text-base md:text-xl font-bold text-slate-300 mt-1">
-                Aprenda informática de uma vez por todas!
-              </p>
-            </div>
-            
-            <p className="text-base md:text-xl text-slate-400 mb-2">
-              De <span className="line-through text-slate-300 font-bold text-lg md:text-2xl">R$ 497,00</span> por apenas
-            </p>
-            <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent mb-1">
-              12x de R$ 30,72
-            </p>
-            <p className="text-base md:text-xl text-slate-400 mb-4">
-              ou <strong className="text-white font-black text-xl md:text-3xl">R$ 297,00</strong> à vista
-            </p>
-            
-            {/* CTA Principal */}
-            <button
-              onClick={() => (window as any).openCheckout?.()}
-              className="group relative w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-success to-accent text-white font-black text-base md:text-xl px-6 py-4 md:py-5 rounded-full shadow-2xl shadow-success/40 hover:shadow-success/60 hover:scale-105 transition-all duration-300 overflow-hidden"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              <span className="relative">🎯 QUERO COMEÇAR AGORA!</span>
-            </button>
-            
-            {/* Garantia reforçada */}
-            <div className="mt-4 p-3 bg-success/10 border border-success/30 rounded-xl">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <Shield className="w-5 h-5 text-success" />
-                <span className="text-success font-bold text-sm md:text-base">Garantia Incondicional de 7 Dias</span>
-              </div>
-              <p className="text-slate-300 text-xs md:text-sm">
-                Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
-              </p>
-            </div>
-            
-            <p className="text-slate-400 text-[10px] md:text-xs mt-3">
-              🔒 Pagamento 100% seguro • Acesso imediato após a compra
-            </p>
-          </div>
-        </div>
+        <HeroPricing />
 
 
       </div>
