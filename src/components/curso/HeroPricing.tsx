@@ -1,4 +1,4 @@
-import { Shield, Award, Infinity, Headphones, BookOpen, Monitor, Gift } from "lucide-react";
+import { Shield, Award, Infinity, Headphones, BookOpen, Monitor } from "lucide-react";
 
 const valueItems = [
   { icon: Monitor, label: "+90 Videoaulas" },
@@ -6,7 +6,7 @@ const valueItems = [
   { icon: Award, label: "Certificado Incluso" },
   { icon: Infinity, label: "Acesso Vitalício" },
   { icon: Headphones, label: "Suporte Direto" },
-  { icon: Gift, label: "4 Bônus Exclusivos" },
+  { icon: Award, label: "+ 15.000 Alunos" },
 ];
 
 export const HeroPricing = () => {
