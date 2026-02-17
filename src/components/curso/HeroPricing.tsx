@@ -18,9 +18,6 @@ export const HeroPricing = () => {
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
           Chega de perder oportunidades!
         </h3>
-        <p className="text-base md:text-lg text-slate-300">
-          Economize R$ 200,00 e comece hoje mesmo a transformar sua carreira.
-        </p>
       </div>
 
       <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl overflow-hidden">
@@ -28,6 +25,13 @@ export const HeroPricing = () => {
         <div className="bg-gradient-to-r from-destructive to-destructive/80 py-4 px-4">
           <p className="text-white font-black text-center text-lg md:text-2xl tracking-wide animate-pulse">
             🔥 ÚLTIMAS VAGAS COM 40% OFF!
+          </p>
+        </div>
+
+        {/* Destaque economia */}
+        <div className="bg-accent/20 border-b border-accent/30 py-3 px-4">
+          <p className="text-center text-base md:text-lg font-bold text-accent">
+            💰 Economize R$ 200,00 e transforme sua carreira hoje.
           </p>
         </div>
 
