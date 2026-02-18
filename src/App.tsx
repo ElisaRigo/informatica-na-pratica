@@ -18,7 +18,7 @@ const TermosDeUso = lazy(() => import("./pages/TermosDeUso").then(m => ({ defaul
 const PoliticaDePrivacidade = lazy(() => import("./pages/PoliticaDePrivacidade").then(m => ({ default: m.PoliticaDePrivacidade })));
 const GerarLinkMercadoPago = lazy(() => import("./pages/GerarLinkMercadoPago"));
 const Curso = lazy(() => import("./pages/Curso"));
-const Matricula = lazy(() => import("./pages/Matricula"));
+
 
 const queryClient = new QueryClient();
 
@@ -42,7 +42,7 @@ const App = () => (
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
             <Route path="/gerar-link-mercadopago" element={<GerarLinkMercadoPago />} />
-            <Route path="/matricula" element={<Matricula />} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
