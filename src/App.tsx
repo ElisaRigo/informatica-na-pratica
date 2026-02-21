@@ -19,6 +19,7 @@ const PoliticaDePrivacidade = lazy(() => import("./pages/PoliticaDePrivacidade")
 const GerarLinkMercadoPago = lazy(() => import("./pages/GerarLinkMercadoPago"));
 const Curso = lazy(() => import("./pages/Curso"));
 const AudioWhatsApp = lazy(() => import("./pages/AudioWhatsApp"));
+const VideoWhatsApp = lazy(() => import("./pages/VideoWhatsApp"));
 
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
             <Route path="/gerar-link-mercadopago" element={<GerarLinkMercadoPago />} />
             <Route path="/audio-whatsapp" element={<AudioWhatsApp />} />
+            <Route path="/video-whatsapp" element={<VideoWhatsApp />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
