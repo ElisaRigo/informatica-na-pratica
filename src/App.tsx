@@ -20,6 +20,7 @@ const GerarLinkMercadoPago = lazy(() => import("./pages/GerarLinkMercadoPago"));
 const Curso = lazy(() => import("./pages/Curso"));
 const AudioWhatsApp = lazy(() => import("./pages/AudioWhatsApp"));
 const VideoWhatsApp = lazy(() => import("./pages/VideoWhatsApp"));
+const Aula = lazy(() => import("./pages/Aula"));
 
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/gerar-link-mercadopago" element={<GerarLinkMercadoPago />} />
             <Route path="/audio-whatsapp" element={<AudioWhatsApp />} />
             <Route path="/video-whatsapp" element={<VideoWhatsApp />} />
+            <Route path="/aula" element={<Aula />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
