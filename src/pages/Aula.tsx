@@ -86,7 +86,13 @@ const Aula = () => {
         <meta name="description" content="Assista aulas reais do curso de Informática na Prática e veja como é fácil aprender!" />
         <meta property="og:title" content="Conheça o Curso — Informática na Prática" />
         <meta property="og:description" content="Assista aulas reais e veja como é fácil aprender informática do zero!" />
-        <meta property="og:image" content={`${window.location.origin}/images/og-video-whatsapp.jpg`} />
+        <meta property="og:image" content={`${window.location.origin}/images/capa-aula-whatsapp.jpg`} />
+        <meta property="og:image:width" content="1920" />
+        <meta property="og:image:height" content="1080" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${window.location.origin}/aula`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`${window.location.origin}/images/capa-aula-whatsapp.jpg`} />
       </Helmet>
 
       <div className="min-h-screen bg-slate-900">
