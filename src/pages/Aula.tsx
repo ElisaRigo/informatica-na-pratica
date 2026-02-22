@@ -104,16 +104,6 @@ const Aula = () => {
           </p>
         </div>
 
-        {/* Imagem de capa grande */}
-        <div className="max-w-4xl mx-auto px-4 mb-6">
-          <img
-            src="/images/capa-aula-whatsapp.jpg"
-            alt="Informática na Prática — Do Básico ao Avançado"
-            className="w-full rounded-2xl shadow-2xl shadow-primary/20 border-2 border-white/10"
-            loading="eager"
-          />
-        </div>
-
         {/* Selos de confiança */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-3xl mx-auto px-4 mb-6">
           {[
