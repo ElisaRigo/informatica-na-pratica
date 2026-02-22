@@ -3,21 +3,13 @@ import { Play, Shield, Award, Headphones, Users, ArrowRight } from "lucide-react
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-blue.png";
-import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
+
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import environmentThumb from "@/assets/environment-thumb.jpg";
 
 const videos = [
   {
-    title: "Conheça o Curso Completo",
-    subtitle: "Veja como funciona o curso que já transformou +15.000 alunos",
-    thumb: heroVideoThumb,
-    embedUrl: "https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&autoplay=1",
-    badge: "▶ APRESENTAÇÃO",
-    badgeColor: "bg-destructive",
-  },
-  {
-    title: "Veja como é Fácil Aprender!",
+    title: "Assista essa aula e Veja como é Fácil Aprender!",
     subtitle: "Assista uma demonstração e sinta a didática simples e passo a passo",
     thumb: freeClassThumb,
     embedUrl: "https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&autoplay=1",
