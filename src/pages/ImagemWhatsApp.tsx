@@ -22,11 +22,13 @@ const ImagemWhatsApp = () => {
 
       <div className="min-h-screen bg-[#0b141a] flex items-center justify-center p-4">
         <div className="max-w-3xl w-full">
-          <img
-            src="/images/capa-aula-whatsapp.jpg"
-            alt="Tem medo de não aprender? Veja como é fácil aprender comigo!"
-            className="w-full rounded-2xl shadow-2xl"
-          />
+          <a href="/aula">
+            <img
+              src="/images/capa-aula-whatsapp.jpg"
+              alt="Tem medo de não aprender? Veja como é fácil aprender comigo!"
+              className="w-full rounded-2xl shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+            />
+          </a>
           <p className="text-center text-white/50 text-sm mt-4">
             Informática na Prática — Aprenda no seu ritmo!
           </p>
