@@ -21,6 +21,7 @@ const Curso = lazy(() => import("./pages/Curso"));
 const AudioWhatsApp = lazy(() => import("./pages/AudioWhatsApp"));
 const VideoWhatsApp = lazy(() => import("./pages/VideoWhatsApp"));
 const Aula = lazy(() => import("./pages/Aula"));
+const ImagemWhatsApp = lazy(() => import("./pages/ImagemWhatsApp"));
 
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
             <Route path="/audio-whatsapp" element={<AudioWhatsApp />} />
             <Route path="/video-whatsapp" element={<VideoWhatsApp />} />
             <Route path="/aula" element={<Aula />} />
+            <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
