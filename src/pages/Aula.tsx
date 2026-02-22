@@ -92,7 +92,7 @@ const Aula = () => {
       <div className="min-h-screen bg-slate-900">
         {/* Header compacto */}
         <div className="flex flex-col items-center pt-6 pb-4 px-4">
-          <img src={logo} alt="Informática na Prática" className="h-12 md:h-16 mb-3" />
+          <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 mb-3" />
           <p className="text-slate-300 text-sm md:text-base text-center">
             <span className="text-primary font-bold">Informática do zero:</span> simples, prático e para todos
           </p>
