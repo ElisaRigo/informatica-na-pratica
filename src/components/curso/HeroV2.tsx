@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
+import { Play, Shield, Award, Sparkles, Headphones, Users, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -29,106 +29,77 @@ export const HeroV2 = () => {
 
   return (
     <section className="relative min-h-screen bg-slate-900 overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 py-4 md:py-8 relative z-10">
         {/* Logo */}
-        <div className="flex flex-col items-center mb-3 md:mb-6">
+        <div className="flex justify-center mb-4 md:mb-6">
           <div className="relative group">
-            <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-white/20 shadow-lg">
-              <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-lg" />
+            <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60" />
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-white/20">
+              <img src={logo} alt="Informática na Prática" className="h-12 md:h-16 lg:h-20 drop-shadow-lg" />
             </div>
           </div>
-          <p className="text-white text-sm md:text-lg lg:text-xl font-medium mt-3 text-center">
-            <span className="text-primary font-bold">Informática do zero:</span> simples, prático e para todos
-          </p>
         </div>
 
-        {/* Headline principal - Foco na DOR */}
-        <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
-          <div className="inline-block bg-destructive/20 border border-destructive/40 px-4 py-1.5 rounded-full mb-3">
-            <span className="text-destructive font-bold text-sm md:text-base">😔 Você se identifica?</span>
-          </div>
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-3 md:mb-4">
-            <span className="block mb-1">Cansada de <span className="text-destructive">depender dos outros</span></span>
-            <span className="block">para usar o computador?</span>
+        {/* Headline — curta e direta na dor */}
+        <div className="text-center max-w-4xl mx-auto mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-3">
+            Cansada de <span className="text-destructive">depender dos outros</span>{" "}
+            para usar o computador?
           </h1>
-          <p className="text-base md:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-4">
-            Chega de passar vergonha pedindo ajuda, de perder vagas de emprego 
-            e de se sentir <strong className="text-white">incapaz</strong> diante da tecnologia.
+          <p className="text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            Chega de se sentir travada. Vou te ensinar a usar o computador{" "}
+            <strong className="text-white">com confiança</strong> e abrir portas para{" "}
+            <strong className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              novas oportunidades
+            </strong>.
           </p>
-          {/* DESEJO / TRANSFORMAÇÃO */}
-          <div className="bg-white/5 border border-primary/30 rounded-xl p-4 md:p-5 max-w-3xl mx-auto">
-            <p className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-tight">
-              Imagine <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">resolver tudo sozinha</span>, 
-              com confiança — e ainda conquistar{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                  novas oportunidades
-                </span>
-                <span className="absolute -bottom-1 left-0 right-0 h-2 bg-gradient-to-r from-primary/30 to-accent/30 -skew-x-12" />
-              </span>
-            </p>
-          </div>
         </div>
 
-        {/* Destaque Acesso Vitalício */}
-        <div className="flex flex-wrap justify-center gap-2 mb-3 md:mb-5">
-          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
-          </div>
-          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-            <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
-          </div>
-        </div>
-
-        {/* Trust Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
+        {/* Trust Badges — compactos */}
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-3xl mx-auto mb-4 md:mb-6">
           {[
-            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
-            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
-            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+            { icon: Users, label: "+15.000 Alunos" },
+            { icon: Infinity, label: "Acesso Vitalício" },
+            { icon: Award, label: "Certificado" },
+            { icon: Shield, label: "Garantia 7 Dias" },
+            { icon: Headphones, label: "Suporte nas Aulas" },
           ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
-              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
-              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
+            <div
+              key={i}
+              className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 md:px-4 md:py-2"
+            >
+              <item.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
+              <span className="text-white text-[11px] md:text-sm font-medium">{item.label}</span>
             </div>
           ))}
         </div>
 
-        {/* Video Container */}
-        <div className="max-w-4xl mx-auto mb-4 md:mb-6">
+        {/* Vídeo Principal */}
+        <div className="max-w-4xl mx-auto mb-3 md:mb-5">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
             {!isPlaying ? (
-              <div 
+              <div
                 className="relative aspect-video cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
-                <img 
+                <img
                   src={heroVideoThumb}
                   alt="Prévia do curso de informática"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                
-                {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70">
                     <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                   </div>
                 </div>
-
-                {/* Badge Assista Agora */}
-                <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
+                <div className="absolute top-2 right-2 md:top-3 md:right-3 animate-pulse">
                   <div className="bg-destructive text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm shadow-lg">
                     ▶ ASSISTA AGORA
                   </div>
@@ -147,44 +118,39 @@ export const HeroV2 = () => {
               </div>
             )}
           </div>
-          
-          {/* Texto de prova social abaixo do vídeo */}
-          <p className="text-sm md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
-            <strong className="text-white">+15.000 alunos</strong> já saíram do zero e hoje usam o computador 
-            com <strong className="text-white">independência e confiança</strong> — mesmo quem tinha medo de errar.
+
+          {/* Prova social — uma linha limpa */}
+          <p className="text-sm md:text-base text-slate-400 text-center mt-3">
+            <strong className="text-white">+15.000 alunos</strong> já conquistaram independência no computador
           </p>
         </div>
 
-        {/* Seção Aula Gratuita - Acima da faixa azul */}
+        {/* Seção Aula Gratuita */}
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
-          <div className="text-center mb-4">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
-              Veja como é <span className="text-primary">fácil aprender!</span>
+          <div className="text-center mb-3">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-white">
+              Veja como é <span className="text-primary">fácil aprender</span>
             </h3>
           </div>
 
-          {/* Video da aula gratuita */}
           {shouldLoadFreeClass && (
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
               {!isFreeClassPlaying ? (
-                <div 
+                <div
                   className="relative aspect-video cursor-pointer group"
                   onClick={() => setIsFreeClassPlaying(true)}
                 >
-                  <img 
+                  <img
                     src={freeClassThumb}
                     alt="Aula demonstrativa gratuita"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  
-                  {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70">
                       <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                     </div>
                   </div>
-
                 </div>
               ) : (
                 <div className="aspect-video">
@@ -200,59 +166,28 @@ export const HeroV2 = () => {
               )}
             </div>
           )}
-
-          {/* Selos de benefícios - mesmo formato dos selos de confiança */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
-            {[
-              { icon: MessageCircle, label: "Linguagem Simples", sublabel: "Fácil de entender" },
-              { icon: Footprints, label: "Passo a Passo", sublabel: "Sem pular etapas" },
-              { icon: Smile, label: "Sem Complicação", sublabel: "Direto ao ponto" },
-              { icon: Rocket, label: "Do Zero ao Mercado", sublabel: "Preparação completa" },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
-                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
-                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Faixa acolhedora acima do preço - Full width */}
+        {/* Faixa motivacional */}
         <div className="absolute left-0 right-0 -mx-4 md:-mx-8 lg:-mx-16">
-          <div className="bg-gradient-to-r from-primary via-primary/90 to-primary overflow-hidden border-y border-primary/60">
-          <div className="animate-marquee whitespace-nowrap py-3">
-              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                ✨ Você é capaz de aprender — Venha comigo!
-              </span>
-              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                ✨ Você é capaz de aprender — Venha comigo!
-              </span>
-              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                ✨ Você é capaz de aprender — Venha comigo!
-              </span>
-              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                ✨ Você é capaz de aprender — Venha comigo!
-              </span>
-              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                ✨ Você é capaz de aprender — Venha comigo!
-              </span>
-              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                ✨ Você é capaz de aprender — Venha comigo!
-              </span>
+          <div className="bg-gradient-to-r from-primary via-primary/90 to-primary border-y border-primary/60 overflow-hidden">
+            <div className="animate-marquee whitespace-nowrap py-2.5">
+              {[...Array(6)].map((_, i) => (
+                <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                  ✨ Você é capaz de aprender — Venha comigo!
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="h-16 md:h-20"></div>
+        <div className="h-14 md:h-18"></div>
 
-        {/* Preço na Hero */}
+        {/* Preço */}
         <HeroPricing />
-
-
       </div>
 
-      {/* Scroll indicator - hidden on mobile */}
+      {/* Scroll indicator */}
       <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
           <div className="w-1.5 h-3 bg-white/50 rounded-full animate-pulse" />
