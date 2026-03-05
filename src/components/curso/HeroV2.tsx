@@ -49,32 +49,11 @@ export const HeroV2 = () => {
           </p>
         </div>
 
-        {/* Headline principal - Foco na DOR */}
+        {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
-          <div className="inline-block bg-destructive/20 border border-destructive/40 px-4 py-1.5 rounded-full mb-3">
-            <span className="text-destructive font-bold text-sm md:text-base">😔 Você se identifica?</span>
-          </div>
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-3 md:mb-4">
-            <span className="block mb-1">Cansada de <span className="text-destructive">depender dos outros</span></span>
-            <span className="block">para usar o computador?</span>
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
+            Até quando você vai <span className="text-destructive">perder oportunidades</span> por não saber usar o computador?
           </h1>
-          <p className="text-base md:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-4">
-            Chega de passar vergonha pedindo ajuda, de perder vagas de emprego 
-            e de se sentir <strong className="text-white">incapaz</strong> diante da tecnologia.
-          </p>
-          {/* DESEJO / TRANSFORMAÇÃO */}
-          <div className="bg-white/5 border border-primary/30 rounded-xl p-4 md:p-5 max-w-3xl mx-auto">
-            <p className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-tight">
-              Imagine <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">resolver tudo sozinha</span>, 
-              com confiança — e ainda conquistar{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                  novas oportunidades
-                </span>
-                <span className="absolute -bottom-1 left-0 right-0 h-2 bg-gradient-to-r from-primary/30 to-accent/30 -skew-x-12" />
-              </span>
-            </p>
-          </div>
         </div>
 
         {/* Destaque Acesso Vitalício */}
@@ -149,9 +128,11 @@ export const HeroV2 = () => {
           </div>
           
           {/* Texto de prova social abaixo do vídeo */}
-          <p className="text-sm md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
+          <p className="text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
+            Chega de passar vergonha pedindo ajuda, de perder vagas de emprego 
+            e de se sentir <strong className="text-white">incapaz</strong> diante da Informática. 
             <strong className="text-white">+15.000 alunos</strong> já saíram do zero e hoje usam o computador 
-            com <strong className="text-white">independência e confiança</strong> — mesmo quem tinha medo de errar.
+            com <strong className="text-white">independência e confiança</strong>.
           </p>
         </div>
 
