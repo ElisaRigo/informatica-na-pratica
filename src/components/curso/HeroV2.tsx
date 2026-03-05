@@ -129,7 +129,7 @@ export const HeroV2 = () => {
           
           {/* Texto abaixo do vídeo */}
           <p className="text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-5 px-4">
-            Chega de passar vergonha pedindo ajuda para usar o computador. <strong className="text-white">Aprenda Informática mesmo começando do zero.</strong>
+            Chega de passar vergonha pedindo ajuda para usar o computador. O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
 
           {/* Banner de identificação */}
