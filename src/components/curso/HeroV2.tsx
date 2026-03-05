@@ -52,8 +52,11 @@ export const HeroV2 = () => {
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-            Até quando você vai <strong><span className="text-destructive">perder oportunidades</span></strong> por não saber usar o computador?
+            Até quando você vai <strong><span className="text-sky-400">perder oportunidades</span></strong> por não saber usar o computador?
           </h1>
+          <p className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto mt-3 px-4">
+            Aprenda informática do zero e comece a usar o computador com <strong className="text-white">confiança</strong>.
+          </p>
         </div>
 
         {/* Destaque Acesso Vitalício */}
@@ -83,11 +86,6 @@ export const HeroV2 = () => {
             </div>
           ))}
         </div>
-
-        {/* Frase de transformação */}
-        <p className="text-base md:text-lg text-slate-300 text-center max-w-3xl mx-auto mb-3 px-4">
-          Aprenda informática do zero e comece a usar o computador com <strong className="text-white">confiança</strong>.
-        </p>
 
         {/* Video Container */}
         <div className="max-w-4xl mx-auto mb-4 md:mb-6">
