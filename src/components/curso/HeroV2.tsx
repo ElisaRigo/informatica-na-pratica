@@ -127,31 +127,24 @@ export const HeroV2 = () => {
             )}
           </div>
           
-          {/* Texto impactante abaixo do vídeo */}
-          <div className="max-w-3xl mx-auto mt-4 px-2 space-y-3 md:space-y-4 text-center">
-            <p className="text-lg md:text-2xl font-bold text-destructive flex items-center justify-center gap-2">
-              <span className="text-2xl md:text-3xl">🚫</span>
+          {/* Texto abaixo do vídeo */}
+          <div className="max-w-3xl mx-auto mt-5 px-4 space-y-2 text-center">
+            <p className="text-base md:text-xl text-slate-300 leading-relaxed">
               Chega de passar vergonha pedindo ajuda para usar o computador.
             </p>
-            <p className="text-lg md:text-2xl font-bold text-destructive flex items-center justify-center gap-2">
-              <span className="text-2xl md:text-3xl">🚫</span>
+            <p className="text-base md:text-xl text-slate-300 leading-relaxed">
               Chega de perder oportunidades por não saber informática.
             </p>
-            <p className="text-lg md:text-2xl font-black text-white flex items-center justify-center gap-2">
-              <span className="text-2xl md:text-3xl">✅</span>
+            <p className="text-base md:text-xl font-semibold text-white leading-relaxed mt-3">
               Aqui você pode aprender mesmo começando do zero.
             </p>
           </div>
           
           {/* Banner de identificação */}
-          <div className="max-w-3xl mx-auto mt-5 px-4 py-4 md:py-5 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 border-2 border-primary/50 rounded-2xl text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-primary/5 animate-pulse" />
-            <div className="relative flex flex-col items-center gap-2">
-              <Sparkles className="w-7 h-7 md:w-9 md:h-9 text-primary animate-bounce" />
-              <p className="text-base md:text-xl lg:text-2xl font-bold text-white leading-relaxed">
-                Esse curso é para quem quer aprender informática de forma <span className="text-primary">simples</span>, <span className="text-primary">prática</span> e no <span className="text-primary">seu próprio ritmo</span>.
-              </p>
-            </div>
+          <div className="max-w-3xl mx-auto mt-5 px-5 py-4 md:px-8 md:py-5 bg-white/5 backdrop-blur-sm border border-white/15 rounded-xl text-center">
+            <p className="text-sm md:text-lg text-slate-200 leading-relaxed">
+              Esse curso é para quem quer aprender informática de forma <strong className="text-white">simples</strong>, <strong className="text-white">prática</strong> e no <strong className="text-white">seu próprio ritmo</strong>.
+            </p>
           </div>
         </div>
 
