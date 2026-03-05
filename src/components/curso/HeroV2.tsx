@@ -128,11 +128,14 @@ export const HeroV2 = () => {
           </div>
           
           {/* Texto de prova social abaixo do vídeo */}
-          <p className="text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
-            Chega de passar vergonha pedindo ajuda, de perder vagas de emprego 
-            e de se sentir <strong className="text-white">incapaz</strong> diante da Informática. 
-            <strong className="text-white">+15.000 alunos</strong> já saíram do zero e hoje usam o computador 
-            com <strong className="text-white">independência e confiança</strong>.
+          <div className="text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2 space-y-2">
+            <p>Chega de passar vergonha pedindo ajuda para usar o computador.</p>
+            <p>Chega de perder oportunidades por não saber informática.</p>
+            <p><strong className="text-white">Aqui você pode aprender mesmo começando do zero.</strong></p>
+          </div>
+          
+          <p className="text-sm md:text-base text-primary/90 max-w-2xl mx-auto text-center mt-4 px-4 py-3 bg-primary/10 border border-primary/20 rounded-xl italic">
+            Esse curso é para quem quer aprender informática de forma simples, prática e no seu próprio ritmo.
           </p>
         </div>
 
