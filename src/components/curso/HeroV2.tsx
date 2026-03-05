@@ -45,7 +45,7 @@ export const HeroV2 = () => {
             </div>
           </div>
           <p className="text-white text-sm md:text-lg lg:text-xl font-medium mt-3 text-center">
-            <span className="text-primary font-bold">Informática do zero:</span> simples, prático e para todos
+            <span className="text-primary font-bold">Informática do Zero:</span> Simples, Prático e para Todos!
           </p>
         </div>
 
