@@ -130,10 +130,10 @@ export const HeroV2 = () => {
           {/* Texto abaixo do vídeo */}
           <div className="max-w-3xl mx-auto mt-5 px-4 space-y-2 text-center">
             <p className="text-base md:text-xl text-slate-300 leading-relaxed">
-              Chega de passar vergonha pedindo ajuda para usar o computador.
+              <span className="text-primary text-xl md:text-2xl mr-1">🚫</span> Chega de passar vergonha pedindo ajuda para usar o computador.
             </p>
             <p className="text-base md:text-xl text-slate-300 leading-relaxed">
-              Chega de perder oportunidades por não saber informática.
+              <span className="text-primary text-xl md:text-2xl mr-1">🚫</span> Chega de perder oportunidades por não saber informática.
             </p>
             <p className="text-base md:text-xl font-semibold text-white leading-relaxed mt-3">
               Aqui você pode aprender mesmo começando do zero.
