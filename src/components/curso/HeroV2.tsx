@@ -52,7 +52,7 @@ export const HeroV2 = () => {
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-            Até quando você vai <span className="text-destructive">perder oportunidades</span> por não saber usar o computador?
+            Até quando você vai <strong><span className="text-destructive">perder oportunidades</span></strong> por não saber usar o computador?
           </h1>
         </div>
 
