@@ -84,6 +84,11 @@ export const HeroV2 = () => {
           ))}
         </div>
 
+        {/* Frase de transformação */}
+        <p className="text-base md:text-lg text-slate-300 text-center max-w-3xl mx-auto mb-3 px-4">
+          Aprenda informática do zero e comece a usar o computador com <strong className="text-white">confiança</strong>.
+        </p>
+
         {/* Video Container */}
         <div className="max-w-4xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
