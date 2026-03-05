@@ -128,24 +128,9 @@ export const HeroV2 = () => {
           </div>
           
           {/* Texto abaixo do vídeo */}
-          <div className="max-w-3xl mx-auto mt-5 px-4 space-y-2 text-center">
-            <p className="text-base md:text-xl text-slate-300 leading-relaxed">
-              <span className="text-primary text-xl md:text-2xl mr-1">🚫</span> Chega de passar vergonha pedindo ajuda para usar o computador.
-            </p>
-            <p className="text-base md:text-xl text-slate-300 leading-relaxed">
-              <span className="text-primary text-xl md:text-2xl mr-1">🚫</span> Chega de perder oportunidades por não saber informática.
-            </p>
-            <p className="text-base md:text-xl font-semibold text-white leading-relaxed mt-3">
-              Aqui você pode aprender mesmo começando do zero.
-            </p>
-          </div>
-          
-          {/* Banner de identificação */}
-          <div className="max-w-3xl mx-auto mt-5 px-5 py-4 md:px-8 md:py-5 bg-white/5 backdrop-blur-sm border border-white/15 rounded-xl text-center">
-            <p className="text-sm md:text-lg text-slate-200 leading-relaxed">
-              Esse curso é para quem quer aprender informática de forma <strong className="text-white">simples</strong>, <strong className="text-white">prática</strong> e no <strong className="text-white">seu próprio ritmo</strong>.
-            </p>
-          </div>
+          <p className="text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-5 px-4">
+            Chega de passar vergonha pedindo ajuda para usar o computador. <strong className="text-white">Aprenda Informática mesmo começando do zero.</strong>
+          </p>
         </div>
 
         {/* Seção Aula Gratuita - Acima da faixa azul */}
