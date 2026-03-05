@@ -134,7 +134,7 @@ export const HeroV2 = () => {
 
           {/* Banner de identificação */}
           <div className="max-w-3xl mx-auto mt-5 px-5 py-4 md:px-8 md:py-5 bg-white/5 backdrop-blur-sm border border-white/15 rounded-xl text-center">
-            <Sparkles className="w-6 h-6 md:w-7 md:h-7 text-primary mx-auto mb-2" />
+            
             <p className="text-sm md:text-lg text-slate-200 leading-relaxed">
               Esse curso é para quem quer aprender informática de forma <strong className="text-white">simples</strong>, <strong className="text-primary">prática</strong> e no <strong className="text-white">seu próprio ritmo</strong>.
             </p>
