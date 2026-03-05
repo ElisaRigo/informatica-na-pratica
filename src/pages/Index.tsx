@@ -19,7 +19,7 @@ import { PricingV2 } from "@/components/curso/PricingV2";
 import { FAQV2 } from "@/components/curso/FAQV2";
 import { FinalCTA } from "@/components/curso/FinalCTA";
 import { FooterV2 } from "@/components/curso/FooterV2";
-import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
+
 
 const Index = () => {
   // Redirect all checkout buttons to Hotmart with tracking
@@ -95,8 +95,6 @@ const Index = () => {
       {/* 1️⃣1️⃣ CTA FINAL - Última chamada */}
       <FinalCTA />
       
-      {/* 1️⃣2️⃣ DISCLAIMER - Proteção legal sobre o prazo (última seção) */}
-      <DisclaimerSection />
       
       {/* FOOTER */}
       <FooterV2 />
