@@ -96,11 +96,6 @@ export const HeroV2 = () => {
           ))}
         </div>
 
-        {/* Frase de impacto */}
-        <p className="text-center text-lg md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
-          <strong className="text-white">Aprenda Informática</strong> do jeito certo e use o computador com <strong className="text-primary">confiança</strong> no trabalho e no dia a dia.
-        </p>
-
         {/* Video Container */}
         <div className="max-w-4xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
