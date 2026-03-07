@@ -197,11 +197,6 @@ export const HeroV2 = () => {
             </div>
           )}
 
-          {/* Frase de autoridade */}
-          <p className="text-center text-base md:text-xl text-slate-300 max-w-2xl mx-auto mb-3 md:mb-4 leading-relaxed px-2">
-            Aprenda com quem já ensinou mais de <strong className="text-white">15.000 alunos</strong> e tem mais de <strong className="text-white">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
-          </p>
-
           {/* Selos de benefícios - mesmo formato dos selos de confiança */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
             {[
