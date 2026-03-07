@@ -119,6 +119,11 @@ const Aula = () => {
           ))}
         </div>
 
+        {/* Frase de impacto */}
+        <p className="text-center text-lg md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-6">
+          Aprenda Informática do jeito certo e use o computador com <strong className="text-primary">confiança</strong> no trabalho e no dia a dia.
+        </p>
+
         {/* Vídeos empilhados */}
         <div className="max-w-4xl mx-auto px-4 space-y-10 pb-8">
           {videos.map((video, index) => (
