@@ -22,16 +22,16 @@ export const HeroPricing = () => {
 
       <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl overflow-hidden">
         {/* Urgency banner */}
-        <div className="py-3 px-4 border-b border-white/10">
-          <p className="text-center text-sm md:text-base font-semibold tracking-widest uppercase text-white/90">
-            Oferta especial · <span className="text-accent font-bold">40% de desconto</span>
+        <div className="bg-gradient-to-r from-destructive to-destructive/80 py-4 px-4">
+          <p className="text-white font-black text-center text-lg md:text-2xl tracking-wide animate-pulse">
+            🔥 ÚLTIMAS VAGAS COM 40% OFF!
           </p>
         </div>
 
         {/* Destaque economia */}
-        <div className="py-2.5 px-4 border-b border-white/5">
-          <p className="text-center text-xs md:text-sm font-medium text-slate-400">
-            Economize <span className="text-accent font-semibold">R$ 200,00</span> e transforme sua carreira hoje
+        <div className="bg-accent/20 border-b border-accent/30 py-3 px-4">
+          <p className="text-center text-base md:text-lg font-bold text-accent">
+            💰 Economize R$ 200,00 e transforme sua carreira hoje.
           </p>
         </div>
 

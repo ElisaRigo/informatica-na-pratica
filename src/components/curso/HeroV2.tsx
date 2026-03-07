@@ -45,29 +45,38 @@ export const HeroV2 = () => {
             </div>
           </div>
           <p className="text-white text-sm md:text-lg lg:text-xl font-medium mt-3 text-center">
-            <span className="text-primary font-bold">Informática do Zero:</span> Simples, Prático e para Todos!
+            <span className="text-primary font-bold">Informática do zero:</span> simples, prático e para todos
           </p>
         </div>
 
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
-          <h1 className="text-[1.7rem] md:text-[2.75rem] lg:text-[3.4rem] font-black text-white leading-tight">
-            Até quando você vai <strong><span className="text-sky-400">perder oportunidades</span></strong> por não saber usar o computador?
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2 md:mb-4">
+            <span className="block">Domine o Computador</span>
+            <span className="block">
+              em{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  30 Dias
+                </span>
+                <span className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-primary/30 to-accent/30 -skew-x-12" />
+              </span>
+            </span>
           </h1>
-          <p className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto mt-3 px-4">
-            Aprenda informática do zero e comece a usar o computador com <strong className="text-white">confiança</strong>.
+          <p className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium">
+            Mesmo começando do zero
           </p>
         </div>
 
         {/* Destaque Acesso Vitalício */}
         <div className="flex flex-wrap justify-center gap-2 mb-3 md:mb-5">
-          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-            <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
-          </div>
           <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
             <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
             <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
+          </div>
+          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+            <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
           </div>
         </div>
 
@@ -130,18 +139,11 @@ export const HeroV2 = () => {
             )}
           </div>
           
-          {/* Texto abaixo do vídeo */}
-          <p className="text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-5 px-4">
-            Chega de passar vergonha pedindo ajuda para usar o computador. O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, assim como você, tinham medo de errar e vergonha de pedir ajuda.
+          {/* Texto de prova social abaixo do vídeo */}
+          <p className="text-sm md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
+            O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
+            assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
-
-          {/* Banner de identificação */}
-          <div className="max-w-3xl mx-auto mt-5 px-5 py-4 md:px-8 md:py-5 bg-white/5 backdrop-blur-sm border border-white/15 rounded-xl text-center">
-            
-            <p className="text-sm md:text-lg text-slate-200 leading-relaxed">
-              Esse curso é para quem quer aprender informática de forma <strong className="text-white">simples</strong>, <strong className="text-primary">prática</strong> e no <strong className="text-white">seu próprio ritmo</strong>.
-            </p>
-          </div>
         </div>
 
         {/* Seção Aula Gratuita - Acima da faixa azul */}
