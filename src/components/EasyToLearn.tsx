@@ -104,6 +104,11 @@ export const EasyToLearn = () => {
             </div>
           </div>
 
+          {/* Frase de autoridade */}
+          <p className="text-center text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mt-6 md:mt-8 leading-relaxed">
+            Aprenda com quem já ensinou mais de <strong className="text-foreground">15.000 alunos</strong> e tem mais de <strong className="text-foreground">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
+          </p>
+
           {/* Seção de Preço */}
           <div className="max-w-2xl mx-auto mt-10">
             {/* Frase de impacto */}
