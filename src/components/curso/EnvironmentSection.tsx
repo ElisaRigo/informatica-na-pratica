@@ -24,7 +24,7 @@ export const EnvironmentSection = () => {
   }, []);
 
   return (
-    <section className="py-8 md:py-12 bg-white relative overflow-hidden">
+    <section className="py-8 md:py-12 bg-slate-900 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -34,21 +34,21 @@ export const EnvironmentSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div ref={sectionRef} className="max-w-4xl mx-auto">
           <div className="text-center mb-4">
-            <div className="inline-flex items-center gap-2.5 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm md:text-base font-bold mb-3 border border-primary/20">
+            <div className="inline-flex items-center gap-2.5 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm md:text-base font-bold mb-3 border border-primary/30">
               <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
               🎬 Conheça um Pouco Mais
             </div>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-2">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2">
               Veja como é <span className="text-primary">uma aula real</span> do curso
             </h3>
-            <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
+            <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
               Essa é uma das +90 aulas do curso completo. Assista e sinta a didática simples, passo a passo, feita pra você!
             </p>
           </div>
 
           {/* Video da aula */}
           {shouldLoad && (
-            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-slate-200 mb-3">
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
               {!isPlaying ? (
                 <div 
                   className="relative aspect-video cursor-pointer group"
@@ -63,7 +63,7 @@ export const EnvironmentSection = () => {
                   
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/80 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:shadow-2xl cursor-pointer">
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
                       <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                     </div>
                   </div>
@@ -98,10 +98,10 @@ export const EnvironmentSection = () => {
               { icon: Shield, label: "Risco Zero", sublabel: "Teste por 7 dias" },
               { icon: Award, label: "+90 Aulas Assim", sublabel: "Curso completo" },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-slate-50 rounded-lg md:rounded-xl border border-slate-200">
+              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
                 <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
-                <span className="text-foreground font-bold text-xs md:text-sm">{item.label}</span>
-                <span className="text-muted-foreground text-[10px] md:text-xs">{item.sublabel}</span>
+                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
               </div>
             ))}
           </div>
@@ -110,7 +110,7 @@ export const EnvironmentSection = () => {
           <div className="text-center">
             <button
               onClick={() => (window as any).openCheckout?.()}
-              className="group relative w-full max-w-xl mx-auto flex items-center justify-center gap-2 bg-gradient-to-r from-primary/10 to-primary/5 text-foreground font-bold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-xl border border-primary/30 hover:border-primary/50 hover:from-primary/20 hover:to-primary/10 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="group relative w-full max-w-xl mx-auto flex items-center justify-center gap-2 bg-gradient-to-r from-primary/25 to-primary/15 backdrop-blur-sm text-white font-bold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-xl border border-primary/40 hover:border-primary/60 hover:from-primary/35 hover:to-primary/25 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]"
             >
               <span className="text-lg animate-pulse">💚</span>
               <span>

@@ -43,24 +43,18 @@ const faqs = [
 
 export const FAQV2 = () => {
   return (
-    <section className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-16 md:py-24 bg-white">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-primary/30">
+          <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <HelpCircle className="w-4 h-4" />
             Dúvidas Frequentes
           </span>
           
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-black text-foreground mb-6">
             Ainda tem <span className="text-primary">dúvidas</span>?
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Confira as perguntas mais comuns dos nossos alunos
           </p>
         </div>
@@ -71,12 +65,12 @@ export const FAQV2 = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 px-6 shadow-sm hover:border-white/20 transition-all"
+                className="bg-slate-50 rounded-xl border-none px-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                <AccordionTrigger className="text-left font-bold text-white hover:text-primary py-5 hover:no-underline">
+                <AccordionTrigger className="text-left font-bold text-foreground hover:text-primary py-5 hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-slate-300 pb-5 leading-relaxed">
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -86,7 +80,7 @@ export const FAQV2 = () => {
 
         {/* Final CTA */}
         <div className="text-center mt-12">
-          <p className="text-lg text-slate-300 mb-4">
+          <p className="text-lg text-muted-foreground mb-4">
             Não encontrou sua dúvida? Fale diretamente com a professora:
           </p>
           <a
