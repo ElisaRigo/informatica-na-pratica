@@ -53,6 +53,16 @@ const Index = () => {
       {/* 📜 CERTIFICADO - Prova tangível de conquista */}
       <CertificateSection />
       
+      {/* 6️⃣ INSTRUTORA - Autoridade (logo após certificado) */}
+      <InstructorSection />
+      
+      {/* 🎯 CTA ESTRATÉGICO - Após conhecer a professora */}
+      <StrategicCTAV2 
+        headline="Quero aprender com a Elisa!"
+        buttonText="Sim, Quero Ser Aluno(a)"
+        variant="light"
+      />
+      
       {/* 3️⃣ PROBLEMA - Identifique a dor */}
       <ProblemSection />
       
@@ -67,16 +77,6 @@ const Index = () => {
       
       {/* 5️⃣ CONTEÚDO - O que está incluído */}
       <ContentSectionV2 />
-      
-      {/* 6️⃣ INSTRUTORA - Autoridade */}
-      <InstructorSection />
-      
-      {/* 🎯 CTA ESTRATÉGICO 3 - Após conhecer a professora */}
-      <StrategicCTAV2 
-        headline="Quero aprender com a Elisa!"
-        buttonText="Sim, Quero Ser Aluno(a)"
-        variant="light"
-      />
       
       {/* 8️⃣ DEPOIMENTOS - Prova social */}
       <TestimonialsV2 />
