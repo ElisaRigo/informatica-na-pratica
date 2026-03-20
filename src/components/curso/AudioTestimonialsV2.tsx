@@ -261,8 +261,24 @@ export const AudioTestimonialsV2 = () => {
           ))}
         </div>
 
+        {/* CTA integrado */}
+        <div className="text-center mt-10 space-y-4">
+          <h3 className="text-2xl md:text-3xl font-black text-white">
+            Eu também quero aprender!
+          </h3>
+          <button
+            onClick={() => (window as any).openCheckout?.()}
+            className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:shadow-[0_0_40px_rgba(34,197,94,0.6)] transition-all hover:scale-105 active:scale-[0.98]"
+          >
+            Quero Aprender Informática sem Medo →
+          </button>
+          <p className="text-slate-400 text-sm flex items-center justify-center gap-2">
+            🔒 Pagamento seguro · Garantia de 7 dias · Acesso imediato
+          </p>
+        </div>
+
         {/* Footer text */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-8">
           <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
             <span className="text-2xl">💬</span>
             <span className="text-slate-300 text-sm md:text-base font-medium">
