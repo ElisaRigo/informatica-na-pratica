@@ -1,4 +1,4 @@
-import { MessageCircle, Play, Pause, Volume2, Smartphone, ThumbsUp } from "lucide-react";
+import { MessageCircle, Play, Pause, Volume2, Smartphone, ThumbsUp, Heart } from "lucide-react";
 import { useState, useRef } from "react";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
