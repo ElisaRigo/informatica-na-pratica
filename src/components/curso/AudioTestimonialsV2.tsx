@@ -42,7 +42,40 @@ const whatsappScreenshots = [
   },
 ];
 
-const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
+const miniComments = [
+  {
+    text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌",
+    name: "Luciana M.",
+    time: "14:32",
+  },
+  {
+    text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍",
+    name: "Dona Tereza",
+    time: "09:15",
+  },
+  {
+    text: "Melhor investimento que fiz! Já indiquei pra toda família",
+    name: "Carlos A.",
+    time: "18:47",
+  },
+  {
+    text: "Ganhei uma promoção no trabalho por causa do curso! 🎉",
+    name: "Juliana R.",
+    time: "11:03",
+  },
+  {
+    text: "Achei que era difícil mas a didática é perfeita, parabéns!",
+    name: "Marcos V.",
+    time: "16:21",
+  },
+  {
+    text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏",
+    name: "Patrícia S.",
+    time: "20:08",
+  },
+];
+
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [hasError, setHasError] = useState(false);
