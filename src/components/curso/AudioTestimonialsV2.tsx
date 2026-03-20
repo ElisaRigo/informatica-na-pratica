@@ -125,7 +125,7 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
         {/* Info and Progress */}
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-foreground font-semibold text-sm">{testimonial.name}</span>
+            <span className="text-white font-semibold text-sm">{testimonial.name}</span>
             <Volume2 className="w-3 h-3 text-primary" />
           </div>
           <p className="text-muted-foreground text-xs mb-2">
