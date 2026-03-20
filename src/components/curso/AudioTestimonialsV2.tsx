@@ -205,7 +205,7 @@ export const AudioTestimonialsV2 = () => {
           <div className="order-2 lg:order-1">
             <div className="flex items-center gap-2 mb-4">
               <Volume2 className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold text-foreground">Áudios de Alunos</h3>
+              <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
             </div>
             <div className="space-y-3">
               {audioTestimonials.map((testimonial, index) => (
