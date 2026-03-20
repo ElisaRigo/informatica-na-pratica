@@ -98,7 +98,7 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
   };
 
   return (
-    <div className={`bg-white border rounded-xl p-4 transition-all shadow-sm ${hasError ? 'border-red-500/30 opacity-50' : 'border-slate-200 hover:border-primary/30 hover:shadow-md'}`}>
+    <div className={`bg-white/5 backdrop-blur-sm border rounded-xl p-4 transition-all ${hasError ? 'border-red-500/30 opacity-50' : 'border-white/10 hover:border-primary/30'}`}>
       <audio
         ref={audioRef}
         src={testimonial.audioSrc}
@@ -125,15 +125,15 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
         {/* Info and Progress */}
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-foreground font-semibold text-sm">{testimonial.name}</span>
+            <span className="text-white font-semibold text-sm">{testimonial.name}</span>
             <Volume2 className="w-3 h-3 text-primary" />
           </div>
-          <p className="text-muted-foreground text-xs mb-2">
+          <p className="text-slate-400 text-xs mb-2">
             {hasError ? "Áudio não disponível" : testimonial.description}
           </p>
           
           {/* Progress Bar */}
-          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-100"
               style={{ width: `${progress}%` }}
@@ -147,7 +147,7 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
 
 export const AudioTestimonialsV2 = () => {
   return (
-    <section className="py-12 md:py-16 bg-slate-50 relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
@@ -157,15 +157,15 @@ export const AudioTestimonialsV2 = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-success/10 border-2 border-success/30 rounded-full px-5 py-2.5 mb-5">
+          <div className="inline-flex items-center gap-2 bg-success/20 border-2 border-success/50 rounded-full px-5 py-2.5 mb-5 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
             <MessageCircle className="w-5 h-5 text-success animate-pulse" />
             <span className="text-success text-sm md:text-base font-bold uppercase tracking-wide">Direto do WhatsApp</span>
           </div>
           
-          <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
             Veja como alunos que não sabiam nada <span className="text-success">hoje dominam o computador</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
+          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-medium">
             Eles começaram do zero e hoje usam o computador com <span className="text-success font-bold">confiança no dia a dia</span>
           </p>
         </div>
@@ -177,17 +177,17 @@ export const AudioTestimonialsV2 = () => {
           <div className="order-1 lg:order-2">
             <div className="flex items-center gap-2 mb-4">
               <Smartphone className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
+              <h3 className="text-lg font-bold text-white">Prints de Conversas</h3>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {whatsappScreenshots.map((screenshot, index) => (
                 <div 
                   key={index} 
-                  className="bg-slate-200 rounded-xl p-1.5 shadow-lg"
+                  className="bg-slate-800 rounded-xl p-1.5 shadow-xl"
                 >
-                  <div className="bg-slate-300 rounded-t-lg pt-1.5 pb-0.5 px-3">
+                  <div className="bg-slate-700 rounded-t-lg pt-1.5 pb-0.5 px-3">
                     <div className="flex items-center justify-center">
-                      <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
+                      <div className="w-10 h-0.5 bg-slate-600 rounded-full"></div>
                     </div>
                   </div>
                   <img 
@@ -205,7 +205,7 @@ export const AudioTestimonialsV2 = () => {
           <div className="order-2 lg:order-1">
             <div className="flex items-center gap-2 mb-4">
               <Volume2 className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold text-foreground">Áudios de Alunos</h3>
+              <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
             </div>
             <div className="space-y-3">
               {audioTestimonials.map((testimonial, index) => (
@@ -217,10 +217,10 @@ export const AudioTestimonialsV2 = () => {
 
         {/* Highlight phrase */}
         <div className="text-center my-8 max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-snug">
+          <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-snug">
             Se essas pessoas conseguiram, <span className="text-success">você também consegue.</span>
             <br />
-            <span className="text-muted-foreground font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+            <span className="text-slate-300 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
           </p>
         </div>
 
@@ -263,9 +263,9 @@ export const AudioTestimonialsV2 = () => {
 
         {/* Footer text */}
         <div className="text-center mt-10">
-          <div className="inline-flex items-center gap-3 bg-slate-100 border border-slate-200 rounded-full px-6 py-3">
+          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
             <span className="text-2xl">💬</span>
-            <span className="text-muted-foreground text-sm md:text-base font-medium">
+            <span className="text-slate-300 text-sm md:text-base font-medium">
               Depoimentos <span className="text-success font-bold">100% reais</span> recebidos dos alunos
             </span>
           </div>
