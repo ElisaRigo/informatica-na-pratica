@@ -74,7 +74,7 @@ const miniComments = [
     time: "20:08",
   },
 ];
-
+const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
