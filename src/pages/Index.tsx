@@ -50,6 +50,9 @@ const Index = () => {
       {/* 2️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
       <AudioTestimonialsV2 />
       
+      {/* 3️⃣ PROBLEMA - Identifique a dor */}
+      <ProblemSection />
+      
       {/* 📜 CERTIFICADO - Prova tangível de conquista */}
       <CertificateSection />
       
@@ -62,9 +65,6 @@ const Index = () => {
         buttonText="Sim, Quero Ser Aluno(a)"
         variant="light"
       />
-      
-      {/* 3️⃣ PROBLEMA - Identifique a dor */}
-      <ProblemSection />
       
       {/* 🏠 AMBIENTE DE AULA - Antes do suporte */}
       <EnvironmentSection />
