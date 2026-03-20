@@ -42,37 +42,15 @@ const whatsappScreenshots = [
   },
 ];
 
-const miniComments = [
-  {
-    text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌",
-    name: "Luciana M.",
-    time: "14:32",
-  },
-  {
-    text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍",
-    name: "Dona Tereza",
-    time: "09:15",
-  },
-  {
-    text: "Melhor investimento que fiz! Já indiquei pra toda família",
-    name: "Carlos A.",
-    time: "18:47",
-  },
-  {
-    text: "Ganhei uma promoção no trabalho por causa do curso! 🎉",
-    name: "Juliana R.",
-    time: "11:03",
-  },
-  {
-    text: "Achei que era difícil mas a didática é perfeita, parabéns!",
-    name: "Marcos V.",
-    time: "16:21",
-  },
-  {
-    text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏",
-    name: "Patrícia S.",
-    time: "20:08",
-  },
+const facebookComments = [
+  { name: "Luciana Mendes", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", likes: 14, avatar: "👩‍🦳" },
+  { name: "Tereza Souza", text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍", time: "5 h", likes: 23, avatar: "👵" },
+  { name: "Carlos Almeida", text: "Melhor investimento que fiz! Já indiquei pra toda família", time: "1 d", likes: 8, avatar: "👨‍🦰" },
+  { name: "Juliana Ribeiro", text: "Ganhei uma promoção no trabalho por causa do curso! 🎉", time: "3 d", likes: 31, avatar: "👩" },
+  { name: "Marcos Vieira", text: "Achei que era difícil mas a didática é perfeita, parabéns!", time: "1 sem", likes: 12, avatar: "👴" },
+  { name: "Patrícia Santos", text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏", time: "1 sem", likes: 19, avatar: "👩‍🦱" },
+  { name: "Roberto Lima", text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪", time: "2 sem", likes: 7, avatar: "👨‍🦳" },
+  { name: "Maria das Graças", text: "Com 68 anos aprendi a mexer no celular e no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42, avatar: "👵" },
 ];
 const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
 
