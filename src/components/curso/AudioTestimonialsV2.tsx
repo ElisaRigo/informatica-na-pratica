@@ -205,26 +205,34 @@ export const AudioTestimonialsV2 = () => {
           </div>
         </div>
 
-        {/* Mini WhatsApp-style comments - Full width below the grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mt-6 max-w-6xl mx-auto">
-          {miniComments.map((comment, index) => (
-            <div
-              key={index}
-              className="bg-[#d9fdd3] rounded-lg px-3 py-2 relative shadow-md"
-            >
-              <p className="text-gray-800 text-xs leading-relaxed">{comment.text}</p>
-              <div className="flex items-center justify-between mt-1">
-                <span className="text-[10px] text-gray-500 font-medium">{comment.name}</span>
-                <span className="text-[10px] text-gray-400 flex items-center gap-0.5">
-                  {comment.time}
-                  <svg viewBox="0 0 16 11" width="16" height="11" className="text-[#53bdeb]">
-                    <path d="M11.071.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-2.011-2.095a.463.463 0 0 0-.349-.149.508.508 0 0 0-.37.166.544.544 0 0 0-.163.373c0 .136.055.26.163.357l2.32 2.42a.542.542 0 0 0 .312.17.478.478 0 0 0 .382-.126l6.654-8.135a.493.493 0 0 0 .145-.359.467.467 0 0 0-.208-.334z" fill="currentColor"/>
-                    <path d="M14.757.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-1.2-1.25-.313.39 1.205 1.258a.542.542 0 0 0 .312.17.478.478 0 0 0 .382-.126l6.654-8.135a.493.493 0 0 0 .145-.359.467.467 0 0 0-.31-.334z" fill="currentColor"/>
-                  </svg>
-                </span>
+        {/* Facebook-style comments */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 max-w-6xl mx-auto">
+          {facebookComments.map((comment, index) => (
+            <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
+              <div className="flex gap-2">
+                <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-base flex-shrink-0">
+                  {comment.avatar}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="bg-slate-100 rounded-2xl px-3 py-2">
+                    <p className="text-gray-900 text-xs font-semibold leading-none mb-1">{comment.name}</p>
+                    <p className="text-gray-700 text-xs leading-relaxed">{comment.text}</p>
+                  </div>
+                  <div className="flex items-center gap-3 mt-1 px-2">
+                    <span className="text-[11px] text-gray-500 font-medium cursor-pointer hover:underline">Curtir</span>
+                    <span className="text-[11px] text-gray-500 font-medium cursor-pointer hover:underline">Responder</span>
+                    <span className="text-[11px] text-gray-400">{comment.time}</span>
+                    {comment.likes > 0 && (
+                      <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
+                        <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
+                          <svg viewBox="0 0 16 16" width="10" height="10" fill="white"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.457 4.02c-.837 0-1.34.603-1.34 1.204 0 .873.903 1.9 1.87 2.836.097.094.189.183.271.264.085.084.244.084.33 0 .081-.081.174-.17.27-.264.968-.936 1.871-1.963 1.871-2.836 0-.601-.502-1.204-1.34-1.204-.535 0-.866.293-1.066.513a.168.168 0 0 1-.256 0c-.2-.22-.53-.513-1.06-.513z"/></svg>
+                        </span>
+                        {comment.likes}
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
-              {/* WhatsApp tail */}
-              <div className="absolute -bottom-1 right-3 w-2 h-2 bg-[#d9fdd3] rotate-45" />
             </div>
           ))}
         </div>
