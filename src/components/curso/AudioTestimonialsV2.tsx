@@ -128,7 +128,7 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
             <span className="text-white font-semibold text-sm">{testimonial.name}</span>
             <Volume2 className="w-3 h-3 text-primary" />
           </div>
-          <p className="text-muted-foreground text-xs mb-2">
+          <p className="text-slate-400 text-xs mb-2">
             {hasError ? "Áudio não disponível" : testimonial.description}
           </p>
           
