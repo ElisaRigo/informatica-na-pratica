@@ -50,10 +50,7 @@ const whatsappScreenshots = [
   },
 ];
 
-const avatarColors = [
-  "bg-rose-400", "bg-sky-400", "bg-amber-400", "bg-emerald-400",
-  "bg-violet-400", "bg-orange-400", "bg-teal-400", "bg-pink-400",
-];
+const avatarImages = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8];
 
 const facebookComments = [
   { name: "Luciana M.", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", likes: 14 },
