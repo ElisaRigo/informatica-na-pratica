@@ -50,36 +50,54 @@ const whatsappScreenshots = [
   },
 ];
 
-const miniComments = [
+const facebookComments = [
+  {
+    text: "To fazendo as aulas prof explica bem tá legal",
+    name: "Jp Santos",
+    time: "1 sem",
+    avatar: avatarMan2,
+  },
+  {
+    text: "O curso é muito bom ajudou eu a ter confiança com o computador prof elisa top",
+    name: "Nicollas Fran",
+    time: "1 sem",
+    avatar: avatarMan1,
+  },
   {
     text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌",
-    name: "Luciana M.",
-    time: "14:32",
+    name: "Luciana Moreira",
+    time: "3 d",
+    avatar: avatarWoman1,
   },
   {
     text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍",
     name: "Dona Tereza",
-    time: "09:15",
+    time: "5 d",
+    avatar: avatarWoman2,
   },
   {
     text: "Melhor investimento que fiz! Já indiquei pra toda família",
-    name: "Carlos A.",
-    time: "18:47",
+    name: "Carlos Augusto",
+    time: "1 sem",
+    avatar: avatarMan3,
   },
   {
     text: "Ganhei uma promoção no trabalho por causa do curso! 🎉",
-    name: "Juliana R.",
-    time: "11:03",
+    name: "Juliana Ribeiro",
+    time: "4 d",
+    avatar: avatarWoman4,
   },
   {
     text: "Achei que era difícil mas a didática é perfeita, parabéns!",
-    name: "Marcos V.",
-    time: "16:21",
+    name: "Marcos Vieira",
+    time: "6 d",
+    avatar: avatarMan4,
   },
   {
     text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏",
-    name: "Patrícia S.",
-    time: "20:08",
+    name: "Patrícia Santos",
+    time: "2 d",
+    avatar: avatarWoman3,
   },
 ];
 const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
