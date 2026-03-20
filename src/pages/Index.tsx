@@ -52,11 +52,7 @@ const Index = () => {
       {/* 3️⃣ PROBLEMA - Identifique a dor */}
       <ProblemSection />
       
-      {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
-      <StrategicCTAV2 
-        headline="Eu também quero aprender!"
-        buttonText="Quero Aprender Informática sem Medo"
-      />
+      
       
       {/* 📜 CERTIFICADO - Prova tangível de conquista */}
       <CertificateSection />
