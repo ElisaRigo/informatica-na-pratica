@@ -217,10 +217,10 @@ export const AudioTestimonialsV2 = () => {
 
         {/* Highlight phrase */}
         <div className="text-center my-8 max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-snug">
+          <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-snug">
             Se essas pessoas conseguiram, <span className="text-success">você também consegue.</span>
             <br />
-            <span className="text-muted-foreground font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+            <span className="text-slate-300 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
           </p>
         </div>
 
