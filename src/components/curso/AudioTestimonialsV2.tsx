@@ -148,58 +148,34 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
 export const AudioTestimonialsV2 = () => {
   return (
     <>
-      {/* Header com impacto visual */}
-      <div className="bg-gradient-to-b from-white via-white to-slate-50 py-14 md:py-20 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-72 h-72 bg-sky-100/60 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-100/40 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto">
-            {/* Barra de credibilidade */}
-            <div className="inline-flex items-center gap-3 sm:gap-5 bg-slate-50 border border-slate-200 shadow-sm px-5 py-2.5 rounded-full mb-8">
+      {/* Header com fundo claro */}
+      <div className="bg-white py-10 md:py-14">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            {/* Barra de credibilidade com número real */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-6">
               <div className="flex items-center gap-1.5">
-                <div className="flex -space-x-2.5">
+                <div className="flex -space-x-2">
                   {avatarImages.slice(0, 5).map((av, i) => (
-                    <img key={i} src={av} alt="" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" />
+                    <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
                   ))}
                 </div>
-                <span className="text-foreground text-sm font-bold ml-1.5">+15.000 alunos</span>
+                <span className="text-foreground text-sm font-bold ml-1">+15.000 alunos</span>
               </div>
-              <div className="w-px h-5 bg-slate-200" />
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-amber-400 text-base">★</span>
+                  <span key={i} className="text-amber-400 text-lg">★</span>
                 ))}
-                <span className="text-foreground text-sm font-bold ml-1">4.9/5</span>
+                <span className="text-foreground text-sm font-semibold ml-1">4.9/5</span>
               </div>
             </div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-5 leading-[1.1] tracking-tight">
-              Veja o que dizem os alunos<br />
-              que <span className="relative inline-block">
-                <span className="text-sky-500">saíram do zero</span>
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 8C40 2 80 2 100 5C120 8 160 10 198 4" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" opacity="0.4"/>
-                </svg>
-              </span>
+            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4 leading-tight">
+              Veja o que dizem os alunos que <span className="text-sky-500">saíram do zero</span>
             </h2>
-            
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Histórias reais de pessoas que <strong className="text-foreground font-bold">não sabiam nem ligar o computador</strong> — e hoje usam com total confiança
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
+              Histórias reais de pessoas que <span className="text-foreground font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total confiança
             </p>
-
-            {/* Mini social proof strip */}
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                <span className="font-medium">Depoimentos 100% reais</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MessageCircle className="w-4 h-4 text-primary" />
-                <span className="font-medium">Áudios e prints verificados</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
