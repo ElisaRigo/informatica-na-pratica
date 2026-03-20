@@ -220,7 +220,7 @@ export const AudioTestimonialsV2 = () => {
           {facebookComments.map((comment, index) => (
              <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
-                <div className={`w-8 h-8 rounded-full ${avatarColors[index % avatarColors.length]} flex-shrink-0 blur-[3px]`} />
+                <img src={avatarImages[index % avatarImages.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
                 <div className="flex-1 min-w-0">
                   <div className="bg-slate-100 rounded-2xl px-3 py-2">
                     <p className="text-gray-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
@@ -233,7 +233,7 @@ export const AudioTestimonialsV2 = () => {
                     {comment.likes > 0 && (
                       <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
                         <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                          <svg viewBox="0 0 16 16" width="10" height="10" fill="white"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.457 4.02c-.837 0-1.34.603-1.34 1.204 0 .873.903 1.9 1.87 2.836.097.094.189.183.271.264.085.084.244.084.33 0 .081-.081.174-.17.27-.264.968-.936 1.871-1.963 1.871-2.836 0-.601-.502-1.204-1.34-1.204-.535 0-.866.293-1.066.513a.168.168 0 0 1-.256 0c-.2-.22-.53-.513-1.06-.513z"/></svg>
+                          <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
                         </span>
                         {comment.likes}
                       </span>
