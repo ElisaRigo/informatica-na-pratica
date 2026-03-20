@@ -213,20 +213,18 @@ export const AudioTestimonialsV2 = () => {
         {/* Facebook-style comments */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 max-w-6xl mx-auto">
           {facebookComments.map((comment, index) => (
-            <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
+             <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
-                <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-base flex-shrink-0">
-                  {comment.avatar}
-                </div>
+                <div className={`w-8 h-8 rounded-full ${avatarColors[index % avatarColors.length]} flex-shrink-0 blur-[3px]`} />
                 <div className="flex-1 min-w-0">
                   <div className="bg-slate-100 rounded-2xl px-3 py-2">
-                    <p className="text-gray-900 text-xs font-semibold leading-none mb-1">{comment.name}</p>
+                    <p className="text-gray-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
                     <p className="text-gray-700 text-xs leading-relaxed">{comment.text}</p>
                   </div>
                   <div className="flex items-center gap-3 mt-1 px-2">
+                    <span className="text-[11px] text-gray-400">{comment.time}</span>
                     <span className="text-[11px] text-gray-500 font-medium cursor-pointer hover:underline">Curtir</span>
                     <span className="text-[11px] text-gray-500 font-medium cursor-pointer hover:underline">Responder</span>
-                    <span className="text-[11px] text-gray-400">{comment.time}</span>
                     {comment.likes > 0 && (
                       <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
                         <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
