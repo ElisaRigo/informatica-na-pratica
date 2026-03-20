@@ -98,7 +98,7 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
   };
 
   return (
-    <div className={`bg-white/5 backdrop-blur-sm border rounded-xl p-4 transition-all ${hasError ? 'border-red-500/30 opacity-50' : 'border-white/10 hover:border-primary/30'}`}>
+    <div className={`bg-white border rounded-xl p-4 transition-all shadow-sm ${hasError ? 'border-red-500/30 opacity-50' : 'border-slate-200 hover:border-primary/30 hover:shadow-md'}`}>
       <audio
         ref={audioRef}
         src={testimonial.audioSrc}
