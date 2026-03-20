@@ -147,31 +147,37 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
 
 export const AudioTestimonialsV2 = () => {
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-success/5 rounded-full blur-3xl" />
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3 mb-5">
-            <span className="text-2xl">💬</span>
-            <span className="text-slate-300 text-sm md:text-base font-medium">
-              Depoimentos <span className="text-success font-bold">100% reais</span> recebidos dos alunos
-            </span>
-          </div>
+    <>
+      {/* Header com fundo claro */}
+      <div className="bg-white py-10 md:py-14">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 bg-success/10 border border-success/20 rounded-full px-6 py-3 mb-5">
+              <span className="text-2xl">💬</span>
+              <span className="text-foreground text-sm md:text-base font-medium">
+                Depoimentos <span className="text-success font-bold">100% reais</span> recebidos dos alunos
+              </span>
+            </div>
 
-          
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
-            Veja como alunos que não sabiam nada <span className="text-success">hoje dominam o computador</span>
-          </h2>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-medium">
-            Eles começaram do zero e hoje usam o computador com <span className="text-success font-bold">confiança no dia a dia</span>
-          </p>
+            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4 leading-tight">
+              Veja como alunos que não sabiam nada <span className="text-success">hoje dominam o computador</span>
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
+              Eles começaram do zero e hoje usam o computador com <span className="text-success font-bold">confiança no dia a dia</span>
+            </p>
+          </div>
         </div>
+      </div>
+
+      {/* Conteúdo com fundo escuro */}
+      <section className="py-12 md:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-success/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
 
         {/* Two Column Layout: Screenshots first on mobile, Audios + Screenshots side by side on desktop */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
