@@ -164,10 +164,6 @@ export const AudioTestimonialsV2 = () => {
             </span>
           </div>
 
-          <div className="inline-flex items-center gap-2 bg-success/20 border-2 border-success/50 rounded-full px-5 py-2.5 mb-5 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-            <MessageCircle className="w-5 h-5 text-success animate-pulse" />
-            <span className="text-success text-sm md:text-base font-bold uppercase tracking-wide">Direto do WhatsApp</span>
-          </div>
           
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
             Veja como alunos que não sabiam nada <span className="text-success">hoje dominam o computador</span>
