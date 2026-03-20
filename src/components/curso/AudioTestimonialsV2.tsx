@@ -152,7 +152,7 @@ export const AudioTestimonialsV2 = () => {
         {/* Two Column Layout: Screenshots first on mobile, Audios + Screenshots side by side on desktop */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
-          {/* WhatsApp Screenshots - First on mobile (order-1 on mobile, order-2 on lg) */}
+          {/* WhatsApp Screenshots + Mini Comments - First on mobile */}
           <div className="order-1 lg:order-2">
             <div className="flex items-center gap-2 mb-4">
               <Smartphone className="w-5 h-5 text-primary" />
@@ -164,7 +164,6 @@ export const AudioTestimonialsV2 = () => {
                   key={index} 
                   className="bg-slate-800 rounded-xl p-1.5 shadow-xl"
                 >
-                  {/* Phone Frame */}
                   <div className="bg-slate-700 rounded-t-lg pt-1.5 pb-0.5 px-3">
                     <div className="flex items-center justify-center">
                       <div className="w-10 h-0.5 bg-slate-600 rounded-full"></div>
@@ -176,6 +175,24 @@ export const AudioTestimonialsV2 = () => {
                     className="w-full h-auto rounded-b-md"
                     loading="lazy"
                   />
+                </div>
+              ))}
+            </div>
+
+            {/* Mini WhatsApp-style comments */}
+            <div className="grid grid-cols-2 gap-2 mt-3">
+              {miniComments.map((comment, index) => (
+                <div
+                  key={index}
+                  className="bg-[#005c4b] rounded-lg px-3 py-2 relative shadow-md"
+                >
+                  <p className="text-white/95 text-xs leading-relaxed">{comment.text}</p>
+                  <div className="flex items-center justify-between mt-1">
+                    <span className="text-[10px] text-white/50 font-medium">{comment.name}</span>
+                    <span className="text-[10px] text-white/40">{comment.time}</span>
+                  </div>
+                  {/* WhatsApp tail */}
+                  <div className="absolute -bottom-1 right-3 w-2 h-2 bg-[#005c4b] rotate-45" />
                 </div>
               ))}
             </div>
