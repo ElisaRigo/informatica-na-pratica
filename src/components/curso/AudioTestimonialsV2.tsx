@@ -215,8 +215,17 @@ export const AudioTestimonialsV2 = () => {
           </div>
         </div>
 
+        {/* Highlight phrase */}
+        <div className="text-center my-8 max-w-4xl mx-auto">
+          <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-snug">
+            Se essas pessoas conseguiram, <span className="text-success">você também consegue.</span>
+            <br />
+            <span className="text-slate-300 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+          </p>
+        </div>
+
         {/* Facebook-style comments */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
           {facebookComments.map((comment, index) => (
              <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
@@ -257,7 +266,7 @@ export const AudioTestimonialsV2 = () => {
           <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
             <span className="text-2xl">💬</span>
             <span className="text-slate-300 text-sm md:text-base font-medium">
-              Depoimentos <span className="text-success font-bold">100% reais</span> recebidos no WhatsApp
+              Depoimentos <span className="text-success font-bold">100% reais</span> recebidos dos alunos
             </span>
           </div>
         </div>
