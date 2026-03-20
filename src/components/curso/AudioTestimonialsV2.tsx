@@ -250,8 +250,6 @@ export const AudioTestimonialsV2 = () => {
             </div>
           ))}
         </div>
-          </div>
-        </div>
 
         {/* Footer text */}
         <div className="text-center mt-10">
