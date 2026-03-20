@@ -217,15 +217,21 @@ export const AudioTestimonialsV2 = () => {
               {miniComments.map((comment, index) => (
                 <div
                   key={index}
-                  className="bg-[#005c4b] rounded-lg px-3 py-2 relative shadow-md"
+                  className="bg-[#d9fdd3] rounded-lg px-3 py-2 relative shadow-md"
                 >
-                  <p className="text-white/95 text-xs leading-relaxed">{comment.text}</p>
+                  <p className="text-gray-800 text-xs leading-relaxed">{comment.text}</p>
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-[10px] text-white/50 font-medium">{comment.name}</span>
-                    <span className="text-[10px] text-white/40">{comment.time}</span>
+                    <span className="text-[10px] text-gray-500 font-medium">{comment.name}</span>
+                    <span className="text-[10px] text-gray-400 flex items-center gap-0.5">
+                      {comment.time}
+                      <svg viewBox="0 0 16 11" width="16" height="11" className="text-[#53bdeb]">
+                        <path d="M11.071.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-2.011-2.095a.463.463 0 0 0-.349-.149.508.508 0 0 0-.37.166.544.544 0 0 0-.163.373c0 .136.055.26.163.357l2.32 2.42a.542.542 0 0 0 .312.17.478.478 0 0 0 .382-.126l6.654-8.135a.493.493 0 0 0 .145-.359.467.467 0 0 0-.208-.334z" fill="currentColor"/>
+                        <path d="M14.757.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-1.2-1.25-.313.39 1.205 1.258a.542.542 0 0 0 .312.17.478.478 0 0 0 .382-.126l6.654-8.135a.493.493 0 0 0 .145-.359.467.467 0 0 0-.31-.334z" fill="currentColor"/>
+                      </svg>
+                    </span>
                   </div>
                   {/* WhatsApp tail */}
-                  <div className="absolute -bottom-1 right-3 w-2 h-2 bg-[#005c4b] rotate-45" />
+                  <div className="absolute -bottom-1 right-3 w-2 h-2 bg-[#d9fdd3] rotate-45" />
                 </div>
               ))}
             </div>
