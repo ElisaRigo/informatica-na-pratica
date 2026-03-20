@@ -60,7 +60,7 @@ const facebookComments = [
   { name: "Marcos V.", text: "Achei que era difícil mas a didática é perfeita, parabéns!", time: "1 sem", likes: 12, hasHeart: false },
   { name: "Patrícia S.", text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏", time: "1 sem", likes: 19, hasHeart: true },
   { name: "Roberto L.", text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪", time: "2 sem", likes: 7, hasHeart: false },
-  { name: "Maria G.", text: "Com 68 anos aprendi a mexer no celular e no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42, hasHeart: true },
+  { name: "Maria G.", text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42, hasHeart: true },
 ];
 const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
 
