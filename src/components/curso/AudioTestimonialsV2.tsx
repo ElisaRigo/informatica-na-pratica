@@ -284,15 +284,7 @@ export const AudioTestimonialsV2 = () => {
           </p>
         </div>
 
-        {/* Footer text */}
-        <div className="text-center mt-8">
-          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
-            <span className="text-2xl">💬</span>
-            <span className="text-slate-300 text-sm md:text-base font-medium">
-              Depoimentos <span className="text-success font-bold">100% reais</span> recebidos dos alunos
-            </span>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
