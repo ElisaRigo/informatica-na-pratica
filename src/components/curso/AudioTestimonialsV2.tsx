@@ -177,7 +177,7 @@ export const AudioTestimonialsV2 = () => {
           <div className="order-1 lg:order-2">
             <div className="flex items-center gap-2 mb-4">
               <Smartphone className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold text-white">Prints de Conversas</h3>
+              <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {whatsappScreenshots.map((screenshot, index) => (
