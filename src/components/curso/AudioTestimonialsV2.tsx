@@ -1,4 +1,4 @@
-import { MessageCircle, Play, Pause, Volume2, Smartphone, ThumbsUp } from "lucide-react";
+import { MessageCircle, Play, Pause, Volume2, Smartphone, ThumbsUp, Heart } from "lucide-react";
 import { useState, useRef } from "react";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -53,14 +53,14 @@ const whatsappScreenshots = [
 const avatarImages = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8];
 
 const facebookComments = [
-  { name: "Luciana M.", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", likes: 14 },
-  { name: "Tereza S.", text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍", time: "5 h", likes: 23 },
-  { name: "Carlos A.", text: "Melhor investimento que fiz! Já indiquei pra toda família", time: "1 d", likes: 8 },
-  { name: "Juliana R.", text: "Ganhei uma promoção no trabalho por causa do curso! 🎉", time: "3 d", likes: 31 },
-  { name: "Marcos V.", text: "Achei que era difícil mas a didática é perfeita, parabéns!", time: "1 sem", likes: 12 },
-  { name: "Patrícia S.", text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏", time: "1 sem", likes: 19 },
-  { name: "Roberto L.", text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪", time: "2 sem", likes: 7 },
-  { name: "Maria G.", text: "Com 68 anos aprendi a mexer no celular e no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42 },
+  { name: "Luciana M.", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", likes: 14, hasHeart: true },
+  { name: "Tereza S.", text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍", time: "5 h", likes: 23, hasHeart: false },
+  { name: "Carlos A.", text: "Melhor investimento que fiz! Já indiquei pra toda família", time: "1 d", likes: 8, hasHeart: false },
+  { name: "Juliana R.", text: "Ganhei uma promoção no trabalho por causa do curso! 🎉", time: "3 d", likes: 31, hasHeart: true },
+  { name: "Marcos V.", text: "Achei que era difícil mas a didática é perfeita, parabéns!", time: "1 sem", likes: 12, hasHeart: false },
+  { name: "Patrícia S.", text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏", time: "1 sem", likes: 19, hasHeart: true },
+  { name: "Roberto L.", text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪", time: "2 sem", likes: 7, hasHeart: false },
+  { name: "Maria G.", text: "Com 68 anos aprendi a mexer no celular e no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42, hasHeart: true },
 ];
 const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
 
@@ -232,8 +232,15 @@ export const AudioTestimonialsV2 = () => {
                     <span className="text-[11px] text-gray-500 font-medium cursor-pointer hover:underline">Responder</span>
                     {comment.likes > 0 && (
                       <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
-                        <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                          <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
+                        <span className="flex items-center -space-x-1">
+                          <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
+                            <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
+                          </span>
+                          {comment.hasHeart && (
+                            <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0">
+                              <Heart className="w-2.5 h-2.5 text-white fill-white" />
+                            </span>
+                          )}
                         </span>
                         {comment.likes}
                       </span>
