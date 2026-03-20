@@ -1,7 +1,15 @@
-import { MessageCircle, Play, Pause, Volume2, Smartphone } from "lucide-react";
+import { MessageCircle, Play, Pause, Volume2, Smartphone, ThumbsUp } from "lucide-react";
 import { useState, useRef } from "react";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
+import avatarWoman1 from "@/assets/avatar-woman-1.jpg";
+import avatarMan1 from "@/assets/avatar-man-1.jpg";
+import avatarWoman2 from "@/assets/avatar-woman-2.jpg";
+import avatarMan2 from "@/assets/avatar-man-2.jpg";
+import avatarWoman3 from "@/assets/avatar-woman-3.jpg";
+import avatarMan3 from "@/assets/avatar-man-3.jpg";
+import avatarWoman4 from "@/assets/avatar-woman-4.jpg";
+import avatarMan4 from "@/assets/avatar-man-4.jpg";
 
 const audioTestimonials = [
   {
@@ -42,36 +50,54 @@ const whatsappScreenshots = [
   },
 ];
 
-const miniComments = [
+const facebookComments = [
+  {
+    text: "To fazendo as aulas prof explica bem tá legal",
+    name: "Jp Santos",
+    time: "1 sem",
+    avatar: avatarMan2,
+  },
+  {
+    text: "O curso é muito bom ajudou eu a ter confiança com o computador prof elisa top",
+    name: "Nicollas Fran",
+    time: "1 sem",
+    avatar: avatarMan1,
+  },
   {
     text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌",
-    name: "Luciana M.",
-    time: "14:32",
+    name: "Luciana Moreira",
+    time: "3 d",
+    avatar: avatarWoman1,
   },
   {
     text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍",
     name: "Dona Tereza",
-    time: "09:15",
+    time: "5 d",
+    avatar: avatarWoman2,
   },
   {
     text: "Melhor investimento que fiz! Já indiquei pra toda família",
-    name: "Carlos A.",
-    time: "18:47",
+    name: "Carlos Augusto",
+    time: "1 sem",
+    avatar: avatarMan3,
   },
   {
     text: "Ganhei uma promoção no trabalho por causa do curso! 🎉",
-    name: "Juliana R.",
-    time: "11:03",
+    name: "Juliana Ribeiro",
+    time: "4 d",
+    avatar: avatarWoman4,
   },
   {
     text: "Achei que era difícil mas a didática é perfeita, parabéns!",
-    name: "Marcos V.",
-    time: "16:21",
+    name: "Marcos Vieira",
+    time: "6 d",
+    avatar: avatarMan4,
   },
   {
     text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏",
-    name: "Patrícia S.",
-    time: "20:08",
+    name: "Patrícia Santos",
+    time: "2 d",
+    avatar: avatarWoman3,
   },
 ];
 const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
@@ -227,26 +253,31 @@ export const AudioTestimonialsV2 = () => {
           </div>
         </div>
 
-        {/* Mini WhatsApp-style comments - Full width below the grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mt-6 max-w-6xl mx-auto">
-          {miniComments.map((comment, index) => (
+        {/* Facebook-style comments - Full width below the grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 max-w-6xl mx-auto">
+          {facebookComments.map((comment, index) => (
             <div
               key={index}
-              className="bg-[#d9fdd3] rounded-lg px-3 py-2 relative shadow-md"
+              className="bg-white rounded-xl px-3 py-3 shadow-md"
             >
-              <p className="text-gray-800 text-xs leading-relaxed">{comment.text}</p>
-              <div className="flex items-center justify-between mt-1">
-                <span className="text-[10px] text-gray-500 font-medium">{comment.name}</span>
-                <span className="text-[10px] text-gray-400 flex items-center gap-0.5">
-                  {comment.time}
-                  <svg viewBox="0 0 16 11" width="16" height="11" className="text-[#53bdeb]">
-                    <path d="M11.071.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-2.011-2.095a.463.463 0 0 0-.349-.149.508.508 0 0 0-.37.166.544.544 0 0 0-.163.373c0 .136.055.26.163.357l2.32 2.42a.542.542 0 0 0 .312.17.478.478 0 0 0 .382-.126l6.654-8.135a.493.493 0 0 0 .145-.359.467.467 0 0 0-.208-.334z" fill="currentColor"/>
-                    <path d="M14.757.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-1.2-1.25-.313.39 1.205 1.258a.542.542 0 0 0 .312.17.478.478 0 0 0 .382-.126l6.654-8.135a.493.493 0 0 0 .145-.359.467.467 0 0 0-.31-.334z" fill="currentColor"/>
-                  </svg>
-                </span>
+              <div className="flex items-start gap-2.5">
+                <img
+                  src={comment.avatar}
+                  alt={comment.name}
+                  className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="bg-gray-100 rounded-xl px-3 py-2">
+                    <span className="text-gray-900 text-xs font-bold block">{comment.name}</span>
+                    <p className="text-gray-700 text-xs leading-relaxed mt-0.5">{comment.text}</p>
+                  </div>
+                  <div className="flex items-center gap-3 mt-1 px-1">
+                    <span className="text-[10px] text-gray-400">{comment.time}</span>
+                    <span className="text-[10px] text-gray-400 font-semibold cursor-default">Curtir</span>
+                    <span className="text-[10px] text-gray-400 font-semibold cursor-default">Responder</span>
+                  </div>
+                </div>
               </div>
-              {/* WhatsApp tail */}
-              <div className="absolute -bottom-1 right-3 w-2 h-2 bg-[#d9fdd3] rotate-45" />
             </div>
           ))}
         </div>
