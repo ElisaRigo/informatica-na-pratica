@@ -213,7 +213,7 @@ export const AudioTestimonialsV2 = () => {
             </div>
 
             {/* Mini WhatsApp-style comments */}
-            <div className="grid grid-cols-2 gap-2 mt-3">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mt-3">
               {miniComments.map((comment, index) => (
                 <div
                   key={index}
