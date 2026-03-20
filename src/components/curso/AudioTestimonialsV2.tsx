@@ -183,11 +183,11 @@ export const AudioTestimonialsV2 = () => {
               {whatsappScreenshots.map((screenshot, index) => (
                 <div 
                   key={index} 
-                  className="bg-slate-200 rounded-xl p-1.5 shadow-lg"
+                  className="bg-slate-800 rounded-xl p-1.5 shadow-xl"
                 >
-                  <div className="bg-slate-300 rounded-t-lg pt-1.5 pb-0.5 px-3">
+                  <div className="bg-slate-700 rounded-t-lg pt-1.5 pb-0.5 px-3">
                     <div className="flex items-center justify-center">
-                      <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
+                      <div className="w-10 h-0.5 bg-slate-600 rounded-full"></div>
                     </div>
                   </div>
                   <img 
