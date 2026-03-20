@@ -133,7 +133,7 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
           </p>
           
           {/* Progress Bar */}
-          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-100"
               style={{ width: `${progress}%` }}
