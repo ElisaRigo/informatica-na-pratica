@@ -1,7 +1,15 @@
-import { MessageCircle, Play, Pause, Volume2, Smartphone } from "lucide-react";
+import { MessageCircle, Play, Pause, Volume2, Smartphone, ThumbsUp } from "lucide-react";
 import { useState, useRef } from "react";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
+import avatarWoman1 from "@/assets/avatar-woman-1.jpg";
+import avatarMan1 from "@/assets/avatar-man-1.jpg";
+import avatarWoman2 from "@/assets/avatar-woman-2.jpg";
+import avatarMan2 from "@/assets/avatar-man-2.jpg";
+import avatarWoman3 from "@/assets/avatar-woman-3.jpg";
+import avatarMan3 from "@/assets/avatar-man-3.jpg";
+import avatarWoman4 from "@/assets/avatar-woman-4.jpg";
+import avatarMan4 from "@/assets/avatar-man-4.jpg";
 
 const audioTestimonials = [
   {
