@@ -166,7 +166,7 @@ export const AudioTestimonialsV2 = () => {
             Veja como alunos que não sabiam nada <span className="text-success">hoje dominam o computador</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-medium">
-            Alunos que começaram do zero compartilham suas <span className="text-success font-bold">histórias reais</span> de superação
+            Eles começaram do zero e hoje usam o computador com <span className="text-success font-bold">confiança no dia a dia</span>
           </p>
         </div>
 
