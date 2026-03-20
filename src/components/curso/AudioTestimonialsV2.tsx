@@ -152,18 +152,29 @@ export const AudioTestimonialsV2 = () => {
       <div className="bg-white py-10 md:py-14">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <div className="inline-flex items-center gap-3 bg-success/10 border border-success/20 rounded-full px-6 py-3 mb-5">
-              <span className="text-2xl">💬</span>
-              <span className="text-foreground text-sm md:text-base font-medium">
-                Depoimentos <span className="text-success font-bold">100% reais</span> recebidos dos alunos
-              </span>
+            {/* Barra de credibilidade com número real */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-6">
+              <div className="flex items-center gap-1.5">
+                <div className="flex -space-x-2">
+                  {avatarImages.slice(0, 5).map((av, i) => (
+                    <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+                  ))}
+                </div>
+                <span className="text-foreground text-sm font-bold ml-1">+15.000 alunos</span>
+              </div>
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-amber-400 text-lg">★</span>
+                ))}
+                <span className="text-foreground text-sm font-semibold ml-1">4.9/5</span>
+              </div>
             </div>
 
             <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4 leading-tight">
-              Veja como alunos que não sabiam nada <span className="text-success">hoje dominam o computador</span>
+              Veja o que dizem os alunos que <span className="text-sky-500">saíram do zero</span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
-              Eles começaram do zero e hoje usam o computador com <span className="text-success font-bold">confiança no dia a dia</span>
+              Histórias reais de pessoas que <span className="text-foreground font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total confiança
             </p>
           </div>
         </div>
