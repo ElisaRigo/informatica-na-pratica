@@ -149,11 +149,11 @@ export const AudioTestimonialsV2 = () => {
   return (
     <>
       {/* Header com fundo claro */}
-      <div className="bg-white py-10 md:py-14">
+      <div className="bg-white py-6 md:py-8">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            {/* Barra de credibilidade com número real */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-6">
+            {/* Barra de credibilidade com contorno */}
+            <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-border/60 rounded-full px-5 py-2 bg-muted/30">
               <div className="flex items-center gap-1.5">
                 <div className="flex -space-x-2">
                   {avatarImages.slice(0, 5).map((av, i) => (
@@ -170,10 +170,10 @@ export const AudioTestimonialsV2 = () => {
               </div>
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-2 leading-tight">
               Veja o que dizem os alunos que <span className="text-sky-500">saíram do zero</span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-medium">
               Histórias reais de pessoas que <span className="text-foreground font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total confiança
             </p>
           </div>
