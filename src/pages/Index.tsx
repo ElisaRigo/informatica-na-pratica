@@ -44,7 +44,7 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
-      {/* 1️⃣ HERO - Headline forte + Vídeo + CTA */}
+      <FloatingNav />
       <HeroV2 />
       
       {/* 2️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
