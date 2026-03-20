@@ -46,11 +46,11 @@ const Index = () => {
       {/* 1️⃣ HERO - Headline forte + Vídeo + CTA */}
       <HeroV2 />
       
-      {/* 2️⃣ PROBLEMA - Identifique a dor */}
-      <ProblemSection />
-      
-      {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
+      {/* 2️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
       <AudioTestimonialsV2 />
+      
+      {/* 3️⃣ PROBLEMA - Identifique a dor */}
+      <ProblemSection />
       
       {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
       <StrategicCTAV2 
