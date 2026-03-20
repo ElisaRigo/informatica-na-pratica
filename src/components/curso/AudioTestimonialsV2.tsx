@@ -232,8 +232,15 @@ export const AudioTestimonialsV2 = () => {
                     <span className="text-[11px] text-gray-500 font-medium cursor-pointer hover:underline">Responder</span>
                     {comment.likes > 0 && (
                       <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
-                        <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                          <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
+                        <span className="flex items-center -space-x-1">
+                          <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
+                            <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
+                          </span>
+                          {comment.hasHeart && (
+                            <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0">
+                              <Heart className="w-2.5 h-2.5 text-white fill-white" />
+                            </span>
+                          )}
                         </span>
                         {comment.likes}
                       </span>
