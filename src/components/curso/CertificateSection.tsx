@@ -1,4 +1,4 @@
-import { Award, Star, Briefcase, FileCheck, ArrowRight, Sparkles, Trophy, GraduationCap, BookOpen } from "lucide-react";
+import { Award, Star, Briefcase, FileCheck, ArrowRight, Sparkles, Trophy, GraduationCap } from "lucide-react";
 import certificadoExemplo from "@/assets/certificado-exemplo.png";
 
 export const CertificateSection = () => {
@@ -120,26 +120,6 @@ export const CertificateSection = () => {
             <GraduationCap className="w-4 h-4 text-amber-400" />
             Certificado digital gerado automaticamente após conclusão
           </p>
-
-          {/* Anchor navigation buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-            <a
-              href="#professora"
-              onClick={(e) => { e.preventDefault(); document.getElementById('professora')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all active:scale-95"
-            >
-              <GraduationCap className="w-4 h-4" />
-              Conheça a Professora
-            </a>
-            <a
-              href="#conteudo"
-              onClick={(e) => { e.preventDefault(); document.getElementById('conteudo')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all active:scale-95"
-            >
-              <BookOpen className="w-4 h-4" />
-              Ver Conteúdo do Curso
-            </a>
-          </div>
         </div>
       </div>
     </section>

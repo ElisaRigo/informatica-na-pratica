@@ -21,7 +21,6 @@ import { FinalCTA } from "@/components/curso/FinalCTA";
 import { FooterV2 } from "@/components/curso/FooterV2";
 import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 
-
 const Index = () => {
   // Redirect all checkout buttons to Hotmart with tracking
   (window as any).openCheckout = () => {
@@ -47,24 +46,20 @@ const Index = () => {
       {/* 1️⃣ HERO - Headline forte + Vídeo + CTA */}
       <HeroV2 />
       
-      {/* 2️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
+      {/* 2️⃣ PROBLEMA - Identifique a dor */}
+      <ProblemSection />
+      
+      {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
       <AudioTestimonialsV2 />
       
-      {/* 3️⃣ PROBLEMA - Identifique a dor */}
-      <ProblemSection />
+      {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
+      <StrategicCTAV2 
+        headline="Eu também quero aprender!"
+        buttonText="Quero Aprender Informática sem Medo"
+      />
       
       {/* 📜 CERTIFICADO - Prova tangível de conquista */}
       <CertificateSection />
-      
-      {/* 6️⃣ INSTRUTORA - Autoridade (logo após certificado) */}
-      <InstructorSection />
-      
-      {/* 🎯 CTA ESTRATÉGICO - Após conhecer a professora */}
-      <StrategicCTAV2 
-        headline="Quero aprender com a Elisa!"
-        buttonText="Sim, Quero Ser Aluno(a)"
-        variant="light"
-      />
       
       {/* 🏠 AMBIENTE DE AULA - Antes do suporte */}
       <EnvironmentSection />
@@ -77,6 +72,16 @@ const Index = () => {
       
       {/* 5️⃣ CONTEÚDO - O que está incluído */}
       <ContentSectionV2 />
+      
+      {/* 6️⃣ INSTRUTORA - Autoridade */}
+      <InstructorSection />
+      
+      {/* 🎯 CTA ESTRATÉGICO 3 - Após conhecer a professora */}
+      <StrategicCTAV2 
+        headline="Quero aprender com a Elisa!"
+        buttonText="Sim, Quero Ser Aluno(a)"
+        variant="light"
+      />
       
       {/* 8️⃣ DEPOIMENTOS - Prova social */}
       <TestimonialsV2 />
