@@ -17,6 +17,12 @@ const AdminRegister = lazy(() => import("./components/admin/AdminRegister").then
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso").then(m => ({ default: m.TermosDeUso })));
 const PoliticaDePrivacidade = lazy(() => import("./pages/PoliticaDePrivacidade").then(m => ({ default: m.PoliticaDePrivacidade })));
 const GerarLinkMercadoPago = lazy(() => import("./pages/GerarLinkMercadoPago"));
+const Curso = lazy(() => import("./pages/Curso"));
+const AudioWhatsApp = lazy(() => import("./pages/AudioWhatsApp"));
+const VideoWhatsApp = lazy(() => import("./pages/VideoWhatsApp"));
+const Aula = lazy(() => import("./pages/Aula"));
+const ImagemWhatsApp = lazy(() => import("./pages/ImagemWhatsApp"));
+
 
 const queryClient = new QueryClient();
 
@@ -29,6 +35,7 @@ const App = () => (
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
             <Route path="/admin" element={<Admin />} />
@@ -39,6 +46,11 @@ const App = () => (
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
             <Route path="/gerar-link-mercadopago" element={<GerarLinkMercadoPago />} />
+            <Route path="/audio-whatsapp" element={<AudioWhatsApp />} />
+            <Route path="/video-whatsapp" element={<VideoWhatsApp />} />
+            <Route path="/aula" element={<Aula />} />
+            <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

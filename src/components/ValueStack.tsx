@@ -33,13 +33,13 @@ export const ValueStack = () => {
           <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 border-2 border-primary/30 rounded-3xl p-8 md:p-10 text-center">
             <Clock className="w-16 h-16 text-primary mx-auto mb-4" />
             <h3 className="text-2xl md:text-3xl font-black mb-3">
-              Acesso online completo por <span className="text-primary">2 anos inteiros</span>
+              Acesso online <span className="text-primary">Vitalício</span>
             </h3>
             <p className="text-lg md:text-xl text-muted-foreground mb-4">
-              Aprenda no seu ritmo, sem pressa — o acesso é seu por 2 anos inteiros.
+              Aprenda no seu ritmo, sem pressa — o acesso é seu para sempre.
             </p>
             <p className="text-base text-muted-foreground mb-6">
-              São <span className="font-bold text-foreground">24 meses completos</span> de curso online para você assistir de qualquer lugar, quantas vezes quiser
+              Acesso <span className="font-bold text-foreground">vitalício</span> ao curso online para você assistir de qualquer lugar, quantas vezes quiser
             </p>
             <div className="grid md:grid-cols-2 gap-4 text-sm mb-6">
               <div className="bg-card/50 backdrop-blur rounded-xl p-4">

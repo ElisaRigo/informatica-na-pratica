@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -40,6 +40,25 @@ export const CheckoutForm = () => {
   const [showCardPayment, setShowCardPayment] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>('');
+  const formStartFired = useRef(false);
+
+  const trackFormStart = () => {
+    if (formStartFired.current) return;
+    formStartFired.current = true;
+    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
+                         window.location.hostname === 'www.informaticanapratica.com.br';
+    if (!isProduction) {
+      console.log('GA4 form_start skipped - not on production domain');
+      return;
+    }
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'form_start', {
+        currency: 'BRL',
+        value: 297.00,
+      });
+      console.log('✅ GA4 form_start tracked');
+    }
+  };
 
   // Carregar reCAPTCHA
   useEffect(() => {
@@ -428,9 +447,9 @@ export const CheckoutForm = () => {
   // Se está mostrando pagamento com cartão
   if (showCardPayment) {
     return (
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between pb-6 border-b">
+      <div className="space-y-4">
+        {/* Header com botão voltar */}
+        <div className="flex items-center pb-4 border-b">
           <Button
             variant="ghost"
             size="sm"
@@ -440,23 +459,25 @@ export const CheckoutForm = () => {
             <ArrowLeft className="w-4 h-4" />
             Voltar
           </Button>
-          <img src={logoBlue} alt="Informática na Prática - Curso de Informática Online" className="h-12" />
-          <div className="w-20"></div>
         </div>
 
-        <div className="text-center space-y-2">
-          <h3 className="text-2xl font-bold">Pagamento com Cartão</h3>
+        <div className="text-center space-y-1">
+          <h3 className="text-xl font-bold text-foreground">Pagamento com Cartão</h3>
           <p className="text-sm text-muted-foreground">
             Parcele em até 12x
           </p>
-          <div className="text-3xl font-black text-primary">
-            R$ {coursePrice.toFixed(2).replace('.', ',')}
-          </div>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
-          <p className="text-sm text-blue-900 font-medium">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
+          <p className="text-sm text-blue-900">
             💳 Digite o número do cartão para ver as opções de parcelamento disponíveis
+          </p>
+        </div>
+
+        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-3 text-center">
+          <p className="text-sm text-success font-medium flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4" />
+            Acesso enviado no seu e-mail após a compra!
           </p>
         </div>
 
@@ -486,19 +507,28 @@ export const CheckoutForm = () => {
   if (pixData) {
     return (
       <div className="space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between pb-6 border-b">
-          <img src={logoBlue} alt="Informática na Prática - Curso de Informática com Professora Elisa" className="h-12" />
+        {/* Header com botão voltar */}
+        <div className="flex items-center pb-4 border-b">
           <Button
             variant="ghost"
-            size="icon"
+            size="sm"
             onClick={() => {
               setPixData(null);
               setLoading(false);
             }}
+            className="gap-2"
           >
-            <X className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4" />
+            Voltar
           </Button>
+        </div>
+
+        {/* Faixa de confirmação */}
+        <div className="bg-success/10 border border-success/30 rounded-lg px-4 py-3 text-center">
+          <p className="text-sm text-success font-medium flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4" />
+            Acesso enviado no seu e-mail após a compra!
+          </p>
         </div>
 
         {/* QR Code do PIX */}
@@ -592,38 +622,7 @@ export const CheckoutForm = () => {
 
   // Formulário inicial
   return (
-    <div className="space-y-6">
-      {/* Header com Preço em Destaque */}
-      <div className="text-center space-y-2 pb-4 border-b">
-        <img src={logoBlue} alt="Informática na Prática - Logo do Curso" className="h-10 md:h-14 mx-auto" />
-        <div>
-          <div className="text-3xl md:text-5xl font-black text-primary mb-1">
-            R$ {coursePrice.toFixed(2).replace('.', ',')}
-          </div>
-          <div className="text-xs md:text-sm font-bold text-foreground">
-            Acesso completo por 2 anos • Certificado incluso
-          </div>
-          <div className="text-xs text-success font-semibold mt-1">
-            Parcele em até 12x no cartão
-          </div>
-        </div>
-      </div>
-
-      {/* Badges de Segurança */}
-      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 py-2 md:py-3 px-2 bg-gradient-to-r from-success/10 to-primary/10 rounded-lg border border-success/20">
-        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
-          <Lock className="w-3 h-3 md:w-4 md:h-4 text-success" />
-          <span className="font-semibold text-foreground">Seguro</span>
-        </div>
-        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
-          <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-success" />
-          <span className="font-semibold text-foreground">Mercado Pago</span>
-        </div>
-        <div className="flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
-          <ShieldCheck className="w-3 h-3 md:w-4 md:h-4 text-success" />
-          <span className="font-semibold text-foreground">Garantia 7 dias</span>
-        </div>
-      </div>
+    <div className="space-y-4">
 
       {/* Formulário */}
       <div className="space-y-3 md:space-y-4">
@@ -634,6 +633,7 @@ export const CheckoutForm = () => {
             placeholder="Seu nome completo"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onFocus={trackFormStart}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
@@ -647,6 +647,7 @@ export const CheckoutForm = () => {
             placeholder="seu@email.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onFocus={trackFormStart}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
@@ -659,6 +660,7 @@ export const CheckoutForm = () => {
             placeholder="000.000.000-00"
             value={formData.cpf}
             onChange={(e) => setFormData({ ...formData, cpf: formatCPF(e.target.value) })}
+            onFocus={trackFormStart}
             maxLength={14}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
@@ -672,11 +674,20 @@ export const CheckoutForm = () => {
             placeholder="(11) 99999-9999"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
+            onFocus={trackFormStart}
             maxLength={15}
             disabled={loading || !sdkLoaded}
             className="h-9 md:h-12 text-sm md:text-base border-2 focus:border-primary"
           />
         </div>
+      </div>
+
+      {/* Aviso sobre envio dos dados de acesso */}
+      <div className="bg-success/10 border border-success/30 rounded-lg p-3 md:p-4">
+        <p className="text-xs md:text-sm text-success text-center font-bold flex items-center justify-center gap-2">
+          <CheckCircle2 className="w-4 h-4" />
+          <span>Acesso enviado no seu e-mail após a compra!</span>
+        </p>
       </div>
 
       {/* Título das Opções */}
@@ -747,11 +758,7 @@ export const CheckoutForm = () => {
         </div>
       )}
 
-      {/* Footer Info */}
-      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2 border-t">
-        <ShieldCheck className="w-4 h-4" />
-        <span>Pagamento 100% Seguro • Garantia Total de 7 Dias</span>
-      </div>
+      {/* Footer removido - já existe no CheckoutDialog */}
     </div>
   );
 };
