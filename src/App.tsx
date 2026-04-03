@@ -18,6 +18,7 @@ const TermosDeUso = lazy(() => import("./pages/TermosDeUso").then(m => ({ defaul
 const PoliticaDePrivacidade = lazy(() => import("./pages/PoliticaDePrivacidade").then(m => ({ default: m.PoliticaDePrivacidade })));
 const GerarLinkMercadoPago = lazy(() => import("./pages/GerarLinkMercadoPago"));
 const Curso = lazy(() => import("./pages/Curso"));
+const CursoSimples = lazy(() => import("./pages/CursoSimples"));
 const AudioWhatsApp = lazy(() => import("./pages/AudioWhatsApp"));
 const VideoWhatsApp = lazy(() => import("./pages/VideoWhatsApp"));
 const Aula = lazy(() => import("./pages/Aula"));
@@ -36,6 +37,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/curso" element={<Curso />} />
+            <Route path="/curso-simples" element={<CursoSimples />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
             <Route path="/admin" element={<Admin />} />
