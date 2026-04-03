@@ -110,13 +110,13 @@ const FloatingParticles = () => (
 );
 
 const VendaConversao = () => {
+  const { isOpen, openCheckout, closeCheckout } = useCheckoutDialog();
   const [isPlaying, setIsPlaying] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
-  const openCheckout = () => window.open('https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card', '_blank');
   (window as any).openCheckout = openCheckout;
 
   useEffect(() => {
@@ -274,7 +274,7 @@ const VendaConversao = () => {
                 <p className="text-5xl md:text-6xl font-black text-white">
                   R$ <span className={styles.gradientText}>297</span>
                 </p>
-                <p className="text-gray-400 mt-1">ou 12x de R$ 30,72</p>
+                <p className="text-gray-400 mt-1">ou 12x de R$ 30,22</p>
               </div>
               
               <div className="flex flex-col items-center gap-4">
@@ -503,7 +503,7 @@ const VendaConversao = () => {
                 <p className="text-6xl md:text-7xl font-black text-white mb-2">
                   R$ <span className={styles.gradientText}>297</span>
                 </p>
-                <p className="text-gray-400 mb-2">ou 12x de R$ 30,72</p>
+                <p className="text-gray-400 mb-2">ou 12x de R$ 30,22</p>
                 <p className="text-[#ff6b00] font-bold mb-8">💰 Economia de R$ 471!</p>
                 
                 <GlowButton onClick={openCheckout} size="xl">
@@ -579,7 +579,8 @@ const VendaConversao = () => {
         </Suspense>
       </div>
 
-      {/* CHECKOUT - Redirecionando para Hotmart */}
+      {/* Checkout */}
+      <CheckoutDialog open={isOpen} onOpenChange={closeCheckout} />
     </div>
   );
 };
