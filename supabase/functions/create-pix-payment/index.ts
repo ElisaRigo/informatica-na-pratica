@@ -15,6 +15,7 @@ interface PixPaymentRequest {
   email: string;
   cpf: string;
   phone?: string;
+  amount?: number;
 }
 
 serve(async (req) => {
@@ -23,7 +24,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, cpf, phone }: PixPaymentRequest = await req.json();
+    const { name, email, cpf, phone, amount }: PixPaymentRequest = await req.json();
 
     console.log("Creating PIX payment for:", { email, name });
 
@@ -36,8 +37,10 @@ serve(async (req) => {
       throw new Error("Mercado Pago access token not configured");
     }
 
-    // Obter o preço do curso do ambiente
-    const coursePrice = parseFloat(Deno.env.get("COURSE_PRICE") || "297.00");
+    // Usar valor customizado se fornecido, senão usar o preço padrão
+    const allowedPrices = [297.00, 248.50];
+    const defaultPrice = parseFloat(Deno.env.get("COURSE_PRICE") || "297.00");
+    const coursePrice = amount && allowedPrices.includes(amount) ? amount : defaultPrice;
     
     // Criar pagamento PIX direto
     const paymentData = {

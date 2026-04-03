@@ -35,9 +35,6 @@ export const EasyToLearn = () => {
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
           <div className="text-center mb-6 md:mb-8">
-            <p className="text-sm md:text-base text-primary font-bold uppercase tracking-wide mb-2">
-              Ainda tem medo de não conseguir aprender?
-            </p>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-3">
               Veja como é <span className="text-primary">fácil aprender!</span>
             </h2>
@@ -71,12 +68,6 @@ export const EasyToLearn = () => {
                     </div>
                   </div>
 
-                  {/* Selo */}
-                  <div className="absolute bottom-3 right-3 z-20">
-                    <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-lg border-2 border-white/30">
-                      ▶ Aula Demonstrativa
-                    </div>
-                  </div>
                 </div>
               )
             ) : (
@@ -113,18 +104,31 @@ export const EasyToLearn = () => {
             </div>
           </div>
 
+          {/* Frase de autoridade */}
+          <p className="text-center text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mt-6 md:mt-8 leading-relaxed">
+            Aprenda com quem já ensinou mais de <strong className="text-foreground">15.000 alunos</strong> e tem mais de <strong className="text-foreground">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
+          </p>
+
           {/* Seção de Preço */}
-          <div className="max-w-xl mx-auto mt-8 text-center">
-            <div className="bg-background/80 border border-border rounded-xl p-6 shadow-lg">
-              <p className="text-base md:text-lg font-bold text-foreground mb-2">
-                💰 De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas{" "}
-                <span className="text-success text-xl md:text-2xl font-black">R$ 297,00</span>
+          <div className="max-w-2xl mx-auto mt-10">
+            {/* Frase de impacto */}
+            <div className="text-center mb-6">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-tight">
+                🚀 Invista em você por <span className="text-primary">menos de R$ 1 por dia</span> e transforme sua vida!
+              </h3>
+            </div>
+
+            {/* Card de Preço Final */}
+            <div className="bg-gradient-to-br from-success/10 to-primary/10 border-2 border-success/30 rounded-2xl p-6 md:p-8 text-center shadow-xl">
+              <div className="mb-3">
+                <span className="text-lg text-muted-foreground line-through mr-2">R$ 497,00</span>
+                <span className="text-4xl md:text-5xl font-black text-success">R$ 297,00</span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                💳 ou parcele em até <strong>12x de R$ 30,72</strong> no cartão
               </p>
-              <p className="text-xs md:text-sm text-muted-foreground mb-3">
-                💳 ou parcele em até 12 x R$ 30,22 (no cartão)
-              </p>
-              <p className="text-sm md:text-base font-semibold text-accent mb-4">
-                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
+              <p className="text-sm md:text-base font-semibold text-accent mb-5">
+                🔥 Aproveite o valor promocional de hoje!
               </p>
               <button
                 onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
@@ -132,6 +136,9 @@ export const EasyToLearn = () => {
               >
                 Quero Aprender Informática sem Medo
               </button>
+              <p className="text-xs text-muted-foreground mt-3">
+                🔒 Pagamento 100% seguro • Acesso imediato após a compra
+              </p>
             </div>
           </div>
         </div>
