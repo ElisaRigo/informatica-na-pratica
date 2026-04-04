@@ -24,9 +24,10 @@ export const HeroInformatica = () => {
         {/* Headline */}
         <div className="text-center max-w-4xl mx-auto mb-5 md:mb-8">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground leading-tight">
-            Chega de {" "}
-            <span className="text-primary">"perder oportunidades"</span>{" "}
-            por não saber usar o computador
+            Aprenda informática de forma{" "}
+            <span className="text-primary">rápida</span>,{" "}
+            <span className="text-primary">prática</span> e{" "}
+            <span className="text-primary">sem complicação</span>
           </h1>
         </div>
 
@@ -81,7 +82,14 @@ export const HeroInformatica = () => {
           </div>
         </div>
 
-        {/* Video principal (segundo) */}
+        {/* Subheadline */}
+        <div className="text-center max-w-3xl mx-auto mb-5 md:mb-8">
+          <p className="text-lg md:text-2xl lg:text-3xl font-bold text-foreground leading-snug">
+            Mesmo que você <span className="text-primary underline decoration-primary/40 decoration-2 underline-offset-4">nunca tenha mexido</span> em um computador.
+          </p>
+        </div>
+
+
         <div className="max-w-3xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-border">
             {!isPlaying ? (
