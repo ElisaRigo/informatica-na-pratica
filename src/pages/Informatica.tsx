@@ -38,11 +38,7 @@ const Informatica = () => {
       <AudioTestimonialsLight />
       <InstructorSection />
       <ProblemBanner />
-      <StrategicCTAV2 
-        headline="Quero aprender com a Elisa!"
-        buttonText="Sim, Quero Ser Aluno(a)"
-        variant="light"
-      />
+      
       <EnvironmentSectionLight />
       <TransformationSectionLight />
       <ContentSectionLight />

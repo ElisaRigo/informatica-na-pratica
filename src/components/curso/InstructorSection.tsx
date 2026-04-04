@@ -1,4 +1,4 @@
-import { Award, Heart, Users, GraduationCap } from "lucide-react";
+import { Award, Heart, Users, GraduationCap, ArrowRight } from "lucide-react";
 import elisaPhoto from "@/assets/elisa-photo.jpg";
 
 export const InstructorSection = () => {
