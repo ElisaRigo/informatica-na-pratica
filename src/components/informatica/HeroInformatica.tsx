@@ -125,6 +125,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Video principal (segundo) */}
+        <div className="max-w-3xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-border">
             {!isPlaying ? (
               <div
