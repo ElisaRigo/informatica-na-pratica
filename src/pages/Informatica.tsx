@@ -2,8 +2,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 import { HeroInformatica } from "@/components/informatica/HeroInformatica";
 import { AudioTestimonialsLight } from "@/components/informatica/AudioTestimonialsLight";
-import { ProblemSection } from "@/components/curso/ProblemSection";
-
+import { ProblemBanner } from "@/components/informatica/ProblemBanner";
 import { InstructorSection } from "@/components/curso/InstructorSection";
 import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
 import { EnvironmentSectionLight } from "@/components/informatica/EnvironmentSectionLight";
