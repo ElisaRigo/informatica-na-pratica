@@ -55,7 +55,7 @@ export const InstructorSection = () => {
                 👩‍🏫 Sua Professora
               </span>
 
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6">
                 Prazer, eu sou a{" "}
                 <span className="text-primary">Professora Elisa</span>
               </h2>
