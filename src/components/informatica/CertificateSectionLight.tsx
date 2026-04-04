@@ -18,7 +18,7 @@ export const CertificateSectionLight = () => {
 
         <div className="max-w-3xl mx-auto">
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-muted via-border to-muted rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
             <div className="relative bg-white p-3 md:p-5 rounded-2xl shadow-2xl border border-amber-200">
               <div className="relative overflow-hidden rounded-xl select-none" onContextMenu={(e) => e.preventDefault()}>
                 <img src={certificadoExemplo} alt="Exemplo de Certificado do Curso de Informática - 120 horas" className="w-full h-auto transform group-hover:scale-[1.02] transition-transform duration-500 pointer-events-none" loading="lazy" draggable="false" onDragStart={(e) => e.preventDefault()} />
