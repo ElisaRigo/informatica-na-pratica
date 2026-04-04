@@ -24,12 +24,10 @@ export const HeroInformatica = () => {
         {/* Headline */}
         <div className="text-center max-w-4xl mx-auto mb-5 md:mb-8">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground leading-tight">
-            Curso de Informática Online{" "}
-            <span className="text-primary">Completo</span>
+            Aprenda Informática de forma{" "}
+            <span className="text-primary">Rápida</span> e{" "}
+            <span className="text-primary">sem Complicação</span>
           </h1>
-          <p className="text-lg md:text-2xl lg:text-3xl font-bold text-muted-foreground mt-2">
-            Mesmo Começando do Zero
-          </p>
         </div>
 
         {/* Badge acima do primeiro vídeo */}
