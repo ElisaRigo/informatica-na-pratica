@@ -1,4 +1,5 @@
 import { MessageCircle, Play, Pause, Volume2, Smartphone, ThumbsUp, Heart } from "lucide-react";
+import { CertificateSectionLight } from "./CertificateSectionLight";
 import { useState, useRef } from "react";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -155,8 +156,11 @@ export const AudioTestimonialsLight = () => {
               Se essas pessoas conseguiram, <span className="text-success">você também consegue.</span>
               <br />
               <span className="text-muted-foreground font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
-            </p>
+          </p>
           </div>
+
+          {/* Certificate Section */}
+          <CertificateSectionLight />
 
           {/* Facebook-style comments */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">

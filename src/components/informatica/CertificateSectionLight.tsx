@@ -3,11 +3,8 @@ import certificadoExemplo from "@/assets/certificado-exemplo.png";
 
 export const CertificateSectionLight = () => {
   return (
-    <section className="py-12 md:py-20 bg-muted/50 relative overflow-hidden">
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-4 relative z-10">
+    <div className="py-8 md:py-12 relative">
+      <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-300 text-amber-700 px-5 py-2.5 rounded-full text-sm font-bold mb-5 animate-pulse">
             <Trophy className="w-5 h-5" />
@@ -82,6 +79,6 @@ export const CertificateSectionLight = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

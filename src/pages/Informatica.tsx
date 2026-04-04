@@ -3,7 +3,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { HeroInformatica } from "@/components/informatica/HeroInformatica";
 import { AudioTestimonialsLight } from "@/components/informatica/AudioTestimonialsLight";
 import { ProblemSection } from "@/components/curso/ProblemSection";
-import { CertificateSectionLight } from "@/components/informatica/CertificateSectionLight";
+
 import { InstructorSection } from "@/components/curso/InstructorSection";
 import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
 import { EnvironmentSectionLight } from "@/components/informatica/EnvironmentSectionLight";
@@ -38,7 +38,7 @@ const Informatica = () => {
       <HeroInformatica />
       <AudioTestimonialsLight />
       <ProblemSection />
-      <CertificateSectionLight />
+      
       <InstructorSection />
       <StrategicCTAV2 
         headline="Quero aprender com a Elisa!"
