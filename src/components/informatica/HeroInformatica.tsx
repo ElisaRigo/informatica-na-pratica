@@ -93,24 +93,56 @@ export const HeroInformatica = () => {
 
         {/* Seção de Preço */}
         <div className="py-6 md:py-8" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
-          <div className="max-w-lg mx-auto px-4">
-            <div className="bg-background rounded-2xl shadow-xl border border-border p-6 md:p-8 text-center">
-              <p className="text-foreground text-lg md:text-2xl font-bold mb-1">
-                <span className="text-xl md:text-2xl">💰</span> De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas <span className="text-primary font-black text-2xl md:text-4xl">R$ 297,00</span>
-              </p>
-              <p className="text-muted-foreground text-sm md:text-base mt-2">
-                💳 ou parcele em até 12 x R$ 30,22 (no cartão)
-              </p>
-              <p className="text-primary font-bold text-sm md:text-base mt-4 italic">
-                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
-              </p>
-              <button
-                onClick={() => (window as any).openCheckout?.()}
-                className="mt-5 w-full max-w-sm mx-auto flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-[#25D366] hover:opacity-90 text-white font-bold text-base md:text-lg py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
-              >
-                💻 Quero começar meu curso agora
-              </button>
+          <div className="max-w-lg mx-auto px-4 text-center">
+            {/* Badges */}
+            <div className="flex flex-wrap justify-center gap-2 mb-6">
+              {[
+                { icon: "🖥️", label: "+90 Videoaulas" },
+                { icon: "📖", label: "Curso Completo" },
+                { icon: "🏆", label: "Certificado Incluso" },
+                { icon: "♾️", label: "Acesso Vitalício" },
+                { icon: "🎧", label: "Suporte Direto" },
+                { icon: "👥", label: "+ 15.000 Alunos" },
+              ].map((item, i) => (
+                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-3 py-1.5 rounded-full text-xs md:text-sm font-bold text-primary">
+                  <span>{item.icon}</span>
+                  <span>{item.label}</span>
+                </div>
+              ))}
             </div>
+
+            {/* Preço */}
+            <p className="text-muted-foreground text-base md:text-xl mb-1">
+              De <span className="line-through text-destructive font-bold">R$ 497,00</span> por apenas
+            </p>
+            <p className="text-3xl md:text-5xl font-black text-primary mb-1">
+              12x de R$ 30,72
+            </p>
+            <p className="text-muted-foreground text-base md:text-lg mb-5">
+              ou <span className="font-black text-foreground text-lg md:text-2xl">R$ 297,00</span> à vista
+            </p>
+
+            {/* CTA */}
+            <button
+              onClick={() => (window as any).openCheckout?.()}
+              className="w-full max-w-md mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-lg md:text-xl py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-5"
+            >
+              🎯 QUERO COMEÇAR AGORA!
+            </button>
+
+            {/* Garantia */}
+            <div className="max-w-md mx-auto bg-primary/5 border border-primary/20 rounded-xl p-4 mb-3">
+              <p className="font-black text-foreground text-sm md:text-base mb-1">
+                🛡️ Garantia Incondicional de 7 Dias
+              </p>
+              <p className="text-muted-foreground text-xs md:text-sm">
+                Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
+              </p>
+            </div>
+
+            <p className="text-muted-foreground text-xs md:text-sm">
+              🔒 Pagamento 100% seguro · Acesso imediato após a compra
+            </p>
           </div>
         </div>
 
