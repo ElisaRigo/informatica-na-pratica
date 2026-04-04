@@ -3,7 +3,7 @@ import elisaPhoto from "@/assets/elisa-photo.jpg";
 
 export const InstructorSection = () => {
   return (
-    <section id="professora" className="py-10 md:py-14 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -30,7 +30,7 @@ export const InstructorSection = () => {
                       </div>
                       <div>
                         <p className="font-black text-foreground text-lg">Professora Elisa</p>
-                        <p className="text-primary text-sm font-medium">+20 anos de experiência</p>
+                        <p className="text-primary text-sm font-medium">+15 anos de experiência</p>
                       </div>
                     </div>
                   </div>
@@ -42,7 +42,7 @@ export const InstructorSection = () => {
                 <div className="flex items-center gap-3">
                   <Users className="w-8 h-8 text-primary" />
                   <div>
-                    <p className="text-2xl font-black text-foreground">15.000+</p>
+                    <p className="text-2xl font-black text-foreground">2.147+</p>
                     <p className="text-sm text-muted-foreground">Alunos</p>
                   </div>
                 </div>
@@ -52,7 +52,7 @@ export const InstructorSection = () => {
             {/* Content */}
             <div>
               <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                👩‍🏫 Sua Professora
+                👩‍🏫 Sua Instrutora
               </span>
 
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
@@ -62,7 +62,7 @@ export const InstructorSection = () => {
 
               <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
                 <p>
-                  Há mais de <strong className="text-foreground">20 anos</strong> ensino informática para pessoas 
+                  Há mais de <strong className="text-foreground">15 anos</strong> ensino informática para pessoas 
                   que, assim como você, achavam que era impossível aprender.
                 </p>
                 <p>
@@ -80,10 +80,10 @@ export const InstructorSection = () => {
               {/* Stats grid */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Award, number: "20+", label: "Anos ensinando" },
-                  { icon: Users, number: "15.000+", label: "Alunos formados" },
+                  { icon: Award, number: "15+", label: "Anos ensinando" },
+                  { icon: Users, number: "2.147+", label: "Alunos formados" },
                   { icon: Heart, number: "98%", label: "Satisfação" },
-                  { icon: GraduationCap, number: "90+", label: "Aulas práticas" },
+                  { icon: GraduationCap, number: "70+", label: "Aulas práticas" },
                 ].map((stat, i) => (
                   <div key={i} className="flex items-center gap-3 bg-slate-50 rounded-xl p-4">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
