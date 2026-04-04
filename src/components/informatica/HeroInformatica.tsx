@@ -24,9 +24,10 @@ export const HeroInformatica = () => {
         {/* Headline */}
         <div className="text-center max-w-4xl mx-auto mb-5 md:mb-8">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground leading-tight">
-            Chega de {" "}
-            <span className="text-primary">"perder oportunidades"</span>{" "}
-            por não saber usar o computador
+            Aprenda informática de forma{" "}
+            <span className="text-primary">rápida</span>,{" "}
+            <span className="text-primary">prática</span> e{" "}
+            <span className="text-primary">sem complicação</span>
           </h1>
         </div>
 
