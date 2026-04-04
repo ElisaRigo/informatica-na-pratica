@@ -94,6 +94,12 @@ export const HeroInformatica = () => {
         {/* Seção de Preço */}
         <div className="py-6 md:py-8" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
+            {/* Título da seção */}
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-foreground mb-5">
+              👉 Dê o primeiro passo para{" "}
+              <span className="text-primary">novas oportunidades</span> hoje
+            </h2>
+
             {/* Badges topo */}
             <div className="flex flex-wrap justify-center gap-2 mb-5">
               {[
@@ -149,8 +155,8 @@ export const HeroInformatica = () => {
               </p>
             </div>
 
-            <p className="text-primary font-bold text-sm md:text-base">
-              👉 Dê o primeiro passo para novas oportunidades hoje
+            <p className="text-muted-foreground text-xs md:text-sm">
+              🔒 Pagamento 100% seguro · Acesso imediato após a compra
             </p>
           </div>
         </div>
