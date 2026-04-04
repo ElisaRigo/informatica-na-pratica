@@ -82,7 +82,14 @@ export const HeroInformatica = () => {
           </div>
         </div>
 
-        {/* Video principal (segundo) */}
+        {/* Subheadline */}
+        <div className="text-center max-w-3xl mx-auto mb-5 md:mb-8">
+          <p className="text-lg md:text-2xl lg:text-3xl font-bold text-foreground leading-snug">
+            Mesmo que você <span className="text-primary underline decoration-primary/40 decoration-2 underline-offset-4">nunca tenha mexido</span> em um computador.
+          </p>
+        </div>
+
+
         <div className="max-w-3xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-border">
             {!isPlaying ? (
