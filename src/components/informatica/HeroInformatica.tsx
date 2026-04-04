@@ -91,54 +91,25 @@ export const HeroInformatica = () => {
           </div>
         </div>
 
-        {/* Seção de Preço - fundo destacado */}
-        <div className="py-6 md:py-8" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', background: 'linear-gradient(180deg, hsl(var(--primary) / 0.06) 0%, hsl(var(--primary) / 0.12) 50%, hsl(var(--primary) / 0.06) 100%)' }}>
-          <div className="max-w-lg mx-auto px-4 text-center">
-            <p className="text-primary font-bold text-xs md:text-sm tracking-widest uppercase mb-1">
-              Oferta por tempo limitado
-            </p>
-            <h2 className="text-xl md:text-3xl font-black text-foreground mb-4">
-              Comece sua <span className="text-primary">transformação</span> hoje!
-            </h2>
-
-            {/* Card do preço */}
-            <div className="bg-background border border-primary/20 rounded-xl p-5 md:p-6 mb-4">
-              <p className="text-muted-foreground text-sm md:text-base mb-1">
-                🔥 De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
+        {/* Seção de Preço */}
+        <div className="py-6 md:py-8" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+          <div className="max-w-lg mx-auto px-4">
+            <div className="bg-background rounded-2xl shadow-xl border border-border p-6 md:p-8 text-center">
+              <p className="text-foreground text-lg md:text-2xl font-bold mb-1">
+                <span className="text-xl md:text-2xl">💰</span> De <span className="line-through text-muted-foreground">R$ 497,00</span> por apenas <span className="text-primary font-black text-2xl md:text-4xl">R$ 297,00</span>
               </p>
-              <p className="text-3xl md:text-5xl font-black text-foreground leading-tight">
-                R$ <span className="text-primary">297,00</span>
+              <p className="text-muted-foreground text-sm md:text-base mt-2">
+                💳 ou parcele em até 12 x R$ 30,22 (no cartão)
               </p>
-              <p className="text-muted-foreground text-xs md:text-sm mt-1">
-                💳 ou parcele em até <strong className="text-foreground">12x no cartão</strong>
+              <p className="text-primary font-bold text-sm md:text-base mt-4 italic">
+                🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
               </p>
-            </div>
-
-            <p className="text-primary font-bold text-sm md:text-base mb-3">
-              🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
-            </p>
-
-            <button
-              onClick={() => (window as any).openCheckout?.()}
-              className="w-full max-w-sm mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white font-black text-base md:text-lg py-3.5 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              🎯 QUERO COMEÇAR MEU CURSO AGORA!
-            </button>
-
-            {/* Selos de confiança inline */}
-            <div className="flex flex-wrap justify-center gap-2 mt-3">
-              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full">
-                <span className="text-xs">🔒</span>
-                <span className="text-muted-foreground font-semibold text-[10px] md:text-xs">Compra Segura</span>
-              </div>
-              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full">
-                <span className="text-xs">🛡️</span>
-                <span className="text-muted-foreground font-semibold text-[10px] md:text-xs">Garantia 7 dias</span>
-              </div>
-              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full">
-                <span className="text-xs">⚡</span>
-                <span className="text-muted-foreground font-semibold text-[10px] md:text-xs">Acesso Imediato</span>
-              </div>
+              <button
+                onClick={() => (window as any).openCheckout?.()}
+                className="mt-5 w-full max-w-sm mx-auto flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-[#25D366] hover:opacity-90 text-white font-bold text-base md:text-lg py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+              >
+                💻 Quero começar meu curso agora
+              </button>
             </div>
           </div>
         </div>
