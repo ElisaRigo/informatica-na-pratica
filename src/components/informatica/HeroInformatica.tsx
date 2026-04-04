@@ -151,20 +151,17 @@ export const HeroInformatica = () => {
           </div>
         </div>
 
-        {/* Trust seals acima do segundo vídeo */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 max-w-4xl mx-auto mb-4 md:mb-6 mt-5 md:mt-8">
-          {[
-            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
-            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
-            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-3 md:p-4 bg-primary/5 rounded-xl border border-primary/20">
-              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1.5" />
-              <span className="text-foreground font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-muted-foreground text-[10px] md:text-xs">{item.sublabel}</span>
-            </div>
-          ))}
+        {/* Copy acima do segundo vídeo */}
+        <div className="max-w-3xl mx-auto text-center mt-5 md:mt-8 mb-4 md:mb-6">
+          <p className="text-muted-foreground text-xs md:text-sm font-semibold uppercase tracking-wider mb-2">
+            Ainda tem medo de não conseguir aprender?
+          </p>
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-foreground mb-2">
+            Veja como é <span className="text-primary">fácil aprender!</span>
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto">
+            Assista essa aula e descubra que você é capaz de dominar a informática de forma simples e prática.
+          </p>
         </div>
 
         {/* Video principal (segundo) */}
