@@ -21,16 +21,9 @@ export const EnvironmentSectionLight = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div ref={sectionRef} className="max-w-4xl mx-auto">
           <div className="text-center mb-4">
-            <div className="inline-flex items-center gap-2.5 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm md:text-base font-bold mb-3 border border-primary/20">
-              <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground">
               🎬 Conheça um Pouco Mais
-            </div>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-2">
-              Veja como é <span className="text-primary">uma aula real</span> do curso
-            </h3>
-            <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
-              Essa é uma das +90 aulas do curso completo. Assista e sinta a didática simples, passo a passo, feita pra você!
-            </p>
+            </h2>
           </div>
 
           {shouldLoad && (
