@@ -33,8 +33,8 @@ const Informatica = () => {
     <div className="min-h-screen bg-background">
       <HeroInformatica />
       <AudioTestimonialsLight />
-      <InstructorSection />
       <ProblemBanner />
+      <InstructorSection />
       <CommentsStrip startIndex={2} count={2} />
       <EnvironmentSectionLight />
       <CommentsStrip startIndex={4} count={2} />
