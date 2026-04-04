@@ -32,9 +32,9 @@ export const HeroInformatica = () => {
 
         {/* Badge acima do primeiro vídeo */}
         <div className="flex justify-center mb-4 md:mb-6">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-5 py-2.5 rounded-full">
-            <span className="text-primary text-sm">✨</span>
-            <span className="text-primary font-bold text-xs md:text-sm text-center">Curso pensado para quem nunca teve facilidade com computador</span>
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-6 py-3 rounded-lg">
+            <span className="text-primary text-base md:text-lg">💡</span>
+            <span className="text-primary font-bold text-sm md:text-base text-center">Curso pensado para quem nunca teve facilidade com computador</span>
           </div>
         </div>
 
