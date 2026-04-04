@@ -5,17 +5,17 @@ export const FinalCTALight = () => {
     <section className="py-14 md:py-20 bg-gradient-to-b from-primary/5 to-primary/10 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-destructive/10 border border-destructive/30 text-destructive px-4 py-2 rounded-full text-sm font-bold mb-8 animate-pulse">
-            <Zap className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 bg-muted/50 border border-border text-muted-foreground px-4 py-2 rounded-full text-sm font-bold mb-8">
+            <Zap className="w-4 h-4 text-muted-foreground" />
             ÚLTIMAS VAGAS COM DESCONTO
           </div>
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 leading-tight">
             Você vai <span className="text-primary">agradecer</span>{" "}
             por ter começado hoje
           </h2>
 
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-10">
             Milhares de pessoas já transformaram suas vidas com este curso. A única diferença entre elas e você é uma decisão.
           </p>
 
@@ -43,8 +43,8 @@ export const FinalCTALight = () => {
           </div>
 
           <div className="flex items-center justify-center gap-6 flex-wrap text-sm text-muted-foreground">
-            <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-accent" /><span>Garantia de 7 dias</span></div>
-            <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-primary" /><span>Acesso imediato</span></div>
+            <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-muted-foreground" /><span>Garantia de 7 dias</span></div>
+            <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-muted-foreground" /><span>Acesso imediato</span></div>
           </div>
         </div>
       </div>

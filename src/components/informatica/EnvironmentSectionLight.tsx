@@ -55,8 +55,8 @@ export const EnvironmentSectionLight = () => {
               { icon: Shield, label: "Risco Zero", sublabel: "Teste por 7 dias" },
               { icon: Award, label: "+90 Aulas Assim", sublabel: "Curso completo" },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-primary/5 rounded-lg md:rounded-xl border border-primary/10">
-                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-muted/50 rounded-lg md:rounded-xl border border-border">
+                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-muted-foreground mb-1 md:mb-2" />
                 <span className="text-foreground font-bold text-xs md:text-sm">{item.label}</span>
                 <span className="text-muted-foreground text-[10px] md:text-xs">{item.sublabel}</span>
               </div>
