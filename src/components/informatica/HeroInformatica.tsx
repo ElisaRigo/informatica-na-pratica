@@ -88,13 +88,20 @@ export const HeroInformatica = () => {
           </p>
         </div>
 
+        {/* Faixa animada de conversão */}
+        <div className="w-full overflow-hidden bg-primary mb-5 md:mb-8 -mx-4 px-4" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+          <div className="animate-marquee whitespace-nowrap py-3">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                🚀 Pare de depender dos outros — Domine o computador HOJE!
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* Seção de Preço */}
         <div className="max-w-2xl mx-auto mb-5 md:mb-8">
           <div className="text-center">
-            {/* Frase de conversão */}
-            <p className="text-foreground font-bold text-base md:text-xl mb-3 leading-snug">
-              Chegou a sua vez de <span className="text-primary">dominar o computador</span> e parar de depender dos outros
-            </p>
 
             <p className="text-muted-foreground text-sm md:text-base mb-1">
               De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
