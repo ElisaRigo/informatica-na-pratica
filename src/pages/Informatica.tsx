@@ -4,16 +4,13 @@ import { HeroInformatica } from "@/components/informatica/HeroInformatica";
 import { AudioTestimonialsLight } from "@/components/informatica/AudioTestimonialsLight";
 import { ProblemBanner } from "@/components/informatica/ProblemBanner";
 import { InstructorSection } from "@/components/curso/InstructorSection";
-import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
 import { EnvironmentSectionLight } from "@/components/informatica/EnvironmentSectionLight";
 import { TransformationSectionLight } from "@/components/informatica/TransformationSectionLight";
 import { ContentSectionLight } from "@/components/informatica/ContentSectionLight";
-import { TestimonialsLight } from "@/components/informatica/TestimonialsLight";
-import { PricingV2 } from "@/components/curso/PricingV2";
 import { FAQV2 } from "@/components/curso/FAQV2";
 import { FinalCTALight } from "@/components/informatica/FinalCTALight";
-import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 import { FooterLight } from "@/components/informatica/FooterLight";
+import { CommentsStrip } from "@/components/informatica/FacebookComments";
 
 const Informatica = () => {
   (window as any).openCheckout = () => {
@@ -38,11 +35,12 @@ const Informatica = () => {
       <AudioTestimonialsLight />
       <InstructorSection />
       <ProblemBanner />
-      
+      <CommentsStrip startIndex={2} count={2} />
       <EnvironmentSectionLight />
+      <CommentsStrip startIndex={4} count={2} />
       <TransformationSectionLight />
       <ContentSectionLight />
-      <TestimonialsLight />
+      <CommentsStrip startIndex={6} count={2} />
       <FAQV2 />
       <FinalCTALight />
       <FooterLight />
