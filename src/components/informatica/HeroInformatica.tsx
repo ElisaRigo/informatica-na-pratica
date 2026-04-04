@@ -89,24 +89,23 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Faixa animada de conversão */}
-        <div className="w-full overflow-hidden bg-primary mb-5 md:mb-8 -mx-4 px-4" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="w-full overflow-hidden bg-primary mb-0" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="animate-marquee whitespace-nowrap py-3">
             {Array.from({ length: 6 }).map((_, i) => (
               <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                🚀 Pare de depender dos outros — Domine o computador HOJE!
+                🛑 DOMINE O COMPUTADOR — PARE DE DEPENDER DOS OUTROS
               </span>
             ))}
           </div>
         </div>
 
-        {/* Seção de Preço */}
-        <div className="max-w-2xl mx-auto mb-5 md:mb-8">
-          <div className="text-center">
-
+        {/* Seção de Preço - fundo destacado */}
+        <div className="py-8 md:py-10" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', background: 'linear-gradient(180deg, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.15) 50%, hsl(var(--primary) / 0.08) 100%)', borderTop: '2px solid hsl(var(--primary) / 0.2)', borderBottom: '2px solid hsl(var(--primary) / 0.2)' }}>
+          <div className="max-w-2xl mx-auto px-4 text-center">
             <p className="text-muted-foreground text-sm md:text-base mb-1">
               De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
             </p>
-            <p className="text-3xl md:text-5xl font-black text-foreground leading-tight">
+            <p className="text-2xl md:text-4xl font-black text-foreground leading-tight">
               12x de <span className="text-primary">R$ 30,72</span>
             </p>
             <p className="text-muted-foreground text-sm md:text-lg mt-1">
@@ -122,21 +121,21 @@ export const HeroInformatica = () => {
 
             {/* Selos de confiança inline */}
             <div className="flex flex-wrap justify-center gap-3 mt-4">
-              <div className="inline-flex items-center gap-1.5 bg-primary/5 border border-primary/15 px-3 py-1.5 rounded-full">
+              <div className="inline-flex items-center gap-1.5 bg-background border border-primary/20 px-3 py-1.5 rounded-full">
                 <span className="text-sm">🔒</span>
                 <span className="text-foreground font-semibold text-xs">Compra Segura</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 bg-primary/5 border border-primary/15 px-3 py-1.5 rounded-full">
+              <div className="inline-flex items-center gap-1.5 bg-background border border-primary/20 px-3 py-1.5 rounded-full">
                 <span className="text-sm">⚡</span>
                 <span className="text-foreground font-semibold text-xs">Acesso Imediato</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 bg-primary/5 border border-primary/15 px-3 py-1.5 rounded-full">
+              <div className="inline-flex items-center gap-1.5 bg-background border border-primary/20 px-3 py-1.5 rounded-full">
                 <span className="text-sm">🎓</span>
                 <span className="text-foreground font-semibold text-xs">Certificado Incluso</span>
               </div>
             </div>
 
-            <div className="mt-4 bg-primary/10 border border-primary/20 rounded-xl p-4">
+            <div className="mt-4 bg-background border border-primary/20 rounded-xl p-4">
               <p className="text-foreground font-bold text-sm md:text-base">
                 🛡️ Garantia Incondicional de 7 Dias
               </p>
