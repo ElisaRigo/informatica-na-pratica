@@ -59,7 +59,7 @@ export const CommentsStrip = ({ startIndex, count }: CommentsStripProps) => {
   return (
     <div className="py-4 md:py-6 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className={`grid grid-cols-1 md:grid-cols-${count > 1 ? '2' : '1'} gap-3 max-w-3xl mx-auto`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto">
           {comments.map((comment, index) => (
             <FacebookComment key={startIndex + index} comment={comment} avatarSrc={avatarImages[startIndex + index]} />
           ))}
