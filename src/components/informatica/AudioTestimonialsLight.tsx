@@ -1,4 +1,5 @@
 import { MessageCircle, Play, Pause, Volume2, Smartphone, ThumbsUp, Heart } from "lucide-react";
+import { CertificateSectionLight } from "./CertificateSectionLight";
 import { useState, useRef } from "react";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
