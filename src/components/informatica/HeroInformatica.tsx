@@ -16,8 +16,10 @@ export const HeroInformatica = () => {
         {/* Logo */}
         <div className="flex flex-col items-center mb-4 md:mb-6">
           <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-md" />
-          <p className="text-foreground text-sm md:text-base lg:text-lg font-medium mt-2 text-center">
-            Curso de <span className="text-primary font-bold">Informática Online</span> completo - Começando do Zero
+          <p className="text-foreground text-sm md:text-base lg:text-lg font-medium mt-2 text-center leading-relaxed">
+            Curso de <span className="text-primary font-bold">Informática Online</span> completo
+            <br />
+            <span className="text-muted-foreground">Mesmo começando do Zero</span>
           </p>
         </div>
 
