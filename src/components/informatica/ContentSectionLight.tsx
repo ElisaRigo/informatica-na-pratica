@@ -20,13 +20,7 @@ export const ContentSectionLight = () => {
     <section id="conteudo" className="py-10 md:py-14 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">📚 Conteúdo Completo</span>
-          <h2 className="text-3xl md:text-5xl font-black text-foreground mb-6">
-            Tudo que você precisa para <span className="text-primary">dominar</span> o computador
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            +90 videoaulas passo a passo, do básico ao mercado de trabalho, com explicações simples que qualquer pessoa consegue acompanhar.
-          </p>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground">📚 Conteúdo Completo</h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
