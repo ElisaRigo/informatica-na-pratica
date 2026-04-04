@@ -76,15 +76,14 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Subheadline */}
-        <div className="text-center max-w-3xl mx-auto mb-5 md:mb-8">
+        <div className="text-center max-w-3xl mx-auto mb-2 md:mb-3">
           <p className="text-lg md:text-2xl lg:text-3xl font-bold text-foreground leading-snug">
             Mesmo que você <span className="text-primary underline decoration-primary/40 decoration-2 underline-offset-4">nunca tenha mexido</span> em um computador.
           </p>
         </div>
 
-
         {/* Seção de Preço */}
-        <div className="py-4 md:py-6" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="py-2 md:py-3" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
 
             {/* Badges topo */}
