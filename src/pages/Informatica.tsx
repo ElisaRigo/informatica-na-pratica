@@ -38,7 +38,7 @@ const Informatica = () => {
       <HeroInformatica />
       <AudioTestimonialsLight />
       <ProblemSection />
-      <CertificateSectionLight />
+      
       <InstructorSection />
       <StrategicCTAV2 
         headline="Quero aprender com a Elisa!"
