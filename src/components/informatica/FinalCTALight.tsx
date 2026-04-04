@@ -11,8 +11,7 @@ export const FinalCTALight = () => {
           </div>
 
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-tight">
-            Daqui a 30 dias você vai{" "}
-            <span className="text-primary">agradecer</span>{" "}
+            Você vai <span className="text-primary">agradecer</span>{" "}
             por ter começado hoje
           </h2>
 
