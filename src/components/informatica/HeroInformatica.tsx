@@ -92,52 +92,53 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Seção de Preço - fundo destacado */}
-        <div className="py-5 md:py-6" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', background: 'linear-gradient(180deg, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.15) 50%, hsl(var(--primary) / 0.08) 100%)', borderTop: '2px solid hsl(var(--primary) / 0.2)', borderBottom: '2px solid hsl(var(--primary) / 0.2)' }}>
-          <div className="max-w-xl mx-auto px-4 text-center">
-            <p className="text-muted-foreground text-xs md:text-sm mb-0.5">
-              De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
+        <div className="py-6 md:py-8" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', background: 'linear-gradient(180deg, hsl(var(--primary) / 0.06) 0%, hsl(var(--primary) / 0.12) 50%, hsl(var(--primary) / 0.06) 100%)' }}>
+          <div className="max-w-lg mx-auto px-4 text-center">
+            <p className="text-primary font-bold text-xs md:text-sm tracking-widest uppercase mb-1">
+              Oferta por tempo limitado
             </p>
-            <p className="text-2xl md:text-4xl font-black text-foreground leading-tight">
-              12x de <span className="text-primary">R$ 30,72</span>
-            </p>
-            <p className="text-muted-foreground text-xs md:text-sm mt-0.5">
-              ou <span className="text-foreground font-bold">R$ 297,00</span> à vista
-            </p>
+            <h2 className="text-xl md:text-3xl font-black text-foreground mb-4">
+              Comece sua <span className="text-primary">transformação</span> hoje!
+            </h2>
 
-            <p className="text-destructive font-bold text-sm md:text-base mt-2 animate-pulse">
-              ⏰ Condição especial por tempo limitado — Garanta antes que acabe!
+            {/* Card do preço */}
+            <div className="bg-background border border-primary/20 rounded-xl p-5 md:p-6 mb-4">
+              <p className="text-muted-foreground text-sm md:text-base mb-1">
+                🔥 De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
+              </p>
+              <p className="text-3xl md:text-5xl font-black text-foreground leading-tight">
+                R$ <span className="text-primary">297,00</span>
+              </p>
+              <p className="text-muted-foreground text-xs md:text-sm mt-1">
+                💳 ou parcele em até <strong className="text-foreground">12x no cartão</strong>
+              </p>
+            </div>
+
+            <p className="text-primary font-bold text-sm md:text-base mb-3">
+              🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
             </p>
 
             <button
               onClick={() => (window as any).openCheckout?.()}
-              className="mt-2 max-w-xs mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white font-black text-base md:text-lg py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="w-full max-w-sm mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white font-black text-base md:text-lg py-3.5 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              🎯 QUERO COMEÇAR AGORA!
+              🎯 QUERO COMEÇAR MEU CURSO AGORA!
             </button>
 
             {/* Selos de confiança inline */}
             <div className="flex flex-wrap justify-center gap-2 mt-3">
-              <div className="inline-flex items-center gap-1 bg-background border border-primary/20 px-2.5 py-1 rounded-full">
+              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full">
                 <span className="text-xs">🔒</span>
-                <span className="text-foreground font-semibold text-[10px] md:text-xs">Compra Segura</span>
+                <span className="text-muted-foreground font-semibold text-[10px] md:text-xs">Compra Segura</span>
               </div>
-              <div className="inline-flex items-center gap-1 bg-background border border-primary/20 px-2.5 py-1 rounded-full">
+              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full">
+                <span className="text-xs">🛡️</span>
+                <span className="text-muted-foreground font-semibold text-[10px] md:text-xs">Garantia 7 dias</span>
+              </div>
+              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full">
                 <span className="text-xs">⚡</span>
-                <span className="text-foreground font-semibold text-[10px] md:text-xs">Acesso Imediato</span>
+                <span className="text-muted-foreground font-semibold text-[10px] md:text-xs">Acesso Imediato</span>
               </div>
-              <div className="inline-flex items-center gap-1 bg-background border border-primary/20 px-2.5 py-1 rounded-full">
-                <span className="text-xs">🎓</span>
-                <span className="text-foreground font-semibold text-[10px] md:text-xs">Certificado Incluso</span>
-              </div>
-            </div>
-
-            <div className="mt-3 bg-background border border-primary/20 rounded-lg p-3">
-              <p className="text-foreground font-bold text-xs md:text-sm">
-                🛡️ Garantia Incondicional de 7 Dias
-              </p>
-              <p className="text-muted-foreground text-[10px] md:text-xs mt-0.5">
-                Não gostou? Devolvemos <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas.
-              </p>
             </div>
           </div>
         </div>
