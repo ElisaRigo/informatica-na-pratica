@@ -1,4 +1,4 @@
-import { Trophy, Sparkles } from "lucide-react";
+import { Trophy } from "lucide-react";
 import certificadoExemplo from "@/assets/certificado-exemplo.png";
 
 export const CertificateSectionLight = () => {
