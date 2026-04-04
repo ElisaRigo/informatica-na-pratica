@@ -155,8 +155,8 @@ export const HeroInformatica = () => {
               </p>
             </div>
 
-            <p className="text-primary font-bold text-sm md:text-base">
-              👉 Dê o primeiro passo para novas oportunidades hoje
+            <p className="text-muted-foreground text-xs md:text-sm">
+              🔒 Pagamento 100% seguro · Acesso imediato após a compra
             </p>
           </div>
         </div>
