@@ -82,16 +82,11 @@ export const HeroInformatica = () => {
 
 
         {/* Seção de Preço */}
-        <div className="py-6 md:py-8" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="py-4 md:py-6" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
-            {/* Título da seção */}
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-foreground mb-5">
-              👉 Dê o primeiro passo para{" "}
-              <span className="text-primary">novas oportunidades</span> hoje
-            </h2>
 
             {/* Badges topo */}
-            <div className="flex flex-wrap justify-center gap-2 mb-5">
+            <div className="flex flex-wrap justify-center gap-2 mb-4">
               {[
                 { icon: "🎧", label: "Suporte Direto" },
                 { icon: "👥", label: "+ 15.000 Alunos" },
@@ -110,20 +105,24 @@ export const HeroInformatica = () => {
             <p className="text-3xl md:text-5xl font-black text-primary mb-1">
               12x de R$ 30,72
             </p>
-            <p className="text-muted-foreground text-base md:text-lg mb-5">
+            <p className="text-muted-foreground text-base md:text-lg mb-4">
               ou <span className="font-black text-foreground text-lg md:text-2xl">R$ 297,00</span> à vista
             </p>
 
             {/* CTA */}
             <button
               onClick={() => (window as any).openCheckout?.()}
-              className="w-full max-w-md mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-lg md:text-xl py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-5"
+              className="w-full max-w-md mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-lg md:text-xl py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-2"
             >
               🎯 QUERO COMEÇAR AGORA!
             </button>
 
+            <p className="text-muted-foreground text-xs md:text-sm mb-4">
+              🔒 Pagamento 100% seguro · Acesso imediato após a compra
+            </p>
+
             {/* Badges abaixo do CTA */}
-            <div className="flex flex-wrap justify-center gap-2 mb-5">
+            <div className="flex flex-wrap justify-center gap-2 mb-4">
               {[
                 { icon: "🏆", label: "Certificado Incluso" },
                 { icon: "♾️", label: "Acesso Vitalício" },
@@ -136,7 +135,7 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Garantia */}
-            <div className="max-w-md mx-auto bg-primary/5 border border-primary/20 rounded-xl p-4 mb-3">
+            <div className="max-w-md mx-auto bg-primary/5 border border-primary/20 rounded-xl p-4">
               <p className="font-black text-foreground text-sm md:text-base mb-1">
                 🛡️ Garantia Incondicional de 7 Dias
               </p>
@@ -144,24 +143,14 @@ export const HeroInformatica = () => {
                 Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
               </p>
             </div>
-
-            <p className="text-muted-foreground text-xs md:text-sm">
-              🔒 Pagamento 100% seguro · Acesso imediato após a compra
-            </p>
           </div>
         </div>
 
-        {/* Copy acima do segundo vídeo */}
-        <div className="max-w-3xl mx-auto text-center mt-5 md:mt-8 mb-4 md:mb-6">
-          <p className="text-muted-foreground text-xs md:text-sm font-semibold uppercase tracking-wider mb-2">
-            Ainda tem medo de não conseguir aprender?
-          </p>
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-foreground mb-2">
+        {/* Título acima do segundo vídeo */}
+        <div className="max-w-3xl mx-auto text-center mt-4 md:mt-6 mb-4 md:mb-5">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-foreground">
             Veja como é <span className="text-primary">fácil aprender!</span>
           </h2>
-          <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto">
-            Assista essa aula e descubra que você é capaz de dominar a informática de forma simples e prática.
-          </p>
         </div>
 
         {/* Video principal (segundo) */}
