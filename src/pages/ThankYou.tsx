@@ -26,11 +26,11 @@ const ThankYou = () => {
           'currency': 'BRL'
         });
         
-      // Disparar pageview para garantir que o GA4 rastreie a página
-      (window as any).gtag('config', 'G-08B5E33G3F', {
-        page_path: '/obrigada',
-        page_title: 'Obrigada - Compra Confirmada'
-      });
+        // Disparar pageview para garantir que o GA4 rastreie a página
+        (window as any).gtag('config', 'G-08B5E33G3F', {
+          page_path: '/obrigada',
+          page_title: 'Obrigada - Compra Confirmada'
+        });
         
         // Disparar evento de conversão do Google Ads
         (window as any).gtag('event', 'conversion', {
@@ -164,7 +164,7 @@ const ThankYou = () => {
           <div className="bg-card border border-line rounded-xl p-6 text-left">
             <h3 className="font-semibold text-lg mb-2 text-primary">🎓 Acesso ao curso</h3>
             <ul className="text-sm text-muted-foreground space-y-2">
-              <li>✅ 2 anos de acesso completo ao curso</li>
+              <li>✅ Acesso vitalício ao curso</li>
               <li>✅ Suporte direto da professora Elisa</li>
               <li>✅ Certificado incluso</li>
             </ul>

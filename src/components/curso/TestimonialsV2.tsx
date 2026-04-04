@@ -15,22 +15,22 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Carlos Eduardo, 45 anos",
+    name: "Carla Eduarda, 23 anos",
     role: "Comerciante",
     text: "Finalmente consigo fazer minhas planilhas de controle de estoque. Economizo 3 horas por semana!",
     image: testimonial2,
     rating: 5,
   },
   {
-    name: "Ana Paula, 32 anos",
-    role: "Secretária",
+    name: "Pedro Junk, 38 anos",
+    role: "Empresário",
     text: "Ganhei uma promoção porque agora domino Word e Excel. O investimento se pagou em menos de um mês.",
     image: testimonial3,
     rating: 5,
   },
   {
-    name: "Roberto Silva, 52 anos",
-    role: "Autônomo",
+    name: "Roberta Silva, 28 anos",
+    role: "Autônoma",
     text: "A didática da professora é incrível. Ela explica de um jeito que até quem nunca usou computador entende.",
     image: testimonial4,
     rating: 5,
@@ -67,7 +67,7 @@ export const TestimonialsV2 = () => {
           </span>
           
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-            Mais de <span className="text-accent">2.000 vidas</span> transformadas
+            Mais de <span className="text-accent">15.000 vidas</span> transformadas
           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
             Veja o que nossos alunos estão dizendo sobre o curso
@@ -115,7 +115,7 @@ export const TestimonialsV2 = () => {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-12">
           {[
-            { number: "2.147", label: "Alunos" },
+            { number: "15.000+", label: "Alunos" },
             { number: "98%", label: "Satisfação" },
             { number: "4.9", label: "Avaliação" },
           ].map((stat, i) => (

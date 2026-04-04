@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "Por quanto tempo terei acesso ao curso?",
-    answer: "Você terá acesso por 2 anos completos! Isso significa que pode estudar no seu ritmo, revisar quantas vezes quiser e acompanhar todas as atualizações que fizermos neste período.",
+    answer: "O acesso é vitalício! Isso significa que pode estudar no seu ritmo, revisar quantas vezes quiser e acompanhar todas as atualizações para sempre.",
   },
   {
     question: "O certificado é válido?",
