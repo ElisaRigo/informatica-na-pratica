@@ -1,20 +1,20 @@
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 import { HeroInformatica } from "@/components/informatica/HeroInformatica";
+import { AudioTestimonialsLight } from "@/components/informatica/AudioTestimonialsLight";
 import { ProblemSection } from "@/components/curso/ProblemSection";
-import { AudioTestimonialsV2 } from "@/components/curso/AudioTestimonialsV2";
-import { TransformationSection } from "@/components/curso/TransformationSection";
-import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
+import { CertificateSectionLight } from "@/components/informatica/CertificateSectionLight";
 import { InstructorSection } from "@/components/curso/InstructorSection";
 import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
-import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
-import { CertificateSection } from "@/components/curso/CertificateSection";
-import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
+import { EnvironmentSectionLight } from "@/components/informatica/EnvironmentSectionLight";
+import { TransformationSectionLight } from "@/components/informatica/TransformationSectionLight";
+import { ContentSectionLight } from "@/components/informatica/ContentSectionLight";
+import { TestimonialsLight } from "@/components/informatica/TestimonialsLight";
 import { PricingV2 } from "@/components/curso/PricingV2";
 import { FAQV2 } from "@/components/curso/FAQV2";
-import { FinalCTA } from "@/components/curso/FinalCTA";
-import { FooterV2 } from "@/components/curso/FooterV2";
+import { FinalCTALight } from "@/components/informatica/FinalCTALight";
 import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
+import { FooterLight } from "@/components/informatica/FooterLight";
 
 const Informatica = () => {
   (window as any).openCheckout = () => {
@@ -34,26 +34,26 @@ const Informatica = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <HeroInformatica />
-      <AudioTestimonialsV2 />
+      <AudioTestimonialsLight />
       <ProblemSection />
-      <CertificateSection />
+      <CertificateSectionLight />
       <InstructorSection />
       <StrategicCTAV2 
         headline="Quero aprender com a Elisa!"
         buttonText="Sim, Quero Ser Aluno(a)"
         variant="light"
       />
-      <EnvironmentSection />
-      <TransformationSection />
-      <ContentSectionV2 />
-      <TestimonialsV2 />
+      <EnvironmentSectionLight />
+      <TransformationSectionLight />
+      <ContentSectionLight />
+      <TestimonialsLight />
       <PricingV2 />
       <FAQV2 />
-      <FinalCTA />
+      <FinalCTALight />
       <DisclaimerSection />
-      <FooterV2 />
+      <FooterLight />
       <WhatsAppButton />
     </div>
   );
