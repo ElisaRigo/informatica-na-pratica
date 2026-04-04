@@ -94,17 +94,13 @@ export const HeroInformatica = () => {
         {/* Seção de Preço */}
         <div className="py-6 md:py-8" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
-            {/* Badges */}
-            <div className="flex flex-wrap justify-center gap-2 mb-6">
+            {/* Badges topo */}
+            <div className="flex flex-wrap justify-center gap-2 mb-5">
               {[
-                { icon: "🖥️", label: "+90 Videoaulas" },
-                { icon: "📖", label: "Curso Completo" },
-                { icon: "🏆", label: "Certificado Incluso" },
-                { icon: "♾️", label: "Acesso Vitalício" },
                 { icon: "🎧", label: "Suporte Direto" },
                 { icon: "👥", label: "+ 15.000 Alunos" },
               ].map((item, i) => (
-                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-3 py-1.5 rounded-full text-xs md:text-sm font-bold text-primary">
+                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold text-primary">
                   <span>{item.icon}</span>
                   <span>{item.label}</span>
                 </div>
@@ -130,6 +126,19 @@ export const HeroInformatica = () => {
               🎯 QUERO COMEÇAR AGORA!
             </button>
 
+            {/* Badges abaixo do CTA */}
+            <div className="flex flex-wrap justify-center gap-2 mb-5">
+              {[
+                { icon: "🏆", label: "Certificado Incluso" },
+                { icon: "♾️", label: "Acesso Vitalício" },
+              ].map((item, i) => (
+                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold text-primary">
+                  <span>{item.icon}</span>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+
             {/* Garantia */}
             <div className="max-w-md mx-auto bg-primary/5 border border-primary/20 rounded-xl p-4 mb-3">
               <p className="font-black text-foreground text-sm md:text-base mb-1">
@@ -140,8 +149,8 @@ export const HeroInformatica = () => {
               </p>
             </div>
 
-            <p className="text-muted-foreground text-xs md:text-sm">
-              🔒 Pagamento 100% seguro · Acesso imediato após a compra
+            <p className="text-primary font-bold text-sm md:text-base">
+              👉 Dê o primeiro passo para novas oportunidades hoje
             </p>
           </div>
         </div>
