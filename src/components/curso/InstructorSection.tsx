@@ -3,7 +3,7 @@ import elisaPhoto from "@/assets/elisa-photo.jpg";
 
 export const InstructorSection = () => {
   return (
-    <section id="professora" className="py-10 md:py-14 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -52,7 +52,7 @@ export const InstructorSection = () => {
             {/* Content */}
             <div>
               <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                👩‍🏫 Sua Professora
+                👩‍🏫 Sua Instrutora
               </span>
 
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">

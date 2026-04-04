@@ -1,21 +1,20 @@
 import { Check, Zap, Shield, Gift, Clock, Award, Users, Headphones } from "lucide-react";
 
 const included = [
-  { icon: Check, text: "Acesso completo a +90 videoaulas" },
+  { icon: Check, text: "Acesso completo a +70 videoaulas" },
   { icon: Check, text: "Windows, Word, Excel, PowerPoint, Internet" },
   { icon: Check, text: "Módulo de Digitação Profissional" },
   { icon: Check, text: "Certificado de conclusão" },
   { icon: Check, text: "Suporte direto com a professora" },
-  { icon: Check, text: "Acesso Vitalício" },
+  { icon: Check, text: "Acesso por 2 anos" },
   { icon: Check, text: "Atualizações gratuitas" },
   { icon: Check, text: "Material de apoio em PDF" },
 ];
 
 const bonuses = [
-  { icon: Gift, text: "BÔNUS: E-mail Profissional", value: "R$ 97" },
-  { icon: Gift, text: "BÔNUS: Mercado de Trabalho", value: "R$ 127" },
-  { icon: Gift, text: "BÔNUS: Atalhos Essenciais", value: "R$ 47" },
-  { icon: Gift, text: "BÔNUS: Currículo Profissional", value: "R$ 97" },
+  { icon: Gift, text: "BÔNUS: Atalhos que economizam tempo", value: "R$ 97" },
+  { icon: Gift, text: "BÔNUS: Guia de segurança na internet", value: "R$ 47" },
+  { icon: Gift, text: "BÔNUS: Comunidade exclusiva no WhatsApp", value: "R$ 97" },
 ];
 
 export const PricingV2 = () => {
@@ -90,7 +89,7 @@ export const PricingV2 = () => {
                     </div>
                     
                     <p className="text-lg text-foreground font-semibold">
-                      ou <span className="text-primary font-bold">12x de R$ 30,72</span>
+                      ou <span className="text-primary font-bold">12x de R$ 30,22</span>
                     </p>
                     <p className="text-sm text-muted-foreground">
                       no cartão de crédito
@@ -112,9 +111,9 @@ export const PricingV2 = () => {
                   {/* Trust badges */}
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { icon: Clock, text: "Acesso Vitalício" },
+                      { icon: Clock, text: "2 anos de acesso" },
                       { icon: Award, text: "Certificado incluso" },
-                      { icon: Users, text: "+15.000 alunos" },
+                      { icon: Users, text: "+2.000 alunos" },
                       { icon: Headphones, text: "Suporte humanizado" },
                     ].map((badge, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground bg-slate-50 rounded-lg p-2">
