@@ -105,20 +105,20 @@ export const HeroInformatica = () => {
             <p className="text-muted-foreground text-xs md:text-sm mb-0.5">
               De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
             </p>
-            <p className="text-xl md:text-3xl font-black text-foreground leading-tight">
+            <p className="text-2xl md:text-4xl font-black text-foreground leading-tight">
               12x de <span className="text-primary">R$ 30,72</span>
             </p>
             <p className="text-muted-foreground text-xs md:text-sm mt-0.5">
               ou <span className="text-foreground font-bold">R$ 297,00</span> à vista
             </p>
 
-            <p className="text-destructive font-bold text-xs md:text-sm mt-2 animate-pulse">
+            <p className="text-destructive font-bold text-sm md:text-base mt-2 animate-pulse">
               ⏰ Condição especial por tempo limitado — Garanta antes que acabe!
             </p>
 
             <button
               onClick={() => (window as any).openCheckout?.()}
-              className="mt-3 w-full max-w-sm mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white font-black text-base md:text-lg py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="mt-2 max-w-xs mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white font-black text-base md:text-lg py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               🎯 QUERO COMEÇAR AGORA!
             </button>
