@@ -90,7 +90,7 @@ export const HeroInformatica = () => {
 
         {/* Seção de Preço */}
         <div className="max-w-2xl mx-auto mb-5 md:mb-8">
-          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8 text-center">
+          <div className="text-center">
             <p className="text-muted-foreground text-sm md:text-base mb-1">
               De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
             </p>
