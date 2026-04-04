@@ -82,10 +82,10 @@ export const HeroInformatica = () => {
 
         {/* Faixa animada de conversão */}
         <div className="w-full overflow-hidden bg-primary mb-0" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
-          <div className="animate-marquee whitespace-nowrap py-3">
+          <div className="animate-marquee whitespace-nowrap py-3" style={{ animationDuration: '22s' }}>
             {Array.from({ length: 6 }).map((_, i) => (
               <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                🛑 DOMINE O COMPUTADOR — PARE DE DEPENDER DOS OUTROS
+                💻 Domine o computador e tenha mais independência no seu dia a dia
               </span>
             ))}
           </div>
