@@ -88,7 +88,43 @@ export const HeroInformatica = () => {
           </p>
         </div>
 
+        {/* Seção de Preço */}
+        <div className="max-w-2xl mx-auto mb-5 md:mb-8">
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8 text-center">
+            <p className="text-muted-foreground text-sm md:text-base mb-1">
+              De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
+            </p>
+            <p className="text-3xl md:text-5xl font-black text-foreground leading-tight">
+              12x de <span className="text-primary">R$ 30,72</span>
+            </p>
+            <p className="text-muted-foreground text-sm md:text-lg mt-1">
+              ou <span className="text-foreground font-bold">R$ 297,00</span> à vista
+            </p>
 
+            <button
+              onClick={() => (window as any).openCheckout?.()}
+              className="mt-5 w-full max-w-md mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white font-black text-lg md:text-xl py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              🎯 QUERO COMEÇAR AGORA!
+            </button>
+
+            <div className="mt-4 bg-primary/10 border border-primary/20 rounded-xl p-4">
+              <p className="text-foreground font-bold text-sm md:text-base">
+                🛡️ Garantia Incondicional de 7 Dias
+              </p>
+              <p className="text-muted-foreground text-xs md:text-sm mt-1">
+                Se você não gostar do curso por qualquer motivo, devolvo{" "}
+                <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
+              </p>
+            </div>
+
+            <p className="text-muted-foreground text-[10px] md:text-xs mt-3">
+              🔒 Pagamento 100% seguro · Acesso imediato após a compra
+            </p>
+          </div>
+        </div>
+
+        {/* Video principal (segundo) */}
         <div className="max-w-3xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-border">
             {!isPlaying ? (
