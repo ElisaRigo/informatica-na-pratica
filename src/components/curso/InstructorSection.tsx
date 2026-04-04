@@ -96,8 +96,24 @@ export const InstructorSection = () => {
                   </div>
                 ))}
               </div>
+
+              {/* CTA integrado */}
+              <div className="text-center mt-8">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-foreground mb-4">
+                  Quero aprender com a Elisa<span className="text-primary">!</span>
+                </h3>
+                <button
+                  onClick={() => (window as any).openCheckout?.()}
+                  className="group inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-xl shadow-lg hover:scale-[1.02] transition-all duration-300"
+                >
+                  Sim, Quero Ser Aluno(a)
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <p className="text-xs md:text-sm mt-4 text-muted-foreground">
+                  🔒 Pagamento seguro • Garantia de 7 dias • Acesso imediato
+                </p>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </section>
