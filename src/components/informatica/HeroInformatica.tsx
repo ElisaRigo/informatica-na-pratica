@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Headphones, BookOpen, CheckCircle2, Users } from "lucide-react";
+import { Play, Shield, Award, Headphones, BookOpen, CheckCircle2, Users, Trophy, Infinity as InfinityIcon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -90,11 +90,11 @@ export const HeroInformatica = () => {
             {/* Badges topo */}
             <div className="flex flex-wrap justify-center gap-2 mb-4">
               {[
-                { icon: "🎧", label: "Suporte Direto" },
-                { icon: "👥", label: "+ 15.000 Alunos" },
+                { icon: "headphones", label: "Suporte Direto" },
+                { icon: "users", label: "+ 15.000 Alunos" },
               ].map((item, i) => (
                 <div key={i} className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold text-primary">
-                  <span>{item.icon}</span>
+                  {item.icon === "headphones" ? <Headphones className="w-4 h-4" /> : <Users className="w-4 h-4" />}
                   <span>{item.label}</span>
                 </div>
               ))}
@@ -126,11 +126,11 @@ export const HeroInformatica = () => {
             {/* Badges abaixo do CTA */}
             <div className="flex flex-wrap justify-center gap-2 mb-4">
               {[
-                { icon: "🏆", label: "Certificado Incluso" },
-                { icon: "♾️", label: "Acesso Vitalício" },
+                { icon: "trophy", label: "Certificado Incluso" },
+                { icon: "infinity", label: "Acesso Vitalício" },
               ].map((item, i) => (
                 <div key={i} className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold text-primary">
-                  <span>{item.icon}</span>
+                  {item.icon === "trophy" ? <Trophy className="w-4 h-4" /> : <InfinityIcon className="w-4 h-4" />}
                   <span>{item.label}</span>
                 </div>
               ))}

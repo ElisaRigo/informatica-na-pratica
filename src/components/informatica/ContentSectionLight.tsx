@@ -20,7 +20,9 @@ export const ContentSectionLight = () => {
     <section id="conteudo" className="py-10 md:py-14 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground">📚 Conteúdo Completo</h2>
+          <div className="inline-block bg-primary/10 border border-primary/20 rounded-2xl px-8 py-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground">📚 Conteúdo Completo</h2>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
