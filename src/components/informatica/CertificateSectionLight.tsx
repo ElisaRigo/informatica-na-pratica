@@ -6,14 +6,13 @@ export const CertificateSectionLight = () => {
     <div className="py-6 md:py-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-300 text-amber-700 px-5 py-2.5 rounded-full text-sm font-bold mb-4 animate-pulse">
-            <Trophy className="w-5 h-5" />
+          <div className="inline-flex items-center gap-2 bg-muted/50 border border-border text-muted-foreground px-5 py-2.5 rounded-full text-sm font-bold mb-4">
+            <Trophy className="w-5 h-5 text-muted-foreground" />
             <span>Certificado Profissional Incluso</span>
-            <Sparkles className="w-4 h-4" />
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-black text-foreground leading-tight">
-            Imagine <span className="text-amber-500">seu nome</span> aqui!
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground leading-tight">
+            Imagine <span className="text-primary">seu nome</span> aqui!
           </h2>
         </div>
 
