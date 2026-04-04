@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Headphones, BookOpen, CheckCircle2 } from "lucide-react";
+import { Play, Shield, Award, Headphones, BookOpen, CheckCircle2, Users } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -72,38 +72,20 @@ export const HeroInformatica = () => {
           </p>
         </div>
 
-        {/* Trust badges - pill format */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-3xl mx-auto mb-4 md:mb-6">
+        {/* Trust seals */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
           {[
-            "Curso pensado para quem nunca teve facilidade com computador",
-            "Acesso Imediato",
-            "Garantia 7 dias",
-            "Certificado Incluso",
-            "Suporte ao aluno",
-          ].map((label, i) => (
-            <div
-              key={i}
-              className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-3 py-1.5 md:px-4 md:py-2 rounded-full"
-            >
-              <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-              <span className="text-foreground font-medium text-xs md:text-sm">{label}</span>
+            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
+            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
+            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
+            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center text-center p-3 md:p-4 bg-slate-800 backdrop-blur-sm rounded-xl border border-slate-700">
+              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1.5" />
+              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
             </div>
           ))}
-        </div>
-
-        {/* CTA WhatsApp verde */}
-        <div className="text-center mb-3 md:mb-4">
-          <a
-            href="https://api.whatsapp.com/send?phone=5511999999999&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20curso!"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-success text-white font-bold text-sm md:text-lg px-8 py-3 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
-          >
-            💬 Tirar dúvidas com a professora
-          </a>
-          <p className="text-muted-foreground text-[10px] md:text-xs mt-2">
-            Sem compromisso. Eu te explico tudo via WhatsApp.
-          </p>
         </div>
 
         {/* Video principal (segundo) */}
