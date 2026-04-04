@@ -35,9 +35,6 @@ export const EasyToLearn = () => {
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
           <div className="text-center mb-6 md:mb-8">
-            <p className="text-sm md:text-base text-primary font-bold uppercase tracking-wide mb-2">
-              Ainda tem medo de não conseguir aprender?
-            </p>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-3">
               Veja como é <span className="text-primary">fácil aprender!</span>
             </h2>
@@ -71,12 +68,6 @@ export const EasyToLearn = () => {
                     </div>
                   </div>
 
-                  {/* Selo */}
-                  <div className="absolute bottom-3 right-3 z-20">
-                    <div className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-lg border-2 border-white/30">
-                      ▶ Aula Demonstrativa
-                    </div>
-                  </div>
                 </div>
               )
             ) : (
@@ -113,6 +104,11 @@ export const EasyToLearn = () => {
             </div>
           </div>
 
+          {/* Frase de autoridade */}
+          <p className="text-center text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mt-6 md:mt-8 leading-relaxed">
+            Aprenda com quem já ensinou mais de <strong className="text-foreground">15.000 alunos</strong> e tem mais de <strong className="text-foreground">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
+          </p>
+
           {/* Seção de Preço */}
           <div className="max-w-2xl mx-auto mt-10">
             {/* Frase de impacto */}
@@ -129,7 +125,7 @@ export const EasyToLearn = () => {
                 <span className="text-4xl md:text-5xl font-black text-success">R$ 297,00</span>
               </div>
               <p className="text-sm text-muted-foreground mb-4">
-                💳 ou parcele em até <strong>12x de R$ 30,22</strong> no cartão
+                💳 ou parcele em até <strong>12x de R$ 30,72</strong> no cartão
               </p>
               <p className="text-sm md:text-base font-semibold text-accent mb-5">
                 🔥 Aproveite o valor promocional de hoje!

@@ -1,18 +1,56 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 let openCheckoutCallback: (() => void) | null = null;
+
+// Função para disparar evento begin_checkout no GA4
+const trackBeginCheckout = () => {
+  console.log('🔵 begin_checkout triggered');
+
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'begin_checkout', {
+      currency: 'BRL',
+      value: 297.00,
+      items: [{
+        item_id: 'curso-informatica',
+        item_name: 'Curso Informática na Prática',
+        price: 297.00,
+        quantity: 1
+      }]
+    });
+    console.log('✅ GA4 begin_checkout tracked');
+  }
+
+  if (typeof window !== 'undefined' && (window as any).fbq) {
+    (window as any).fbq('track', 'InitiateCheckout', {
+      value: 297.00,
+      currency: 'BRL',
+      content_name: 'Curso Informática na Prática',
+      content_ids: ['curso-informatica'],
+      num_items: 1
+    });
+    console.log('✅ Meta Pixel InitiateCheckout tracked');
+  }
+};
 
 export const useCheckoutDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Register the callback when component mounts
-  if (!openCheckoutCallback) {
-    openCheckoutCallback = () => setIsOpen(true);
-  }
+  const handleOpenCheckout = useCallback(() => {
+    setIsOpen(true);
+    trackBeginCheckout();
+  }, []);
+
+  // Always keep the callback updated
+  useEffect(() => {
+    openCheckoutCallback = handleOpenCheckout;
+    return () => {
+      openCheckoutCallback = null;
+    };
+  }, [handleOpenCheckout]);
 
   return {
     isOpen,
-    openCheckout: () => setIsOpen(true),
+    openCheckout: handleOpenCheckout,
     closeCheckout: () => setIsOpen(false),
   };
 };
