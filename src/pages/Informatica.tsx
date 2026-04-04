@@ -36,9 +36,8 @@ const Informatica = () => {
     <div className="min-h-screen bg-background">
       <HeroInformatica />
       <AudioTestimonialsLight />
-      <ProblemSection />
-      
       <InstructorSection />
+      <ProblemBanner />
       <StrategicCTAV2 
         headline="Quero aprender com a Elisa!"
         buttonText="Sim, Quero Ser Aluno(a)"
