@@ -49,10 +49,8 @@ const Informatica = () => {
       <TransformationSectionLight />
       <ContentSectionLight />
       <TestimonialsLight />
-      <PricingV2 />
       <FAQV2 />
       <FinalCTALight />
-      <DisclaimerSection />
       <FooterLight />
       <WhatsAppButton />
     </div>
