@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Headphones, BookOpen, CheckCircle2 } from "lucide-react";
+import { Play, Shield, Award, Headphones, BookOpen, CheckCircle2, Users } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
