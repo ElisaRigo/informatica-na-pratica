@@ -114,6 +114,7 @@ export const InstructorSection = () => {
                 </p>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
