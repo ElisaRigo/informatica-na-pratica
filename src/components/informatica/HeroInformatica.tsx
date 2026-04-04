@@ -91,6 +91,11 @@ export const HeroInformatica = () => {
         {/* Seção de Preço */}
         <div className="max-w-2xl mx-auto mb-5 md:mb-8">
           <div className="text-center">
+            {/* Frase de conversão */}
+            <p className="text-foreground font-bold text-base md:text-xl mb-3 leading-snug">
+              Chegou a sua vez de <span className="text-primary">dominar o computador</span> e parar de depender dos outros
+            </p>
+
             <p className="text-muted-foreground text-sm md:text-base mb-1">
               De <span className="line-through text-destructive font-semibold">R$ 497,00</span> por apenas
             </p>
@@ -108,6 +113,22 @@ export const HeroInformatica = () => {
               🎯 QUERO COMEÇAR AGORA!
             </button>
 
+            {/* Selos de confiança inline */}
+            <div className="flex flex-wrap justify-center gap-3 mt-4">
+              <div className="inline-flex items-center gap-1.5 bg-primary/5 border border-primary/15 px-3 py-1.5 rounded-full">
+                <span className="text-sm">🔒</span>
+                <span className="text-foreground font-semibold text-xs">Compra Segura</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-primary/5 border border-primary/15 px-3 py-1.5 rounded-full">
+                <span className="text-sm">⚡</span>
+                <span className="text-foreground font-semibold text-xs">Acesso Imediato</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-primary/5 border border-primary/15 px-3 py-1.5 rounded-full">
+                <span className="text-sm">🎓</span>
+                <span className="text-foreground font-semibold text-xs">Certificado Incluso</span>
+              </div>
+            </div>
+
             <div className="mt-4 bg-primary/10 border border-primary/20 rounded-xl p-4">
               <p className="text-foreground font-bold text-sm md:text-base">
                 🛡️ Garantia Incondicional de 7 Dias
@@ -117,10 +138,6 @@ export const HeroInformatica = () => {
                 <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
               </p>
             </div>
-
-            <p className="text-muted-foreground text-[10px] md:text-xs mt-3">
-              🔒 Pagamento 100% seguro · Acesso imediato após a compra
-            </p>
           </div>
         </div>
 
