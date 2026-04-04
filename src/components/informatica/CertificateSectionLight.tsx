@@ -79,6 +79,6 @@ export const CertificateSectionLight = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
