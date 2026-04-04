@@ -30,6 +30,22 @@ export const HeroInformatica = () => {
           </h1>
         </div>
 
+        {/* Trust seals - light theme */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 max-w-4xl mx-auto mb-5 md:mb-8">
+          {[
+            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
+            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
+            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
+            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center text-center p-3 md:p-4 bg-primary/5 rounded-xl border border-primary/20">
+              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1.5" />
+              <span className="text-foreground font-bold text-xs md:text-sm">{item.label}</span>
+              <span className="text-muted-foreground text-[10px] md:text-xs">{item.sublabel}</span>
+            </div>
+          ))}
+        </div>
+
         {/* Video da aula gratuita (primeiro) */}
         <div ref={freeClassRef} className="max-w-3xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-border">
@@ -63,29 +79,6 @@ export const HeroInformatica = () => {
               </div>
             )}
           </div>
-        </div>
-
-        {/* Frase abaixo do vídeo */}
-        <div className="text-center mb-5 md:mb-6">
-          <p className="text-lg md:text-2xl lg:text-3xl font-black text-foreground">
-            Aprenda informática do <span className="text-primary">"ZERO"</span>, sem medo!
-          </p>
-        </div>
-
-        {/* Trust seals */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
-          {[
-            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
-            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
-            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-3 md:p-4 bg-slate-800 backdrop-blur-sm rounded-xl border border-slate-700">
-              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1.5" />
-              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
-            </div>
-          ))}
         </div>
 
         {/* Video principal (segundo) */}
