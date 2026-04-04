@@ -1,10 +1,8 @@
-import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-import { HeroV2 } from "@/components/curso/HeroV2";
+import { HeroInformatica } from "@/components/informatica/HeroInformatica";
 import { ProblemSection } from "@/components/curso/ProblemSection";
 import { AudioTestimonialsV2 } from "@/components/curso/AudioTestimonialsV2";
-import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
 import { TransformationSection } from "@/components/curso/TransformationSection";
 import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
 import { InstructorSection } from "@/components/curso/InstructorSection";
@@ -37,7 +35,7 @@ const Informatica = () => {
 
   return (
     <div className="min-h-screen">
-      <HeroV2 />
+      <HeroInformatica />
       <AudioTestimonialsV2 />
       <ProblemSection />
       <CertificateSection />
@@ -48,7 +46,6 @@ const Informatica = () => {
         variant="light"
       />
       <EnvironmentSection />
-      <SupportBannerV2 />
       <TransformationSection />
       <ContentSectionV2 />
       <TestimonialsV2 />
