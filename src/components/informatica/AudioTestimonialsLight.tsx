@@ -82,10 +82,10 @@ export const AudioTestimonialsLight = () => {
               </div>
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-2 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-2 leading-tight">
               Veja o que dizem os alunos que <span className="text-primary">saíram do zero</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-medium">
+            <p className="text-sm md:text-base text-muted-foreground max-w-3xl mx-auto font-medium">
               Histórias reais de pessoas que <span className="text-foreground font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total confiança
             </p>
           </div>

@@ -43,8 +43,8 @@ export const FinalCTALight = () => {
           </div>
 
           <div className="flex items-center justify-center gap-6 flex-wrap text-sm text-muted-foreground">
-            <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-accent" /><span>Garantia de 7 dias</span></div>
-            <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-primary" /><span>Acesso imediato</span></div>
+            <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-muted-foreground" /><span>Garantia de 7 dias</span></div>
+            <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-muted-foreground" /><span>Acesso imediato</span></div>
           </div>
         </div>
       </div>
