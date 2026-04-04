@@ -115,39 +115,45 @@ export const AudioTestimonialsLight = () => {
       {/* Conteúdo com fundo claro */}
       <section className="py-10 md:py-14 bg-muted/50 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* WhatsApp Screenshots */}
-            <div className="order-1 lg:order-2">
-              <div className="flex items-center gap-2 mb-4">
-                <Smartphone className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {whatsappScreenshots.map((screenshot, index) => (
-                  <div key={index} className="bg-white rounded-xl p-1.5 shadow-md border border-border">
-                    <div className="bg-muted rounded-t-lg pt-1.5 pb-0.5 px-3">
-                      <div className="flex items-center justify-center">
-                        <div className="w-10 h-0.5 bg-border rounded-full"></div>
-                      </div>
+          {/* WhatsApp Screenshots */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="flex items-center gap-2 mb-4 justify-center">
+              <Smartphone className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-3 max-w-lg mx-auto">
+              {whatsappScreenshots.map((screenshot, index) => (
+                <div key={index} className="bg-white rounded-xl p-1.5 shadow-md border border-border">
+                  <div className="bg-muted rounded-t-lg pt-1.5 pb-0.5 px-3">
+                    <div className="flex items-center justify-center">
+                      <div className="w-10 h-0.5 bg-border rounded-full"></div>
                     </div>
-                    <img src={screenshot.image} alt={screenshot.description} className="w-full h-auto rounded-b-md" loading="lazy" />
                   </div>
-                ))}
-              </div>
+                  <img src={screenshot.image} alt={screenshot.description} className="w-full h-auto rounded-b-md" loading="lazy" />
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* Audio Players */}
-            <div className="order-2 lg:order-1">
-              <div className="flex items-center gap-2 mb-4">
-                <Volume2 className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-bold text-foreground">Áudios de Alunos</h3>
-              </div>
-              <div className="space-y-3">
-                {audioTestimonials.map((testimonial, index) => (
-                  <AudioPlayer key={index} testimonial={testimonial} />
-                ))}
-              </div>
-            </div>
+          {/* Comments row 1 (2 comments) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto mb-4">
+            {facebookComments.slice(0, 2).map((comment, index) => (
+              <FacebookComment key={index} comment={comment} avatarSrc={avatarImages[index]} />
+            ))}
+          </div>
+
+          {/* Audio players 1-2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto mb-4">
+            {audioTestimonials.slice(0, 2).map((testimonial, index) => (
+              <AudioPlayer key={index} testimonial={testimonial} />
+            ))}
+          </div>
+
+          {/* Comments row 2 (2 comments) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto mb-4">
+            {facebookComments.slice(2, 4).map((comment, index) => (
+              <FacebookComment key={index} comment={comment} avatarSrc={avatarImages[index + 2]} />
+            ))}
           </div>
 
           {/* Highlight phrase */}
@@ -156,74 +162,30 @@ export const AudioTestimonialsLight = () => {
               Se essas pessoas conseguiram, <span className="text-success">você também consegue.</span>
               <br />
               <span className="text-muted-foreground font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
-          </p>
+            </p>
           </div>
 
           {/* Certificate Section */}
           <CertificateSectionLight />
 
-          {/* Facebook comments - first 4 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-6">
-            {facebookComments.slice(0, 4).map((comment, index) => (
-              <div key={index} className="bg-white rounded-lg p-3 shadow-sm border border-border/50">
-                <div className="flex gap-2">
-                  <img src={avatarImages[index % avatarImages.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
-                  <div className="flex-1 min-w-0">
-                    <div className="bg-muted rounded-2xl px-3 py-2">
-                      <p className="text-foreground text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
-                      <p className="text-muted-foreground text-xs leading-relaxed">{comment.text}</p>
-                    </div>
-                    <div className="flex items-center gap-3 mt-1 px-2">
-                      <span className="text-[11px] text-muted-foreground">{comment.time}</span>
-                      <span className="text-[11px] text-muted-foreground font-medium cursor-pointer hover:underline">Curtir</span>
-                      <span className="text-[11px] text-muted-foreground font-medium cursor-pointer hover:underline">Responder</span>
-                      {comment.likes > 0 && (
-                        <span className="ml-auto text-[11px] text-muted-foreground flex items-center gap-0.5">
-                          <span className="flex items-center -space-x-1">
-                            <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10"><ThumbsUp className="w-2.5 h-2.5 text-white fill-white" /></span>
-                            {comment.hasHeart && <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0"><Heart className="w-2.5 h-2.5 text-white fill-white" /></span>}
-                          </span>
-                          {comment.likes}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
+          {/* Comments row 3 (2 comments) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto mb-4">
+            {facebookComments.slice(4, 6).map((comment, index) => (
+              <FacebookComment key={index} comment={comment} avatarSrc={avatarImages[index + 4]} />
             ))}
           </div>
 
-          {/* Certificate Section */}
-          <CertificateSectionLight />
+          {/* Audio players 3-5 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-4xl mx-auto mb-4">
+            {audioTestimonials.slice(2, 5).map((testimonial, index) => (
+              <AudioPlayer key={index} testimonial={testimonial} />
+            ))}
+          </div>
 
-          {/* Facebook comments - last 4 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mt-6">
-            {facebookComments.slice(4, 8).map((comment, index) => (
-              <div key={index} className="bg-white rounded-lg p-3 shadow-sm border border-border/50">
-                <div className="flex gap-2">
-                  <img src={avatarImages[(index + 4) % avatarImages.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
-                  <div className="flex-1 min-w-0">
-                    <div className="bg-muted rounded-2xl px-3 py-2">
-                      <p className="text-foreground text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
-                      <p className="text-muted-foreground text-xs leading-relaxed">{comment.text}</p>
-                    </div>
-                    <div className="flex items-center gap-3 mt-1 px-2">
-                      <span className="text-[11px] text-muted-foreground">{comment.time}</span>
-                      <span className="text-[11px] text-muted-foreground font-medium cursor-pointer hover:underline">Curtir</span>
-                      <span className="text-[11px] text-muted-foreground font-medium cursor-pointer hover:underline">Responder</span>
-                      {comment.likes > 0 && (
-                        <span className="ml-auto text-[11px] text-muted-foreground flex items-center gap-0.5">
-                          <span className="flex items-center -space-x-1">
-                            <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10"><ThumbsUp className="w-2.5 h-2.5 text-white fill-white" /></span>
-                            {comment.hasHeart && <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0"><Heart className="w-2.5 h-2.5 text-white fill-white" /></span>}
-                          </span>
-                          {comment.likes}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
+          {/* Comments row 4 (2 comments) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto">
+            {facebookComments.slice(6, 8).map((comment, index) => (
+              <FacebookComment key={index} comment={comment} avatarSrc={avatarImages[index + 6]} />
             ))}
           </div>
 
