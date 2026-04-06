@@ -113,18 +113,6 @@ export const HeroInformatica = () => {
               🔒 Pagamento 100% seguro · Acesso imediato após a compra
             </p>
 
-            {/* Badges abaixo do CTA */}
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              {[
-                { icon: "trophy", label: "Certificado Incluso" },
-                { icon: "infinity", label: "Acesso Vitalício" },
-              ].map((item, i) => (
-                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/15 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold">
-                  {item.icon === "trophy" ? <Trophy className="w-4 h-4 text-primary" /> : <InfinityIcon className="w-4 h-4 text-primary" />}
-                  <span className="text-white">{item.label}</span>
-                </div>
-              ))}
-            </div>
 
             {/* Garantia */}
             <div className="max-w-md mx-auto bg-primary/10 border border-primary/20 rounded-xl p-4">
