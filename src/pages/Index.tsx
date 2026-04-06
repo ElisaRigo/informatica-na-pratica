@@ -12,6 +12,7 @@ import { FAQV2 } from "@/components/curso/FAQV2";
 import { FinalCTALight } from "@/components/informatica/FinalCTALight";
 import { FooterLight } from "@/components/informatica/FooterLight";
 import { CommentsStrip } from "@/components/informatica/FacebookComments";
+import { AudioStrip } from "@/components/informatica/AudioStrip";
 
 const Index = () => {
   (window as any).openCheckout = () => {
