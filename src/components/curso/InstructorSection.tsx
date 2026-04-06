@@ -1,49 +1,26 @@
-import { Award, Heart, Users, GraduationCap, ArrowRight } from "lucide-react";
+import { Award, Users, GraduationCap, Heart, ArrowRight } from "lucide-react";
 import elisaPhoto from "@/assets/elisa-photo.jpg";
 
 export const InstructorSection = () => {
   return (
-    <section id="professora" className="py-10 md:py-14 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section id="professora" className="py-8 md:py-10 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
             {/* Image */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={elisaPhoto}
-                  alt="Professora Elisa"
-                  className="w-full aspect-[4/5] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-                
-                {/* Badge overlay */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                        <GraduationCap className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-black text-foreground text-lg">Professora Elisa</p>
-                        <p className="text-primary text-sm font-medium">+20 anos de experiência</p>
-                      </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-lg">
+              <img src={elisaPhoto} alt="Professora Elisa" className="w-full aspect-[4/5] object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-md">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                      <GraduationCap className="w-5 h-5 text-white" />
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating stats */}
-              <div className="absolute -right-4 top-1/4 bg-white rounded-xl shadow-xl p-4 border border-slate-100">
-                <div className="flex items-center gap-3">
-                  <Users className="w-8 h-8 text-primary" />
-                  <div>
-                    <p className="text-2xl font-black text-foreground">15.000+</p>
-                    <p className="text-sm text-muted-foreground">Alunos</p>
+                    <div>
+                      <p className="font-black text-foreground">Professora Elisa</p>
+                      <p className="text-primary text-xs font-medium">+20 anos de experiência</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -51,65 +28,46 @@ export const InstructorSection = () => {
 
             {/* Content */}
             <div>
-              <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <span className="inline-block bg-primary/10 text-primary px-3 py-1.5 rounded-full text-xs font-semibold mb-4">
                 👩‍🏫 Sua Professora
               </span>
 
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6">
-                Prazer, eu sou a{" "}
-                <span className="text-primary">Professora Elisa</span>
+              <h2 className="text-xl md:text-2xl font-black text-foreground mb-4">
+                Prazer, eu sou a <span className="text-primary">Professora Elisa</span>
               </h2>
 
-              <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
-                <p>
-                  Há mais de <strong className="text-foreground">20 anos</strong> ensino informática para pessoas 
-                  que, assim como você, achavam que era impossível aprender.
-                </p>
-                <p>
-                  Já ajudei milhares de alunos a superarem o medo do computador e 
-                  conquistarem <strong className="text-foreground">independência digital</strong>. Muitos conseguiram 
-                  emprego, promoção e até abriram o próprio negócio.
-                </p>
-                <p>
-                  Minha missão é simples: <strong className="text-foreground">provar que você é capaz</strong>. 
-                  Não importa sua idade ou experiência. Se você chegou até aqui, 
-                  já deu o primeiro passo.
-                </p>
-              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                Há mais de <strong className="text-foreground">20 anos</strong> ensino informática para pessoas que achavam impossível aprender. Já ajudei <strong className="text-foreground">+15.000 alunos</strong> a conquistarem independência digital.
+              </p>
 
-              {/* Stats grid */}
-              <div className="grid grid-cols-2 gap-4">
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-2 mb-6">
                 {[
-                  { icon: Award, number: "20+", label: "Anos ensinando" },
-                  { icon: Users, number: "15.000+", label: "Alunos formados" },
+                  { icon: Award, number: "20+", label: "Anos" },
+                  { icon: Users, number: "15.000+", label: "Alunos" },
                   { icon: Heart, number: "98%", label: "Satisfação" },
-                  { icon: GraduationCap, number: "90+", label: "Aulas práticas" },
+                  { icon: GraduationCap, number: "90+", label: "Aulas" },
                 ].map((stat, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-muted/50 rounded-xl p-4">
-                    <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
-                      <stat.icon className="w-5 h-5 text-muted-foreground" />
-                    </div>
+                  <div key={i} className="flex items-center gap-2 bg-muted/50 rounded-lg p-2.5">
+                    <stat.icon className="w-4 h-4 text-muted-foreground" />
                     <div>
-                      <p className="text-xl font-black text-foreground">{stat.number}</p>
-                      <p className="text-sm text-muted-foreground">{stat.label}</p>
+                      <p className="text-base font-black text-foreground leading-none">{stat.number}</p>
+                      <p className="text-[10px] text-muted-foreground">{stat.label}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* CTA integrado */}
-              <div className="text-center mt-8">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-foreground mb-4">
-                  Quero aprender com a Elisa<span className="text-primary">!</span>
-                </h3>
+              {/* CTA */}
+              <div className="text-center">
                 <button
                   onClick={() => (window as any).openCheckout?.()}
-                  className="group inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-xl shadow-lg hover:scale-[1.02] transition-all duration-300"
+                  className="group inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-lg hover:scale-[1.02] transition-all duration-300"
                 >
                   Sim, Quero Ser Aluno(a)
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <p className="text-xs md:text-sm mt-4 text-muted-foreground">
+                <p className="text-[10px] mt-2 text-muted-foreground">
                   🔒 Pagamento seguro • Garantia de 7 dias • Acesso imediato
                 </p>
               </div>
