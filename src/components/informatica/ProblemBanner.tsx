@@ -9,7 +9,7 @@ export const ProblemBanner = () => {
             <AlertTriangle className="w-4 h-4" />
             Pare e reflita
           </div>
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-tight">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-foreground leading-tight">
             Chega de <span className="text-destructive">Perder Oportunidades</span> por não Saber Usar o Computador!
           </h2>
         </div>
