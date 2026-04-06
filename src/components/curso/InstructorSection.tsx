@@ -83,7 +83,6 @@ export const InstructorSection = ({ variant = "light" }: InstructorSectionProps)
                   className="group inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-lg hover:scale-[1.02] transition-all duration-300"
                 >
                   Clique aqui e venha aprender comigo!
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-500' : 'text-muted-foreground'}`}>
                   🔒 Pagamento seguro • Garantia de 7 dias • Acesso imediato
