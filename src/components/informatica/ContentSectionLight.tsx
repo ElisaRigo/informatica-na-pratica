@@ -17,36 +17,36 @@ const modules = [
 
 export const ContentSectionLight = () => {
   return (
-    <section id="conteudo" className="py-10 md:py-14 bg-white">
+    <section id="conteudo" className="py-10 md:py-14 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <div className="inline-block bg-primary/10 border border-primary/20 rounded-2xl px-8 py-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground">📚 Conteúdo Completo</h2>
+          <div className="inline-block bg-primary/15 border border-primary/30 rounded-2xl px-8 py-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white">📚 Conteúdo Completo</h2>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {modules.map((module, index) => (
-            <div key={index} className="group relative bg-white rounded-2xl p-6 border-2 border-transparent hover:border-primary/30 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div key={index} className="group relative bg-slate-800 rounded-2xl p-6 border-2 border-transparent hover:border-primary/30 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative z-10">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-16 h-16 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 bg-slate-700 rounded-xl shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
                     <img src={module.icon} alt={module.title} className="w-10 h-10" loading="lazy" />
                   </div>
-                  <div className="flex-1"><h3 className="text-xl font-bold text-foreground">{module.title}</h3></div>
+                  <div className="flex-1"><h3 className="text-xl font-bold text-white">{module.title}</h3></div>
                 </div>
-                <p className="text-muted-foreground">{module.description}</p>
+                <p className="text-slate-400">{module.description}</p>
               </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-4 bg-primary/10 border border-primary/20 rounded-2xl p-6 md:p-8">
+          <div className="inline-flex items-center gap-4 bg-primary/15 border border-primary/30 rounded-2xl p-6 md:p-8">
             <div className="text-left">
-              <p className="text-lg md:text-xl font-bold text-foreground mb-1">+90 aulas passo a passo</p>
-              <p className="text-muted-foreground text-sm md:text-base">Certificado de conclusão incluso</p>
+              <p className="text-lg md:text-xl font-bold text-white mb-1">+90 aulas passo a passo</p>
+              <p className="text-slate-400 text-sm md:text-base">Certificado de conclusão incluso</p>
             </div>
             <button onClick={() => (window as any).openCheckout?.()} className="bg-success hover:bg-success/90 text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform whitespace-nowrap">
               Garantir Acesso

@@ -17,29 +17,29 @@ const testimonials = [
 
 export const TestimonialsLight = () => {
   return (
-    <section className="py-14 md:py-20 bg-muted/50 relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-slate-800 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <span className="inline-block bg-accent/15 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">⭐ Histórias Reais</span>
-          <h2 className="text-3xl md:text-5xl font-black text-foreground mb-6">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
             Mais de <span className="text-accent">15.000 vidas</span> transformadas
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Veja o que nossos alunos estão dizendo sobre o curso</p>
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto">Veja o que nossos alunos estão dizendo sobre o curso</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="group bg-white rounded-2xl p-6 border border-border hover:border-primary/30 hover:shadow-xl transition-all hover:-translate-y-2">
+            <div key={index} className="group bg-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all hover:-translate-y-2">
               <Quote className="w-8 h-8 text-primary/30 mb-4" />
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => <Star key={i} className="w-4 h-4 fill-warning text-warning" />)}
               </div>
-              <p className="text-foreground mb-6 leading-relaxed">"{testimonial.text}"</p>
+              <p className="text-slate-300 mb-6 leading-relaxed">"{testimonial.text}"</p>
               <div className="flex items-center gap-3">
                 <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover border-2 border-primary/30" loading="lazy" />
                 <div>
-                  <p className="text-foreground font-bold">{testimonial.name}</p>
-                  <p className="text-muted-foreground text-sm">{testimonial.role}</p>
+                  <p className="text-white font-bold">{testimonial.name}</p>
+                  <p className="text-slate-400 text-sm">{testimonial.role}</p>
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@ export const TestimonialsLight = () => {
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <p className="text-3xl md:text-4xl font-black text-primary">{stat.number}</p>
-              <p className="text-muted-foreground text-sm">{stat.label}</p>
+              <p className="text-slate-400 text-sm">{stat.label}</p>
             </div>
           ))}
         </div>

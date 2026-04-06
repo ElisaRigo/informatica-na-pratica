@@ -30,7 +30,7 @@ const Informatica = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-900">
       <HeroInformatica />
       <AudioTestimonialsLight />
       <ProblemBanner />

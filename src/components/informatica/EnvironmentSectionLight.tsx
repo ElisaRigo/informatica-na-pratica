@@ -17,15 +17,15 @@ export const EnvironmentSectionLight = () => {
   }, []);
 
   return (
-    <section className="py-6 md:py-8 bg-white">
+    <section className="py-6 md:py-8 bg-slate-900">
       <div className="container mx-auto px-4">
         <div ref={sectionRef} className="max-w-3xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-black text-foreground text-center mb-4">
+          <h2 className="text-xl md:text-2xl font-black text-white text-center mb-4">
             🎬 Conheça um Pouco Mais
           </h2>
 
           {shouldLoad && (
-            <div className="relative rounded-xl overflow-hidden shadow-lg border border-border mb-3">
+            <div className="relative rounded-xl overflow-hidden shadow-lg border border-slate-700 mb-3">
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={environmentThumb} alt="Aula gratuita de Excel" className="w-full h-full object-cover" loading="lazy" />
@@ -50,9 +50,9 @@ export const EnvironmentSectionLight = () => {
               { icon: Shield, label: "Risco Zero" },
               { icon: Award, label: "+90 Aulas" },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-2 bg-muted/50 rounded-lg border border-border">
-                <item.icon className="w-5 h-5 text-muted-foreground mb-1" />
-                <span className="text-foreground font-bold text-[10px] md:text-xs">{item.label}</span>
+              <div key={i} className="flex flex-col items-center text-center p-2 bg-slate-800 rounded-lg border border-slate-700">
+                <item.icon className="w-5 h-5 text-slate-400 mb-1" />
+                <span className="text-white font-bold text-[10px] md:text-xs">{item.label}</span>
               </div>
             ))}
           </div>
