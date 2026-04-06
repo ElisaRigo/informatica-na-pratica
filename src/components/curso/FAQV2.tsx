@@ -16,12 +16,18 @@ const faqs = [
   { question: "Quando começo a ter acesso?", answer: "Acesso imediato após a confirmação do pagamento." },
 ];
 
-export const FAQV2 = () => {
+interface FAQV2Props {
+  variant?: "light" | "dark";
+}
+
+export const FAQV2 = ({ variant = "light" }: FAQV2Props) => {
+  const isDark = variant === "dark";
+
   return (
-    <section className="py-8 md:py-10 bg-white">
+    <section className={`py-8 md:py-10 ${isDark ? 'bg-slate-800' : 'bg-white'}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
-          <h2 className="text-xl md:text-2xl font-black text-foreground">
+          <h2 className={`text-xl md:text-2xl font-black ${isDark ? 'text-white' : 'text-foreground'}`}>
             Dúvidas <span className="text-primary">Frequentes</span>
           </h2>
         </div>
@@ -32,12 +38,12 @@ export const FAQV2 = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-slate-50 rounded-lg border-none px-4 shadow-sm"
+                className={`${isDark ? 'bg-slate-900' : 'bg-slate-50'} rounded-lg border-none px-4 shadow-sm`}
               >
-                <AccordionTrigger className="text-left font-bold text-sm text-foreground hover:text-primary py-3 hover:no-underline">
+                <AccordionTrigger className={`text-left font-bold text-sm ${isDark ? 'text-white' : 'text-foreground'} hover:text-primary py-3 hover:no-underline`}>
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm pb-3">
+                <AccordionContent className={`${isDark ? 'text-slate-400' : 'text-muted-foreground'} text-sm pb-3`}>
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
