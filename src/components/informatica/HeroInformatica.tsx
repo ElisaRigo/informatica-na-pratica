@@ -75,9 +75,9 @@ export const HeroInformatica = () => {
                 { icon: "headphones", label: "Suporte Direto" },
                 { icon: "users", label: "+ 15.000 Alunos" },
               ].map((item, i) => (
-                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/15 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold text-primary">
-                  {item.icon === "headphones" ? <Headphones className="w-4 h-4" /> : <Users className="w-4 h-4" />}
-                  <span>{item.label}</span>
+                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/15 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold">
+                  {item.icon === "headphones" ? <Headphones className="w-4 h-4 text-primary" /> : <Users className="w-4 h-4 text-primary" />}
+                  <span className="text-foreground">{item.label}</span>
                 </div>
               ))}
             </div>
