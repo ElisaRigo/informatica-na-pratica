@@ -36,8 +36,8 @@ const Index = () => {
       <HeroInformatica />
       <AudioTestimonialsLight />
       <ProblemBanner />
-      <AudioStrip name="Amanda" />
       <InstructorSection variant="dark" />
+      <AudioStrip name="Amanda" />
       <CommentsStrip startIndex={2} count={2} />
       <EnvironmentSectionLight />
       <AudioStrip name="Vanderlei" />
