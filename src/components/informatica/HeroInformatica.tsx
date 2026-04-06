@@ -90,19 +90,6 @@ export const HeroInformatica = () => {
               </div>
             </div>
 
-            {/* Trust Badges */}
-            <div className="grid grid-cols-2 gap-2 max-w-sm mx-auto mb-4">
-              {[
-                { icon: Shield, label: "Garantia 7 Dias" },
-                { icon: Award, label: "Certificado" },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center text-center p-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                  <item.icon className="w-5 h-5 text-primary mb-1" />
-                  <span className="text-white font-bold text-xs">{item.label}</span>
-                </div>
-              ))}
-            </div>
-
             {/* Preço */}
             <p className="text-white text-base md:text-xl mb-1">
               De <span className="line-through font-bold">R$ 497,00</span> por apenas
@@ -119,9 +106,21 @@ export const HeroInformatica = () => {
               🎯 QUERO COMEÇAR AGORA!
             </button>
 
-            <p className="text-slate-400 text-xs md:text-sm mb-4">
+            <p className="text-slate-400 text-xs md:text-sm mb-3">
               🔒 Pagamento 100% seguro · Acesso imediato após a compra
             </p>
+
+            {/* Trust Badges */}
+            <div className="flex justify-center gap-3 mb-4">
+              <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+                <Shield className="w-4 h-4 text-primary" />
+                <span className="text-white font-bold text-xs">Garantia 7 Dias</span>
+              </div>
+              <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+                <Award className="w-4 h-4 text-primary" />
+                <span className="text-white font-bold text-xs">Certificado</span>
+              </div>
+            </div>
 
 
             {/* Garantia */}
