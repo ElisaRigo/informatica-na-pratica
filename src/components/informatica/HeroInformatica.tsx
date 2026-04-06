@@ -69,17 +69,28 @@ export const HeroInformatica = () => {
         {/* Seção de Preço */}
         <div className="py-2 md:py-3" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
-            {/* Badges topo */}
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              {[
-                { icon: "headphones", label: "Suporte Direto" },
-                { icon: "users", label: "+ 15.000 Alunos" },
-              ].map((item, i) => (
-                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/15 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold">
-                  {item.icon === "headphones" ? <Headphones className="w-4 h-4 text-primary" /> : <Users className="w-4 h-4 text-primary" />}
-                  <span className="text-white">{item.label}</span>
-                </div>
-              ))}
+            {/* Selos */}
+            <div className="flex flex-wrap gap-2 justify-center items-center mb-4">
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Zap className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-white">Acesso Imediato</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Shield className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-white">Garantia 7 dias</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Award className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-white">Certificado incluso</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Headphones className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-white">Suporte ao aluno</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <InfinityIcon className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-white">Acesso Vitalício</span>
+              </div>
             </div>
 
             {/* Preço */}
