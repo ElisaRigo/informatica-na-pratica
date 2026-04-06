@@ -8,7 +8,7 @@ import avatar6 from "@/assets/avatar-6.jpg";
 import avatar7 from "@/assets/avatar-7.jpg";
 import avatar8 from "@/assets/avatar-8.jpg";
 
-export const avatarImages = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8];
+export const avatarImages = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8, avatar1, avatar3, avatar5, avatar2, avatar4, avatar6];
 
 export const facebookComments = [
   { name: "Luciana M.", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", likes: 14, hasHeart: true },
