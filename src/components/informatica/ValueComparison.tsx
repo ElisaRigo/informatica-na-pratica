@@ -30,7 +30,7 @@ export const ValueComparison = () => {
                 MELHOR OPÇÃO
               </div>
               <p className="text-xs font-bold text-primary mb-3 uppercase tracking-wide">Este Curso</p>
-              <p className="text-2xl md:text-3xl font-black text-foreground mb-3">R$ 297<span className="text-sm font-medium text-muted-foreground">,00</span></p>
+              <p className="text-2xl md:text-3xl font-black text-accent mb-3">R$ 297<span className="text-sm font-medium text-muted-foreground">,00</span></p>
               <ul className="space-y-2">
                 {["Acesso vitalício", "Estude quando quiser", "Certificado incluso", "Suporte via WhatsApp"].map((item, i) => (
                   <li key={i} className="flex items-center gap-1.5 text-xs text-foreground">
