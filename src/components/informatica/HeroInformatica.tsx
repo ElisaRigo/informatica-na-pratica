@@ -31,11 +31,22 @@ export const HeroInformatica = () => {
           </h1>
         </div>
 
-        {/* Badge acima do primeiro vídeo */}
-        <div className="flex justify-center mb-4 md:mb-6">
-          <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 px-6 py-3 rounded-lg">
-            <span className="text-primary text-base md:text-lg">💡</span>
-            <span className="text-primary font-bold text-sm md:text-base text-center">Curso pensado para quem nunca teve facilidade com computador</span>
+        {/* Sub-frase */}
+        <p className="text-center text-sm md:text-base text-slate-300 mb-4 md:mb-6">
+          Para quem nunca teve facilidade com o computador
+        </p>
+
+        {/* Selos acima do vídeo */}
+        <div className="flex justify-center gap-3 mb-4 md:mb-6 max-w-3xl mx-auto">
+          <div className="flex flex-col items-center text-center p-2 md:p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex-1 max-w-[160px]">
+            <Headphones className="w-5 h-5 md:w-7 md:h-7 text-primary mb-1" />
+            <span className="text-white font-bold text-xs md:text-sm">Suporte nas Aulas</span>
+            <span className="text-slate-400 text-[10px] md:text-xs">Aprenda com orientação</span>
+          </div>
+          <div className="flex flex-col items-center text-center p-2 md:p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex-1 max-w-[160px]">
+            <Users className="w-5 h-5 md:w-7 md:h-7 text-primary mb-1" />
+            <span className="text-white font-bold text-xs md:text-sm">+15.000 Alunos</span>
+            <span className="text-slate-400 text-[10px] md:text-xs">+20 anos ensinando</span>
           </div>
         </div>
 
@@ -82,12 +93,10 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl mx-auto mb-4">
+            <div className="grid grid-cols-2 gap-2 max-w-sm mx-auto mb-4">
               {[
-                { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
                 { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
                 { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-                { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
                   <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
