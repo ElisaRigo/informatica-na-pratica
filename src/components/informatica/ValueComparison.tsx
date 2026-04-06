@@ -6,10 +6,10 @@ export const ValueComparison = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-xl md:text-2xl font-black text-foreground text-center mb-2">
-            Você <span className="text-destructive">ainda</span> vai pagar caro para aprender?
+            Por que este curso é a <span className="text-success">melhor escolha</span>?
           </h2>
           <p className="text-center text-muted-foreground text-xs md:text-sm mb-6">
-            Veja o que acontece com quem escolhe o caminho errado:
+            Compare e veja a diferença:
           </p>
 
           <div className="grid grid-cols-2 gap-3">
