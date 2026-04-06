@@ -1,23 +1,37 @@
-import { X, Check, ArrowRight } from "lucide-react";
+import { X, Check, ArrowRight, AlertTriangle } from "lucide-react";
 
 export const ValueComparison = () => {
   return (
     <section className="py-8 md:py-10 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-black text-foreground text-center mb-6">
-            Compare e <span className="text-primary">decida</span>
+          <h2 className="text-xl md:text-2xl font-black text-foreground text-center mb-2">
+            Você <span className="text-destructive">ainda</span> vai pagar caro para aprender?
           </h2>
+          <p className="text-center text-muted-foreground text-xs md:text-sm mb-6">
+            Veja o que acontece com quem escolhe o caminho errado:
+          </p>
 
           <div className="grid grid-cols-2 gap-3">
-            {/* Presencial */}
-            <div className="bg-card border border-line rounded-xl p-4 opacity-60">
-              <p className="text-xs font-bold text-destructive mb-3 uppercase tracking-wide">Curso Presencial</p>
-              <p className="text-2xl md:text-3xl font-black text-foreground mb-3">R$ 1.500<span className="text-sm font-medium text-muted-foreground">+</span></p>
-              <ul className="space-y-2">
-                {["Horário fixo", "Deslocamento", "Material extra pago", "Tempo limitado"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <X className="w-3.5 h-3.5 text-destructive flex-shrink-0" />
+            {/* Presencial - DOR */}
+            <div className="bg-destructive/5 border-2 border-destructive/30 rounded-xl p-4 relative">
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-destructive text-white text-[10px] font-bold px-3 py-0.5 rounded-full flex items-center gap-1">
+                <AlertTriangle className="w-3 h-3" />
+                PREJUÍZO
+              </div>
+              <p className="text-xs font-bold text-destructive mb-2 uppercase tracking-wide mt-1">Curso Presencial</p>
+              <p className="text-2xl md:text-3xl font-black text-destructive mb-3">R$ 1.500<span className="text-sm font-medium text-destructive/60">+</span></p>
+              <ul className="space-y-2.5">
+                {[
+                  "Horário fixo que não encaixa",
+                  "Gastar com transporte todo dia",
+                  "Turma lotada, sem atenção",
+                  "Perdeu a aula? Perdeu o conteúdo",
+                  "Material cobrado à parte",
+                  "Acesso só enquanto pagar"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-muted-foreground">
+                    <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
                     {item}
                   </li>
                 ))}
@@ -25,16 +39,23 @@ export const ValueComparison = () => {
             </div>
 
             {/* Este curso */}
-            <div className="bg-primary/10 border-2 border-primary/40 rounded-xl p-4 relative">
-              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-0.5 rounded-full">
-                MELHOR OPÇÃO
+            <div className="bg-success/10 border-2 border-success/40 rounded-xl p-4 relative">
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-success text-white text-[10px] font-bold px-3 py-0.5 rounded-full">
+                ✅ MELHOR OPÇÃO
               </div>
-              <p className="text-xs font-bold text-primary mb-3 uppercase tracking-wide">Este Curso</p>
-              <p className="text-2xl md:text-3xl font-black text-accent mb-3">R$ 297<span className="text-sm font-medium text-muted-foreground">,00</span></p>
-              <ul className="space-y-2">
-                {["Acesso vitalício", "Estude quando quiser", "Certificado incluso", "Suporte via WhatsApp"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-1.5 text-xs text-foreground">
-                    <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+              <p className="text-xs font-bold text-success mb-2 uppercase tracking-wide mt-1">Este Curso</p>
+              <p className="text-2xl md:text-3xl font-black text-foreground mb-3">R$ 297<span className="text-sm font-medium text-muted-foreground">,00</span></p>
+              <ul className="space-y-2.5">
+                {[
+                  "Estude a hora que quiser",
+                  "Sem sair de casa",
+                  "Suporte individual no WhatsApp",
+                  "Assista quantas vezes precisar",
+                  "Certificado incluso",
+                  "Acesso vitalício garantido"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-foreground">
+                    <Check className="w-3.5 h-3.5 text-success flex-shrink-0 mt-0.5" />
                     {item}
                   </li>
                 ))}
