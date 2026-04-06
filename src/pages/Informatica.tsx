@@ -42,6 +42,7 @@ const Informatica = () => {
       <TransformationSectionLight />
       <ContentSectionLight />
       <CommentsStrip startIndex={6} count={2} />
+      <ValueComparison />
       <FAQV2 variant="dark" />
       <FinalCTALight />
       <FooterLight />
