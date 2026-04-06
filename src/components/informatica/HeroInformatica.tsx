@@ -98,7 +98,7 @@ export const HeroInformatica = () => {
               🎯 QUERO COMEÇAR AGORA!
             </button>
 
-            <p className="text-muted-foreground text-xs md:text-sm mb-4">
+            <p className="text-slate-400 text-xs md:text-sm mb-4">
               🔒 Pagamento 100% seguro · Acesso imediato após a compra
             </p>
 
