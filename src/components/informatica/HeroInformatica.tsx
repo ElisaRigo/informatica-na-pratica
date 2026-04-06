@@ -117,11 +117,11 @@ export const HeroInformatica = () => {
 
             {/* Garantia */}
             <div className="max-w-md mx-auto bg-primary/10 border border-primary/20 rounded-xl p-4">
-              <p className="font-black text-white text-sm md:text-base mb-1">
+              <p className="font-black text-foreground text-sm md:text-base mb-1">
                 🛡️ Garantia Incondicional de 7 Dias
               </p>
-              <p className="text-slate-400 text-xs md:text-sm">
-                Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
+              <p className="text-muted-foreground text-xs md:text-sm">
+                Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
               </p>
             </div>
           </div>
