@@ -8,7 +8,7 @@ import avatar6 from "@/assets/avatar-6.jpg";
 import avatar7 from "@/assets/avatar-7.jpg";
 import avatar8 from "@/assets/avatar-8.jpg";
 
-export const avatarImages = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8];
+export const avatarImages = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8, avatar1, avatar3, avatar5, avatar2, avatar4, avatar6];
 
 export const facebookComments = [
   { name: "Luciana M.", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", likes: 14, hasHeart: true },
@@ -19,6 +19,12 @@ export const facebookComments = [
   { name: "Patrícia S.", text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏", time: "1 sem", likes: 19, hasHeart: true },
   { name: "Roberto L.", text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪", time: "2 sem", likes: 7, hasHeart: false },
   { name: "Maria G.", text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42, hasHeart: true },
+  { name: "Maria H.", text: "Achei que era tarde demais pra aprender. A Elisa provou que eu estava errada! Hoje faço tudo sozinha 😍", time: "4 d", likes: 27, hasHeart: true },
+  { name: "Carla E.", text: "Consigo fazer minhas planilhas de controle de estoque. Economizo 3 horas por semana! 📊", time: "1 sem", likes: 16, hasHeart: false },
+  { name: "Pedro J.", text: "Ganhei uma promoção porque agora domino Word e Excel. O investimento se pagou em menos de um mês 💰", time: "2 sem", likes: 34, hasHeart: true },
+  { name: "Roberta S.", text: "A didática da professora é incrível. Ela explica de um jeito que até quem nunca usou computador entende ❤️", time: "5 d", likes: 21, hasHeart: true },
+  { name: "Fernanda C.", text: "Consegui meu primeiro emprego graças ao curso! Fiz meu currículo perfeito 🎉", time: "1 sem", likes: 38, hasHeart: true },
+  { name: "José A.", text: "Meus netos não acreditaram quando viram eu usando o computador sozinho. Valeu cada centavo! 🙏", time: "3 sem", likes: 45, hasHeart: true },
 ];
 
 export const FacebookComment = ({ comment, avatarSrc }: { comment: typeof facebookComments[0]; avatarSrc: string }) => (
