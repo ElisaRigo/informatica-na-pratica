@@ -12,6 +12,7 @@ import { FAQV2 } from "@/components/curso/FAQV2";
 import { FinalCTALight } from "@/components/informatica/FinalCTALight";
 import { FooterLight } from "@/components/informatica/FooterLight";
 import { CommentsStrip } from "@/components/informatica/FacebookComments";
+import { AudioStrip } from "@/components/informatica/AudioStrip";
 
 const Index = () => {
   (window as any).openCheckout = () => {
@@ -35,12 +36,15 @@ const Index = () => {
       <HeroInformatica />
       <AudioTestimonialsLight />
       <ProblemBanner />
+      <AudioStrip name="Amanda" />
       <InstructorSection variant="dark" />
       <CommentsStrip startIndex={2} count={2} />
       <EnvironmentSectionLight />
+      <AudioStrip name="Vanderlei" />
       <CommentsStrip startIndex={4} count={2} />
       <TransformationSectionLight />
       <ContentSectionLight />
+      <AudioStrip name="Bruna" />
       <CommentsStrip startIndex={6} count={2} />
       <ValueComparison />
       <FAQV2 variant="dark" />
