@@ -7,6 +7,7 @@ import { InstructorSection } from "@/components/curso/InstructorSection";
 import { EnvironmentSectionLight } from "@/components/informatica/EnvironmentSectionLight";
 import { TransformationSectionLight } from "@/components/informatica/TransformationSectionLight";
 import { ContentSectionLight } from "@/components/informatica/ContentSectionLight";
+import { ValueComparison } from "@/components/informatica/ValueComparison";
 import { FAQV2 } from "@/components/curso/FAQV2";
 import { FinalCTALight } from "@/components/informatica/FinalCTALight";
 import { FooterLight } from "@/components/informatica/FooterLight";
@@ -41,6 +42,7 @@ const Informatica = () => {
       <TransformationSectionLight />
       <ContentSectionLight />
       <CommentsStrip startIndex={6} count={2} />
+      <ValueComparison />
       <FAQV2 variant="dark" />
       <FinalCTALight />
       <FooterLight />
