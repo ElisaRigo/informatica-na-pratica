@@ -32,21 +32,19 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Sub-frase */}
-        <p className="text-center text-sm md:text-base text-slate-300 mb-4 md:mb-6">
-          Para quem nunca teve facilidade com o computador
+        <p className="text-center text-sm md:text-base text-slate-300 mb-3">
+          Para quem nunca teve facilidade
         </p>
 
         {/* Selos acima do vídeo */}
-        <div className="flex justify-center gap-3 mb-4 md:mb-6 max-w-3xl mx-auto">
-          <div className="flex flex-col items-center text-center p-2 md:p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex-1 max-w-[160px]">
-            <Headphones className="w-5 h-5 md:w-7 md:h-7 text-primary mb-1" />
-            <span className="text-white font-bold text-xs md:text-sm">Suporte nas Aulas</span>
-            <span className="text-slate-400 text-[10px] md:text-xs">Aprenda com orientação</span>
+        <div className="flex justify-center gap-3 mb-4 max-w-3xl mx-auto">
+          <div className="flex flex-col items-center text-center p-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex-1 max-w-[140px]">
+            <Headphones className="w-5 h-5 text-primary mb-1" />
+            <span className="text-white font-bold text-xs">Suporte nas Aulas</span>
           </div>
-          <div className="flex flex-col items-center text-center p-2 md:p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex-1 max-w-[160px]">
-            <Users className="w-5 h-5 md:w-7 md:h-7 text-primary mb-1" />
-            <span className="text-white font-bold text-xs md:text-sm">+15.000 Alunos</span>
-            <span className="text-slate-400 text-[10px] md:text-xs">+20 anos ensinando</span>
+          <div className="flex flex-col items-center text-center p-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex-1 max-w-[140px]">
+            <Users className="w-5 h-5 text-primary mb-1" />
+            <span className="text-white font-bold text-xs">+15.000 Alunos</span>
           </div>
         </div>
 
