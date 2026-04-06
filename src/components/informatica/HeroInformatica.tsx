@@ -107,7 +107,7 @@ export const HeroInformatica = () => {
             </button>
 
             <p className="text-slate-400 text-xs md:text-sm mb-3">
-              🔒 Pagamento 100% seguro · Acesso imediato após a compra
+              🔒 Pagamento 100% seguro · Acesso imediato
             </p>
 
             {/* Trust Badges */}
