@@ -83,14 +83,14 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Preço */}
-            <p className="text-slate-400 text-base md:text-xl mb-1">
+            <p className="text-muted-foreground text-base md:text-xl mb-1">
               De <span className="line-through text-destructive font-bold">R$ 497,00</span> por apenas
             </p>
-            <p className="text-3xl md:text-5xl font-black text-primary mb-1">
+            <p className="text-3xl md:text-5xl font-black text-accent mb-1">
               12x de R$ 30,72
             </p>
-            <p className="text-slate-400 text-base md:text-lg mb-4">
-              ou <span className="font-black text-white text-lg md:text-2xl">R$ 297,00</span> à vista
+            <p className="text-muted-foreground text-base md:text-lg mb-4">
+              ou <span className="font-black text-foreground text-lg md:text-2xl">R$ 297,00</span> à vista
             </p>
 
             {/* CTA */}
@@ -98,7 +98,7 @@ export const HeroInformatica = () => {
               🎯 QUERO COMEÇAR AGORA!
             </button>
 
-            <p className="text-slate-400 text-xs md:text-sm mb-4">
+            <p className="text-muted-foreground text-xs md:text-sm mb-4">
               🔒 Pagamento 100% seguro · Acesso imediato após a compra
             </p>
 
@@ -117,11 +117,11 @@ export const HeroInformatica = () => {
 
             {/* Garantia */}
             <div className="max-w-md mx-auto bg-primary/10 border border-primary/20 rounded-xl p-4">
-              <p className="font-black text-white text-sm md:text-base mb-1">
+              <p className="font-black text-foreground text-sm md:text-base mb-1">
                 🛡️ Garantia Incondicional de 7 Dias
               </p>
-              <p className="text-slate-400 text-xs md:text-sm">
-                Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
+              <p className="text-muted-foreground text-xs md:text-sm">
+                Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
               </p>
             </div>
           </div>
