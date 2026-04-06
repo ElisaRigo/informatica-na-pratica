@@ -127,6 +127,10 @@ export const HeroInformatica = () => {
               </div>
             </div>
 
+            {/* Urgência */}
+            <p className="text-destructive font-bold text-xs md:text-sm mb-4 animate-pulse">
+              ⚠️ Essa condição pode sair do ar a qualquer momento sem aviso.
+            </p>
 
             {/* Garantia */}
             <div className="max-w-md mx-auto bg-primary/10 border border-primary/20 rounded-xl p-4">
