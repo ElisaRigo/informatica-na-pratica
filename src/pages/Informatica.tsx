@@ -34,14 +34,14 @@ const Informatica = () => {
       <HeroInformatica />
       <AudioTestimonialsLight />
       <ProblemBanner />
-      <InstructorSection />
+      <InstructorSection variant="dark" />
       <CommentsStrip startIndex={2} count={2} />
       <EnvironmentSectionLight />
       <CommentsStrip startIndex={4} count={2} />
       <TransformationSectionLight />
       <ContentSectionLight />
       <CommentsStrip startIndex={6} count={2} />
-      <FAQV2 />
+      <FAQV2 variant="dark" />
       <FinalCTALight />
       <FooterLight />
       <WhatsAppButton />
