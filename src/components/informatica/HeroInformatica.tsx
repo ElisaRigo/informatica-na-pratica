@@ -95,6 +95,7 @@ export const HeroInformatica = () => {
                   <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
                 </div>
               ))}
+            </div>
 
             {/* Preço */}
             <p className="text-white text-base md:text-xl mb-1">
