@@ -69,29 +69,32 @@ export const HeroInformatica = () => {
         {/* Seção de Preço */}
         <div className="py-2 md:py-3" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
-            {/* Selos */}
-            <div className="flex flex-wrap gap-2 justify-center items-center mb-4">
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <Zap className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-white">Acesso Imediato</span>
+            {/* Destaque Acesso Vitalício */}
+            <div className="flex flex-wrap justify-center gap-2 mb-3">
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+                <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <Shield className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-white">Garantia 7 dias</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <Award className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-white">Certificado incluso</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <Headphones className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-white">Suporte ao aluno</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <InfinityIcon className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-white">Acesso Vitalício</span>
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+                <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+                <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
               </div>
             </div>
+
+            {/* Trust Badges */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl mx-auto mb-4">
+              {[
+                { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
+                { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
+                { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
+                { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+                  <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+                  <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+                  <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
+                </div>
+              ))}
 
             {/* Preço */}
             <p className="text-white text-base md:text-xl mb-1">
