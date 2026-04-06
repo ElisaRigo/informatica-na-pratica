@@ -42,12 +42,20 @@ export const InstructorSection = ({ variant = "light" }: InstructorSectionProps)
                 Prazer, eu sou a <span className="text-primary">Professora Elisa</span>
               </h2>
 
-              <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-muted-foreground'} leading-relaxed mb-4`}>
-                Há mais de <strong className={isDark ? 'text-white' : 'text-foreground'}>20 anos</strong> ensino informática para pessoas que achavam impossível aprender. Já ajudei <strong className={isDark ? 'text-white' : 'text-foreground'}>+15.000 alunos</strong> a conquistarem independência digital.
+              <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-muted-foreground'} leading-relaxed mb-3`}>
+                Há mais de <strong className={isDark ? 'text-white' : 'text-foreground'}>20 anos</strong> ensino informática para pessoas que, assim como você, achavam que era impossível aprender.
+              </p>
+
+              <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-muted-foreground'} leading-relaxed mb-3`}>
+                Já ajudei <strong className={isDark ? 'text-white' : 'text-foreground'}>milhares de alunos</strong> a superarem o medo do computador e conquistarem independência digital. Muitos conseguiram <strong className={isDark ? 'text-white' : 'text-foreground'}>emprego, promoção</strong> e até abriram o próprio negócio.
+              </p>
+
+              <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-muted-foreground'} leading-relaxed mb-3`}>
+                Minha missão é simples: <strong className={isDark ? 'text-white' : 'text-foreground'}>provar que você é capaz.</strong> Não importa sua idade ou experiência.
               </p>
 
               <p className={`text-base font-black ${isDark ? 'text-white' : 'text-foreground'} mb-6`}>
-                Agora é a <span className="text-primary">sua vez</span> de aprender! 🚀
+                Se você chegou até aqui, já deu o <span className="text-primary">primeiro passo</span>. 🚀
               </p>
 
               {/* Stats */}
