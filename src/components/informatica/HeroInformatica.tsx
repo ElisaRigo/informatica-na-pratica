@@ -108,9 +108,9 @@ export const HeroInformatica = () => {
                 { icon: "trophy", label: "Certificado Incluso" },
                 { icon: "infinity", label: "Acesso Vitalício" },
               ].map((item, i) => (
-                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/15 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold text-primary">
-                  {item.icon === "trophy" ? <Trophy className="w-4 h-4" /> : <InfinityIcon className="w-4 h-4" />}
-                  <span>{item.label}</span>
+                <div key={i} className="inline-flex items-center gap-1.5 bg-primary/15 border border-primary/30 px-4 py-2 rounded-full text-sm md:text-base font-bold">
+                  {item.icon === "trophy" ? <Trophy className="w-4 h-4 text-primary" /> : <InfinityIcon className="w-4 h-4 text-primary" />}
+                  <span className="text-foreground">{item.label}</span>
                 </div>
               ))}
             </div>
