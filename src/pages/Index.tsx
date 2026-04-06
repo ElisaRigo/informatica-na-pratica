@@ -36,12 +36,15 @@ const Index = () => {
       <HeroInformatica />
       <AudioTestimonialsLight />
       <ProblemBanner />
+      <AudioStrip name="Amanda" />
       <InstructorSection variant="dark" />
       <CommentsStrip startIndex={2} count={2} />
       <EnvironmentSectionLight />
+      <AudioStrip name="Vanderlei" />
       <CommentsStrip startIndex={4} count={2} />
       <TransformationSectionLight />
       <ContentSectionLight />
+      <AudioStrip name="Bruna" />
       <CommentsStrip startIndex={6} count={2} />
       <ValueComparison />
       <FAQV2 variant="dark" />
