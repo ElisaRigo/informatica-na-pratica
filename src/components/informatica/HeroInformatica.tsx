@@ -38,12 +38,12 @@ export const HeroInformatica = () => {
 
         {/* Selos acima do vídeo */}
         <div className="flex justify-center gap-3 mb-4 max-w-3xl mx-auto">
-          <div className="flex flex-col items-center text-center p-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex-1 max-w-[140px]">
-            <Headphones className="w-5 h-5 text-primary mb-1" />
+          <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+            <Headphones className="w-4 h-4 text-primary" />
             <span className="text-white font-bold text-xs">Suporte nas Aulas</span>
           </div>
-          <div className="flex flex-col items-center text-center p-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 flex-1 max-w-[140px]">
-            <Users className="w-5 h-5 text-primary mb-1" />
+          <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+            <Users className="w-4 h-4 text-primary" />
             <span className="text-white font-bold text-xs">+15.000 Alunos</span>
           </div>
         </div>
