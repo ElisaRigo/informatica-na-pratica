@@ -128,7 +128,7 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Urgência */}
-            <p className="text-destructive font-bold text-xs md:text-sm mb-4 animate-pulse">
+            <p className="text-yellow-400/90 font-semibold text-xs md:text-sm mb-4">
               ⚠️ Essa condição pode sair do ar a qualquer momento sem aviso.
             </p>
 
