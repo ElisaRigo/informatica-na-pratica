@@ -9,7 +9,7 @@ export const TransformationSectionLight = () => {
             <Sparkles className="w-4 h-4" />
             Sua transformação
           </div>
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-tight">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-foreground leading-tight">
             Imagine Você Usando o Computador com{" "}
             <span className="text-primary">Total Confiança</span> e Sem Depender de Ninguém!
           </h2>

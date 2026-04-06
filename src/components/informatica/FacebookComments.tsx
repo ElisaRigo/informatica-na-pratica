@@ -22,20 +22,20 @@ export const facebookComments = [
 ];
 
 export const FacebookComment = ({ comment, avatarSrc }: { comment: typeof facebookComments[0]; avatarSrc: string }) => (
-  <div className="bg-slate-800 rounded-lg p-3 shadow-sm border border-slate-700">
+  <div className="bg-card rounded-lg p-3 shadow-sm border border-line">
     <div className="flex gap-2">
       <img src={avatarSrc} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
       <div className="flex-1 min-w-0">
-        <div className="bg-slate-700 rounded-2xl px-3 py-2">
-          <p className="text-slate-300 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
-          <p className="text-slate-400 text-xs leading-relaxed">{comment.text}</p>
+        <div className="bg-secondary rounded-2xl px-3 py-2">
+          <p className="text-muted-foreground text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
+          <p className="text-muted-foreground text-xs leading-relaxed">{comment.text}</p>
         </div>
         <div className="flex items-center gap-3 mt-1 px-2">
-          <span className="text-[11px] text-slate-500">{comment.time}</span>
-          <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">Curtir</span>
-          <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">Responder</span>
+          <span className="text-[11px] text-muted-foreground/60">{comment.time}</span>
+          <span className="text-[11px] text-muted-foreground/60 font-medium cursor-pointer hover:underline">Curtir</span>
+          <span className="text-[11px] text-muted-foreground/60 font-medium cursor-pointer hover:underline">Responder</span>
           {comment.likes > 0 && (
-            <span className="ml-auto text-[11px] text-slate-500 flex items-center gap-0.5">
+            <span className="ml-auto text-[11px] text-muted-foreground/60 flex items-center gap-0.5">
               <span className="flex items-center -space-x-1">
                 <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10"><ThumbsUp className="w-2.5 h-2.5 text-white fill-white" /></span>
                 {comment.hasHeart && <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0"><Heart className="w-2.5 h-2.5 text-white fill-white" /></span>}
@@ -57,7 +57,7 @@ interface CommentsStripProps {
 export const CommentsStrip = ({ startIndex, count }: CommentsStripProps) => {
   const comments = facebookComments.slice(startIndex, startIndex + count);
   return (
-    <div className="py-4 md:py-6 bg-slate-900/50">
+    <div className="py-4 md:py-6 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto">
           {comments.map((comment, index) => (
