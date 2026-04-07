@@ -50,7 +50,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Video principal */}
-        <div className="max-w-3xl mx-auto mb-4 md:mb-6">
+        <div className="max-w-3xl mx-auto mb-3 md:mb-4">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-slate-700">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
