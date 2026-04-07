@@ -148,7 +148,7 @@ export const HeroInformatica = () => {
             </p>
 
             {/* Garantia */}
-            <div className="max-w-md mx-auto bg-primary/20 border-2 border-primary/40 rounded-xl p-4 shadow-lg shadow-primary/5">
+            <div className="max-w-md mx-auto bg-primary/20 border-2 border-primary/40 rounded-xl p-3 shadow-lg shadow-primary/5">
               <p className="font-black text-white text-sm md:text-base mb-1">
                 🛡️ Garantia Incondicional de 7 Dias
               </p>
