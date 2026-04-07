@@ -116,7 +116,7 @@ export const HeroInformatica = () => {
                 loading="eager"
               />
               <p className="text-slate-200 text-[11px] md:text-xs italic leading-snug text-left">
-                "Achei que era tarde demais pra mim. Hoje <strong className="text-white">me sinto outra pessoa!</strong>"
+                "Melhor curso que já fiz... <strong className="text-white">Prof maravilhosa, só gratidão!</strong>"
                 <span className="text-slate-400 not-italic"> — Maria H., 58 anos</span>
               </p>
             </div>
