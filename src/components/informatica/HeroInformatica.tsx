@@ -50,7 +50,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Video principal */}
-        <div className="max-w-3xl mx-auto mb-3 md:mb-4">
+        <div className="max-w-3xl mx-auto mb-1.5 md:mb-2">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-slate-700">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
@@ -75,14 +75,14 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Subheadline */}
-        <div className="text-center max-w-3xl mx-auto mb-1 md:mb-2">
-          <p className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-snug">
+        <div className="text-center max-w-3xl mx-auto mb-0.5 md:mb-1">
+          <p className="text-base md:text-xl lg:text-2xl font-bold text-white leading-snug">
             Mesmo que você <span className="text-primary underline decoration-primary/40 decoration-2 underline-offset-4">nunca tenha mexido</span> em um computador.
           </p>
         </div>
 
         {/* Seção de Preço */}
-        <div className="py-1 md:py-2" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="py-0.5 md:py-1" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
             {/* Destaque Acesso Vitalício */}
             <div className="flex flex-wrap justify-center gap-2 mb-2">
