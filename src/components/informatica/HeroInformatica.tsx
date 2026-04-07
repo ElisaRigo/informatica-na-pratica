@@ -97,7 +97,7 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Micro-depoimento estratégico */}
-            <div className="flex items-center justify-center gap-2.5 bg-white/10 border border-white/15 rounded-xl px-3 py-2.5 max-w-sm mx-auto mb-4">
+            <div className="flex items-center justify-center gap-2.5 bg-white/10 border border-white/15 rounded-xl px-3 py-2 max-w-sm mx-auto mb-3">
               <img 
                 src={testimonialMaria} 
                 alt="Maria Helena" 
