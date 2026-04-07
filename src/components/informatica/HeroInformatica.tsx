@@ -111,39 +111,39 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Preço */}
-            <p className="text-white text-base md:text-xl mb-1">
+            <p className="text-white text-sm md:text-lg mb-0.5">
               De <span className="line-through font-bold">R$ 497,00</span> por apenas
             </p>
-            <p className="text-3xl md:text-5xl font-black text-accent mb-1">
+            <p className="text-2xl md:text-4xl font-black text-accent mb-0.5">
               12x de R$ 30,72
             </p>
-            <p className="text-white text-base md:text-lg mb-3">
-              ou <span className="font-black text-lg md:text-2xl">R$ 297,00</span> à vista
+            <p className="text-white text-sm md:text-base mb-2">
+              ou <span className="font-black text-base md:text-xl">R$ 297,00</span> à vista
             </p>
 
             {/* CTA */}
-            <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-md mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-lg md:text-xl py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-2">
+            <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-md mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-base md:text-lg py-3.5 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-1.5">
               🎯 QUERO COMEÇAR AGORA!
             </button>
 
-            <p className="text-slate-400 text-xs md:text-sm mb-3">
+            <p className="text-slate-400 text-[10px] md:text-xs mb-1.5">
               🔒 Pagamento 100% seguro · Acesso imediato
             </p>
 
             {/* Trust Badges */}
-            <div className="flex justify-center gap-3 mb-2">
-              <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <Shield className="w-4 h-4 text-primary" />
-                <span className="text-white font-bold text-xs">Garantia 7 Dias</span>
+            <div className="flex justify-center gap-2 mb-1.5">
+              <div className="flex items-center gap-1 py-1 px-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+                <Shield className="w-3.5 h-3.5 text-primary" />
+                <span className="text-white font-bold text-[10px] md:text-xs">Garantia 7 Dias</span>
               </div>
-              <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <Award className="w-4 h-4 text-primary" />
-                <span className="text-white font-bold text-xs">Certificado</span>
+              <div className="flex items-center gap-1 py-1 px-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+                <Award className="w-3.5 h-3.5 text-primary" />
+                <span className="text-white font-bold text-[10px] md:text-xs">Certificado</span>
               </div>
             </div>
 
             {/* Urgência */}
-            <p className="text-yellow-400/90 font-semibold text-xs md:text-sm mb-3">
+            <p className="text-yellow-400/90 font-semibold text-[10px] md:text-xs mb-2">
               ⚠️ Essa condição pode acabar a qualquer momento.
             </p>
 
