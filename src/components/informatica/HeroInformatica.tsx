@@ -167,7 +167,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Video da aula gratuita */}
-        <div ref={freeClassRef} className="max-w-3xl mx-auto mb-4 md:mb-6">
+        <div ref={freeClassRef} className="max-w-3xl mx-auto mb-2 md:mb-4">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-slate-700">
             {!isFreeClassPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
