@@ -188,7 +188,7 @@ export const HeroInformatica = () => {
       </div>
 
       {/* Suporte */}
-      <div className="bg-primary/15 border-y border-primary/30 py-4 md:py-5">
+      <div className="bg-primary/15 border-y border-primary/30 py-3 md:py-4">
         <div className="container mx-auto px-4 text-center">
           <p className="text-base md:text-lg font-black text-white">
             Você <span className="text-primary">não está sozinho(a)</span> — suporte direto via WhatsApp durante todo o curso
