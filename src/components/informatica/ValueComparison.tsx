@@ -64,6 +64,22 @@ export const ValueComparison = () => {
             </div>
           </div>
 
+          {/* Depoimento estratégico */}
+          <div className="bg-success/10 border border-success/20 rounded-xl p-4 mt-5 flex items-start gap-3">
+            <img 
+              src={testimonialPhoto} 
+              alt="Aluna Carla" 
+              className="w-10 h-10 rounded-full object-cover border-2 border-success/40 flex-shrink-0 mt-0.5"
+              loading="lazy"
+            />
+            <div>
+              <p className="text-xs text-foreground italic leading-relaxed">
+                "Eu tinha medo de gastar e não aprender. <strong className="text-success">Em 2 semanas já estava fazendo tudo sozinha.</strong> Melhor investimento que fiz!"
+              </p>
+              <p className="text-[10px] text-muted-foreground font-semibold mt-1">— Carla E., Comerciante</p>
+            </div>
+          </div>
+
           <div className="text-center mt-5">
             <button
               onClick={() => (window as any).openCheckout?.()}
