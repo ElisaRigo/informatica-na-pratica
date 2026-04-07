@@ -160,7 +160,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Título acima do segundo vídeo */}
-        <div className="max-w-3xl mx-auto text-center mt-4 md:mt-6 mb-4 md:mb-5">
+        <div className="max-w-3xl mx-auto text-center mt-3 md:mt-4 mb-2 md:mb-3">
           <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-white">
             Veja como é <span className="text-primary">fácil aprender!</span>
           </h2>
