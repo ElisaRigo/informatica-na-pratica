@@ -75,7 +75,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Subheadline */}
-        <div className="text-center max-w-3xl mx-auto mb-2 md:mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-1 md:mb-2">
           <p className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-snug">
             Mesmo que você <span className="text-primary underline decoration-primary/40 decoration-2 underline-offset-4">nunca tenha mexido</span> em um computador.
           </p>
