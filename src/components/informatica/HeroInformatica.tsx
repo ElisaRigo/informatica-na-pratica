@@ -106,6 +106,15 @@ export const HeroInformatica = () => {
               ou <span className="font-black text-lg md:text-2xl">R$ 297,00</span> à vista
             </p>
 
+            {/* Micro-depoimento estratégico */}
+            <div className="flex items-center justify-center gap-2 bg-white/5 rounded-lg px-3 py-2 max-w-sm mx-auto mb-4">
+              <span className="text-lg">👩</span>
+              <p className="text-slate-300 text-[11px] md:text-xs italic leading-snug text-left">
+                "Tenho 52 anos e aprendi em <strong className="text-white">2 semanas</strong>. Melhor dinheiro que já gastei!"
+                <span className="text-slate-500 not-italic"> — Maria H.</span>
+              </p>
+            </div>
+
             {/* CTA */}
             <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-md mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-lg md:text-xl py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-2">
               🎯 QUERO COMEÇAR AGORA!
