@@ -96,17 +96,6 @@ export const HeroInformatica = () => {
               </div>
             </div>
 
-            {/* Preço */}
-            <p className="text-white text-base md:text-xl mb-1">
-              De <span className="line-through font-bold">R$ 497,00</span> por apenas
-            </p>
-            <p className="text-3xl md:text-5xl font-black text-accent mb-1">
-              12x de R$ 30,72
-            </p>
-            <p className="text-white text-base md:text-lg mb-4">
-              ou <span className="font-black text-lg md:text-2xl">R$ 297,00</span> à vista
-            </p>
-
             {/* Micro-depoimento estratégico */}
             <div className="flex items-center justify-center gap-2.5 bg-white/10 border border-white/15 rounded-xl px-3 py-2.5 max-w-sm mx-auto mb-4">
               <img 
@@ -120,6 +109,17 @@ export const HeroInformatica = () => {
                 <span className="text-slate-400 not-italic"> — Maria H., 58 anos</span>
               </p>
             </div>
+
+            {/* Preço */}
+            <p className="text-white text-base md:text-xl mb-1">
+              De <span className="line-through font-bold">R$ 497,00</span> por apenas
+            </p>
+            <p className="text-3xl md:text-5xl font-black text-accent mb-1">
+              12x de R$ 30,72
+            </p>
+            <p className="text-white text-base md:text-lg mb-4">
+              ou <span className="font-black text-lg md:text-2xl">R$ 297,00</span> à vista
+            </p>
 
             {/* CTA */}
             <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-md mx-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-lg md:text-xl py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-2">
