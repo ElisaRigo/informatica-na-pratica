@@ -16,7 +16,7 @@ export const HeroInformatica = () => {
         {/* Logo */}
         <div className="flex flex-col items-center mb-2 md:mb-4">
           <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-md" />
-          <p className="text-slate-200 text-sm md:text-base lg:text-lg font-medium mt-2 text-center leading-relaxed">
+          <p className="text-slate-200 text-sm md:text-base lg:text-lg font-medium mt-1 text-center leading-relaxed">
             Curso de <span className="text-primary font-bold">Informática Online</span> completo
             <br />
             <span className="text-slate-400">Mesmo começando do Zero</span>
