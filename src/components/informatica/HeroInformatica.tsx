@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import testimonialMaria from "@/assets/testimonial-new-1.jpg";
 
 export const HeroInformatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
