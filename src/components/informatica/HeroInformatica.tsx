@@ -143,8 +143,9 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Urgência */}
-            <p className="text-yellow-400/90 font-semibold text-[10px] md:text-xs mb-2">
-              ⚠️ Essa condição pode acabar a qualquer momento.
+            <p className="text-yellow-400/90 font-bold text-xs md:text-sm mb-2 flex items-center justify-center gap-1.5">
+              <AlertTriangle className="w-4 h-4 text-destructive" />
+              Essa condição pode acabar a qualquer momento.
             </p>
 
             {/* Garantia */}
