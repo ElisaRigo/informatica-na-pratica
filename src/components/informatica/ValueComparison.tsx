@@ -1,4 +1,5 @@
-import { X, Check, ArrowRight, AlertTriangle } from "lucide-react";
+import { X, Check, ArrowRight, AlertTriangle, Quote } from "lucide-react";
+import testimonialPhoto from "@/assets/testimonial-new-2.jpg";
 
 export const ValueComparison = () => {
   return (
