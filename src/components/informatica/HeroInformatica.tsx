@@ -12,11 +12,11 @@ export const HeroInformatica = () => {
 
   return (
     <section className="bg-slate-900 relative overflow-hidden">
-      <div className="container mx-auto px-4 py-6 md:py-10">
+      <div className="container mx-auto px-4 py-4 md:py-6">
         {/* Logo */}
-        <div className="flex flex-col items-center mb-4 md:mb-6">
+        <div className="flex flex-col items-center mb-2 md:mb-4">
           <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-md" />
-          <p className="text-slate-200 text-sm md:text-base lg:text-lg font-medium mt-2 text-center leading-relaxed">
+          <p className="text-slate-200 text-sm md:text-base lg:text-lg font-medium mt-1 text-center leading-relaxed">
             Curso de <span className="text-primary font-bold">Informática Online</span> completo
             <br />
             <span className="text-slate-400">Mesmo começando do Zero</span>
@@ -24,7 +24,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Headline */}
-        <div className="text-center max-w-4xl mx-auto mb-5 md:mb-8">
+        <div className="text-center max-w-4xl mx-auto mb-3 md:mb-5">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
             Aprenda Informática de forma{" "}
             <span className="text-primary">Rápida</span> e{" "}
@@ -33,12 +33,12 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Sub-frase */}
-        <p className="text-center text-sm md:text-base text-slate-300 mb-3">
+        <p className="text-center text-sm md:text-base text-slate-300 mb-2">
           Para quem nunca teve facilidade
         </p>
 
         {/* Selos acima do vídeo */}
-        <div className="flex justify-center gap-3 mb-4 max-w-3xl mx-auto">
+        <div className="flex justify-center gap-3 mb-2 max-w-3xl mx-auto">
           <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
             <Headphones className="w-4 h-4 text-primary" />
             <span className="text-white font-bold text-xs">Suporte nas Aulas</span>
@@ -50,7 +50,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Video principal */}
-        <div className="max-w-3xl mx-auto mb-4 md:mb-6">
+        <div className="max-w-3xl mx-auto mb-3 md:mb-4">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-slate-700">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
@@ -75,17 +75,17 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Subheadline */}
-        <div className="text-center max-w-3xl mx-auto mb-2 md:mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-1 md:mb-2">
           <p className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-snug">
             Mesmo que você <span className="text-primary underline decoration-primary/40 decoration-2 underline-offset-4">nunca tenha mexido</span> em um computador.
           </p>
         </div>
 
         {/* Seção de Preço */}
-        <div className="py-2 md:py-3" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="py-1 md:py-2" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
             {/* Destaque Acesso Vitalício */}
-            <div className="flex flex-wrap justify-center gap-2 mb-3">
+            <div className="flex flex-wrap justify-center gap-2 mb-2">
               <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
                 <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                 <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
@@ -97,7 +97,7 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Micro-depoimento estratégico */}
-            <div className="flex items-center justify-center gap-2.5 bg-white/10 border border-white/15 rounded-xl px-3 py-2.5 max-w-sm mx-auto mb-4">
+            <div className="flex items-center justify-center gap-2.5 bg-white/10 border border-white/15 rounded-xl px-3 py-2 max-w-sm mx-auto mb-3">
               <img 
                 src={testimonialMaria} 
                 alt="Maria Helena" 
@@ -117,7 +117,7 @@ export const HeroInformatica = () => {
             <p className="text-3xl md:text-5xl font-black text-accent mb-1">
               12x de R$ 30,72
             </p>
-            <p className="text-white text-base md:text-lg mb-4">
+            <p className="text-white text-base md:text-lg mb-3">
               ou <span className="font-black text-lg md:text-2xl">R$ 297,00</span> à vista
             </p>
 
@@ -131,7 +131,7 @@ export const HeroInformatica = () => {
             </p>
 
             {/* Trust Badges */}
-            <div className="flex justify-center gap-3 mb-4">
+            <div className="flex justify-center gap-3 mb-2">
               <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
                 <Shield className="w-4 h-4 text-primary" />
                 <span className="text-white font-bold text-xs">Garantia 7 Dias</span>
@@ -143,12 +143,12 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Urgência */}
-            <p className="text-yellow-400/90 font-semibold text-xs md:text-sm mb-4">
+            <p className="text-yellow-400/90 font-semibold text-xs md:text-sm mb-3">
               ⚠️ Essa condição pode acabar a qualquer momento.
             </p>
 
             {/* Garantia */}
-            <div className="max-w-md mx-auto bg-primary/20 border-2 border-primary/40 rounded-xl p-4 shadow-lg shadow-primary/5">
+            <div className="max-w-md mx-auto bg-primary/20 border-2 border-primary/40 rounded-xl p-3 shadow-lg shadow-primary/5">
               <p className="font-black text-white text-sm md:text-base mb-1">
                 🛡️ Garantia Incondicional de 7 Dias
               </p>
@@ -160,14 +160,14 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Título acima do segundo vídeo */}
-        <div className="max-w-3xl mx-auto text-center mt-4 md:mt-6 mb-4 md:mb-5">
+        <div className="max-w-3xl mx-auto text-center mt-3 md:mt-4 mb-2 md:mb-3">
           <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-white">
             Veja como é <span className="text-primary">fácil aprender!</span>
           </h2>
         </div>
 
         {/* Video da aula gratuita */}
-        <div ref={freeClassRef} className="max-w-3xl mx-auto mb-4 md:mb-6">
+        <div ref={freeClassRef} className="max-w-3xl mx-auto mb-2 md:mb-4">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-slate-700">
             {!isFreeClassPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
@@ -188,7 +188,7 @@ export const HeroInformatica = () => {
       </div>
 
       {/* Suporte */}
-      <div className="bg-primary/15 border-y border-primary/30 py-4 md:py-5">
+      <div className="bg-primary/15 border-y border-primary/30 py-3 md:py-4">
         <div className="container mx-auto px-4 text-center">
           <p className="text-base md:text-lg font-black text-white">
             Você <span className="text-primary">não está sozinho(a)</span> — suporte direto via WhatsApp durante todo o curso
