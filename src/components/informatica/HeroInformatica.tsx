@@ -12,11 +12,11 @@ export const HeroInformatica = () => {
 
   return (
     <section className="bg-slate-900 relative overflow-hidden">
-      <div className="container mx-auto px-4 py-2 md:py-4">
+      <div className="container mx-auto px-4 py-4 md:py-6">
         {/* Logo */}
-        <div className="flex flex-col items-center mb-1 md:mb-2">
-          <img src={logo} alt="Informática na Prática" className="h-12 md:h-16 lg:h-20 drop-shadow-md" />
-          <p className="text-slate-200 text-xs md:text-sm lg:text-base font-medium mt-0.5 text-center leading-snug">
+        <div className="flex flex-col items-center mb-2 md:mb-4">
+          <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-md" />
+          <p className="text-slate-200 text-sm md:text-base lg:text-lg font-medium mt-1 text-center leading-relaxed">
             Curso de <span className="text-primary font-bold">Informática Online</span> completo
             <br />
             <span className="text-slate-400">Mesmo começando do Zero</span>
@@ -24,8 +24,8 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Headline */}
-        <div className="text-center max-w-4xl mx-auto mb-1 md:mb-2">
-          <h1 className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-tight">
+        <div className="text-center max-w-4xl mx-auto mb-3 md:mb-5">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
             Aprenda Informática de forma{" "}
             <span className="text-primary">Rápida</span> e{" "}
             <span className="text-primary">sem Complicação</span>
@@ -33,7 +33,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Sub-frase */}
-        <p className="text-center text-xs md:text-sm text-slate-300 mb-1">
+        <p className="text-center text-sm md:text-base text-slate-300 mb-2">
           Para quem nunca teve facilidade
         </p>
 
