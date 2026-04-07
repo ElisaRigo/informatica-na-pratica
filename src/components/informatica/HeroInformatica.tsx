@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import testimonialMaria from "@/assets/testimonial-new-1.jpg";
 
 export const HeroInformatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -107,11 +108,16 @@ export const HeroInformatica = () => {
             </p>
 
             {/* Micro-depoimento estratégico */}
-            <div className="flex items-center justify-center gap-2 bg-white/5 rounded-lg px-3 py-2 max-w-sm mx-auto mb-4">
-              <span className="text-lg">👩</span>
-              <p className="text-slate-300 text-[11px] md:text-xs italic leading-snug text-left">
-                "Tenho 52 anos e aprendi em <strong className="text-white">2 semanas</strong>. Melhor dinheiro que já gastei!"
-                <span className="text-slate-500 not-italic"> — Maria H.</span>
+            <div className="flex items-center justify-center gap-2.5 bg-white/10 border border-white/15 rounded-xl px-3 py-2.5 max-w-sm mx-auto mb-4">
+              <img 
+                src={testimonialMaria} 
+                alt="Maria Helena" 
+                className="w-9 h-9 rounded-full object-cover border-2 border-accent/50 flex-shrink-0"
+                loading="eager"
+              />
+              <p className="text-slate-200 text-[11px] md:text-xs italic leading-snug text-left">
+                "Achei que era tarde demais pra mim. Hoje <strong className="text-white">me sinto outra pessoa!</strong>"
+                <span className="text-slate-400 not-italic"> — Maria H., 58 anos</span>
               </p>
             </div>
 
