@@ -85,19 +85,19 @@ export const HeroInformatica = () => {
         <div className="py-0.5 md:py-1" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
             {/* Destaque Acesso Vitalício */}
-            <div className="flex flex-wrap justify-center gap-2 mb-2">
-              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-                <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
+            <div className="flex flex-wrap justify-center gap-1.5 mb-1.5">
+              <div className="inline-flex items-center gap-1 md:gap-1.5 bg-primary/20 border border-primary/40 px-2.5 py-1 md:px-3 md:py-1.5 rounded-full">
+                <InfinityIcon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                <span className="font-bold text-[10px] md:text-xs text-primary">ACESSO VITALÍCIO</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-                <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-                <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
+              <div className="inline-flex items-center gap-1 md:gap-1.5 bg-accent/20 border border-accent/40 px-2.5 py-1 md:px-3 md:py-1.5 rounded-full">
+                <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent" />
+                <span className="font-bold text-[10px] md:text-xs text-accent">CURSO ONLINE</span>
               </div>
             </div>
 
             {/* Micro-depoimento estratégico */}
-            <div className="flex items-center justify-center gap-2.5 bg-white/10 border border-white/15 rounded-xl px-3 py-2 max-w-sm mx-auto mb-3">
+            <div className="flex items-center justify-center gap-2 bg-white/10 border border-white/15 rounded-xl px-2.5 py-1.5 max-w-sm mx-auto mb-2">
               <img 
                 src={testimonialMaria} 
                 alt="Maria Helena" 
