@@ -85,7 +85,7 @@ export const HeroInformatica = () => {
         <div className="py-1 md:py-2" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
             {/* Destaque Acesso Vitalício */}
-            <div className="flex flex-wrap justify-center gap-2 mb-3">
+            <div className="flex flex-wrap justify-center gap-2 mb-2">
               <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
                 <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                 <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
