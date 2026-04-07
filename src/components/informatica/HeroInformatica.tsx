@@ -33,7 +33,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Sub-frase */}
-        <p className="text-center text-sm md:text-base text-slate-300 mb-3">
+        <p className="text-center text-sm md:text-base text-slate-300 mb-2">
           Para quem nunca teve facilidade
         </p>
 
