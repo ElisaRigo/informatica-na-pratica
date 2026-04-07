@@ -144,7 +144,7 @@ export const HeroInformatica = () => {
 
             {/* Urgência */}
             <p className="text-yellow-400/90 font-semibold text-xs md:text-sm mb-4">
-              ⚠️ Essa condição pode sair do ar a qualquer momento sem aviso.
+              ⚠️ Essa condição pode acabar a qualquer momento.
             </p>
 
             {/* Garantia */}
