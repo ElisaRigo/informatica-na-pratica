@@ -11,7 +11,7 @@ export const HeroInformatica = () => {
 
   return (
     <section className="bg-slate-900 relative overflow-hidden">
-      <div className="container mx-auto px-4 py-6 md:py-10">
+      <div className="container mx-auto px-4 py-3 md:py-10">
         {/* Logo */}
         <div className="flex flex-col items-center mb-4 md:mb-6">
           <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-md" />
