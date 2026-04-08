@@ -73,6 +73,12 @@ const Curso = () => {
       {/* 6️⃣ INSTRUTORA - Autoridade */}
       <InstructorSection />
       
+      {/* 🎯 CTA ESTRATÉGICO 3 - Após conhecer a professora */}
+      <StrategicCTAV2 
+        headline="Quero aprender com a Elisa!"
+        buttonText="Sim, Quero Ser Aluno(a)"
+        variant="light"
+      />
       
       {/* 8️⃣ DEPOIMENTOS - Prova social */}
       <TestimonialsV2 />
