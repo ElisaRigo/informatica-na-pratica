@@ -2,7 +2,7 @@ import { AlertCircle, Clock, BookOpen, Target } from "lucide-react";
 
 export const DisclaimerSection = () => {
   return (
-    <section className="py-12 md:py-16 bg-slate-50">
+    <section className="py-6 md:py-8 bg-slate-50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
