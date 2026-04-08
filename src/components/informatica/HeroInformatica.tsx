@@ -81,7 +81,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Seção de Preço */}
-        <div className="py-2 md:py-3" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="py-1 md:py-3" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
             {/* Destaque Acesso Vitalício */}
             <div className="flex flex-wrap justify-center gap-2 mb-3">
