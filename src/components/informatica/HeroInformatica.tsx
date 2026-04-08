@@ -96,7 +96,7 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Preço */}
-            <p className="text-white text-base md:text-xl mb-1">
+            <p className="text-white text-base md:text-xl mb-0.5">
               De <span className="line-through font-bold">R$ 497,00</span> por apenas
             </p>
             <p className="text-3xl md:text-5xl font-black text-accent mb-1">
