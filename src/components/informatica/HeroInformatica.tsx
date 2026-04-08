@@ -81,10 +81,10 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Seção de Preço */}
-        <div className="py-2 md:py-3" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="py-1 md:py-3" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
           <div className="max-w-lg mx-auto px-4 text-center">
             {/* Destaque Acesso Vitalício */}
-            <div className="flex flex-wrap justify-center gap-2 mb-3">
+            <div className="flex flex-wrap justify-center gap-2 mb-2">
               <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
                 <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                 <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
@@ -96,13 +96,13 @@ export const HeroInformatica = () => {
             </div>
 
             {/* Preço */}
-            <p className="text-white text-base md:text-xl mb-1">
+            <p className="text-white text-base md:text-xl mb-0.5">
               De <span className="line-through font-bold">R$ 497,00</span> por apenas
             </p>
-            <p className="text-3xl md:text-5xl font-black text-accent mb-1">
+            <p className="text-3xl md:text-5xl font-black text-accent mb-0.5">
               12x de R$ 30,72
             </p>
-            <p className="text-white text-base md:text-lg mb-4">
+            <p className="text-white text-base md:text-lg mb-3">
               ou <span className="font-black text-lg md:text-2xl">R$ 297,00</span> à vista
             </p>
 
