@@ -102,7 +102,7 @@ export const HeroInformatica = () => {
             <p className="text-3xl md:text-5xl font-black text-accent mb-0.5">
               12x de R$ 30,72
             </p>
-            <p className="text-white text-base md:text-lg mb-4">
+            <p className="text-white text-base md:text-lg mb-3">
               ou <span className="font-black text-lg md:text-2xl">R$ 297,00</span> à vista
             </p>
 
