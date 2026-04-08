@@ -20,7 +20,6 @@ import { FAQV2 } from "@/components/curso/FAQV2";
 import { FinalCTA } from "@/components/curso/FinalCTA";
 import { FooterV2 } from "@/components/curso/FooterV2";
 import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
-import { CommentsStrip } from "@/components/informatica/FacebookComments";
 
 const Curso = () => {
   // Redirect all checkout buttons to Hotmart with tracking
@@ -41,34 +40,68 @@ const Curso = () => {
   
   return (
     <div className="min-h-screen">
+      {/* 1️⃣ HERO - Headline forte + Vídeo + CTA */}
       <HeroV2 />
+      
+      {/* 2️⃣ PROBLEMA - Identifique a dor */}
       <ProblemSection />
+      
+      {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
       <AudioTestimonialsV2 />
+      
+      {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
       <StrategicCTAV2 
         headline="Eu também quero aprender!"
         buttonText="Quero Aprender Informática sem Medo"
       />
+      
+      {/* 📜 CERTIFICADO - Prova tangível de conquista */}
       <CertificateSection />
-      <CommentsStrip startIndex={0} count={2} />
+      
+      {/* 🏠 AMBIENTE DE AULA - Antes do suporte */}
       <EnvironmentSection />
-      <CommentsStrip startIndex={2} count={2} />
+      
+      {/* 3️⃣ SUPORTE - Você não está sozinho */}
       <SupportBannerV2 />
+      
+      {/* 4️⃣ TRANSFORMAÇÃO - Mostre o depois */}
       <TransformationSection />
-      <CommentsStrip startIndex={4} count={2} />
+      
+      {/* 5️⃣ CONTEÚDO - O que está incluído */}
       <ContentSectionV2 />
+      
+      {/* 6️⃣ INSTRUTORA - Autoridade */}
       <InstructorSection />
+      
+      {/* 🎯 CTA ESTRATÉGICO 3 - Após conhecer a professora */}
       <StrategicCTAV2 
         headline="Quero aprender com a Elisa!"
         buttonText="Sim, Quero Ser Aluno(a)"
         variant="light"
       />
-      <CommentsStrip startIndex={6} count={2} />
+      
+      {/* 8️⃣ DEPOIMENTOS - Prova social */}
+      <TestimonialsV2 />
+      
+      {/* 9️⃣ PREÇO - Oferta + Garantia */}
       <PricingV2 />
+      
+      {/* 🔟 FAQ - Quebre objeções */}
       <FAQV2 />
+      
+      {/* 1️⃣1️⃣ CTA FINAL - Última chamada */}
       <FinalCTA />
+      
+      {/* 1️⃣2️⃣ DISCLAIMER - Proteção legal sobre o prazo (última seção) */}
       <DisclaimerSection />
+      
+      {/* FOOTER */}
       <FooterV2 />
+      
+      {/* ELEMENTOS FLUTUANTES */}
       <WhatsAppButton />
+      
+      {/* CHECKOUT - Redirecionando para Hotmart */}
     </div>
   );
 };
