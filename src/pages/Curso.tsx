@@ -13,7 +13,6 @@ import { InstructorSection } from "@/components/curso/InstructorSection";
 import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
 import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
 import { CertificateSection } from "@/components/curso/CertificateSection";
-import { CommentsStrip } from "@/components/informatica/FacebookComments";
 
 import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
 import { PricingV2 } from "@/components/curso/PricingV2";
@@ -41,38 +40,62 @@ const Curso = () => {
   
   return (
     <div className="min-h-screen">
+      {/* 1️⃣ HERO - Headline forte + Vídeo + CTA */}
       <HeroV2 />
+      
+      {/* 2️⃣ PROBLEMA - Identifique a dor */}
       <ProblemSection />
+      
+      {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
       <AudioTestimonialsV2 />
       
+      {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
       <StrategicCTAV2 
         headline="Eu também quero aprender!"
         buttonText="Quero Aprender Informática sem Medo"
       />
       
+      {/* 📜 CERTIFICADO - Prova tangível de conquista */}
       <CertificateSection />
-      <CommentsStrip startIndex={0} count={2} />
       
+      {/* 🏠 AMBIENTE DE AULA - Antes do suporte */}
       <EnvironmentSection />
+      
+      {/* 3️⃣ SUPORTE - Você não está sozinho */}
       <SupportBannerV2 />
-      <CommentsStrip startIndex={2} count={2} />
       
+      {/* 4️⃣ TRANSFORMAÇÃO - Mostre o depois */}
       <TransformationSection />
-      <ContentSectionV2 />
-      <CommentsStrip startIndex={4} count={2} />
       
+      {/* 5️⃣ CONTEÚDO - O que está incluído */}
+      <ContentSectionV2 />
+      
+      {/* 6️⃣ INSTRUTORA - Autoridade */}
       <InstructorSection />
       
-      <TestimonialsV2 />
-      <CommentsStrip startIndex={6} count={2} />
       
+      {/* 8️⃣ DEPOIMENTOS - Prova social */}
+      <TestimonialsV2 />
+      
+      {/* 9️⃣ PREÇO - Oferta + Garantia */}
       <PricingV2 />
+      
+      {/* 🔟 FAQ - Quebre objeções */}
       <FAQV2 />
+      
+      {/* 1️⃣1️⃣ CTA FINAL - Última chamada */}
       <FinalCTA />
+      
+      {/* 1️⃣2️⃣ DISCLAIMER - Proteção legal sobre o prazo (última seção) */}
       <DisclaimerSection />
+      
+      {/* FOOTER */}
       <FooterV2 />
       
+      {/* ELEMENTOS FLUTUANTES */}
       <WhatsAppButton />
+      
+      {/* CHECKOUT - Redirecionando para Hotmart */}
     </div>
   );
 };
