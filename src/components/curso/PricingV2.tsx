@@ -20,7 +20,7 @@ const bonuses = [
 
 export const PricingV2 = () => {
   return (
-    <section id="preco" className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-100">
+    <section id="preco" className="py-8 md:py-10 bg-gradient-to-b from-white to-slate-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="inline-block bg-warning/20 text-warning px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
