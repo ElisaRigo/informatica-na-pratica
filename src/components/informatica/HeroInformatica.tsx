@@ -99,7 +99,7 @@ export const HeroInformatica = () => {
             <p className="text-white text-base md:text-xl mb-0.5">
               De <span className="line-through font-bold">R$ 497,00</span> por apenas
             </p>
-            <p className="text-3xl md:text-5xl font-black text-accent mb-1">
+            <p className="text-3xl md:text-5xl font-black text-accent mb-0.5">
               12x de R$ 30,72
             </p>
             <p className="text-white text-base md:text-lg mb-4">
