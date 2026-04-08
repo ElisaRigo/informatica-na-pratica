@@ -53,7 +53,7 @@ const testimonials = [
 
 export const TestimonialsV2 = () => {
   return (
-    <section className="py-8 md:py-10 bg-slate-900 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary" />

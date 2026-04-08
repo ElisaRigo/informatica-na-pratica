@@ -101,51 +101,7 @@ export const HeroV2 = () => {
           <strong className="text-white">Aprenda Informática</strong> do jeito certo e use o computador com <strong className="text-primary">confiança</strong> no trabalho e no dia a dia.
         </p>
 
-        {/* Video principal de vendas (primeiro) */}
-        <div className="max-w-4xl mx-auto mb-4 md:mb-6">
-          <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
-            {!isPlaying ? (
-              <div 
-                className="relative aspect-video cursor-pointer group"
-                onClick={() => setIsPlaying(true)}
-              >
-                <img 
-                  src={heroVideoThumb}
-                  alt="Prévia do curso de informática"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                    <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
-                  </div>
-                </div>
-                <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
-                  <div className="bg-destructive text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm shadow-lg">
-                    ▶ ASSISTA AGORA
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
-                  title="Veja como é fácil aprender"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </div>
-          <p className="text-sm md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
-            O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
-            assim como você, tinham medo de errar e vergonha de pedir ajuda.
-          </p>
-        </div>
-
-        {/* Seção Aula Gratuita (segundo) */}
+        {/* Seção Aula Gratuita (agora primeiro) */}
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4 md:mb-6">
           <div className="text-center mb-4">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
@@ -164,7 +120,7 @@ export const HeroV2 = () => {
                     src={freeClassThumb}
                     alt="Aula demonstrativa gratuita"
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    loading="eager"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
@@ -205,6 +161,50 @@ export const HeroV2 = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Video principal (agora segundo) */}
+        <div className="max-w-4xl mx-auto mb-4 md:mb-6">
+          <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
+            {!isPlaying ? (
+              <div 
+                className="relative aspect-video cursor-pointer group"
+                onClick={() => setIsPlaying(true)}
+              >
+                <img 
+                  src={heroVideoThumb}
+                  alt="Prévia do curso de informática"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                    <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                  </div>
+                </div>
+                <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
+                  <div className="bg-destructive text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm shadow-lg">
+                    ▶ ASSISTA AGORA
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                  title="Veja como é fácil aprender"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </div>
+          <p className="text-sm md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
+            O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
+            assim como você, tinham medo de errar e vergonha de pedir ajuda.
+          </p>
         </div>
 
         {/* Faixa acolhedora acima do preço - Full width */}
