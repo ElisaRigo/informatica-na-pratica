@@ -20,6 +20,7 @@ import { FAQV2 } from "@/components/curso/FAQV2";
 import { FinalCTA } from "@/components/curso/FinalCTA";
 import { FooterV2 } from "@/components/curso/FooterV2";
 import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
+import { CommentsStrip } from "@/components/informatica/FacebookComments";
 
 const Curso = () => {
   // Redirect all checkout buttons to Hotmart with tracking
