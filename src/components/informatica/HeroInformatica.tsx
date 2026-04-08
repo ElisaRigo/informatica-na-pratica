@@ -11,9 +11,9 @@ export const HeroInformatica = () => {
 
   return (
     <section className="bg-slate-900 relative overflow-hidden">
-      <div className="container mx-auto px-4 py-6 md:py-10">
+      <div className="container mx-auto px-4 py-3 md:py-10">
         {/* Logo */}
-        <div className="flex flex-col items-center mb-4 md:mb-6">
+        <div className="flex flex-col items-center mb-2 md:mb-6">
           <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-md" />
           <p className="text-slate-200 text-sm md:text-base lg:text-lg font-medium mt-2 text-center leading-relaxed">
             Curso de <span className="text-primary font-bold">Informática Online</span> completo
@@ -23,7 +23,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Headline */}
-        <div className="text-center max-w-4xl mx-auto mb-5 md:mb-8">
+        <div className="text-center max-w-4xl mx-auto mb-2 md:mb-8">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
             Aprenda Informática de forma{" "}
             <span className="text-primary">Rápida</span> e{" "}
@@ -32,12 +32,12 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Sub-frase */}
-        <p className="text-center text-sm md:text-base text-slate-300 mb-3 -mt-3 md:-mt-5">
+        <p className="text-center text-sm md:text-base text-slate-300 mb-2 -mt-1 md:-mt-5">
           Para quem nunca teve facilidade
         </p>
 
         {/* Selos acima do vídeo */}
-        <div className="flex justify-center gap-3 mb-4 max-w-3xl mx-auto">
+        <div className="flex justify-center gap-3 mb-2 max-w-3xl mx-auto">
           <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
             <Headphones className="w-4 h-4 text-primary" />
             <span className="text-white font-bold text-xs">Suporte nas Aulas</span>
@@ -49,7 +49,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Video principal */}
-        <div className="max-w-3xl mx-auto mb-4 md:mb-6">
+        <div className="max-w-3xl mx-auto mb-2 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-slate-700">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
@@ -74,7 +74,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Subheadline */}
-        <div className="text-center max-w-3xl mx-auto mb-2 md:mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-1 md:mb-3">
           <p className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-snug">
             Mesmo que você <span className="text-primary underline decoration-primary/40 decoration-2 underline-offset-4">nunca tenha mexido</span> em um computador.
           </p>
