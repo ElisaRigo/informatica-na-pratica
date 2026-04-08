@@ -23,7 +23,7 @@ export const HeroInformatica = () => {
         </div>
 
         {/* Headline */}
-        <div className="text-center max-w-4xl mx-auto mb-5 md:mb-8">
+        <div className="text-center max-w-4xl mx-auto mb-2 md:mb-8">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
             Aprenda Informática de forma{" "}
             <span className="text-primary">Rápida</span> e{" "}
