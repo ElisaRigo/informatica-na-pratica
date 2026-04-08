@@ -1,24 +1,27 @@
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-import { HeroInformatica } from "@/components/informatica/HeroInformatica";
-import { AudioTestimonialsLight } from "@/components/informatica/AudioTestimonialsLight";
-import { ProblemBanner } from "@/components/informatica/ProblemBanner";
+import { HeroV2 } from "@/components/curso/HeroV2";
+import { ProblemSection } from "@/components/curso/ProblemSection";
+import { AudioTestimonialsV2 } from "@/components/curso/AudioTestimonialsV2";
+import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
+import { TransformationSection } from "@/components/curso/TransformationSection";
+import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
 import { InstructorSection } from "@/components/curso/InstructorSection";
-import { EnvironmentSectionLight } from "@/components/informatica/EnvironmentSectionLight";
-import { TransformationSectionLight } from "@/components/informatica/TransformationSectionLight";
-import { ContentSectionLight } from "@/components/informatica/ContentSectionLight";
-import { ValueComparison } from "@/components/informatica/ValueComparison";
+import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
+import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
+import { CertificateSection } from "@/components/curso/CertificateSection";
+import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
+import { PricingV2 } from "@/components/curso/PricingV2";
 import { FAQV2 } from "@/components/curso/FAQV2";
-import { FinalCTALight } from "@/components/informatica/FinalCTALight";
-import { FooterLight } from "@/components/informatica/FooterLight";
-import { CommentsStrip } from "@/components/informatica/FacebookComments";
+import { FinalCTA } from "@/components/curso/FinalCTA";
+import { FooterV2 } from "@/components/curso/FooterV2";
+import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
 
 const Index = () => {
   (window as any).openCheckout = () => {
     if ((window as any).gtag) {
       (window as any).gtag('event', 'begin_checkout', {
-        currency: 'BRL',
-        value: 297.00,
+        currency: 'BRL', value: 297.00,
         items: [{ item_id: 'curso-informatica', item_name: 'Curso Informática na Prática', price: 297.00, quantity: 1 }]
       });
     }
@@ -31,21 +34,26 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <HeroInformatica />
-      <AudioTestimonialsLight />
-      <ProblemBanner />
-      <InstructorSection variant="dark" />
-      <CommentsStrip startIndex={2} count={2} />
-      <EnvironmentSectionLight />
-      <CommentsStrip startIndex={4} count={2} />
-      <TransformationSectionLight />
-      <ContentSectionLight />
-      <CommentsStrip startIndex={6} count={2} />
-      <ValueComparison />
-      <FAQV2 variant="dark" />
-      <FinalCTALight />
-      <FooterLight />
+    <div className="min-h-screen">
+      <HeroV2 />
+      <ProblemSection />
+      <AudioTestimonialsV2 />
+      <StrategicCTAV2 
+        headline="Eu também quero aprender!"
+        buttonText="Quero Aprender Informática sem Medo"
+      />
+      <CertificateSection />
+      <EnvironmentSection />
+      <SupportBannerV2 />
+      <TransformationSection />
+      <ContentSectionV2 />
+      <InstructorSection />
+      <TestimonialsV2 />
+      <PricingV2 />
+      <FAQV2 />
+      <FinalCTA />
+      <DisclaimerSection />
+      <FooterV2 />
       <WhatsAppButton />
     </div>
   );
