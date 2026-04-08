@@ -37,7 +37,7 @@ export const HeroInformatica = () => {
         </p>
 
         {/* Selos acima do vídeo */}
-        <div className="flex justify-center gap-3 mb-4 max-w-3xl mx-auto">
+        <div className="flex justify-center gap-3 mb-2 max-w-3xl mx-auto">
           <div className="flex items-center gap-1.5 p-2 px-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
             <Headphones className="w-4 h-4 text-primary" />
             <span className="text-white font-bold text-xs">Suporte nas Aulas</span>
