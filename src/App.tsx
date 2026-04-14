@@ -22,6 +22,7 @@ const AudioWhatsApp = lazy(() => import("./pages/AudioWhatsApp"));
 const VideoWhatsApp = lazy(() => import("./pages/VideoWhatsApp"));
 const Aula = lazy(() => import("./pages/Aula"));
 const ImagemWhatsApp = lazy(() => import("./pages/ImagemWhatsApp"));
+const Informatica = lazy(() => import("./pages/Informatica"));
 
 
 const queryClient = new QueryClient();
