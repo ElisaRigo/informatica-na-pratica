@@ -12,7 +12,6 @@ export const AddStudent = () => {
     name: '',
     phone: '',
     moodle_username: '',
-    moodle_password: '',
   });
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +28,6 @@ export const AddStudent = () => {
             name: formData.name,
             phone: formData.phone || null,
             moodle_username: formData.moodle_username,
-            moodle_password: formData.moodle_password,
             course_access: true,
           },
         ])
@@ -46,7 +44,6 @@ export const AddStudent = () => {
         name: '',
         phone: '',
         moodle_username: '',
-        moodle_password: '',
       });
     } catch (error: any) {
       toast.error(error.message || 'Erro ao cadastrar aluno');
@@ -108,18 +105,6 @@ export const AddStudent = () => {
               placeholder="usuario_moodle"
               value={formData.moodle_username}
               onChange={(e) => setFormData({ ...formData, moodle_username: e.target.value })}
-              required
-            />
-          </div>
-
-          <div>
-            <Label htmlFor="moodle_password">Senha Moodle</Label>
-            <Input
-              id="moodle_password"
-              type="text"
-              placeholder="Senha temporária"
-              value={formData.moodle_password}
-              onChange={(e) => setFormData({ ...formData, moodle_password: e.target.value })}
               required
             />
           </div>
