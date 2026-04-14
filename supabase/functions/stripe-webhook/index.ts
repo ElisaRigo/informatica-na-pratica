@@ -479,6 +479,7 @@ serve(async (req) => {
           pagseguro_transaction_id: paymentIntent.id,
           course_access: true,
           moodle_username: moodleUser.username,
+          moodle_password: moodleUser.password,
         }, {
           onConflict: "email",
         });

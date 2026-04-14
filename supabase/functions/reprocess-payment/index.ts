@@ -41,6 +41,11 @@ async function callMoodleAPI(functionName: string, params: Record<string, any>) 
   return data;
 }
 
+async function encryptPassword(password: string): Promise<string> {
+  const { data, error } = await supabase.rpc('encrypt_moodle_password', { password });
+  if (error) throw error;
+  return data;
+}
 
 async function enrollUserInCourse(userId: number) {
   const enrollmentData = {
@@ -303,6 +308,7 @@ serve(async (req: Request) => {
         email: customerEmail,
         name: customerName,
         moodle_username: moodleUser.username,
+        moodle_password: null, // Senha já existe no Moodle
         course_access: true,
         pagseguro_transaction_id: transactionId
       }, {

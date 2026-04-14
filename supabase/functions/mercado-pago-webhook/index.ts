@@ -485,6 +485,7 @@ serve(async (req) => {
         course_access: true,
         moodle_username: moodleUser.username,
         moodle_user_id: moodleUser.userId,
+        moodle_password: moodleUser.password,
       }, {
         onConflict: "email",
       });

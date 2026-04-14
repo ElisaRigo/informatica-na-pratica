@@ -43,9 +43,9 @@ const modules = [
 
 export const CourseContent = () => {
   return (
-    <section id="conteudo" className="py-6 md:py-10 bg-background">
+    <section id="conteudo" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-6">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-foreground">
             Veja tudo o que você vai dominar no curso
           </h2>
@@ -54,7 +54,7 @@ export const CourseContent = () => {
           </p>
         </div>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
           {modules.map((module, index) => (
             <div
               key={index}
@@ -94,7 +94,7 @@ export const CourseContent = () => {
         </div>
 
         {/* WhatsApp CTA adicional */}
-        <WhatsAppCTA text="🎓 Tem dúvidas? Fale com a Professora!" className="mt-6" />
+        <WhatsAppCTA text="🎓 Tem dúvidas? Fale com a Professora!" className="mt-12" />
       </div>
     </section>
   );

@@ -57,7 +57,7 @@ export const Pricing = () => {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <section id="preco" className="py-6 md:py-10 bg-background">
+    <section id="preco" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto bg-card border-2 border-primary/20 rounded-2xl md:rounded-3xl p-5 md:p-12 shadow-2xl">
           <div className="flex flex-col items-center">

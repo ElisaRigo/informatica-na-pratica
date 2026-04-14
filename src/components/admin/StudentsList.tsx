@@ -4,7 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
-import { Trash2 } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Trash2, KeyRound } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface Student {
@@ -20,6 +23,8 @@ interface Student {
 export const StudentsList = () => {
   const [students, setStudents] = useState<Student[]>([]);
   const [loading, setLoading] = useState(true);
+  const [newPassword, setNewPassword] = useState('');
+  const [selectedStudent, setSelectedStudent] = useState<string | null>(null);
 
   useEffect(() => {
     fetchStudents();
@@ -55,6 +60,29 @@ export const StudentsList = () => {
       fetchStudents();
     } catch (error: any) {
       toast.error('Erro ao excluir aluno');
+    }
+  };
+
+  const handleResetPassword = async () => {
+    if (!selectedStudent || !newPassword.trim()) {
+      toast.error('Digite uma nova senha');
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('students')
+        .update({ moodle_password: newPassword })
+        .eq('id', selectedStudent);
+
+      if (error) throw error;
+
+      toast.success('Senha redefinida com sucesso');
+      setNewPassword('');
+      setSelectedStudent(null);
+      fetchStudents();
+    } catch (error: any) {
+      toast.error('Erro ao redefinir senha');
     }
   };
 
@@ -101,6 +129,46 @@ export const StudentsList = () => {
                     <Badge variant={student.course_access ? 'default' : 'secondary'}>
                       {student.course_access ? 'Acesso Ativo' : 'Sem Acesso'}
                     </Badge>
+                    
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => {
+                            setSelectedStudent(student.id);
+                            setNewPassword('');
+                          }}
+                        >
+                          <KeyRound className="w-4 h-4" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Redefinir Senha</DialogTitle>
+                          <DialogDescription>
+                            Digite a nova senha do Moodle para {student.name}
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="space-y-4 py-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="password">Nova Senha</Label>
+                            <Input
+                              id="password"
+                              type="text"
+                              placeholder="Ex: senha nova"
+                              value={newPassword}
+                              onChange={(e) => setNewPassword(e.target.value)}
+                            />
+                          </div>
+                        </div>
+                        <DialogFooter>
+                          <Button onClick={handleResetPassword}>
+                            Redefinir Senha
+                          </Button>
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
 
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
