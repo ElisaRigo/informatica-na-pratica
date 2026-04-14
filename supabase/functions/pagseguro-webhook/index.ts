@@ -642,14 +642,13 @@ serve(async (req: Request) => {
     const { userId, username, password } = await createMoodleUser(sanitizedName, sanitizedEmail);
     console.log(`User created/found with ID: ${userId}`);
 
-    // 3. Salvar aluno no banco (sem criptografia)
+    // 3. Salvar aluno no banco
     const { data: studentData, error: studentError } = await supabase
       .from('students')
       .upsert({
         email: sanitizedEmail,
         name: sanitizedName,
         moodle_username: username,
-        moodle_password: password,
         course_access: true,
         pagseguro_transaction_id: payload.id
       }, {

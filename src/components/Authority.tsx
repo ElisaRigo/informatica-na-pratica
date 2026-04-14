@@ -3,14 +3,14 @@ import elisaTeaching from "@/assets/elisa-teaching.jpg";
 
 export const Authority = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
+    <section className="py-8 md:py-12 bg-gradient-to-br from-primary/5 to-accent/5">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-6">
             Quem é a professora Elisa?
           </h2>
 
-          <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="mb-6 rounded-2xl overflow-hidden shadow-2xl">
             <img 
               src={elisaTeaching} 
               alt="Professora Elisa ensinando curso de informática online - Word, Excel e PowerPoint" 
@@ -22,7 +22,7 @@ export const Authority = () => {
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-card border-2 border-primary/30 rounded-2xl p-6 text-center">
                 <div className="text-4xl font-black text-primary mb-2">+20</div>
@@ -93,7 +93,7 @@ export const Authority = () => {
             </div>
           </div>
 
-          <div className="mt-12 bg-card border-2 border-primary/30 rounded-3xl p-8 text-center">
+          <div className="mt-6 bg-card border-2 border-primary/30 rounded-3xl p-6 text-center">
             <p className="text-lg md:text-xl italic text-muted-foreground mb-4">
               "Minha missão é mostrar que você também consegue aprender informática. Você não está mais sozinho(a) eu vou te ajudar nessa jornada!"
             </p>
