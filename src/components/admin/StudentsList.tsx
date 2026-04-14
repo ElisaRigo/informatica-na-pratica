@@ -72,7 +72,7 @@ export const StudentsList = () => {
     try {
       const { error } = await supabase
         .from('students')
-        .update({ moodle_password: newPassword })
+        .update({ moodle_username: newPassword })
         .eq('id', selectedStudent);
 
       if (error) throw error;
