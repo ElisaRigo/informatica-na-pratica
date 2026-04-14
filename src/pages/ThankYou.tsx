@@ -26,11 +26,11 @@ const ThankYou = () => {
           'currency': 'BRL'
         });
         
-        // Disparar pageview para garantir que o GA4 rastreie a página
-        (window as any).gtag('config', 'G-08B5E33G3F', {
-          page_path: '/obrigada',
-          page_title: 'Obrigada - Compra Confirmada'
-        });
+      // Disparar pageview para garantir que o GA4 rastreie a página
+      (window as any).gtag('config', 'G-08B5E33G3F', {
+        page_path: '/obrigada',
+        page_title: 'Obrigada - Compra Confirmada'
+      });
         
         // Disparar evento de conversão do Google Ads
         (window as any).gtag('event', 'conversion', {
@@ -40,25 +40,7 @@ const ThankYou = () => {
           'transaction_id': ''
         });
         
-        // Disparar evento de conversão de matrícula do Google Ads
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-17641842157/B6aWCPfmzr0bEO3LpNxB',
-          'value': 1.0,
-          'currency': 'BRL',
-          'transaction_id': ''
-        });
-        
         console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
-        
-        // Disparar conversão do Facebook Pixel
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Purchase', {
-            value: 297.00,
-            currency: 'BRL'
-          });
-          console.log('✅ Facebook Pixel conversion tracked successfully');
-        }
-        
         return true;
       }
       return false;
@@ -101,17 +83,6 @@ const ThankYou = () => {
         <meta property="og:title" content="Obrigada pela sua compra! - Informática na Prática" />
         <meta property="og:description" content="Parabéns! Sua compra foi confirmada." />
         <meta property="og:url" content="https://informaticanapratica.com.br/obrigada" />
-        
-        {/* Google Tag Manager */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17641842157"></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17641842157');
-          `}
-        </script>
       </Helmet>
       
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -164,7 +135,7 @@ const ThankYou = () => {
           <div className="bg-card border border-line rounded-xl p-6 text-left">
             <h3 className="font-semibold text-lg mb-2 text-primary">🎓 Acesso ao curso</h3>
             <ul className="text-sm text-muted-foreground space-y-2">
-              <li>✅ Acesso vitalício ao curso</li>
+              <li>✅ 2 anos de acesso completo ao curso</li>
               <li>✅ Suporte direto da professora Elisa</li>
               <li>✅ Certificado incluso</li>
             </ul>

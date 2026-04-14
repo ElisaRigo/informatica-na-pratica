@@ -14,42 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      leads: {
-        Row: {
-          converted: boolean | null
-          cpf: string | null
-          created_at: string
-          email: string
-          id: string
-          name: string
-          phone: string | null
-          source: string | null
-          updated_at: string
-        }
-        Insert: {
-          converted?: boolean | null
-          cpf?: string | null
-          created_at?: string
-          email: string
-          id?: string
-          name: string
-          phone?: string | null
-          source?: string | null
-          updated_at?: string
-        }
-        Update: {
-          converted?: boolean | null
-          cpf?: string | null
-          created_at?: string
-          email?: string
-          id?: string
-          name?: string
-          phone?: string | null
-          source?: string | null
-          updated_at?: string
-        }
-        Relationships: []
-      }
       payment_access_logs: {
         Row: {
           accessed_at: string | null
@@ -127,6 +91,7 @@ export type Database = {
           created_at: string | null
           email: string
           id: string
+          moodle_password: string | null
           moodle_user_id: number | null
           moodle_username: string | null
           name: string
@@ -139,6 +104,7 @@ export type Database = {
           created_at?: string | null
           email: string
           id?: string
+          moodle_password?: string | null
           moodle_user_id?: number | null
           moodle_username?: string | null
           name: string
@@ -151,6 +117,7 @@ export type Database = {
           created_at?: string | null
           email?: string
           id?: string
+          moodle_password?: string | null
           moodle_user_id?: number | null
           moodle_username?: string | null
           name?: string
