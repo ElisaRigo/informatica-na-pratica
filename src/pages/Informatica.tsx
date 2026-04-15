@@ -358,7 +358,7 @@ const Informatica = () => {
                   className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group shadow-xl border-2 border-primary/20"
                   onClick={() => setEasyVideoPlaying(true)}
                 >
-                  <img src={heroVideoThumb} alt="Aula demonstrativa" className="w-full h-full object-cover" loading="lazy" />
+                  <img src={aprendaComigoThumb} alt="Aula demonstrativa" className="w-full h-full object-cover" loading="lazy" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/70 transition-all">
                       <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
