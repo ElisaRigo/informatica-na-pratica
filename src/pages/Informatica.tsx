@@ -257,10 +257,10 @@ const Informatica = () => {
           </div>
 
           {/* Pricing */}
-          <div className="bg-background rounded-2xl p-4 md:p-6 max-w-lg mx-auto text-center">
-            <p className="text-base md:text-lg text-muted-foreground mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
-            <p className="text-2xl md:text-3xl font-black text-foreground mb-0.5">12x de <span className="text-success">R$ 30,72</span></p>
-            <p className="text-sm md:text-base text-muted-foreground mb-3">ou <span className="text-success font-bold">R$ 297,00</span> à vista</p>
+          <div className="bg-background rounded-2xl p-6 md:p-8 max-w-xl mx-auto text-center">
+            <p className="text-lg md:text-xl text-muted-foreground mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
+            <p className="text-3xl md:text-5xl font-black text-foreground mb-1">12x de <span className="text-success">R$ 30,72</span></p>
+            <p className="text-base md:text-lg text-muted-foreground mb-4">ou <span className="text-success font-bold text-lg md:text-xl">R$ 297,00</span> à vista</p>
             <div className="border border-success/30 rounded-xl p-3 mb-3 bg-success/5">
               <p className="text-sm md:text-base font-bold text-success mb-1"><Shield className="w-4 h-4 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
               <p className="text-xs md:text-sm text-muted-foreground">Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.</p>
