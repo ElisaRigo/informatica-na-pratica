@@ -35,10 +35,10 @@ export const EasyToLearn = () => {
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
               Veja como é <span className="text-primary">fácil aprender!</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto">
               Assista essa aula e descubra que você é capaz de dominar a informática de forma simples e prática.
             </p>
           </div>
@@ -90,23 +90,23 @@ export const EasyToLearn = () => {
 
           {/* Benefícios abaixo do vídeo */}
           <div className="flex flex-wrap gap-4 justify-center mt-6 md:mt-8">
-            <div className="flex items-center gap-2 text-foreground">
+            <div className="flex items-center gap-2 text-white">
               <CheckCircle className="w-5 h-5 text-primary" />
               <span className="text-sm md:text-base font-medium">Linguagem simples</span>
             </div>
-            <div className="flex items-center gap-2 text-foreground">
+            <div className="flex items-center gap-2 text-white">
               <CheckCircle className="w-5 h-5 text-primary" />
               <span className="text-sm md:text-base font-medium">Passo a passo</span>
             </div>
-            <div className="flex items-center gap-2 text-foreground">
+            <div className="flex items-center gap-2 text-white">
               <CheckCircle className="w-5 h-5 text-primary" />
               <span className="text-sm md:text-base font-medium">Sem complicação</span>
             </div>
           </div>
 
           {/* Frase de autoridade */}
-          <p className="text-center text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mt-6 md:mt-8 leading-relaxed">
-            Aprenda com quem já ensinou mais de <strong className="text-foreground">15.000 alunos</strong> e tem mais de <strong className="text-foreground">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
+          <p className="text-center text-base md:text-xl text-slate-300 max-w-2xl mx-auto mt-6 md:mt-8 leading-relaxed">
+            Aprenda com quem já ensinou mais de <strong className="text-white">15.000 alunos</strong> e tem mais de <strong className="text-white">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
           </p>
 
         </div>
