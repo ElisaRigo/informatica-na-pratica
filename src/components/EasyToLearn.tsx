@@ -109,38 +109,6 @@ export const EasyToLearn = () => {
             Aprenda com quem já ensinou mais de <strong className="text-foreground">15.000 alunos</strong> e tem mais de <strong className="text-foreground">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
           </p>
 
-          {/* Seção de Preço */}
-          <div className="max-w-2xl mx-auto mt-10">
-            {/* Frase de impacto */}
-            <div className="text-center mb-6">
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-tight">
-                🚀 Invista em você por <span className="text-primary">menos de R$ 1 por dia</span> e transforme sua vida!
-              </h3>
-            </div>
-
-            {/* Card de Preço Final */}
-            <div className="bg-gradient-to-br from-success/10 to-primary/10 border-2 border-success/30 rounded-2xl p-6 md:p-8 text-center shadow-xl">
-              <div className="mb-3">
-                <span className="text-lg text-muted-foreground line-through mr-2">R$ 497,00</span>
-                <span className="text-4xl md:text-5xl font-black text-success">R$ 297,00</span>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                💳 ou parcele em até <strong>12x de R$ 30,72</strong> no cartão
-              </p>
-              <p className="text-sm md:text-base font-semibold text-accent mb-5">
-                🔥 Aproveite o valor promocional de hoje!
-              </p>
-              <button
-                onClick={() => document.getElementById('price-section')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full h-14 md:h-16 text-lg md:text-2xl font-bold rounded-full bg-success text-white shadow-lg hover:shadow-xl hover:bg-success/90 hover:scale-[1.02] transition-all duration-300"
-              >
-                Quero Aprender Informática sem Medo
-              </button>
-              <p className="text-xs text-muted-foreground mt-3">
-                🔒 Pagamento 100% seguro • Acesso imediato após a compra
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
