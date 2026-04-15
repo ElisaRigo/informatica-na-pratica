@@ -313,7 +313,7 @@ const Informatica = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* WhatsApp Screenshots */}
-            <div className="order-1 lg:order-2">
+            <div>
               <div className="flex items-center gap-2 mb-4">
                 <Smartphone className="w-5 h-5 text-primary" />
                 <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
@@ -330,66 +330,40 @@ const Informatica = () => {
               </div>
             </div>
 
-            {/* Audio Players */}
-            <div className="order-2 lg:order-1">
+            {/* Facebook comments */}
+            <div>
               <div className="flex items-center gap-2 mb-4">
-                <Volume2 className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-bold text-foreground">Áudios de Alunos</h3>
+                <MessageCircle className="w-5 h-5 text-primary" />
+                <h3 className="text-lg font-bold text-foreground">Comentários</h3>
               </div>
-              <div className="space-y-3">
-                {audioTestimonials.map((t, i) => <AudioPlayer key={i} testimonial={t} />)}
-              </div>
-            </div>
-          </div>
-
-          {/* ─── EASY TO LEARN (from Home) ─── */}
-          <div className="my-4 max-w-5xl mx-auto">
-            <div className="text-center mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-2">
-                Veja como é <span className="text-primary">fácil aprender!</span>
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Assista essa aula e descubra que você é capaz de dominar a informática de forma simples e prática.
-              </p>
-            </div>
-
-            <div className="relative max-w-4xl mx-auto">
-              {!easyVideoPlaying ? (
-                <div
-                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group shadow-xl border-2 border-primary/20"
-                  onClick={() => setEasyVideoPlaying(true)}
-                >
-                  <img src={aprendaComigoThumb} alt="Aula demonstrativa" className="w-full h-full object-cover" loading="lazy" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/70 transition-all">
-                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {facebookComments.slice(0, 4).map((comment, index) => (
+                  <div key={index} className="bg-white rounded-lg p-3 shadow-sm border border-slate-100">
+                    <div className="flex gap-2">
+                      <img src={avatarImages[index % avatarImages.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
+                      <div className="flex-1 min-w-0">
+                        <div className="bg-slate-50 rounded-2xl px-3 py-2">
+                          <p className="text-gray-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
+                          <p className="text-gray-700 text-xs leading-relaxed">{comment.text}</p>
+                        </div>
+                        <div className="flex items-center gap-3 mt-1 px-2">
+                          <span className="text-[11px] text-gray-400">{comment.time}</span>
+                          <span className="text-[11px] text-gray-500 font-medium">Curtir</span>
+                          {comment.likes > 0 && (
+                            <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
+                              <span className="flex items-center -space-x-1">
+                                <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10"><ThumbsUp className="w-2.5 h-2.5 text-white fill-white" /></span>
+                                {comment.hasHeart && <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0"><Heart className="w-2.5 h-2.5 text-white fill-white" /></span>}
+                              </span>
+                              {comment.likes}
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border-2 border-primary/20">
-                  <iframe src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Vídeo institucional" className="absolute inset-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-                </div>
-              )}
-            </div>
-
-            <p className="text-center text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mt-4 leading-relaxed">
-              Aprenda com quem já ensinou mais de <strong className="text-foreground">15.000 alunos</strong> e tem mais de <strong className="text-foreground">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4 max-w-3xl mx-auto">
-              {[
-                { icon: MessageCircle, title: "Linguagem Simples", sub: "Fácil de entender" },
-                { icon: Target, title: "Passo a Passo", sub: "Sem pular etapas" },
-                { icon: Zap, title: "Sem Complicação", sub: "Direto ao ponto" },
-                { icon: Sparkles, title: "Do Zero ao Mercado", sub: "Preparação completa" },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center text-center bg-slate-50 border border-border rounded-xl p-3">
-                  <item.icon className="w-6 h-6 text-primary mb-1" />
-                  <span className="text-sm font-bold text-foreground">{item.title}</span>
-                  <span className="text-xs text-muted-foreground">{item.sub}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -402,40 +376,8 @@ const Informatica = () => {
             </p>
           </div>
 
-          {/* Facebook comments */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
-            {facebookComments.map((comment, index) => (
-              <div key={index} className="bg-white rounded-lg p-3 shadow-sm border border-slate-100">
-                <div className="flex gap-2">
-                  <img src={avatarImages[index % avatarImages.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
-                  <div className="flex-1 min-w-0">
-                    <div className="bg-slate-50 rounded-2xl px-3 py-2">
-                      <p className="text-gray-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
-                      <p className="text-gray-700 text-xs leading-relaxed">{comment.text}</p>
-                    </div>
-                    <div className="flex items-center gap-3 mt-1 px-2">
-                      <span className="text-[11px] text-gray-400">{comment.time}</span>
-                      <span className="text-[11px] text-gray-500 font-medium">Curtir</span>
-                      <span className="text-[11px] text-gray-500 font-medium">Responder</span>
-                      {comment.likes > 0 && (
-                        <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
-                          <span className="flex items-center -space-x-1">
-                            <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10"><ThumbsUp className="w-2.5 h-2.5 text-white fill-white" /></span>
-                            {comment.hasHeart && <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0"><Heart className="w-2.5 h-2.5 text-white fill-white" /></span>}
-                          </span>
-                          {comment.likes}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* CTA */}
           <div className="text-center mt-4 space-y-3">
-            <h3 className="text-2xl md:text-3xl font-black text-foreground">Eu também quero aprender!</h3>
             <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105">
               Quero Aprender Informática sem Medo →
             </button>
@@ -443,6 +385,13 @@ const Informatica = () => {
           </div>
         </div>
       </section>
+
+      {/* ─── AUDIO 1 ─── */}
+      <div className="bg-white py-3">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <AudioPlayer testimonial={audioTestimonials[0]} />
+        </div>
+      </div>
 
       {/* ─── PROBLEM SECTION ─── */}
       <section className="py-6 md:py-8 bg-white relative overflow-hidden">
