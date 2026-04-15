@@ -1,4 +1,4 @@
-import { Play, Shield, Zap, Award } from "lucide-react";
+import { Play, Shield, Zap, Award, Lock } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
