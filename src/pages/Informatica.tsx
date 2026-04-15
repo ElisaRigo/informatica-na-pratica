@@ -224,8 +224,8 @@ const Informatica = () => {
       {/* ─── HERO ─── */}
       <section className="bg-white py-2 md:py-4">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground text-center mb-2 leading-tight">
-            Curso de <span className="text-primary">Informática para Iniciante</span>
+          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-foreground text-center mb-2 leading-[1.1] tracking-tight" style={{ WebkitTextStroke: '0.5px' }}>
+            Curso de <span className="text-primary">Informática<br className="md:hidden" /> para Iniciante</span>
           </h1>
 
           <div className="relative max-w-2xl mx-auto mb-2">
