@@ -1,4 +1,4 @@
-import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target } from "lucide-react";
+import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
