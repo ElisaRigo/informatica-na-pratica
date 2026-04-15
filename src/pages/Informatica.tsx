@@ -1,4 +1,4 @@
-import { Play, Shield, Zap, Award } from "lucide-react";
+import { Play, Shield, Zap, Award, Lock } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -85,34 +85,49 @@ const Informatica = () => {
             pra você dominar <strong>Windows, Word, Excel</strong> e muito mais.
           </p>
 
-          {/* CTA Button */}
-          <div className="flex justify-center mb-6">
+          {/* Pricing Section - Dark */}
+          <div className="bg-background rounded-2xl p-6 md:p-8 max-w-lg mx-auto text-center">
+            {/* Preço */}
+            <p className="text-base md:text-lg text-muted-foreground mb-1">
+              De{" "}
+              <span className="line-through font-bold">R$ 497,00</span>{" "}
+              por apenas
+            </p>
+            <p className="text-2xl md:text-3xl font-black text-foreground mb-0.5">
+              12x de <span className="text-success">R$ 30,72</span>
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground mb-5">
+              ou <span className="text-success font-bold">R$ 297,00</span> à vista
+            </p>
+
+            {/* CTA Button */}
             <button
               onClick={() => (window as any).openCheckout?.()}
-              className="group relative inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-black text-lg md:text-xl px-10 md:px-14 py-4 md:py-5 rounded-full shadow-2xl shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300"
+              className="w-full inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-black text-lg md:text-xl px-10 py-4 md:py-5 rounded-full shadow-2xl shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300 mb-4"
             >
-              📚 Quero começar agora
+              🎯 QUERO COMEÇAR AGORA!
             </button>
-          </div>
 
-          {/* Preço */}
-          <div className="text-center mb-6">
-            <p className="text-base md:text-lg text-foreground">
-              🔥 De{" "}
-              <span className="line-through text-muted-foreground font-bold">R$ 497,00</span>{" "}
-              por apenas{" "}
-              <span className="text-foreground font-black text-2xl md:text-3xl">R$ 297,00</span>
-            </p>
-            <p className="text-sm md:text-base text-muted-foreground mt-1">
-              💳 ou parcele em até 12x no cartão
-            </p>
-            <p className="text-sm md:text-base text-destructive font-semibold mt-2">
-              🔥 Aproveite o valor promocional de hoje e comece agora mesmo!
+            {/* Garantia */}
+            <div className="border border-success/30 rounded-xl p-4 mb-4 bg-success/5">
+              <p className="text-sm md:text-base font-bold text-success mb-1">
+                <Shield className="w-4 h-4 inline-block mr-1 -mt-0.5" />
+                Garantia Incondicional de 7 Dias
+              </p>
+              <p className="text-xs md:text-sm text-muted-foreground">
+                Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.
+              </p>
+            </div>
+
+            {/* Selo de segurança */}
+            <p className="text-xs text-muted-foreground flex items-center justify-center gap-1">
+              <Lock className="w-3 h-3" />
+              Pagamento 100% seguro · Acesso imediato após a compra
             </p>
           </div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-6">
             <div className="flex items-center gap-2 border border-border rounded-full px-4 py-2 bg-white shadow-sm">
               <Zap className="w-4 h-4 text-primary" />
               <span className="text-sm font-semibold text-foreground">Acesso Imediato</span>
