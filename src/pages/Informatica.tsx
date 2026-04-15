@@ -662,10 +662,10 @@ const Informatica = () => {
           <div className="text-center mb-6">
             <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">Conteúdo Completo</span>
             <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">
-              Tudo que você precisa para <span className="text-primary">dominar</span> o computador
+              Veja tudo o que você vai <span className="text-primary">dominar no curso</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              +90 videoaulas passo a passo, do básico ao mercado de trabalho.
+              Do zero ao profissional — aprenda as ferramentas que vão transformar sua rotina e abrir portas no mercado de trabalho.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
