@@ -271,7 +271,7 @@ const Informatica = () => {
           </div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-4">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-3">
             <div className="flex items-center gap-2 border border-border rounded-full px-4 py-2 bg-white shadow-sm"><Zap className="w-4 h-4 text-primary" /><span className="text-sm font-semibold text-foreground">Acesso Imediato</span></div>
             <div className="flex items-center gap-2 border border-border rounded-full px-4 py-2 bg-white shadow-sm"><Shield className="w-4 h-4 text-primary" /><span className="text-sm font-semibold text-foreground">Garantia 7 dias</span></div>
             <div className="flex items-center gap-2 border border-border rounded-full px-4 py-2 bg-white shadow-sm"><Award className="w-4 h-4 text-primary" /><span className="text-sm font-semibold text-foreground">Certificado incluso</span></div>
@@ -280,7 +280,7 @@ const Informatica = () => {
       </section>
 
       {/* ─── AUDIO TESTIMONIALS HEADER ─── */}
-      <section className="py-6 md:py-8 bg-white">
+      <section className="py-4 md:py-6 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-border/60 rounded-full px-5 py-2 bg-slate-50">
@@ -308,7 +308,7 @@ const Informatica = () => {
       </section>
 
       {/* ─── AUDIO TESTIMONIALS CONTENT (Light) ─── */}
-      <section className="py-8 md:py-12 bg-slate-50">
+      <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* WhatsApp Screenshots */}
@@ -342,7 +342,7 @@ const Informatica = () => {
           </div>
 
           {/* ─── EASY TO LEARN (from Home) ─── */}
-          <div className="my-8 max-w-5xl mx-auto">
+          <div className="my-4 max-w-5xl mx-auto">
             <div className="text-center mb-4">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-2">
                 Veja como é <span className="text-primary">fácil aprender!</span>
@@ -393,7 +393,7 @@ const Informatica = () => {
           </div>
 
           {/* Highlight phrase */}
-          <div className="text-center my-6 max-w-4xl mx-auto">
+          <div className="text-center my-4 max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-snug">
               Se essas pessoas conseguiram, <span className="text-success">você também consegue.</span>
               <br />
@@ -433,7 +433,7 @@ const Informatica = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-8 space-y-3">
+          <div className="text-center mt-4 space-y-3">
             <h3 className="text-2xl md:text-3xl font-black text-foreground">Eu também quero aprender!</h3>
             <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105">
               Quero Aprender Informática sem Medo →
@@ -444,10 +444,10 @@ const Informatica = () => {
       </section>
 
       {/* ─── PROBLEM SECTION ─── */}
-      <section className="py-10 md:py-16 bg-white relative overflow-hidden">
+      <section className="py-6 md:py-8 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 bg-destructive/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-4 py-2 rounded-full text-sm font-semibold mb-4">
               <AlertCircle className="w-4 h-4" />
               Você se identifica?
@@ -465,7 +465,7 @@ const Informatica = () => {
                 </div>
               ))}
             </div>
-            <div className="text-center mt-8">
+            <div className="text-center mt-4">
               <div className="inline-block bg-primary/5 border-2 border-primary/20 rounded-2xl p-6">
                 <p className="text-lg md:text-xl font-bold text-foreground mb-1">Se você marcou pelo menos 1 item acima...</p>
                 <p className="text-muted-foreground">Este curso foi feito <strong className="text-primary">especialmente para você</strong>.</p>
@@ -476,10 +476,10 @@ const Informatica = () => {
       </section>
 
       {/* ─── CERTIFICATE SECTION (Light) ─── */}
-      <section className="py-10 md:py-16 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+      <section className="py-6 md:py-8 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-6 md:mb-10">
+          <div className="text-center mb-4 md:mb-6">
             <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-300 text-amber-700 px-5 py-2.5 rounded-full text-sm font-bold mb-4">
               <Trophy className="w-5 h-5" />
               <span>Certificado Profissional Incluso</span>
@@ -493,7 +493,7 @@ const Informatica = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto mb-8">
+          <div className="max-w-4xl mx-auto mb-4">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
               <div className="relative bg-white p-3 md:p-5 rounded-2xl shadow-2xl border border-amber-200">
@@ -508,7 +508,7 @@ const Informatica = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-4">
             {[
               { icon: Briefcase, title: "Destaque no Mercado", description: "Saia na frente em entrevistas de emprego", color: "text-blue-600 bg-blue-100" },
               { icon: FileCheck, title: "120 Horas Reconhecidas", description: "Válido em todo território nacional", color: "text-emerald-600 bg-emerald-100" },
@@ -538,7 +538,7 @@ const Informatica = () => {
       </section>
 
       {/* ─── INSTRUCTOR SECTION ─── */}
-      <section id="professora" className="py-8 md:py-12 bg-white relative overflow-hidden">
+      <section id="professora" className="py-6 md:py-8 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
@@ -602,7 +602,7 @@ const Informatica = () => {
       </section>
 
       {/* ─── STRATEGIC CTA ─── */}
-      <section className="py-6 md:py-8 bg-slate-50">
+      <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-xl md:text-2xl lg:text-3xl font-black mb-4 text-foreground">Quero aprender com a Elisa<span className="text-primary">!</span></h3>
@@ -617,7 +617,7 @@ const Informatica = () => {
 
 
       {/* ─── SUPPORT BANNER (Light) ─── */}
-      <section className="py-8 md:py-10 bg-gradient-to-b from-primary/5 to-white">
+      <section className="py-6 md:py-8 bg-gradient-to-b from-primary/5 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center justify-center mb-4">
@@ -657,9 +657,9 @@ const Informatica = () => {
 
 
       {/* ─── CONTENT SECTION ─── */}
-      <section id="conteudo" className="py-8 md:py-12 bg-white">
+      <section id="conteudo" className="py-6 md:py-8 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-6">
+          <div className="text-center mb-4">
             <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">Conteúdo Completo</span>
             <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">
               Veja tudo o que você vai <span className="text-primary">dominar no curso</span>
@@ -684,7 +684,7 @@ const Informatica = () => {
               </div>
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-4">
             <div className="inline-flex items-center gap-4 bg-white border-2 border-border rounded-2xl p-5 md:p-6 shadow-lg">
               <div className="text-left">
                 <p className="text-base md:text-lg font-bold text-foreground mb-0.5">+90 aulas passo a passo</p>
@@ -701,9 +701,9 @@ const Informatica = () => {
 
 
       {/* ─── FAQ ─── */}
-      <section className="py-10 md:py-16 bg-white">
+      <section className="py-6 md:py-8 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
               <HelpCircle className="w-4 h-4" />Dúvidas Frequentes
             </span>
@@ -722,7 +722,7 @@ const Informatica = () => {
               ))}
             </Accordion>
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-4">
             <p className="text-muted-foreground mb-3">Não encontrou sua dúvida? Fale diretamente com a professora:</p>
             <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
               <MessageCircle className="w-5 h-5" />
@@ -735,7 +735,7 @@ const Informatica = () => {
 
 
       {/* ─── FOOTER ─── */}
-      <footer className="bg-slate-100 border-t border-border py-8">
+      <footer className="bg-slate-100 border-t border-border py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
             <div className="flex gap-6 mb-6">
