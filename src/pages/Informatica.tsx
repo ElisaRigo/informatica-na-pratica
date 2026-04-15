@@ -292,7 +292,7 @@ const Informatica = () => {
           </p>
 
           {/* Selos acima do CTA */}
-          <div className="flex flex-wrap justify-center gap-2 mb-2">
+          <div className="flex flex-wrap justify-center gap-2 mb-3 mt-3">
             <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Vitalício</span></div>
             <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Certificado incluso</span></div>
           </div>
