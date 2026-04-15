@@ -129,6 +129,45 @@ const bonuses = [
   { text: "BÔNUS: Currículo Profissional", value: "R$ 97" },
 ];
 
+// ─── Facebook Comment Component ────────────────────────────────────
+const FacebookComment = ({ comment, avatarIndex }: { comment: typeof facebookComments[0]; avatarIndex: number }) => (
+  <div className="bg-white rounded-lg p-3 shadow-sm border border-slate-100 max-w-md mx-auto">
+    <div className="flex gap-2">
+      <img src={avatarImages[avatarIndex % avatarImages.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
+      <div className="flex-1 min-w-0">
+        <div className="bg-slate-50 rounded-2xl px-3 py-2">
+          <p className="text-gray-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
+          <p className="text-gray-700 text-xs leading-relaxed">{comment.text}</p>
+        </div>
+        <div className="flex items-center gap-3 mt-1 px-2">
+          <span className="text-[11px] text-gray-400">{comment.time}</span>
+          <span className="text-[11px] text-gray-500 font-medium">Curtir</span>
+          {comment.likes > 0 && (
+            <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
+              <span className="flex items-center -space-x-1">
+                <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10"><ThumbsUp className="w-2.5 h-2.5 text-white fill-white" /></span>
+                {comment.hasHeart && <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0"><Heart className="w-2.5 h-2.5 text-white fill-white" /></span>}
+              </span>
+              {comment.likes}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const FacebookCommentPair = ({ indices }: { indices: [number, number] }) => (
+  <div className="bg-slate-50 py-3">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
+        <FacebookComment comment={facebookComments[indices[0]]} avatarIndex={indices[0]} />
+        <FacebookComment comment={facebookComments[indices[1]]} avatarIndex={indices[1]} />
+      </div>
+    </div>
+  </div>
+);
+
 // ─── Audio Player Component ────────────────────────────────────────
 const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
   const [isPlaying, setIsPlaying] = useState(false);
