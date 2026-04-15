@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
+import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/avatar-1.jpg";
@@ -180,6 +181,7 @@ const Informatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isEnvPlaying, setIsEnvPlaying] = useState(false);
   const [shouldLoadEnv, setShouldLoadEnv] = useState(false);
+  const [easyVideoPlaying, setEasyVideoPlaying] = useState(false);
   const envRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -339,8 +341,59 @@ const Informatica = () => {
             </div>
           </div>
 
+          {/* ─── EASY TO LEARN (from Home) ─── */}
+          <div className="my-8 max-w-5xl mx-auto">
+            <div className="text-center mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-2">
+                Veja como é <span className="text-primary">fácil aprender!</span>
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+                Assista essa aula e descubra que você é capaz de dominar a informática de forma simples e prática.
+              </p>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              {!easyVideoPlaying ? (
+                <div
+                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group shadow-xl border-2 border-primary/20"
+                  onClick={() => setEasyVideoPlaying(true)}
+                >
+                  <img src={aprendaComigoThumb} alt="Aula demonstrativa" className="w-full h-full object-cover" loading="lazy" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/70 transition-all">
+                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border-2 border-primary/20">
+                  <iframe src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Vídeo institucional" className="absolute inset-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                </div>
+              )}
+            </div>
+
+            <p className="text-center text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mt-4 leading-relaxed">
+              Aprenda com quem já ensinou mais de <strong className="text-foreground">15.000 alunos</strong> e tem mais de <strong className="text-foreground">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4 max-w-3xl mx-auto">
+              {[
+                { icon: MessageCircle, title: "Linguagem Simples", sub: "Fácil de entender" },
+                { icon: Target, title: "Passo a Passo", sub: "Sem pular etapas" },
+                { icon: Zap, title: "Sem Complicação", sub: "Direto ao ponto" },
+                { icon: Sparkles, title: "Do Zero ao Mercado", sub: "Preparação completa" },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center text-center bg-slate-50 border border-border rounded-xl p-3">
+                  <item.icon className="w-6 h-6 text-primary mb-1" />
+                  <span className="text-sm font-bold text-foreground">{item.title}</span>
+                  <span className="text-xs text-muted-foreground">{item.sub}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Highlight phrase */}
-          <div className="text-center my-8 max-w-4xl mx-auto">
+          <div className="text-center my-6 max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-snug">
               Se essas pessoas conseguiram, <span className="text-success">você também consegue.</span>
               <br />
