@@ -224,7 +224,7 @@ const Informatica = () => {
       {/* ─── HERO ─── */}
       <section className="bg-white py-2 md:py-4">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground text-center mb-2 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground text-center mb-2 leading-tight">
             Curso de <span className="text-primary">Informática para Iniciante</span>
           </h1>
 
@@ -234,8 +234,8 @@ const Informatica = () => {
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/70 shadow-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                    <div className="w-14 h-14 md:w-18 md:h-18 rounded-full bg-white/30 shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/40 transition-all">
+                      <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-0.5" />
                     </div>
                   </div>
                 </div>
