@@ -685,10 +685,10 @@ const Informatica = () => {
             ))}
           </div>
           <div className="text-center mt-8">
-            <div className="inline-flex items-center gap-4 bg-slate-900 text-white rounded-2xl p-5 md:p-6">
+            <div className="inline-flex items-center gap-4 bg-white border-2 border-border rounded-2xl p-5 md:p-6 shadow-lg">
               <div className="text-left">
-                <p className="text-base md:text-lg font-bold mb-0.5">+90 aulas passo a passo</p>
-                <p className="text-slate-400 text-sm">Certificado de conclusão incluso</p>
+                <p className="text-base md:text-lg font-bold text-foreground mb-0.5">+90 aulas passo a passo</p>
+                <p className="text-muted-foreground text-sm">Certificado de conclusão incluso</p>
               </div>
               <button onClick={() => (window as any).openCheckout?.()} className="bg-success text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform whitespace-nowrap">
                 Garantir Acesso
@@ -735,7 +735,7 @@ const Informatica = () => {
 
 
       {/* ─── FOOTER ─── */}
-      <footer className="bg-slate-900 text-white py-8">
+      <footer className="bg-slate-100 border-t border-border py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
             <div className="flex gap-6 mb-6">
