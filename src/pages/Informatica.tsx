@@ -211,23 +211,23 @@ const Informatica = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* ─── HEADER ─── */}
-      <header className="bg-white py-4 border-b border-border">
+      <header className="bg-white py-2 border-b border-border">
         <div className="container mx-auto px-4 flex flex-col items-center">
-          <img src={logo} alt="Informática na Prática" className="h-14 md:h-16" />
-          <p className="text-foreground text-sm md:text-base mt-2 text-center font-medium">
+          <img src={logo} alt="Informática na Prática" className="h-12 md:h-14" />
+          <p className="text-foreground text-sm md:text-base mt-1 text-center font-medium">
             Curso de <span className="text-primary font-bold">Informática Online</span> completo do zero ao <span className="font-bold">Profissional</span>
           </p>
         </div>
       </header>
 
       {/* ─── HERO ─── */}
-      <section className="bg-white py-4 md:py-6">
+      <section className="bg-white py-2 md:py-4">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground text-center mb-4 leading-tight">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground text-center mb-2 leading-tight">
             Curso de <span className="text-primary">Informática para Iniciante</span>
           </h1>
 
-          <div className="relative max-w-2xl mx-auto mb-4">
+          <div className="relative max-w-2xl mx-auto mb-2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border">
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
@@ -246,35 +246,35 @@ const Informatica = () => {
             </div>
           </div>
 
-          <p className="text-lg md:text-2xl text-foreground text-center mb-2 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-foreground text-center mb-1 max-w-2xl mx-auto leading-snug">
             Aprenda começando do <span className="text-primary font-bold">Zero</span> – Aulas <strong>simples e Fáceis</strong>{" "}
             pra você dominar <strong>Windows, Word, Excel</strong> e muito mais.
           </p>
 
           {/* CTA */}
-          <div className="flex justify-center mb-2">
-            <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-lg inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-black text-lg md:text-xl px-10 py-4 md:py-5 rounded-full shadow-2xl shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300">
+          <div className="flex justify-center mb-1">
+            <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-lg inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-black text-lg md:text-xl px-10 py-3 md:py-4 rounded-full shadow-2xl shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300">
               🎯 QUERO COMEÇAR AGORA!
             </button>
           </div>
 
           {/* Pricing */}
-          <div className="bg-background rounded-2xl p-4 md:p-6 max-w-xl mx-auto text-center">
-            <p className="text-lg md:text-xl text-muted-foreground mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
-            <p className="text-3xl md:text-5xl font-black text-foreground mb-1">12x de <span className="text-success">R$ 30,72</span></p>
-            <p className="text-base md:text-lg text-muted-foreground mb-4">ou <span className="text-success font-bold text-lg md:text-xl">R$ 297,00</span> à vista</p>
-            <div className="border border-success/30 rounded-xl p-3 mb-3 bg-success/5">
-              <p className="text-sm md:text-base font-bold text-success mb-1"><Shield className="w-4 h-4 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
-              <p className="text-xs md:text-sm text-muted-foreground">Se você não gostar do curso por qualquer motivo, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.</p>
+          <div className="bg-background rounded-2xl p-3 md:p-4 max-w-xl mx-auto text-center">
+            <p className="text-base md:text-lg text-muted-foreground mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
+            <p className="text-2xl md:text-4xl font-black text-foreground mb-0.5">12x de <span className="text-success">R$ 30,72</span></p>
+            <p className="text-sm md:text-base text-muted-foreground mb-2">ou <span className="text-success font-bold text-base md:text-lg">R$ 297,00</span> à vista</p>
+            <div className="border border-success/30 rounded-xl p-2 mb-2 bg-success/5">
+              <p className="text-xs md:text-sm font-bold text-success mb-0.5"><Shield className="w-3.5 h-3.5 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
+              <p className="text-[11px] md:text-xs text-muted-foreground">Se não gostar, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas.</p>
             </div>
-            <p className="text-xs text-muted-foreground flex items-center justify-center gap-1"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato após a compra</p>
+            <p className="text-[11px] text-muted-foreground flex items-center justify-center gap-1"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
           </div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-3">
-            <div className="flex items-center gap-2 border border-border rounded-full px-4 py-2 bg-white shadow-sm"><Zap className="w-4 h-4 text-primary" /><span className="text-sm font-semibold text-foreground">Acesso Imediato</span></div>
-            <div className="flex items-center gap-2 border border-border rounded-full px-4 py-2 bg-white shadow-sm"><Shield className="w-4 h-4 text-primary" /><span className="text-sm font-semibold text-foreground">Garantia 7 dias</span></div>
-            <div className="flex items-center gap-2 border border-border rounded-full px-4 py-2 bg-white shadow-sm"><Award className="w-4 h-4 text-primary" /><span className="text-sm font-semibold text-foreground">Certificado incluso</span></div>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
+            <div className="flex items-center gap-1.5 border border-border rounded-full px-3 py-1.5 bg-white shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-semibold text-foreground">Acesso Imediato</span></div>
+            <div className="flex items-center gap-1.5 border border-border rounded-full px-3 py-1.5 bg-white shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-semibold text-foreground">Garantia 7 dias</span></div>
+            <div className="flex items-center gap-1.5 border border-border rounded-full px-3 py-1.5 bg-white shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-semibold text-foreground">Certificado incluso</span></div>
           </div>
         </div>
       </section>
