@@ -180,6 +180,7 @@ const Informatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isEnvPlaying, setIsEnvPlaying] = useState(false);
   const [shouldLoadEnv, setShouldLoadEnv] = useState(false);
+  const [easyVideoPlaying, setEasyVideoPlaying] = useState(false);
   const envRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
