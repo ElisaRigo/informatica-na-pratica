@@ -429,6 +429,9 @@ const Informatica = () => {
         </div>
       </section>
 
+      {/* ─── COMMENTS 3-4 ─── */}
+      <FacebookCommentPair indices={[2, 3]} />
+
       {/* ─── AUDIO 2 ─── */}
       <div className="bg-slate-50 py-3">
         <div className="container mx-auto px-4 max-w-2xl">
