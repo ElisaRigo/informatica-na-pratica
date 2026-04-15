@@ -299,7 +299,7 @@ const Informatica = () => {
 
           {/* CTA */}
           <div className="flex justify-center mb-1">
-            <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-lg inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-black text-lg md:text-xl px-10 py-3 md:py-4 rounded-xl hover:scale-[1.02] transition-all duration-300">
+            <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-lg inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-lg md:text-xl px-10 py-4 md:py-5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer">
               🎯 QUERO COMEÇAR AGORA!
             </button>
           </div>
