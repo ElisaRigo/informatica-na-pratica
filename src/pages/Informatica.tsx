@@ -37,6 +37,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { EasyToLearn } from "@/components/EasyToLearn";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
@@ -323,6 +324,9 @@ const Informatica = () => {
           </div>
         </div>
       </section>
+
+      {/* ─── EASY TO LEARN ─── */}
+      <EasyToLearn />
 
       {/* ─── AUDIO TESTIMONIALS HEADER ─── */}
       <section className="py-4 md:py-6 bg-white">
