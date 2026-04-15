@@ -2,12 +2,6 @@ import { Play, Shield, Zap, Award } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
-import wordIcon from "@/assets/word-icon.png";
-import excelIcon from "@/assets/excel-icon.png";
-import powerpointIcon from "@/assets/powerpoint-icon.png";
-import windowsIcon from "@/assets/windows-icon.png";
-import internetIcon from "@/assets/internet-icon.png";
-import typingIcon from "@/assets/typing-icon.png";
 
 const Informatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -50,15 +44,6 @@ const Informatica = () => {
 
           {/* Video com ícones flutuantes */}
           <div className="relative max-w-2xl mx-auto mb-8">
-            {/* Ícones flutuantes - lado esquerdo */}
-            <img src={wordIcon} alt="Word" className="absolute -left-4 md:-left-12 top-[10%] w-10 h-10 md:w-14 md:h-14 drop-shadow-lg z-10 hidden sm:block" />
-            <img src={excelIcon} alt="Excel" className="absolute -left-4 md:-left-12 top-[45%] w-10 h-10 md:w-14 md:h-14 drop-shadow-lg z-10 hidden sm:block" />
-            <img src={powerpointIcon} alt="PowerPoint" className="absolute -left-4 md:-left-12 top-[75%] w-10 h-10 md:w-14 md:h-14 drop-shadow-lg z-10 hidden sm:block" />
-
-            {/* Ícones flutuantes - lado direito */}
-            <img src={windowsIcon} alt="Windows" className="absolute -right-4 md:-right-12 top-[10%] w-10 h-10 md:w-14 md:h-14 drop-shadow-lg z-10 hidden sm:block" />
-            <img src={internetIcon} alt="Internet" className="absolute -right-4 md:-right-12 top-[45%] w-10 h-10 md:w-14 md:h-14 drop-shadow-lg z-10 hidden sm:block" />
-            <img src={typingIcon} alt="Digitação" className="absolute -right-4 md:-right-12 top-[75%] w-10 h-10 md:w-14 md:h-14 drop-shadow-lg z-10 hidden sm:block" />
 
             {/* Video */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border">
