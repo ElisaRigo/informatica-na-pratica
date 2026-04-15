@@ -353,7 +353,7 @@ const Informatica = () => {
       </section>
 
       {/* ─── AUDIO TESTIMONIALS CONTENT (Light) ─── */}
-      <section className="py-4 md:py-6 bg-slate-50">
+      <section className="py-4 md:py-6 bg-slate-100">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             {/* WhatsApp Screenshots */}
@@ -393,7 +393,7 @@ const Informatica = () => {
       </section>
 
       {/* ─── AUDIO 1 ─── */}
-      <div className="bg-white py-3">
+      <div className="bg-slate-50 py-3">
         <div className="container mx-auto px-4 max-w-2xl">
           <AudioPlayer testimonial={audioTestimonials[0]} />
         </div>
@@ -403,7 +403,7 @@ const Informatica = () => {
       <FacebookCommentPair indices={[0, 1]} />
 
       {/* ─── CONTENT SECTION ─── */}
-      <section id="conteudo" className="py-6 md:py-8 bg-white">
+      <section id="conteudo" className="py-6 md:py-8 bg-blue-50/60">
         <div className="container mx-auto px-4">
           <div className="text-center mb-4">
             <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">Conteúdo Completo</span>
@@ -445,14 +445,14 @@ const Informatica = () => {
       </section>
 
       {/* ─── AUDIO 5 ─── */}
-      <div className="bg-white py-3">
+      <div className="bg-slate-100 py-3">
         <div className="container mx-auto px-4 max-w-2xl">
           <AudioPlayer testimonial={audioTestimonials[4]} />
         </div>
       </div>
 
       {/* ─── PROBLEM SECTION ─── */}
-      <section className="py-6 md:py-8 bg-white relative overflow-hidden">
+      <section className="py-6 md:py-8 bg-slate-50 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 bg-destructive/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-4">
@@ -487,14 +487,14 @@ const Informatica = () => {
       <FacebookCommentPair indices={[2, 3]} />
 
       {/* ─── AUDIO 2 ─── */}
-      <div className="bg-slate-50 py-3">
+      <div className="bg-blue-50/50 py-3">
         <div className="container mx-auto px-4 max-w-2xl">
           <AudioPlayer testimonial={audioTestimonials[1]} />
         </div>
       </div>
 
       {/* ─── CERTIFICATE SECTION (Light) ─── */}
-      <section className="py-6 md:py-8 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+      <section className="py-6 md:py-8 bg-gradient-to-b from-slate-100 to-white relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-4 md:mb-6">
@@ -556,14 +556,14 @@ const Informatica = () => {
       </section>
 
       {/* ─── AUDIO 3 ─── */}
-      <div className="bg-white py-3">
+      <div className="bg-slate-100 py-3">
         <div className="container mx-auto px-4 max-w-2xl">
           <AudioPlayer testimonial={audioTestimonials[2]} />
         </div>
       </div>
 
       {/* ─── INSTRUCTOR SECTION ─── */}
-      <section id="professora" className="py-6 md:py-8 bg-white relative overflow-hidden">
+      <section id="professora" className="py-6 md:py-8 bg-blue-50/50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
@@ -630,7 +630,7 @@ const Informatica = () => {
       <FacebookCommentPair indices={[4, 5]} />
 
       {/* ─── STRATEGIC CTA ─── */}
-      <section className="py-4 md:py-6 bg-slate-50">
+      <section className="py-4 md:py-6 bg-slate-100">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-xl md:text-2xl lg:text-3xl font-black mb-4 text-foreground">Quero aprender com a Elisa<span className="text-primary">!</span></h3>
@@ -645,14 +645,14 @@ const Informatica = () => {
 
 
       {/* ─── AUDIO 4 ─── */}
-      <div className="bg-white py-3">
+      <div className="bg-slate-50 py-3">
         <div className="container mx-auto px-4 max-w-2xl">
           <AudioPlayer testimonial={audioTestimonials[3]} />
         </div>
       </div>
 
       {/* ─── SUPPORT BANNER (Light) ─── */}
-      <section className="py-6 md:py-8 bg-gradient-to-b from-primary/5 to-white">
+      <section className="py-6 md:py-8 bg-gradient-to-b from-primary/10 to-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center justify-center mb-4">
@@ -699,7 +699,7 @@ const Informatica = () => {
       <FacebookCommentPair indices={[6, 7]} />
 
       {/* ─── FAQ ─── */}
-      <section className="py-6 md:py-8 bg-white">
+      <section className="py-6 md:py-8 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-4">
             <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
