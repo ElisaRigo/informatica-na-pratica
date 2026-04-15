@@ -350,26 +350,22 @@ const Informatica = () => {
       {/* ─── AUDIO TESTIMONIALS CONTENT (Light) ─── */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             {/* WhatsApp Screenshots */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Smartphone className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {whatsappScreenshots.map((s, i) => (
-                  <div key={i} className="bg-white rounded-xl p-1.5 shadow-lg border border-slate-200">
-                    <div className="bg-slate-100 rounded-t-lg pt-1.5 pb-0.5 px-3">
-                      <div className="flex items-center justify-center"><div className="w-10 h-0.5 bg-slate-300 rounded-full" /></div>
-                    </div>
-                    <img src={s.image} alt={s.description} className="w-full h-auto rounded-b-md" loading="lazy" />
-                  </div>
-                ))}
-              </div>
+            <div className="flex items-center gap-2 mb-4">
+              <Smartphone className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
             </div>
-
-            {/* WhatsApp Screenshots take full width */}
+            <div className="grid grid-cols-2 gap-3">
+              {whatsappScreenshots.map((s, i) => (
+                <div key={i} className="bg-white rounded-xl p-1.5 shadow-lg border border-slate-200">
+                  <div className="bg-slate-100 rounded-t-lg pt-1.5 pb-0.5 px-3">
+                    <div className="flex items-center justify-center"><div className="w-10 h-0.5 bg-slate-300 rounded-full" /></div>
+                  </div>
+                  <img src={s.image} alt={s.description} className="w-full h-auto rounded-b-md" loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Highlight phrase */}
