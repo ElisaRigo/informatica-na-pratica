@@ -394,6 +394,9 @@ const Informatica = () => {
         </div>
       </div>
 
+      {/* ─── COMMENTS 1-2 ─── */}
+      <FacebookCommentPair indices={[0, 1]} />
+
       {/* ─── PROBLEM SECTION ─── */}
       <section className="py-6 md:py-8 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 bg-destructive/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
