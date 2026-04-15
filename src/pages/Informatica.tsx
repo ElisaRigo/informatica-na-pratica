@@ -96,8 +96,8 @@ const Informatica = () => {
 
           {/* Texto abaixo do vídeo */}
           <p className="text-lg md:text-2xl text-foreground text-center mb-8 max-w-2xl mx-auto leading-relaxed">
-            Do <span className="text-primary font-bold">zero ao profissional</span> – aulas <strong>simples e práticas</strong>{" "}
-            pra você dominar <strong>Word, Excel</strong> e muito mais.
+            Aprenda começando do <span className="text-primary font-bold">Zero</span> – Aulas <strong>simples e Fáceis</strong>{" "}
+            pra você dominar <strong>Windows, Word, Excel</strong> e muito mais.
           </p>
 
           {/* CTA Button */}
