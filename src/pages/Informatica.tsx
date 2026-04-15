@@ -739,23 +739,23 @@ const Informatica = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
             <div className="flex gap-6 mb-6">
-              <a href="https://www.instagram.com/informaticanapratica.oficial/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/informaticanapratica.oficial/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" /><span className="hidden sm:inline">Instagram</span>
               </a>
-              <a href="https://www.facebook.com/informaticanapratica.oficial" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/informaticanapratica.oficial" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" /><span className="hidden sm:inline">Facebook</span>
               </a>
-              <a href="https://api.whatsapp.com/send?phone=5545988287082" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors" aria-label="WhatsApp">
+              <a href="https://api.whatsapp.com/send?phone=5545988287082" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" aria-label="WhatsApp">
                 <MessageCircle className="w-5 h-5" /><span className="hidden sm:inline">WhatsApp</span>
               </a>
             </div>
             <div className="flex gap-6 mb-4 text-sm">
-              <Link to="/termos-de-uso" className="text-slate-400 hover:text-white transition-colors">Termos de Uso</Link>
-              <span className="text-slate-600">•</span>
-              <Link to="/politica-de-privacidade" className="text-slate-400 hover:text-white transition-colors">Política de Privacidade</Link>
+              <Link to="/termos-de-uso" className="text-muted-foreground hover:text-foreground transition-colors">Termos de Uso</Link>
+              <span className="text-border">•</span>
+              <Link to="/politica-de-privacidade" className="text-muted-foreground hover:text-foreground transition-colors">Política de Privacidade</Link>
             </div>
-            <div className="text-slate-500 text-sm space-y-1">
-              <p className="font-semibold text-slate-400">Elisangela Neri Rigo</p>
+            <div className="text-muted-foreground text-sm space-y-1">
+              <p className="font-semibold text-foreground">Elisangela Neri Rigo</p>
               <p><strong>CNPJ:</strong> 32.373.460/0001-51</p>
               <p className="mt-3">© {new Date().getFullYear()} Informática na Prática. Todos os direitos reservados.</p>
             </div>
