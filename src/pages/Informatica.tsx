@@ -244,20 +244,20 @@ const Informatica = () => {
             </div>
           </div>
 
-          <p className="text-lg md:text-2xl text-foreground text-center mb-3 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-2xl text-foreground text-center mb-2 max-w-2xl mx-auto leading-relaxed">
             Aprenda começando do <span className="text-primary font-bold">Zero</span> – Aulas <strong>simples e Fáceis</strong>{" "}
             pra você dominar <strong>Windows, Word, Excel</strong> e muito mais.
           </p>
 
           {/* CTA */}
-          <div className="flex justify-center mb-3">
+          <div className="flex justify-center mb-2">
             <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-lg inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-black text-lg md:text-xl px-10 py-4 md:py-5 rounded-full shadow-2xl shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300">
               🎯 QUERO COMEÇAR AGORA!
             </button>
           </div>
 
           {/* Pricing */}
-          <div className="bg-background rounded-2xl p-6 md:p-8 max-w-xl mx-auto text-center">
+          <div className="bg-background rounded-2xl p-4 md:p-6 max-w-xl mx-auto text-center">
             <p className="text-lg md:text-xl text-muted-foreground mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
             <p className="text-3xl md:text-5xl font-black text-foreground mb-1">12x de <span className="text-success">R$ 30,72</span></p>
             <p className="text-base md:text-lg text-muted-foreground mb-4">ou <span className="text-success font-bold text-lg md:text-xl">R$ 297,00</span> à vista</p>
