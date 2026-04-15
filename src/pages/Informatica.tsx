@@ -397,6 +397,55 @@ const Informatica = () => {
       {/* ─── COMMENTS 1-2 ─── */}
       <FacebookCommentPair indices={[0, 1]} />
 
+      {/* ─── CONTENT SECTION ─── */}
+      <section id="conteudo" className="py-6 md:py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-4">
+            <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">Conteúdo Completo</span>
+            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">
+              Veja tudo o que você vai <span className="text-primary">dominar no curso</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Do zero ao profissional — aprenda as ferramentas que vão transformar sua rotina e abrir portas no mercado de trabalho.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {modules.map((m, i) => (
+              <div key={i} className="group relative bg-slate-50 rounded-2xl p-6 border-2 border-transparent hover:border-primary/30 shadow-md hover:shadow-xl transition-all overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-10">
+                  <div className="flex items-start gap-4 mb-3">
+                    <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <img src={m.icon} alt={m.title} className="w-9 h-9" loading="lazy" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mt-2">{m.title}</h3>
+                  </div>
+                  <p className="text-muted-foreground text-sm">{m.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-4">
+            <div className="inline-flex items-center gap-4 bg-white border-2 border-border rounded-2xl p-5 md:p-6 shadow-lg">
+              <div className="text-left">
+                <p className="text-base md:text-lg font-bold text-foreground mb-0.5">+90 aulas passo a passo</p>
+                <p className="text-muted-foreground text-sm">Certificado de conclusão incluso</p>
+              </div>
+              <button onClick={() => (window as any).openCheckout?.()} className="bg-success text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform whitespace-nowrap">
+                Garantir Acesso
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── AUDIO 5 ─── */}
+      <div className="bg-white py-3">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <AudioPlayer testimonial={audioTestimonials[4]} />
+        </div>
+      </div>
+
       {/* ─── PROBLEM SECTION ─── */}
       <section className="py-6 md:py-8 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 bg-destructive/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -637,54 +686,7 @@ const Informatica = () => {
       </section>
 
 
-      {/* ─── AUDIO 5 ─── */}
-      <div className="bg-white py-3">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <AudioPlayer testimonial={audioTestimonials[4]} />
-        </div>
-      </div>
 
-      {/* ─── CONTENT SECTION ─── */}
-      <section id="conteudo" className="py-6 md:py-8 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-4">
-            <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">Conteúdo Completo</span>
-            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">
-              Veja tudo o que você vai <span className="text-primary">dominar no curso</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Do zero ao profissional — aprenda as ferramentas que vão transformar sua rotina e abrir portas no mercado de trabalho.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-            {modules.map((m, i) => (
-              <div key={i} className="group relative bg-slate-50 rounded-2xl p-6 border-2 border-transparent hover:border-primary/30 shadow-md hover:shadow-xl transition-all overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10">
-                  <div className="flex items-start gap-4 mb-3">
-                    <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <img src={m.icon} alt={m.title} className="w-9 h-9" loading="lazy" />
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mt-2">{m.title}</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm">{m.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-4">
-            <div className="inline-flex items-center gap-4 bg-white border-2 border-border rounded-2xl p-5 md:p-6 shadow-lg">
-              <div className="text-left">
-                <p className="text-base md:text-lg font-bold text-foreground mb-0.5">+90 aulas passo a passo</p>
-                <p className="text-muted-foreground text-sm">Certificado de conclusão incluso</p>
-              </div>
-              <button onClick={() => (window as any).openCheckout?.()} className="bg-success text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform whitespace-nowrap">
-                Garantir Acesso
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
 
