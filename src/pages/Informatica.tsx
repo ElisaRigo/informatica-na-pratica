@@ -215,7 +215,8 @@ const Informatica = () => {
         <div className="container mx-auto px-4 flex flex-col items-center">
           <img src={logo} alt="Informática na Prática" className="h-12 md:h-14" />
           <p className="text-foreground text-sm md:text-base mt-1 text-center font-medium">
-            Curso de <span className="text-primary font-bold">Informática Online</span> completo do zero ao <span className="font-bold">Profissional</span>
+            Curso de <span className="text-primary font-bold">Informática Online</span>
+            <br />Simples e para Todos.
           </p>
         </div>
       </header>
