@@ -82,7 +82,7 @@ export const Hero = () => {
               </div>
             </div>
 
-            {/* Benefícios */}
+            {/* Benefícios - linha superior */}
             <div className="flex flex-wrap gap-2 justify-center items-center mb-3">
               <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
                 <Zap className="w-4 h-4 text-primary" />
@@ -93,12 +93,20 @@ export const Hero = () => {
                 <span className="font-semibold text-xs md:text-sm text-foreground">Garantia 7 dias</span>
               </div>
               <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <Award className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-foreground">Certificado incluso</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
                 <Headphones className="w-4 h-4 text-primary" />
                 <span className="font-semibold text-xs md:text-sm text-foreground">Suporte ao aluno</span>
+              </div>
+            </div>
+
+            {/* Selos acima do CTA */}
+            <div className="flex flex-wrap gap-2 justify-center items-center mb-3">
+              <div className="flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-3 py-2 rounded-lg">
+                <Infinity className="w-4 h-4 text-primary" />
+                <span className="font-bold text-xs md:text-sm text-primary">Acesso Vitalício</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-3 py-2 rounded-lg">
+                <Award className="w-4 h-4 text-primary" />
+                <span className="font-bold text-xs md:text-sm text-primary">Certificado incluso</span>
               </div>
             </div>
 
