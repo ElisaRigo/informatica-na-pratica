@@ -1,4 +1,4 @@
-import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target } from "lucide-react";
+import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
@@ -290,6 +290,12 @@ const Informatica = () => {
             Aprenda começando do <span className="text-primary font-bold">Zero</span> – Aulas <strong>simples e Fáceis</strong>{" "}
             pra você dominar <strong>Windows, Word, Excel</strong> e muito mais.
           </p>
+
+          {/* Selos acima do CTA */}
+          <div className="flex flex-wrap justify-center gap-2 mb-2">
+            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Vitalício</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Certificado incluso</span></div>
+          </div>
 
           {/* CTA */}
           <div className="flex justify-center mb-1">
