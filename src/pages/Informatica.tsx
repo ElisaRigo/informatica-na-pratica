@@ -45,8 +45,7 @@ const Informatica = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Headline */}
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground text-center mb-8 leading-tight">
-            Vou te Ajudar a <span className="text-primary">dominar Informática</span> e conquistar seu{" "}
-            <span className="text-primary">certificado profissional</span> em poucas semanas.
+            Curso de <span className="text-primary">Informática para Iniciante</span>
           </h1>
 
           {/* Video com ícones flutuantes */}
