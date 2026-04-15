@@ -35,7 +35,7 @@ const Informatica = () => {
       </header>
 
       {/* Hero */}
-      <section className="bg-white py-8 md:py-12">
+      <section className="bg-white py-4 md:py-6">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Headline */}
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground text-center mb-8 leading-tight">
