@@ -30,7 +30,7 @@ export const EasyToLearn = () => {
   };
 
   return (
-    <section className="py-10 md:py-14 bg-panel border-t border-border/50">
+    <section className="py-10 md:py-14 bg-slate-900 border-t border-slate-800">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
