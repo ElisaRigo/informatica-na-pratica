@@ -229,7 +229,7 @@ const Informatica = () => {
           </h1>
 
           <div className="relative max-w-2xl mx-auto mb-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-border">
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
