@@ -318,9 +318,8 @@ const Informatica = () => {
 
           {/* Trust badges */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
-            <div className="flex items-center gap-1.5 border border-border rounded-full px-3 py-1.5 bg-white shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-semibold text-foreground">Acesso Imediato</span></div>
-            <div className="flex items-center gap-1.5 border border-border rounded-full px-3 py-1.5 bg-white shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-semibold text-foreground">Garantia 7 dias</span></div>
-            <div className="flex items-center gap-1.5 border border-border rounded-full px-3 py-1.5 bg-white shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-semibold text-foreground">Certificado incluso</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Imediato</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Garantia 7 dias</span></div>
           </div>
         </div>
       </section>
