@@ -688,6 +688,9 @@ const Informatica = () => {
 
 
 
+      {/* ─── COMMENTS 7-8 ─── */}
+      <FacebookCommentPair indices={[6, 7]} />
+
       {/* ─── FAQ ─── */}
       <section className="py-6 md:py-8 bg-white">
         <div className="container mx-auto px-4">
