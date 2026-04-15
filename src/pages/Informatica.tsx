@@ -572,6 +572,9 @@ const Informatica = () => {
         </div>
       </section>
 
+      {/* ─── COMMENTS 5-6 ─── */}
+      <FacebookCommentPair indices={[4, 5]} />
+
       {/* ─── STRATEGIC CTA ─── */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
