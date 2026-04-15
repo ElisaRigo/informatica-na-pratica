@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
+import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/avatar-1.jpg";
