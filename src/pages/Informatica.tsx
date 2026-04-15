@@ -291,6 +291,12 @@ const Informatica = () => {
             pra você dominar <strong>Windows, Word, Excel</strong> e muito mais.
           </p>
 
+          {/* Selos acima do CTA */}
+          <div className="flex flex-wrap justify-center gap-2 mb-2">
+            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Vitalício</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Certificado incluso</span></div>
+          </div>
+
           {/* CTA */}
           <div className="flex justify-center mb-1">
             <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-lg inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-black text-lg md:text-xl px-10 py-3 md:py-4 rounded-full shadow-2xl shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300">
