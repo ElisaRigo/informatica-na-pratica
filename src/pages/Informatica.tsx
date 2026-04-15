@@ -425,6 +425,13 @@ const Informatica = () => {
         </div>
       </section>
 
+      {/* ─── AUDIO 2 ─── */}
+      <div className="bg-slate-50 py-3">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <AudioPlayer testimonial={audioTestimonials[1]} />
+        </div>
+      </div>
+
       {/* ─── CERTIFICATE SECTION (Light) ─── */}
       <section className="py-6 md:py-8 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -486,6 +493,13 @@ const Informatica = () => {
           </div>
         </div>
       </section>
+
+      {/* ─── AUDIO 3 ─── */}
+      <div className="bg-white py-3">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <AudioPlayer testimonial={audioTestimonials[2]} />
+        </div>
+      </div>
 
       {/* ─── INSTRUCTOR SECTION ─── */}
       <section id="professora" className="py-6 md:py-8 bg-white relative overflow-hidden">
@@ -566,6 +580,13 @@ const Informatica = () => {
       </section>
 
 
+      {/* ─── AUDIO 4 ─── */}
+      <div className="bg-white py-3">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <AudioPlayer testimonial={audioTestimonials[3]} />
+        </div>
+      </div>
+
       {/* ─── SUPPORT BANNER (Light) ─── */}
       <section className="py-6 md:py-8 bg-gradient-to-b from-primary/5 to-white">
         <div className="container mx-auto px-4">
@@ -605,6 +626,13 @@ const Informatica = () => {
         </div>
       </section>
 
+
+      {/* ─── AUDIO 5 ─── */}
+      <div className="bg-white py-3">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <AudioPlayer testimonial={audioTestimonials[4]} />
+        </div>
+      </div>
 
       {/* ─── CONTENT SECTION ─── */}
       <section id="conteudo" className="py-6 md:py-8 bg-white">
