@@ -129,6 +129,45 @@ const bonuses = [
   { text: "BÔNUS: Currículo Profissional", value: "R$ 97" },
 ];
 
+// ─── Facebook Comment Component ────────────────────────────────────
+const FacebookComment = ({ comment, avatarIndex }: { comment: typeof facebookComments[0]; avatarIndex: number }) => (
+  <div className="bg-white rounded-lg p-3 shadow-sm border border-slate-100 max-w-md mx-auto">
+    <div className="flex gap-2">
+      <img src={avatarImages[avatarIndex % avatarImages.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
+      <div className="flex-1 min-w-0">
+        <div className="bg-slate-50 rounded-2xl px-3 py-2">
+          <p className="text-gray-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
+          <p className="text-gray-700 text-xs leading-relaxed">{comment.text}</p>
+        </div>
+        <div className="flex items-center gap-3 mt-1 px-2">
+          <span className="text-[11px] text-gray-400">{comment.time}</span>
+          <span className="text-[11px] text-gray-500 font-medium">Curtir</span>
+          {comment.likes > 0 && (
+            <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
+              <span className="flex items-center -space-x-1">
+                <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10"><ThumbsUp className="w-2.5 h-2.5 text-white fill-white" /></span>
+                {comment.hasHeart && <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0"><Heart className="w-2.5 h-2.5 text-white fill-white" /></span>}
+              </span>
+              {comment.likes}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const FacebookCommentPair = ({ indices }: { indices: [number, number] }) => (
+  <div className="bg-slate-50 py-3">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
+        <FacebookComment comment={facebookComments[indices[0]]} avatarIndex={indices[0]} />
+        <FacebookComment comment={facebookComments[indices[1]]} avatarIndex={indices[1]} />
+      </div>
+    </div>
+  </div>
+);
+
 // ─── Audio Player Component ────────────────────────────────────────
 const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0] }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -311,59 +350,21 @@ const Informatica = () => {
       {/* ─── AUDIO TESTIMONIALS CONTENT (Light) ─── */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             {/* WhatsApp Screenshots */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Smartphone className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {whatsappScreenshots.map((s, i) => (
-                  <div key={i} className="bg-white rounded-xl p-1.5 shadow-lg border border-slate-200">
-                    <div className="bg-slate-100 rounded-t-lg pt-1.5 pb-0.5 px-3">
-                      <div className="flex items-center justify-center"><div className="w-10 h-0.5 bg-slate-300 rounded-full" /></div>
-                    </div>
-                    <img src={s.image} alt={s.description} className="w-full h-auto rounded-b-md" loading="lazy" />
-                  </div>
-                ))}
-              </div>
+            <div className="flex items-center gap-2 mb-4">
+              <Smartphone className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
             </div>
-
-            {/* Facebook comments */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <MessageCircle className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-bold text-foreground">Comentários</h3>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {facebookComments.slice(0, 4).map((comment, index) => (
-                  <div key={index} className="bg-white rounded-lg p-3 shadow-sm border border-slate-100">
-                    <div className="flex gap-2">
-                      <img src={avatarImages[index % avatarImages.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" />
-                      <div className="flex-1 min-w-0">
-                        <div className="bg-slate-50 rounded-2xl px-3 py-2">
-                          <p className="text-gray-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
-                          <p className="text-gray-700 text-xs leading-relaxed">{comment.text}</p>
-                        </div>
-                        <div className="flex items-center gap-3 mt-1 px-2">
-                          <span className="text-[11px] text-gray-400">{comment.time}</span>
-                          <span className="text-[11px] text-gray-500 font-medium">Curtir</span>
-                          {comment.likes > 0 && (
-                            <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
-                              <span className="flex items-center -space-x-1">
-                                <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10"><ThumbsUp className="w-2.5 h-2.5 text-white fill-white" /></span>
-                                {comment.hasHeart && <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0"><Heart className="w-2.5 h-2.5 text-white fill-white" /></span>}
-                              </span>
-                              {comment.likes}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+            <div className="grid grid-cols-2 gap-3">
+              {whatsappScreenshots.map((s, i) => (
+                <div key={i} className="bg-white rounded-xl p-1.5 shadow-lg border border-slate-200">
+                  <div className="bg-slate-100 rounded-t-lg pt-1.5 pb-0.5 px-3">
+                    <div className="flex items-center justify-center"><div className="w-10 h-0.5 bg-slate-300 rounded-full" /></div>
                   </div>
-                ))}
-              </div>
+                  <img src={s.image} alt={s.description} className="w-full h-auto rounded-b-md" loading="lazy" />
+                </div>
+              ))}
             </div>
           </div>
 
@@ -392,6 +393,9 @@ const Informatica = () => {
           <AudioPlayer testimonial={audioTestimonials[0]} />
         </div>
       </div>
+
+      {/* ─── COMMENTS 1-2 ─── */}
+      <FacebookCommentPair indices={[0, 1]} />
 
       {/* ─── PROBLEM SECTION ─── */}
       <section className="py-6 md:py-8 bg-white relative overflow-hidden">
@@ -424,6 +428,9 @@ const Informatica = () => {
           </div>
         </div>
       </section>
+
+      {/* ─── COMMENTS 3-4 ─── */}
+      <FacebookCommentPair indices={[2, 3]} />
 
       {/* ─── AUDIO 2 ─── */}
       <div className="bg-slate-50 py-3">
@@ -565,6 +572,9 @@ const Informatica = () => {
         </div>
       </section>
 
+      {/* ─── COMMENTS 5-6 ─── */}
+      <FacebookCommentPair indices={[4, 5]} />
+
       {/* ─── STRATEGIC CTA ─── */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
@@ -677,6 +687,9 @@ const Informatica = () => {
       </section>
 
 
+
+      {/* ─── COMMENTS 7-8 ─── */}
+      <FacebookCommentPair indices={[6, 7]} />
 
       {/* ─── FAQ ─── */}
       <section className="py-6 md:py-8 bg-white">
