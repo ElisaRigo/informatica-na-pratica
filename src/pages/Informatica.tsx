@@ -425,7 +425,7 @@ const Informatica = () => {
                 <div className="relative z-10">
                   <div className="flex items-start gap-4 mb-3">
                     <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <img src={m.icon} alt={m.title} className="w-9 h-9" loading="lazy" />
+                      <img src={m.icon} alt={m.title} className="w-9 h-9" width="36" height="36" loading="eager" decoding="async" fetchPriority="high" />
                     </div>
                     <h3 className="text-lg font-bold text-white mt-2">{m.title}</h3>
                   </div>

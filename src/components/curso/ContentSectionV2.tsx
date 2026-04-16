@@ -73,7 +73,11 @@ export const ContentSectionV2 = () => {
                       src={module.icon}
                       alt={module.title}
                       className="w-10 h-10"
-                      loading="lazy"
+                      width="40"
+                      height="40"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
                     />
                   </div>
                   <div className="flex-1">
