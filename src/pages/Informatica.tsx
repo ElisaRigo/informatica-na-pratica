@@ -287,15 +287,15 @@ const Informatica = () => {
             </div>
           </div>
 
-          <p className="text-base md:text-xl text-foreground text-center mb-1 max-w-2xl mx-auto leading-snug">
-            Aprenda começando do <span className="text-primary font-bold">Zero</span> – Aulas <strong>simples e Fáceis</strong>{" "}
-            pra você dominar <strong>Windows, Word, Excel</strong> e muito mais.
+          <p className="text-base md:text-xl text-slate-200 text-center mb-1 max-w-2xl mx-auto leading-snug">
+            Aprenda começando do <span className="text-primary font-bold">Zero</span> – Aulas <strong className="text-white">simples e Fáceis</strong>{" "}
+            pra você dominar <strong className="text-white">Windows, Word, Excel</strong> e muito mais.
           </p>
 
           {/* Selos acima do CTA */}
           <div className="flex flex-wrap justify-center gap-2 mb-3 mt-3">
-            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Vitalício</span></div>
-            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Certificado incluso</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Vitalício</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Certificado incluso</span></div>
           </div>
 
           {/* CTA */}
@@ -306,21 +306,21 @@ const Informatica = () => {
           </div>
 
           {/* Pricing */}
-          <div className="bg-background rounded-2xl p-3 md:p-4 max-w-xl mx-auto text-center">
-            <p className="text-base md:text-lg text-muted-foreground mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
-            <p className="text-2xl md:text-4xl font-black text-foreground mb-0.5">12x de <span className="text-success">R$ 30,72</span></p>
-            <p className="text-sm md:text-base text-muted-foreground mb-2">ou <span className="text-success font-bold text-base md:text-lg">R$ 297,00</span> à vista</p>
-            <div className="border border-success/30 rounded-xl p-2 mb-2 bg-success/5">
+          <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-3 md:p-4 max-w-xl mx-auto text-center">
+            <p className="text-base md:text-lg text-slate-300 mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
+            <p className="text-2xl md:text-4xl font-black text-white mb-0.5">12x de <span className="text-success">R$ 30,72</span></p>
+            <p className="text-sm md:text-base text-slate-300 mb-2">ou <span className="text-success font-bold text-base md:text-lg">R$ 297,00</span> à vista</p>
+            <div className="border border-success/40 rounded-xl p-2 mb-2 bg-success/10">
               <p className="text-xs md:text-sm font-bold text-success mb-0.5"><Shield className="w-3.5 h-3.5 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
-              <p className="text-[11px] md:text-xs text-muted-foreground">Se não gostar, devolvo <strong className="text-foreground">100% do seu dinheiro</strong>. Sem perguntas.</p>
+              <p className="text-[11px] md:text-xs text-slate-300">Se não gostar, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas.</p>
             </div>
-            <p className="text-[11px] text-muted-foreground flex items-center justify-center gap-1"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
+            <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
           </div>
 
           {/* Trust badges */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
-            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Imediato</span></div>
-            <div className="flex items-center gap-1.5 border border-primary/30 rounded-full px-3 py-1.5 bg-primary/10 shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Garantia 7 dias</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Imediato</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Garantia 7 dias</span></div>
           </div>
         </div>
       </section>
