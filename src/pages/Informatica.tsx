@@ -356,18 +356,18 @@ const Informatica = () => {
         </div>
       </section>
 
-      {/* ─── AUDIO TESTIMONIALS CONTENT (Light) ─── */}
-      <section className="py-4 md:py-6 bg-slate-100">
+      {/* ─── AUDIO TESTIMONIALS CONTENT ─── */}
+      <section className="py-4 md:py-6 bg-slate-800/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             {/* WhatsApp Screenshots */}
             <div className="flex items-center gap-2 mb-4">
               <Smartphone className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold text-foreground">Prints de Conversas</h3>
+              <h3 className="text-lg font-bold text-white">Prints de Conversas</h3>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {whatsappScreenshots.map((s, i) => (
-                <div key={i} className="bg-white rounded-xl p-1.5 shadow-lg border border-slate-200">
+                <div key={i} className="bg-white rounded-xl p-1.5 shadow-lg border border-slate-700">
                   <div className="bg-slate-100 rounded-t-lg pt-1.5 pb-0.5 px-3">
                     <div className="flex items-center justify-center"><div className="w-10 h-0.5 bg-slate-300 rounded-full" /></div>
                   </div>
@@ -379,10 +379,10 @@ const Informatica = () => {
 
           {/* Highlight phrase */}
           <div className="text-center my-4 max-w-4xl mx-auto">
-            <p className="text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-snug">
+            <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-snug">
               Se essas pessoas conseguiram, <span className="text-success">você também consegue.</span>
               <br />
-              <span className="text-muted-foreground font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+              <span className="text-slate-300 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
             </p>
           </div>
 
@@ -391,7 +391,7 @@ const Informatica = () => {
             <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105">
               Quero Aprender Informática sem Medo →
             </button>
-            <p className="text-muted-foreground text-sm">🔒 Pagamento seguro · Garantia de 7 dias · Acesso imediato</p>
+            <p className="text-slate-400 text-sm">🔒 Pagamento seguro · Garantia de 7 dias · Acesso imediato</p>
           </div>
         </div>
       </section>
