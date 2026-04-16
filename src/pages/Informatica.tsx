@@ -159,7 +159,7 @@ const FacebookComment = ({ comment, avatarIndex }: { comment: typeof facebookCom
 );
 
 const FacebookCommentPair = ({ indices }: { indices: [number, number] }) => (
-  <div className="bg-slate-50 py-3">
+  <div className="bg-slate-900 py-3">
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
         <FacebookComment comment={facebookComments[indices[0]]} avatarIndex={indices[0]} />
