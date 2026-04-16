@@ -47,7 +47,6 @@ export const EnvironmentSection = () => {
           </div>
 
           {/* Video da aula */}
-          {shouldLoad && (
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
             {!isPlaying ? (
               <div 
