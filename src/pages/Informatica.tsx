@@ -249,12 +249,12 @@ const Informatica = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-900">
       {/* ─── HEADER ─── */}
-      <header className="bg-white py-2 border-b border-border">
+      <header className="bg-slate-900 py-2 border-b border-slate-800">
         <div className="container mx-auto px-4 flex flex-col items-center">
           <img src={logo} alt="Informática na Prática" className="h-12 md:h-14" />
-          <p className="text-foreground text-sm md:text-base mt-1 text-center font-medium">
+          <p className="text-white text-sm md:text-base mt-1 text-center font-medium">
             Curso de <span className="text-primary font-bold">Informática Online</span>
             <br />Simples e para Todos.
           </p>
@@ -262,14 +262,14 @@ const Informatica = () => {
       </header>
 
       {/* ─── HERO ─── */}
-      <section className="bg-white py-2 md:py-4">
+      <section className="bg-slate-900 py-2 md:py-4">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-foreground text-center mb-2 leading-[1.1] tracking-tight" style={{ WebkitTextStroke: '0.5px' }}>
+          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-2 leading-[1.1] tracking-tight" style={{ WebkitTextStroke: '0.5px' }}>
             Curso de <span className="text-primary">Informática<br className="md:hidden" /> para Iniciante</span>
           </h1>
 
           <div className="relative max-w-2xl mx-auto mb-2">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-border">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
