@@ -113,7 +113,11 @@ export const HeroV2 = () => {
                   src={heroVideoThumb}
                   alt="Prévia do curso de informática"
                   className="w-full h-full object-cover"
+                  width="1280"
+                  height="720"
                   loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
                 
                 {/* Play Button */}
@@ -133,7 +137,7 @@ export const HeroV2 = () => {
             ) : (
               <div className="aspect-video">
                 <iframe
-                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                   title="Veja como é fácil aprender"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -171,7 +175,10 @@ export const HeroV2 = () => {
                     src={freeClassThumb}
                     alt="Aula demonstrativa gratuita"
                     className="w-full h-full object-cover"
+                    width="1280"
+                    height="720"
                     loading="lazy"
+                    decoding="async"
                   />
                   
                   {/* Play Button */}
@@ -185,7 +192,7 @@ export const HeroV2 = () => {
               ) : (
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                    src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                     title="Aula gratuita"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
