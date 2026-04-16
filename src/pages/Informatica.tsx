@@ -265,7 +265,11 @@ const Informatica = () => {
       <section className="bg-slate-900 py-2 md:py-4">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-2 leading-[1.1] tracking-tight" style={{ WebkitTextStroke: '0.5px' }}>
-            Curso de <span className="text-sky-400">Informática<br className="md:hidden" /> para Iniciante</span>
+            Curso de{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10">Informática<br className="md:hidden" /> para Iniciante</span>
+              <span className="absolute left-0 right-0 bottom-0 md:bottom-1 h-2 md:h-3 bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 rounded-full -z-0 opacity-80" aria-hidden="true" />
+            </span>
           </h1>
 
           <div className="relative max-w-2xl mx-auto mb-2">
