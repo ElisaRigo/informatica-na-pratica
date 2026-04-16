@@ -272,7 +272,7 @@ const Informatica = () => {
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                  <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
+                  <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" width="1280" height="720" loading="eager" decoding="async" fetchPriority="high" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-14 h-14 md:w-18 md:h-18 rounded-full bg-white/30 shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/40 transition-all">
                       <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-0.5" />
@@ -281,7 +281,7 @@ const Informatica = () => {
                 </div>
               ) : (
                 <div className="aspect-video">
-                  <iframe src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1" title="Veja como é fácil aprender" className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                  <iframe src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="Veja como é fácil aprender" className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                 </div>
               )}
             </div>
@@ -425,7 +425,7 @@ const Informatica = () => {
                 <div className="relative z-10">
                   <div className="flex items-start gap-4 mb-3">
                     <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <img src={m.icon} alt={m.title} className="w-9 h-9" loading="lazy" />
+                      <img src={m.icon} alt={m.title} className="w-9 h-9" width="36" height="36" loading="eager" decoding="async" fetchPriority="high" />
                     </div>
                     <h3 className="text-lg font-bold text-white mt-2">{m.title}</h3>
                   </div>

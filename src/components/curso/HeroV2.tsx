@@ -113,7 +113,11 @@ export const HeroV2 = () => {
                   src={heroVideoThumb}
                   alt="Prévia do curso de informática"
                   className="w-full h-full object-cover"
+                  width="1280"
+                  height="720"
                   loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
                 
                 {/* Play Button */}
@@ -133,7 +137,7 @@ export const HeroV2 = () => {
             ) : (
               <div className="aspect-video">
                 <iframe
-                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                   title="Veja como é fácil aprender"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -160,42 +164,43 @@ export const HeroV2 = () => {
           </div>
 
           {/* Video da aula gratuita */}
-          {shouldLoadFreeClass && (
-            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
-              {!isFreeClassPlaying ? (
-                <div 
-                  className="relative aspect-video cursor-pointer group"
-                  onClick={() => setIsFreeClassPlaying(true)}
-                >
-                  <img 
-                    src={freeClassThumb}
-                    alt="Aula demonstrativa gratuita"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                      <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
-                    </div>
+          <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
+            {!isFreeClassPlaying ? (
+              <div 
+                className="relative aspect-video cursor-pointer group"
+                onClick={() => setIsFreeClassPlaying(true)}
+              >
+                <img 
+                  src={freeClassThumb}
+                  alt="Aula demonstrativa gratuita"
+                  className="w-full h-full object-cover"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
+                
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                    <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                   </div>
+                </div>
 
-                </div>
-              ) : (
-                <div className="aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                    title="Aula gratuita"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
-                </div>
-              )}
-            </div>
-          )}
+              </div>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  title="Aula gratuita"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </div>
 
           {/* Frase de autoridade */}
           <p className="text-center text-base md:text-xl text-slate-300 max-w-2xl mx-auto mb-3 md:mb-4 leading-relaxed px-2">
