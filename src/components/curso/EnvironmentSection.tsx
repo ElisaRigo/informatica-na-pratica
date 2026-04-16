@@ -48,47 +48,49 @@ export const EnvironmentSection = () => {
 
           {/* Video da aula */}
           {shouldLoad && (
-            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
-              {!isPlaying ? (
-                <div 
-                  className="relative aspect-video cursor-pointer group"
-                  onClick={() => setIsPlaying(true)}
-                >
-                  <img 
-                    src={environmentThumb}
-                    alt="Aula gratuita de Excel - Aprenda do zero"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                      <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
-                    </div>
+          <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
+            {!isPlaying ? (
+              <div 
+                className="relative aspect-video cursor-pointer group"
+                onClick={() => setIsPlaying(true)}
+              >
+                <img 
+                  src={environmentThumb}
+                  alt="Aula gratuita de Excel - Aprenda do zero"
+                  className="w-full h-full object-cover"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
+                
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                    <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                   </div>
+                </div>
 
-                  {/* Badge */}
-                  <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
-                    <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm border-2 border-white/30 shadow-lg">
-                      🎬 Aula Real
-                    </div>
+                {/* Badge */}
+                <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
+                  <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm border-2 border-white/30 shadow-lg">
+                    🎬 Aula Real
                   </div>
                 </div>
-              ) : (
-                <div className="aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&autoplay=1"
-                    title="Aula de Excel - CNT Informática"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
-                </div>
-              )}
-            </div>
-          )}
+              </div>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  title="Aula de Excel - CNT Informática"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </div>
 
           {/* Benefícios */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-6">

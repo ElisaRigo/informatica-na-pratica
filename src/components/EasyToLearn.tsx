@@ -46,30 +46,28 @@ export const EasyToLearn = () => {
           {/* Container do Vídeo */}
           <div ref={containerRef} className="relative max-w-4xl mx-auto">
             {!isVideoLoaded ? (
-              shouldLoadVideo && (
-                <div
-                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group shadow-xl border-2 border-primary/20"
-                  onClick={handlePlayClick}
-                >
-                  <img
-                    src={heroVideoThumb}
-                    alt="Aula demonstrativa - Veja como é fácil aprender"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width="960"
-                    height="540"
-                  />
+              <div
+                className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group shadow-xl border-2 border-primary/20"
+                onClick={handlePlayClick}
+              >
+                <img
+                  src={heroVideoThumb}
+                  alt="Aula demonstrativa - Veja como é fácil aprender"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="960"
+                  height="540"
+                />
 
-                  {/* Botão de Play */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
-                    </div>
+                {/* Botão de Play */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                    <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                   </div>
-
                 </div>
-              )
+
+              </div>
             ) : (
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border-2 border-primary/20">
                 <iframe
