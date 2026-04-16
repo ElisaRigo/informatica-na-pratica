@@ -319,8 +319,8 @@ const Informatica = () => {
 
           {/* Trust badges */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Acesso Imediato</span></div>
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-primary">Garantia 7 dias</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Imediato</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Garantia 7 dias</span></div>
           </div>
         </div>
       </section>
