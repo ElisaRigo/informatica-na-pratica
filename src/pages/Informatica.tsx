@@ -329,28 +329,28 @@ const Informatica = () => {
       <EasyToLearn />
 
       {/* ─── AUDIO TESTIMONIALS HEADER ─── */}
-      <section className="py-4 md:py-6 bg-white">
+      <section className="py-4 md:py-6 bg-slate-900 border-t border-slate-800">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-border/60 rounded-full px-5 py-2 bg-slate-50">
+            <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-slate-700 rounded-full px-5 py-2 bg-slate-800/60">
               <div className="flex items-center gap-1.5">
                 <div className="flex -space-x-2">
                   {avatarImages.slice(0, 5).map((av, i) => (
-                    <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+                    <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-slate-900 object-cover" />
                   ))}
                 </div>
-                <span className="text-foreground text-sm font-bold ml-1">+15.000 alunos</span>
+                <span className="text-white text-sm font-bold ml-1">+15.000 alunos</span>
               </div>
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => <span key={i} className="text-amber-400 text-lg">★</span>)}
-                <span className="text-foreground text-sm font-semibold ml-1">4.9/5</span>
+                <span className="text-white text-sm font-semibold ml-1">4.9/5</span>
               </div>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-2 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">
               Veja o que dizem os alunos que <span className="text-primary">saíram do zero</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-medium">
-              Histórias reais de pessoas que <span className="text-foreground font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total confiança
+            <p className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto font-medium">
+              Histórias reais de pessoas que <span className="text-white font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total confiança
             </p>
           </div>
         </div>
