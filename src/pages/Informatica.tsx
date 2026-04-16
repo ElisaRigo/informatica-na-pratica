@@ -397,7 +397,7 @@ const Informatica = () => {
       </section>
 
       {/* ─── AUDIO 1 ─── */}
-      <div className="bg-slate-50 py-3">
+      <div className="bg-slate-900 py-3">
         <div className="container mx-auto px-4 max-w-2xl">
           <AudioPlayer testimonial={audioTestimonials[0]} />
         </div>
