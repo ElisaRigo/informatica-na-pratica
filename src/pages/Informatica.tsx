@@ -306,6 +306,10 @@ const Informatica = () => {
             </div>
           </div>
 
+          <p className="text-base md:text-xl text-slate-200 text-center mb-3 mt-2 max-w-2xl mx-auto leading-snug">
+            Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia — <strong className="text-white">sem depender de outras pessoas</strong>
+          </p>
+
           {/* Selos de Confiança - Grid (estilo /curso HeroV2) */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mt-3 mb-3">
             {[
@@ -321,10 +325,6 @@ const Informatica = () => {
               </div>
             ))}
           </div>
-
-          <p className="text-base md:text-xl text-slate-200 text-center mb-1 max-w-2xl mx-auto leading-snug">
-            Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia — <strong className="text-white">sem depender de outras pessoas</strong>
-          </p>
 
           {/* Selos compactos acima do CTA */}
           <div className="flex flex-wrap justify-center gap-2 mb-3 mt-3">
