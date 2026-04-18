@@ -146,8 +146,7 @@ export const HeroV2 = () => {
           
           {/* Texto de prova social abaixo do vídeo */}
           <p className="text-sm md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
-            O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
-            assim como você, tinham medo de errar e vergonha de pedir ajuda.
+            <strong className="text-white">Aprenda de forma simples</strong> e nunca mais tenha dificuldade no computador — <strong className="text-primary">mesmo que você não saiba nada</strong>
           </p>
         </div>
 
