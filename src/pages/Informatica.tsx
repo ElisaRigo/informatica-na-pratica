@@ -341,11 +341,6 @@ const Informatica = () => {
                 🔥 ÚLTIMAS VAGAS COM 40% OFF!
               </p>
             </div>
-            <div className="bg-accent/20 border-t border-accent/30 py-2.5 px-4">
-              <p className="text-center text-sm md:text-lg font-bold text-accent">
-                💰 Economize R$ 200,00 e transforme sua carreira hoje.
-              </p>
-            </div>
           </div>
 
           {/* Pricing */}
