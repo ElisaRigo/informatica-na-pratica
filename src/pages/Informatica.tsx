@@ -287,7 +287,7 @@ const Informatica = () => {
             Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
 
-          <div className="relative max-w-2xl mx-auto mb-8 md:mb-10">
+          <div className="relative max-w-2xl mx-auto mb-6 md:mb-8">
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
