@@ -283,7 +283,7 @@ const Informatica = () => {
         </div>
 
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
+          <h1 className="text-[24px] md:text-4xl lg:text-5xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
             Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
 
@@ -359,9 +359,9 @@ const Informatica = () => {
               </div>
             </div>
             <div className="p-3 md:p-4">
-              <p className="text-lg md:text-xl text-slate-300 mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
-              <p className="text-4xl md:text-5xl font-black text-white mb-1 leading-tight">12x de <span className="text-success">R$ 30,72</span></p>
-              <p className="text-base md:text-lg text-slate-300 mb-3">ou <span className="text-success font-bold text-xl md:text-2xl">R$ 297,00</span> à vista</p>
+              <p className="text-base md:text-lg text-slate-300 mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
+              <p className="text-3xl md:text-4xl font-black text-white mb-1 leading-tight">12x de <span className="text-success">R$ 30,72</span></p>
+              <p className="text-sm md:text-base text-slate-300 mb-3">ou <span className="text-success font-bold text-lg md:text-xl">R$ 297,00</span> à vista</p>
 
               {/* CTA dentro do card */}
               <button onClick={() => (window as any).openCheckout?.()} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-xl md:text-2xl px-6 py-5 md:py-6 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer mb-3 leading-tight">
