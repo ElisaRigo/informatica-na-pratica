@@ -276,12 +276,9 @@ const Informatica = () => {
         </div>
 
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-2 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
-            Domine o <span className="text-primary">computador</span><br className="md:hidden" /> em <span className="text-primary">poucas semanas</span>
+          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
+            Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
-          <p className="text-lg md:text-2xl lg:text-3xl text-white/90 text-center font-bold mb-3">
-            Mesmo sem saber nada
-          </p>
 
           <div className="relative max-w-2xl mx-auto mb-2">
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
