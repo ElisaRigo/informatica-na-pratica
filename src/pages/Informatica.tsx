@@ -287,7 +287,7 @@ const Informatica = () => {
             Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
 
-          <div className="relative max-w-2xl mx-auto mb-8 md:mb-10">
+          <div className="relative max-w-2xl mx-auto mb-6 md:mb-8">
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
@@ -318,18 +318,18 @@ const Informatica = () => {
             </div>
           </div>
 
-          <p className="text-base md:text-xl text-slate-200 text-center mb-3 mt-2 max-w-2xl mx-auto leading-snug">
+          <p className="text-sm md:text-xl text-slate-200 text-center mb-2 mt-2 max-w-2xl mx-auto leading-snug">
             Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia — <strong className="text-white">sem depender de outras pessoas</strong>
           </p>
 
           {/* Selos de Confiança - Grid (estilo /curso HeroV2) */}
-          <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-2xl mx-auto mt-3 mb-3">
+          <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-2xl mx-auto mt-2 mb-2">
             {[
               { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
               { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
-                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+              <div key={i} className="flex flex-col items-center text-center p-1.5 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+                <item.icon className="w-5 h-5 md:w-8 md:h-8 text-primary mb-0.5 md:mb-2" />
                 <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
                 <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
               </div>
@@ -360,8 +360,8 @@ const Informatica = () => {
             </div>
 
             {/* CTA logo abaixo dos selos */}
-            <div className="px-3 pt-3">
-              <button onClick={() => (window as any).openCheckout?.()} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-xl md:text-2xl px-6 py-5 md:py-6 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer leading-tight">
+            <div className="px-3 pt-2.5 flex justify-center">
+              <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-base md:text-lg px-5 py-3 md:px-6 md:py-3.5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer leading-tight">
                 🎯 Quero Começar Agora
               </button>
             </div>
