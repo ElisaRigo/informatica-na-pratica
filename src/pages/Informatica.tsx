@@ -338,6 +338,17 @@ const Informatica = () => {
                 🔥 ÚLTIMAS VAGAS COM 40% OFF!
               </p>
             </div>
+            {/* Selos: Acesso Imediato + Garantia 7 dias (logo abaixo da faixa de urgência) */}
+            <div className="flex flex-wrap justify-center gap-2 px-3 pt-3">
+              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
+                <Zap className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-bold text-white">Acesso Imediato</span>
+              </div>
+              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
+                <Shield className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-bold text-white">Garantia 7 dias</span>
+              </div>
+            </div>
             <div className="p-3 md:p-4">
               <p className="text-base md:text-lg text-slate-300 mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
               <p className="text-2xl md:text-4xl font-black text-white mb-0.5">12x de <span className="text-success">R$ 30,72</span></p>
@@ -370,13 +381,7 @@ const Informatica = () => {
             ))}
           </div>
 
-          {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Imediato</span></div>
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Garantia 7 dias</span></div>
-          </div>
-
-          {/* Faixa animada acolhedora - full width (após trust badges) */}
+          {/* Faixa animada acolhedora - full width */}
           <div className="relative w-screen left-1/2 -translate-x-1/2 mt-4 overflow-hidden border-y border-primary/60 bg-gradient-to-r from-primary via-primary/90 to-primary">
             <div className="flex animate-marquee whitespace-nowrap py-3" style={{ animationDuration: '30s' }}>
               {Array.from({ length: 12 }).map((_, i) => (
