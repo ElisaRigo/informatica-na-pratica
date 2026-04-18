@@ -280,7 +280,7 @@ const Informatica = () => {
             Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
 
-          <div className="relative max-w-2xl mx-auto mb-6 md:mb-8">
+          <div className="relative max-w-2xl mx-auto mb-8 md:mb-10">
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
@@ -297,16 +297,14 @@ const Informatica = () => {
                 </div>
               )}
             </div>
-            {/* Selo Acesso Vitalício - sai pela base do vídeo */}
-            <div className="absolute -bottom-3 md:-bottom-4 left-3 md:left-4 z-20">
+            <div className="absolute bottom-0 left-3 md:left-4 z-20 translate-y-1/2">
               <div className="inline-flex items-center gap-1 md:gap-1.5 bg-primary text-white px-2.5 py-1 md:px-3 md:py-1.5 rounded-full font-bold text-[10px] md:text-sm shadow-xl border border-white/30">
                 <Infinity className="w-3 h-3 md:w-4 md:h-4" />
                 ACESSO VITALÍCIO
               </div>
             </div>
-            {/* Selo +15.000 alunos - sai pela base do vídeo */}
-            <div className="absolute -bottom-3 md:-bottom-4 right-3 md:right-4 z-20">
-              <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full font-black text-[10px] md:text-sm shadow-xl border-2 border-white/40 animate-pulse">
+            <div className="absolute bottom-0 right-3 md:right-4 z-20 translate-y-1/2">
+              <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full font-black text-[10px] md:text-sm shadow-xl border-2 border-white/40">
                 <Users className="w-3.5 h-3.5 md:w-4 md:h-4" />
                 +15.000 ALUNOS
               </div>
