@@ -303,7 +303,7 @@ const Informatica = () => {
           </div>
 
           <p className="text-base md:text-xl text-slate-200 text-center mb-1 max-w-2xl mx-auto leading-snug">
-            Aprenda de forma <span className="text-primary font-bold">simples</span> e nunca mais tenha dificuldade no computador — <strong className="text-white">mesmo que você não saiba nada</strong>
+            Aprenda de forma <span className="text-primary font-bold">simples</span>, nunca mais tenha dificuldade no computador — <strong className="text-white">pare de depender de outras pessoas</strong>
           </p>
 
           {/* Selos acima do CTA */}
