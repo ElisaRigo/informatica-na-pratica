@@ -325,7 +325,7 @@ const Informatica = () => {
 
           {/* Faixa animada acolhedora - full width */}
           <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen mb-3 overflow-hidden border-y border-primary/60 bg-gradient-to-r from-primary via-primary/90 to-primary">
-            <div className="animate-marquee whitespace-nowrap py-3">
+            <div className="flex animate-marquee whitespace-nowrap py-3" style={{ animationDuration: '30s' }}>
               {Array.from({ length: 12 }).map((_, i) => (
                 <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
                   ✨ Você é capaz de aprender — Venha comigo!
