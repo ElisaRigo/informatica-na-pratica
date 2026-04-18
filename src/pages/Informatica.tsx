@@ -283,7 +283,7 @@ const Informatica = () => {
         </div>
 
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
+          <h1 className="text-[24px] md:text-4xl lg:text-5xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
             Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
 
