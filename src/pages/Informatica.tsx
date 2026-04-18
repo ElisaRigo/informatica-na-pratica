@@ -297,6 +297,20 @@ const Informatica = () => {
                 </div>
               )}
             </div>
+            {/* Selo Acesso Vitalício - sai pela base do vídeo */}
+            <div className="absolute -bottom-3 md:-bottom-4 left-3 md:left-4 z-20">
+              <div className="inline-flex items-center gap-1 md:gap-1.5 bg-primary text-white px-2.5 py-1 md:px-3 md:py-1.5 rounded-full font-bold text-[10px] md:text-sm shadow-xl border border-white/30">
+                <Infinity className="w-3 h-3 md:w-4 md:h-4" />
+                ACESSO VITALÍCIO
+              </div>
+            </div>
+            {/* Selo +15.000 alunos - sai pela base do vídeo */}
+            <div className="absolute -bottom-3 md:-bottom-4 right-3 md:right-4 z-20">
+              <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full font-black text-[10px] md:text-sm shadow-xl border-2 border-white/40 animate-pulse">
+                <Users className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                +15.000 ALUNOS
+              </div>
+            </div>
           </div>
 
           <p className="text-base md:text-xl text-slate-200 text-center mb-3 mt-2 max-w-2xl mx-auto leading-snug">
