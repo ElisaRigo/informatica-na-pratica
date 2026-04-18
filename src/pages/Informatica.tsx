@@ -323,11 +323,15 @@ const Informatica = () => {
             </button>
           </div>
 
-          {/* Headline da oferta */}
-          <div className="max-w-xl mx-auto text-center mb-3">
-            <h3 className="text-xl md:text-3xl lg:text-4xl font-black text-white">
-              Chega de <span className="text-primary">perder oportunidades!</span>
-            </h3>
+          {/* Faixa animada acolhedora */}
+          <div className="max-w-xl mx-auto mb-3 rounded-xl overflow-hidden border-y border-primary/60 bg-gradient-to-r from-primary via-primary/90 to-primary">
+            <div className="animate-marquee whitespace-nowrap py-3">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                  ✨ Você é capaz de aprender — Venha comigo!
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Banner de urgência + economia */}
