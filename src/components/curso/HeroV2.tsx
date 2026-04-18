@@ -68,6 +68,18 @@ export const HeroV2 = () => {
           </p>
         </div>
 
+        {/* Destaque Acesso Vitalício */}
+        <div className="flex flex-wrap justify-center gap-2 mb-3 md:mb-5">
+          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+            <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
+          </div>
+          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+            <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
+          </div>
+        </div>
+
         {/* Trust Badges */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
           {[
@@ -115,14 +127,6 @@ export const HeroV2 = () => {
                 <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
                   <div className="bg-destructive text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm shadow-lg">
                     ▶ ASSISTA AGORA
-                  </div>
-                </div>
-
-                {/* Selo Acesso Vitalício flutuante */}
-                <div className="absolute bottom-2 left-2 md:bottom-3 md:left-3 z-20">
-                  <div className="inline-flex items-center gap-1 md:gap-1.5 bg-primary/95 backdrop-blur-sm text-white px-2 py-1 md:px-3 md:py-1.5 rounded-full font-bold text-[10px] md:text-sm shadow-lg border border-white/20">
-                    <Infinity className="w-3 h-3 md:w-4 md:h-4" />
-                    ACESSO VITALÍCIO
                   </div>
                 </div>
               </div>
