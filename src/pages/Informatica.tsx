@@ -275,6 +275,17 @@ const Informatica = () => {
           </div>
         </div>
 
+        {/* Faixa animada acolhedora - full width (acima do título) */}
+        <div className="relative w-screen left-1/2 -translate-x-1/2 mb-3 md:mb-4 overflow-hidden border-y border-primary/60 bg-gradient-to-r from-primary via-primary/90 to-primary">
+          <div className="flex animate-marquee whitespace-nowrap py-3" style={{ animationDuration: '30s' }}>
+            {Array.from({ length: 12 }).map((_, i) => (
+              <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+            ))}
+          </div>
+        </div>
+
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
             Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
