@@ -331,10 +331,6 @@ const Informatica = () => {
             ))}
           </div>
 
-          {/* Selo Curso Online */}
-          <div className="flex justify-center mb-3 mt-3">
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Sparkles className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Curso Online</span></div>
-          </div>
 
           {/* Pricing (com banner de urgência integrado + CTA dentro) */}
           <div className="bg-slate-800/60 border border-slate-700 rounded-2xl max-w-xl mx-auto text-center overflow-hidden">
