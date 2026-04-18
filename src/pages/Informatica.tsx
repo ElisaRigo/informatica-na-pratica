@@ -285,6 +285,13 @@ const Informatica = () => {
 
           <div className="relative max-w-2xl mx-auto mb-2">
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
+              {/* Selo +15.000 alunos */}
+              <div className="absolute top-3 left-3 z-20">
+                <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-black text-xs md:text-sm shadow-xl border-2 border-white/40 animate-pulse">
+                  <Users className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  +15.000 ALUNOS
+                </div>
+              </div>
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
