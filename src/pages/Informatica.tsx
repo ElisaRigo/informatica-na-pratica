@@ -298,14 +298,14 @@ const Informatica = () => {
               )}
             </div>
             <div className="absolute bottom-0 left-3 md:left-4 z-20 translate-y-1/2">
-              <div className="inline-flex items-center gap-1 md:gap-1.5 bg-primary text-white px-2.5 py-1 md:px-3 md:py-1.5 rounded-full font-bold text-[10px] md:text-sm shadow-xl border border-white/30">
-                <Infinity className="w-3 h-3 md:w-4 md:h-4" />
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-black text-[11px] md:text-sm shadow-2xl border-2 border-primary ring-2 ring-slate-900/40">
+                <Infinity className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                 ACESSO VITALÍCIO
               </div>
             </div>
             <div className="absolute bottom-0 right-3 md:right-4 z-20 translate-y-1/2">
-              <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full font-black text-[10px] md:text-sm shadow-xl border-2 border-white/40">
-                <Users className="w-3.5 h-3.5 md:w-4 md:h-4" />
+              <div className="flex items-center gap-1.5 md:gap-2 bg-slate-900 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-black text-[11px] md:text-sm shadow-2xl border-2 border-accent ring-2 ring-slate-900/40">
+                <Users className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent" />
                 +15.000 ALUNOS
               </div>
             </div>
@@ -354,7 +354,7 @@ const Informatica = () => {
               <p className="text-sm md:text-base text-slate-300 mb-3">ou <span className="text-success font-bold text-base md:text-lg">R$ 297,00</span> à vista</p>
 
               {/* CTA dentro do card */}
-              <button onClick={() => (window as any).openCheckout?.()} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-base md:text-xl px-6 py-3.5 md:py-5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer mb-3">
+              <button onClick={() => (window as any).openCheckout?.()} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-xl md:text-2xl px-6 py-5 md:py-6 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer mb-3 leading-tight">
                 🎯 Quero Começar Agora
               </button>
 
