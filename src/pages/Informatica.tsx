@@ -252,7 +252,7 @@ const Informatica = () => {
     <div className="min-h-screen bg-slate-900">
       {/* ─── HEADER ─── */}
       <header className="bg-slate-900 py-3 md:py-4 border-b border-slate-800">
-        <div className="container mx-auto px-4 flex items-center gap-3 md:flex-col md:gap-0">
+        <div className="container mx-auto px-4 flex items-center justify-center gap-3 md:flex-col md:gap-0">
           <div className="relative group shrink-0">
             <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
             <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-4 border border-white/20 shadow-lg">
