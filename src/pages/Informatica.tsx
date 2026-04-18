@@ -277,7 +277,7 @@ const Informatica = () => {
 
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-2 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
-            Aprenda <span className="text-primary">Informática</span><br className="md:hidden" /> do <span className="text-primary">Zero</span>
+            Domine o <span className="text-primary">computador</span><br className="md:hidden" /> em <span className="text-primary">poucas semanas</span>
           </h1>
           <p className="text-lg md:text-2xl lg:text-3xl text-white/90 text-center font-bold mb-3">
             Mesmo sem saber nada
