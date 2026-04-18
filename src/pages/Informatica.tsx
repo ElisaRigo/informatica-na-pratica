@@ -265,11 +265,11 @@ const Informatica = () => {
       <section className="bg-slate-900 pt-0 pb-2 md:pb-4">
         {/* Faixa infinita acima da copy */}
         <div className="relative w-screen left-1/2 -translate-x-1/2 mb-3 md:mb-4 overflow-hidden bg-gradient-to-r from-destructive via-red-600 to-destructive border-y-2 border-red-400/40 shadow-lg">
-          <div className="flex animate-marquee whitespace-nowrap py-2 md:py-2.5">
+          <div className="flex animate-marquee whitespace-nowrap py-2 md:py-2.5" style={{ animationDuration: '30s' }}>
             {Array.from({ length: 8 }).map((_, i) => (
               <span key={i} className="mx-6 text-white font-black text-sm md:text-base tracking-wider uppercase flex items-center gap-2">
-                🚫 Você sente dificuldade no computador?
-                <span className="text-yellow-300">★</span>
+                <span className="grayscale brightness-200 contrast-200">🚫</span>
+                Você sente dificuldade no computador?
               </span>
             ))}
           </div>
