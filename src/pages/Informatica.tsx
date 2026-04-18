@@ -276,7 +276,7 @@ const Informatica = () => {
             {Array.from({ length: 8 }).map((_, i) => (
               <span key={i} className="mx-6 text-white font-black text-sm md:text-base tracking-wider uppercase flex items-center gap-2">
                 <span className="text-xl md:text-2xl">😰</span>
-                VOCÊ NÃO SABE USAR O COMPUTADOR?
+                VOCÊ SENTE DIFICULDADE COM O COMPUTADOR?
               </span>
             ))}
           </div>
