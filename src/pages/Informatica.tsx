@@ -326,6 +326,27 @@ const Informatica = () => {
             </button>
           </div>
 
+          {/* Headline da oferta */}
+          <div className="max-w-xl mx-auto text-center mb-3">
+            <h3 className="text-xl md:text-3xl lg:text-4xl font-black text-white">
+              Chega de <span className="text-primary">perder oportunidades!</span>
+            </h3>
+          </div>
+
+          {/* Banner de urgência + economia */}
+          <div className="max-w-xl mx-auto mb-3 rounded-xl overflow-hidden border border-white/10">
+            <div className="bg-gradient-to-r from-destructive to-destructive/80 py-3 px-4">
+              <p className="text-white font-black text-center text-base md:text-2xl tracking-wide animate-pulse">
+                🔥 ÚLTIMAS VAGAS COM 40% OFF!
+              </p>
+            </div>
+            <div className="bg-accent/20 border-t border-accent/30 py-2.5 px-4">
+              <p className="text-center text-sm md:text-lg font-bold text-accent">
+                💰 Economize R$ 200,00 e transforme sua carreira hoje.
+              </p>
+            </div>
+          </div>
+
           {/* Pricing */}
           <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-3 md:p-4 max-w-xl mx-auto text-center">
             <p className="text-base md:text-lg text-slate-300 mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
