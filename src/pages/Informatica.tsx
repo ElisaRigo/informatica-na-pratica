@@ -338,6 +338,17 @@ const Informatica = () => {
                 🔥 ÚLTIMAS VAGAS COM 40% OFF!
               </p>
             </div>
+            {/* Selos: Acesso Imediato + Garantia 7 dias (logo abaixo da faixa de urgência) */}
+            <div className="flex flex-wrap justify-center gap-2 px-3 pt-3">
+              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
+                <Zap className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-bold text-white">Acesso Imediato</span>
+              </div>
+              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
+                <Shield className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-bold text-white">Garantia 7 dias</span>
+              </div>
+            </div>
             <div className="p-3 md:p-4">
               <p className="text-base md:text-lg text-slate-300 mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
               <p className="text-2xl md:text-4xl font-black text-white mb-0.5">12x de <span className="text-success">R$ 30,72</span></p>
