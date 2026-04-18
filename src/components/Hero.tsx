@@ -61,7 +61,7 @@ export const Hero = () => {
 
           {/* Texto abaixo do vídeo */}
           <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 md:mb-5 max-w-3xl mx-auto leading-tight">
-            Aprenda de <span className="text-primary font-black">forma simples</span> e nunca mais tenha dificuldade no computador — <span className="text-primary font-black">mesmo que você não saiba nada</span>
+            Aprenda informática do <span className="text-primary font-black">ZERO</span> e nunca mais tenha dificuldade no computador — <span className="text-primary font-black">mesmo sem saber nada</span>
           </p>
 
           {/* Seção de Preço - Sem Container */}
