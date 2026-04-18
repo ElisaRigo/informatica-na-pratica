@@ -268,8 +268,8 @@ const Informatica = () => {
           <div className="flex animate-marquee whitespace-nowrap py-2 md:py-2.5" style={{ animationDuration: '30s' }}>
             {Array.from({ length: 8 }).map((_, i) => (
               <span key={i} className="mx-6 text-white font-black text-sm md:text-base tracking-wider uppercase flex items-center gap-2">
-                <span className="grayscale brightness-200 contrast-200">🚫</span>
-                Você sente dificuldade no computador?
+                <span className="grayscale brightness-200 contrast-200">😰</span>
+                VOCÊ NÃO SABE USAR O COMPUTADOR?
               </span>
             ))}
           </div>
