@@ -251,12 +251,16 @@ const Informatica = () => {
   return (
     <div className="min-h-screen bg-slate-900">
       {/* ─── HEADER ─── */}
-      <header className="bg-slate-900 py-2 border-b border-slate-800">
-        <div className="container mx-auto px-4 flex items-center gap-3 md:flex-col md:gap-1">
-          <img src={logo} alt="Informática na Prática" className="h-12 md:h-14 shrink-0" />
-          <p className="text-white text-sm md:text-base text-left md:text-center font-medium leading-tight md:mt-1">
-            Curso de <span className="text-primary font-bold">Informática Online</span>
-            <br />Simples e para Todos.
+      <header className="bg-slate-900 py-3 md:py-4 border-b border-slate-800">
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <div className="relative group">
+            <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-white/20 shadow-lg">
+              <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24 drop-shadow-lg" />
+            </div>
+          </div>
+          <p className="text-white text-sm md:text-lg lg:text-xl font-medium mt-3 text-center">
+            Curso de <span className="text-primary font-bold">Informática Online</span> — Simples e para Todos.
           </p>
         </div>
       </header>
