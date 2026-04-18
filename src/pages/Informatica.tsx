@@ -280,22 +280,8 @@ const Informatica = () => {
             Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
 
-          <div className="relative max-w-2xl mx-auto mb-2">
+          <div className="relative max-w-2xl mx-auto mb-6 md:mb-8">
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
-              {/* Selo +15.000 alunos */}
-              <div className="absolute bottom-3 right-3 z-20">
-                <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-black text-xs md:text-sm shadow-xl border-2 border-white/40 animate-pulse">
-                  <Users className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  +15.000 ALUNOS
-                </div>
-              </div>
-              {/* Selo Acesso Vitalício */}
-              <div className="absolute bottom-3 left-3 z-20">
-                <div className="inline-flex items-center gap-1 md:gap-1.5 bg-primary/95 backdrop-blur-sm text-white px-2.5 py-1 md:px-3 md:py-1.5 rounded-full font-bold text-[10px] md:text-sm shadow-xl border border-white/30">
-                  <Infinity className="w-3 h-3 md:w-4 md:h-4" />
-                  ACESSO VITALÍCIO
-                </div>
-              </div>
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
@@ -310,6 +296,20 @@ const Informatica = () => {
                   <iframe src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1" title="Veja como é fácil aprender" className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                 </div>
               )}
+            </div>
+            {/* Selo Acesso Vitalício - sai pela base do vídeo */}
+            <div className="absolute -bottom-3 md:-bottom-4 left-3 md:left-4 z-20">
+              <div className="inline-flex items-center gap-1 md:gap-1.5 bg-primary text-white px-2.5 py-1 md:px-3 md:py-1.5 rounded-full font-bold text-[10px] md:text-sm shadow-xl border border-white/30">
+                <Infinity className="w-3 h-3 md:w-4 md:h-4" />
+                ACESSO VITALÍCIO
+              </div>
+            </div>
+            {/* Selo +15.000 alunos - sai pela base do vídeo */}
+            <div className="absolute -bottom-3 md:-bottom-4 right-3 md:right-4 z-20">
+              <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full font-black text-[10px] md:text-sm shadow-xl border-2 border-white/40 animate-pulse">
+                <Users className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                +15.000 ALUNOS
+              </div>
             </div>
           </div>
 
