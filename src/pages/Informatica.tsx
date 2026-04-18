@@ -306,14 +306,31 @@ const Informatica = () => {
             </div>
           </div>
 
+          {/* Selos de Confiança - Grid (estilo /curso HeroV2) */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mt-3 mb-3">
+            {[
+              { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
+              { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
+              { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
+              { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
+              </div>
+            ))}
+          </div>
+
           <p className="text-base md:text-xl text-slate-200 text-center mb-1 max-w-2xl mx-auto leading-snug">
             Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia — <strong className="text-white">sem depender de outras pessoas</strong>
           </p>
 
-          {/* Selos acima do CTA */}
+          {/* Selos compactos acima do CTA */}
           <div className="flex flex-wrap justify-center gap-2 mb-3 mt-3">
             <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Vitalício</span></div>
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Certificado incluso</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Sparkles className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Curso Online</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><MessageCircle className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Linguagem Simples</span></div>
           </div>
 
           {/* CTA */}
