@@ -289,6 +289,13 @@ const Informatica = () => {
                   +15.000 ALUNOS
                 </div>
               </div>
+              {/* Selo Acesso Vitalício */}
+              <div className="absolute bottom-3 left-3 z-20">
+                <div className="inline-flex items-center gap-1 md:gap-1.5 bg-primary/95 backdrop-blur-sm text-white px-2.5 py-1 md:px-3 md:py-1.5 rounded-full font-bold text-[10px] md:text-sm shadow-xl border border-white/30">
+                  <Infinity className="w-3 h-3 md:w-4 md:h-4" />
+                  ACESSO VITALÍCIO
+                </div>
+              </div>
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
@@ -324,9 +331,8 @@ const Informatica = () => {
             ))}
           </div>
 
-          {/* Selos compactos acima do CTA */}
-          <div className="flex flex-wrap justify-center gap-2 mb-3 mt-3">
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Vitalício</span></div>
+          {/* Selo Curso Online */}
+          <div className="flex justify-center mb-3 mt-3">
             <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Sparkles className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Curso Online</span></div>
           </div>
 
