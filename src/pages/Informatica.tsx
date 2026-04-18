@@ -271,7 +271,7 @@ const Informatica = () => {
       {/* ─── HERO ─── */}
       <section className="bg-slate-900 pt-0 pb-2 md:pb-4">
         {/* Faixa infinita acima da copy */}
-        <div className="relative w-screen left-1/2 -translate-x-1/2 mb-3 md:mb-4 overflow-hidden bg-gradient-to-r from-destructive via-red-600 to-destructive border-y-2 border-red-400/40 shadow-lg">
+        <div className="relative w-screen left-1/2 -translate-x-1/2 mb-3 md:mb-4 overflow-hidden bg-gradient-to-r from-red-900/70 via-red-800/70 to-red-900/70 border-y border-red-400/30 shadow-md">
           <div className="flex animate-marquee whitespace-nowrap py-2 md:py-2.5" style={{ animationDuration: '30s' }}>
             {Array.from({ length: 8 }).map((_, i) => (
               <span key={i} className="mx-6 text-white font-black text-sm md:text-base tracking-wider uppercase flex items-center gap-2">
