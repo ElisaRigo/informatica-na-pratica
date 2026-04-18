@@ -358,15 +358,18 @@ const Informatica = () => {
                 <span className="text-xs font-bold text-white">Garantia 7 dias</span>
               </div>
             </div>
+
+            {/* CTA logo abaixo dos selos */}
+            <div className="px-3 pt-3">
+              <button onClick={() => (window as any).openCheckout?.()} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-xl md:text-2xl px-6 py-5 md:py-6 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer leading-tight">
+                🎯 Quero Começar Agora
+              </button>
+            </div>
+
             <div className="p-3 md:p-4">
               <p className="text-base md:text-lg text-slate-300 mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
               <p className="text-3xl md:text-4xl font-black text-white mb-1 leading-tight">12x de <span className="text-success">R$ 30,72</span></p>
               <p className="text-sm md:text-base text-slate-300 mb-3">ou <span className="text-success font-bold text-lg md:text-xl">R$ 297,00</span> à vista</p>
-
-              {/* CTA dentro do card */}
-              <button onClick={() => (window as any).openCheckout?.()} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-xl md:text-2xl px-6 py-5 md:py-6 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer mb-3 leading-tight">
-                🎯 Quero Começar Agora
-              </button>
 
               <div className="border border-success/40 rounded-xl p-2 mb-2 bg-success/10">
                 <p className="text-xs md:text-sm font-bold text-success mb-0.5"><Shield className="w-3.5 h-3.5 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
