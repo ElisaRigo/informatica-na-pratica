@@ -203,8 +203,9 @@ export const HeroV2 = () => {
           </p>
 
           {/* Selos de benefícios - mesmo formato dos selos de confiança */}
-          <div className="grid grid-cols-3 gap-2 md:gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
             {[
+              { icon: MessageCircle, label: "Linguagem Simples", sublabel: "Fácil de entender" },
               { icon: Footprints, label: "Passo a Passo", sublabel: "Sem pular etapas" },
               { icon: Smile, label: "Sem Complicação", sublabel: "Direto ao ponto" },
               { icon: Rocket, label: "Do Zero ao Mercado", sublabel: "Preparação completa" },
