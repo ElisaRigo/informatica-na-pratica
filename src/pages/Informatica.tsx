@@ -265,8 +265,11 @@ const Informatica = () => {
       <section className="bg-slate-900 py-2 md:py-4">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-2 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
-            Curso de <span className="text-white">Informática<br className="md:hidden" /> para <span className="text-primary">Iniciantes</span></span>
+            Aprenda <span className="text-primary">Informática</span><br className="md:hidden" /> do <span className="text-primary">Zero</span>
           </h1>
+          <p className="text-lg md:text-2xl lg:text-3xl text-white/90 text-center font-bold mb-3">
+            Mesmo sem saber nada
+          </p>
 
           <div className="relative max-w-2xl mx-auto mb-2">
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
