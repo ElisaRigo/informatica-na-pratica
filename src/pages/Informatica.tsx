@@ -318,18 +318,18 @@ const Informatica = () => {
             </div>
           </div>
 
-          <p className="text-base md:text-xl text-slate-200 text-center mb-3 mt-2 max-w-2xl mx-auto leading-snug">
+          <p className="text-sm md:text-xl text-slate-200 text-center mb-2 mt-2 max-w-2xl mx-auto leading-snug">
             Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia — <strong className="text-white">sem depender de outras pessoas</strong>
           </p>
 
           {/* Selos de Confiança - Grid (estilo /curso HeroV2) */}
-          <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-2xl mx-auto mt-3 mb-3">
+          <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-2xl mx-auto mt-2 mb-2">
             {[
               { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
               { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
-                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+              <div key={i} className="flex flex-col items-center text-center p-1.5 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+                <item.icon className="w-5 h-5 md:w-8 md:h-8 text-primary mb-0.5 md:mb-2" />
                 <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
                 <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
               </div>
