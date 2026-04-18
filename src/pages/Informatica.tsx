@@ -354,7 +354,7 @@ const Informatica = () => {
               <p className="text-sm md:text-base text-slate-300 mb-3">ou <span className="text-success font-bold text-base md:text-lg">R$ 297,00</span> à vista</p>
 
               {/* CTA dentro do card */}
-              <button onClick={() => (window as any).openCheckout?.()} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-base md:text-xl px-6 py-3.5 md:py-5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer mb-3">
+              <button onClick={() => (window as any).openCheckout?.()} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-xl md:text-2xl px-6 py-5 md:py-6 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer mb-3 leading-tight">
                 🎯 Quero Começar Agora
               </button>
 
