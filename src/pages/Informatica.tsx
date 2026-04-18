@@ -262,7 +262,19 @@ const Informatica = () => {
       </header>
 
       {/* ─── HERO ─── */}
-      <section className="bg-slate-900 py-2 md:py-4">
+      <section className="bg-slate-900 pt-0 pb-2 md:pb-4">
+        {/* Faixa infinita acima da copy */}
+        <div className="relative w-screen left-1/2 -translate-x-1/2 mb-3 md:mb-4 overflow-hidden bg-gradient-to-r from-destructive via-red-600 to-destructive border-y-2 border-red-400/40 shadow-lg">
+          <div className="flex animate-marquee whitespace-nowrap py-2 md:py-2.5">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <span key={i} className="mx-6 text-white font-black text-sm md:text-base tracking-wider uppercase flex items-center gap-2">
+                🚫 Você sente dificuldade no computador?
+                <span className="text-yellow-300">★</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-2 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
             Aprenda <span className="text-primary">Informática</span><br className="md:hidden" /> do <span className="text-primary">Zero</span>
