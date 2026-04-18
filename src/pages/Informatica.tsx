@@ -356,6 +356,20 @@ const Informatica = () => {
             </div>
           </div>
 
+          {/* Selos: Certificado + Alunos (movidos da primeira dobra) */}
+          <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-xl mx-auto mt-3">
+            {[
+              { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
+              { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
+              </div>
+            ))}
+          </div>
+
           {/* Trust badges */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
             <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Imediato</span></div>
