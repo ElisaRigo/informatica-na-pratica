@@ -259,7 +259,7 @@ const Informatica = () => {
               <img src={logo} alt="Informática na Prática" className="h-12 md:h-20 lg:h-24 drop-shadow-lg" />
             </div>
           </div>
-          <p className="flex-1 text-white text-sm md:text-lg lg:text-xl font-medium text-left md:text-center md:mt-3 leading-tight">
+          <p className="text-white text-sm md:text-lg lg:text-xl font-medium text-left md:text-center md:mt-3 leading-tight">
             Curso de <span className="text-primary font-bold">Informática Online</span>
             <span className="md:hidden"><br /></span>
             <span className="hidden md:inline"> — </span>
