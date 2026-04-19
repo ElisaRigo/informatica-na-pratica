@@ -836,7 +836,7 @@ const Informatica = () => {
               <Link to="/politica-de-privacidade" className="text-slate-300 hover:text-white transition-colors">Política de Privacidade</Link>
             </div>
             <div className="text-slate-400 text-sm space-y-1">
-              <p className="font-semibold text-white">Elisangela Neri Rigo</p>
+              <p className="font-semibold text-white">Informática na Prática LTDA</p>
               <p><strong>CNPJ:</strong> 32.373.460/0001-51</p>
               <p className="mt-3">© {new Date().getFullYear()} Informática na Prática. Todos os direitos reservados.</p>
             </div>
