@@ -296,8 +296,8 @@ const Informatica = () => {
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer animate-pulse">
-                      <span className="absolute inset-0 rounded-full bg-primary/40 animate-ping" />
+                    <div className="relative w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer [animation:pulse_2.5s_ease-in-out_infinite]">
+                      <span className="absolute inset-0 rounded-full bg-primary/40 [animation:ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]" />
                       <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                     </div>
                   </div>
