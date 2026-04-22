@@ -404,7 +404,7 @@ const Informatica = () => {
                 </div>
               </div>
 
-              <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
+              </div>
             </div>
           </div>
 
