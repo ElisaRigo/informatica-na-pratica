@@ -390,16 +390,13 @@ const Informatica = () => {
                     className="w-12 h-12 rounded-full object-cover flex-shrink-0 border-2 border-primary/40"
                   />
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <p className="text-[11px] md:text-xs text-slate-300 font-semibold whitespace-nowrap">— Mariana S.</p>
-                      <div className="flex gap-0.5">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-warning text-warning" />
-                        ))}
-                      </div>
+                    <div className="flex gap-0.5 mb-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-warning text-warning" />
+                      ))}
                     </div>
                     <p className="text-[12px] md:text-sm text-white italic leading-snug">
-                      "Eu não sabia nada… hoje faço tudo sozinha."
+                      "Eu não sabia nada… hoje faço tudo sozinha." <span className="not-italic text-slate-300 font-semibold">— Mariana S.</span>
                     </p>
                   </div>
                 </div>
