@@ -38,6 +38,7 @@ import {
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { EasyToLearn } from "@/components/EasyToLearn";
+import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
@@ -710,6 +711,9 @@ const Informatica = () => {
           </div>
         </div>
       </section>
+
+      {/* ─── AULA REAL (Conheça um Pouco Mais) ─── */}
+      <EnvironmentSection />
 
       {/* ─── COMMENTS 5-6 ─── */}
       <FacebookCommentPair indices={[4, 5]} />
