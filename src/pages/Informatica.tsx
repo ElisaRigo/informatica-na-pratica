@@ -38,6 +38,7 @@ import {
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { EasyToLearn } from "@/components/EasyToLearn";
+import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
