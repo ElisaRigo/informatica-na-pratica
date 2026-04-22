@@ -30,6 +30,7 @@ import testimonial3 from "@/assets/testimonial-new-3.jpg";
 import testimonial4 from "@/assets/testimonial-new-4.jpg";
 import testimonial5 from "@/assets/testimonial-new-5.jpg";
 import testimonial6 from "@/assets/testimonial-new-6.jpg";
+import marianaPhoto from "@/assets/testimonial-mariana.jpg";
 import {
   Accordion,
   AccordionContent,
@@ -375,6 +376,33 @@ const Informatica = () => {
                 <p className="text-xs md:text-sm font-bold text-success mb-0.5"><Shield className="w-3.5 h-3.5 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
                 <p className="text-[11px] md:text-xs text-slate-300">Se não gostar, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas.</p>
               </div>
+
+              {/* Depoimento Mariana - prova social próxima ao CTA */}
+              <div className="border border-primary/30 rounded-xl p-3 mb-2 bg-primary/10 text-left">
+                <div className="flex items-start gap-3">
+                  <img
+                    src={marianaPhoto}
+                    alt="Foto de Mariana S., aluna do curso"
+                    width={48}
+                    height={48}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-12 h-12 rounded-full object-cover flex-shrink-0 border-2 border-primary/40"
+                  />
+                  <div className="flex-1">
+                    <div className="flex gap-0.5 mb-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-warning text-warning" />
+                      ))}
+                    </div>
+                    <p className="text-[12px] md:text-sm text-white italic leading-snug mb-1">
+                      "Eu não sabia nada… hoje faço tudo sozinha."
+                    </p>
+                    <p className="text-[11px] md:text-xs text-slate-300 font-semibold">— Mariana S.</p>
+                  </div>
+                </div>
+              </div>
+
               <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
             </div>
           </div>
