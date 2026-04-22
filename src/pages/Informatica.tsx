@@ -404,7 +404,6 @@ const Informatica = () => {
                 </div>
               </div>
 
-              </div>
             </div>
           </div>
 
