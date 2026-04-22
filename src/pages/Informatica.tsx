@@ -294,9 +294,9 @@ const Informatica = () => {
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary shadow-2xl shadow-primary/50 flex items-center justify-center group-hover:scale-110 transition-all ring-4 ring-white/80 animate-pulse">
-                      <Play className="w-9 h-9 md:w-11 md:h-11 text-white fill-white ml-1" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 md:w-18 md:h-18 rounded-full bg-white/30 shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/40 transition-all">
+                      <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-0.5" />
                     </div>
                   </div>
                 </div>
