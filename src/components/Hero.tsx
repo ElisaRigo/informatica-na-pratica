@@ -82,6 +82,22 @@ export const Hero = () => {
               </div>
             </div>
 
+            {/* Benefícios - linha superior */}
+            <div className="flex flex-wrap gap-2 justify-center items-center mb-3">
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Zap className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-foreground">Acesso Imediato</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Shield className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-foreground">Garantia 7 dias</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
+                <Headphones className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-xs md:text-sm text-foreground">Suporte ao aluno</span>
+              </div>
+            </div>
+
             {/* Selos acima do CTA */}
             <div className="flex flex-wrap gap-2 justify-center items-center mb-3">
               <div className="flex items-center gap-1.5 bg-primary/10 border border-primary/30 px-3 py-2 rounded-lg">
@@ -95,7 +111,7 @@ export const Hero = () => {
             </div>
 
             {/* WhatsApp */}
-            <div className="flex flex-col items-center gap-2 mb-3">
+            <div className="flex flex-col items-center gap-2">
               <a
                 href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica"
                 target="_blank"
@@ -110,22 +126,6 @@ export const Hero = () => {
               <p className="text-sm text-muted-foreground">
                 👉 Sem compromisso. Eu te explico com calma no WhatsApp 😊
               </p>
-            </div>
-
-            {/* Benefícios - linha inferior */}
-            <div className="flex flex-wrap gap-2 justify-center items-center">
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <Zap className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-foreground">Acesso Imediato</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <Shield className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-foreground">Garantia 7 dias</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-background/80 border border-border px-3 py-2 rounded-lg">
-                <Headphones className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-xs md:text-sm text-foreground">Suporte ao aluno</span>
-              </div>
             </div>
           </div>
 
