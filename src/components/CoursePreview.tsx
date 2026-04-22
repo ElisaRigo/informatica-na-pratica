@@ -47,7 +47,7 @@ export const CoursePreview = () => {
               // Thumbnail com botão de play
               shouldLoadVideo && (
                 <div
-                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
+                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group shadow-xl border-2 border-primary/20"
                   onClick={handlePlayClick}
                 >
                   <img
@@ -62,8 +62,8 @@ export const CoursePreview = () => {
 
                   {/* Botão de Play */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 md:w-24 md:h-24 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white hover:bg-black/80 hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
-                      <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                     </div>
                   </div>
                 </div>
