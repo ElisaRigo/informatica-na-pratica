@@ -712,6 +712,9 @@ const Informatica = () => {
         </div>
       </section>
 
+      {/* ─── AULA REAL (Conheça um Pouco Mais) ─── */}
+      <EnvironmentSection />
+
       {/* ─── COMMENTS 5-6 ─── */}
       <FacebookCommentPair indices={[4, 5]} />
 
