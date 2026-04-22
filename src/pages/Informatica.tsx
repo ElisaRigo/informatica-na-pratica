@@ -326,13 +326,12 @@ const Informatica = () => {
           {/* Selos de Confiança - Grid (estilo /curso HeroV2) */}
           <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-2xl mx-auto mt-2 mb-2">
             {[
-              { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
-              { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
+              { icon: Headphones, label: "Suporte nas Aulas" },
+              { icon: Shield, label: "Garantia 7 Dias" },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center text-center p-1.5 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
                 <item.icon className="w-5 h-5 md:w-8 md:h-8 text-primary mb-0.5 md:mb-2" />
                 <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
               </div>
             ))}
           </div>
