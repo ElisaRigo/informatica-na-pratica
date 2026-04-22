@@ -340,12 +340,12 @@ const Informatica = () => {
           {/* Pricing (com banner de urgência integrado + CTA dentro) */}
           <div className="bg-slate-800/60 border border-slate-700 rounded-2xl max-w-xl mx-auto text-center overflow-hidden">
             <div className="bg-slate-800 border-b border-amber-500/40 py-2.5 px-4 flex items-center justify-center gap-2">
+              <p className="text-amber-200 font-bold text-center text-sm md:text-base tracking-wide">
+                Garanta seu acesso com
+              </p>
               <span className="inline-flex items-center gap-1.5 bg-amber-500 text-slate-900 font-black text-xs md:text-sm px-2.5 py-1 rounded-md shadow">
                 40% OFF
               </span>
-              <p className="text-amber-200 font-bold text-center text-sm md:text-base tracking-wide">
-                Garanta seu acesso com 40% OFF
-              </p>
             </div>
             {/* CTA logo abaixo da faixa de urgência */}
             <div className="px-3 pt-3 flex justify-center">
