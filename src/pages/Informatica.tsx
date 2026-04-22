@@ -344,7 +344,7 @@ const Informatica = () => {
                 40% OFF
               </span>
               <p className="text-amber-200 font-bold text-center text-sm md:text-base tracking-wide">
-                Últimas vagas com desconto
+                Garanta seu acesso com 40% OFF
               </p>
             </div>
             {/* CTA logo abaixo da faixa de urgência */}
