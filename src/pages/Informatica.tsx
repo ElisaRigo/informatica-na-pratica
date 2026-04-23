@@ -376,7 +376,7 @@ const Informatica = () => {
 
               <div className="border border-success/40 rounded-xl p-2 mb-2 bg-success/10">
                 <p className="text-xs md:text-sm font-bold text-success mb-0.5"><Shield className="w-3.5 h-3.5 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
-                <p className="text-[11px] md:text-xs text-slate-300">Se não gostar, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas.</p>
+                <p className="text-[11px] md:text-xs text-slate-300"><strong className="text-white">Risco Zero!</strong> Se não gostar? Devolvo <strong className="text-white">100% do seu dinheiro</strong>.</p>
               </div>
 
               {/* Depoimento Mariana - prova social próxima ao CTA */}
