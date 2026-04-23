@@ -501,9 +501,9 @@ const Informatica = () => {
           {/* CTA */}
           <div className="text-center mt-4 space-y-3">
             <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105">
-              Quero Aprender Informática sem Medo →
+              Quero Aprender Agora →
             </button>
-            <p className="text-slate-400 text-sm">🔒 Pagamento seguro · Garantia de 7 dias · Acesso imediato</p>
+            <p className="text-slate-300 text-base md:text-lg font-medium">🔒 Pagamento seguro · Garantia de 7 dias · Acesso imediato</p>
           </div>
         </div>
       </section>
