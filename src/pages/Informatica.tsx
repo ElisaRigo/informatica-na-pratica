@@ -344,7 +344,7 @@ const Informatica = () => {
           <div className="bg-slate-800/60 border border-slate-700 rounded-2xl max-w-xl mx-auto text-center overflow-hidden">
             <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 border-b-2 border-amber-300 py-3 px-4 flex items-center justify-center gap-2 shadow-lg">
               <p className="text-white font-black text-center text-base md:text-lg tracking-wide drop-shadow">
-                Comece do zero hoje com
+                Hoje: comece do zero com
               </p>
               <span className="inline-flex items-center gap-1.5 bg-white text-red-600 font-black text-xs md:text-sm px-2.5 py-1 rounded-md shadow-md ring-2 ring-amber-300">
                 40% OFF
