@@ -352,7 +352,7 @@ const Informatica = () => {
             </div>
             {/* CTA logo abaixo da faixa de urgência */}
             <div className="px-3 pt-3 flex justify-center">
-              <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-base md:text-lg tracking-wide px-10 py-3 md:px-14 md:py-3.5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer leading-tight">
+              <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-md md:max-w-xl inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-lg md:text-2xl tracking-wide px-8 py-5 md:px-16 md:py-6 rounded-2xl border-b-[6px] border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 shadow-xl shadow-success/40 hover:shadow-success/60 hover:scale-[1.02] transition-all duration-200 cursor-pointer leading-tight">
                 🎯 Quero Começar Agora
               </button>
             </div>
