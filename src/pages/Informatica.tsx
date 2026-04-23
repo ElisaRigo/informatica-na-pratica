@@ -322,7 +322,7 @@ const Informatica = () => {
           </div>
 
           <p className="text-sm md:text-xl text-slate-200 text-center mb-2 mt-2 max-w-2xl mx-auto leading-snug">
-            Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia — <strong className="text-white">sem depender de outras pessoas</strong>
+            Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia <strong className="text-white">sem depender de ninguém</strong>
           </p>
 
           {/* Selos de Confiança - Grid (estilo /curso HeroV2) */}
