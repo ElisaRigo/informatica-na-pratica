@@ -438,6 +438,31 @@ const Informatica = () => {
       {/* ─── EASY TO LEARN ─── */}
       <EasyToLearn />
 
+      {/* ─── REFORÇO DE CTA ─── */}
+      <section className="bg-slate-900 py-6 md:py-8 border-t border-slate-800">
+        <div className="container mx-auto px-4 max-w-2xl text-center">
+          <div className="flex justify-center">
+            <button
+              onClick={() => (window as any).openCheckout?.()}
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-base md:text-lg tracking-wide px-10 py-3 md:px-14 md:py-3.5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer leading-tight"
+            >
+              🎯 Quero Começar Agora
+            </button>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2 pt-3">
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
+              <Zap className="w-3.5 h-3.5 text-primary" />
+              <span className="text-xs font-bold text-white">Acesso Imediato</span>
+            </div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
+              <Shield className="w-3.5 h-3.5 text-primary" />
+              <span className="text-xs font-bold text-white">Garantia 7 dias</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* ─── AUDIO TESTIMONIALS HEADER ─── */}
       <section className="py-4 md:py-6 bg-slate-900 border-t border-slate-800">
         <div className="container mx-auto px-4">
