@@ -342,14 +342,14 @@ const Informatica = () => {
 
           {/* Pricing (com banner de urgência integrado + CTA dentro) */}
           <div className="bg-slate-800/60 border border-slate-700 rounded-2xl max-w-xl mx-auto text-center overflow-hidden">
-            <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 border-b-2 border-amber-300 py-3 px-3 flex flex-wrap items-center justify-center gap-2 shadow-lg">
-              <p className="text-white font-black text-center text-sm md:text-lg tracking-tight drop-shadow leading-tight">
+            <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 border-b-2 border-amber-300 py-3 px-3 flex flex-col md:flex-row flex-wrap items-center justify-center gap-2 shadow-lg">
+              <p className="text-white font-black text-center text-xl md:text-lg tracking-tight drop-shadow leading-tight">
                 Comece hoje do zero e garanta
               </p>
-              <span className="inline-flex items-center gap-1.5 bg-white text-red-600 font-black text-sm md:text-lg px-2.5 py-0.5 rounded-md shadow-md ring-2 ring-amber-300 flex-shrink-0">
+              <span className="inline-flex items-center gap-1.5 bg-white text-red-600 font-black text-2xl md:text-lg px-4 py-1 md:px-2.5 md:py-0.5 rounded-md shadow-md ring-2 ring-amber-300 flex-shrink-0">
                 40% OFF
               </span>
-              <p className="text-white font-black text-center text-sm md:text-lg tracking-tight drop-shadow leading-tight">
+              <p className="text-white font-black text-center text-xl md:text-lg tracking-tight drop-shadow leading-tight">
                 no seu acesso
               </p>
             </div>
