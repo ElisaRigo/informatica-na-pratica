@@ -342,33 +342,13 @@ const Informatica = () => {
 
           {/* Pricing (com banner de urgência integrado + CTA dentro) */}
           <div className="bg-slate-800/60 border border-slate-700 rounded-2xl max-w-xl mx-auto text-center overflow-hidden">
-            <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 border-b-2 border-amber-300 py-3 px-3 shadow-lg">
-              {/* Mobile: 2 linhas */}
-              <div className="flex flex-col items-center justify-center gap-1.5 md:hidden">
-                <p className="text-white font-black text-center text-xl tracking-tight drop-shadow leading-tight">
-                  Comece hoje do zero e garanta
-                </p>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="inline-flex items-center bg-white text-red-600 font-black text-2xl px-3 py-0.5 rounded-md shadow-md ring-2 ring-amber-300">
-                    40% OFF
-                  </span>
-                  <p className="text-white font-black text-center text-xl tracking-tight drop-shadow leading-tight">
-                    no seu acesso
-                  </p>
-                </div>
-              </div>
-              {/* Desktop: 1 linha */}
-              <div className="hidden md:flex items-center justify-center gap-2">
-                <p className="text-white font-black text-center text-lg tracking-tight drop-shadow leading-tight">
-                  Comece hoje do zero e garanta
-                </p>
-                <span className="inline-flex items-center bg-white text-red-600 font-black text-lg px-2.5 py-0.5 rounded-md shadow-md ring-2 ring-amber-300 flex-shrink-0">
-                  40% OFF
-                </span>
-                <p className="text-white font-black text-center text-lg tracking-tight drop-shadow leading-tight">
-                  no seu acesso
-                </p>
-              </div>
+            <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 border-b-2 border-amber-300 py-3 px-4 flex items-center justify-center gap-2 shadow-lg">
+              <p className="text-white font-black text-center text-sm md:text-base tracking-wide drop-shadow">
+                Garanta seu acesso com
+              </p>
+              <span className="inline-flex items-center gap-1.5 bg-white text-red-600 font-black text-xs md:text-sm px-2.5 py-1 rounded-md shadow-md ring-2 ring-amber-300">
+                40% OFF
+              </span>
             </div>
             {/* CTA logo abaixo da faixa de urgência */}
             <div className="px-3 pt-3 flex justify-center">
