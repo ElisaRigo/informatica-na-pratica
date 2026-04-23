@@ -417,7 +417,7 @@ const Informatica = () => {
                 Pagamento 100% seguro • Acesso imediato
               </p>
 
-
+            </div>
           </div>
 
           {/* Selos: Certificado + Alunos (movidos da primeira dobra) */}
