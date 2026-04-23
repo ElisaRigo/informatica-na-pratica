@@ -371,7 +371,7 @@ const Informatica = () => {
 
             <div className="p-3 md:p-4">
               <p className="text-base md:text-lg text-slate-300 mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
-              <p className="text-3xl md:text-4xl font-black text-white mb-1 leading-tight">12x de <span className="text-success">R$ 30,72</span></p>
+              <p className="text-3xl md:text-4xl font-black text-white mb-1 leading-tight"><span className="text-success">Só</span> 12x de <span className="text-success">R$ 30,72</span></p>
               <p className="text-sm md:text-base text-slate-300 mb-1">ou <span className="text-success font-bold text-lg md:text-xl">R$ 297,00</span> à vista</p>
               <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1 mb-2"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
 
