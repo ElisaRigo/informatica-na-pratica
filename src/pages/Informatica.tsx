@@ -376,7 +376,7 @@ const Informatica = () => {
               <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1 mb-2"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
 
               <p className="text-sm md:text-base font-bold text-white bg-primary/15 border border-primary/40 rounded-lg px-3 py-2 mb-3 leading-snug">
-                Mesmo <span className="text-primary">sem saber nada</span> — você vai aprender <span className="text-primary">passo a passo</span>
+                Mesmo <span className="text-primary">sem saber nada</span> — você vai aprender <span className="text-primary">passo a passo, do zero</span>
               </p>
 
               <div className="border border-success/40 rounded-xl p-2 mb-2 bg-success/10">
