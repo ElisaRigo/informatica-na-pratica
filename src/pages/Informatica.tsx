@@ -373,7 +373,11 @@ const Informatica = () => {
               <p className="text-base md:text-lg text-slate-300 mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
               <p className="text-3xl md:text-4xl font-black text-white mb-1 leading-tight">12x de <span className="text-success">R$ 30,72</span></p>
               <p className="text-sm md:text-base text-slate-300 mb-1">ou <span className="text-success font-bold text-lg md:text-xl">R$ 297,00</span> à vista</p>
-              <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1 mb-3"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
+              <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1 mb-2"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
+
+              <p className="text-sm md:text-base font-bold text-white bg-primary/15 border border-primary/40 rounded-lg px-3 py-2 mb-3 leading-snug">
+                Mesmo <span className="text-primary">sem saber nada</span> — você vai aprender <span className="text-primary">passo a passo</span>
+              </p>
 
               <div className="border border-success/40 rounded-xl p-2 mb-2 bg-success/10">
                 <p className="text-xs md:text-sm font-bold text-success mb-0.5"><Shield className="w-3.5 h-3.5 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
