@@ -336,7 +336,8 @@ const Informatica = () => {
                 <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
               </div>
             ))}
-          </div>
+              </div>
+
 
 
           {/* Pricing (com banner de urgência integrado + CTA dentro) */}
@@ -403,6 +404,18 @@ const Informatica = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Reforço de CTA após depoimento */}
+              <button
+                onClick={() => (window as any).openCheckout?.()}
+                className="w-full inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-black text-base md:text-lg px-6 py-4 rounded-xl shadow-xl shadow-success/30 hover:scale-[1.02] transition-all duration-300 mt-3"
+              >
+                QUERO COMEÇAR AGORA
+              </button>
+              <p className="text-slate-400 text-[11px] md:text-xs mt-2 text-center">
+                <Lock className="w-3 h-3 inline-block mr-1 -mt-0.5" />
+                Pagamento 100% seguro • Acesso imediato
+              </p>
 
             </div>
           </div>
