@@ -1,7 +1,7 @@
 import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
-import heroVideoThumb from "@/assets/aula-demo-thumb.jpg";
+import heroVideoThumb from "@/assets/aula-demo-thumb.png";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 
