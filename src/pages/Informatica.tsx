@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
-import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
+import heroVideoThumb from "@/assets/hero-video-cover-home-v2.png";
 
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
