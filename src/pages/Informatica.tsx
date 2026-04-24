@@ -251,10 +251,12 @@ const Informatica = () => {
   return (
     <div className="min-h-screen bg-slate-900">
       {/* ─── HEADER ─── */}
-      <header className="bg-slate-900 py-2 border-b border-slate-800">
-        <div className="container mx-auto px-4 flex flex-col items-center">
-          <img src={logo} alt="Informática na Prática" className="h-12 md:h-14" />
-          <p className="text-white text-sm md:text-base mt-1 text-center font-medium">
+      <header className="bg-slate-900 py-3 border-b border-slate-800">
+        <div className="container mx-auto px-4 flex items-center justify-center gap-3 md:gap-4">
+          <div className="rounded-xl border-2 border-primary/60 bg-slate-800/60 p-1.5 md:p-2 shadow-[0_0_20px_rgba(59,130,246,0.25)] flex-shrink-0">
+            <img src={logo} alt="Informática na Prática" className="h-12 md:h-14 block" />
+          </div>
+          <p className="text-white text-sm md:text-base font-medium leading-tight text-left">
             Curso de <span className="text-primary font-bold">Informática Online</span>
             <br />Simples e para Todos.
           </p>
