@@ -54,6 +54,9 @@ export const HeroPricing = () => {
 
           {/* Price */}
           <div className="text-center mb-4">
+            <p className="text-sm md:text-lg font-bold text-white mb-2">
+              🚀 Invista em você por <span className="text-primary">menos de R$ 1 por dia</span>
+            </p>
             <p className="text-base md:text-xl text-slate-400 mb-1">
               De{" "}
               <span className="line-through text-slate-300 font-bold text-lg md:text-2xl">

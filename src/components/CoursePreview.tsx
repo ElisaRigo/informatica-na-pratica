@@ -62,8 +62,8 @@ export const CoursePreview = () => {
 
                   {/* Botão de Play */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                      <Play className="w-7 h-7 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                    <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center border-4 border-primary hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
+                      <Play className="w-9 h-9 md:w-11 md:h-11 text-primary fill-primary ml-1" />
                     </div>
                   </div>
                 </div>
