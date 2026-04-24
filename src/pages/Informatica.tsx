@@ -257,7 +257,7 @@ const Informatica = () => {
             <img src={logo} alt="Informática na Prática" className="h-12 md:h-14 block" />
           </div>
           <p className="text-white text-sm md:text-base font-medium leading-tight text-left">
-            Curso de <span className="text-primary font-bold">Informática Online</span>
+            Curso de <span className="text-brand-light font-bold">Informática Online</span>
             <br />Simples e para Todos.
           </p>
         </div>
@@ -279,7 +279,7 @@ const Informatica = () => {
 
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
-            Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
+            Domine o <span className="text-brand-light">computador</span> em <span className="text-brand-light">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
 
           <div className="relative max-w-2xl mx-auto mb-2">
