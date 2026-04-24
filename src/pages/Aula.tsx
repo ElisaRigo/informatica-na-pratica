@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-blue.png";
 
-import freeClassThumb from "@/assets/aula-demo-thumb.jpg";
+import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import environmentThumb from "@/assets/environment-thumb.jpg";
 
 const videos = [

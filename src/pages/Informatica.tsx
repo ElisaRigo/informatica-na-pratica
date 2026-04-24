@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
-import heroVideoThumb from "@/assets/hero-video-cover-home-v2.png";
+import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
 
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -30,7 +30,6 @@ import testimonial3 from "@/assets/testimonial-new-3.jpg";
 import testimonial4 from "@/assets/testimonial-new-4.jpg";
 import testimonial5 from "@/assets/testimonial-new-5.jpg";
 import testimonial6 from "@/assets/testimonial-new-6.jpg";
-import marianaPhoto from "@/assets/testimonial-mariana.jpg";
 import {
   Accordion,
   AccordionContent,
@@ -39,7 +38,6 @@ import {
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { EasyToLearn } from "@/components/EasyToLearn";
-import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
@@ -253,19 +251,12 @@ const Informatica = () => {
   return (
     <div className="min-h-screen bg-slate-900">
       {/* ─── HEADER ─── */}
-      <header className="bg-slate-900 py-3 md:py-4 border-b border-slate-800">
-        <div className="container mx-auto px-4 flex items-center justify-center gap-3 md:flex-col md:gap-0">
-          <div className="relative group shrink-0">
-            <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-4 border border-white/20 shadow-lg">
-              <img src={logo} alt="Informática na Prática" className="h-12 md:h-20 lg:h-24 drop-shadow-lg" />
-            </div>
-          </div>
-          <p className="text-white text-base md:text-lg lg:text-xl font-semibold text-left md:text-center md:mt-3 leading-tight">
+      <header className="bg-slate-900 py-2 border-b border-slate-800">
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <img src={logo} alt="Informática na Prática" className="h-12 md:h-14" />
+          <p className="text-white text-sm md:text-base mt-1 text-center font-medium">
             Curso de <span className="text-primary font-bold">Informática Online</span>
-            <span className="md:hidden"><br /></span>
-            <span className="hidden md:inline"> — </span>
-            Simples e para Todos.
+            <br />Simples e para Todos.
           </p>
         </div>
       </header>
@@ -273,31 +264,37 @@ const Informatica = () => {
       {/* ─── HERO ─── */}
       <section className="bg-slate-900 pt-0 pb-2 md:pb-4">
         {/* Faixa infinita acima da copy */}
-        <div className="relative w-screen left-1/2 -translate-x-1/2 mb-3 md:mb-4 overflow-hidden bg-gradient-to-r from-red-900/70 via-red-800/70 to-red-900/70 border-y border-red-400/30 shadow-md">
+        <div className="relative w-screen left-1/2 -translate-x-1/2 mb-3 md:mb-4 overflow-hidden bg-gradient-to-r from-destructive via-red-600 to-destructive border-y-2 border-red-400/40 shadow-lg">
           <div className="flex animate-marquee whitespace-nowrap py-2 md:py-2.5" style={{ animationDuration: '30s' }}>
             {Array.from({ length: 8 }).map((_, i) => (
               <span key={i} className="mx-6 text-white font-black text-sm md:text-base tracking-wider uppercase flex items-center gap-2">
                 <span className="text-xl md:text-2xl">😰</span>
-                VOCÊ SENTE DIFICULDADE COM O COMPUTADOR?
+                VOCÊ NÃO SABE USAR O COMPUTADOR?
               </span>
             ))}
           </div>
         </div>
 
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-[24px] md:text-4xl lg:text-5xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
+          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-3 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
             Domine o <span className="text-primary">computador</span> em <span className="text-primary">poucas semanas</span>,<br className="hidden md:block" /> mesmo sem saber nada
           </h1>
 
-          <div className="relative max-w-2xl mx-auto mb-6 md:mb-8">
+          <div className="relative max-w-2xl mx-auto mb-2">
             <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
+              {/* Selo +15.000 alunos */}
+              <div className="absolute bottom-3 right-3 z-20">
+                <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-black text-xs md:text-sm shadow-xl border-2 border-white/40 animate-pulse">
+                  <Users className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  +15.000 ALUNOS
+                </div>
+              </div>
               {!isPlaying ? (
                 <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                   <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
-                  {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer [animation:pulse_2.5s_ease-in-out_infinite]">
-                      <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                    <div className="w-14 h-14 md:w-18 md:h-18 rounded-full bg-white/30 shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/40 transition-all">
+                      <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-0.5" />
                     </div>
                   </div>
                 </div>
@@ -307,126 +304,51 @@ const Informatica = () => {
                 </div>
               )}
             </div>
-            <div className="absolute bottom-0 left-3 md:left-4 z-20 translate-y-1/2">
-              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-black text-[11px] md:text-sm shadow-2xl border-2 border-primary ring-2 ring-slate-900/40">
-                <Infinity className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
-                ACESSO VITALÍCIO
-              </div>
-            </div>
-            <div className="absolute bottom-0 right-3 md:right-4 z-20 translate-y-1/2">
-              <div className="flex items-center gap-1.5 md:gap-2 bg-slate-900 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-black text-[11px] md:text-sm shadow-2xl border-2 border-accent ring-2 ring-slate-900/40">
-                <Users className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent" />
-                +15.000 ALUNOS
-              </div>
-            </div>
           </div>
 
-          <p className="text-sm md:text-xl text-slate-200 text-center mb-2 mt-2 max-w-2xl mx-auto leading-snug">
-            Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia <strong className="text-white">sem depender de ninguém</strong>
+          <p className="text-base md:text-xl text-slate-200 text-center mb-1 max-w-2xl mx-auto leading-snug">
+            Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia — <strong className="text-white">sem depender de outras pessoas</strong>
           </p>
 
-          {/* Selos de Confiança - Grid (estilo /curso HeroV2) */}
-          <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-2xl mx-auto mt-2 mb-2">
-            {[
-              { icon: Headphones, label: "Suporte nas Aulas" },
-              { icon: Shield, label: "Garantia 7 Dias" },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-1.5 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
-                <item.icon className="w-5 h-5 md:w-8 md:h-8 text-primary mb-0.5 md:mb-2" />
-                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-              </div>
-            ))}
-              </div>
+          {/* Selos acima do CTA */}
+          <div className="flex flex-wrap justify-center gap-2 mb-3 mt-3">
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Vitalício</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Certificado incluso</span></div>
+          </div>
 
+          {/* CTA */}
+          <div className="flex justify-center mb-5 md:mb-6">
+            <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-lg inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-lg md:text-xl px-10 py-4 md:py-5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer">
+              🎯 Quero Começar Agora
+            </button>
+          </div>
 
-
-          {/* Pricing (com banner de urgência integrado + CTA dentro) */}
+          {/* Pricing (com banner de urgência integrado) */}
           <div className="bg-slate-800/60 border border-slate-700 rounded-2xl max-w-xl mx-auto text-center overflow-hidden">
-            <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 border-b-2 border-amber-300 py-3 px-4 flex items-center justify-center gap-2 shadow-lg">
-              <p className="text-white font-black text-center text-base md:text-lg tracking-wide drop-shadow">
-                Hoje: comece do zero com
+            <div className="bg-gradient-to-r from-destructive to-destructive/80 py-2.5 px-4">
+              <p className="text-white font-black text-center text-base md:text-xl tracking-wide animate-pulse">
+                🔥 ÚLTIMAS VAGAS COM 40% OFF!
               </p>
-              <span className="inline-flex items-center gap-1.5 bg-white text-red-600 font-black text-xs md:text-sm px-2.5 py-1 rounded-md shadow-md ring-2 ring-amber-300">
-                40% OFF
-              </span>
             </div>
-            {/* CTA logo abaixo da faixa de urgência */}
-            <div className="px-3 pt-3 flex justify-center">
-              <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-base md:text-lg tracking-wide px-10 py-3 md:px-14 md:py-3.5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer leading-tight">
-                🎯 Quero Começar Agora
-              </button>
-            </div>
-
-            {/* Selos: Acesso Imediato + Garantia 7 dias */}
-            <div className="flex flex-wrap justify-center gap-2 px-3 pt-2.5">
-              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
-                <Zap className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-bold text-white">Acesso Imediato</span>
-              </div>
-              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
-                <Shield className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-bold text-white">Garantia 7 dias</span>
-              </div>
-            </div>
-
             <div className="p-3 md:p-4">
-              <p className="text-base md:text-lg text-slate-300 mb-1">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
-              <p className="text-3xl md:text-4xl font-black text-white mb-1 leading-tight"><span className="text-success">Só</span> 12x de <span className="text-success">R$ 30,72</span></p>
-              <p className="text-sm md:text-base text-slate-300 mb-1">ou <span className="text-success font-bold text-lg md:text-xl">R$ 297,00</span> à vista</p>
-              <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1 mb-2"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
-
-              <p className="text-sm md:text-base font-bold text-white bg-primary/15 border border-primary/40 rounded-lg px-3 py-2 mb-3 leading-snug">
-                Mesmo <span className="text-primary">sem saber nada</span> — você vai aprender <span className="text-primary">passo a passo, do zero</span>
-              </p>
-
+              <p className="text-base md:text-lg text-slate-300 mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
+              <p className="text-2xl md:text-4xl font-black text-white mb-0.5">12x de <span className="text-success">R$ 30,72</span></p>
+              <p className="text-sm md:text-base text-slate-300 mb-2">ou <span className="text-success font-bold text-base md:text-lg">R$ 297,00</span> à vista</p>
               <div className="border border-success/40 rounded-xl p-2 mb-2 bg-success/10">
                 <p className="text-xs md:text-sm font-bold text-success mb-0.5"><Shield className="w-3.5 h-3.5 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
-                <p className="text-[11px] md:text-xs text-slate-300"><strong className="text-white">Risco Zero!</strong> Se não gostar? Devolvo <strong className="text-white">100% do seu dinheiro</strong>.</p>
+                <p className="text-[11px] md:text-xs text-slate-300">Se não gostar, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas.</p>
               </div>
-
-              {/* Depoimento Mariana - prova social próxima ao CTA */}
-              <div className="border border-primary/30 rounded-xl p-3 mb-2 bg-primary/10 text-left">
-                <div className="flex items-start gap-3">
-                  <img
-                    src={marianaPhoto}
-                    alt="Foto de Mariana S., aluna do curso"
-                    width={48}
-                    height={48}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-12 h-12 rounded-full object-cover flex-shrink-0 border-2 border-primary/40"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <div className="flex gap-0.5 mb-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-warning text-warning" />
-                      ))}
-                    </div>
-                    <p className="text-[12px] md:text-sm text-white italic leading-snug">
-                      "Eu não sabia nada… hoje faço tudo sozinha." <span className="not-italic text-slate-300 font-semibold">— Mariana S.</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
+              <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
             </div>
           </div>
 
-          {/* Selos: Certificado + Alunos (movidos da primeira dobra) */}
-          <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-xl mx-auto mt-3">
-            {[
-              { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-              { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
-                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
-                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
-              </div>
-            ))}
+          {/* Trust badges */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Imediato</span></div>
+            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Garantia 7 dias</span></div>
           </div>
 
-          {/* Faixa animada acolhedora - full width */}
+          {/* Faixa animada acolhedora - full width (após trust badges) */}
           <div className="relative w-screen left-1/2 -translate-x-1/2 mt-4 overflow-hidden border-y border-primary/60 bg-gradient-to-r from-primary via-primary/90 to-primary">
             <div className="flex animate-marquee whitespace-nowrap py-3" style={{ animationDuration: '30s' }}>
               {Array.from({ length: 12 }).map((_, i) => (
@@ -441,8 +363,6 @@ const Informatica = () => {
 
       {/* ─── EASY TO LEARN ─── */}
       <EasyToLearn />
-
-
 
       {/* ─── AUDIO TESTIMONIALS HEADER ─── */}
       <section className="py-4 md:py-6 bg-slate-900 border-t border-slate-800">
@@ -505,9 +425,9 @@ const Informatica = () => {
           {/* CTA */}
           <div className="text-center mt-4 space-y-3">
             <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105">
-              Quero Aprender Agora →
+              Quero Aprender Informática sem Medo →
             </button>
-            <p className="text-slate-300 text-base md:text-lg font-medium">🔒 Pagamento seguro · Garantia de 7 dias · Acesso imediato</p>
+            <p className="text-slate-400 text-sm">🔒 Pagamento seguro · Garantia de 7 dias · Acesso imediato</p>
           </div>
         </div>
       </section>
@@ -746,9 +666,6 @@ const Informatica = () => {
         </div>
       </section>
 
-      {/* ─── AULA REAL (Conheça um Pouco Mais) ─── */}
-      <EnvironmentSection />
-
       {/* ─── COMMENTS 5-6 ─── */}
       <FacebookCommentPair indices={[4, 5]} />
 
@@ -874,7 +791,7 @@ const Informatica = () => {
               <Link to="/politica-de-privacidade" className="text-slate-300 hover:text-white transition-colors">Política de Privacidade</Link>
             </div>
             <div className="text-slate-400 text-sm space-y-1">
-              <p className="font-semibold text-white">Informática na Prática LTDA</p>
+              <p className="font-semibold text-white">Elisangela Neri Rigo</p>
               <p><strong>CNPJ:</strong> 32.373.460/0001-51</p>
               <p className="mt-3">© {new Date().getFullYear()} Informática na Prática. Todos os direitos reservados.</p>
             </div>

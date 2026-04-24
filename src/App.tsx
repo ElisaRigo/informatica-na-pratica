@@ -36,7 +36,6 @@ const App = () => (
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
             <Route path="/" element={<Informatica />} />
-            <Route path="/1" element={<Informatica />} />
             <Route path="/home-antiga" element={<Index />} />
             <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />

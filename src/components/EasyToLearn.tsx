@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import heroVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
-import { Play, CheckCircle, Zap, Shield } from "lucide-react";
+import { Play, CheckCircle } from "lucide-react";
 
 export const EasyToLearn = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -108,28 +108,6 @@ export const EasyToLearn = () => {
           <p className="text-center text-base md:text-xl text-slate-300 max-w-2xl mx-auto mt-6 md:mt-8 leading-relaxed">
             Aprenda com quem já ensinou mais de <strong className="text-white">15.000 alunos</strong> e tem mais de <strong className="text-white">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
           </p>
-
-          {/* Reforço de CTA */}
-          <div className="max-w-2xl mx-auto mt-6 md:mt-8 text-center">
-            <div className="flex justify-center">
-              <button
-                onClick={() => (window as any).openCheckout?.()}
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-base md:text-lg tracking-wide px-10 py-3 md:px-14 md:py-3.5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer leading-tight"
-              >
-                🎯 Quero Aprender Agora
-              </button>
-            </div>
-            <div className="flex flex-wrap justify-center gap-2 pt-3">
-              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
-                <Zap className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-bold text-white">Acesso Imediato</span>
-              </div>
-              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
-                <Shield className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-bold text-white">Garantia 7 dias</span>
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>

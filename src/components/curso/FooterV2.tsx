@@ -55,7 +55,7 @@ export const FooterV2 = () => {
 
           {/* Copyright */}
           <div className="text-slate-500 text-sm space-y-1">
-            <p className="font-semibold text-slate-400">Informática na Prática LTDA</p>
+            <p className="font-semibold text-slate-400">Elisangela Neri Rigo</p>
             <p><strong>CNPJ:</strong> 32.373.460/0001-51</p>
             <p className="mt-4">© {currentYear} Informática na Prática. Todos os direitos reservados.</p>
           </div>
