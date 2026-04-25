@@ -105,15 +105,19 @@ export const EasyToLearn = () => {
           </div>
 
           {/* Bloco de decisão antes do CTA */}
-          <div className="max-w-2xl mx-auto mt-8 md:mt-10 bg-slate-800/60 border border-primary/30 rounded-2xl p-5 md:p-6 text-center space-y-2">
-            <p className="text-base md:text-lg text-white font-bold leading-snug">
-              ❗ Você já tentou aprender e <span className="text-primary">não conseguiu?</span>
+          <div className="max-w-2xl mx-auto mt-8 md:mt-10 relative bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-primary/60 rounded-2xl p-6 md:p-8 text-center shadow-2xl shadow-primary/20 ring-1 ring-primary/20">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs md:text-sm font-black uppercase tracking-wider px-4 py-1 rounded-full shadow-lg">
+              Atenção
+            </div>
+            <p className="text-lg md:text-xl text-white font-black leading-snug mb-3">
+              Você já tentou aprender e <span className="text-primary">não conseguiu?</span>
             </p>
-            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
-              💡 Aqui você não fica perdido — é tudo explicado com calma, como se fosse <strong className="text-white">presencial</strong>.
+            <div className="w-12 h-0.5 bg-primary/60 mx-auto my-3" />
+            <p className="text-sm md:text-base text-slate-200 leading-relaxed mb-2">
+              Aqui você não fica perdido — é tudo explicado com calma, como se fosse <strong className="text-white">presencial</strong>.
             </p>
-            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
-              🎯 Em poucos dias você já vai <strong className="text-white">sentir a diferença</strong>.
+            <p className="text-sm md:text-base text-slate-200 leading-relaxed">
+              Em poucos dias você já vai <strong className="text-primary">sentir a diferença</strong>.
             </p>
           </div>
 
