@@ -36,10 +36,10 @@ export const EasyToLearn = () => {
           {/* Título da Seção */}
           <div className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
-              Veja como é <span className="text-primary">fácil aprender!</span>
+              Você também pode aprender, <span className="text-primary">mesmo começando do zero</span>
             </h2>
             <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto">
-              Assista essa aula e descubra que você é capaz de dominar a informática de forma simples e prática.
+              Mesmo que você nunca tenha mexido em computador, aqui você aprende <strong className="text-white">passo a passo</strong>, de forma simples e sem complicação.
             </p>
           </div>
 
@@ -104,13 +104,21 @@ export const EasyToLearn = () => {
             </div>
           </div>
 
-          {/* Frase de autoridade */}
-          <p className="text-center text-base md:text-xl text-slate-300 max-w-2xl mx-auto mt-6 md:mt-8 leading-relaxed">
-            Aprenda com quem já ensinou mais de <strong className="text-white">15.000 alunos</strong> e tem mais de <strong className="text-white">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
-          </p>
+          {/* Bloco de decisão antes do CTA */}
+          <div className="max-w-2xl mx-auto mt-8 md:mt-10 bg-slate-800/60 border border-primary/30 rounded-2xl p-5 md:p-6 text-center space-y-2">
+            <p className="text-base md:text-lg text-white font-bold leading-snug">
+              ❗ Você já tentou aprender e <span className="text-primary">não conseguiu?</span>
+            </p>
+            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+              💡 Aqui você não fica perdido — é tudo explicado com calma, como se fosse <strong className="text-white">presencial</strong>.
+            </p>
+            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+              🎯 Em poucos dias você já vai <strong className="text-white">sentir a diferença</strong>.
+            </p>
+          </div>
 
           {/* Reforço de CTA */}
-          <div className="max-w-2xl mx-auto mt-6 md:mt-8 text-center">
+          <div className="max-w-2xl mx-auto mt-5 md:mt-6 text-center">
             <div className="flex justify-center">
               <button
                 onClick={() => (window as any).openCheckout?.()}
