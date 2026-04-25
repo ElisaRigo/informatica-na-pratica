@@ -36,10 +36,10 @@ export const EasyToLearn = () => {
           {/* Título da Seção */}
           <div className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
-              Veja como é <span className="text-primary">fácil aprender!</span>
+              Você também pode aprender, <span className="text-primary">mesmo começando do zero</span>
             </h2>
             <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto">
-              Assista essa aula e descubra que você é capaz de dominar a informática de forma simples e prática.
+              Mesmo que você nunca tenha mexido em computador, aqui você aprende <strong className="text-white">passo a passo</strong>, de forma simples e sem complicação.
             </p>
           </div>
 
