@@ -217,7 +217,7 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
 };
 
 // ─── Main Page ──────────────────────────────────────────────────────
-const Informatica = () => {
+const Aprender = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isEnvPlaying, setIsEnvPlaying] = useState(false);
   const [shouldLoadEnv, setShouldLoadEnv] = useState(false);
@@ -769,4 +769,4 @@ const Informatica = () => {
   );
 };
 
-export default Informatica;
+export default Aprender;
