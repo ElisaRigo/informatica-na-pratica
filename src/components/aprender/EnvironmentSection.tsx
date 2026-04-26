@@ -39,7 +39,7 @@ export const EnvironmentSection = () => {
               🎬 Conheça um Pouco Mais
             </div>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2">
-              Você também consegue <span className="text-primary">aprender!</span>
+              Sim, você também consegue <span className="text-primary">aprender!</span>
             </h3>
             <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
               Essa é uma das +90 aulas do curso completo. Assista e sinta a didática simples, passo a passo, feita pra você!
