@@ -45,7 +45,7 @@ export const EasyToLearnV2 = () => {
             </p>
             
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
-              Você também pode aprender, <span className="text-primary">mesmo começando do zero</span>
+              Veja como é <span className="text-primary">fácil aprender!</span>
             </h2>
             
             <p className="text-base md:text-xl text-slate-300 max-w-2xl mx-auto">

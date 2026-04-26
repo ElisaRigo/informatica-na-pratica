@@ -1,7 +1,7 @@
 import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
-import heroVideoThumb from "@/assets/hero-video-cover-curso-v2.jpg";
+import heroVideoThumb from "@/assets/hero-video-cover-home.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 
@@ -45,9 +45,7 @@ export const HeroV2 = () => {
             </div>
           </div>
           <p className="text-white text-sm md:text-lg lg:text-xl font-medium mt-3 text-center">
-            Curso de <span className="text-primary font-bold">Informática Online</span>
-            <br className="md:hidden" />
-            <span className="md:ml-1">Simples e para Todos.</span>
+            <span className="text-primary font-bold">Informática do zero:</span> simples, prático e para todos
           </p>
         </div>
 
