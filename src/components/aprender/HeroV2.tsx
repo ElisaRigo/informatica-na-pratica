@@ -157,7 +157,7 @@ export const HeroV2 = () => {
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
           <div className="text-center mb-4">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
-              Veja como é <span className="text-primary">fácil aprender!</span>
+              Você também consegue <span className="text-primary">aprender</span>, mesmo começando do zero
             </h3>
           </div>
 
