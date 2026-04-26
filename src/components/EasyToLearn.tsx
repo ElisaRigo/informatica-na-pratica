@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import heroVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
-import { Play, CheckCircle, Zap, Shield } from "lucide-react";
+import { Play, CheckCircle } from "lucide-react";
 
 export const EasyToLearn = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -36,10 +36,10 @@ export const EasyToLearn = () => {
           {/* Título da Seção */}
           <div className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
-              Você também pode aprender, <span className="text-primary">mesmo começando do zero</span>
+              Veja como é <span className="text-primary">fácil aprender!</span>
             </h2>
             <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto">
-              Mesmo que você nunca tenha mexido em computador, aqui você aprende <strong className="text-white">passo a passo</strong>, de forma simples e sem complicação.
+              Assista essa aula e descubra que você é capaz de dominar a informática de forma simples e prática.
             </p>
           </div>
 
@@ -104,41 +104,10 @@ export const EasyToLearn = () => {
             </div>
           </div>
 
-          {/* Bloco de decisão antes do CTA */}
-          <div className="max-w-2xl mx-auto mt-8 md:mt-10 relative bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-primary/60 rounded-2xl p-6 md:p-8 text-center shadow-2xl shadow-primary/20 ring-1 ring-primary/20">
-            <p className="text-lg md:text-xl text-white font-black leading-snug mb-3">
-              Você já tentou aprender e <span className="text-primary">não conseguiu?</span>
-            </p>
-            <div className="w-12 h-0.5 bg-primary/60 mx-auto my-3" />
-            <p className="text-sm md:text-base text-slate-200 leading-relaxed mb-2">
-              Aqui você não fica perdido — é tudo explicado com calma, como se fosse <strong className="text-white">presencial</strong>.
-            </p>
-            <p className="text-sm md:text-base text-slate-200 leading-relaxed">
-              Em poucos dias você já vai <strong className="text-primary">sentir a diferença</strong>.
-            </p>
-          </div>
-
-          {/* Reforço de CTA */}
-          <div className="max-w-2xl mx-auto mt-5 md:mt-6 text-center">
-            <div className="flex justify-center">
-              <button
-                onClick={() => (window as any).openCheckout?.()}
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-base md:text-lg tracking-wide px-10 py-3 md:px-14 md:py-3.5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer leading-tight"
-              >
-                🎯 Quero Aprender Agora
-              </button>
-            </div>
-            <div className="flex flex-wrap justify-center gap-2 pt-3">
-              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
-                <Zap className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-bold text-white">Acesso Imediato</span>
-              </div>
-              <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm">
-                <Shield className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-bold text-white">Garantia 7 dias</span>
-              </div>
-            </div>
-          </div>
+          {/* Frase de autoridade */}
+          <p className="text-center text-base md:text-xl text-slate-300 max-w-2xl mx-auto mt-6 md:mt-8 leading-relaxed">
+            Aprenda com quem já ensinou mais de <strong className="text-white">15.000 alunos</strong> e tem mais de <strong className="text-white">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
+          </p>
 
         </div>
       </div>

@@ -116,14 +116,12 @@ export const HeroV2 = () => {
                   loading="eager"
                 />
                 
-
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-white/20 backdrop-blur-sm border-2 border-primary flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/30 shadow-2xl cursor-pointer">
-                    <Play className="w-8 h-8 md:w-12 md:h-12 text-primary fill-primary ml-1" />
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                    <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                   </div>
                 </div>
-
 
                 {/* Badge Assista Agora */}
                 <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
@@ -178,8 +176,8 @@ export const HeroV2 = () => {
                   
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-white/20 backdrop-blur-sm border-2 border-primary flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/30 shadow-2xl cursor-pointer">
-                      <Play className="w-8 h-8 md:w-12 md:h-12 text-primary fill-primary ml-1" />
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                      <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
                     </div>
                   </div>
 
@@ -205,8 +203,9 @@ export const HeroV2 = () => {
           </p>
 
           {/* Selos de benefícios - mesmo formato dos selos de confiança */}
-          <div className="grid grid-cols-3 gap-2 md:gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
             {[
+              { icon: MessageCircle, label: "Linguagem Simples", sublabel: "Fácil de entender" },
               { icon: Footprints, label: "Passo a Passo", sublabel: "Sem pular etapas" },
               { icon: Smile, label: "Sem Complicação", sublabel: "Direto ao ponto" },
               { icon: Rocket, label: "Do Zero ao Mercado", sublabel: "Preparação completa" },
