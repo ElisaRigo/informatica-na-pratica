@@ -1,14 +1,19 @@
 export const TopFearBanner = () => {
+  const message = "🫣 Você tem medo do computador? • Fica tranquilo(a)… você vai aprender comigo";
+
   return (
-    <div className="flex justify-center my-4 md:my-6 px-4">
-      <div className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-3 bg-success/15 border border-success/50 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-center">
-        <span className="font-bold text-xs md:text-sm text-white uppercase tracking-wide">
-          🫣 Você tem medo do computador?
-        </span>
-        <span className="hidden sm:inline text-success/60">•</span>
-        <span className="font-bold text-xs md:text-sm text-success">
-          Fica tranquilo(a)… você vai aprender comigo
-        </span>
+    <div className="my-4 md:my-6 -mx-4 md:-mx-8 lg:-mx-16">
+      <div className="bg-success/15 border-y border-success/50 overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap py-2 md:py-2.5">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span
+              key={i}
+              className="font-bold text-xs md:text-sm text-white uppercase tracking-wide mx-8"
+            >
+              {message}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
