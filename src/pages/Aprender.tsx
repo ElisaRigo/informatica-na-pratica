@@ -40,7 +40,6 @@ const Aprender = () => {
 
   return (
     <div className="min-h-screen">
-      <TopFearBanner />
       <HeroV2 />
       <IdentificationSection />
       <AudioTestimonialsV2 />

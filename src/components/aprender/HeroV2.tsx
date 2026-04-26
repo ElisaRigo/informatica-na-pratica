@@ -4,6 +4,7 @@ import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
+import { TopFearBanner } from "./TopFearBanner";
 
 export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -81,6 +82,9 @@ export const HeroV2 = () => {
             <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
           </div>
         </div>
+
+        {/* Banner: Você tem medo do computador? */}
+        <TopFearBanner />
 
         {/* Trust Badges */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
