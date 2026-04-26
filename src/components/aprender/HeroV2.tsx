@@ -52,6 +52,9 @@ export const HeroV2 = () => {
           </p>
         </div>
 
+        {/* Banner: Você tem medo do computador? — entre logo/título e headline */}
+        <TopFearBanner />
+
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2 md:mb-4">
@@ -82,9 +85,6 @@ export const HeroV2 = () => {
             <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
           </div>
         </div>
-
-        {/* Banner: Você tem medo do computador? */}
-        <TopFearBanner />
 
         {/* Trust Badges */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
