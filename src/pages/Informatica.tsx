@@ -38,6 +38,7 @@ import {
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { EasyToLearn } from "@/components/EasyToLearn";
+import { HeroV2 } from "@/components/aprender/HeroV2";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
@@ -250,80 +251,8 @@ const Informatica = () => {
 
   return (
     <div className="min-h-screen bg-slate-900">
-      {/* ─── HEADER ─── */}
-      <header className="bg-slate-900 py-2 border-b border-slate-800">
-        <div className="container mx-auto px-4 flex flex-col items-center">
-          <img src={logo} alt="Informática na Prática" className="h-12 md:h-14" />
-          <p className="text-white text-sm md:text-base mt-1 text-center font-medium">
-            Curso de <span className="text-primary font-bold">Informática Online</span>
-            <br />Simples e para Todos.
-          </p>
-        </div>
-      </header>
-
-      {/* ─── HERO ─── */}
-      <section className="bg-slate-900 py-2 md:py-4">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-[28px] md:text-5xl lg:text-6xl font-[900] text-white text-center mb-2 leading-[1.1] tracking-wide" style={{ WebkitTextStroke: '0.5px', letterSpacing: '0.04em' }}>
-            Curso de <span className="text-white">Informática<br className="md:hidden" /> para <span className="text-primary">Iniciantes</span></span>
-          </h1>
-
-          <div className="relative max-w-2xl mx-auto mb-2">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700">
-              {!isPlaying ? (
-                <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                  <img src={heroVideoThumb} alt="Prévia do curso de informática" className="w-full h-full object-cover" loading="eager" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 md:w-18 md:h-18 rounded-full bg-white/30 shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/40 transition-all">
-                      <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-0.5" />
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="aspect-video">
-                  <iframe src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1" title="Veja como é fácil aprender" className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-                </div>
-              )}
-            </div>
-          </div>
-
-          <p className="text-base md:text-xl text-slate-200 text-center mb-1 max-w-2xl mx-auto leading-snug">
-            Aprenda começando do <span className="text-primary font-bold">Zero</span> – Aulas <strong className="text-white">simples e Fáceis</strong>{" "}
-            pra você dominar <strong className="text-white">Windows, Word, Excel</strong> e muito mais.
-          </p>
-
-          {/* Selos acima do CTA */}
-          <div className="flex flex-wrap justify-center gap-2 mb-3 mt-3">
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Infinity className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Vitalício</span></div>
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Award className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Certificado incluso</span></div>
-          </div>
-
-          {/* CTA */}
-          <div className="flex justify-center mb-5 md:mb-6">
-            <button onClick={() => (window as any).openCheckout?.()} className="w-full max-w-lg inline-flex items-center justify-center gap-2 bg-gradient-to-b from-success to-green-600 hover:from-green-500 hover:to-green-700 text-white font-black text-lg md:text-xl px-10 py-4 md:py-5 rounded-xl border-b-4 border-green-700 hover:border-green-800 active:border-b-0 active:mt-1 hover:scale-[1.01] transition-all duration-200 cursor-pointer">
-              🎯 QUERO COMEÇAR AGORA!
-            </button>
-          </div>
-
-          {/* Pricing */}
-          <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-3 md:p-4 max-w-xl mx-auto text-center">
-            <p className="text-base md:text-lg text-slate-300 mb-0.5">De <span className="line-through font-bold">R$ 497,00</span> por apenas</p>
-            <p className="text-2xl md:text-4xl font-black text-white mb-0.5">12x de <span className="text-success">R$ 30,72</span></p>
-            <p className="text-sm md:text-base text-slate-300 mb-2">ou <span className="text-success font-bold text-base md:text-lg">R$ 297,00</span> à vista</p>
-            <div className="border border-success/40 rounded-xl p-2 mb-2 bg-success/10">
-              <p className="text-xs md:text-sm font-bold text-success mb-0.5"><Shield className="w-3.5 h-3.5 inline-block mr-1 -mt-0.5" />Garantia Incondicional de 7 Dias</p>
-              <p className="text-[11px] md:text-xs text-slate-300">Se não gostar, devolvo <strong className="text-white">100% do seu dinheiro</strong>. Sem perguntas.</p>
-            </div>
-            <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1"><Lock className="w-3 h-3" />Pagamento 100% seguro · Acesso imediato</p>
-          </div>
-
-          {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Zap className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Acesso Imediato</span></div>
-            <div className="flex items-center gap-1.5 border border-primary/40 rounded-full px-3 py-1.5 bg-primary/15 shadow-sm"><Shield className="w-3.5 h-3.5 text-primary" /><span className="text-xs font-bold text-white">Garantia 7 dias</span></div>
-          </div>
-        </div>
-      </section>
+      {/* ─── HERO (mesmo da home /aprender) ─── */}
+      <HeroV2 />
 
       {/* ─── EASY TO LEARN ─── */}
       <EasyToLearn />
