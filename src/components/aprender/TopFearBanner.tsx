@@ -8,7 +8,7 @@ export const TopFearBanner = () => {
           </span>
           <span className="hidden sm:inline text-success/60 text-lg">•</span>
           <span className="font-bold text-base md:text-lg text-success">
-            Fica tranquilo(a)… você vai aprender comigo
+            Não se preocupe… você vai aprender comigo.
           </span>
         </div>
       </div>
