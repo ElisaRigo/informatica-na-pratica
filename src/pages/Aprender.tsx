@@ -2,6 +2,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 // Componentes independentes da página /aprender
 import { HeroV2 } from "@/components/aprender/HeroV2";
+import { TopFearBanner } from "@/components/aprender/TopFearBanner";
 import { IdentificationSection } from "@/components/aprender/IdentificationSection";
 import { ProblemSection } from "@/components/aprender/ProblemSection";
 import { AudioTestimonialsV2 } from "@/components/aprender/AudioTestimonialsV2";
@@ -39,6 +40,7 @@ const Aprender = () => {
 
   return (
     <div className="min-h-screen">
+      <TopFearBanner />
       <HeroV2 />
       <IdentificationSection />
       <AudioTestimonialsV2 />
