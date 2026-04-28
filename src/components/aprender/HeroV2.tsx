@@ -159,9 +159,10 @@ export const HeroV2 = () => {
           {/* CTA: Quero aprender do zero */}
           <div className="flex justify-center mt-4">
             <a
-              href="#primeira-secao-valor"
-              className="inline-flex items-center justify-center bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg px-6 md:px-10 py-3 md:py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105"
+              href="#preco"
+              className="inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg px-6 md:px-10 py-3 md:py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105"
             >
+              <Monitor className="w-5 h-5 md:w-6 md:h-6" />
               Quero aprender do zero
             </a>
           </div>
