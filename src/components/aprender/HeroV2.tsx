@@ -155,6 +155,16 @@ export const HeroV2 = () => {
             O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
+
+          {/* CTA: Quero aprender do zero */}
+          <div className="flex justify-center mt-4">
+            <a
+              href="#primeira-secao-valor"
+              className="inline-flex items-center justify-center bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg px-6 md:px-10 py-3 md:py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105"
+            >
+              Quero aprender do zero
+            </a>
+          </div>
         </div>
 
         {/* Seção Aula Gratuita - Acima da faixa azul */}
@@ -225,15 +235,6 @@ export const HeroV2 = () => {
           </div>
         </div>
 
-        {/* CTA: Quero aprender do zero */}
-        <div className="flex justify-center mb-4 md:mb-6">
-          <a
-            href="#primeira-secao-valor"
-            className="inline-flex items-center justify-center bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg px-6 md:px-10 py-3 md:py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105"
-          >
-            Quero aprender do zero
-          </a>
-        </div>
 
         {/* Faixa acolhedora acima do preço - Full width */}
         <div className="absolute left-0 right-0 -mx-4 md:-mx-8 lg:-mx-16">
