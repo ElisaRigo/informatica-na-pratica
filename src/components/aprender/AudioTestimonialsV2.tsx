@@ -181,7 +181,7 @@ export const AudioTestimonialsV2 = () => {
       </div>
 
       {/* Conteúdo com fundo escuro */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 relative overflow-hidden">
+      <section id="primeira-secao-valor" className="py-12 md:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
