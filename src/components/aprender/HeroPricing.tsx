@@ -12,7 +12,7 @@ const valueItems = [
 export const HeroPricing = () => {
 
   return (
-    <div className="max-w-xl mx-auto mb-4 md:mb-6">
+    <div id="ultimas-vagas" className="max-w-xl mx-auto mb-4 md:mb-6 scroll-mt-4">
       {/* Título da seção */}
       <div className="text-center mb-4">
         <h3 className="text-xl md:text-3xl lg:text-4xl font-black text-white whitespace-nowrap">
