@@ -55,7 +55,7 @@ export const HeroV2 = () => {
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Domine o <span className="text-primary">computador</span> em poucas semanas, mesmo sem saber nada
+            Você não sabe usar o <span className="text-primary">Computador?</span>
           </h1>
         </div>
 
