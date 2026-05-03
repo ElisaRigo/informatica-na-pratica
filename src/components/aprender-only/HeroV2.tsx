@@ -60,8 +60,8 @@ export const HeroV2 = () => {
           </h1>
         </div>
 
-        {/* Video Container */}
-        <div className="max-w-4xl mx-auto mb-4 md:mb-5">
+        {/* Video Container com selos sobrepostos na borda inferior */}
+        <div className="max-w-4xl mx-auto mb-6 md:mb-8 relative pb-5 md:pb-7">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
             {!isPlaying ? (
               <div 
@@ -93,17 +93,17 @@ export const HeroV2 = () => {
               </div>
             )}
           </div>
-        </div>
 
-        {/* Pílulas: Acesso Vitalício (azul) + +15.000 Alunos (verde) */}
-        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mb-4 md:mb-5 px-2">
-          <div className="inline-flex items-center gap-2 bg-slate-800 border border-primary/40 px-4 py-2 md:px-5 md:py-2.5 rounded-full">
-            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            <span className="font-bold text-xs md:text-sm text-white tracking-wide">ACESSO VITALÍCIO</span>
-          </div>
-          <div className="inline-flex items-center gap-2 bg-[#25D366] border border-[#25D366] px-4 py-2 md:px-5 md:py-2.5 rounded-full">
-            <Users className="w-4 h-4 md:w-5 md:h-5 text-white" />
-            <span className="font-bold text-xs md:text-sm text-white tracking-wide">+15.000 ALUNOS</span>
+          {/* Selos sobrepostos no limite inferior do vídeo */}
+          <div className="absolute left-2 right-2 md:left-4 md:right-4 -bottom-0 flex justify-between items-center gap-2 z-20 pointer-events-none">
+            <div className="inline-flex items-center gap-2 bg-slate-900 border border-primary/50 px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg">
+              <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+              <span className="font-bold text-[10px] md:text-sm text-white tracking-wide whitespace-nowrap">ACESSO VITALÍCIO</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-[#25D366] px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg">
+              <Users className="w-4 h-4 md:w-5 md:h-5 text-white" />
+              <span className="font-bold text-[10px] md:text-sm text-white tracking-wide whitespace-nowrap">+15.000 ALUNOS</span>
+            </div>
           </div>
         </div>
 
