@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity, Monitor } from "lucide-react";
+import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity, Monitor, HelpCircle, Compass, AlertTriangle, MousePointerClick, UserX } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
@@ -55,8 +55,29 @@ export const HeroV2 = () => {
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Domine o <span className="text-primary">computador</span> em poucas semanas, mesmo sem saber nada
+            Você não sabe usar o <span className="text-primary">Computador?</span>
           </h1>
+          <p className="text-lg md:text-2xl lg:text-3xl text-slate-200 font-medium mt-3 md:mt-4">
+            Aprenda em poucas semanas mesmo começando do <span className="text-primary font-bold">Zero</span>
+          </p>
+
+          {/* Selos de dor e medo */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-5 md:mt-7 max-w-3xl mx-auto">
+            {[
+              { icon: HelpCircle, label: "Acha complicado?" },
+              { icon: Compass, label: "Se sente perdido?" },
+              { icon: MousePointerClick, label: "Medo de mexer?" },
+              { icon: UserX, label: "Depende dos outros?" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-800/80 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-xl shadow-md"
+              >
+                <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" strokeWidth={2.5} />
+                <span className="font-bold text-xs md:text-sm text-white whitespace-nowrap">{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Video Container com selos embutidos */}
@@ -94,19 +115,18 @@ export const HeroV2 = () => {
               </div>
             )}
 
-            {/* Selos embutidos na base da capa do vídeo */}
-            {!isPlaying && (
-              <div className="absolute bottom-2 md:bottom-4 left-2 right-2 md:left-4 md:right-4 flex justify-between items-center pointer-events-none z-20">
-                <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900/80 backdrop-blur-sm border border-primary/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg">
-                  <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                  <span className="font-bold text-[11px] md:text-sm text-white tracking-wide">ACESSO VITALÍCIO</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900/80 backdrop-blur-sm border border-success/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg">
-                  <Users className="w-4 h-4 md:w-5 md:h-5 text-success" />
-                  <span className="font-bold text-[11px] md:text-sm text-white tracking-wide">+15.000 ALUNOS</span>
-                </div>
-              </div>
-            )}
+          </div>
+
+          {/* Selos embutidos sobre a borda inferior do vídeo */}
+          <div className="relative -mt-4 md:-mt-6 flex justify-between items-center px-2 md:px-6 z-20">
+            <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900 border-2 border-primary px-3 py-1.5 md:px-5 md:py-2.5 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+              <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" strokeWidth={2.5} />
+              <span className="font-black text-[11px] md:text-sm text-white tracking-wide">ACESSO VITALÍCIO</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900 border-2 border-success px-3 py-1.5 md:px-5 md:py-2.5 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.4)]">
+              <Users className="w-4 h-4 md:w-5 md:h-5 text-success" strokeWidth={2.5} />
+              <span className="font-black text-[11px] md:text-sm text-white tracking-wide">+15.000 ALUNOS</span>
+            </div>
           </div>
 
           {/* Frase de impacto abaixo do vídeo */}
