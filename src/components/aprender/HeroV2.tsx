@@ -52,87 +52,32 @@ export const HeroV2 = () => {
           </p>
         </div>
 
-        {/* Banner: Você tem medo do computador? — entre logo/título e headline */}
-        <TopFearBanner />
-
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2 md:mb-4">
-            <span className="block">Domine o Computador</span>
-            <span className="block">
-              em{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                  30 Dias
-                </span>
-                <span className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-primary/30 to-accent/30 -skew-x-12" />
-              </span>
-            </span>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+            Domine o <span className="text-primary">computador</span> em poucas semanas, mesmo sem saber nada
           </h1>
-          <p className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium">
-            Mesmo começando do zero
-          </p>
         </div>
 
-        {/* Destaque Acesso Vitalício */}
-        <div className="flex flex-wrap justify-center gap-2 mb-3 md:mb-5">
-          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
-          </div>
-          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-            <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
-          </div>
-        </div>
-
-        {/* Trust Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
-          {[
-            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
-            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
-            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
-              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
-              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Frase de impacto */}
-        <p className="text-center text-lg md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
-          <strong className="text-white">Aprenda Informática</strong> do jeito certo e use o computador com <strong className="text-primary">confiança</strong> no trabalho e no dia a dia.
-        </p>
-
-        {/* Video Container */}
+        {/* Video Container com selos embutidos */}
         <div className="max-w-4xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
             {!isPlaying ? (
-              <div 
+              <div
                 className="relative aspect-video cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
-                <img 
+                <img
                   src={heroVideoThumb}
                   alt="Prévia do curso de informática"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                
+
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
                     <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
-                  </div>
-                </div>
-
-                {/* Badge Assista Agora */}
-                <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
-                  <div className="bg-destructive text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm shadow-lg">
-                    ▶ ASSISTA AGORA
                   </div>
                 </div>
               </div>
@@ -148,24 +93,39 @@ export const HeroV2 = () => {
                 />
               </div>
             )}
-          </div>
-          
-          {/* Texto de prova social abaixo do vídeo */}
-          <p className="text-sm md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-center mt-3 px-2">
-            O método passo a passo que já transformou a vida de <strong className="text-white">+15.000 alunos</strong> que, 
-            assim como você, tinham medo de errar e vergonha de pedir ajuda.
-          </p>
 
-          {/* CTA: Quero aprender do zero */}
-          <div className="flex justify-center mt-4">
-            <a
-              href="#ultimas-vagas"
-              className="inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg px-6 md:px-10 py-3 md:py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105"
-            >
-              <Monitor className="w-5 h-5 md:w-6 md:h-6" />
-              Quero aprender do zero
-            </a>
+            {/* Selos embutidos na base da capa do vídeo */}
+            {!isPlaying && (
+              <div className="absolute bottom-2 md:bottom-4 left-2 right-2 md:left-4 md:right-4 flex justify-between items-center pointer-events-none z-20">
+                <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900/80 backdrop-blur-sm border border-primary/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg">
+                  <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                  <span className="font-bold text-[11px] md:text-sm text-white tracking-wide">ACESSO VITALÍCIO</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900/80 backdrop-blur-sm border border-success/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg">
+                  <Users className="w-4 h-4 md:w-5 md:h-5 text-success" />
+                  <span className="font-bold text-[11px] md:text-sm text-white tracking-wide">+15.000 ALUNOS</span>
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* Frase de impacto abaixo do vídeo */}
+          <p className="text-center text-base md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mt-4 md:mt-6">
+            Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia — <strong className="text-white">sem depender de outras pessoas</strong>
+          </p>
+        </div>
+
+        {/* Trust Badges - 2 selos */}
+        <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-3xl mx-auto mb-4 md:mb-6">
+          {[
+            { icon: Headphones, label: "Suporte nas Aulas" },
+            { icon: Shield, label: "Garantia 7 Dias" },
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center text-center p-3 md:p-5 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+              <span className="text-white font-bold text-xs md:text-base">{item.label}</span>
+            </div>
+          ))}
         </div>
 
         {/* Seção Aula Gratuita - Acima da faixa azul */}
