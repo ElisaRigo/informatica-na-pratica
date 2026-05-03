@@ -94,19 +94,18 @@ export const HeroV2 = () => {
               </div>
             )}
 
-            {/* Selos embutidos na base da capa do vídeo */}
-            {!isPlaying && (
-              <div className="absolute bottom-2 md:bottom-4 left-2 right-2 md:left-4 md:right-4 flex justify-between items-center pointer-events-none z-20">
-                <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900/80 backdrop-blur-sm border border-primary/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg">
-                  <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                  <span className="font-bold text-[11px] md:text-sm text-white tracking-wide">ACESSO VITALÍCIO</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900/80 backdrop-blur-sm border border-success/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg">
-                  <Users className="w-4 h-4 md:w-5 md:h-5 text-success" />
-                  <span className="font-bold text-[11px] md:text-sm text-white tracking-wide">+15.000 ALUNOS</span>
-                </div>
-              </div>
-            )}
+          </div>
+
+          {/* Selos embutidos sobre a borda inferior do vídeo */}
+          <div className="relative -mt-4 md:-mt-6 flex justify-between items-center px-2 md:px-6 z-20">
+            <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900 border-2 border-primary px-3 py-1.5 md:px-5 md:py-2.5 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+              <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" strokeWidth={2.5} />
+              <span className="font-black text-[11px] md:text-sm text-white tracking-wide">ACESSO VITALÍCIO</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-900 border-2 border-success px-3 py-1.5 md:px-5 md:py-2.5 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.4)]">
+              <Users className="w-4 h-4 md:w-5 md:h-5 text-success" strokeWidth={2.5} />
+              <span className="font-black text-[11px] md:text-sm text-white tracking-wide">+15.000 ALUNOS</span>
+            </div>
           </div>
 
           {/* Frase de impacto abaixo do vídeo */}
