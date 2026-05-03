@@ -6,7 +6,7 @@ import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
 
-export const HeroV2 = () => {
+export const HeroAprenderV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   const [shouldLoadFreeClass, setShouldLoadFreeClass] = useState(false);
