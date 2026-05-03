@@ -1,7 +1,7 @@
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 // Componentes independentes da página /aprender
-import { HeroV2 } from "@/components/aprender/HeroV2";
+import { HeroAprenderV2 } from "@/components/aprender/HeroAprenderV2";
 import { TopFearBanner } from "@/components/aprender/TopFearBanner";
 
 import { ProblemSection } from "@/components/aprender/ProblemSection";
