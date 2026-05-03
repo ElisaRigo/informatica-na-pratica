@@ -66,7 +66,6 @@ export const HeroV2 = () => {
             {[
               { icon: HelpCircle, label: "Acha complicado?" },
               { icon: Compass, label: "Se sente perdido?" },
-              { icon: AlertTriangle, label: "Tem insegurança?" },
               { icon: MousePointerClick, label: "Medo de mexer?" },
               { icon: UserX, label: "Depende dos outros?" },
             ].map((item, i) => (
