@@ -40,7 +40,7 @@ const Aprender = () => {
 
   return (
     <div className="min-h-screen">
-      <HeroV2 />
+      <HeroAprenderV2 />
       <AudioTestimonialsV2 />
       <ProblemSection />
       <CertificateSection />
