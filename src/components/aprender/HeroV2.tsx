@@ -57,6 +57,9 @@ export const HeroV2 = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
             Você não sabe usar o <span className="text-primary">Computador?</span>
           </h1>
+          <p className="text-lg md:text-2xl lg:text-3xl text-slate-200 font-medium mt-3 md:mt-4">
+            Aprenda em poucas semanas mesmo começando do <span className="text-primary font-bold">Zero</span>
+          </p>
         </div>
 
         {/* Video Container com selos embutidos */}
