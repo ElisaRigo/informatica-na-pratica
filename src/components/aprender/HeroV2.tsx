@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity, Monitor } from "lucide-react";
+import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity, Monitor, HelpCircle, Compass, AlertTriangle, MousePointerClick, UserX } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
@@ -60,6 +60,25 @@ export const HeroV2 = () => {
           <p className="text-lg md:text-2xl lg:text-3xl text-slate-200 font-medium mt-3 md:mt-4">
             Aprenda em poucas semanas mesmo começando do <span className="text-primary font-bold">Zero</span>
           </p>
+
+          {/* Selos de dor e medo */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-5 md:mt-7 max-w-3xl mx-auto">
+            {[
+              { icon: HelpCircle, label: "Acha complicado?" },
+              { icon: Compass, label: "Se sente perdido?" },
+              { icon: AlertTriangle, label: "Tem insegurança?" },
+              { icon: MousePointerClick, label: "Medo de mexer?" },
+              { icon: UserX, label: "Depende dos outros?" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="inline-flex items-center gap-1.5 md:gap-2 bg-slate-800/80 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-xl shadow-md"
+              >
+                <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" strokeWidth={2.5} />
+                <span className="font-bold text-xs md:text-sm text-white whitespace-nowrap">{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Video Container com selos embutidos */}
