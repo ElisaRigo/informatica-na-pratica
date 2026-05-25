@@ -4,13 +4,10 @@ export const HeroPricing = () => {
   return (
     <div className="max-w-xl mx-auto mb-4 md:mb-6">
       <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden">
-        {/* Header laranja/vermelho */}
-        <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-destructive py-3 px-4">
-          <p className="text-white font-black text-center text-sm md:text-base flex items-center justify-center gap-2 flex-wrap">
-            Hoje: comece do zero com
-            <span className="bg-destructive text-white text-xs md:text-sm font-black px-2.5 py-1 rounded-full">
-              40% OFF
-            </span>
+        {/* Frase de impacto */}
+        <div className="py-4 px-4">
+          <p className="text-white font-black text-center text-xl md:text-2xl">
+            Perca o <span className="text-primary">medo do computador!</span>
           </p>
         </div>
 
