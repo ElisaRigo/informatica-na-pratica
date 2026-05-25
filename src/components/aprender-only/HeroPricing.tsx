@@ -15,15 +15,6 @@ export const HeroPricing = () => {
         </div>
 
         <div className="p-4 md:p-6">
-          {/* CTA verde no topo */}
-          <button
-            onClick={() => (window as any).openCheckout?.()}
-            className="group relative w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-success to-accent text-white font-black text-base md:text-lg px-6 py-3.5 md:py-4 rounded-xl shadow-2xl shadow-success/40 hover:shadow-success/60 hover:scale-[1.02] transition-all duration-300 overflow-hidden mb-3"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative">🎯 Quero Começar Agora</span>
-          </button>
-
           {/* Pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-4">
             <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
@@ -52,6 +43,15 @@ export const HeroPricing = () => {
           <p className="text-slate-400 text-[10px] md:text-xs flex items-center justify-center gap-1 mb-4">
             <Lock className="w-3 h-3" /> Pagamento 100% seguro • Acesso imediato
           </p>
+
+          {/* CTA verde acima da caixa azul */}
+          <button
+            onClick={() => (window as any).openCheckout?.()}
+            className="group relative w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-success to-accent text-white font-black text-base md:text-lg px-6 py-3.5 md:py-4 rounded-xl shadow-2xl shadow-success/40 hover:shadow-success/60 hover:scale-[1.02] transition-all duration-300 overflow-hidden mb-3"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+            <span className="relative">🎯 Quero Começar Agora</span>
+          </button>
 
           {/* Caixa azul */}
           <div className="bg-primary/10 border border-primary/40 rounded-xl px-4 py-3 mb-3 text-center">
