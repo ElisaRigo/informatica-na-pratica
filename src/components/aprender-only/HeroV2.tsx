@@ -115,17 +115,13 @@ export const HeroV2 = () => {
           Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia <strong className="text-white">— sem depender de outras pessoas</strong>
         </p>
 
-        {/* Trust Badges - 2 selos acima do preço */}
-        <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-xl mx-auto mb-4">
-          {[
-            { icon: Headphones, label: "Suporte nas Aulas" },
-            { icon: Shield, label: "Garantia 7 Dias" },
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-3 md:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <item.icon className="w-6 h-6 md:w-7 md:h-7 text-primary mb-1" />
-              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-            </div>
-          ))}
+        {/* Frase de impacto em destaque */}
+        <div className="max-w-xl mx-auto mb-4 md:mb-6">
+          <div className="relative rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/50 px-4 py-5 md:py-7 text-center shadow-xl shadow-primary/20">
+            <p className="text-2xl md:text-4xl font-black text-white leading-tight">
+              Perca o <span className="text-primary">medo do computador!</span>
+            </p>
+          </div>
         </div>
 
         {/* Preço na Hero */}

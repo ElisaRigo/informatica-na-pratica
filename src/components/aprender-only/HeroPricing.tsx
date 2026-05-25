@@ -4,12 +4,7 @@ export const HeroPricing = () => {
   return (
     <div className="max-w-xl mx-auto mb-4 md:mb-6">
       <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden">
-        {/* Frase de impacto */}
-        <div className="py-4 px-4">
-          <p className="text-white font-black text-center text-xl md:text-2xl">
-            Perca o <span className="text-primary">medo do computador!</span>
-          </p>
-        </div>
+        {/* Conteúdo do card de preço */}
 
         <div className="p-4 md:p-6">
           {/* Pills */}
