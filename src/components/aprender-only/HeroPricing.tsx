@@ -45,13 +45,6 @@ export const HeroPricing = () => {
             <span className="relative">🎯 Quero Começar Agora</span>
           </button>
 
-          {/* Caixa azul */}
-          <div className="bg-primary/10 border border-primary/40 rounded-xl px-4 py-3 mb-3 text-center">
-            <p className="text-white text-sm md:text-base font-bold">
-              Mesmo <span className="text-primary">sem saber nada</span> — você vai aprender{" "}
-              <span className="text-primary">passo a passo, do zero</span>
-            </p>
-          </div>
 
           {/* Garantia verde */}
           <div className="bg-success/10 border border-success/40 rounded-xl px-4 py-3 mb-3 text-center">
