@@ -52,6 +52,9 @@ export const HeroV2 = () => {
           </p>
         </div>
 
+        {/* Faixa vermelha de dor */}
+        <TopFearBanner />
+
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
