@@ -1,4 +1,5 @@
 import { Shield, Zap, Lock, Star } from "lucide-react";
+import avatar1 from "@/assets/avatar-1.jpg";
 
 export const HeroPricing = () => {
   return (
@@ -60,7 +61,7 @@ export const HeroPricing = () => {
 
           {/* Depoimento */}
           <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex-shrink-0" />
+            <img src={avatar1} alt="Foto de Mariana S." className="w-10 h-10 rounded-full object-cover shrink-1" />
             <div className="flex-1 min-w-0">
               <div className="flex gap-0.5 mb-1">
                 {[...Array(5)].map((_, i) => (
