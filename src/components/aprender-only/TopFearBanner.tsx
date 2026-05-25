@@ -7,7 +7,7 @@ export const TopFearBanner = () => {
   return (
     <div className="my-4 md:my-6 -mx-4 md:-mx-8 lg:-mx-16">
       <div className="bg-gradient-to-r from-destructive via-destructive/90 to-destructive border-y border-destructive/60 overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap py-2.5 md:py-3">
+        <div className="animate-marquee whitespace-nowrap py-2.5 md:py-3" style={{ animationDuration: '30s' }}>
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i}>{item}</span>
           ))}
