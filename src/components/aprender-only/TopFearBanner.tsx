@@ -1,13 +1,17 @@
+import { AlertCircle } from "lucide-react";
+
 export const TopFearBanner = () => {
   const item = (
-    <span className="inline-flex items-center gap-2 text-white text-sm md:text-base font-black mx-6 uppercase tracking-wide whitespace-nowrap">
-      😰 Você sente dificuldade com o computador?
+    <span className="inline-flex items-center gap-2.5 text-white text-sm md:text-lg font-black mx-8 uppercase tracking-wider whitespace-nowrap">
+      <AlertCircle className="w-5 h-5 md:w-6 md:h-6 text-white/90" />
+      Tem medo de usar o Computador?
+      <span className="bg-white/20 px-3 py-1 rounded-full text-white">Eu te Ajudo!</span>
     </span>
   );
   return (
     <div className="my-4 md:my-6 -mx-4 md:-mx-8 lg:-mx-16">
-      <div className="bg-gradient-to-r from-destructive via-destructive/90 to-destructive border-y border-destructive/60 overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap py-2.5 md:py-3" style={{ animationDuration: '30s' }}>
+      <div className="bg-gradient-to-r from-destructive via-destructive/90 to-destructive border-y border-destructive/60 overflow-hidden shadow-lg shadow-destructive/20">
+        <div className="animate-marquee whitespace-nowrap py-3 md:py-4" style={{ animationDuration: '30s' }}>
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i}>{item}</span>
           ))}
