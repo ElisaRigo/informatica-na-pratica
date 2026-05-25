@@ -141,12 +141,6 @@ export const HeroV2 = () => {
           ))}
         </div>
 
-        {/* Frase de impacto */}
-        <div className="text-center py-6 md:py-10">
-          <p className="text-2xl md:text-4xl lg:text-5xl font-black text-white">
-            Perca o <span className="text-primary">medo do computador</span>!
-          </p>
-        </div>
 
       </div>
 
