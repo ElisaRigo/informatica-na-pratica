@@ -22,8 +22,8 @@ export const HeroPricing = () => {
 
           {/* Preço */}
           <div className="text-center mb-3">
-            <p className="text-sm md:text-base text-slate-400 mb-1">
-              De <span className="line-through">R$ 497,00</span> por apenas
+            <p className="text-sm md:text-base text-success font-bold mb-1">
+              Garanta sua vaga hoje com 40% off
             </p>
             <p className="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent">
               Só 12x de R$ 30,72
