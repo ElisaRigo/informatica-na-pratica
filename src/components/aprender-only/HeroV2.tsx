@@ -145,17 +145,11 @@ export const HeroV2 = () => {
           ))}
         </div>
 
-        {/* Faixa azul acolhedora - Full width */}
-        <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-          <div className="bg-gradient-to-r from-primary via-primary/90 to-primary overflow-hidden border-y border-primary/60">
-            <div className="animate-marquee whitespace-nowrap py-3">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                  ✨ Você é capaz de aprender — Venha comigo!
-                </span>
-              ))}
-            </div>
-          </div>
+        {/* Frase de impacto */}
+        <div className="text-center py-6 md:py-10">
+          <p className="text-2xl md:text-4xl lg:text-5xl font-black text-white">
+            Perca o <span className="text-primary">medo do computador</span>!
+          </p>
         </div>
 
       </div>
