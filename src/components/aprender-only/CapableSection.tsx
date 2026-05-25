@@ -1,15 +1,69 @@
-import { MessageCircle, Footprints, Smile, Rocket } from "lucide-react";
+import { MessageCircle, Footprints, Smile, Rocket, Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 
 export const CapableSection = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100px" }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative bg-slate-900 pt-10 md:pt-14 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto mb-8">
+        <div ref={ref} className="max-w-4xl mx-auto mb-8">
           <div className="text-center mb-4">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
               Sim, você também consegue <span className="text-primary">aprender!</span>
             </h2>
           </div>
+
+          {shouldLoad && (
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
+              {!isPlaying ? (
+                <div
+                  className="relative aspect-video cursor-pointer group"
+                  onClick={() => setIsPlaying(true)}
+                >
+                  <img
+                    src={freeClassThumb}
+                    alt="Aula demonstrativa gratuita"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                      <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                    title="Aula gratuita"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+            </div>
+          )}
 
           <p className="text-center text-base md:text-xl text-slate-300 max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed px-2">
             Aprenda com quem já ensinou mais de <strong className="text-white">15.000 alunos</strong> e tem mais de <strong className="text-white">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
