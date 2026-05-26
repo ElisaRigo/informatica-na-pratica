@@ -5,7 +5,7 @@ export const TopFearBanner = () => {
     <span className="inline-flex items-center gap-2.5 text-white text-sm md:text-lg font-black mx-8 uppercase tracking-wider whitespace-nowrap">
       <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-warning shrink-0" />
       Tem medo de usar o Computador?
-      <span className="bg-success px-3 py-1 rounded-full text-white">Eu te Ajudo!</span>
+      <span className="bg-emerald-500 px-4 py-1.5 rounded-full text-white text-base md:text-xl font-black shadow-lg shadow-emerald-500/30 border border-emerald-400/50">Eu te Ajudo!</span>
     </span>
   );
   return (
