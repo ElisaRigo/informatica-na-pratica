@@ -10,7 +10,7 @@ export const TopFearBanner = () => {
   );
   return (
     <div className="my-4 md:my-6 -mx-4 md:-mx-8 lg:-mx-16">
-      <div className="bg-gradient-to-r from-slate-800 via-[#1a1010] to-slate-800 border-y border-red-900/20 overflow-hidden shadow-sm shadow-black/10">
+      <div className="bg-gradient-to-r from-slate-800 via-[#2a1810] to-slate-800 border-y border-orange-900/20 overflow-hidden shadow-sm shadow-black/10">
         <div className="animate-marquee whitespace-nowrap py-3 md:py-4" style={{ animationDuration: '30s' }}>
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i}>{item}</span>
