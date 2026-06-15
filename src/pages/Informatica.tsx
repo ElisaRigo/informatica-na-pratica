@@ -307,6 +307,19 @@ const Informatica = () => {
           </div>
 
 
+          {/* ─── CTA: Tire suas dúvidas com a Professora ─── */}
+          <div className="text-center mb-4 max-w-2xl mx-auto">
+            <a
+              href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1%20Professora!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#25D366]/30 hover:scale-105 transition-all"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Tire suas dúvidas com a Professora!
+            </a>
+          </div>
+
           {/* Highlight phrase */}
           <div className="text-center my-4 max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-snug">
