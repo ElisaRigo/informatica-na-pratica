@@ -4,7 +4,6 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { HeroV2 } from "@/components/aprender-only/HeroV2";
 import { ProblemSection } from "@/components/aprender-only/ProblemSection";
 import { AudioTestimonialsV2 } from "@/components/aprender-only/AudioTestimonialsV2";
-import { CapableSection } from "@/components/aprender-only/CapableSection";
 import { SupportBannerV2 } from "@/components/aprender-only/SupportBannerV2";
 import { TransformationSection } from "@/components/aprender-only/TransformationSection";
 import { ContentSectionV2 } from "@/components/aprender-only/ContentSectionV2";

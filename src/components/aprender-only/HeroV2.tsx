@@ -1,4 +1,5 @@
 import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
+import { CapableSection } from "./CapableSection";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
