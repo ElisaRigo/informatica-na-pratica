@@ -1,4 +1,4 @@
-import { Monitor, Infinity, Sparkles, Headphones, Shield } from 'lucide-react';
+import { Monitor, Headphones, Shield } from 'lucide-react';
 
 export const TopFearBanner = () => {
   return (
