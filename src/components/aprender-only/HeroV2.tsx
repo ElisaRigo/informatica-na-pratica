@@ -128,6 +128,20 @@ export const HeroV2 = () => {
           Aprenda do <span className="text-amber-300">ZERO</span>, no seu ritmo, mesmo que você <span className="text-amber-300">NUNCA</span> tenha ligado um computador.
         </p>
 
+        {/* Selos Suporte e Garantia */}
+        <div className="grid grid-cols-2 gap-3 max-w-md mx-auto mb-4 md:mb-6">
+          <div className="bg-slate-800/80 border border-white/10 rounded-xl px-4 py-4 text-center">
+            <Headphones className="w-6 h-6 text-primary mx-auto mb-2" />
+            <p className="text-white font-bold text-sm">Suporte nas Aulas</p>
+            <p className="text-gray-400 text-xs mt-1">Aprenda com orientação</p>
+          </div>
+          <div className="bg-slate-800/80 border border-white/10 rounded-xl px-4 py-4 text-center">
+            <Shield className="w-6 h-6 text-primary mx-auto mb-2" />
+            <p className="text-white font-bold text-sm">Garantia 7 Dias</p>
+            <p className="text-gray-400 text-xs mt-1">Risco zero para você</p>
+          </div>
+        </div>
+
         {/* Frase de impacto em destaque */}
         <div className="max-w-xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/50 px-4 py-5 md:py-7 text-center shadow-xl shadow-primary/20">
