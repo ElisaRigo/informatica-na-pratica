@@ -37,7 +37,7 @@ const Aprender = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen theme-aprender bg-background text-foreground">
       {/* 1. HERO — Promessa clara + CTA imediato */}
       <HeroV2 />
 
