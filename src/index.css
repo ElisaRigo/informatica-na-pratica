@@ -112,6 +112,47 @@ All colors MUST be HSL.
   }
 }
 
+/* ============================================
+   TEMA EXCLUSIVO /aprender — Azul Autoridade + Dourado
+   Tokens redefinidos APENAS sob .theme-aprender,
+   sem impactar o resto do app.
+   ============================================ */
+.theme-aprender {
+  --background: 213 64% 15%;          /* #0C2340 navy */
+  --foreground: 210 40% 98%;          /* #F8FAFC */
+  --card: 213 50% 19%;
+  --card-foreground: 210 40% 98%;
+  --primary: 48 96% 53%;              /* #FACC15 gold */
+  --primary-foreground: 213 64% 12%;  /* navy escuro p/ contraste */
+  --secondary: 205 62% 27%;           /* #1A4A6E */
+  --secondary-foreground: 210 40% 98%;
+  --accent: 48 96% 53%;
+  --accent-foreground: 213 64% 12%;
+  --muted: 213 35% 22%;
+  --muted-foreground: 210 25% 80%;
+  --success: 48 96% 53%;              /* CTA dourado */
+  --success-foreground: 213 64% 12%;
+  --border: 213 35% 28%;
+  --input: 213 35% 28%;
+  --ring: 48 96% 53%;
+
+  font-family: 'Hind', system-ui, sans-serif;
+  background-color: hsl(213 64% 15%);
+  color: hsl(210 40% 98%);
+}
+.theme-aprender h1,
+.theme-aprender h2,
+.theme-aprender h3,
+.theme-aprender .font-display {
+  font-family: 'Archivo Black', 'Hind', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+.theme-aprender .font-black,
+.theme-aprender .font-extrabold {
+  font-family: 'Archivo Black', 'Hind', system-ui, sans-serif;
+  font-weight: 400; /* Archivo Black já é pesado */
+}
+
 @layer utilities {
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
