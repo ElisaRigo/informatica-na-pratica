@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 interface StrategicCTAV2Props {
   headline?: string;
