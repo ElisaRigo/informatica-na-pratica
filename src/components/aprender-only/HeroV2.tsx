@@ -133,7 +133,7 @@ export const HeroV2 = () => {
           <div className="bg-slate-800/80 border border-white/10 rounded-xl px-4 py-4 text-center">
             <Headphones className="w-6 h-6 text-primary mx-auto mb-2" />
             <p className="text-white font-bold text-sm">Suporte nas Aulas</p>
-            <p className="text-gray-400 text-xs mt-1">Aprenda com orientação</p>
+            <p className="text-gray-400 text-xs mt-1">Com orientação</p>
           </div>
           <div className="bg-slate-800/80 border border-white/10 rounded-xl px-4 py-4 text-center">
             <Shield className="w-6 h-6 text-primary mx-auto mb-2" />
