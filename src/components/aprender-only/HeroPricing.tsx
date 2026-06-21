@@ -46,9 +46,25 @@ export const HeroPricing = () => {
             className="group relative w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-success to-accent text-white font-black text-base md:text-lg px-6 py-3.5 md:py-4 rounded-xl shadow-2xl shadow-success/40 hover:shadow-success/60 hover:scale-[1.02] transition-all duration-300 overflow-hidden mb-3"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative">🎯 Quero Começar Agora</span>
+          <span className="relative">🎯 Quero Começar Agora</span>
           </button>
 
+          {/* Mini selos de valor */}
+          <div className="grid grid-cols-3 gap-2 mb-3">
+            {[
+              { icon: Monitor, label: "+90 Videoaulas" },
+              { icon: BookOpen, label: "Curso Completo" },
+              { icon: Award, label: "Certificado Incluso" },
+              { icon: Infinity, label: "Acesso Vitalício" },
+              { icon: Headphones, label: "Suporte Direto" },
+              { icon: Users, label: "+15.000 Alunos" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-lg px-2 py-2">
+                <item.icon className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span className="text-white font-bold text-[10px] leading-tight">{item.label}</span>
+              </div>
+            ))}
+          </div>
 
           {/* Garantia verde */}
           <div className="bg-success/10 border border-success/40 rounded-xl px-4 py-3 mb-3 text-center">
