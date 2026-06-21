@@ -82,22 +82,18 @@ export const PricingV2 = () => {
                 {/* Right: Price and CTA */}
                 <div className="flex flex-col justify-center">
                   <div className="text-center mb-6">
-                    <p className="text-muted-foreground mb-2">De <span className="line-through">R$ 497,00</span> por apenas:</p>
+                    <p className="text-muted-foreground mb-2">De <span className="line-through">R$ 697,00</span> por apenas:</p>
                     
                     <div className="mb-2">
                       <span className="text-5xl md:text-7xl font-black text-accent">R$ 297</span>
                       <span className="text-2xl text-muted-foreground">,00</span>
                     </div>
                     
-                    <p className="text-sm text-success font-bold mb-1">
-                      Você economiza R$ 200,00
-                    </p>
-                    
                     <p className="text-lg text-foreground font-semibold">
-                      De R$ 497,00 por apenas <span className="text-primary font-bold">12x de R$ 30,72</span>
+                      ou <span className="text-primary font-bold">12x de R$ 30,72</span>
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      no cartão de crédito — menos de R$ 1 por dia
+                      no cartão de crédito
                     </p>
                   </div>
 
