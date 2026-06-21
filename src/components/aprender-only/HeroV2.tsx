@@ -60,7 +60,7 @@ export const HeroV2 = () => {
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Você sente <span className="text-amber-400">medo</span> ou <span className="text-amber-400">insegurança</span> ao usar o computador?
+            Você sente <span className="text-amber-300">medo</span> ou <span className="text-amber-300">insegurança</span> ao usar o computador?
           </h1>
         </div>
 
@@ -113,7 +113,7 @@ export const HeroV2 = () => {
 
         {/* Frase de impacto */}
         <p className="text-center text-xl md:text-3xl lg:text-4xl text-white font-black max-w-4xl mx-auto px-4 mb-4 md:mb-6 leading-tight">
-          Aprenda do <span className="text-amber-400">ZERO</span>, no seu ritmo, mesmo que você <span className="text-amber-400">NUNCA</span> tenha ligado um computador.
+          Aprenda do <span className="text-amber-300">ZERO</span>, no seu ritmo, mesmo que você <span className="text-amber-300">NUNCA</span> tenha ligado um computador.
         </p>
 
         {/* Frase de impacto em destaque */}
