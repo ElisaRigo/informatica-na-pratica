@@ -1,153 +1,135 @@
-import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { Play, Award, Users, Infinity, ShieldCheck, Star, Clock } from "lucide-react";
+import { useState } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
-import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
-import { TopFearBanner } from "./TopFearBanner";
 
 export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
-  const [shouldLoadFreeClass, setShouldLoadFreeClass] = useState(false);
-  const freeClassRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setShouldLoadFreeClass(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "100px" }
-    );
-    if (freeClassRef.current) {
-      observer.observe(freeClassRef.current);
-    }
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <section className="relative min-h-screen bg-slate-900 overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+    <section className="relative bg-background overflow-hidden">
+      {/* Faixa superior de urgência */}
+      <div className="w-screen relative left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-center py-2 px-4 font-bold text-xs md:text-sm tracking-wide">
+        <span className="inline-flex items-center gap-2">
+          <Clock className="w-4 h-4" />
+          OFERTA POR TEMPO LIMITADO • R$ 297 À VISTA OU 12X
+        </span>
       </div>
 
-      <div className="container mx-auto px-4 py-4 md:py-8 relative z-10">
-        {/* Logo */}
-        <div className="flex items-center justify-center gap-3 md:flex-col md:gap-4 mb-3 md:mb-6">
-          <div className="relative group shrink-0">
-            <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-4 border border-white/20 shadow-lg">
-              <img src={logo} alt="Informática na Prática" className="h-12 md:h-20 lg:h-24 drop-shadow-lg" />
-            </div>
+      {/* Glow ambient */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/40 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 pt-6 md:pt-10 pb-8 md:pb-14 relative z-10">
+        {/* Logo + selo de autoridade */}
+        <div className="flex flex-col items-center gap-3 mb-6 md:mb-8">
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/10">
+            <img src={logo} alt="Informática na Prática" className="h-10 md:h-14" />
           </div>
-          <p className="text-white text-lg md:text-2xl lg:text-3xl font-bold text-left md:text-center leading-tight">
-            <span className="block md:inline">Curso de <span className="text-primary">Informática Online</span></span>
-            <span className="hidden md:inline"> — </span>
-            <span className="block md:inline">Simples e para Todos.</span>
+          <div className="inline-flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
+            <Star className="w-4 h-4 fill-primary text-primary" />
+            <Star className="w-4 h-4 fill-primary text-primary" />
+            <Star className="w-4 h-4 fill-primary text-primary" />
+            <Star className="w-4 h-4 fill-primary text-primary" />
+            <Star className="w-4 h-4 fill-primary text-primary" />
+            <span className="ml-1 font-semibold text-foreground">4.9/5</span>
+            <span>•</span>
+            <span>+15.000 alunos aprovam</span>
+          </div>
+        </div>
+
+        {/* HEADLINE GIGANTE — núcleo da promessa */}
+        <div className="text-center max-w-5xl mx-auto mb-6 md:mb-10">
+          <p className="inline-block bg-secondary/60 border border-primary/30 text-primary px-4 py-1.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider mb-4 md:mb-6">
+            Curso de Informática 100% Online
+          </p>
+          <h1 className="font-black text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight">
+            Pare de sentir <span className="text-primary">vergonha</span> do computador.
+            <span className="block mt-2 md:mt-3">
+              Aprenda do <span className="text-primary">ZERO</span> em poucas semanas.
+            </span>
+          </h1>
+          <p className="mt-5 md:mt-7 text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Mesmo que você <strong className="text-foreground">nunca tenha ligado um computador</strong>,
+            a Professora Elisa vai te ensinar passo a passo — com paciência, sem termos difíceis.
           </p>
         </div>
 
-        {/* Faixa vermelha de dor */}
-        <TopFearBanner />
-
-        {/* Headline principal */}
-        <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Domine o <span className="text-primary">computador</span> em{" "}
-            <span className="text-primary">poucas semanas</span>, mesmo sem saber nada
-          </h1>
-        </div>
-
-        {/* Video Container com selos sobrepostos na borda inferior */}
-        <div className="max-w-4xl mx-auto mb-6 md:mb-8 relative pb-5 md:pb-7">
-          <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
+        {/* VÍDEO centralizado */}
+        <div className="max-w-3xl mx-auto mb-6 md:mb-8">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/30 ring-4 ring-primary/10">
             {!isPlaying ? (
-              <div 
-                className="relative aspect-video cursor-pointer group"
+              <button
+                type="button"
+                className="relative aspect-video w-full cursor-pointer group block"
                 onClick={() => setIsPlaying(true)}
+                aria-label="Assistir vídeo de apresentação"
               >
-                <img 
+                <img
                   src={heroVideoThumb}
-                  alt="Prévia do curso de informática"
+                  alt="Veja como é fácil aprender informática"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
+                <div className="absolute inset-0 bg-background/30 group-hover:bg-background/10 transition-colors" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
-                    <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary shadow-2xl shadow-primary/50 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                    <Play className="w-9 h-9 md:w-11 md:h-11 text-primary-foreground fill-current ml-1" />
                   </div>
                 </div>
-              </div>
+                <div className="absolute bottom-3 left-3 bg-background/80 backdrop-blur-sm border border-primary/30 text-foreground text-xs md:text-sm font-bold px-3 py-1.5 rounded-full">
+                  ▶ Assista 90 segundos
+                </div>
+              </button>
             ) : (
               <div className="aspect-video">
                 <iframe
-                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&autoplay=1"
                   title="Veja como é fácil aprender"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
               </div>
             )}
           </div>
-
-          {/* Selos sobrepostos no limite inferior do vídeo */}
-          <div className="absolute left-2 right-2 md:left-4 md:right-4 -bottom-0 flex justify-between items-center gap-2 z-20 pointer-events-none">
-            <div className="inline-flex items-center gap-2 bg-slate-900 border border-primary/50 px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg">
-              <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-              <span className="font-bold text-[10px] md:text-sm text-white tracking-wide whitespace-nowrap">ACESSO VITALÍCIO</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-[#25D366] px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg">
-              <Users className="w-4 h-4 md:w-5 md:h-5 text-white" />
-              <span className="font-bold text-[10px] md:text-sm text-white tracking-wide whitespace-nowrap">+15.000 ALUNOS</span>
-            </div>
-          </div>
         </div>
 
-        {/* Frase de impacto */}
-        <p className="text-center text-base md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
-          Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia <strong className="text-white">— sem depender de ninguém</strong>
-        </p>
-
-        {/* Frase de impacto em destaque */}
-        <div className="max-w-xl mx-auto mb-4 md:mb-6">
-          <div className="relative rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/50 px-4 py-5 md:py-7 text-center shadow-xl shadow-primary/20">
-            <p className="text-2xl md:text-4xl font-black text-white leading-tight">
-              Perca o <span className="text-primary">medo do computador!</span>
-            </p>
-          </div>
+        {/* CTA PRINCIPAL — dourado, alto contraste */}
+        <div className="text-center max-w-2xl mx-auto mb-6 md:mb-8">
+          <button
+            onClick={() => (window as any).openCheckout?.()}
+            className="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-black text-lg md:text-2xl px-8 md:px-14 py-5 md:py-6 rounded-xl shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:scale-[1.02] transition-all duration-300 uppercase tracking-tight"
+          >
+            QUERO COMEÇAR AGORA
+          </button>
+          <p className="mt-3 text-sm text-muted-foreground inline-flex items-center justify-center gap-2 flex-wrap">
+            <ShieldCheck className="w-4 h-4 text-primary" />
+            Pagamento seguro • Garantia 7 dias • Acesso imediato
+          </p>
         </div>
 
-        {/* Preço na Hero */}
-        <HeroPricing />
-
-        {/* Trust Badges - 2 selos abaixo do preço */}
-        <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-xl mx-auto mb-6">
+        {/* Selos de confiança em linha */}
+        <div className="grid grid-cols-3 gap-2 md:gap-4 max-w-3xl mx-auto">
           {[
-            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+            { icon: Infinity, label: "Acesso Vitalício", sub: "Estude no seu ritmo" },
+            { icon: Award, label: "Certificado", sub: "Reconhecido" },
+            { icon: Users, label: "+15.000 alunos", sub: "20 anos ensinando" },
           ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-3 md:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <item.icon className="w-6 h-6 md:w-7 md:h-7 text-primary mb-1" />
-              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
+            <div key={i} className="flex flex-col items-center text-center p-3 md:p-4 bg-secondary/40 backdrop-blur-sm rounded-xl border border-primary/20">
+              <item.icon className="w-6 h-6 md:w-7 md:h-7 text-primary mb-1.5" />
+              <span className="text-foreground font-bold text-xs md:text-sm leading-tight">{item.label}</span>
+              <span className="text-muted-foreground text-[10px] md:text-xs leading-tight">{item.sub}</span>
             </div>
           ))}
         </div>
 
-
-      </div>
-
-      {/* Scroll indicator - hidden on mobile */}
-      <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-white/50 rounded-full animate-pulse" />
+        {/* Preço discreto abaixo */}
+        <div className="mt-8 md:mt-10">
+          <HeroPricing />
         </div>
       </div>
     </section>
