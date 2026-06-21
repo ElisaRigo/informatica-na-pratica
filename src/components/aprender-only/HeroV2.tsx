@@ -72,11 +72,11 @@ export const HeroV2 = () => {
                 onClick={() => setIsPlaying(true)}
               >
                   <img 
-                    src={informaticaOnlineThumb.url}
-                    alt="Prévia do curso de informática"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
+                    src={freeClassThumb}
+                    alt="Aula demonstrativa gratuita"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
                     <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
