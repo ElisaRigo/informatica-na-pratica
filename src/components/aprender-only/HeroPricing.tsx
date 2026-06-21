@@ -1,4 +1,4 @@
-import { Shield, Zap, Lock, Star, Monitor, BookOpen, Award, Infinity, Headphones, Users } from "lucide-react";
+import { Shield, Lock, Star, Monitor, BookOpen, Award, Infinity, Headphones, Users } from "lucide-react";
 import avatar1 from "@/assets/avatar-1.jpg";
 
 export const HeroPricing = () => {
@@ -8,17 +8,6 @@ export const HeroPricing = () => {
         {/* Conteúdo do card de preço */}
 
         <div className="p-4 md:p-6">
-          {/* Pills */}
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
-            <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
-              <Zap className="w-3.5 h-3.5 text-primary" />
-              <span className="text-white text-[11px] md:text-xs font-semibold">Acesso Imediato</span>
-            </div>
-            <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
-              <Shield className="w-3.5 h-3.5 text-primary" />
-              <span className="text-white text-[11px] md:text-xs font-semibold">Garantia 7 dias</span>
-            </div>
-          </div>
 
           {/* Preço */}
           <div className="text-center mb-3">
