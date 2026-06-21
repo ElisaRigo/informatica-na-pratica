@@ -112,7 +112,7 @@ export const HeroV2 = () => {
 
         {/* Frase de impacto */}
         <p className="text-center text-base md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
-          Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia <strong className="text-white">— sem depender de ninguém</strong>
+          Aprenda do zero, no seu ritmo, mesmo que você nunca tenha ligado um computador.
         </p>
 
         {/* Frase de impacto em destaque */}
