@@ -38,25 +38,62 @@ const Aprender = () => {
 
   return (
     <div className="min-h-screen">
+      {/* 1. HERO — Promessa clara + CTA imediato */}
       <HeroV2 />
-      <CapableSection />
-      <AudioTestimonialsV2 />
+
+      {/* 2. PROBLEMA — Conecta com a dor antes de qualquer coisa */}
       <ProblemSection />
-      <CertificateSection />
+
+      {/* 3. PROVA SOCIAL ANTECIPADA — Áudios reais quebram objeção logo de cara */}
+      <AudioTestimonialsV2 />
+
+      {/* 4. VOCÊ TAMBÉM CONSEGUE — Transição emocional */}
+      <CapableSection />
+
+      {/* 5. AUTORIDADE — Quem é a Professora */}
       <InstructorSection />
+
+      {/* 6. TRANSFORMAÇÃO — O que muda na vida do aluno */}
+      <TransformationSection />
+
+      {/* CTA 1 — Compromisso antecipado (micro-conversão) */}
       <StrategicCTAV2
-        headline="Quero aprender com a Elisa!"
-        buttonText="Sim, Quero Ser Aluno(a)"
+        headline="Quero aprender com a Professora Elisa!"
+        buttonText="Sim, Quero Garantir Minha Vaga"
+        variant="default"
+      />
+
+      {/* 7. CONTEÚDO DO CURSO — O que vai aprender */}
+      <ContentSectionV2 />
+
+      {/* 8. AMBIENTE DE ESTUDO — Onde estuda */}
+      <EnvironmentSection />
+
+      {/* 9. CERTIFICADO — Recompensa tangível */}
+      <CertificateSection />
+
+      {/* 10. SUPORTE — Quebra objeção "e se eu travar?" */}
+      <SupportBannerV2 />
+
+      {/* CTA 2 — Após ver tudo que recebe */}
+      <StrategicCTAV2
+        headline="Tudo isso é seu por um único pagamento!"
+        buttonText="Quero Aproveitar Esta Oportunidade"
         variant="light"
       />
-      <EnvironmentSection />
-      <SupportBannerV2 />
-      <TransformationSection />
-      <ContentSectionV2 />
+
+      {/* 11. DEPOIMENTOS — Prova social reforçada antes do preço */}
       <TestimonialsV2 />
+
+      {/* 12. OFERTA — Preço apresentado após todo o valor construído */}
       <PricingV2 />
+
+      {/* 13. FAQ — Última quebra de objeções */}
       <FAQV2 />
+
+      {/* 14. CTA FINAL — Última chamada com urgência */}
       <FinalCTA />
+
       <DisclaimerSection />
       <FooterV2 />
       <WhatsAppButton />

@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 interface StrategicCTAV2Props {
   headline?: string;
@@ -38,15 +38,15 @@ export const StrategicCTAV2 = ({
           {/* CTA Button - Compacto e elegante */}
           <button
             onClick={() => (window as any).openCheckout?.()}
-            className="group inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-base md:text-lg px-8 md:px-10 py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300"
           >
             {buttonText}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
           {/* Trust text */}
-          <p className={`text-xs md:text-sm mt-4 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
-            🔒 Pagamento seguro • Garantia de 7 dias • Acesso imediato
+          <p className={`text-xs md:text-sm mt-4 inline-flex items-center justify-center gap-2 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+            <ShieldCheck className="w-4 h-4 text-primary" />
+            Pagamento seguro • Garantia de 7 dias • Acesso imediato
           </p>
         </div>
       </div>
