@@ -1,4 +1,4 @@
-import { Monitor, Infinity, Sparkles, Headphones, Shield } from 'lucide-react';
+import { Monitor, Headphones, Shield } from 'lucide-react';
 
 export const TopFearBanner = () => {
   return (
@@ -23,16 +23,6 @@ export const TopFearBanner = () => {
           <span className="font-medium text-base md:text-lg text-white">
             Você não precisa saber nada<br className="md:hidden" /> <span className="text-primary font-bold">só precisa começar!</span>
           </span>
-        </div>
-        <div className="flex items-center justify-center gap-3 mt-3">
-          <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-primary/40 px-4 py-2 rounded-full shadow-lg">
-            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            <span className="font-bold text-[10px] md:text-xs text-white tracking-wide whitespace-nowrap">ACESSO VITALÍCIO</span>
-          </div>
-          <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-[#25D366]/40 px-4 py-2 rounded-full shadow-lg">
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-[#25D366]" />
-            <span className="font-bold text-[10px] md:text-xs text-white tracking-wide whitespace-nowrap">CURSO ONLINE</span>
-          </div>
         </div>
       </div>
     </div>
