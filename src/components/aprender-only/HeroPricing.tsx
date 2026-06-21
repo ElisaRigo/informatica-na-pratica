@@ -25,8 +25,8 @@ export const HeroPricing = () => {
             <p className="text-base md:text-lg text-amber-400 font-bold mb-1 whitespace-nowrap">
               Garanta sua vaga hoje com <span className="bg-amber-400 text-slate-900 px-1.5 py-0.5 rounded-md font-black">40% OFF</span>
             </p>
-            <p className="text-sm md:text-base text-slate-400 line-through mb-1">
-              de R$ 497,00 por apenas
+            <p className="text-lg md:text-2xl text-slate-300 font-bold mb-1">
+              de <span className="text-slate-400 line-through">R$ 497,00</span> por apenas
             </p>
             <p className="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-accent">
               Só 12x de R$ 30,72
