@@ -1,4 +1,5 @@
 import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
+import { CapableSection } from "./CapableSection";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
@@ -114,6 +115,8 @@ export const HeroV2 = () => {
         <p className="text-center text-xl md:text-3xl lg:text-4xl text-white font-black max-w-4xl mx-auto px-4 mb-4 md:mb-6 leading-tight">
           Aprenda do <span className="text-primary">ZERO</span>, no seu ritmo, mesmo que você <span className="text-primary">NUNCA</span> tenha ligado um computador.
         </p>
+
+        <CapableSection />
 
         {/* Frase de impacto em destaque */}
         <div className="max-w-xl mx-auto mb-4 md:mb-6">
