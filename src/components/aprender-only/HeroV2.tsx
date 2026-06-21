@@ -1,6 +1,7 @@
 import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
+import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
@@ -71,9 +72,9 @@ export const HeroV2 = () => {
                 className="relative aspect-video cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
-                <img 
-                  src={heroVideoThumb}
-                  alt="Prévia do curso de informática"
+                  <img 
+                    src={informaticaOnlineThumb.url}
+                    alt="Prévia do curso de informática"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
