@@ -119,7 +119,10 @@ export const HeroV2 = () => {
         <div className="max-w-xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/50 px-4 py-5 md:py-7 text-center shadow-xl shadow-primary/20">
             <p className="text-2xl md:text-4xl font-black text-white leading-tight">
-              Perca o <span className="text-primary">medo do computador!</span>
+              <span className="text-primary">🎁 Acesso vitalício incluso</span>
+            </p>
+            <p className="text-lg md:text-2xl font-bold text-white/90 leading-tight mt-2">
+              Aprenda no seu ritmo e reveja as aulas quantas vezes precisar.
             </p>
           </div>
         </div>
