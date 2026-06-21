@@ -122,7 +122,7 @@ export const HeroV2 = () => {
               <span className="text-primary">🎁 Acesso vitalício incluso</span>
             </p>
             <p className="text-lg md:text-2xl font-bold text-white/90 leading-tight mt-2">
-              Aprenda no seu ritmo e reveja as aulas quantas vezes precisar.
+              Aprenda com calma e volte às aulas sempre que precisar.
             </p>
           </div>
         </div>
