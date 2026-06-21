@@ -59,8 +59,7 @@ export const HeroV2 = () => {
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Domine o <span className="text-primary">computador</span> em{" "}
-            <span className="text-primary">poucas semanas</span>, mesmo sem saber nada
+            Você sente <span className="text-primary">medo</span> ou <span className="text-primary">insegurança</span> ao usar o computador?
           </h1>
         </div>
 
