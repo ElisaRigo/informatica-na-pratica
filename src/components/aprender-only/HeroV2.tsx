@@ -72,9 +72,9 @@ export const HeroV2 = () => {
                 className="relative aspect-video cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
-                <img 
-                  src={heroVideoThumb}
-                  alt="Prévia do curso de informática"
+                  <img 
+                    src={informaticaOnlineThumb.url}
+                    alt="Prévia do curso de informática"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
