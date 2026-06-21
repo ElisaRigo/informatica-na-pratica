@@ -39,8 +39,8 @@ export const CapableSection = () => {
                   onClick={() => setIsPlaying(true)}
                 >
                   <img
-                    src={freeClassThumb}
-                    alt="Aula demonstrativa gratuita"
+                    src={informaticaOnlineThumb.url}
+                    alt="Prévia do curso de informática"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
