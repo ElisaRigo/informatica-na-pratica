@@ -7,7 +7,7 @@ export const TopFearBanner = () => {
         <div className="flex items-center justify-center text-center gap-2">
           <Monitor className="shrink-0 text-primary" size={20} />
           <span className="font-black text-base md:text-lg text-white uppercase tracking-wide">
-            Você não precisa saber nada para começar — <span className="text-primary">só precisa começar!</span>
+            Você não precisa saber nada — <span className="text-primary">só precisa começar!</span>
           </span>
         </div>
       </div>
