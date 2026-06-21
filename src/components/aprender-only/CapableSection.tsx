@@ -1,6 +1,6 @@
 import { MessageCircle, Footprints, Smile, Rocket, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
 
 export const CapableSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
