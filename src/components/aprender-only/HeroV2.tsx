@@ -111,8 +111,8 @@ export const HeroV2 = () => {
         </div>
 
         {/* Frase de impacto */}
-        <p className="text-center text-base md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
-          Aprenda do zero, no seu ritmo, mesmo que você nunca tenha ligado um computador.
+        <p className="text-center text-xl md:text-3xl lg:text-4xl text-white font-black max-w-4xl mx-auto px-4 mb-4 md:mb-6 leading-tight">
+          Aprenda do <span className="text-primary">ZERO</span>, no seu ritmo, mesmo que você <span className="text-primary">NUNCA</span> tenha ligado um computador.
         </p>
 
         {/* Frase de impacto em destaque */}
