@@ -116,6 +116,8 @@ export const HeroV2 = () => {
           Aprenda do <span className="text-primary">ZERO</span>, no seu ritmo, mesmo que você <span className="text-primary">NUNCA</span> tenha ligado um computador.
         </p>
 
+        <CapableSection />
+
         {/* Frase de impacto em destaque */}
         <div className="max-w-xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/50 px-4 py-5 md:py-7 text-center shadow-xl shadow-primary/20">
