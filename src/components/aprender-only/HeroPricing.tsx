@@ -1,4 +1,4 @@
-import { Shield, Zap, Lock, Star } from "lucide-react";
+import { Shield, Zap, Lock, Star, Monitor, BookOpen, Award, Infinity, Headphones, Users } from "lucide-react";
 import avatar1 from "@/assets/avatar-1.jpg";
 
 export const HeroPricing = () => {
