@@ -1,4 +1,4 @@
-import { ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface StrategicCTAV2Props {
   headline?: string;
@@ -14,14 +14,17 @@ export const StrategicCTAV2 = ({
   const isLight = variant === "light";
   
   return (
-    <section className={`py-8 md:py-12 ${
-      isLight
-        ? "bg-secondary/30"
-        : "bg-gradient-to-b from-background via-secondary/40 to-background"
+    <section className={`py-6 md:py-8 ${
+      isLight 
+        ? "bg-white" 
+        : variant === "minimal" 
+          ? "bg-slate-800/50" 
+          : "bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"
     }`}>
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-black mb-5 text-foreground leading-tight">
+          {/* Headline */}
+          <h3 className={`text-xl md:text-2xl lg:text-3xl font-black mb-4 ${isLight ? "text-slate-900" : "text-white"}`}>
             {headline.includes("!") ? (
               <>
                 {headline.replace("!", "")}
@@ -32,16 +35,18 @@ export const StrategicCTAV2 = ({
             )}
           </h3>
 
+          {/* CTA Button - Compacto e elegante */}
           <button
             onClick={() => (window as any).openCheckout?.()}
-            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-black text-base md:text-xl px-10 md:px-14 py-5 rounded-xl shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:scale-[1.02] transition-all duration-300 uppercase tracking-tight"
+            className="group inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 hover:scale-[1.02] transition-all duration-300"
           >
             {buttonText}
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
-          <p className="text-xs md:text-sm mt-4 inline-flex items-center justify-center gap-2 text-muted-foreground">
-            <ShieldCheck className="w-4 h-4 text-primary" />
-            Pagamento seguro • Garantia de 7 dias • Acesso imediato
+          {/* Trust text */}
+          <p className={`text-xs md:text-sm mt-4 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+            🔒 Pagamento seguro • Garantia de 7 dias • Acesso imediato
           </p>
         </div>
       </div>
