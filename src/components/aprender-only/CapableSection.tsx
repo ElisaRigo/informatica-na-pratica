@@ -1,6 +1,6 @@
 import { MessageCircle, Footprints, Smile, Rocket, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
+import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 
 export const CapableSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -39,7 +39,7 @@ export const CapableSection = () => {
                   onClick={() => setIsPlaying(true)}
                 >
                   <img
-                    src={informaticaOnlineThumb.url}
+                    src={aprendaComigoThumb}
                     alt="Prévia do curso de informática"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -53,7 +53,7 @@ export const CapableSection = () => {
               ) : (
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                     title="Veja como é fácil aprender"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
