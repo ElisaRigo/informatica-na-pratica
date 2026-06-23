@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
-import freeClassThumb from "@/assets/environment-thumb.jpg";
+import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
 
@@ -99,7 +99,7 @@ export const HeroV2 = () => {
             ) : (
               <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                     title="Aula gratuita"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
