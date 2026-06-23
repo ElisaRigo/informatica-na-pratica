@@ -7,7 +7,7 @@ export const TopFearBanner = () => {
         <div className="flex items-center justify-center text-center gap-2.5">
           <Monitor className="shrink-0 text-primary-foreground hidden md:inline-block" size={24} />
           <span className="font-bold leading-tight text-primary-foreground text-xl md:text-2xl">
-            <span className="underline decoration-2 underline-offset-4">Do zero</span>, pra quem<br className="md:hidden" /> não sabe nada do computador
+            Do <span className="font-black uppercase tracking-wide">Zero</span>, pra quem<br className="md:hidden" /> não sabe nada do computador
           </span>
         </div>
       </div>
