@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, GraduationCap, Clock, Zap, Shield, Award, ArrowRight } from "lucide-react";
-import environmentThumb from "@/assets/environment-thumb.jpg";
+import environmentThumb from "@/assets/aprenda-comigo-thumb.jpg";
 
 export const EnvironmentSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
