@@ -1,10 +1,8 @@
 import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
-import { CapableSection } from "./CapableSection";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
-import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
-import freeClassThumb from "@/assets/aprender-hero-cover.jpg";
+import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
 
@@ -57,22 +55,11 @@ export const HeroV2 = () => {
         {/* Faixa vermelha de dor */}
         <TopFearBanner />
 
-        {/* Selos de acesso vitalício e curso online */}
-        <div className="flex items-center justify-center gap-3 mt-2 mb-3">
-          <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-primary/40 px-4 py-2 rounded-full shadow-lg">
-            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            <span className="font-bold text-[10px] md:text-xs text-white tracking-wide whitespace-nowrap">ACESSO VITALÍCIO</span>
-          </div>
-          <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-[#25D366]/40 px-4 py-2 rounded-full shadow-lg">
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-[#25D366]" />
-            <span className="font-bold text-[10px] md:text-xs text-white tracking-wide whitespace-nowrap">CURSO ONLINE</span>
-          </div>
-        </div>
-
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Você sente <span className="text-amber-300">medo</span> ou <span className="text-amber-300">insegurança</span> ao usar o computador?
+            Domine o <span className="text-primary">computador</span> em{" "}
+            <span className="text-primary">poucas semanas</span>, mesmo sem saber nada
           </h1>
         </div>
 
@@ -84,12 +71,12 @@ export const HeroV2 = () => {
                 className="relative aspect-video cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
-                  <img 
-                    src={freeClassThumb}
-                    alt="Aula demonstrativa gratuita"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
+                <img 
+                  src={heroVideoThumb}
+                  alt="Prévia do curso de informática"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
                     <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
@@ -98,14 +85,14 @@ export const HeroV2 = () => {
               </div>
             ) : (
               <div className="aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
-                    title="Aula gratuita"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
+                <iframe
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                  title="Veja como é fácil aprender"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </div>
             )}
           </div>
@@ -124,37 +111,18 @@ export const HeroV2 = () => {
         </div>
 
         {/* Frase de impacto */}
-        <p className="text-center text-xl md:text-3xl lg:text-4xl text-white font-black max-w-4xl mx-auto px-4 mb-4 md:mb-6 leading-tight">
-          Aprenda do <span className="text-amber-300">ZERO</span>, no seu ritmo, mesmo que você <span className="text-amber-300">NUNCA</span> tenha ligado um computador.
+        <p className="text-center text-base md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
+          Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia <strong className="text-white">— sem depender de ninguém</strong>
         </p>
-
-        {/* Selos Suporte e Garantia */}
-        <div className="grid grid-cols-2 gap-3 max-w-md mx-auto mb-4 md:mb-6">
-          <div className="bg-slate-800/80 border border-white/10 rounded-xl px-4 py-4 text-center">
-            <Headphones className="w-6 h-6 text-primary mx-auto mb-2" />
-            <p className="text-white font-bold text-sm">Suporte nas Aulas</p>
-            <p className="text-gray-400 text-xs mt-1">Com orientação</p>
-          </div>
-          <div className="bg-slate-800/80 border border-white/10 rounded-xl px-4 py-4 text-center">
-            <Shield className="w-6 h-6 text-primary mx-auto mb-2" />
-            <p className="text-white font-bold text-sm">Garantia 7 Dias</p>
-            <p className="text-gray-400 text-xs mt-1">Risco zero para você</p>
-          </div>
-        </div>
 
         {/* Frase de impacto em destaque */}
         <div className="max-w-xl mx-auto mb-4 md:mb-6">
           <div className="relative rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/50 px-4 py-5 md:py-7 text-center shadow-xl shadow-primary/20">
             <p className="text-2xl md:text-4xl font-black text-white leading-tight">
-              <span className="text-primary">🎁 Acesso vitalício incluso</span>
-            </p>
-            <p className="text-lg md:text-2xl font-bold text-white/90 leading-tight mt-2">
-              Aprenda com calma e veja as aulas quantas vezes precisar.
+              Perca o <span className="text-primary">medo do computador!</span>
             </p>
           </div>
         </div>
-
-        <CapableSection />
 
         {/* Preço na Hero */}
         <HeroPricing />

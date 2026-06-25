@@ -21,7 +21,7 @@ export const IdentificationSection = () => {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
             Você tem{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-amber-300">
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                 medo
               </span>
               <span className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-primary/30 to-accent/30 -skew-x-12" />

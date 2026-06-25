@@ -1,13 +1,14 @@
-import { Monitor } from 'lucide-react';
-
 export const TopFearBanner = () => {
   return (
     <div className="my-4 md:my-6 -mx-4 md:-mx-8 lg:-mx-16">
-      <div className="bg-primary/50 py-3.5 md:py-4 px-4 border-2 border-primary shadow-[0_0_20px_hsl(var(--primary)),inset_0_0_20px_hsl(var(--primary)/0.4)]">
-        <div className="flex items-center justify-center text-center gap-2.5">
-          <Monitor className="shrink-0 text-primary-foreground hidden md:inline-block" size={24} />
-          <span className="font-bold leading-tight text-primary-foreground text-xl md:text-2xl">
-            <span className="underline decoration-2 underline-offset-4">Do zero</span>, pra quem<br className="md:hidden" /> não sabe nada do computador
+      <div className="bg-success/15 border-y border-success/50 py-2.5 md:py-3 px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 text-center">
+          <span className="font-black text-base md:text-lg text-white uppercase tracking-wide">
+            😰 Você trava no computador?
+          </span>
+          <span className="hidden sm:inline text-success/60 text-lg">•</span>
+          <span className="font-bold text-base md:text-lg text-success">
+            Aprenda do Zero — Você Consegue!
           </span>
         </div>
       </div>
