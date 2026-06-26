@@ -145,13 +145,13 @@ export const HeroV2 = () => {
             <span className="text-amber-300 font-bold text-[11px] md:text-xs uppercase tracking-wider">Oferta por tempo limitado</span>
           </div>
 
-          <p className="text-white/90 text-sm md:text-base mt-4">
+          <p className="text-white/90 text-base md:text-lg mt-4">
             de <span className="line-through">R$ 497,00</span> por apenas
           </p>
           <p className="text-primary font-black text-3xl md:text-4xl leading-tight mt-1">
             Só 12x de R$ 30,72
           </p>
-          <p className="text-white/80 text-sm md:text-base mt-1">
+          <p className="text-white/90 text-base md:text-lg mt-1">
             ou <span className="font-bold">R$ 297,00</span> à vista
           </p>
           <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
