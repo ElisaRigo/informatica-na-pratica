@@ -128,7 +128,7 @@ export const HeroV2 = () => {
         </div>
 
         {/* Frase abaixo do vídeo */}
-        <p className="text-center text-lg md:text-2xl lg:text-3xl text-white font-bold max-w-3xl mx-auto px-4 mt-4 mb-4 md:mb-6 leading-snug">
+        <p className="text-center text-2xl md:text-4xl lg:text-5xl text-white font-black max-w-4xl mx-auto px-4 mt-5 mb-5 md:mb-7 leading-tight">
           Aprenda <span className="text-amber-300">Informática</span> comigo mesmo que você <span className="text-amber-300">nunca</span> tenha feito um curso.
         </p>
 
