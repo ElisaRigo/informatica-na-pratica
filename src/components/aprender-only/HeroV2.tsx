@@ -100,7 +100,7 @@ export const HeroV2 = () => {
               href="#oferta"
               className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fbb57] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#25D366]/30"
             >
-              <Rocket className="w-5 h-5" /> Quero Começar Agora
+              <Rocket className="w-5 h-5" /> Quero perder o medo do computador
             </a>
           </div>
         </div>
