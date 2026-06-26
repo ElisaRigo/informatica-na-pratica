@@ -1,6 +1,6 @@
 import { MessageCircle, Footprints, Smile, Rocket, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 
 export const CapableSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -39,8 +39,8 @@ export const CapableSection = () => {
                   onClick={() => setIsPlaying(true)}
                 >
                   <img
-                    src={freeClassThumb}
-                    alt="Aula demonstrativa gratuita"
+                    src={aprendaComigoThumb}
+                    alt="Prévia do curso de informática"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -54,7 +54,7 @@ export const CapableSection = () => {
                 <div className="aspect-video">
                   <iframe
                     src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                    title="Aula gratuita"
+                    title="Veja como é fácil aprender"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
