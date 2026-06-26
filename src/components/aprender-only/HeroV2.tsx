@@ -77,6 +77,29 @@ export const HeroV2 = () => {
           </h1>
         </div>
 
+        {/* Mini sessão de valor - primeira dobra */}
+        <div className="max-w-2xl mx-auto mb-5 md:mb-7 px-2">
+          <div className="relative rounded-2xl bg-gradient-to-br from-primary/15 via-slate-900/60 to-accent/15 border border-primary/40 shadow-lg shadow-primary/10 px-4 py-4 md:px-6 md:py-5">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-5 text-center md:text-left">
+              <div className="flex-1">
+                <p className="text-white font-extrabold text-base md:text-xl leading-tight">
+                  Aprenda <span className="text-primary">informática do zero</span>
+                </p>
+                <p className="inline-flex items-center gap-1.5 mt-1 text-amber-300 font-bold text-sm md:text-base">
+                  <Infinity className="w-4 h-4" /> com acesso vitalício
+                </p>
+              </div>
+              <div className="flex flex-col items-center md:items-end">
+                <span className="text-slate-400 text-xs md:text-sm line-through">De R$ 497,00</span>
+                <span className="text-white font-black text-2xl md:text-3xl leading-none">
+                  R$ <span className="text-primary">297</span>
+                </span>
+                <span className="text-slate-300 text-[11px] md:text-xs mt-0.5">ou 12x de R$ 30,72</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Video Container com selos sobrepostos na borda inferior */}
         <div className="max-w-4xl mx-auto mb-6 md:mb-8 relative pb-5 md:pb-7">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
