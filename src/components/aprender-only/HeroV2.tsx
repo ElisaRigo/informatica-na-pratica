@@ -56,8 +56,6 @@ export const HeroV2 = () => {
           </p>
         </div>
 
-        {/* Faixa vermelha de dor */}
-        <TopFearBanner />
 
         {/* Selos de acesso vitalício e curso online */}
         <div className="flex items-center justify-center gap-3 mt-2 mb-3">
