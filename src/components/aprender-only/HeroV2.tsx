@@ -1,4 +1,4 @@
-import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
+import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity, BookOpen } from "lucide-react";
 import { CapableSection } from "./CapableSection";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
@@ -160,8 +160,25 @@ export const HeroV2 = () => {
             <Rocket className="w-5 h-5" /> Quero perder o medo do computador
           </a>
 
+          {/* Selos de benefícios - 3x2 */}
+          <div className="grid grid-cols-3 gap-2 mt-4">
+            {[
+              { icon: Play, label: "+90 Videoaulas" },
+              { icon: BookOpen, label: "Curso Completo" },
+              { icon: Award, label: "Certificado Incluso" },
+              { icon: Infinity, label: "Acesso Vitalício" },
+              { icon: Headphones, label: "Suporte Direto" },
+              { icon: Users, label: "+15.000 Alunos" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center justify-center gap-1.5 bg-slate-900/60 border border-white/10 rounded-full px-2 py-2">
+                <item.icon className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span className="text-white font-semibold text-[10px] md:text-xs whitespace-nowrap">{item.label}</span>
+              </div>
+            ))}
+          </div>
+
           {/* Garantia 7 dias */}
-          <div className="mt-3 text-center">
+          <div className="mt-3 rounded-xl border border-primary/40 bg-primary/10 px-4 py-3 text-center">
             <p className="inline-flex items-center justify-center gap-1.5 text-primary font-bold text-sm md:text-base">
               <Shield className="w-4 h-4" /> Garantia Incondicional de 7 Dias
             </p>
@@ -170,6 +187,7 @@ export const HeroV2 = () => {
             </p>
           </div>
         </div>
+
 
 
         <CapableSection />
