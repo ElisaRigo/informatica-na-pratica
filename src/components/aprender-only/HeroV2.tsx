@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
-import freeClassThumb from "@/assets/aprender-hero-cover.jpg";
+import freeClassThumbAsset from "@/assets/aprender-hero-cover-v2.jpg.asset.json";
+const freeClassThumb = freeClassThumbAsset.url;
 import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
 
