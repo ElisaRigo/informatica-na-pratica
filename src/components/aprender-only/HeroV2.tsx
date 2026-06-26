@@ -132,10 +132,8 @@ export const HeroV2 = () => {
           Aprenda <span className="text-amber-300">Informática</span> comigo mesmo que você <span className="text-amber-300">nunca</span> tenha feito um curso.
         </p>
 
-        {/* Frase de impacto */}
-        <p className="text-center text-xl md:text-3xl lg:text-4xl text-white font-black max-w-4xl mx-auto px-4 mb-4 md:mb-6 leading-tight">
-          Aprenda do <span className="text-amber-300">ZERO</span>, no seu ritmo, mesmo que você <span className="text-amber-300">NUNCA</span> tenha ligado um computador.
-        </p>
+
+
 
 
         {/* Mini sessão de valor - sem container */}
