@@ -80,9 +80,9 @@ export const HeroV2 = () => {
         {/* Mini sessão de valor - primeira dobra */}
         <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2">
           <div className="rounded-2xl bg-slate-900/70 border border-primary/30 shadow-lg shadow-primary/10 px-4 py-5 md:px-6 md:py-6 text-center">
-            <p className="text-base md:text-lg font-bold leading-tight">
-              <span className="text-amber-300">Garanta sua vaga hoje com </span>
-              <span className="bg-amber-300 text-slate-900 px-2 py-0.5 rounded-md font-black">40% OFF</span>
+            <p className="text-lg md:text-2xl font-black leading-tight text-white">
+              Aprenda <span className="text-primary">informática do zero</span>
+              <span className="block text-amber-300 text-base md:text-xl mt-1">com acesso vitalício</span>
             </p>
             <p className="text-white/90 text-sm md:text-base mt-2">
               de <span className="line-through">R$ 497,00</span> por apenas
