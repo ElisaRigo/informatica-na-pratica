@@ -102,6 +102,16 @@ export const HeroV2 = () => {
             >
               <Rocket className="w-5 h-5" /> Quero perder o medo do computador
             </a>
+
+            {/* Garantia 7 dias */}
+            <div className="mt-3 rounded-xl bg-slate-900/80 border border-primary/40 px-4 py-3 text-center">
+              <p className="inline-flex items-center justify-center gap-1.5 text-primary font-bold text-sm md:text-base">
+                <Shield className="w-4 h-4" /> Garantia Incondicional de 7 Dias
+              </p>
+              <p className="text-white/90 text-xs md:text-sm mt-1">
+                <span className="text-amber-300 font-bold">Risco Zero!</span> Se não gostar, devolvo <span className="text-primary font-bold">100% do seu dinheiro.</span>
+              </p>
+            </div>
           </div>
         </div>
 
