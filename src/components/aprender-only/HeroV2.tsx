@@ -135,6 +135,9 @@ export const HeroV2 = () => {
 
 
 
+        {/* Faixa neon acima da sessão de valor */}
+        <TopFearBanner />
+
         {/* Mini sessão de valor - sem container */}
         <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2 text-center">
           <div className="inline-flex items-center gap-1.5 bg-amber-300/15 border border-amber-300/40 rounded-full px-3 py-1 mb-3">
