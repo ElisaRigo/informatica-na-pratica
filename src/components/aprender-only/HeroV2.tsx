@@ -140,15 +140,11 @@ export const HeroV2 = () => {
 
         {/* Mini sessão de valor - sem container */}
         <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2 text-center">
-          <div className="inline-flex items-center gap-1.5 bg-amber-300/15 border border-amber-300/40 rounded-full px-3 py-1 mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse" />
-            <span className="text-amber-300 font-bold text-[11px] md:text-xs uppercase tracking-wider">Oferta por tempo limitado</span>
-          </div>
 
           <p className="text-white/90 text-base md:text-lg mt-4">
             de <span className="line-through">R$ 497,00</span> por apenas
           </p>
-          <p className="text-primary font-black text-3xl md:text-4xl leading-tight mt-1">
+          <p className="text-[#25D366] font-black text-3xl md:text-4xl leading-tight mt-1">
             Só 12x de R$ 30,72
           </p>
           <p className="text-white/90 text-base md:text-lg mt-1">
