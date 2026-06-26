@@ -127,10 +127,16 @@ export const HeroV2 = () => {
           </div>
         </div>
 
+        {/* Frase abaixo do vídeo */}
+        <p className="text-center text-lg md:text-2xl lg:text-3xl text-white font-bold max-w-3xl mx-auto px-4 mt-4 mb-4 md:mb-6 leading-snug">
+          Aprenda <span className="text-amber-300">Informática</span> comigo mesmo que você <span className="text-amber-300">nunca</span> tenha feito um curso.
+        </p>
+
         {/* Frase de impacto */}
         <p className="text-center text-xl md:text-3xl lg:text-4xl text-white font-black max-w-4xl mx-auto px-4 mb-4 md:mb-6 leading-tight">
           Aprenda do <span className="text-amber-300">ZERO</span>, no seu ritmo, mesmo que você <span className="text-amber-300">NUNCA</span> tenha ligado um computador.
         </p>
+
 
         {/* Mini sessão de valor - sem container */}
         <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2 text-center">
