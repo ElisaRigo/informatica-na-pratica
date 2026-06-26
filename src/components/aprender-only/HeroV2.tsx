@@ -78,25 +78,30 @@ export const HeroV2 = () => {
         </div>
 
         {/* Mini sessão de valor - primeira dobra */}
-        <div className="max-w-2xl mx-auto mb-5 md:mb-7 px-2">
-          <div className="relative rounded-2xl bg-gradient-to-br from-primary/15 via-slate-900/60 to-accent/15 border border-primary/40 shadow-lg shadow-primary/10 px-4 py-4 md:px-6 md:py-5">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-5 text-center md:text-left">
-              <div className="flex-1">
-                <p className="text-white font-extrabold text-base md:text-xl leading-tight">
-                  Aprenda <span className="text-primary">informática do zero</span>
-                </p>
-                <p className="inline-flex items-center gap-1.5 mt-1 text-amber-300 font-bold text-sm md:text-base">
-                  <Infinity className="w-4 h-4" /> com acesso vitalício
-                </p>
-              </div>
-              <div className="flex flex-col items-center md:items-end">
-                <span className="text-slate-400 text-xs md:text-sm line-through">De R$ 497,00</span>
-                <span className="text-white font-black text-2xl md:text-3xl leading-none">
-                  R$ <span className="text-primary">297</span>
-                </span>
-                <span className="text-slate-300 text-[11px] md:text-xs mt-0.5">ou 12x de R$ 30,72</span>
-              </div>
-            </div>
+        <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2">
+          <div className="rounded-2xl bg-slate-900/70 border border-primary/30 shadow-lg shadow-primary/10 px-4 py-5 md:px-6 md:py-6 text-center">
+            <p className="text-base md:text-lg font-bold leading-tight">
+              <span className="text-amber-300">Garanta sua vaga hoje com </span>
+              <span className="bg-amber-300 text-slate-900 px-2 py-0.5 rounded-md font-black">40% OFF</span>
+            </p>
+            <p className="text-white/90 text-sm md:text-base mt-2">
+              de <span className="line-through">R$ 497,00</span> por apenas
+            </p>
+            <p className="text-primary font-black text-3xl md:text-4xl leading-tight mt-1">
+              Só 12x de R$ 30,72
+            </p>
+            <p className="text-white/80 text-sm md:text-base mt-1">
+              ou <span className="font-bold">R$ 297,00</span> à vista
+            </p>
+            <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
+              <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+            </p>
+            <a
+              href="#oferta"
+              className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fbb57] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#25D366]/30"
+            >
+              <Rocket className="w-5 h-5" /> Quero Começar Agora
+            </a>
           </div>
         </div>
 
