@@ -144,9 +144,6 @@ export const HeroV2 = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse" />
             <span className="text-amber-300 font-bold text-[11px] md:text-xs uppercase tracking-wider">Oferta por tempo limitado</span>
           </div>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-black leading-tight tracking-tight text-white">
-            Aprenda informática <span className="text-primary">do zero</span> <span className="text-amber-300">com acesso vitalício</span>
-          </h2>
 
           <p className="text-white/90 text-sm md:text-base mt-4">
             de <span className="line-through">R$ 497,00</span> por apenas
