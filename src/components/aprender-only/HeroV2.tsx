@@ -192,22 +192,6 @@ export const HeroV2 = () => {
 
         <CapableSection />
 
-        {/* Preço na Hero */}
-        <HeroPricing />
-
-        {/* Trust Badges - 2 selos abaixo do preço */}
-        <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-xl mx-auto mb-6">
-          {[
-            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-3 md:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <item.icon className="w-6 h-6 md:w-7 md:h-7 text-primary mb-1" />
-              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
-            </div>
-          ))}
-        </div>
 
 
       </div>
