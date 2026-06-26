@@ -77,43 +77,8 @@ export const HeroV2 = () => {
           </h1>
         </div>
 
-        {/* Mini sessão de valor - primeira dobra */}
-        <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2">
-          <div className="rounded-2xl bg-slate-900/70 border border-primary/30 shadow-lg shadow-primary/10 px-4 py-5 md:px-6 md:py-6 text-center">
-            <p className="text-lg md:text-2xl font-black leading-tight text-white">
-              Aprenda <span className="text-primary">informática do zero</span>
-              <span className="block text-amber-300 text-base md:text-xl mt-1">com acesso vitalício</span>
-            </p>
-            <p className="text-white/90 text-sm md:text-base mt-2">
-              de <span className="line-through">R$ 497,00</span> por apenas
-            </p>
-            <p className="text-primary font-black text-3xl md:text-4xl leading-tight mt-1">
-              Só 12x de R$ 30,72
-            </p>
-            <p className="text-white/80 text-sm md:text-base mt-1">
-              ou <span className="font-bold">R$ 297,00</span> à vista
-            </p>
-            <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
-              <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-            </p>
-            <a
-              href="#oferta"
-              className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fbb57] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#25D366]/30"
-            >
-              <Rocket className="w-5 h-5" /> Quero perder o medo do computador
-            </a>
 
-            {/* Garantia 7 dias */}
-            <div className="mt-3 rounded-xl bg-slate-900/80 border border-primary/40 px-4 py-3 text-center">
-              <p className="inline-flex items-center justify-center gap-1.5 text-primary font-bold text-sm md:text-base">
-                <Shield className="w-4 h-4" /> Garantia Incondicional de 7 Dias
-              </p>
-              <p className="text-white/90 text-xs md:text-sm mt-1">
-                <span className="text-amber-300 font-bold">Risco Zero!</span> Se não gostar, devolvo <span className="text-primary font-bold">100% do seu dinheiro.</span>
-              </p>
-            </div>
-          </div>
-        </div>
+
 
         {/* Video Container com selos sobrepostos na borda inferior */}
         <div className="max-w-4xl mx-auto mb-6 md:mb-8 relative pb-5 md:pb-7">
