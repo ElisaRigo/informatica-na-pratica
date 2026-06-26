@@ -136,83 +136,41 @@ export const HeroV2 = () => {
 
 
 
-        {/* Sessão de valor premium */}
-        <div className="relative max-w-xl mx-auto mb-6 md:mb-10 px-3">
-          {/* Glow de fundo */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary/40 via-amber-300/30 to-primary/40 rounded-3xl blur-2xl opacity-60" aria-hidden />
+        {/* Mini sessão de valor - sem container */}
+        <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2 text-center">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-black leading-tight text-white">
+            Aprenda <span className="text-primary">informática do zero</span>
+            <span className="block text-amber-300 mt-1">com acesso vitalício</span>
+          </h2>
+          <p className="text-white/90 text-sm md:text-base mt-4">
+            de <span className="line-through">R$ 497,00</span> por apenas
+          </p>
+          <p className="text-primary font-black text-3xl md:text-4xl leading-tight mt-1">
+            Só 12x de R$ 30,72
+          </p>
+          <p className="text-white/80 text-sm md:text-base mt-1">
+            ou <span className="font-bold">R$ 297,00</span> à vista
+          </p>
+          <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
+            <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+          </p>
+          <a
+            href="#oferta"
+            className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fbb57] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#25D366]/30"
+          >
+            <Rocket className="w-5 h-5" /> Quero perder o medo do computador
+          </a>
 
-          <div className="relative bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 border border-white/10 rounded-3xl shadow-2xl shadow-primary/20 overflow-hidden">
-            {/* Faixa superior — oferta */}
-            <div className="flex items-center justify-between gap-2 bg-gradient-to-r from-amber-400 to-amber-300 px-4 py-2">
-              <span className="inline-flex items-center gap-1.5 text-slate-900 font-black text-xs md:text-sm tracking-wide uppercase">
-                <Sparkles className="w-4 h-4" /> Oferta de Lançamento
-              </span>
-              <span className="bg-slate-900 text-amber-300 font-black text-xs md:text-sm px-2.5 py-1 rounded-full">
-                40% OFF
-              </span>
-            </div>
-
-            <div className="px-5 md:px-8 py-6 md:py-8 text-center">
-              {/* Título */}
-              <h2 className="text-2xl md:text-4xl font-black leading-[1.1] text-white">
-                Aprenda <span className="text-primary">informática do zero</span>
-                <span className="block text-amber-300 mt-1">com acesso vitalício</span>
-              </h2>
-
-              {/* Preço */}
-              <div className="mt-6 flex flex-col items-center">
-                <span className="text-slate-400 text-sm md:text-base">
-                  de <span className="line-through decoration-2 decoration-red-400/70">R$ 497,00</span> por apenas
-                </span>
-
-                <div className="mt-2 flex items-baseline justify-center gap-2">
-                  <span className="text-white/80 text-lg md:text-xl font-bold">12x</span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/70 font-black text-5xl md:text-6xl leading-none tracking-tight">
-                    R$ 30
-                  </span>
-                  <span className="text-primary font-black text-2xl md:text-3xl">,72</span>
-                </div>
-
-                <span className="mt-2 inline-flex items-center gap-2 text-white/70 text-sm md:text-base">
-                  <span className="h-px w-6 bg-white/20" />
-                  ou <span className="text-white font-bold">R$ 297</span> à vista
-                  <span className="h-px w-6 bg-white/20" />
-                </span>
-              </div>
-
-              {/* CTA */}
-              <a
-                href="#oferta"
-                className="group mt-6 w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-[#2dd476] to-[#1fbb57] hover:from-[#34de7f] hover:to-[#23c75e] transition-all text-white font-black text-base md:text-lg py-4 md:py-5 rounded-2xl shadow-[0_10px_30px_-8px_rgba(37,211,102,0.6)] hover:shadow-[0_14px_40px_-8px_rgba(37,211,102,0.75)] hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <Rocket className="w-5 h-5 transition-transform group-hover:-translate-y-0.5 group-hover:rotate-12" />
-                Quero perder o medo do computador
-              </a>
-
-              {/* Trust row */}
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-slate-300 text-xs md:text-sm">
-                <span className="inline-flex items-center gap-1.5">
-                  <Shield className="w-3.5 h-3.5 text-primary" /> Pagamento 100% seguro
-                </span>
-                <span className="hidden md:inline text-slate-600">·</span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-300" /> Acesso imediato
-                </span>
-              </div>
-
-              {/* Garantia */}
-              <div className="mt-5 mx-auto max-w-md bg-white/[0.04] border border-primary/30 rounded-2xl px-4 py-3">
-                <p className="inline-flex items-center justify-center gap-2 text-primary font-black text-sm md:text-base">
-                  <Shield className="w-4 h-4" /> Garantia Incondicional de 7 Dias
-                </p>
-                <p className="text-white/85 text-xs md:text-sm mt-1 leading-snug">
-                  <span className="text-amber-300 font-black">Risco Zero!</span> Se não gostar, devolvo <span className="text-primary font-bold">100% do seu dinheiro</span>.
-                </p>
-              </div>
-            </div>
+          {/* Garantia 7 dias */}
+          <div className="mt-3 text-center">
+            <p className="inline-flex items-center justify-center gap-1.5 text-primary font-bold text-sm md:text-base">
+              <Shield className="w-4 h-4" /> Garantia Incondicional de 7 Dias
+            </p>
+            <p className="text-white/90 text-xs md:text-sm mt-1">
+              <span className="text-amber-300 font-bold">Risco Zero!</span> Se não gostar, devolvo <span className="text-primary font-bold">100% do seu dinheiro.</span>
+            </p>
           </div>
         </div>
-
 
 
         <CapableSection />
