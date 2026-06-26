@@ -90,7 +90,7 @@ export const HeroV2 = () => {
                 onClick={() => setIsPlaying(true)}
               >
                   <img 
-                    src={freeClassThumb}
+                    src={heroVideoThumb}
                     alt="Aula demonstrativa gratuita"
                     className="w-full h-full object-cover"
                     loading="eager"
