@@ -77,43 +77,8 @@ export const HeroV2 = () => {
           </h1>
         </div>
 
-        {/* Mini sessão de valor - primeira dobra */}
-        <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2">
-          <div className="rounded-2xl bg-slate-900/70 border border-primary/30 shadow-lg shadow-primary/10 px-4 py-5 md:px-6 md:py-6 text-center">
-            <p className="text-lg md:text-2xl font-black leading-tight text-white">
-              Aprenda <span className="text-primary">informática do zero</span>
-              <span className="block text-amber-300 text-base md:text-xl mt-1">com acesso vitalício</span>
-            </p>
-            <p className="text-white/90 text-sm md:text-base mt-2">
-              de <span className="line-through">R$ 497,00</span> por apenas
-            </p>
-            <p className="text-primary font-black text-3xl md:text-4xl leading-tight mt-1">
-              Só 12x de R$ 30,72
-            </p>
-            <p className="text-white/80 text-sm md:text-base mt-1">
-              ou <span className="font-bold">R$ 297,00</span> à vista
-            </p>
-            <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
-              <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-            </p>
-            <a
-              href="#oferta"
-              className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fbb57] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#25D366]/30"
-            >
-              <Rocket className="w-5 h-5" /> Quero perder o medo do computador
-            </a>
 
-            {/* Garantia 7 dias */}
-            <div className="mt-3 rounded-xl bg-slate-900/80 border border-primary/40 px-4 py-3 text-center">
-              <p className="inline-flex items-center justify-center gap-1.5 text-primary font-bold text-sm md:text-base">
-                <Shield className="w-4 h-4" /> Garantia Incondicional de 7 Dias
-              </p>
-              <p className="text-white/90 text-xs md:text-sm mt-1">
-                <span className="text-amber-300 font-bold">Risco Zero!</span> Se não gostar, devolvo <span className="text-primary font-bold">100% do seu dinheiro.</span>
-              </p>
-            </div>
-          </div>
-        </div>
+
 
         {/* Video Container com selos sobrepostos na borda inferior */}
         <div className="max-w-4xl mx-auto mb-6 md:mb-8 relative pb-5 md:pb-7">
@@ -167,29 +132,41 @@ export const HeroV2 = () => {
           Aprenda do <span className="text-amber-300">ZERO</span>, no seu ritmo, mesmo que você <span className="text-amber-300">NUNCA</span> tenha ligado um computador.
         </p>
 
-        {/* Selos Suporte e Garantia */}
-        <div className="grid grid-cols-2 gap-3 max-w-md mx-auto mb-4 md:mb-6">
-          <div className="bg-slate-800/80 border border-white/10 rounded-xl px-4 py-4 text-center">
-            <Headphones className="w-6 h-6 text-primary mx-auto mb-2" />
-            <p className="text-white font-bold text-sm">Suporte nas Aulas</p>
-            <p className="text-gray-400 text-xs mt-1">Com orientação</p>
-          </div>
-          <div className="bg-slate-800/80 border border-white/10 rounded-xl px-4 py-4 text-center">
-            <Shield className="w-6 h-6 text-primary mx-auto mb-2" />
-            <p className="text-white font-bold text-sm">Garantia 7 Dias</p>
-            <p className="text-gray-400 text-xs mt-1">Risco zero para você</p>
-          </div>
-        </div>
+        {/* Mini sessão de valor */}
+        <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2">
+          <div className="rounded-2xl bg-slate-900/70 border border-primary/30 shadow-lg shadow-primary/10 px-4 py-5 md:px-6 md:py-6 text-center">
+            <p className="text-lg md:text-2xl font-black leading-tight text-white">
+              Aprenda <span className="text-primary">informática do zero</span>
+              <span className="block text-amber-300 text-base md:text-xl mt-1">com acesso vitalício</span>
+            </p>
+            <p className="text-white/90 text-sm md:text-base mt-2">
+              de <span className="line-through">R$ 497,00</span> por apenas
+            </p>
+            <p className="text-primary font-black text-3xl md:text-4xl leading-tight mt-1">
+              Só 12x de R$ 30,72
+            </p>
+            <p className="text-white/80 text-sm md:text-base mt-1">
+              ou <span className="font-bold">R$ 297,00</span> à vista
+            </p>
+            <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
+              <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+            </p>
+            <a
+              href="#oferta"
+              className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fbb57] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#25D366]/30"
+            >
+              <Rocket className="w-5 h-5" /> Quero perder o medo do computador
+            </a>
 
-        {/* Frase de impacto em destaque */}
-        <div className="max-w-xl mx-auto mb-4 md:mb-6">
-          <div className="relative rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/50 px-4 py-5 md:py-7 text-center shadow-xl shadow-primary/20">
-            <p className="text-2xl md:text-4xl font-black text-white leading-tight">
-              <span className="text-primary">🎁 Acesso vitalício incluso</span>
-            </p>
-            <p className="text-lg md:text-2xl font-bold text-white/90 leading-tight mt-2">
-              Aprenda com calma e veja as aulas quantas vezes precisar.
-            </p>
+            {/* Garantia 7 dias */}
+            <div className="mt-3 rounded-xl bg-slate-900/80 border border-primary/40 px-4 py-3 text-center">
+              <p className="inline-flex items-center justify-center gap-1.5 text-primary font-bold text-sm md:text-base">
+                <Shield className="w-4 h-4" /> Garantia Incondicional de 7 Dias
+              </p>
+              <p className="text-white/90 text-xs md:text-sm mt-1">
+                <span className="text-amber-300 font-bold">Risco Zero!</span> Se não gostar, devolvo <span className="text-primary font-bold">100% do seu dinheiro.</span>
+              </p>
+            </div>
           </div>
         </div>
 
