@@ -141,13 +141,13 @@ export const HeroV2 = () => {
         <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2 text-center">
 
           <p className="text-white/90 text-base md:text-lg mt-4">
-            de <span className="line-through">R$ 497,00</span> por apenas
+            de <span className="line-through text-lg md:text-2xl">R$ 497,00</span> por apenas
           </p>
           <p className="text-[#25D366] font-black text-3xl md:text-4xl leading-tight mt-1">
             Só 12x de R$ 30,72
           </p>
           <p className="text-white/90 text-base md:text-lg mt-1">
-            ou <span className="font-bold">R$ 297,00</span> à vista
+            ou <span className="font-bold text-lg md:text-2xl">R$ 297,00</span> à vista
           </p>
           <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
             <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
