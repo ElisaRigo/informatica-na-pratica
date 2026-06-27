@@ -12,7 +12,7 @@ export const CertificateSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header com impacto */}
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-400/30 text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)] px-5 py-2.5 rounded-full text-sm font-bold mb-5 animate-pulse">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-400/30 text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)] px-5 py-2.5 rounded-full text-sm font-bold mb-5 animate-pulse">
             <Trophy className="w-5 h-5" />
             <span>Certificado Profissional Incluso</span>
             <Sparkles className="w-4 h-4" />
