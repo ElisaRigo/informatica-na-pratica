@@ -171,7 +171,7 @@ export const AudioTestimonialsV2 = () => {
             </div>
 
             <h2 className="text-3xl md:text-5xl font-black text-foreground mb-2 leading-tight">
-              Veja o que dizem os alunos que <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">saíram do zero</span>
+              Veja o que dizem os alunos que <span className="text-[#fae614]">saíram do zero</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-medium">
               Histórias reais de pessoas que <span className="text-foreground font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total confiança
@@ -288,7 +288,7 @@ export const AudioTestimonialsV2 = () => {
           </h3>
           <button
             onClick={() => (window as any).openCheckout?.()}
-            className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:shadow-[0_0_40px_rgba(34,197,94,0.6)] transition-all hover:scale-105 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl transition-all hover:scale-105 active:scale-[0.98]"
           >
             Quero Aprender Informática sem Medo →
           </button>
