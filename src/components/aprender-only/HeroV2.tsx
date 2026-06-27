@@ -72,7 +72,7 @@ export const HeroV2 = () => {
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Você sente <span className="text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]">medo</span> ou <span className="text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]">insegurança</span> ao usar o computador?
+            Você sente <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">medo</span> ou <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">insegurança</span> ao usar o computador?
           </h1>
         </div>
 
@@ -128,7 +128,7 @@ export const HeroV2 = () => {
 
         {/* Frase abaixo do vídeo */}
         <p className="text-center text-lg md:text-3xl lg:text-4xl text-white font-black max-w-4xl mx-auto px-4 mt-5 mb-5 md:mb-7 leading-tight">
-          Aprenda <span className="text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]">Informática</span> comigo mesmo que você <span className="text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]">nunca</span> tenha feito um curso.
+          Aprenda <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">Informática</span> comigo mesmo que você <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">nunca</span> tenha feito um curso.
         </p>
 
 
@@ -183,7 +183,7 @@ export const HeroV2 = () => {
               <Shield className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
             </p>
             <p className="text-white text-sm md:text-base mt-1.5 leading-snug">
-              <span className="text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)] font-bold">RISCO ZERO!</span> Se não gostar, devolvo <span className="text-[#25D366] font-bold">100% do seu dinheiro.</span>
+              <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)] font-bold">RISCO ZERO!</span> Se não gostar, devolvo <span className="text-[#25D366] font-bold">100% do seu dinheiro.</span>
             </p>
           </div>
         </div>
