@@ -12,7 +12,6 @@ export const SupportBannerV2 = () => {
           {/* Icon with glow */}
           <div className="inline-flex items-center justify-center mb-6">
             <div className="relative">
-              <div className="absolute inset-0 bg-primary/40 rounded-full blur-2xl scale-150 animate-pulse" />
               <div className="relative bg-gradient-to-br from-primary/30 to-accent/30 p-5 rounded-full border-2 border-primary/40 shadow-2xl shadow-primary/20">
                 <HeartHandshake className="w-10 h-10 md:w-12 md:h-12 text-primary" />
               </div>

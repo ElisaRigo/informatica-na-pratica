@@ -44,13 +44,12 @@ export const HeroV2 = () => {
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 md:flex-col md:gap-4 mb-3 md:mb-6">
           <div className="relative group shrink-0">
-            <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
             <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-4 border border-white/20 shadow-lg">
-              <img src={logo} alt="Informática na Prática" className="h-12 md:h-20 lg:h-24 drop-shadow-lg" />
+              <img src={logo} alt="Informática na Prática" className="h-12 md:h-20 lg:h-24" />
             </div>
           </div>
           <p className="text-white text-lg md:text-2xl lg:text-3xl font-bold text-left md:text-center leading-tight">
-            <span className="block md:inline">Curso de <span className="text-sky-300 drop-shadow-[0_0_12px_rgba(125,211,252,0.7)]">Informática Online</span></span>
+            <span className="block md:inline">Curso de <span className="text-sky-300">Informática Online</span></span>
             <span className="hidden md:inline"> — </span>
             <span className="block md:inline">Simples e para Todos.</span>
           </p>
@@ -72,7 +71,7 @@ export const HeroV2 = () => {
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Você sente <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">medo</span> ou <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">insegurança</span> ao usar o computador?
+            Você sente <span className="text-[#fae614]">medo</span> ou <span className="text-[#fae614]">insegurança</span> ao usar o computador?
           </h1>
         </div>
 
@@ -128,7 +127,7 @@ export const HeroV2 = () => {
 
         {/* Frase abaixo do vídeo */}
         <p className="text-center text-lg md:text-3xl lg:text-4xl text-white font-black max-w-4xl mx-auto px-4 mt-5 mb-5 md:mb-7 leading-tight">
-          Aprenda <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">Informática</span> comigo mesmo que você <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)]">nunca</span> tenha feito um curso.
+          Aprenda <span className="text-[#fae614]">Informática</span> comigo mesmo que você <span className="text-[#fae614]">nunca</span> tenha feito um curso.
         </p>
 
 
@@ -183,7 +182,7 @@ export const HeroV2 = () => {
               <Shield className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
             </p>
             <p className="text-white text-sm md:text-base mt-1.5 leading-snug">
-              <span className="text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)] font-bold">RISCO ZERO!</span> Se não gostar, devolvo <span className="text-[#25D366] font-bold">100% do seu dinheiro.</span>
+              <span className="text-[#fae614] font-bold">RISCO ZERO!</span> Se não gostar, devolvo <span className="text-[#25D366] font-bold">100% do seu dinheiro.</span>
             </p>
           </div>
         </div>

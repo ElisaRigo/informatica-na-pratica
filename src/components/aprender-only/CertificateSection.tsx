@@ -12,7 +12,7 @@ export const CertificateSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header com impacto */}
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-400/30 text-[#fae614] drop-shadow-[0_0_10px_rgba(250,230,20,0.8)] px-5 py-2.5 rounded-full text-sm font-bold mb-5 animate-pulse">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-400/30 text-[#fae614] px-5 py-2.5 rounded-full text-sm font-bold mb-5 animate-pulse">
             <Trophy className="w-5 h-5" />
             <span>Certificado Profissional Incluso</span>
             <Sparkles className="w-4 h-4" />
@@ -30,8 +30,6 @@ export const CertificateSection = () => {
         {/* Certificate Display com efeito WOW */}
         <div className="max-w-4xl mx-auto mb-10">
           <div className="relative group">
-            {/* Animated glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse" />
             <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 rounded-3xl blur-2xl opacity-30" />
             
             {/* Certificate frame */}
