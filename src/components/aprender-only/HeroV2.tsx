@@ -154,7 +154,7 @@ export const HeroV2 = () => {
           </p>
           <a
             href="#oferta"
-            className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fbb57] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl"
+            className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#1a9e4c] hover:bg-[#157a3a] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl"
           >
             <Rocket className="w-5 h-5" /> Quero perder o medo do computador
           </a>

@@ -313,7 +313,7 @@ const Informatica = () => {
               href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1%20Professora!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#25D366]/30 hover:scale-105 transition-all"
+              className="inline-flex items-center justify-center gap-2 bg-[#1a9e4c] hover:bg-[#157a3a] text-white font-bold text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#1a9e4c]/30 hover:scale-105 transition-all"
             >
               <MessageCircle className="w-5 h-5" />
               Tire suas dúvidas com a Professora!
@@ -667,7 +667,7 @@ const Informatica = () => {
           </div>
           <div className="text-center mt-4">
             <p className="text-slate-300 mb-3">Não encontrou sua dúvida? Fale diretamente com a professora:</p>
-            <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
+            <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#1a9e4c] hover:bg-[#157a3a] text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
               <MessageCircle className="w-5 h-5" />
               Falar com a Professora Elisa
             </a>
