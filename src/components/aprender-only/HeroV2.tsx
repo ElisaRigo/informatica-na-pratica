@@ -50,7 +50,7 @@ export const HeroV2 = () => {
             </div>
           </div>
           <p className="text-white text-lg md:text-2xl lg:text-3xl font-bold text-left md:text-center leading-tight">
-            <span className="block md:inline">Curso de <span className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">Informática Online</span></span>
+            <span className="block md:inline">Curso de <span className="text-sky-300 drop-shadow-[0_0_12px_rgba(125,211,252,0.7)]">Informática Online</span></span>
             <span className="hidden md:inline"> — </span>
             <span className="block md:inline">Simples e para Todos.</span>
           </p>
