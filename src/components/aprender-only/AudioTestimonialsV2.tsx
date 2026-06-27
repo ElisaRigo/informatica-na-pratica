@@ -171,7 +171,7 @@ export const AudioTestimonialsV2 = () => {
             </div>
 
             <h2 className="text-3xl md:text-5xl font-black text-foreground mb-2 leading-tight">
-              Veja o que dizem os alunos que <span className="text-amber-300">saíram do zero</span>
+              Veja o que dizem os alunos que <span className="text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]">saíram do zero</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-medium">
               Histórias reais de pessoas que <span className="text-foreground font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total confiança
