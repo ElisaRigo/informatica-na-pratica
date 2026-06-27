@@ -178,7 +178,7 @@ export const HeroV2 = () => {
 
           {/* Garantia 7 dias */}
           <div className="mt-4 rounded-xl border-2 border-[#25D366]/50 bg-[#25D366]/15 px-5 py-4 text-center shadow-lg shadow-[#25D366]/10">
-            <p className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-[#25D366] font-black text-sm md:text-lg">
+            <p className="flex flex-row items-center justify-center gap-1.5 text-[#25D366] font-black text-sm md:text-lg">
               <Shield className="w-5 h-5" /> <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
             </p>
             <p className="text-white text-sm md:text-base mt-1.5 leading-snug">
