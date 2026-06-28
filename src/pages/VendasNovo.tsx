@@ -227,12 +227,6 @@ const Identification = () => {
 
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
-  const benefits = [
-    { icon: PlayCircle, label: "+90 Videoaulas" },
-    { icon: InfinityIcon, label: "Acesso Vitalício" },
-    { icon: Headphones, label: "Suporte Direto" },
-    { icon: Users, label: "+15.000 Alunos" },
-  ];
   return (
     <section className="py-8 md:py-12 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
@@ -257,14 +251,6 @@ const MiniValueSection = () => {
         </p>
         <div className="mt-5">
           <CTA>Quero perder o medo do computador</CTA>
-        </div>
-        <div className="grid grid-cols-2 gap-3 mt-5">
-          {benefits.map((item, i) => (
-            <div key={i} className="flex items-center justify-center gap-2 bg-white border border-slate-200 rounded-full px-3 py-2.5 md:px-4 md:py-3">
-              <item.icon className="w-4 h-4 md:w-5 md:h-5 text-blue-600 shrink-0" />
-              <span className="text-slate-700 font-semibold text-xs md:text-sm whitespace-nowrap">{item.label}</span>
-            </div>
-          ))}
         </div>
         <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
           <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
