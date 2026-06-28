@@ -281,7 +281,7 @@ const Modules = () => {
     { i: Globe, t: "Internet Segura", d: "Pesquisar no Google, evitar golpes, baixar arquivos, usar YouTube.", lessons: "10 aulas" },
     { i: FileText, t: "Word — Documentos", d: "Escrever cartas, currículos, formatar texto, salvar e imprimir.", lessons: "14 aulas" },
     { i: FileText, t: "Excel — Planilhas", d: "Criar planilhas, somar, organizar contas e gastos do mês.", lessons: "12 aulas" },
-    { i: MessageCircle, t: "WhatsApp Web e Mais", d: "Usar WhatsApp no computador, videochamadas, redes sociais com segurança.", lessons: "8 aulas" },
+    { i: MessageCircle, t: "Comunicação e Redes Sociais", d: "Videochamadas, redes sociais com segurança e organização do seu dia a dia digital.", lessons: "8 aulas" },
   ];
   return (
     <section className="py-14 md:py-20 bg-slate-50">
