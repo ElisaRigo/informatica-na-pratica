@@ -116,7 +116,7 @@ const VendaConversao = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
-  const openCheckout = () => window.open('https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card', '_blank');
+  const openCheckout = () => openHotmartCheckout();
   (window as any).openCheckout = openCheckout;
 
   useEffect(() => {
