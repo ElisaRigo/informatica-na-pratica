@@ -17,7 +17,7 @@ serve(async (req) => {
 
   try {
     const paymentData = await req.json();
-    
+
     console.log("Processing card payment...");
 
     const accessToken = Deno.env.get("MERCADO_PAGO_ACCESS_TOKEN");
@@ -25,20 +25,36 @@ serve(async (req) => {
       throw new Error("Mercado Pago access token not configured");
     }
 
-    // Criar pagamento com cartão
+    const serverSidePrice = parseFloat(Deno.env.get("COURSE_PRICE") || "297.00");
+
+    // Extrair apenas campos confiáveis do cliente
+    const trustedFields = {
+      token: paymentData.token,
+      installments: paymentData.installments,
+      payment_method_id: paymentData.payment_method_id,
+      issuer_id: paymentData.issuer_id,
+    };
+
+    if (!trustedFields.token) {
+      throw new Error("Token do cartão é obrigatório");
+    }
+
+    // Criar pagamento com cartão — valor autoritário do servidor
     const response = await fetch("https://api.mercadopago.com/v1/payments", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${accessToken}`,
         "Content-Type": "application/json",
-        "X-Idempotency-Key": `${paymentData.payer.email}-${Date.now()}`,
+        "X-Idempotency-Key": `${paymentData.payer?.email || 'guest'}-${Date.now()}`,
       },
       body: JSON.stringify({
-        ...paymentData,
+        ...trustedFields,
+        transaction_amount: serverSidePrice,
         description: "Curso Completo de Informática na Prática",
         statement_descriptor: "INFORMATICA PRATICA",
         notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
-        external_reference: `${paymentData.payer.email}-${Date.now()}`,
+        external_reference: `${paymentData.payer?.email || 'guest'}-${Date.now()}`,
+        payer: paymentData.payer || {},
       }),
     });
 
@@ -53,14 +69,15 @@ serve(async (req) => {
 
     // CRÍTICO: Salvar estudante PRIMEIRO para que o webhook encontre
     console.log("💾 Saving student data...");
+    const payer = paymentData.payer || {};
     const { error: studentError } = await supabase
       .from("students")
       .upsert({
-        email: paymentData.payer.email,
-        name: `${paymentData.payer.first_name} ${paymentData.payer.last_name}`,
-        phone: paymentData.payer.phone ? `${paymentData.payer.phone.area_code}${paymentData.payer.phone.number}` : null,
+        email: payer.email || null,
+        name: `${payer.first_name || ''} ${payer.last_name || ''}`.trim() || null,
+        phone: payer.phone ? `${payer.phone.area_code}${payer.phone.number}` : null,
         pagseguro_transaction_id: String(payment.id),
-        course_access: false, // Será ativado pelo webhook quando aprovado
+        course_access: false,
       }, {
         onConflict: "email"
       });
@@ -77,7 +94,7 @@ serve(async (req) => {
       .insert({
         pagseguro_transaction_id: String(payment.id),
         payment_provider: "mercado_pago",
-        amount: paymentData.transaction_amount,
+        amount: serverSidePrice,
         status: payment.status,
         payment_method: "credit_card",
         webhook_data: payment,
@@ -88,13 +105,6 @@ serve(async (req) => {
     } else {
       console.log("✅ Payment saved");
     }
-
-    // O webhook do Mercado Pago será chamado automaticamente e vai:
-    // 1. Criar usuário no Moodle
-    // 2. Matricular no curso
-    // 3. Enviar email de boas-vindas
-    // 4. Atualizar course_access para true
-    console.log("✅ Payment created - webhook will handle Moodle enrollment and welcome email");
 
     return new Response(
       JSON.stringify({
