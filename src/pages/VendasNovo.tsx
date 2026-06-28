@@ -788,7 +788,8 @@ const Footer = () => (
   <footer className="bg-slate-950 text-slate-400 py-10 text-center text-xs">
     <div className="container mx-auto px-4">
       <p className="font-bold text-slate-300 mb-2">Informática na Prática LTDA</p>
-      <p className="mb-3">© 2026 — Todos os direitos reservados</p>
+      <p className="mb-1">© 2026 — Todos os direitos reservados</p>
+      <p className="mb-3 text-slate-500">CNPJ: 32.373.460/0001-51</p>
       <div className="flex justify-center gap-4">
         <a href="/termos-de-uso" className="hover:text-white">Termos de Uso</a>
         <a href="/politica-de-privacidade" className="hover:text-white">Privacidade</a>
