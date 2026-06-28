@@ -116,17 +116,36 @@ const Hero = () => {
           </p>
 
           {/* Video */}
-          <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-7 group cursor-pointer"
-               onClick={openCheckout}>
-            <img src={heroCover} alt="Apresentação do curso" className="w-full aspect-video object-cover" />
-            <div className="absolute inset-0 bg-slate-900/30 flex items-center justify-center">
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+          <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-7">
+            {!isPlaying ? (
+              <div
+                className="relative aspect-video cursor-pointer group"
+                onClick={() => setIsPlaying(true)}
+              >
+                <img
+                  src={homeVideoThumb}
+                  alt="Aula demonstrativa gratuita"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="absolute bottom-3 left-3 bg-black/70 text-white text-xs font-bold px-3 py-1.5 rounded-full">
-              ▶ Assista a apresentação (2 min)
-            </div>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                  title="Aula gratuita"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
           </div>
 
           <CTA>Quero começar agora com 40% OFF</CTA>
