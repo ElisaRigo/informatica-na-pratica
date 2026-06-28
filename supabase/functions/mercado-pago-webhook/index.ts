@@ -424,7 +424,17 @@ serve(async (req) => {
   try {
     console.log("Mercado Pago webhook received");
 
-    const body = await req.json();
+    const bodyText = await req.text();
+
+    const isValid = await verifyMpSignature(req, bodyText);
+    if (!isValid) {
+      return new Response(JSON.stringify({ error: "Invalid signature" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const body = JSON.parse(bodyText);
     console.log("Webhook payload:", JSON.stringify(body, null, 2));
 
     // Mercado Pago sends notifications with type and data.id
