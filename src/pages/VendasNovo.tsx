@@ -58,7 +58,7 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
       size === "lg" ? "text-sm md:text-lg px-4 py-3 md:px-10 md:py-5" : "text-xs md:text-base px-3 py-2.5 md:px-6 md:py-3"
     } ${subtle ? "bg-green-600/95" : ""}`}
   >
-    <Zap className="w-3.5 h-3.5 md:w-5 md:h-5 shrink-0" />
+    <Monitor className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
     <span>{children}</span>
     <ArrowRight className="hidden sm:inline-block w-4 h-4 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
   </button>
