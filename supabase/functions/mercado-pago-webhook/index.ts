@@ -13,6 +13,58 @@ const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
 const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
+async function verifyMpSignature(req: Request, bodyText: string): Promise<boolean> {
+  const secret = Deno.env.get("MERCADO_PAGO_WEBHOOK_SECRET");
+  if (!secret) {
+    console.warn("MERCADO_PAGO_WEBHOOK_SECRET not configured — skipping signature verification");
+    return true;
+  }
+
+  const signatureHeader = req.headers.get("x-signature");
+  if (!signatureHeader) {
+    console.error("Missing x-signature header");
+    return false;
+  }
+
+  const url = new URL(req.url);
+  const dataId = url.searchParams.get("data.id");
+  if (!dataId) {
+    console.error("Missing data.id query parameter");
+    return false;
+  }
+
+  const parts = signatureHeader.split(",");
+  const tsPart = parts.find((p) => p.trim().startsWith("ts="));
+  const v1Part = parts.find((p) => p.trim().startsWith("v1="));
+  if (!tsPart || !v1Part) {
+    console.error("Invalid x-signature format");
+    return false;
+  }
+
+  const ts = tsPart.split("=")[1];
+  const receivedHash = v1Part.split("=")[1];
+
+  const template = `id:${dataId};request-id:${req.headers.get("x-request-id") || ""};ts:${ts};`;
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const signature = await crypto.subtle.sign("HMAC", key, encoder.encode(template));
+  const computedHash = Array.from(new Uint8Array(signature))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+
+  if (computedHash !== receivedHash) {
+    console.error("Webhook signature mismatch");
+    return false;
+  }
+  return true;
+}
+
 // Moodle configuration
 const MOODLE_URL = 'https://aluno.informaticanapratica.com.br';
 const MOODLE_TOKEN = Deno.env.get("MOODLE_API_TOKEN") || "";
