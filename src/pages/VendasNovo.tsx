@@ -103,7 +103,7 @@ const Hero = () => {
         🔥 OFERTA RELÂMPAGO • 40% OFF expira em <span className="tabular-nums">{timer}</span>
       </div>
 
-      <div className="container mx-auto px-4 py-10 md:py-16">
+      <div className="container mx-auto px-4 py-6 md:py-10">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-5">
             <GraduationCap className="w-4 h-4" /> Curso 100% Online • Aulas Passo a Passo
