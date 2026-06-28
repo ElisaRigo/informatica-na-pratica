@@ -27,7 +27,7 @@ export const CapableSection = () => {
         <div ref={ref} className="max-w-4xl mx-auto mb-8">
           <div className="text-center mb-4">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
-              Sim, você também consegue <span className="text-primary">aprender!</span>
+              💻 Veja como é possível aprender informática de um jeito simples, tranquilo e sem complicação
             </h2>
           </div>
 
