@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
+import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 // Lazy load componentes em blocos separados para carregamento progressivo
 const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));
