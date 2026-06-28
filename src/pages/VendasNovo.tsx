@@ -440,7 +440,7 @@ const GuaranteeBlock = () => (
         <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Garantia incondicional de 7 dias</h2>
         <p className="text-slate-700 text-base md:text-lg leading-relaxed">
           Faça sua matrícula hoje, assista as aulas, teste o método. Se em <strong>7 dias</strong> você achar
-          que o curso não é pra você — por qualquer motivo — é só mandar um e-mail e <strong>devolvemos 100% do seu dinheiro</strong>.
+          que o curso não é pra você — por qualquer motivo — <strong>devolvemos 100% do seu dinheiro</strong>.
           Sem perguntas, sem burocracia. <strong>O risco é todo nosso.</strong>
         </p>
       </div>
