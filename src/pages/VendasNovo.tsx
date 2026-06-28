@@ -54,7 +54,7 @@ const openCheckout = () => {
 const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
   <button
     onClick={openCheckout}
-    className={`group inline-flex items-center justify-center gap-1 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-nowrap ${
+    className={`group inline-flex items-center justify-center gap-1 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-nowrap w-full ${
       size === "lg" ? "text-sm md:text-lg px-4 py-3 md:px-10 md:py-5" : "text-xs md:text-base px-3 py-2.5 md:px-6 md:py-3"
     } ${subtle ? "bg-green-600/95" : ""}`}
   >
