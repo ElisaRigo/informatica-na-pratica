@@ -315,7 +315,7 @@ const Testimonials = () => {
     { n: "Maria, 58 anos", a: avatar1, txt: "Eu tinha pavor de mexer no computador. Hoje mando e-mail, faço currículo no Word e até ajudo minha vizinha. A professora Elisa explica tão devagar que parece que tá do meu lado." },
     { n: "João, 62 anos", a: avatar2, txt: "Aposentado, comprei o curso achando que não ia conseguir. Em 3 semanas eu já tava usando o Excel pra controlar minhas contas. Melhor investimento que fiz." },
     { n: "Sandra, 45 anos", a: avatar3, txt: "Precisava aprender pro trabalho e tinha vergonha de perguntar. As aulas são curtinhas e claras. Hoje sou eu que ensino as colegas mais novas." },
-    { n: "Roberto, 51 anos", a: avatar4, txt: "Nunca tinha tocado num computador. Hoje uso WhatsApp Web, faço pesquisa no Google e baixo música. Mudou minha vida." },
+    { n: "Roberto, 51 anos", a: avatar4, txt: "Nunca tinha tocado num computador. Hoje faço pesquisa no Google, mando e-mails e organizo meus arquivos sem ajuda. Mudou minha vida." },
     { n: "Carla, 39 anos", a: avatar5, txt: "Tenho TDAH e preciso de coisas explicadas com calma. Esse foi o único curso que eu consegui terminar. Recomendo demais." },
     { n: "Aline, 47 anos", a: avatar6, txt: "Achei que ia ser difícil mas é simples. Em 1 mês já tava montando planilhas. Vale cada centavo." },
   ];
