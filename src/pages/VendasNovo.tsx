@@ -227,12 +227,6 @@ const Identification = () => {
 
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
-  const benefits = [
-    { icon: PlayCircle, label: "+90 Videoaulas" },
-    { icon: InfinityIcon, label: "Acesso Vitalício" },
-    { icon: Headphones, label: "Suporte Direto" },
-    { icon: Users, label: "+15.000 Alunos" },
-  ];
   return (
     <section className="py-8 md:py-12 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
