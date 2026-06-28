@@ -241,7 +241,7 @@ const Instructor = () => (
             Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
           </p>
           <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="text-center bg-slate-50 rounded-xl p-3"><Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" /><div className="text-xs font-bold text-slate-700">+15 anos<br/>de experiência</div></div>
+            <div className="text-center bg-slate-50 rounded-xl p-3"><Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" /><div className="text-xs font-bold text-slate-700">+20 anos<br/>de experiência</div></div>
             <div className="text-center bg-slate-50 rounded-xl p-3"><Award className="w-5 h-5 text-blue-600 mx-auto mb-1" /><div className="text-xs font-bold text-slate-700">Método<br/>próprio</div></div>
             <div className="text-center bg-slate-50 rounded-xl p-3"><HeartHandshake className="w-5 h-5 text-blue-600 mx-auto mb-1" /><div className="text-xs font-bold text-slate-700">Suporte<br/>humano</div></div>
           </div>
