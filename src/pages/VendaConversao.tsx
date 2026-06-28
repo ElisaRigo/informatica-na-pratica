@@ -554,6 +554,7 @@ const VendaConversao = () => {
       {/* Footer */}
       <footer className={`py-8 ${styles.bg} text-center text-gray-600 text-sm border-t ${styles.border}`}>
         <p>© 2024 Informática na Prática — Todos os direitos reservados</p>
+        <p className="mt-2">CNPJ: 32.373.460/0001-51</p>
       </footer>
 
       {/* Floating bottom bar */}
