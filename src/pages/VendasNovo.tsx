@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   ShieldCheck, Lock, CheckCircle2, Star, Clock, Award, Users,
-  PlayCircle, Monitor, Mail, FileText, Globe, MessageCircle,
+  PlayCircle, Monitor, Mail, FileText, Globe, Presentation, Keyboard,
   Sparkles, GraduationCap, HeartHandshake, Infinity as InfinityIcon,
   ChevronDown, ArrowRight, Zap, Play,
 } from "lucide-react";
@@ -111,7 +111,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-7">
-            Em poucas semanas você vai mandar e-mail, usar Word, Excel, internet e WhatsApp Web
+            Em poucas semanas você vai usar Windows, Word, Excel, PowerPoint, internet e e-mail
             com confiança — sem depender de filho, neto ou ninguém.
           </p>
 
@@ -280,12 +280,12 @@ const Method = () => {
 // ───────────────────────── Modules ─────────────────────────
 const Modules = () => {
   const mods = [
-    { i: Monitor, t: "Windows do Zero", d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos.", lessons: "12 aulas" },
-    { i: Mail, t: "E-mail (Gmail)", d: "Criar conta, enviar, receber, anexar arquivos, organizar a caixa de entrada.", lessons: "8 aulas" },
-    { i: Globe, t: "Internet Segura", d: "Pesquisar no Google, evitar golpes, baixar arquivos, usar YouTube.", lessons: "10 aulas" },
-    { i: FileText, t: "Word — Documentos", d: "Escrever cartas, currículos, formatar texto, salvar e imprimir.", lessons: "14 aulas" },
-    { i: FileText, t: "Excel — Planilhas", d: "Criar planilhas, somar, organizar contas e gastos do mês.", lessons: "12 aulas" },
-    { i: MessageCircle, t: "WhatsApp Web e Mais", d: "Usar WhatsApp no computador, videochamadas, redes sociais com segurança.", lessons: "8 aulas" },
+    { i: Monitor, t: "Windows e Organização", d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos com segurança.", lessons: "Módulo 1" },
+    { i: FileText, t: "Word Profissional", d: "Escreva cartas, currículos e documentos. Formate, salve e imprima sem medo.", lessons: "Módulo 2" },
+    { i: FileText, t: "Excel na Prática", d: "Crie planilhas, fórmulas e organize contas e gastos do mês.", lessons: "Módulo 3" },
+    { i: Presentation, t: "PowerPoint Impactante", d: "Faça apresentações bonitas e profissionais, mesmo sem experiência.", lessons: "Módulo 4" },
+    { i: Globe, t: "Internet e E-mail", d: "Pesquise no Google, envie e receba e-mails, evite golpes e use o YouTube.", lessons: "Módulo 5" },
+    { i: Keyboard, t: "Digitação Profissional", d: "Ganhe velocidade no teclado e produtividade no dia a dia.", lessons: "Módulo 6" },
   ];
   return (
     <section className="py-14 md:py-20 bg-slate-50">
@@ -319,7 +319,7 @@ const Testimonials = () => {
     { n: "Maria, 58 anos", a: avatar1, txt: "Eu tinha pavor de mexer no computador. Hoje mando e-mail, faço currículo no Word e até ajudo minha vizinha. A professora Elisa explica tão devagar que parece que tá do meu lado." },
     { n: "João, 62 anos", a: avatar2, txt: "Aposentado, comprei o curso achando que não ia conseguir. Em 3 semanas eu já tava usando o Excel pra controlar minhas contas. Melhor investimento que fiz." },
     { n: "Sandra, 45 anos", a: avatar3, txt: "Precisava aprender pro trabalho e tinha vergonha de perguntar. As aulas são curtinhas e claras. Hoje sou eu que ensino as colegas mais novas." },
-    { n: "Roberto, 51 anos", a: avatar4, txt: "Nunca tinha tocado num computador. Hoje uso WhatsApp Web, faço pesquisa no Google e baixo música. Mudou minha vida." },
+    { n: "Roberto, 51 anos", a: avatar4, txt: "Nunca tinha tocado num computador. Hoje faço apresentações no PowerPoint, pesquiso no Google e mando e-mail. Mudou minha vida." },
     { n: "Carla, 39 anos", a: avatar5, txt: "Tenho TDAH e preciso de coisas explicadas com calma. Esse foi o único curso que eu consegui terminar. Recomendo demais." },
     { n: "Aline, 47 anos", a: avatar6, txt: "Achei que ia ser difícil mas é simples. Em 1 mês já tava montando planilhas. Vale cada centavo." },
   ];
