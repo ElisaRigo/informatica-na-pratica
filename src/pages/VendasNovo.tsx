@@ -236,6 +236,13 @@ const MiniValueSection = () => {
   return (
     <section className="py-8 md:py-12 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
+        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">
+          Curso Completo de Informática
+        </h2>
+        <p className="text-slate-500 text-sm md:text-base mt-1">
+          +90 videoaulas • Suporte Direto • Acesso vitalício
+        </p>
+        <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
         <p className="text-slate-600 text-base md:text-lg">
           de <span className="line-through text-lg md:text-2xl text-slate-400">R$ 497,00</span> por apenas
         </p>
