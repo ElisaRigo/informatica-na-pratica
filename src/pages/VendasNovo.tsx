@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   ShieldCheck, Lock, CheckCircle2, Star, Clock, Award, Users,
-  PlayCircle, Monitor, Mail, FileText, Globe, MessageCircle,
+  PlayCircle, Monitor, Mail, FileText, Globe, Presentation, Keyboard,
   Sparkles, GraduationCap, HeartHandshake, Infinity as InfinityIcon,
   ChevronDown, ArrowRight, Zap, Play,
 } from "lucide-react";
