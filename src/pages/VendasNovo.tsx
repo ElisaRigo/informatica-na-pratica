@@ -10,6 +10,8 @@ import logo from "@/assets/logo-checkout.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
+import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
+const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
