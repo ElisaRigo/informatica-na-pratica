@@ -159,17 +159,17 @@ export const HeroV2 = () => {
             <Rocket className="w-5 h-5" /> Quero perder o medo do computador
           </a>
 
-          {/* Selos de benefícios - 3x2 */}
-          <div className="grid grid-cols-3 gap-2 mt-4">
+          {/* Selos de benefícios - 2 colunas */}
+          <div className="grid grid-cols-2 gap-3 mt-4">
             {[
               { icon: Play, label: "+90 Videoaulas" },
               { icon: Infinity, label: "Acesso Vitalício" },
               { icon: Headphones, label: "Suporte Direto" },
               { icon: Users, label: "+15.000 Alunos" },
             ].map((item, i) => (
-              <div key={i} className="flex items-center justify-center gap-1.5 bg-slate-900/60 border border-white/10 rounded-full px-2 py-2">
-                <item.icon className="w-3.5 h-3.5 text-primary shrink-0" />
-                <span className="text-white font-semibold text-[10px] md:text-xs whitespace-nowrap">{item.label}</span>
+              <div key={i} className="flex items-center justify-center gap-2 bg-slate-900/60 border border-white/10 rounded-full px-3 py-2.5 md:px-4 md:py-3">
+                <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
+                <span className="text-white font-semibold text-xs md:text-sm whitespace-nowrap">{item.label}</span>
               </div>
             ))}
           </div>
