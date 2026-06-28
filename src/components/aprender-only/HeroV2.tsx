@@ -127,7 +127,7 @@ export const HeroV2 = () => {
 
         {/* Frase abaixo do vídeo */}
         <p className="text-center text-2xl md:text-5xl lg:text-6xl text-white font-black max-w-4xl mx-auto px-4 mt-5 mb-5 md:mb-7 leading-tight">
-          Aprenda a enviar e-mails, mexer em arquivos, usar Word, Excel, internet e muito mais com aulas <span className="text-[#fae614]">simples</span> e <span className="text-[#fae614]">fáceis</span>.
+          Aprenda a usar Word, Excel, internet e muito mais com aulas <span className="text-[#fae614]">simples</span> e <span className="text-[#fae614]">fáceis</span>.
         </p>
 
 
