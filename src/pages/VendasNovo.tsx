@@ -3,7 +3,7 @@ import {
   ShieldCheck, Lock, CheckCircle2, Star, Clock, Award, Users,
   PlayCircle, Monitor, Mail, FileText, Globe, Presentation, Keyboard,
   Sparkles, GraduationCap, HeartHandshake, Infinity as InfinityIcon,
-  ChevronDown, ArrowRight, Zap, Play, Pause, Volume2, Smartphone, ThumbsUp, Heart, Headphones,
+  ChevronDown, ArrowRight, Play, Pause, Volume2, Smartphone, ThumbsUp, Heart, Headphones,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -58,7 +58,7 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
       size === "lg" ? "text-sm md:text-lg px-4 py-3 md:px-10 md:py-5" : "text-xs md:text-base px-3 py-2.5 md:px-6 md:py-3"
     } ${subtle ? "bg-green-600/95" : ""}`}
   >
-    <Zap className="w-3.5 h-3.5 md:w-5 md:h-5 shrink-0" />
+    <Monitor className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
     <span>{children}</span>
     <ArrowRight className="hidden sm:inline-block w-4 h-4 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
   </button>
@@ -801,7 +801,7 @@ const Footer = () => (
 const StickyMobile = () => (
   <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
     <button onClick={openCheckout} className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2">
-      <Zap className="w-5 h-5" /> Quero começar agora!
+      <Monitor className="w-5 h-5" /> Quero começar agora!
     </button>
   </div>
 );
