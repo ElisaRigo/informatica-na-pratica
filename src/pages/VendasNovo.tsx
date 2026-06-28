@@ -73,6 +73,12 @@ const useCountdown = () => {
 };
 
 import logo from "@/assets/logo-blue.png";
+import windowsIcon from "@/assets/windows-icon.png";
+import wordIcon from "@/assets/word-icon.png";
+import excelIcon from "@/assets/excel-icon.png";
+import powerpointIcon from "@/assets/powerpoint-icon.png";
+import internetIcon from "@/assets/internet-icon.png";
+import typingIcon from "@/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
