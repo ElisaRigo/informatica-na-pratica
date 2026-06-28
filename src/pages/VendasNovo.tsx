@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   ShieldCheck, Lock, CheckCircle2, Star, Clock, Award, Users,
   PlayCircle, Monitor, Mail, FileText, Globe, Presentation, Keyboard,
