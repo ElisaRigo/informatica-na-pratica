@@ -816,6 +816,7 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <Identification />
+      <MiniValueSection />
       <Instructor />
       <Method />
       <Modules />
