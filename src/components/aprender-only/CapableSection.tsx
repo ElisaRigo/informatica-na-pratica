@@ -22,7 +22,7 @@ export const CapableSection = () => {
   }, []);
 
   return (
-    <section className="relative bg-slate-900 pt-10 md:pt-14 overflow-hidden">
+    <section className="relative bg-slate-900 pt-4 md:pt-6 overflow-hidden">
       <div className="container mx-auto px-4">
         <div ref={ref} className="max-w-4xl mx-auto mb-8">
           <div className="text-center mb-4">
