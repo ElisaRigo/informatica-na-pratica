@@ -94,13 +94,12 @@ const Header = () => (
 
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
-  const timer = useCountdown();
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
       <div className="bg-blue-600 text-white text-center text-xs md:text-sm font-bold py-2 px-4">
-        🔥 OFERTA RELÂMPAGO • 40% OFF expira em <span className="tabular-nums">{timer}</span>
+        🔥 Oferta especial de 40% OFF por tempo limitado
       </div>
 
       <div className="container mx-auto px-4 py-6 md:py-10">
