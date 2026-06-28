@@ -1,6 +1,7 @@
 import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -234,20 +235,7 @@ const Informatica = () => {
     return () => observer.disconnect();
   }, []);
 
-  (window as any).openCheckout = () => {
-    if ((window as any).gtag) {
-      (window as any).gtag('event', 'begin_checkout', {
-        currency: 'BRL', value: 297.00,
-        items: [{ item_id: 'curso-informatica', item_name: 'Curso Informática na Prática', price: 297.00, quantity: 1 }]
-      });
-    }
-    if ((window as any).fbq) {
-      (window as any).fbq('track', 'InitiateCheckout', {
-        value: 297.00, currency: 'BRL', content_name: 'Curso Informática na Prática', content_ids: ['curso-informatica'], num_items: 1
-      });
-    }
-    window.open('https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card', '_blank');
-  };
+  (window as any).openCheckout = () => openHotmartCheckout();
 
   return (
     <div className="min-h-screen bg-slate-900">

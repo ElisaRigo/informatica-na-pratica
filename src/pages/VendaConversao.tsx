@@ -2,6 +2,7 @@ import { lazy, Suspense, memo, useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
+import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { 
   Shield, Award, Zap, CheckCircle, Star, Clock, Users, 
   ArrowRight, Play, Gift, Lock, Flame, ChevronRight,
@@ -116,7 +117,7 @@ const VendaConversao = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
-  const openCheckout = () => window.open('https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card', '_blank');
+  const openCheckout = () => openHotmartCheckout();
   (window as any).openCheckout = openCheckout;
 
   useEffect(() => {
