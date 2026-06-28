@@ -438,12 +438,12 @@ const VendaConversao = () => {
                 Elisa Rodrigues
               </h2>
               <p className="text-gray-400 text-lg mb-6">
-                Há <span className="text-white font-bold">15 anos</span> ensinando informática para pessoas que nunca tocaram em um computador. 
+                Há <span className="text-white font-bold">mais de 20 anos</span> ensinando informática para pessoas que nunca tocaram em um computador. 
                 Minha missão é provar que <span className={`${styles.gradientText} font-bold`}>nunca é tarde para aprender</span>.
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 {[
-                  { v: "+15 anos", l: "experiência" },
+                  { v: "+20 anos", l: "experiência" },
                   { v: "+2.500", l: "alunos" },
                   { v: "4.9/5", l: "avaliação" },
                 ].map((s, i) => (
