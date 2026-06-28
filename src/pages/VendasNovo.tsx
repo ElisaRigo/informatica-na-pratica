@@ -233,7 +233,7 @@ const Instructor = () => (
             Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
           </h2>
           <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
-            Há mais de <strong>15 anos</strong> eu ensino informática pra adultos que nunca tinham
+            Há mais de <strong>20 anos</strong> eu ensino informática pra adultos que nunca tinham
             tocado num computador. E descobri uma coisa: <strong>o problema nunca foi a pessoa — era o jeito que ensinavam.</strong>
           </p>
           <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6">
