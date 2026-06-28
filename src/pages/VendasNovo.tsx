@@ -6,7 +6,7 @@ import {
   ChevronDown, ArrowRight, Zap, Play,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import logo from "@/assets/logo-checkout.png";
+import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
@@ -74,16 +74,22 @@ const useCountdown = () => {
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
-    <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <img src={logo} alt="Informática na Prática" className="w-9 h-9 rounded-full" />
-        <span className="font-extrabold text-slate-900 text-sm md:text-base">Informática na Prática</span>
+  <header className="bg-white border-b border-slate-200 py-3 md:py-4">
+    <div className="container mx-auto px-4 text-center">
+      <div className="inline-block mb-1">
+        <img
+          src={logoBlue}
+          alt="Informática na Prática"
+          className="w-20 md:w-24 lg:w-28 mx-auto"
+          width="112"
+          height="112"
+          fetchPriority="high"
+          decoding="async"
+        />
       </div>
-      <div className="hidden sm:flex items-center gap-2 text-xs text-slate-600">
-        <ShieldCheck className="w-4 h-4 text-green-600" />
-        <span className="font-semibold">Compra 100% Segura</span>
-      </div>
+      <h1 className="text-base md:text-xl lg:text-2xl text-slate-900 mt-1 tracking-tight leading-tight px-2">
+        <span className="text-blue-600 font-bold">Informática do zero:</span> simples, prático e para todos
+      </h1>
     </div>
   </header>
 );
