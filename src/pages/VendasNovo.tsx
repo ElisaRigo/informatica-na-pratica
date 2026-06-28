@@ -91,6 +91,7 @@ const Header = () => (
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
   const timer = useCountdown();
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
