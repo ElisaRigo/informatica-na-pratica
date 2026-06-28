@@ -115,8 +115,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-7">
-            Em poucas semanas você vai usar Windows, Word, Excel, PowerPoint, internet e e-mail
-            com confiança — sem depender de filho, neto ou ninguém.
+            Em poucas semanas, você vai usar Word, Excel, arquivos, internet e e-mail com confiança — sem depender de filho, neto ou ninguém.
           </p>
 
           {/* Video */}
