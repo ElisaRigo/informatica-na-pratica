@@ -33,7 +33,6 @@ serve(async (req: Request) => {
     
     const { customerName, customerEmail, customerTaxId }: CheckoutRequest = requestBody;
 
-    // ✅ Usar dados genéricos - Cliente preenche no PagSeguro
     const name = customerName || 'Comprador';
     const email = customerEmail || 'comprador@checkout.com';
     const cpf = (customerTaxId || '00000000191').replace(/\D/g, '');
@@ -45,15 +44,12 @@ serve(async (req: Request) => {
       isGeneric: !customerName
     });
 
-    // Validar token
     if (!PAGSEGURO_TOKEN) {
       throw new Error('PAGSEGURO_API_TOKEN não configurado');
     }
 
     console.log('Token PagSeguro:', PAGSEGURO_TOKEN ? 'Configurado ✅' : 'NÃO CONFIGURADO ❌');
 
-    // Montar XML para API v2 do PagSeguro
-    // Deixando TODAS as opções de pagamento disponíveis (sem restrições)
     const xmlBody = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <checkout>
   <currency>BRL</currency>
@@ -102,7 +98,6 @@ serve(async (req: Request) => {
     if (!pagseguroResponse.ok) {
       console.error('❌ Erro na API do PagSeguro');
       
-      // Extrair mensagem de erro do XML
       const getXmlValue = (xml: string, tag: string): string => {
         const regex = new RegExp(`<${tag}>([^<]*)</${tag}>`);
         const match = xml.match(regex);
@@ -118,7 +113,6 @@ serve(async (req: Request) => {
       throw new Error(`PagSeguro: ${errorMessage || 'Erro ao processar'} (código: ${errorCode || pagseguroResponse.status})`);
     }
 
-    // Extrair código do checkout
     const getXmlValue = (xml: string, tag: string): string => {
       const regex = new RegExp(`<${tag}>([^<]*)</${tag}>`);
       const match = xml.match(regex);
@@ -136,7 +130,6 @@ serve(async (req: Request) => {
     console.log('✅ Checkout criado com sucesso! Cliente pode pagar com PIX, Boleto ou Cartão');
     console.log('📝 Código do checkout:', checkoutCode);
 
-    // Salvar no banco (com try-catch para não bloquear o fluxo)
     try {
       const { error: saveError } = await supabase
         .from('payments')
@@ -164,7 +157,6 @@ serve(async (req: Request) => {
       console.error('⚠️ Erro no banco de dados:', dbError.message);
     }
 
-    // URL de pagamento do PagSeguro
     const paymentUrl = `https://pagseguro.uol.com.br/v2/checkout/payment.html?code=${checkoutCode}`;
     console.log('🔗 URL de pagamento:', paymentUrl);
     console.log('=== ✅ CHECKOUT CONCLUÍDO COM SUCESSO ===');
@@ -188,8 +180,7 @@ serve(async (req: Request) => {
 
     return new Response(
       JSON.stringify({
-        error: error.message,
-        details: error.stack
+        error: 'Internal server error'
       }),
       {
         status: 500,

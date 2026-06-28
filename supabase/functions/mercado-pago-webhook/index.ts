@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
 import { Resend } from "https://esm.sh/resend@4.0.0";
+import { crypto } from "https://deno.land/std@0.190.0/crypto/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -11,6 +12,58 @@ const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
 const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+async function verifyMpSignature(req: Request, bodyText: string): Promise<boolean> {
+  const secret = Deno.env.get("MERCADO_PAGO_WEBHOOK_SECRET");
+  if (!secret) {
+    console.warn("MERCADO_PAGO_WEBHOOK_SECRET not configured — skipping signature verification");
+    return true;
+  }
+
+  const signatureHeader = req.headers.get("x-signature");
+  if (!signatureHeader) {
+    console.error("Missing x-signature header");
+    return false;
+  }
+
+  const url = new URL(req.url);
+  const dataId = url.searchParams.get("data.id");
+  if (!dataId) {
+    console.error("Missing data.id query parameter");
+    return false;
+  }
+
+  const parts = signatureHeader.split(",");
+  const tsPart = parts.find((p) => p.trim().startsWith("ts="));
+  const v1Part = parts.find((p) => p.trim().startsWith("v1="));
+  if (!tsPart || !v1Part) {
+    console.error("Invalid x-signature format");
+    return false;
+  }
+
+  const ts = tsPart.split("=")[1];
+  const receivedHash = v1Part.split("=")[1];
+
+  const template = `id:${dataId};request-id:${req.headers.get("x-request-id") || ""};ts:${ts};`;
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const signature = await crypto.subtle.sign("HMAC", key, encoder.encode(template));
+  const computedHash = Array.from(new Uint8Array(signature))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+
+  if (computedHash !== receivedHash) {
+    console.error("Webhook signature mismatch");
+    return false;
+  }
+  return true;
+}
 
 // Moodle configuration
 const MOODLE_URL = 'https://aluno.informaticanapratica.com.br';
@@ -371,7 +424,17 @@ serve(async (req) => {
   try {
     console.log("Mercado Pago webhook received");
 
-    const body = await req.json();
+    const bodyText = await req.text();
+
+    const isValid = await verifyMpSignature(req, bodyText);
+    if (!isValid) {
+      return new Response(JSON.stringify({ error: "Invalid signature" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const body = JSON.parse(bodyText);
     console.log("Webhook payload:", JSON.stringify(body, null, 2));
 
     // Mercado Pago sends notifications with type and data.id
@@ -517,7 +580,7 @@ serve(async (req) => {
   } catch (error) {
     console.error("Error processing webhook:", error);
     return new Response(
-      JSON.stringify({ error: (error as Error).message }),
+      JSON.stringify({ error: "Internal server error" }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,

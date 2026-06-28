@@ -95,38 +95,12 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
           background: linear-gradient(135deg, #0080BB 0%, #005A87 100%);
           padding: 40px 30px;
           text-align: center;
-          position: relative;
-          overflow: hidden;
-        }
-        .header::before {
-          content: '';
-          position: absolute;
-          top: -50%;
-          right: -50%;
-          width: 200%;
-          height: 200%;
-          background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-          animation: pulse 15s ease-in-out infinite;
-        }
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); opacity: 0.5; }
-          50% { transform: scale(1.1); opacity: 0.3; }
-        }
-        .logo {
-          max-width: 180px;
-          height: auto;
-          margin-bottom: 20px;
-          position: relative;
-          z-index: 1;
         }
         .header h1 {
           color: white;
           font-size: 28px;
           font-weight: 700;
           margin: 0;
-          position: relative;
-          z-index: 1;
-          text-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .content {
           padding: 40px 30px;
@@ -158,7 +132,6 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
           font-weight: 600;
           font-size: 16px;
           box-shadow: 0 4px 15px rgba(0, 128, 187, 0.4);
-          transition: all 0.3s ease;
         }
         .divider {
           height: 1px;
@@ -183,29 +156,19 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
           margin: 8px 0 5px 0;
           font-weight: 700;
         }
-        .brand {
-          color: #94a3b8;
-          font-size: 14px;
-          font-weight: 500;
-        }
-        .emoji {
-          font-size: 24px;
-          margin: 0 5px;
-        }
       </style>
     </head>
     <body>
       <div class="email-wrapper">
         <div class="header">
-          <img src="https://informatica-descomplicada.lovable.app/logo-email.png" alt="Informática na Prática" class="logo">
-          <h1><span class="emoji">🎉</span> Bem-vindo ao Curso!</h1>
+          <h1>🎉 Bem-vindo ao Curso!</h1>
         </div>
         
         <div class="content">
           <p class="greeting">Olá, ${firstName}! 👋</p>
           
           <p class="message">
-            Parabéns! Sua matrícula foi confirmada com sucesso. <strong>Estou muito feliz</strong> em ter você comigo nessa jornada de aprendizado! <span class="emoji">🚀</span>
+            Parabéns! Sua matrícula foi confirmada com sucesso. <strong>Estou muito feliz</strong> em ter você comigo nessa jornada de aprendizado! 🚀
           </p>
           
           ${passwordInfo}
@@ -229,7 +192,7 @@ async function sendWelcomeEmail(name: string, email: string, username: string, p
           <p class="signature">
             Bons estudos! 📚
             <strong>Prof. Elisa</strong>
-            <span class="brand">Informática na Prática</span>
+            <span>Informática na Prática</span>
           </p>
         </div>
       </div>
@@ -251,11 +214,40 @@ serve(async (req: Request) => {
   }
 
   try {
+    // Verificar autenticação
+    const authHeader = req.headers.get('Authorization');
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY') || Deno.env.get('SUPABASE_PUBLISHABLE_KEY')!;
+    const supabaseClient = createClient(supabaseUrl, supabaseAnonKey, {
+      global: { headers: { Authorization: authHeader || '' } }
+    });
+    const { data: { user } } = await supabaseClient.auth.getUser();
+    if (!user) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Verificar role admin
+    const { data: roleData } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', user.id)
+      .eq('role', 'admin')
+      .single();
+
+    if (!roleData) {
+      return new Response(JSON.stringify({ error: 'Forbidden' }), {
+        status: 403,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
     const { transactionId } = await req.json();
 
     console.log(`Reprocessing payment: ${transactionId}`);
 
-    // 1. Buscar o pagamento
     const { data: payment, error: paymentError } = await supabase
       .from('payments')
       .select('*')
@@ -275,7 +267,6 @@ serve(async (req: Request) => {
 
     console.log(`Found payment for: ${customerName} (${customerEmail})`);
 
-    // 2. Buscar usuário no Moodle
     const existingUser = await callMoodleAPI('core_user_get_users_by_field', {
       field: 'email',
       'values[0]': customerEmail
@@ -288,7 +279,6 @@ serve(async (req: Request) => {
     const moodleUser = existingUser[0];
     console.log(`Found Moodle user: ${moodleUser.username} (ID: ${moodleUser.id})`);
 
-    // 3. Matricular no curso
     try {
       await enrollUserInCourse(moodleUser.id);
       console.log('✅ User enrolled in course');
@@ -296,7 +286,6 @@ serve(async (req: Request) => {
       console.error('Enrollment error (might already be enrolled):', enrollError);
     }
 
-    // 4. Salvar/atualizar no banco
     const { data: studentData, error: studentError } = await supabase
       .from('students')
       .upsert({
@@ -317,13 +306,11 @@ serve(async (req: Request) => {
 
     console.log('✅ Student saved:', studentData);
 
-    // Atualizar payment com student_id
     await supabase
       .from('payments')
       .update({ student_id: studentData.id })
       .eq('id', payment.id);
 
-    // 5. Enviar email
     await sendWelcomeEmail(customerName, customerEmail, moodleUser.username, null);
     console.log('✅ Welcome email sent');
 
@@ -344,8 +331,7 @@ serve(async (req: Request) => {
     
     return new Response(
       JSON.stringify({ 
-        error: error.message,
-        details: error.stack 
+        error: 'Internal server error'
       }), 
       { 
         status: 500, 

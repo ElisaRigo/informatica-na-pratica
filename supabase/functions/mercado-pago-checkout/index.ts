@@ -24,7 +24,6 @@ serve(async (req) => {
 
     console.log("Creating Mercado Pago preference for:", { email, name });
 
-    // Validate input
     if (!name || !email || !cpf) {
       throw new Error("Nome, email e CPF são obrigatórios");
     }
@@ -34,17 +33,16 @@ serve(async (req) => {
       throw new Error("Mercado Pago access token not configured");
     }
 
-    // Usar valor customizado se fornecido, senão usar o preço padrão
     const allowedPrices = [297.00, 248.50];
     const defaultPrice = parseFloat(Deno.env.get("COURSE_PRICE") || "297.00");
     const coursePrice = amount && allowedPrices.includes(amount) ? amount : defaultPrice;
 
-    // Separar nome em primeiro e último nome
     const nameParts = name.trim().split(' ');
     const firstName = nameParts[0];
     const lastName = nameParts.slice(1).join(' ') || nameParts[0];
 
-    // Create preference com todas as informações necessárias
+    const appUrl = Deno.env.get("APP_URL") || "https://informatica-descomplicada.lovable.app";
+
     const preferenceData = {
       items: [
         {
@@ -77,9 +75,9 @@ serve(async (req) => {
         default_installments: 1,
       },
       back_urls: {
-        success: `${req.headers.get("origin")}/obrigada`,
-        failure: `${req.headers.get("origin")}/aguardando`,
-        pending: `${req.headers.get("origin")}/aguardando`,
+        success: `${appUrl}/obrigada`,
+        failure: `${appUrl}/aguardando`,
+        pending: `${appUrl}/aguardando`,
       },
       auto_return: "approved",
       notification_url: `${Deno.env.get("SUPABASE_URL")}/functions/v1/mercado-pago-webhook`,
@@ -108,12 +106,10 @@ serve(async (req) => {
     const preference = await response.json();
     console.log("Preference created successfully:", preference.id);
 
-    // Criar conexão com Supabase
     const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Salvar dados do estudante antes do redirecionamento
     console.log("💾 Saving student data...");
     const { error: studentError } = await supabase
       .from("students")
@@ -137,7 +133,6 @@ serve(async (req) => {
       JSON.stringify({
         preferenceId: preference.id,
         initPoint: preference.init_point,
-        accessToken: accessToken, // Enviar para processar pagamentos no frontend
       }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },

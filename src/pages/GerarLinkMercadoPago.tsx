@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,14 +10,45 @@ import { Loader2, Copy, CheckCircle } from "lucide-react";
 
 export default function GerarLinkMercadoPago() {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [paymentLink, setPaymentLink] = useState("");
   const [copied, setCopied] = useState(false);
+  const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     cpf: "",
   });
+
+  useEffect(() => {
+    const checkAdmin = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        setIsAdmin(false);
+        return;
+      }
+      const { data } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', session.user.id)
+        .eq('role', 'admin')
+        .single();
+      setIsAdmin(!!data);
+    };
+    checkAdmin();
+  }, []);
+
+  useEffect(() => {
+    if (isAdmin === false) {
+      toast({
+        title: "Acesso negado",
+        description: "Você precisa ser administrador para acessar esta página.",
+        variant: "destructive",
+      });
+      navigate("/");
+    }
+  }, [isAdmin, navigate, toast]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,6 +116,16 @@ export default function GerarLinkMercadoPago() {
       .replace(/(\d{3})(\d)/, "$1.$2")
       .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
   };
+
+  if (isAdmin === null) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!isAdmin) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 py-12 px-4">

@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 
 const corsHeaders = {
@@ -12,6 +13,21 @@ serve(async (req) => {
   }
 
   try {
+    // Verificar autenticação
+    const authHeader = req.headers.get("Authorization");
+    const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") || Deno.env.get("SUPABASE_PUBLISHABLE_KEY") || "";
+    const supabaseClient = createClient(supabaseUrl, supabaseAnonKey, {
+      global: { headers: { Authorization: authHeader || "" } }
+    });
+    const { data: { user } } = await supabaseClient.auth.getUser();
+    if (!user) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     console.log("Creating payment intent");
     
     const { customerName, customerEmail, customerTaxId } = await req.json();
@@ -26,7 +42,6 @@ serve(async (req) => {
       apiVersion: "2025-08-27.basil",
     });
 
-    // Busca ou cria cliente
     const customers = await stripe.customers.list({ 
       email: customerEmail, 
       limit: 1 
@@ -37,7 +52,6 @@ serve(async (req) => {
       customerId = customers.data[0].id;
       console.log("Found existing customer:", customerId);
       
-      // Atualiza o nome do cliente
       await stripe.customers.update(customerId, {
         name: customerName,
       });
@@ -51,7 +65,6 @@ serve(async (req) => {
       console.log("Created new customer:", customerId);
     }
 
-    // Adiciona o CPF como tax_id
     try {
       const existingTaxIds = await stripe.customers.listTaxIds(customerId, { limit: 10 });
       const hasCPF = existingTaxIds.data.some((tax: any) => tax.value === customerTaxId);
@@ -65,10 +78,8 @@ serve(async (req) => {
       }
     } catch (taxError: any) {
       console.error("Error adding tax_id:", taxError.message);
-      // Continua mesmo se falhar ao adicionar o tax_id
     }
 
-    // Cria Payment Intent (R$ 297,00 = 29700 centavos)
     const paymentIntent = await stripe.paymentIntents.create({
       amount: 29700,
       currency: "brl",
