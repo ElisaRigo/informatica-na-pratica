@@ -6,7 +6,7 @@ import {
   ChevronDown, ArrowRight, Zap, Play,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import logo from "@/assets/logo-checkout.png";
+import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
