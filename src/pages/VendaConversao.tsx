@@ -443,7 +443,7 @@ const VendaConversao = () => {
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 {[
-                  { v: "+15 anos", l: "experiência" },
+                  { v: "+20 anos", l: "experiência" },
                   { v: "+2.500", l: "alunos" },
                   { v: "4.9/5", l: "avaliação" },
                 ].map((s, i) => (
