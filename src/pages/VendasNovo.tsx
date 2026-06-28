@@ -288,12 +288,12 @@ const Method = () => {
 // ───────────────────────── Modules ─────────────────────────
 const Modules = () => {
   const mods = [
-    { i: Monitor, t: "Windows e Organização", d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos com segurança.", lessons: "Módulo 1" },
-    { i: FileText, t: "Word Profissional", d: "Escreva cartas, currículos e documentos. Formate, salve e imprima sem medo.", lessons: "Módulo 2" },
-    { i: FileText, t: "Excel na Prática", d: "Crie planilhas, fórmulas e organize contas e gastos do mês.", lessons: "Módulo 3" },
-    { i: Presentation, t: "PowerPoint Impactante", d: "Faça apresentações bonitas e profissionais, mesmo sem experiência.", lessons: "Módulo 4" },
-    { i: Globe, t: "Internet e E-mail", d: "Pesquise no Google, envie e receba e-mails, evite golpes e use o YouTube.", lessons: "Módulo 5" },
-    { i: Keyboard, t: "Digitação Profissional", d: "Ganhe velocidade no teclado e produtividade no dia a dia.", lessons: "Módulo 6" },
+    { i: windowsIcon, t: "Windows e Organização", d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos com segurança.", lessons: "Módulo 1" },
+    { i: wordIcon, t: "Word Profissional", d: "Escreva cartas, currículos e documentos. Formate, salve e imprima sem medo.", lessons: "Módulo 2" },
+    { i: excelIcon, t: "Excel na Prática", d: "Crie planilhas, fórmulas e organize contas e gastos do mês.", lessons: "Módulo 3" },
+    { i: powerpointIcon, t: "PowerPoint Impactante", d: "Faça apresentações bonitas e profissionais, mesmo sem experiência.", lessons: "Módulo 4" },
+    { i: internetIcon, t: "Internet e E-mail", d: "Pesquise no Google, envie e receba e-mails, evite golpes e use o YouTube.", lessons: "Módulo 5" },
+    { i: typingIcon, t: "Digitação Profissional", d: "Ganhe velocidade no teclado e produtividade no dia a dia.", lessons: "Módulo 6" },
   ];
   return (
     <section className="py-8 md:py-12 bg-slate-50">
@@ -306,8 +306,8 @@ const Modules = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {mods.map((m) => (
             <div key={m.t} className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4">
-                <m.i className="w-6 h-6" />
+              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+                <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
               <p className="text-slate-600 text-sm mb-3">{m.d}</p>
