@@ -9,7 +9,8 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-checkout.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
-import heroCover from "@/assets/hero-video-cover-home.jpg";
+import heroCoverAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
+const heroCover = heroCoverAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
@@ -89,6 +90,7 @@ const Header = () => (
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
   const timer = useCountdown();
+  const [playing, setPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
@@ -103,28 +105,44 @@ const Hero = () => {
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-5">
-            Aprenda a usar o computador<br className="hidden md:block" />
-            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
+            Você sente <span className="text-blue-600">medo</span> ou <span className="text-blue-600">insegurança</span> ao usar o computador?
           </h1>
 
           <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-7">
-            Em poucas semanas você vai mandar e-mail, usar Word, Excel, internet e WhatsApp Web
-            com confiança — sem depender de filho, neto ou ninguém.
+            Aprenda do <strong>zero</strong>, no seu ritmo, mesmo que você <strong>nunca</strong> tenha ligado um computador —
+            sem depender de filho, neto ou ninguém.
           </p>
 
           {/* Video */}
-          <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-7 group cursor-pointer"
-               onClick={openCheckout}>
-            <img src={heroCover} alt="Apresentação do curso" className="w-full aspect-video object-cover" />
-            <div className="absolute inset-0 bg-slate-900/30 flex items-center justify-center">
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+          <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-7">
+            {!playing ? (
+              <div className="relative group cursor-pointer aspect-video" onClick={() => setPlaying(true)}>
+                <img src={heroCover} alt="Apresentação do curso" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-slate-900/30 flex items-center justify-center">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+                  </div>
+                </div>
+                <div className="absolute bottom-3 left-3 bg-black/70 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                  ▶ Assista a apresentação
+                </div>
               </div>
-            </div>
-            <div className="absolute bottom-3 left-3 bg-black/70 text-white text-xs font-bold px-3 py-1.5 rounded-full">
-              ▶ Assista a apresentação (2 min)
-            </div>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&autoplay=1"
+                  title="Apresentação do curso"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            )}
           </div>
+
+          <p className="text-xl md:text-3xl font-black text-slate-900 max-w-3xl mx-auto mb-7 leading-tight">
+            Aprenda a usar <span className="text-blue-600">Word, Excel, internet</span> e muito mais com aulas <span className="text-blue-600">simples</span> e <span className="text-blue-600">fáceis</span>.
+          </p>
 
           <CTA>Quero começar agora com 40% OFF</CTA>
 
@@ -263,7 +281,7 @@ const Modules = () => {
     { i: Globe, t: "Internet Segura", d: "Pesquisar no Google, evitar golpes, baixar arquivos, usar YouTube.", lessons: "10 aulas" },
     { i: FileText, t: "Word — Documentos", d: "Escrever cartas, currículos, formatar texto, salvar e imprimir.", lessons: "14 aulas" },
     { i: FileText, t: "Excel — Planilhas", d: "Criar planilhas, somar, organizar contas e gastos do mês.", lessons: "12 aulas" },
-    { i: MessageCircle, t: "WhatsApp Web e Mais", d: "Usar WhatsApp no computador, videochamadas, redes sociais com segurança.", lessons: "8 aulas" },
+    { i: MessageCircle, t: "Comunicação e Redes Sociais", d: "Videochamadas, redes sociais com segurança e organização do seu dia a dia digital.", lessons: "8 aulas" },
   ];
   return (
     <section className="py-14 md:py-20 bg-slate-50">
@@ -297,7 +315,7 @@ const Testimonials = () => {
     { n: "Maria, 58 anos", a: avatar1, txt: "Eu tinha pavor de mexer no computador. Hoje mando e-mail, faço currículo no Word e até ajudo minha vizinha. A professora Elisa explica tão devagar que parece que tá do meu lado." },
     { n: "João, 62 anos", a: avatar2, txt: "Aposentado, comprei o curso achando que não ia conseguir. Em 3 semanas eu já tava usando o Excel pra controlar minhas contas. Melhor investimento que fiz." },
     { n: "Sandra, 45 anos", a: avatar3, txt: "Precisava aprender pro trabalho e tinha vergonha de perguntar. As aulas são curtinhas e claras. Hoje sou eu que ensino as colegas mais novas." },
-    { n: "Roberto, 51 anos", a: avatar4, txt: "Nunca tinha tocado num computador. Hoje uso WhatsApp Web, faço pesquisa no Google e baixo música. Mudou minha vida." },
+    { n: "Roberto, 51 anos", a: avatar4, txt: "Nunca tinha tocado num computador. Hoje faço pesquisa no Google, mando e-mails e organizo meus arquivos sem ajuda. Mudou minha vida." },
     { n: "Carla, 39 anos", a: avatar5, txt: "Tenho TDAH e preciso de coisas explicadas com calma. Esse foi o único curso que eu consegui terminar. Recomendo demais." },
     { n: "Aline, 47 anos", a: avatar6, txt: "Achei que ia ser difícil mas é simples. Em 1 mês já tava montando planilhas. Vale cada centavo." },
   ];
