@@ -103,7 +103,7 @@ const Hero = () => {
         🔥 OFERTA RELÂMPAGO • 40% OFF expira em <span className="tabular-nums">{timer}</span>
       </div>
 
-      <div className="container mx-auto px-4 py-10 md:py-16">
+      <div className="container mx-auto px-4 py-6 md:py-10">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-5">
             <GraduationCap className="w-4 h-4" /> Curso 100% Online • Aulas Passo a Passo
@@ -188,7 +188,7 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-14 md:py-20 bg-slate-50">
+    <section className="py-8 md:py-12 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">
           Esse curso é pra você se…
@@ -212,7 +212,7 @@ const Identification = () => {
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
-  <section className="py-14 md:py-20 bg-white">
+  <section className="py-8 md:py-12 bg-white">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
@@ -260,7 +260,7 @@ const Method = () => {
     { n: "3", t: "Pratica no seu dia a dia", d: "Em poucos dias você já tá enviando e-mail, usando Word e mexendo na internet sem medo." },
   ];
   return (
-    <section className="py-14 md:py-20 bg-blue-600 text-white">
+    <section className="py-8 md:py-12 bg-blue-600 text-white">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
@@ -291,7 +291,7 @@ const Modules = () => {
     { i: Keyboard, t: "Digitação Profissional", d: "Ganhe velocidade no teclado e produtividade no dia a dia.", lessons: "Módulo 6" },
   ];
   return (
-    <section className="py-14 md:py-20 bg-slate-50">
+    <section className="py-8 md:py-12 bg-slate-50">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-10">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">CONTEÚDO COMPLETO</span>
@@ -327,7 +327,7 @@ const Testimonials = () => {
     { n: "Aline, 47 anos", a: avatar6, txt: "Achei que ia ser difícil mas é simples. Em 1 mês já tava montando planilhas. Vale cada centavo." },
   ];
   return (
-    <section className="py-14 md:py-20 bg-white">
+    <section className="py-8 md:py-12 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-10">
           <div className="flex justify-center mb-3">{[...Array(5)].map((_, i) => <Star key={i} className="w-6 h-6 text-yellow-400 fill-yellow-400" />)}</div>
@@ -356,7 +356,7 @@ const Testimonials = () => {
 
 // ───────────────────────── Certificate ─────────────────────────
 const Certificate = () => (
-  <section className="py-14 md:py-20 bg-slate-50">
+  <section className="py-8 md:py-12 bg-slate-50">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <img src={certificado} alt="Certificado de conclusão" className="rounded-2xl shadow-xl border border-slate-200" />
@@ -381,7 +381,7 @@ const Certificate = () => (
 
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
-  <section id="oferta" className="py-14 md:py-20 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+  <section id="oferta" className="py-8 md:py-12 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-8">
         <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
@@ -431,7 +431,7 @@ const Pricing = () => (
 
 // ───────────────────────── Guarantee ─────────────────────────
 const GuaranteeBlock = () => (
-  <section className="py-14 md:py-20 bg-white">
+  <section className="py-8 md:py-12 bg-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="bg-green-50 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-600 mb-5">
@@ -461,7 +461,7 @@ const FAQ = () => {
     { q: "E se eu travar numa aula? Tem suporte?", a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno." },
   ];
   return (
-    <section className="py-14 md:py-20 bg-slate-50">
+    <section className="py-8 md:py-12 bg-slate-50">
       <div className="container mx-auto px-4 max-w-3xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-10">Perguntas frequentes</h2>
         <div className="space-y-3">
@@ -482,7 +482,7 @@ const FAQ = () => {
 
 // ───────────────────────── Final CTA ─────────────────────────
 const FinalCTA = () => (
-  <section className="py-14 md:py-20 bg-slate-900 text-white">
+  <section className="py-8 md:py-12 bg-slate-900 text-white">
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
