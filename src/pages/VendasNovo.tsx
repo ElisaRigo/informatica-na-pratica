@@ -156,7 +156,7 @@ const Hero = () => {
             )}
           </div>
 
-          <CTA>Quero começar agora com 40% OFF</CTA>
+          <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-green-600" /> Pagamento seguro</span>
@@ -209,7 +209,7 @@ const Identification = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-10"><CTA>Sim, esse curso é pra mim</CTA></div>
+        <div className="text-center mt-10"><CTA>Quero aprender do zero!</CTA></div>
       </div>
     </section>
   );
@@ -250,7 +250,7 @@ const Instructor = () => (
             <div className="text-center bg-slate-50 rounded-xl p-3"><Award className="w-5 h-5 text-blue-600 mx-auto mb-1" /><div className="text-xs font-bold text-slate-700">Método<br/>próprio</div></div>
             <div className="text-center bg-slate-50 rounded-xl p-3"><HeartHandshake className="w-5 h-5 text-blue-600 mx-auto mb-1" /><div className="text-xs font-bold text-slate-700">Suporte<br/>humano</div></div>
           </div>
-          <CTA size="md">Quero aprender com a Elisa</CTA>
+          <CTA size="md">Quero aprender sem medo!</CTA>
         </div>
       </div>
     </div>
@@ -315,7 +315,7 @@ const Modules = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-10"><CTA>Quero acesso a todas as aulas</CTA></div>
+        <div className="text-center mt-10"><CTA>Quero ver todas as aulas!</CTA></div>
       </div>
     </section>
   );
@@ -377,7 +377,7 @@ const Certificate = () => (
               <li key={x} className="flex items-center gap-2 text-slate-700"><CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />{x}</li>
             ))}
           </ul>
-          <CTA size="md">Quero meu certificado</CTA>
+          <CTA size="md">Quero meu certificado!</CTA>
         </div>
       </div>
     </div>
@@ -423,7 +423,7 @@ const Pricing = () => (
           ))}
         </ul>
 
-        <CTA>Quero garantir minha vaga com 40% OFF</CTA>
+        <CTA>Quero aproveitar o desconto!</CTA>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro</span>
@@ -495,7 +495,7 @@ const FinalCTA = () => (
         Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes.
         Sua vida fica mais leve, mais independente. <strong className="text-white">Hoje é o dia.</strong>
       </p>
-      <CTA>Quero começar agora — 40% OFF</CTA>
+      <CTA>Quero começar agora!</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
   </section>
@@ -519,7 +519,7 @@ const Footer = () => (
 const StickyMobile = () => (
   <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
     <button onClick={openCheckout} className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2">
-      <Zap className="w-5 h-5" /> Quero começar agora • R$ 297
+      <Zap className="w-5 h-5" /> Quero começar agora!
     </button>
   </div>
 );
