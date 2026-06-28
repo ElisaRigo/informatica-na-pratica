@@ -2,6 +2,7 @@ import { lazy, Suspense, memo, useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
+import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { 
   Shield, Award, Zap, CheckCircle, Star, Clock, Users, 
   ArrowRight, Play, Gift, Lock, Flame, ChevronRight,
