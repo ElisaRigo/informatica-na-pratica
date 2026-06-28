@@ -72,24 +72,24 @@ const useCountdown = () => {
   return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
 };
 
+import logo from "@/assets/logo-blue.png";
+
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-white border-b border-slate-200 py-3 md:py-4">
+  <header className="bg-white border-b border-slate-200 py-4 md:py-8">
     <div className="container mx-auto px-4 text-center">
-      <div className="inline-block mb-1">
-        <img
-          src={logoBlue}
-          alt="Informática na Prática"
-          className="w-20 md:w-24 lg:w-28 mx-auto"
-          width="112"
-          height="112"
-          fetchPriority="high"
-          decoding="async"
-        />
+      <div className="flex flex-col items-center justify-center gap-3 md:gap-4 mb-3 md:mb-6">
+        <div className="relative group shrink-0">
+          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
+            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
+          </div>
+        </div>
+        <p className="text-slate-900 text-lg md:text-2xl lg:text-3xl font-bold text-center leading-tight">
+          <span className="block">Curso de <span className="text-sky-600">Informática Online</span></span>
+          <span className="hidden md:inline"> — </span>
+          <span className="block md:inline">Simples e para Todos.</span>
+        </p>
       </div>
-      <h1 className="text-base md:text-xl lg:text-2xl text-slate-900 mt-1 tracking-tight leading-tight px-2">
-        <span className="text-blue-600 font-bold">Informática do zero:</span> simples, prático e para todos
-      </h1>
     </div>
   </header>
 );
