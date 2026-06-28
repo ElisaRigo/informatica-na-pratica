@@ -280,12 +280,12 @@ const Method = () => {
 // ───────────────────────── Modules ─────────────────────────
 const Modules = () => {
   const mods = [
-    { i: Monitor, t: "Windows do Zero", d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos.", lessons: "12 aulas" },
-    { i: Mail, t: "E-mail (Gmail)", d: "Criar conta, enviar, receber, anexar arquivos, organizar a caixa de entrada.", lessons: "8 aulas" },
-    { i: Globe, t: "Internet Segura", d: "Pesquisar no Google, evitar golpes, baixar arquivos, usar YouTube.", lessons: "10 aulas" },
-    { i: FileText, t: "Word — Documentos", d: "Escrever cartas, currículos, formatar texto, salvar e imprimir.", lessons: "14 aulas" },
-    { i: FileText, t: "Excel — Planilhas", d: "Criar planilhas, somar, organizar contas e gastos do mês.", lessons: "12 aulas" },
-    { i: MessageCircle, t: "WhatsApp Web e Mais", d: "Usar WhatsApp no computador, videochamadas, redes sociais com segurança.", lessons: "8 aulas" },
+    { i: Monitor, t: "Windows e Organização", d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos com segurança.", lessons: "Módulo 1" },
+    { i: FileText, t: "Word Profissional", d: "Escreva cartas, currículos e documentos. Formate, salve e imprima sem medo.", lessons: "Módulo 2" },
+    { i: FileText, t: "Excel na Prática", d: "Crie planilhas, fórmulas e organize contas e gastos do mês.", lessons: "Módulo 3" },
+    { i: Presentation, t: "PowerPoint Impactante", d: "Faça apresentações bonitas e profissionais, mesmo sem experiência.", lessons: "Módulo 4" },
+    { i: Globe, t: "Internet e E-mail", d: "Pesquise no Google, envie e receba e-mails, evite golpes e use o YouTube.", lessons: "Módulo 5" },
+    { i: Keyboard, t: "Digitação Profissional", d: "Ganhe velocidade no teclado e produtividade no dia a dia.", lessons: "Módulo 6" },
   ];
   return (
     <section className="py-14 md:py-20 bg-slate-50">
