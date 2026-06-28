@@ -322,14 +322,16 @@ const Modules = () => {
 };
 
 // ───────────────────────── Testimonials ─────────────────────────
+import { Quote } from "lucide-react";
+
 const Testimonials = () => {
   const t = [
-    { n: "Maria, 58 anos", a: avatar1, txt: "Eu tinha pavor de mexer no computador. Hoje mando e-mail, faço currículo no Word e até ajudo minha vizinha. A professora Elisa explica tão devagar que parece que tá do meu lado." },
-    { n: "João, 62 anos", a: avatar2, txt: "Aposentado, comprei o curso achando que não ia conseguir. Em 3 semanas eu já tava usando o Excel pra controlar minhas contas. Melhor investimento que fiz." },
-    { n: "Sandra, 45 anos", a: avatar3, txt: "Precisava aprender pro trabalho e tinha vergonha de perguntar. As aulas são curtinhas e claras. Hoje sou eu que ensino as colegas mais novas." },
-    { n: "Roberto, 51 anos", a: avatar4, txt: "Nunca tinha tocado num computador. Hoje faço apresentações no PowerPoint, pesquiso no Google e mando e-mail. Mudou minha vida." },
-    { n: "Carla, 39 anos", a: avatar5, txt: "Tenho TDAH e preciso de coisas explicadas com calma. Esse foi o único curso que eu consegui terminar. Recomendo demais." },
-    { n: "Aline, 47 anos", a: avatar6, txt: "Achei que ia ser difícil mas é simples. Em 1 mês já tava montando planilhas. Vale cada centavo." },
+    { name: "Maria Helena, 58 anos", role: "Aposentada", image: avatar1, text: "Achei que era tarde demais para aprender. A Elisa provou que eu estava errada! Hoje faço tudo sozinha no computador.", rating: 5 },
+    { name: "Carla Eduarda, 23 anos", role: "Comerciante", image: avatar2, text: "Finalmente consigo fazer minhas planilhas de controle de estoque. Economizo 3 horas por semana!", rating: 5 },
+    { name: "Pedro Junk, 38 anos", role: "Empresário", image: avatar3, text: "Ganhei uma promoção porque agora domino Word e Excel. O investimento se pagou em menos de um mês.", rating: 5 },
+    { name: "Roberta Silva, 28 anos", role: "Autônoma", image: avatar4, text: "A didática da professora é incrível. Ela explica de um jeito que até quem nunca usou computador entende.", rating: 5 },
+    { name: "Fernanda Costa, 28 anos", role: "Estudante", image: avatar5, text: "Consegui meu primeiro emprego graças ao curso! Fiz meu currículo perfeito e impressionei na entrevista.", rating: 5 },
+    { name: "José Antônio, 61 anos", role: "Aposentado", image: avatar6, text: "Meus netos não acreditaram quando viram eu usando o computador sozinho. Valeu cada centavo!", rating: 5 },
   ];
   return (
     <section className="py-8 md:py-12 bg-white">
@@ -341,16 +343,30 @@ const Testimonials = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {t.map((x) => (
-            <div key={x.n} className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="flex mb-3">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />)}</div>
-              <p className="text-slate-700 text-sm leading-relaxed mb-4">"{x.txt}"</p>
+            <div key={x.name} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-blue-300 transition-all hover:-translate-y-1">
+              <Quote className="w-8 h-8 text-blue-400/50 mb-3" />
+              <div className="flex mb-3">{[...Array(x.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />)}</div>
+              <p className="text-slate-700 text-sm leading-relaxed mb-5">"{x.text}"</p>
               <div className="flex items-center gap-3">
-                <img src={x.a} alt={x.n} className="w-11 h-11 rounded-full object-cover" />
+                <img src={x.image} alt={x.name} className="w-12 h-12 rounded-full object-cover border-2 border-blue-500/30" loading="lazy" />
                 <div>
-                  <div className="font-bold text-slate-900 text-sm">{x.n}</div>
-                  <div className="text-xs text-slate-500">Aluna verificada</div>
+                  <div className="font-bold text-slate-900 text-sm">{x.name}</div>
+                  <div className="text-xs text-slate-500">{x.role}</div>
                 </div>
               </div>
+            </div>
+          ))}
+        </div>
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-12">
+          {[
+            { number: "15.000+", label: "Alunos" },
+            { number: "98%", label: "Satisfação" },
+            { number: "4.9", label: "Avaliação" },
+          ].map((stat, i) => (
+            <div key={i} className="text-center">
+              <p className="text-2xl md:text-4xl font-black bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">{stat.number}</p>
+              <p className="text-slate-500 text-sm">{stat.label}</p>
             </div>
           ))}
         </div>
