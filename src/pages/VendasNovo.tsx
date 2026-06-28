@@ -3,7 +3,7 @@ import {
   ShieldCheck, Lock, CheckCircle2, Star, Clock, Award, Users,
   PlayCircle, Monitor, Mail, FileText, Globe, MessageCircle,
   Sparkles, GraduationCap, HeartHandshake, Infinity as InfinityIcon,
-  ChevronDown, ArrowRight, Zap,
+  ChevronDown, ArrowRight, Zap, Play,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-checkout.png";
