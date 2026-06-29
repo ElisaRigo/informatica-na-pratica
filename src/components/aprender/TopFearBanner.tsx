@@ -25,5 +25,4 @@ export const TopFearBanner = () => {
       </div>
     </div>
   );
- 1;
 };
