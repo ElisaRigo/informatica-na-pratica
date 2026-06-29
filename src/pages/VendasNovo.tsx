@@ -98,9 +98,12 @@ const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
-      <div className="bg-slate-900 text-white text-center py-3 px-4">
-        <span className="text-sm md:text-lg font-black uppercase tracking-wide">
-          Chega de se sentir travado no computador — você consegue aprender!
+      <div className="relative overflow-hidden bg-slate-950 text-center py-3 px-4 border-b border-cyan-400/60 shadow-[0_0_20px_rgba(34,211,238,0.25)]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-500/10 via-transparent to-transparent" />
+        <span className="relative z-10 inline-flex items-center gap-2 text-sm md:text-lg font-black uppercase tracking-wide text-white drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">
+          <Monitor className="w-4 h-4 md:w-5 md:h-5 text-cyan-300 drop-shadow-[0_0_6px_rgba(34,211,238,0.9)]" />
+          Chega de se sentir travado no computador
+          <span className="hidden sm:inline text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]"> — você consegue aprender!</span>
         </span>
       </div>
 
