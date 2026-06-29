@@ -242,8 +242,6 @@ const Informatica = () => {
       {/* ─── HERO (mesmo da home /aprender) ─── */}
       <HeroV2 />
 
-      {/* ─── EASY TO LEARN ─── */}
-      <EasyToLearn />
 
       {/* ─── AUDIO TESTIMONIALS HEADER ─── */}
       <section className="py-4 md:py-6 bg-slate-900 border-t border-slate-800">
