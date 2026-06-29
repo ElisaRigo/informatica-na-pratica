@@ -38,7 +38,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { EasyToLearn } from "@/components/EasyToLearn";
+
 import { HeroV2 } from "@/components/aprender/HeroV2";
 
 // ─── Data ───────────────────────────────────────────────────────────
