@@ -7,7 +7,7 @@ import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
 
 interface HeroV2Props {
-  problemSection?: React.ReactNode;
+  problemSection?: ReactNode;
 }
 
 export const HeroV2 = ({ problemSection }: HeroV2Props) => {
