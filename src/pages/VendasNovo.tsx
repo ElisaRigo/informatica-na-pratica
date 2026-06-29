@@ -98,8 +98,10 @@ const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
-      <div className="bg-blue-600 text-white text-center text-xs md:text-sm font-bold py-2 px-4">
-        🔥 Oferta especial de 40% OFF por tempo limitado
+      <div className="bg-slate-900 text-white text-center py-3 px-4">
+        <span className="text-sm md:text-lg font-black uppercase tracking-wide">
+          Chega de se sentir travado no computador — você consegue aprender!
+        </span>
       </div>
 
       <div className="container mx-auto px-4 py-6 md:py-10">
