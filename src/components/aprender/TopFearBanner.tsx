@@ -1,17 +1,29 @@
 export const TopFearBanner = () => {
   return (
     <div className="my-4 md:my-6 -mx-4 md:-mx-8 lg:-mx-16">
-      <div className="bg-success/15 border-y border-success/50 py-2.5 md:py-3 px-4">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 text-center">
-          <span className="font-black text-base md:text-lg text-white uppercase tracking-wide">
-            Chega de se sentir travado(a) no computador!
+      <div
+        className="border-y py-3 md:py-4 px-4 text-center"
+        style={{
+          backgroundColor: "#152b22",
+          borderColor: "#1f4d3a",
+        }}
+      >
+        <div className="flex items-center justify-center gap-2 md:gap-3">
+          <span className="text-xl md:text-2xl" aria-hidden="true">
+            😰
           </span>
-          <span className="hidden sm:inline text-success/60 text-lg">•</span>
-          <span className="font-bold text-base md:text-lg text-success">
-            Eu te ensino do zero!
+          <span className="font-black text-sm sm:text-base md:text-xl text-white uppercase tracking-wide">
+            VOCÊ TEM MEDO DO COMPUTADOR?
           </span>
         </div>
+        <p
+          className="mt-1 font-bold text-sm sm:text-base md:text-lg"
+          style={{ color: "#4ade80" }}
+        >
+          Não se preocupe... Eu te ensino do zero!
+        </p>
       </div>
     </div>
   );
+ 1;
 };
