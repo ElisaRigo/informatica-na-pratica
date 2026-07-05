@@ -100,7 +100,7 @@ const Hero = () => {
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
       <div className="bg-blue-600 text-center py-2.5 px-4">
-        <span className="inline-flex items-center gap-2 text-sm md:text-base font-bold text-white whitespace-nowrap">
+        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
           <span>🔥</span>
           Hoje: 40% OFF + 4 bônus exclusivos
         </span>
