@@ -28,7 +28,12 @@ export const PriceHighlight = () => {
                 R$ 297,00
               </p>
             </div>
-            
+
+            {/* Bonus highlight */}
+            <p className="text-sm md:text-base text-amber-500 font-bold flex items-center justify-center gap-2">
+              <Gift className="w-4 h-4" /> 4 Bônus de R$ 368 inclusos no valor
+            </p>
+
             {/* Parcelamento */}
             <p className="text-sm md:text-base text-muted-foreground">
               💳 ou parcele em até 12x no cartão
