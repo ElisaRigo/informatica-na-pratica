@@ -1,4 +1,4 @@
-import { ArrowRight, Shield, Clock, Zap } from "lucide-react";
+import { ArrowRight, Shield, Clock, Zap, Gift } from "lucide-react";
 
 export const FinalCTA = () => {
   return (
