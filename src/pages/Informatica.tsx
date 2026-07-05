@@ -40,6 +40,7 @@ import {
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 import { HeroV2 } from "@/components/aprender/HeroV2";
+import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
