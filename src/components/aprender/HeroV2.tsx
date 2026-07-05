@@ -162,10 +162,10 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
           </p>
         </div>
 
+        {problemSection}
+
         {/* Seção de bônus — ancora de valor antes do preço */}
         <HeroBonuses />
-
-        {problemSection}
 
         {/* Seção Aula Gratuita - Acima da faixa azul */}
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
