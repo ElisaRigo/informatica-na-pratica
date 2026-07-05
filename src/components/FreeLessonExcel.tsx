@@ -43,21 +43,45 @@ export const FreeLessonExcel = () => {
               </div>
             </div>
 
-            {shouldLoadVideo && (
+            {!isVideoLoaded ? (
+              shouldLoadVideo && (
+                <div
+                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
+                  onClick={handlePlayClick}
+                >
+                  <img
+                    src={excelThumb}
+                    alt="Aula gratuita de Excel - Aprenda do zero"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width="960"
+                    height="540"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                      <div className="w-0 h-0 border-l-[16px] md:border-l-[20px] border-l-primary border-y-[10px] md:border-y-[12px] border-y-transparent ml-1" />
+                    </div>
+                  </div>
+                </div>
+              )
+            ) : (
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
                 <iframe
                   width="960"
                   height="540"
-                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                   title="Aula Gratuita de Excel"
                   frameBorder="0"
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
                 />
               </div>
             )}
+
 
           </div>
 
