@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Gift } from "lucide-react";
 
 export const PriceHighlight = () => {
   return (

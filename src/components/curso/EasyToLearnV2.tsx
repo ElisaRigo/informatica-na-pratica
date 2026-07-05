@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import heroVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
-import { Play, CheckCircle2, ArrowRight } from "lucide-react";
+import { Play, CheckCircle2, ArrowRight, Gift } from "lucide-react";
 
 export const EasyToLearnV2 = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);

@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor, Gift } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
