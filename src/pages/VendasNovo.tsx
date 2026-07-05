@@ -31,6 +31,7 @@ import fbAvatar7 from "@/assets/avatar-7.jpg";
 import fbAvatar8 from "@/assets/avatar-8.jpg";
 
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
+import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 
 const openCheckout = () => openHotmartCheckout();
 
