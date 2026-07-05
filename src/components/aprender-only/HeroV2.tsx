@@ -149,6 +149,9 @@ export const HeroV2 = () => {
           <p className="text-white/90 text-base md:text-lg mt-1">
             ou <span className="font-bold text-lg md:text-2xl">R$ 297,00</span> à vista
           </p>
+          <p className="text-amber-400 font-bold text-xs md:text-sm mt-2 flex items-center justify-center gap-1.5">
+            <Gift className="w-3.5 h-3.5" /> 4 Bônus de R$ 368 inclusos no valor
+          </p>
           <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
             <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
           </p>
