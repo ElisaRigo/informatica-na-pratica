@@ -13,12 +13,6 @@ import heroCover from "@/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
-import avatar1 from "@/assets/testimonial-new-1.jpg";
-import avatar2 from "@/assets/testimonial-new-2.jpg";
-import avatar3 from "@/assets/testimonial-new-3.jpg";
-import avatar4 from "@/assets/testimonial-new-4.jpg";
-import avatar5 from "@/assets/testimonial-new-5.jpg";
-import avatar6 from "@/assets/testimonial-new-6.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import fbAvatar1 from "@/assets/avatar-1.jpg";
@@ -358,60 +352,6 @@ const Modules = () => {
           ))}
         </div>
         <div className="text-center mt-10"><CTA>Quero ver todas as aulas!</CTA></div>
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Testimonials ─────────────────────────
-import { Quote } from "lucide-react";
-
-const Testimonials = () => {
-  const t = [
-    { name: "Maria Helena, 58 anos", role: "Aposentada", image: avatar1, text: "Achei que era tarde demais para aprender. A Elisa provou que eu estava errada! Hoje faço tudo sozinha no computador.", rating: 5 },
-    { name: "Carla Eduarda, 23 anos", role: "Comerciante", image: avatar2, text: "Finalmente consigo fazer minhas planilhas de controle de estoque. Economizo 3 horas por semana!", rating: 5 },
-    { name: "Pedro Junk, 38 anos", role: "Empresário", image: avatar3, text: "Ganhei uma promoção porque agora domino Word e Excel. O investimento se pagou em menos de um mês.", rating: 5 },
-    { name: "Roberta Silva, 28 anos", role: "Autônoma", image: avatar4, text: "A didática da professora é incrível. Ela explica de um jeito que até quem nunca usou computador entende.", rating: 5 },
-    { name: "Fernanda Costa, 28 anos", role: "Estudante", image: avatar5, text: "Consegui meu primeiro emprego graças ao curso! Fiz meu currículo perfeito e impressionei na entrevista.", rating: 5 },
-    { name: "José Antônio, 61 anos", role: "Aposentado", image: avatar6, text: "Meus netos não acreditaram quando viram eu usando o computador sozinho. Valeu cada centavo!", rating: 5 },
-  ];
-  return (
-    <section className="py-8 md:py-12 bg-white">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-10">
-          <div className="flex justify-center mb-3">{[...Array(5)].map((_, i) => <Star key={i} className="w-6 h-6 text-yellow-400 fill-yellow-400" />)}</div>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">+15.000 alunos já mudaram de vida</h2>
-          <p className="text-slate-600">Veja o que dizem quem começou exatamente como você.</p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {t.map((x) => (
-            <div key={x.name} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-blue-300 transition-all hover:-translate-y-1">
-              <Quote className="w-8 h-8 text-blue-400/50 mb-3" />
-              <div className="flex mb-3">{[...Array(x.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />)}</div>
-              <p className="text-slate-700 text-sm leading-relaxed mb-5">"{x.text}"</p>
-              <div className="flex items-center gap-3">
-                <img src={x.image} alt={x.name} className="w-12 h-12 rounded-full object-cover border-2 border-blue-500/30" loading="lazy" />
-                <div>
-                  <div className="font-bold text-slate-900 text-sm">{x.name}</div>
-                  <div className="text-xs text-slate-500">{x.role}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-12">
-          {[
-            { number: "15.000+", label: "Alunos" },
-            { number: "98%", label: "Satisfação" },
-            { number: "4.9", label: "Avaliação" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <p className="text-2xl md:text-4xl font-black bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">{stat.number}</p>
-              <p className="text-slate-500 text-sm">{stat.label}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -807,7 +747,6 @@ const VendasNovo = () => {
       <QuizIdentificacao />
       <MiniValueSection />
       <Instructor />
-      <Testimonials />
       <SocialProof />
       <Method />
       <Modules />
