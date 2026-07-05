@@ -9,7 +9,7 @@ const valueItems = [
   { icon: Infinity, label: "Acesso Vitalício" },
   { icon: Headphones, label: "Suporte Direto" },
   { icon: Users, label: "+ 15.000 Alunos" },
-  { icon: Gift, label: "4 Bônus Inclusos" },
+  { icon: Gift, label: "4 Bônus Exclusivos" },
 ];
 
 export const HeroPricing = () => {
