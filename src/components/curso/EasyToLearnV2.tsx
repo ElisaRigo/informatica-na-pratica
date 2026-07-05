@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import heroVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
-import { Play, CheckCircle2, ArrowRight } from "lucide-react";
+import { Play, CheckCircle2, ArrowRight, Gift } from "lucide-react";
 
 export const EasyToLearnV2 = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -126,7 +126,11 @@ export const EasyToLearnV2 = () => {
                 <span className="text-lg text-slate-400 line-through mr-3">R$ 497,00</span>
                 <span className="text-4xl md:text-5xl font-black text-primary">R$ 297,00</span>
               </div>
-              
+
+              <p className="text-sm md:text-base text-amber-400 font-bold mb-4 flex items-center justify-center gap-2">
+                <Gift className="w-4 h-4" /> 4 Bônus de R$ 368 inclusos no valor
+              </p>
+
               <p className="text-sm md:text-base text-slate-300 mb-6">
                 💳 ou parcele em até <strong className="text-white">12x de R$ 30,72</strong> no cartão
               </p>

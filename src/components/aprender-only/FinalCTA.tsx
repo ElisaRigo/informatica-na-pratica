@@ -1,4 +1,4 @@
-import { ArrowRight, Shield, Clock, Zap } from "lucide-react";
+import { ArrowRight, Shield, Clock, Zap, Gift } from "lucide-react";
 
 export const FinalCTA = () => {
   return (
@@ -31,7 +31,7 @@ export const FinalCTA = () => {
           </p>
 
           {/* Price reminder */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-white/20 inline-block">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-4 border border-white/20 inline-block">
             <div className="flex items-center gap-6 flex-wrap justify-center">
               <div>
                 <p className="text-slate-400 text-sm">Investimento único</p>
@@ -45,6 +45,12 @@ export const FinalCTA = () => {
                 <p className="text-2xl font-bold text-accent">12x R$ 30,72</p>
               </div>
             </div>
+          </div>
+
+          {/* Bonus highlight */}
+          <div className="mb-8 inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 rounded-full px-4 py-2">
+            <Gift className="w-4 h-4 text-amber-400" />
+            <span className="text-amber-300 font-bold text-sm">4 Bônus de R$ 368 inclusos no valor</span>
           </div>
 
           {/* Main CTA */}

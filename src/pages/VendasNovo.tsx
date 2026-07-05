@@ -232,6 +232,9 @@ const MiniValueSection = () => {
         <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">
           R$ 297,00
         </p>
+        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+          <span>🎁</span> 4 Bônus de R$ 368 inclusos no valor
+        </p>
         <p className="text-slate-600 text-base md:text-lg mt-1">
           ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
         </p>
@@ -668,7 +671,10 @@ const Pricing = () => (
           <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
           <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
           <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
-          <p className="text-lg text-slate-700 mt-3">à vista no PIX</p>
+          <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+            <span>🎁</span> 4 Bônus de R$ 368 inclusos no valor
+          </p>
+          <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
           <p className="text-base text-slate-600 mt-1">ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão</p>
         </div>
 

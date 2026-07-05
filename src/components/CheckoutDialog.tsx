@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
-import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
+import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor, Gift } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
@@ -43,6 +43,9 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
               </p>
               <p className="text-sm text-success font-semibold">
                 ou 12x de R$ 30,72
+              </p>
+              <p className="text-xs text-amber-500 font-bold mt-1 flex items-center gap-1">
+                <Gift className="w-3 h-3" /> 4 Bônus de R$ 368 inclusos
               </p>
             </div>
           </div>
