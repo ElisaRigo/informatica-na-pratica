@@ -127,15 +127,15 @@ export const QuizIdentificacao = () => {
 
               {/* Question */}
               <h3 className="text-lg md:text-2xl font-black text-slate-900 mb-5 leading-tight">
-                {QUESTIONS[step].q}
+                {step + 1}. {QUESTIONS[step].q}
               </h3>
 
               <div className="grid gap-3">
                 {QUESTIONS[step].options.map((opt, i) => {
                   const Icon = opt.icon;
                   return (
-                    <button
-                      key={i}
+                  <button
+                      key={`q${step}-opt${i}`}
                       onClick={() => handleAnswer(opt.profile)}
                       className="group flex items-center gap-4 text-left bg-white border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50 rounded-xl p-4 md:p-5 transition-all shadow-sm hover:shadow-md"
                     >
