@@ -108,7 +108,7 @@ const Hero = () => {
         </span>
       </div>
 
-      <div className="container mx-auto px-4 py-6 md:py-10">
+      <div className="container mx-auto px-4 py-4 md:py-6">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-5 w-full">
             <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Aulas Passo a Passo
@@ -193,12 +193,12 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-8 md:py-12 bg-slate-50">
+    <section className="py-4 md:py-6 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">
           Esse curso é pra você se…
         </h2>
-        <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
+        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
           Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
         </p>
         <div className="grid md:grid-cols-2 gap-3 md:gap-4">
@@ -209,7 +209,7 @@ const Identification = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-10"><CTA>Quero aprender do zero!</CTA></div>
+        <div className="text-center mt-5"><CTA>Quero aprender do zero!</CTA></div>
       </div>
     </section>
   );
@@ -219,7 +219,7 @@ const Identification = () => {
 const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section className="py-8 md:py-12 bg-white border-t border-slate-200">
+    <section className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -285,7 +285,7 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
-    <section className="py-8 md:py-12 bg-blue-50">
+    <section className="py-4 md:py-6 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">
           Curso Completo de Informática
@@ -327,7 +327,7 @@ const MiniValueSection = () => {
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
-  <section className="py-8 md:py-12 bg-white">
+  <section className="py-4 md:py-6 bg-white">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
@@ -375,9 +375,9 @@ const Method = () => {
     { n: "3", t: "Pratica no seu dia a dia", d: "Em poucos dias você já tá enviando e-mail, usando Word e mexendo na internet sem medo." },
   ];
   return (
-    <section className="py-8 md:py-12 bg-blue-600 text-white">
+    <section className="py-4 md:py-6 bg-blue-600 text-white">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-10">
+        <div className="text-center mb-5">
           <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
           <p className="text-blue-100 max-w-2xl mx-auto">Sem complicação, sem termos técnicos. Só você, o computador e eu te guiando.</p>
         </div>
@@ -406,9 +406,9 @@ const Modules = () => {
     { i: typingIcon, t: "Digitação Profissional", d: "Ganhe velocidade no teclado e produtividade no dia a dia.", lessons: "Módulo 6" },
   ];
   return (
-    <section className="py-8 md:py-12 bg-slate-50">
+    <section className="py-4 md:py-6 bg-slate-50">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-10">
+        <div className="text-center mb-5">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">CONTEÚDO COMPLETO</span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">+90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.</p>
@@ -425,7 +425,7 @@ const Modules = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-10"><CTA>Quero ver todas as aulas!</CTA></div>
+        <div className="text-center mt-5"><CTA>Quero ver todas as aulas!</CTA></div>
       </div>
     </section>
   );
@@ -516,10 +516,10 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: typeof audioTestimonia
 
 const SocialProof = () => {
   return (
-    <section className="py-8 md:py-12 bg-white">
+    <section className="py-4 md:py-6 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-5">
           <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-slate-200 rounded-full px-5 py-2 bg-slate-50">
             <div className="flex items-center gap-1.5">
               <div className="flex -space-x-2">
@@ -546,7 +546,7 @@ const SocialProof = () => {
         </div>
 
         {/* WhatsApp + Audios */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-10">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-5">
           {/* WhatsApp Screenshots */}
           <div className="order-1 lg:order-2">
             <div className="flex items-center gap-2 mb-4">
@@ -582,7 +582,7 @@ const SocialProof = () => {
         </div>
 
         {/* Highlight phrase */}
-        <div className="text-center my-8 max-w-4xl mx-auto">
+        <div className="text-center my-4 max-w-4xl mx-auto">
           <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
             Se essas pessoas conseguiram, <span className="text-green-600">você também consegue.</span>
             <br />
@@ -591,7 +591,7 @@ const SocialProof = () => {
         </div>
 
         {/* Facebook-style comments */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
           {facebookComments.map((comment, index) => (
             <div key={index} className="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
@@ -642,7 +642,7 @@ const SocialProof = () => {
 
 // ───────────────────────── Certificate ─────────────────────────
 const Certificate = () => (
-  <section className="py-8 md:py-12 bg-slate-50">
+  <section className="py-4 md:py-6 bg-slate-50">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <img src={certificado} alt="Certificado de conclusão" className="rounded-2xl shadow-xl border border-slate-200" />
@@ -667,7 +667,7 @@ const Certificate = () => (
 
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
-  <section id="oferta" className="py-8 md:py-12 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-8">
         <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
@@ -720,7 +720,7 @@ const Pricing = () => (
 
 // ───────────────────────── Guarantee ─────────────────────────
 const GuaranteeBlock = () => (
-  <section className="py-8 md:py-12 bg-white">
+  <section className="py-4 md:py-6 bg-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="bg-green-50 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-600 mb-5">
@@ -750,9 +750,9 @@ const FAQ = () => {
     { q: "E se eu travar numa aula? Tem suporte?", a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno." },
   ];
   return (
-    <section className="py-8 md:py-12 bg-slate-50">
+    <section className="py-4 md:py-6 bg-slate-50">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-10">Perguntas frequentes</h2>
+        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-5">Perguntas frequentes</h2>
         <div className="space-y-3">
           {faqs.map((f, i) => (
             <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
@@ -771,7 +771,7 @@ const FAQ = () => {
 
 // ───────────────────────── Final CTA ─────────────────────────
 const FinalCTA = () => (
-  <section className="py-8 md:py-12 bg-slate-900 text-white">
+  <section className="py-4 md:py-6 bg-slate-900 text-white">
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
@@ -825,7 +825,7 @@ const VendasNovo = () => {
       <SocialProof />
       <Method />
       <Modules />
-      <section className="py-8 md:py-12 bg-slate-50">
+      <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
