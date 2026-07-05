@@ -233,7 +233,7 @@ const AulaDemonstrativa = () => {
           </p>
         </div>
 
-        <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
+        <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg shadow-slate-900/5 mb-6">
           {!isPlaying ? (
             <div
               className="relative aspect-video cursor-pointer group"
@@ -245,19 +245,20 @@ const AulaDemonstrativa = () => {
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                  <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white/40 transition-all duration-300">
+                  <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-white" strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/80 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-black/50 backdrop-blur-sm text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
                 Aula gratuita — Assista agora
               </div>
             </div>
           ) : (
-            <div className="aspect-video">
+            <div className="aspect-video animate-in fade-in duration-500">
               <iframe
-                src="https://www.youtube.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                src="https://www.youtube.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1&color=white"
                 title="Aula demonstrativa gratuita"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
