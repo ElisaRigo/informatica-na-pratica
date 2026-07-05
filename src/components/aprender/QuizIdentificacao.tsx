@@ -94,7 +94,7 @@ export const QuizIdentificacao = () => {
   const progress = done ? 100 : Math.round((step / QUESTIONS.length) * 100);
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-br from-primary to-accent">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-primary to-blue-700">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2.5 bg-white text-primary text-sm md:text-lg font-black px-4 md:px-5 py-2 md:py-2.5 rounded-full mb-4 shadow-lg">
