@@ -43,38 +43,12 @@ export const FreeLessonExcel = () => {
               </div>
             </div>
 
-            {!isVideoLoaded ? (
-              // Thumbnail com botão de play
-              shouldLoadVideo && (
-                <div
-                  className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-pointer group"
-                  onClick={handlePlayClick}
-                >
-                  <img
-                    src={excelThumb}
-                    alt="Aula gratuita de Excel - Aprenda do zero"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width="960"
-                    height="540"
-                  />
-
-                  {/* Botão de Play */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 md:w-24 md:h-24 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white hover:bg-black/80 hover:scale-110 transition-all animate-pulse group-hover:animate-none shadow-2xl">
-                      <div className="w-0 h-0 border-l-[18px] md:border-l-[22px] border-l-white border-y-[11px] md:border-y-[14px] border-y-transparent ml-2"></div>
-                    </div>
-                  </div>
-                </div>
-              )
-            ) : (
-              // YouTube iframe
+            {shouldLoadVideo && (
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
                 <iframe
                   width="960"
                   height="540"
-                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1"
                   title="Aula Gratuita de Excel"
                   frameBorder="0"
                   loading="lazy"
@@ -84,6 +58,7 @@ export const FreeLessonExcel = () => {
                 />
               </div>
             )}
+
           </div>
 
           {/* CTA Estratégico */}
