@@ -31,7 +31,7 @@ export const PriceHighlight = () => {
 
             {/* Bonus highlight */}
             <p className="text-sm md:text-base text-amber-500 font-bold flex items-center justify-center gap-2">
-              <Gift className="w-4 h-4" /> 4 bônus de R$ 368 de GRAÇA
+              <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
             </p>
 
             {/* Parcelamento */}

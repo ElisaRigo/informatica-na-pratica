@@ -45,7 +45,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: CheckoutDialogProps) => {
                 ou 12x de R$ 30,72
               </p>
               <p className="text-xs text-amber-500 font-bold mt-1 flex items-center gap-1">
-                <Gift className="w-3 h-3" /> 4 bônus de R$ 368 de GRAÇA
+                <Gift className="w-3 h-3" /> Hoje você leva 4 bônus exclusivos
               </p>
             </div>
           </div>
