@@ -5,6 +5,7 @@ import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
+import { HeroBonuses } from "./HeroBonuses";
 
 interface HeroV2Props {
   problemSection?: ReactNode;
