@@ -5,6 +5,7 @@ import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
+import { HeroBonuses } from "./HeroBonuses";
 
 interface HeroV2Props {
   problemSection?: ReactNode;
@@ -160,6 +161,9 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
         </div>
+
+        {/* Seção de bônus — ancora de valor antes do preço */}
+        <HeroBonuses />
 
         {problemSection}
 
