@@ -256,7 +256,7 @@ const AulaDemonstrativa = () => {
           ) : (
             <div className="aspect-video">
               <iframe
-                src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                src="https://www.youtube.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
                 title="Aula demonstrativa gratuita"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
