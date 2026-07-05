@@ -50,7 +50,7 @@ export const FinalCTA = () => {
           {/* Bonus highlight */}
           <div className="mb-8 inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 rounded-full px-4 py-2">
             <Gift className="w-4 h-4 text-amber-400" />
-            <span className="text-amber-300 font-bold text-sm">4 Bônus de R$ 368 inclusos no valor</span>
+            <span className="text-amber-300 font-bold text-sm">4 bônus de R$ 368 de GRAÇA</span>
           </div>
 
           {/* Main CTA */}

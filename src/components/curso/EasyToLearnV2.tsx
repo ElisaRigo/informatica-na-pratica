@@ -128,7 +128,7 @@ export const EasyToLearnV2 = () => {
               </div>
 
               <p className="text-sm md:text-base text-amber-400 font-bold mb-4 flex items-center justify-center gap-2">
-                <Gift className="w-4 h-4" /> 4 Bônus de R$ 368 inclusos no valor
+                <Gift className="w-4 h-4" /> 4 bônus de R$ 368 de GRAÇA
               </p>
 
               <p className="text-sm md:text-base text-slate-300 mb-6">
