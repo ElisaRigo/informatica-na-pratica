@@ -32,6 +32,7 @@ import fbAvatar8 from "@/assets/avatar-8.jpg";
 
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
+import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -798,6 +799,7 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <Identification />
+      <QuizIdentificacao />
       <MiniValueSection />
       <Instructor />
       <Method />
