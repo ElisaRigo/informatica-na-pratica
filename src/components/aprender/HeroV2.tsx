@@ -162,6 +162,9 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
           </p>
         </div>
 
+        {/* Seção de bônus — ancora de valor antes do preço */}
+        <HeroBonuses />
+
         {problemSection}
 
         {/* Seção Aula Gratuita - Acima da faixa azul */}
