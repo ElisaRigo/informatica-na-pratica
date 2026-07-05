@@ -562,7 +562,7 @@ const VendaConversao = () => {
       <div className={`fixed bottom-0 left-0 right-0 z-50 ${styles.gradient} p-3 md:p-4 shadow-2xl border-t border-[#ff8533]`}>
         <div className="container mx-auto flex items-center justify-between gap-4">
           <div className="hidden md:block text-white">
-            <p className="font-bold text-sm">🔥 Oferta especial por tempo limitado</p>
+            <p className="font-bold text-sm">🔥 Oferta especial: 40% OFF + 4 bônus exclusivos por tempo limitado</p>
             <p className="text-xs opacity-80">De R$ 497 por R$ 297</p>
           </div>
           <button
