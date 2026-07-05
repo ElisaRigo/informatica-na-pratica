@@ -97,8 +97,8 @@ export const QuizIdentificacao = () => {
     <section className="py-8 md:py-12 bg-slate-50">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-6 md:mb-8">
-          <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-            <Sparkles className="w-4 h-4" /> Teste rápido de 30 segundos
+          <span className="inline-flex items-center gap-2.5 bg-blue-600 text-white text-sm md:text-lg font-black px-4 md:px-5 py-2 md:py-2.5 rounded-full mb-4 shadow-lg shadow-blue-600/25">
+            <NotebookPen className="w-5 h-5 md:w-6 md:h-6" /> Teste rápido de 30 segundos
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-2">
             Esse curso pode <span className="text-blue-600">te ajudar?</span>
