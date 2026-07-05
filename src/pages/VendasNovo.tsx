@@ -31,6 +31,7 @@ import fbAvatar7 from "@/assets/avatar-7.jpg";
 import fbAvatar8 from "@/assets/avatar-8.jpg";
 
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
+import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -801,6 +802,11 @@ const VendasNovo = () => {
       <Instructor />
       <Method />
       <Modules />
+      <section className="py-8 md:py-12 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <HeroBonuses variant="light" />
+        </div>
+      </section>
       <Testimonials />
       <SocialProof />
       <Certificate />
