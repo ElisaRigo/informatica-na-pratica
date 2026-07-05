@@ -102,7 +102,7 @@ const Hero = () => {
       <div className="bg-blue-600 text-center py-2.5 px-4">
         <span className="inline-flex items-center gap-2 text-sm md:text-base font-bold text-white whitespace-nowrap">
           <span>🔥</span>
-          40% OFF + 4 bônus exclusivos
+          Hoje: 40% OFF + 4 bônus
         </span>
       </div>
 
