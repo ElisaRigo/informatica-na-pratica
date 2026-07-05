@@ -232,6 +232,9 @@ const MiniValueSection = () => {
         <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">
           R$ 297,00
         </p>
+        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+          <span>🎁</span> 4 Bônus de R$ 368 inclusos no valor
+        </p>
         <p className="text-slate-600 text-base md:text-lg mt-1">
           ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
         </p>
