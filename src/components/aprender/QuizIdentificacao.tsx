@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   Briefcase, Home, CheckCircle2, ArrowRight, RotateCcw,
-  Sparkles, ShieldCheck, Target, Heart,
+  NotebookPen, ShieldCheck, Target, Heart,
 } from "lucide-react";
 import elisa from "@/assets/elisa-photo.jpg";
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
