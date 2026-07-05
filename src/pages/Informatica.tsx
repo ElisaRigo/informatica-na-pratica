@@ -40,6 +40,7 @@ import {
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 import { HeroV2 } from "@/components/aprender/HeroV2";
+import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
@@ -406,6 +407,13 @@ const Informatica = () => {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ─── BÔNUS SECTION ─── */}
+      <section className="py-6 md:py-8 bg-slate-900 border-t border-slate-800">
+        <div className="container mx-auto px-4">
+          <HeroBonuses />
         </div>
       </section>
 
