@@ -214,6 +214,73 @@ const Identification = () => {
   );
 };
 
+// ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
+const AulaDemonstrativa = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  return (
+    <section className="py-8 md:py-12 bg-white border-t border-slate-200">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-6 md:mb-8">
+          <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            <PlayCircle className="w-4 h-4" /> AULA REAL — ASSISTA AGORA
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Veja como é uma aula <span className="text-blue-600">passo a passo</span> — do jeito que você vai aprender
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.
+          </p>
+        </div>
+
+        <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
+          {!isPlaying ? (
+            <div
+              className="relative aspect-video cursor-pointer group"
+              onClick={() => setIsPlaying(true)}
+            >
+              <img
+                src={aulaGratisThumb}
+                alt="Aula demonstrativa gratuita"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                  <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/80 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                Aula gratuita — Assista agora
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                title="Aula demonstrativa gratuita"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="text-center space-y-4">
+          <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do zero e usarem o computador com confiança.
+          </p>
+          <CTA>Quero aprender do zero!</CTA>
+          <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
+            <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
