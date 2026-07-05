@@ -807,6 +807,8 @@ const VendasNovo = () => {
       <QuizIdentificacao />
       <MiniValueSection />
       <Instructor />
+      <Testimonials />
+      <SocialProof />
       <Method />
       <Modules />
       <section className="py-8 md:py-12 bg-slate-50">
@@ -814,8 +816,6 @@ const VendasNovo = () => {
           <HeroBonuses variant="light" />
         </div>
       </section>
-      <Testimonials />
-      <SocialProof />
       <Certificate />
       <Pricing />
       <GuaranteeBlock />
