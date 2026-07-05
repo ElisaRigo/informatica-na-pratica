@@ -24,7 +24,7 @@ export const HeroPricing = () => {
               ou <strong className="text-white font-black">R$ 297,00</strong> à vista
             </p>
             <p className="text-amber-400 font-bold text-xs md:text-sm mt-2 flex items-center justify-center gap-1.5">
-              <span>🎁</span> 4 bônus de R$ 368 de GRAÇA
+              <span>🎁</span> Hoje você leva 4 bônus exclusivos
             </p>
           </div>
 
