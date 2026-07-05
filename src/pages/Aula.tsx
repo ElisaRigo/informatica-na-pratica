@@ -38,7 +38,7 @@ const VideoCard = ({ video }: { video: typeof videos[0] }) => {
         {video.subtitle}
       </p>
 
-      <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10">
+      <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg shadow-black/30">
         {!isPlaying ? (
           <div
             className="relative aspect-video cursor-pointer group"
@@ -50,19 +50,20 @@ const VideoCard = ({ video }: { video: typeof videos[0] }) => {
               className="w-full h-full object-cover"
               loading="lazy"
             />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl">
-                <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+              <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-white/30">
+                <Play className="w-6 h-6 md:w-9 md:h-9 text-white fill-white ml-1" />
               </div>
             </div>
             <div className="absolute top-2 right-2 md:top-3 md:right-3 z-20 animate-pulse">
-              <div className={`${video.badgeColor} text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm border-2 border-white/30 shadow-lg`}>
+              <div className={`${video.badgeColor} text-white px-2 py-1 md:px-4 md:py-2 rounded-full font-bold text-[10px] md:text-sm border border-white/20 shadow-lg`}>
                 {video.badge}
               </div>
             </div>
           </div>
         ) : (
-          <div className="aspect-video">
+          <div className="aspect-video animate-in fade-in duration-500">
             <iframe
               src={video.embedUrl}
               title={video.title}
