@@ -494,7 +494,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: typeof audioTestimonia
 
   return (
     <div className={`bg-white border rounded-xl p-4 transition-all ${hasError ? "border-red-300 opacity-50" : "border-slate-200 hover:border-blue-300 shadow-sm"}`}>
-      <audio ref={audioRef} src={testimonial.audioSrc} onTimeUpdate={handleTimeUpdate} onEnded={handleEnded} onError={handleError} preload="auto" />
+      <audio ref={audioRef} src={testimonial.audioSrc} onTimeUpdate={handleTimeUpdate} onEnded={handleEnded} onError={handleError} preload="none" />
       <div className="flex items-center gap-3">
         <button onClick={togglePlay} disabled={hasError} className={`w-12 h-12 rounded-full flex items-center justify-center transition-transform shadow-md ${hasError ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:scale-105"}`}>
           {isPlaying ? <Pause className="w-5 h-5 text-white" /> : <Play className="w-5 h-5 text-white ml-0.5" />}
