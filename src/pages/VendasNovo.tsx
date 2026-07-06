@@ -102,7 +102,7 @@ import typingIcon from "@/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-white border-b border-slate-200 py-4 md:py-8">
+  <header className="bg-white border-b border-slate-200 py-3 md:py-5">
     <div className="container mx-auto px-4">
       <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
         <div className="relative group shrink-0">
@@ -131,24 +131,24 @@ const Hero = () => {
         </span>
       </div>
 
-      <div className="container mx-auto px-4 py-4 md:py-6">
+      <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-5 w-full">
+          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
             <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
           </span>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-5">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
             Aprenda a usar o computador
             <br className="hidden md:block" />
             <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-7">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
             Imagine usar o computador com confiança e tranformar a sua rotina, sem depender de ninguém!
           </p>
 
           {/* Video */}
-          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-7">
+          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
@@ -183,13 +183,13 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-4">
+          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
           <CTA>Quero começar agora!</CTA>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs md:text-sm text-slate-600">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
               <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
             </span>
@@ -202,7 +202,7 @@ const Hero = () => {
           </div>
 
           {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mt-7">
+          <div className="flex items-center justify-center gap-3 mt-5">
             <div className="flex -space-x-2">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
