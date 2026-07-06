@@ -95,20 +95,6 @@ const Header = () => (
   </header>
 );
 
-// ───────────────────────── Transformation Preview ─────────────────────────
-const TransformationPreview = () => {
-  return (
-    <div className="max-w-2xl w-full bg-white rounded-2xl shadow-[0_8px_30px_rgb(12,35,64,0.06)] border border-[#2d8a9e]/15 overflow-hidden mb-5 mx-auto">
-      <div className="h-1.5 w-full bg-gradient-to-r from-[#1a4a6e] to-[#5cbdb9]" />
-      <div className="p-6 md:p-8 text-center">
-        <p className="text-[#0c2340] text-lg md:text-2xl font-bold leading-snug tracking-tight">
-          Usar o computador com confiança no dia a dia, aproveitar novas oportunidades e deixar de depender dos outros, tudo isso com aulas simples e fáceis
-        </p>
-      </div>
-    </div>
-  );
-};
-
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -178,7 +164,6 @@ const Hero = () => {
             )}
           </div>
 
-          <TransformationPreview />
           <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs md:text-sm text-slate-600">
