@@ -292,7 +292,7 @@ const AulaDemonstrativa = () => {
                 </div>
               </div>
               <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/40 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-                Aula gratuita — Assista agora
+                Aula — Assista agora
               </div>
             </div>
           ) : (
@@ -310,8 +310,7 @@ const AulaDemonstrativa = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-              >
-                Não carregou? Assista no YouTube
+          
               </a>
             </div>
           )}
