@@ -98,12 +98,10 @@ const Header = () => (
 // ───────────────────────── Transformation Preview ─────────────────────────
 const TransformationPreview = () => {
   const items = [
-    "Enviar um currículo",
-    "Criar documentos",
-    "Fazer planilhas",
-    "Enviar e-mails",
-    "Organizar seus arquivos",
-    "Navegar sem medo",
+    "Usar o computador com confiança no dia a dia",
+    "Aproveitar novas oportunidades",
+    "Deixar de depender dos outros",
+    "Tudo isso com aulas simples e fáceis!",
   ];
   return (
     <div className="max-w-2xl w-full bg-white rounded-2xl shadow-[0_8px_30px_rgb(12,35,64,0.06)] border border-[#2d8a9e]/15 overflow-hidden mb-5 mx-auto">
