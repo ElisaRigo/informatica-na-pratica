@@ -183,11 +183,10 @@ const Hero = () => {
             )}
           </div>
           <CTA>Quero começar agora!</CTA>
+
           <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-4">
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
-
-          <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
