@@ -310,7 +310,8 @@ const AulaDemonstrativa = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-          
+              >
+                Ver no YouTube
               </a>
             </div>
           )}
