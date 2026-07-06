@@ -106,17 +106,29 @@ const TransformationPreview = () => {
     "Navegar sem medo",
   ];
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl p-4 md:p-5 mb-5 max-w-xl mx-auto">
-      <p className="text-sm md:text-base font-black text-slate-800 mb-3 text-center">
-        Imagine conseguir...
-      </p>
-      <div className="grid grid-cols-2 gap-x-3 gap-y-2">
-        {items.map((item) => (
-          <div key={item} className="flex items-center gap-2 text-slate-700 text-xs md:text-sm font-medium">
-            <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0" />
-            <span>{item}</span>
-          </div>
-        ))}
+    <div className="max-w-2xl w-full bg-white rounded-2xl shadow-[0_8px_30px_rgb(12,35,64,0.06)] border border-[#2d8a9e]/15 overflow-hidden mb-5 mx-auto">
+      <div className="h-1.5 w-full bg-gradient-to-r from-[#1a4a6e] to-[#5cbdb9]" />
+      <div className="p-6 md:p-8">
+        <h2 className="text-[#0c2340] text-xl md:text-2xl font-bold mb-6 text-center tracking-tight">
+          Imagine conseguir...
+        </h2>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-5 md:gap-x-8 md:gap-y-6">
+          {items.map((item) => (
+            <div key={item} className="flex items-start gap-2 md:gap-3">
+              <div className="shrink-0 mt-0.5">
+                <Check className="w-[18px] h-[18px] text-[#5cbdb9]" strokeWidth={3} />
+              </div>
+              <span className="text-[#1a4a6e] text-sm md:text-base font-medium leading-tight">
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="bg-[#f1f5f9] px-6 py-3 text-center">
+        <p className="text-[#2d8a9e] text-[10px] md:text-xs uppercase tracking-[0.1em] font-bold">
+          Do zero ao domínio total
+        </p>
       </div>
     </div>
   );
