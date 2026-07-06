@@ -102,7 +102,7 @@ import typingIcon from "@/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-white border-b border-slate-200 py-4 md:py-8">
+  <header className="bg-white border-b border-slate-200 py-3 md:py-5">
     <div className="container mx-auto px-4">
       <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
         <div className="relative group shrink-0">
