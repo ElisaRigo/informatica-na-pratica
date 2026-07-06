@@ -95,6 +95,33 @@ const Header = () => (
   </header>
 );
 
+// ───────────────────────── Transformation Preview ─────────────────────────
+const TransformationPreview = () => {
+  const items = [
+    "Enviar um currículo",
+    "Criar documentos",
+    "Fazer planilhas",
+    "Enviar e-mails",
+    "Organizar seus arquivos",
+    "Navegar sem medo",
+  ];
+  return (
+    <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl p-4 md:p-5 mb-5 max-w-xl mx-auto">
+      <p className="text-sm md:text-base font-black text-slate-800 mb-3 text-center">
+        Imagine conseguir...
+      </p>
+      <div className="grid grid-cols-2 gap-x-3 gap-y-2">
+        {items.map((item) => (
+          <div key={item} className="flex items-center gap-2 text-slate-700 text-xs md:text-sm font-medium">
+            <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0" />
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -164,6 +191,7 @@ const Hero = () => {
             )}
           </div>
 
+          <TransformationPreview />
           <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs md:text-sm text-slate-600">
