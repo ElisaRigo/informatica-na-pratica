@@ -120,7 +120,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-7">
-            Em poucas semanas, você vai usar Word, Excel, arquivos, internet e e-mail com confiança — sem depender de filho, neto ou ninguém.
+            Imagine usar o computador com confiança no dia a dia, deixar de depender dos outros e aproveitar novas oportunidades!
           </p>
 
           {/* Video */}
