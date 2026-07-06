@@ -119,37 +119,9 @@ const Hero = () => {
             <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Ganhe confiança para usar o computador no dia a dia, conquistar novas oportunidades e deixar de depender dos outros — tudo isso com aulas simples, passo a passo e no seu ritmo.
-          </p>
-
           <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-7">
             Em poucas semanas, você vai usar Word, Excel, arquivos, internet e e-mail com confiança — sem depender de filho, neto ou ninguém.
           </p>
-
-          {/* Mini Transformation */}
-          <div className="max-w-3xl mx-auto mb-6">
-            <div className="bg-blue-50 rounded-xl p-4 md:p-5 border border-blue-100">
-              <p className="text-sm md:text-base font-bold text-slate-800 text-center mb-3">
-                Imagine como será a sua vida quando usar o computador com confiança...
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
-                {[
-                  "Enviar um currículo sem pedir ajuda.",
-                  "Escrever documentos e cartas com facilidade.",
-                  "Organizar contas e listas em uma planilha.",
-                  "Conversar por e-mail e resolver tarefas do dia a dia.",
-                  "Navegar na internet com segurança.",
-                  "Sentir orgulho de aprender algo que antes parecia impossível.",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-700 leading-snug">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
           {/* Video */}
           <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-7">
@@ -191,10 +163,6 @@ const Hero = () => {
               </div>
             )}
           </div>
-
-          <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-7">
-            Um curso simples, passo a passo, para você ganhar confiança, usar o computador sem depender de ninguém e descobrir que aprender informática pode ser muito mais fácil do que imagina!
-          </p>
 
           <CTA>Quero começar agora!</CTA>
 
