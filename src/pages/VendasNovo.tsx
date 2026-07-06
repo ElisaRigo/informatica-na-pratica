@@ -119,7 +119,7 @@ const Hero = () => {
             <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-7">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-7">
             Imagine usar o computador com confiança no dia a dia, deixar de depender dos outros e aproveitar novas oportunidades!
           </p>
 
