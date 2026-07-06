@@ -134,7 +134,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-4 md:py-6">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-5 w-full">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Aulas do Zero • Passo a Passo
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-5">
@@ -182,10 +182,12 @@ const Hero = () => {
               </div>
             )}
           </div>
-          <CTA>Quero começar agora!</CTA>
+
           <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-4">
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
+
+          <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
