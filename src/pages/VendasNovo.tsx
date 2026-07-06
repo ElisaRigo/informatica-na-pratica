@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import {
-  ShieldCheck, Lock, CheckCircle2, Check, Star, Clock, Award, Users,
+  ShieldCheck, Lock, CheckCircle2, Star, Clock, Award, Users,
   PlayCircle, Monitor, Mail, FileText, Globe, Presentation, Keyboard,
   Sparkles, GraduationCap, HeartHandshake, Infinity as InfinityIcon,
   ChevronDown, ArrowRight, Play, Pause, Volume2, Smartphone, ThumbsUp, Heart, Headphones,
