@@ -277,7 +277,7 @@ const AulaDemonstrativa = () => {
           </p>
         </div>
 
-        <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
           {!isPlaying ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
               <img
