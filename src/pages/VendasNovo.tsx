@@ -834,9 +834,9 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
-      <QuizIdentificacao />
       <AulaDemonstrativa />
       <MiniValueSection />
+      <QuizIdentificacao />
       <Instructor />
       <SocialProof />
       <Method />
