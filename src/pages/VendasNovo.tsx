@@ -119,6 +119,10 @@ const Hero = () => {
             <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
+          <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-5">
+            Ganhe confiança para usar o computador no dia a dia, conquistar novas oportunidades e deixar de depender dos outros — tudo isso com aulas simples, passo a passo e no seu ritmo.
+          </p>
+
           <p className="text-base md:text-xl text-slate-600 max-w-3xl mx-auto mb-7">
             Em poucas semanas, você vai usar Word, Excel, arquivos, internet e e-mail com confiança — sem depender de filho, neto ou ninguém.
           </p>
