@@ -127,14 +127,14 @@ const Hero = () => {
       <div className="bg-blue-600 text-center py-2.5 px-4">
         <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
           <span className="text-xl md:text-2xl">💻</span>
-          Use o computador com confiança e transforme sua rotina!
+          Você sente Dificuldade com o Computador?
         </span>
       </div>
 
       <div className="container mx-auto px-4 py-4 md:py-6">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-5 w-full">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Aulas Passo a Passo
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Aulas do Zero • Passo a Passo
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-5">
