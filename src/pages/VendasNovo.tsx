@@ -164,6 +164,10 @@ const Hero = () => {
             )}
           </div>
 
+          <p className="text-lg md:text-xl font-semibold text-slate-700 max-w-3xl mx-auto mb-5 leading-tight">
+            Um curso simples, passo a passo, para você ganhar confiança, usar o computador sem depender de ninguém e descobrir que aprender informática pode ser muito mais fácil do que imagina!
+          </p>
+
           <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs md:text-sm text-slate-600">
