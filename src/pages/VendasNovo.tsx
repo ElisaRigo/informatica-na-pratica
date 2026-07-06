@@ -148,7 +148,7 @@ const Hero = () => {
           </p>
 
           {/* Video */}
-          <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-7">
+          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-7">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
