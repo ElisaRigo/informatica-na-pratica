@@ -103,8 +103,8 @@ const Hero = () => {
       {/* Top urgency strip */}
       <div className="bg-blue-600 text-center py-2.5 px-4">
         <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
-          <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
-          Use o computador com confiança e transforme sua rotina
+          <span className="text-xl md:text-2xl">💻</span>
+          Use o computador com confiança e transforme sua rotina!
         </span>
       </div>
 
