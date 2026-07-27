@@ -474,7 +474,7 @@ const Modules = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-blue-50">
+    <section className="py-4 md:py-6 bg-blue-100">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-5">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
