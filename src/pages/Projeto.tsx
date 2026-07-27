@@ -58,6 +58,7 @@ import fbAvatar8 from "@/assets/avatar-8.jpg";
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
+import { Method } from "@/components/aprender/Method";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -460,49 +461,6 @@ const Instructor = () => (
   </section>
 );
 
-// ───────────────────────── Method (3 steps) ─────────────────────────
-const Method = () => {
-  const steps = [
-    {
-      n: "1",
-      t: "Assiste a aula curta",
-      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no celular, computador ou tablet, quando quiser.",
-    },
-    {
-      n: "2",
-      t: "Faz junto comigo",
-      d: "Você abre o computador e vai clicando junto. Eu mostro cada passo, sem pular nada.",
-    },
-    {
-      n: "3",
-      t: "Pratica no seu dia a dia",
-      d: "Em poucos dias você já tá enviando e-mail, usando Word e mexendo na internet sem medo.",
-    },
-  ];
-  return (
-    <section className="py-4 md:py-6 bg-blue-600 text-white">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-5">
-          <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
-          <p className="text-blue-100 max-w-2xl mx-auto">
-            Sem complicação, sem termos técnicos. Só você, o computador e eu te guiando.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {steps.map((s) => (
-            <div key={s.n} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-6">
-              <div className="w-12 h-12 rounded-full bg-white text-blue-600 font-black text-xl flex items-center justify-center mb-4">
-                {s.n}
-              </div>
-              <h3 className="text-xl font-bold mb-2">{s.t}</h3>
-              <p className="text-blue-50 text-sm leading-relaxed">{s.d}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ───────────────────────── Modules ─────────────────────────
 const Modules = () => {
