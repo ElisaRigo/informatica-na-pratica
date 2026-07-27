@@ -28,6 +28,7 @@ const VendasNovo = lazy(() => import("./pages/VendasNovo"));
 const Especialista = lazy(() => import("./pages/Especialista"));
 const Boa = lazy(() => import("./pages/Boa"));
 const Maquina = lazy(() => import("./pages/Maquina"));
+const Projeto = lazy(() => import("./pages/Projeto"));
 
 
 const queryClient = new QueryClient();
