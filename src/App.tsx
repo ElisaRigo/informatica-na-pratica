@@ -29,6 +29,7 @@ const Especialista = lazy(() => import("./pages/Especialista"));
 const Boa = lazy(() => import("./pages/Boa"));
 const Maquina = lazy(() => import("./pages/Maquina"));
 const Projeto = lazy(() => import("./pages/Projeto"));
+const Revolucao = lazy(() => import("./pages/Revolucao"));
 
 
 const queryClient = new QueryClient();
