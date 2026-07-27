@@ -1117,6 +1117,7 @@ const Home = () => {
       <SocialProof />
       <MiniValueSection />
       <Instructor />
+      <DarkProblemSection />
       <QuizIdentificacao />
       <Method />
       <Modules />
