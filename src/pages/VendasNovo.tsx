@@ -76,20 +76,37 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
 
 // ───────────────────────── Countdown ─────────────────────────
 const useCountdown = () => {
-  const [t, setT] = useState({ h: 23, m: 47, s: 12 });
+  const KEY = "vn_countdown_expires";
+  const DURATION = 20 * 60 * 1000; // 20 minutes
+  const [ms, setMs] = useState<number>(() => {
+    if (typeof window === "undefined") return DURATION;
+    const stored = Number(window.localStorage.getItem(KEY));
+    const now = Date.now();
+    if (!stored || stored < now) {
+      const expires = now + DURATION;
+      window.localStorage.setItem(KEY, String(expires));
+      return DURATION;
+    }
+    return stored - now;
+  });
   useEffect(() => {
     const id = setInterval(() => {
-      setT(({ h, m, s }) => {
-        if (s > 0) return { h, m, s: s - 1 };
-        if (m > 0) return { h, m: m - 1, s: 59 };
-        if (h > 0) return { h: h - 1, m: 59, s: 59 };
-        return { h: 23, m: 59, s: 59 };
+      setMs((prev) => {
+        const next = prev - 1000;
+        if (next <= 0) {
+          const expires = Date.now() + DURATION;
+          window.localStorage.setItem(KEY, String(expires));
+          return DURATION;
+        }
+        return next;
       });
     }, 1000);
     return () => clearInterval(id);
   }, []);
   const pad = (n: number) => String(n).padStart(2, "0");
-  return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
+  const m = Math.floor(ms / 60000);
+  const s = Math.floor((ms % 60000) / 1000);
+  return `${pad(m)}:${pad(s)}`;
 };
 
 import logo from "@/assets/logo-blue.png";
