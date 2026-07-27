@@ -1106,7 +1106,7 @@ const StickyMobile = () => {
           <Timer className="w-3 h-3" /> Oferta termina em {countdown}
         </span>
         <span className="inline-flex items-center gap-1 text-green-400 text-[10px] font-bold uppercase">
-          <Zap className="w-3 h-3 fill-green-400" /> Últimas vagas
+          <Zap className="w-3 h-3 fill-green-400" /> 40% OFF liberado
         </span>
       </div>
       <button
