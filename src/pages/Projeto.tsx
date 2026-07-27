@@ -124,10 +124,11 @@ const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
-      <div className="bg-blue-600 text-center py-2.5 px-4">
-        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
-          <span className="text-xl md:text-2xl">💻</span>
+      <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 text-center py-4 md:py-5 px-4 shadow-lg shadow-blue-900/20">
+        <span className="inline-flex items-center justify-center gap-2 md:gap-3 text-lg md:text-2xl lg:text-3xl font-black text-white uppercase tracking-wide whitespace-normal md:whitespace-nowrap w-full">
+          <Monitor className="w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 shrink-0" />
           Você sente vergonha por não saber usar o computador?
+          <ChevronDown className="w-5 h-5 md:w-6 md:h-6 shrink-0 animate-bounce" />
         </span>
       </div>
 
