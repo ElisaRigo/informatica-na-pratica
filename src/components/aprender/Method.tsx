@@ -1,4 +1,4 @@
-import { Play, MousePointerClick, Rocket } from "lucide-react";
+import { Play, MousePointerClick, Rocket, Check } from "lucide-react";
 
 const steps = [
   {
