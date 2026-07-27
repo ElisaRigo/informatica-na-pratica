@@ -1084,11 +1084,11 @@ const Home = () => {
         </div>
       </section>
       <Certificate />
-      <Pricing />
       <GuaranteeBlock />
       <FAQ />
       <QuizIdentificacao />
       <FinalCTA />
+      <Pricing />
       <Footer />
       <StickyMobile />
       <WhatsAppButton />
