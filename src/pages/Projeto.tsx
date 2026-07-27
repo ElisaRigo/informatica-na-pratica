@@ -346,7 +346,7 @@ const MiniValueSection = () => {
         </h2>
 
         <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">
-          Você não está comprando um curso. Está adquirindo a <strong className="text-slate-900">confiança e a liberdade</strong> de resolver sozinho(a) o que hoje te trava, te constrange ou te deixa para trás.
+          Você não está comprando apenas um curso. Está conquistando a <strong className="text-slate-900">confiança para usar o computador com autonomia</strong>, sem depender de ninguém.
         </p>
 
         <div className="grid sm:grid-cols-3 gap-3 mb-6 max-w-2xl mx-auto">
