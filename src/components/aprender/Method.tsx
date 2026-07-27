@@ -1,4 +1,4 @@
-import { Play, MousePointerClick, Rocket } from "lucide-react";
+import { Play, MousePointerClick, Rocket, Check } from "lucide-react";
 
 const steps = [
   {
@@ -20,7 +20,7 @@ const steps = [
     n: "3",
     title: "Use sozinho no seu dia a dia",
     result: "Você deixa de depender dos outros",
-    desc: "Em poucos dias você já envia e-mails, cria documentos, organiza planilhas e navega na internet sem medo.",
+    desc: "Em poucos dias você já envia e-mails, cria documentos, organiza arquivos e navega na internet sem medo.",
   },
 ];
 
@@ -59,8 +59,8 @@ export const Method = () => {
 
               <h3 className="text-lg md:text-xl font-bold mb-2">{s.title}</h3>
 
-              <div className="bg-green-500/20 border border-green-500/30 text-green-300 text-xs font-bold px-3 py-1.5 rounded-lg mb-3 inline-block">
-                Resultado: {s.result}
+              <div className="bg-green-500/20 border border-green-500/30 text-green-300 text-xs font-bold px-3 py-1.5 rounded-lg mb-3 inline-flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5" /> {s.result}
               </div>
 
               <p className="text-slate-300 text-sm leading-relaxed">{s.desc}</p>
