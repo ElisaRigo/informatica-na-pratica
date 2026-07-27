@@ -1088,7 +1088,7 @@ const StickyMobile = () => (
       onClick={openCheckout}
       className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
     >
-      <Monitor className="w-5 h-5" /> Quero usar o computador sozinho
+      <Monitor className="w-5 h-5" /> Quero aprender sem medo
     </button>
   </div>
 );
