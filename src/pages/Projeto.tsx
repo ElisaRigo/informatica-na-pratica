@@ -1080,13 +1080,9 @@ const Footer = () => (
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => {
-  const countdown = useCountdown();
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t-2 border-green-500 p-3 shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
       <div className="flex items-center justify-center gap-2 mb-2">
-        <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-full animate-pulse">
-          <Timer className="w-3 h-3" /> Oferta termina em {countdown}
-        </span>
         <span className="inline-flex items-center gap-1 text-green-400 text-[10px] font-bold uppercase">
           <Zap className="w-3 h-3 fill-green-400" /> 40% OFF disponível agora
         </span>
