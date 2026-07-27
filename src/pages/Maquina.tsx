@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import { Helmet } from "react-helmet-async";
+
 import {
   ShieldCheck, Star, CheckCircle2, X, Clock, Sparkles, Award, Users,
   PlayCircle, Zap, Heart, TrendingUp, Lock, Gift, GraduationCap,
@@ -624,27 +624,20 @@ const StickyMobile = () => (
 
 /* ---------- PAGE ---------- */
 export default function Maquina() {
-  const jsonLd = useMemo(() => JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Informática na Prática",
-    "description": "Curso online de informática do zero. Aprenda Word, Excel, internet e e-mail com a Professora Elisa.",
-    "provider": { "@type": "Organization", "name": "Informática na Prática" },
-    "offers": { "@type": "Offer", "price": "297", "priceCurrency": "BRL" },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "15000" }
-  }), []);
+  useEffect(() => {
+    document.title = "Curso de Informática do Zero — Aprenda sem depender de ninguém";
+    const setMeta = (name: string, content: string, attr: "name" | "property" = "name") => {
+      let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
+      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, name); document.head.appendChild(el); }
+      el.setAttribute("content", content);
+    };
+    setMeta("description", "Curso online de informática do zero com a Professora Elisa. Word, Excel, internet e e-mail. Acesso vitalício, certificado e 7 dias de garantia.");
+    setMeta("og:title", "Curso de Informática do Zero — Aprenda sem depender de ninguém", "property");
+    setMeta("og:description", "Aprenda informática no seu ritmo. +15.000 alunos.", "property");
+    setMeta("og:type", "product", "property");
+  }, []);
   return (
     <div className="bg-white text-slate-900 min-h-screen antialiased">
-      <Helmet>
-        <title>Curso de Informática do Zero — Aprenda sem depender de ninguém</title>
-        <meta name="description" content="Curso online de informática do zero com a Professora Elisa. Word, Excel, internet e e-mail. Acesso vitalício, certificado incluso e 7 dias de garantia." />
-        <link rel="canonical" href="https://informaticanapratica.com.br/maquina" />
-        <meta property="og:title" content="Curso de Informática do Zero — Aprenda sem depender de ninguém" />
-        <meta property="og:description" content="Aprenda informática no seu ritmo, com uma professora que ensina com calma. +15.000 alunos." />
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://informaticanapratica.com.br/maquina" />
-        <script type="application/ld+json">{jsonLd}</script>
-      </Helmet>
       <TopBar />
       <Hero />
       <Pain />
