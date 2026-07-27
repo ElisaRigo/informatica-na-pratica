@@ -1067,7 +1067,6 @@ const VendasNovo = () => {
       <Hero />
       <AulaDemonstrativa />
       <SocialProof />
-      <MiniValueSection />
       <Instructor />
       <Modules />
       <Method />
@@ -1076,6 +1075,7 @@ const VendasNovo = () => {
           <HeroBonuses variant="light" />
         </div>
       </section>
+      <MiniValueSection />
       <Certificate />
       <GuaranteeBlock />
       <FAQ />
