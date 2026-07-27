@@ -507,7 +507,7 @@ const Modules = () => {
     <section className="py-4 md:py-6 bg-blue-100">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-5">
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-blue-200 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
             CONTEÚDO COMPLETO
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
@@ -521,7 +521,7 @@ const Modules = () => {
               key={m.t}
               className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-blue-200 flex items-center justify-center mb-4">
                 <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
