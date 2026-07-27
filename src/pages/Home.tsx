@@ -176,6 +176,12 @@ const Hero = () => {
 
           <CTA>Quero usar o computador com confiança</CTA>
 
+          {/* Value anchor — bônus grátis */}
+          <div className="mt-3 inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-800 rounded-full px-4 py-2 text-sm md:text-base font-bold shadow-sm">
+            <span>🎁</span>
+            <span>Leve hoje <span className="text-amber-900">R$ 368 em bônus</span> — GRÁTIS</span>
+          </div>
+
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-3 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
               <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
@@ -202,6 +208,27 @@ const Hero = () => {
                 ))}
               </div>
               <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
+            </div>
+          </div>
+
+          {/* Depoimento em destaque — aluna 60+ */}
+          <div className="mt-5 max-w-2xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-md p-4 md:p-5 text-left">
+            <div className="flex items-start gap-3">
+              <img src={avatar4} alt="Dona Maria, 68 anos" className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-blue-100 shrink-0" />
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <span className="font-bold text-slate-900 text-sm md:text-base">Dona Maria, 68 anos</span>
+                  <span className="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full">ALUNA VERIFICADA</span>
+                </div>
+                <div className="flex mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-slate-700 text-sm md:text-base leading-snug italic">
+                  "Nunca tinha mexido num computador. Hoje faço meus e-mails sozinha e até ajudo minha vizinha. A professora tem uma paciência de anjo."
+                </p>
+              </div>
             </div>
           </div>
         </div>
