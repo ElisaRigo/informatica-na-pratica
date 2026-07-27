@@ -187,7 +187,7 @@ const Hero = () => {
             Em poucas aulas, você vai perder o medo do computador, ganhar confiança e aprender a criar documentos, planilhas, enviar e-mails, organizar arquivos e muito mais.
           </p>
 
-          <CTA>Quero começar agora!</CTA>
+          <CTA>Quero usar o computador com confiança</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
@@ -252,7 +252,7 @@ const Identification = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA>Quero parar de depender dos outros</CTA>
         </div>
       </div>
     </section>
@@ -322,7 +322,7 @@ const AulaDemonstrativa = () => {
             Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
             zero e usarem o computador com confiança.
           </p>
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA>Quero aprender com essa didática</CTA>
           <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
           </p>
@@ -456,7 +456,7 @@ const Instructor = () => (
               </div>
             </div>
           </div>
-          <CTA size="md">Quero aprender sem medo!</CTA>
+          <CTA size="md">Quero aprender sem medo</CTA>
         </div>
       </div>
     </div>
@@ -575,7 +575,7 @@ const Modules = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero ver todas as aulas!</CTA>
+          <CTA>Quero dominar esses conteúdos</CTA>
         </div>
       </div>
     </section>
@@ -861,7 +861,7 @@ const SocialProof = () => {
         {/* CTA */}
         <div className="text-center space-y-4">
           <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
-          <CTA>Quero aprender sem medo!</CTA>
+          <CTA>Quero ser o próximo depoimento</CTA>
           <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
           </p>
@@ -902,7 +902,7 @@ const Certificate = () => (
               </li>
             ))}
           </ul>
-          <CTA size="md">Quero meu certificado!</CTA>
+          <CTA size="md">Quero meu certificado de informática</CTA>
         </div>
       </div>
     </div>
@@ -954,7 +954,7 @@ const Pricing = () => (
           ))}
         </ul>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
+        <CTA>Quero garantir minha vaga nesse valor</CTA>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
@@ -1056,7 +1056,7 @@ const FinalCTA = () => (
         Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
         mais independente. <strong className="text-white">Hoje é o dia.</strong>
       </p>
-      <CTA>Quero começar agora!</CTA>
+      <CTA>Quero minha autonomia de volta</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
   </section>
@@ -1088,7 +1088,7 @@ const StickyMobile = () => (
       onClick={openCheckout}
       className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
     >
-      <Monitor className="w-5 h-5" /> Quero começar agora!
+      <Monitor className="w-5 h-5" /> Quero usar o computador sozinho
     </button>
   </div>
 );
