@@ -9,7 +9,6 @@ import {
   Users,
   PlayCircle,
   Monitor,
-  Mail,
   FileText,
   Globe,
   Presentation,
@@ -27,8 +26,6 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
-  Printer,
-  FolderOpen,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -186,41 +183,9 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
+          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-5">
             Em poucas aulas, você vai perder o medo do computador, ganhar confiança e aprender a criar documentos, planilhas, enviar e-mails, organizar arquivos e muito mais.
           </p>
-
-          {/* Ícones das ferramentas */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:gap-x-6 mb-4 text-slate-800 text-sm md:text-base font-semibold">
-            <span className="inline-flex items-center gap-1.5">
-              <img src={windowsIcon} alt="" className="w-5 h-5 md:w-6 md:h-6" /> Windows
-            </span>
-            <span className="text-slate-300">•</span>
-            <span className="inline-flex items-center gap-1.5">
-              <img src={wordIcon} alt="" className="w-5 h-5 md:w-6 md:h-6" /> Word
-            </span>
-            <span className="text-slate-300">•</span>
-            <span className="inline-flex items-center gap-1.5">
-              <img src={excelIcon} alt="" className="w-5 h-5 md:w-6 md:h-6" /> Excel
-            </span>
-            <span className="text-slate-300">•</span>
-            <span className="inline-flex items-center gap-1.5">
-              <img src={internetIcon} alt="" className="w-5 h-5 md:w-6 md:h-6" /> Internet
-            </span>
-            <span className="text-slate-300">•</span>
-            <span className="inline-flex items-center gap-1.5">
-              <Mail className="w-5 h-5 md:w-6 md:h-6 text-blue-600" /> E-mail
-            </span>
-            <span className="text-slate-300">•</span>
-            <span className="inline-flex items-center gap-1.5">
-              <FolderOpen className="w-5 h-5 md:w-6 md:h-6 text-amber-500" /> Arquivos
-            </span>
-            <span className="text-slate-300">•</span>
-            <span className="inline-flex items-center gap-1.5">
-              <Printer className="w-5 h-5 md:w-6 md:h-6 text-slate-700" /> Impressão
-            </span>
-          </div>
-
 
           <CTA>Quero começar agora!</CTA>
 
