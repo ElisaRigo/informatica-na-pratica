@@ -338,60 +338,60 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
-    <section className="py-6 md:py-8 bg-gradient-to-b from-blue-50 to-white">
+    <section className="py-8 md:py-10 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
       <div className="container mx-auto px-4 max-w-3xl text-center">
-        <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-4">
+        <span className="inline-flex items-center gap-2 bg-red-500/20 text-red-300 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-4 border border-red-400/30">
           <Flame className="w-4 h-4" /> OFERTA ESPECIAL POR TEMPO LIMITADO
         </span>
 
-        <h2 className="text-slate-900 font-black text-2xl md:text-3xl lg:text-4xl leading-tight mb-3">
+        <h2 className="text-white font-black text-2xl md:text-3xl lg:text-4xl leading-tight mb-3">
           Imagine a satisfação de usar o computador sozinho(a) — sem pedir ajuda, sem vergonha, sem depender de ninguém.
         </h2>
 
-        <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">
-          Você não está comprando apenas um curso. Está conquistando a <strong className="text-slate-900">confiança para usar o computador com autonomia</strong>, sem depender de ninguém.
+        <p className="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">
+          Você não está comprando apenas um curso. Está conquistando a <strong className="text-white">confiança para usar o computador com autonomia</strong>, sem depender de ninguém.
         </p>
 
         <div className="grid grid-cols-2 gap-3 mb-6 max-w-2xl mx-auto">
-          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-            <Headphones className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-slate-800">Suporte nas Aulas</p>
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-sm">
+            <Headphones className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+            <p className="text-sm font-bold text-white">Suporte nas Aulas</p>
           </div>
-          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-            <Users className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-slate-800">+15.000 alunos</p>
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-sm">
+            <Users className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+            <p className="text-sm font-bold text-white">+15.000 alunos</p>
           </div>
-          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-            <GraduationCap className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-slate-800">20 anos ensinando</p>
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-sm">
+            <GraduationCap className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+            <p className="text-sm font-bold text-white">20 anos ensinando</p>
           </div>
-          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-            <ShieldCheck className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-slate-800">Garantia de 7 dias</p>
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-sm">
+            <ShieldCheck className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+            <p className="text-sm font-bold text-white">Garantia de 7 dias</p>
           </div>
-          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-            <InfinityIcon className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-slate-800">Acesso vitalício</p>
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-sm">
+            <InfinityIcon className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+            <p className="text-sm font-bold text-white">Acesso vitalício</p>
           </div>
-          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-            <Award className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-slate-800">Certificado incluso</p>
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-sm">
+            <Award className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+            <p className="text-sm font-bold text-white">Certificado incluso</p>
           </div>
         </div>
 
         <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
 
-        <p className="text-slate-500 text-sm md:text-base">
-          de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
+        <p className="text-slate-400 text-sm md:text-base">
+          de <span className="line-through text-slate-500">R$ 497,00</span> por apenas
         </p>
-        <p className="text-green-600 font-black text-5xl md:text-6xl leading-tight mt-1">R$ 297,00</p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
+        <p className="text-green-400 font-black text-5xl md:text-6xl leading-tight mt-1">R$ 297,00</p>
+        <p className="text-slate-300 text-base md:text-lg mt-1">
+          ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
         </p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-3 flex items-center justify-center gap-1.5">
+        <p className="text-amber-300 font-bold text-sm md:text-base mt-3 flex items-center justify-center gap-1.5">
           <span>🎁</span> Hoje você leva 4 bônus exclusivos
         </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
+        <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
           <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
         </p>
 
@@ -399,14 +399,14 @@ const MiniValueSection = () => {
           <CTA>Quero essa transformação agora</CTA>
         </div>
 
-        <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
-          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
+        <div className="mt-5 rounded-xl border-2 border-green-500/40 bg-green-900/30 px-5 py-4 text-center shadow-sm">
+          <p className="flex flex-row items-center justify-center gap-1.5 text-green-300 font-black text-sm md:text-lg">
             <ShieldCheck className="w-5 h-5" />{" "}
             <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
           </p>
-          <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não sentir que valeu a pena, devolvemos{" "}
-            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
+          <p className="text-slate-300 text-sm md:text-base mt-1.5 leading-snug">
+            <span className="text-blue-300 font-bold">RISCO ZERO!</span> Se não sentir que valeu a pena, devolvemos{" "}
+            <span className="text-green-300 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
           </p>
         </div>
       </div>
