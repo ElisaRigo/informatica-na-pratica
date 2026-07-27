@@ -147,7 +147,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Aulas simples, explicadas passo a passo, para você aprender do ZERO e usar o computador sem depender de Ninguém.
+            Aulas simples, explicadas passo a passo, para você aprender do ZERO e usar o computador com confiança sem depender de Ninguém.
           </p>
 
           {/* Video */}
