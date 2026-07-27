@@ -9,7 +9,6 @@ import {
   Users,
   PlayCircle,
   Monitor,
-  Mail,
   FileText,
   Globe,
   Presentation,
@@ -27,6 +26,8 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  Zap,
+  Timer,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -102,12 +103,12 @@ import typingIcon from "@/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-white border-b border-slate-200 py-3 md:py-5">
+  <header className="bg-white border-b border-slate-200 py-2 md:py-3">
     <div className="container mx-auto px-4">
       <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
         <div className="relative group shrink-0">
-          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
-            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
+          <div className="relative bg-slate-100 rounded-xl p-2 md:p-3 border border-slate-200 shadow-lg">
+            <img src={logo} alt="Informática na Prática" className="h-14 md:h-[4.5rem] lg:h-[5.5rem]" />
           </div>
         </div>
         <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
@@ -124,31 +125,32 @@ const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
-      <div className="bg-blue-600 text-center py-2.5 px-4">
-        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
-          <span className="text-xl md:text-2xl">💻</span>
-          Você sente Dificuldade com o Computador?
+      <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 text-center py-2 md:py-3 px-3 md:px-4 shadow-lg shadow-blue-900/20">
+        <span className="inline-flex items-center justify-center gap-1.5 md:gap-3 text-[13px] sm:text-base md:text-xl lg:text-2xl font-black text-white uppercase tracking-wide leading-tight whitespace-normal md:whitespace-nowrap w-full">
+          <Monitor className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 shrink-0" />
+          Você ainda depende de alguém para usar o computador?
+          <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0 animate-bounce" />
         </span>
       </div>
 
-      <div className="container mx-auto px-4 py-3 md:py-4">
+      <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
+          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-2 w-full">
             <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
           </span>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-2">
             Aprenda a usar o computador
             <br className="hidden md:block" />
             <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Imagine usar o computador com confiança e tranformar a sua rotina, sem depender de ninguém!
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-4">
+            Aulas simples, explicadas passo a passo, para você aprender do ZERO e usar o computador com confiança sem depender de Ninguém.
           </p>
 
           {/* Video */}
-          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
+          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-4">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
@@ -183,13 +185,13 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
-            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-4">
+            Em poucas aulas, você vai perder o medo do computador, ganhar confiança e aprender a criar documentos, planilhas, enviar e-mails, organizar arquivos e muito mais.
           </p>
 
-          <CTA>Quero começar agora!</CTA>
+          <CTA>Quero usar o computador com confiança</CTA>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-3 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
               <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
             </span>
@@ -202,7 +204,7 @@ const Hero = () => {
           </div>
 
           {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mt-5">
+          <div className="flex items-center justify-center gap-3 mt-4">
             <div className="flex -space-x-2">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
@@ -234,13 +236,13 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-3 md:py-4 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
-        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-2">Esse curso é pra você se…</h2>
+        <p className="text-center text-slate-600 mb-4 max-w-2xl mx-auto">
           Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
         </p>
-        <div className="grid md:grid-cols-2 gap-3 md:gap-4">
+        <div className="grid md:grid-cols-2 gap-2 md:gap-3">
           {items.map((t) => (
             <div
               key={t}
@@ -251,8 +253,8 @@ const Identification = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-5">
-          <CTA>Quero aprender do zero!</CTA>
+        <div className="text-center mt-4">
+          <CTA>Quero parar de depender dos outros</CTA>
         </div>
       </div>
     </section>
@@ -322,7 +324,7 @@ const AulaDemonstrativa = () => {
             Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
             zero e usarem o computador com confiança.
           </p>
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA>Quero aprender com essa didática</CTA>
           <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
           </p>
@@ -335,34 +337,62 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
-    <section className="py-4 md:py-6 bg-blue-50">
-      <div className="container mx-auto px-4 max-w-xl text-center">
-        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
-        <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
+    <section className="py-6 md:py-8 bg-gradient-to-b from-blue-50 to-white">
+      <div className="container mx-auto px-4 max-w-3xl text-center">
+        <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-4">
+          <Sparkles className="w-4 h-4" /> ÚLTIMAS VAGAS COM ESSE VALOR
+        </span>
+
+        <h2 className="text-slate-900 font-black text-2xl md:text-3xl lg:text-4xl leading-tight mb-3">
+          Imagine a satisfação de usar o computador sozinho(a) — sem pedir ajuda, sem vergonha, sem depender de ninguém.
+        </h2>
+
+        <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">
+          Você não está comprando apenas um curso. Está conquistando a <strong className="text-slate-900">confiança para usar o computador com autonomia</strong>, sem depender de ninguém.
+        </p>
+
+        <div className="grid sm:grid-cols-3 gap-3 mb-6 max-w-2xl mx-auto">
+          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <Heart className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-800">Autonomia real</p>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <Award className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-800">Certificado incluso</p>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <InfinityIcon className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-800">Acesso vitalício</p>
+          </div>
+        </div>
+
         <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
+
         <p className="text-slate-500 text-sm md:text-base">
           de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
         </p>
-        <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-          <span>🎁</span> Hoje você leva 4 bônus exclusivos
-        </p>
+        <p className="text-green-600 font-black text-5xl md:text-6xl leading-tight mt-1">R$ 297,00</p>
         <p className="text-slate-600 text-base md:text-lg mt-1">
           ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
+        </p>
+        <p className="text-amber-600 font-bold text-sm md:text-base mt-3 flex items-center justify-center gap-1.5">
+          <span>🎁</span> Hoje você leva 4 bônus exclusivos
         </p>
         <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
           <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
         </p>
-        <div className="mt-5">
-          <CTA>Quero perder o medo do computador</CTA>
+
+        <div className="mt-6">
+          <CTA>Quero essa transformação agora</CTA>
         </div>
+
         <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
           <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
             <ShieldCheck className="w-5 h-5" />{" "}
             <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
           </p>
           <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
+            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não sentir que valeu a pena, devolvemos{" "}
             <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
           </p>
         </div>
@@ -428,7 +458,7 @@ const Instructor = () => (
               </div>
             </div>
           </div>
-          <CTA size="md">Quero aprender sem medo!</CTA>
+          <CTA size="md">Quero aprender sem medo</CTA>
         </div>
       </div>
     </div>
@@ -547,7 +577,7 @@ const Modules = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero ver todas as aulas!</CTA>
+          <CTA>Quero dominar esses conteúdos</CTA>
         </div>
       </div>
     </section>
@@ -833,7 +863,7 @@ const SocialProof = () => {
         {/* CTA */}
         <div className="text-center space-y-4">
           <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
-          <CTA>Quero aprender sem medo!</CTA>
+          <CTA>Quero ser o próximo depoimento</CTA>
           <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
           </p>
@@ -874,7 +904,7 @@ const Certificate = () => (
               </li>
             ))}
           </ul>
-          <CTA size="md">Quero meu certificado!</CTA>
+          <CTA size="md">Quero meu certificado de informática</CTA>
         </div>
       </div>
     </div>
@@ -926,7 +956,7 @@ const Pricing = () => (
           ))}
         </ul>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
+        <CTA>Quero garantir minha vaga nesse valor</CTA>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
@@ -1028,7 +1058,7 @@ const FinalCTA = () => (
         Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
         mais independente. <strong className="text-white">Hoje é o dia.</strong>
       </p>
-      <CTA>Quero começar agora!</CTA>
+      <CTA>Quero minha autonomia de volta</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
   </section>
@@ -1054,16 +1084,33 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = () => (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
-    <button
-      onClick={openCheckout}
-      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
-    >
-      <Monitor className="w-5 h-5" /> Quero começar agora!
-    </button>
-  </div>
-);
+const StickyMobile = () => {
+  const countdown = useCountdown();
+  return (
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t-2 border-green-500 p-3 shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
+      <div className="flex items-center justify-center gap-2 mb-2">
+        <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-full animate-pulse">
+          <Timer className="w-3 h-3" /> Oferta termina em {countdown}
+        </span>
+        <span className="inline-flex items-center gap-1 text-green-400 text-[10px] font-bold uppercase">
+          <Zap className="w-3 h-3 fill-green-400" /> Últimas vagas
+        </span>
+      </div>
+      <button
+        onClick={openCheckout}
+        className="relative w-full overflow-hidden bg-gradient-to-r from-green-500 via-green-600 to-green-500 active:scale-[.98] text-white font-black text-lg py-4 rounded-2xl flex items-center justify-center shadow-lg shadow-green-600/40 animate-pulse"
+      >
+        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
+        <span className="flex items-center gap-2">
+          <Monitor className="w-5 h-5" /> Quero aprender sem medo
+        </span>
+      </button>
+      <p className="text-center text-[10px] text-slate-400 mt-1.5 flex items-center justify-center gap-1">
+        <Lock className="w-3 h-3" /> Pagamento seguro • 7 dias de garantia
+      </p>
+    </div>
+  );
+};
 
 // ───────────────────────── Page ─────────────────────────
 const Home = () => {
@@ -1075,10 +1122,10 @@ const Home = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <MiniValueSection />
-      <QuizIdentificacao />
-      <Instructor />
       <SocialProof />
+      <MiniValueSection />
+      <Instructor />
+      <QuizIdentificacao />
       <Method />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
