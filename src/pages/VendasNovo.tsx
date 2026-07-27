@@ -915,64 +915,102 @@ const Certificate = () => (
 );
 
 // ───────────────────────── Pricing ─────────────────────────
-const Pricing = () => (
-  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
-    <div className="container mx-auto px-4 max-w-3xl">
-      <div className="text-center mb-8">
-        <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-          🔥 Oferta especial • 40% OFF
-        </span>
-        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
-        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
-      </div>
-
-      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
-        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
-        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
-
-        <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
-          <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
-          <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
-          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
-          <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-            <span>🎁</span> Hoje você leva 4 bônus exclusivos
-          </p>
-          <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
-          <p className="text-base text-slate-600 mt-1">
-            ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
-          </p>
+const Pricing = () => {
+  const countdown = useCountdown();
+  return (
+    <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <div className="text-center mb-6">
+          <span className="inline-flex items-center gap-2 bg-yellow-400 text-blue-900 text-xs md:text-sm font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+            <Clock className="w-4 h-4" /> Oferta termina em {countdown}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
+          <p className="text-blue-100 text-base md:text-lg">Restam apenas 12 vagas • Acesso vitalício</p>
         </div>
 
-        <ul className="space-y-3 mb-6">
-          {[
-            "+90 videoaulas passo a passo",
-            "Acesso vitalício — assiste quantas vezes quiser",
-            "Certificado de conclusão",
-            "Suporte direto com a professora",
-            "Atualizações gratuitas pra sempre",
-            "Acesso pelo celular, tablet ou computador",
-          ].map((x) => (
-            <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
-              {x}
-            </li>
-          ))}
-        </ul>
+        <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
+          <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
+          <p className="text-center text-slate-500 text-sm mb-5">+90 videoaulas • 6 módulos • Acesso vitalício</p>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
+          {/* Value stack */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-5">
+            <p className="text-center text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">
+              Tudo o que você recebe hoje
+            </p>
+            <ul className="space-y-2 text-sm md:text-base">
+              <li className="flex items-baseline justify-between gap-3 border-b border-slate-200 pb-2">
+                <span className="text-slate-700">Curso Completo — 6 módulos + 90 aulas</span>
+                <span className="font-bold text-slate-900 whitespace-nowrap">R$ 497</span>
+              </li>
+              <li className="flex items-baseline justify-between gap-3 border-b border-slate-200 pb-2">
+                <span className="text-slate-700">4 Bônus exclusivos (Mercado, Atalhos, Currículo, E-mail)</span>
+                <span className="font-bold text-slate-900 whitespace-nowrap">R$ 368</span>
+              </li>
+              <li className="flex items-baseline justify-between gap-3 border-b border-slate-200 pb-2">
+                <span className="text-slate-700">Certificado de conclusão</span>
+                <span className="font-bold text-slate-900 whitespace-nowrap">R$ 97</span>
+              </li>
+              <li className="flex items-baseline justify-between gap-3 pb-1">
+                <span className="text-slate-700">Suporte direto com a professora</span>
+                <span className="font-bold text-slate-900 whitespace-nowrap">R$ 197</span>
+              </li>
+            </ul>
+            <div className="mt-3 pt-3 border-t-2 border-slate-300 flex items-baseline justify-between gap-3">
+              <span className="text-slate-600 font-semibold text-sm md:text-base">Valor total:</span>
+              <span className="text-slate-500 line-through font-black text-lg md:text-xl">R$ 1.159</span>
+            </div>
+          </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
-          <span className="flex items-center gap-1.5">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
-          </span>
-          <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
-          </span>
+          {/* Price highlight */}
+          <div className="bg-green-50 border-2 border-green-500 rounded-2xl p-5 md:p-6 text-center mb-5">
+            <p className="text-sm text-slate-600 font-semibold mb-1">Hoje, com desconto de R$ 862</p>
+            <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
+            <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+              <span>🎁</span> Com os 4 bônus exclusivos inclusos
+            </p>
+            <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
+            <p className="text-base text-slate-600 mt-1">
+              ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
+            </p>
+            <p className="inline-flex items-center gap-1.5 text-green-700 text-xs md:text-sm font-bold mt-3 bg-white px-3 py-1 rounded-full">
+              💡 Menos de R$ 1 por dia durante 1 ano
+            </p>
+          </div>
+
+          <ul className="space-y-3 mb-6">
+            {[
+              "+90 videoaulas passo a passo",
+              "Acesso vitalício — assiste quantas vezes quiser",
+              "Certificado de conclusão",
+              "Suporte direto com a professora",
+              "Atualizações gratuitas pra sempre",
+              "Acesso pelo celular, tablet ou computador",
+            ].map((x) => (
+              <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
+                <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
+                {x}
+              </li>
+            ))}
+          </ul>
+
+          <CTA>Sim, quero minha vaga hoje</CTA>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
+            <span className="flex items-center gap-1.5">
+              <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
+            </span>
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-green-600" /> Processado pela Hotmart
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // ───────────────────────── Guarantee ─────────────────────────
 const GuaranteeBlock = () => (
