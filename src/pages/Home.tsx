@@ -1066,7 +1066,7 @@ const StickyMobile = () => (
 );
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = () => {
+const Home = () => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
@@ -1098,4 +1098,4 @@ const VendasNovo = () => {
   );
 };
 
-export default VendasNovo;
+export default Home;
