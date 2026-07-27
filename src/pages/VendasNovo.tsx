@@ -1069,8 +1069,8 @@ const VendasNovo = () => {
       <SocialProof />
       <MiniValueSection />
       <Instructor />
-      <Method />
       <Modules />
+      <Method />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
