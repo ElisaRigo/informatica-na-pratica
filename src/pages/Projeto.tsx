@@ -912,7 +912,7 @@ const Pricing = () => (
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-8">
         <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-          🔥 40% OFF disponível agora
+          condição especial: 40% OFF disponível agora
         </span>
         <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
         <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
@@ -1084,7 +1084,7 @@ const StickyMobile = () => {
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t-2 border-green-500 p-3 shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
       <div className="flex items-center justify-center gap-2 mb-2">
         <span className="inline-flex items-center gap-1 text-green-400 text-[10px] font-bold uppercase">
-          <Zap className="w-3 h-3 fill-green-400" /> 40% OFF disponível agora
+          <Zap className="w-3 h-3 fill-green-400" /> condição especial: 40% OFF disponível agora
         </span>
       </div>
       <button
