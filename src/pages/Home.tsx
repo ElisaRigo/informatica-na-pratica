@@ -1114,8 +1114,8 @@ const Home = () => {
       <GuaranteeBlock />
       <FAQ />
       <QuizIdentificacao />
-      <FinalCTA />
       <Pricing />
+      <FinalCTA />
       <Footer />
       <StickyMobile />
       <WhatsAppButton />
