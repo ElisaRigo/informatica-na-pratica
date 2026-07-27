@@ -1072,7 +1072,6 @@ const Home = () => {
       <Hero />
       <AulaDemonstrativa />
       <SocialProof />
-      <MiniValueSection />
       <Instructor />
       <Modules />
       <Method />
@@ -1081,6 +1080,7 @@ const Home = () => {
           <HeroBonuses variant="light" />
         </div>
       </section>
+      <MiniValueSection />
       <Certificate />
       <GuaranteeBlock />
       <FAQ />
