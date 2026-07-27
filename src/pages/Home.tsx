@@ -27,7 +27,6 @@ import {
   Heart,
   Headphones,
   Zap,
-  Timer,
   Flame,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -76,23 +75,6 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
   </button>
 );
 
-// ───────────────────────── Countdown ─────────────────────────
-const useCountdown = () => {
-  const [t, setT] = useState({ h: 23, m: 47, s: 12 });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setT(({ h, m, s }) => {
-        if (s > 0) return { h, m, s: s - 1 };
-        if (m > 0) return { h, m: m - 1, s: 59 };
-        if (h > 0) return { h: h - 1, m: 59, s: 59 };
-        return { h: 23, m: 59, s: 59 };
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
-};
 
 import logo from "@/assets/logo-blue.png";
 import windowsIcon from "@/assets/windows-icon.png";
