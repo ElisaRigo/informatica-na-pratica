@@ -190,6 +190,38 @@ const Hero = () => {
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
+          {/* Ícones das ferramentas */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:gap-x-6 mb-4 text-slate-800 text-sm md:text-base font-semibold">
+            <span className="inline-flex items-center gap-1.5">
+              <img src={windowsIcon} alt="" className="w-5 h-5 md:w-6 md:h-6" /> Windows
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="inline-flex items-center gap-1.5">
+              <img src={wordIcon} alt="" className="w-5 h-5 md:w-6 md:h-6" /> Word
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="inline-flex items-center gap-1.5">
+              <img src={excelIcon} alt="" className="w-5 h-5 md:w-6 md:h-6" /> Excel
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="inline-flex items-center gap-1.5">
+              <img src={internetIcon} alt="" className="w-5 h-5 md:w-6 md:h-6" /> Internet
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="inline-flex items-center gap-1.5">
+              <Mail className="w-5 h-5 md:w-6 md:h-6 text-blue-600" /> E-mail
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="inline-flex items-center gap-1.5">
+              <FolderOpen className="w-5 h-5 md:w-6 md:h-6 text-amber-500" /> Arquivos
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="inline-flex items-center gap-1.5">
+              <Printer className="w-5 h-5 md:w-6 md:h-6 text-slate-700" /> Impressão
+            </span>
+          </div>
+
+
           <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
