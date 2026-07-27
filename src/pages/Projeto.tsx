@@ -236,13 +236,13 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-3 md:py-4 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
-        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-2">Esse curso é pra você se…</h2>
+        <p className="text-center text-slate-600 mb-4 max-w-2xl mx-auto">
           Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
         </p>
-        <div className="grid md:grid-cols-2 gap-3 md:gap-4">
+        <div className="grid md:grid-cols-2 gap-2 md:gap-3">
           {items.map((t) => (
             <div
               key={t}
@@ -253,7 +253,7 @@ const Identification = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-5">
+        <div className="text-center mt-4">
           <CTA>Quero parar de depender dos outros</CTA>
         </div>
       </div>
