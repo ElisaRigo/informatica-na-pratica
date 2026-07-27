@@ -128,7 +128,7 @@ const Hero = () => {
       <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 text-center py-2.5 md:py-3 px-4 shadow-lg shadow-blue-900/20">
         <span className="inline-flex items-center justify-center gap-2 md:gap-3 text-base md:text-xl lg:text-2xl font-black text-white uppercase tracking-wide whitespace-normal md:whitespace-nowrap w-full">
           <Monitor className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 shrink-0" />
-          Você sente vergonha por não saber usar o computador?
+          Você ainda depende de alguém para usar o computador?
           <ChevronDown className="w-4 h-4 md:w-5 md:h-5 shrink-0 animate-bounce" />
         </span>
       </div>
