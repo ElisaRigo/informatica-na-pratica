@@ -36,7 +36,7 @@ export const Method = () => {
             Do medo à confiança em 3 passos simples
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto">
-            Você não precisa decorar. Só precisa seguir, praticar e sentir o resultado.
+            Você não precisa ter experiência. Basta seguir o passo a passo.
           </p>
         </div>
 
@@ -66,6 +66,12 @@ export const Method = () => {
               <p className="text-slate-300 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-6 md:mt-8 text-center">
+          <p className="inline-flex items-center gap-2 text-green-400 font-bold text-sm md:text-base bg-green-500/10 border border-green-500/20 px-4 py-2 rounded-full">
+            Se milhares de alunos conseguiram aprender dessa forma, você também consegue.
+          </p>
         </div>
       </div>
     </section>
