@@ -27,7 +27,6 @@ import {
   Heart,
   Headphones,
   Zap,
-  Timer,
   Flame,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -76,23 +75,6 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
   </button>
 );
 
-// ───────────────────────── Countdown ─────────────────────────
-const useCountdown = () => {
-  const [t, setT] = useState({ h: 23, m: 47, s: 12 });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setT(({ h, m, s }) => {
-        if (s > 0) return { h, m, s: s - 1 };
-        if (m > 0) return { h, m: m - 1, s: 59 };
-        if (h > 0) return { h: h - 1, m: 59, s: 59 };
-        return { h: 23, m: 59, s: 59 };
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
-};
 
 import logo from "@/assets/logo-blue.png";
 import windowsIcon from "@/assets/windows-icon.png";
@@ -1098,13 +1080,9 @@ const Footer = () => (
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => {
-  const countdown = useCountdown();
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t-2 border-green-500 p-3 shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
       <div className="flex items-center justify-center gap-2 mb-2">
-        <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-full animate-pulse">
-          <Timer className="w-3 h-3" /> Oferta termina em {countdown}
-        </span>
         <span className="inline-flex items-center gap-1 text-green-400 text-[10px] font-bold uppercase">
           <Zap className="w-3 h-3 fill-green-400" /> 40% OFF disponível agora
         </span>

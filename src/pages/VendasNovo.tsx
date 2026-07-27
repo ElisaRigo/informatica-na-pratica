@@ -27,6 +27,7 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  Zap,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -74,40 +75,6 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
   </button>
 );
 
-// ───────────────────────── Countdown ─────────────────────────
-const useCountdown = () => {
-  const KEY = "vn_countdown_expires";
-  const DURATION = 20 * 60 * 1000; // 20 minutes
-  const [ms, setMs] = useState<number>(() => {
-    if (typeof window === "undefined") return DURATION;
-    const stored = Number(window.localStorage.getItem(KEY));
-    const now = Date.now();
-    if (!stored || stored < now) {
-      const expires = now + DURATION;
-      window.localStorage.setItem(KEY, String(expires));
-      return DURATION;
-    }
-    return stored - now;
-  });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setMs((prev) => {
-        const next = prev - 1000;
-        if (next <= 0) {
-          const expires = Date.now() + DURATION;
-          window.localStorage.setItem(KEY, String(expires));
-          return DURATION;
-        }
-        return next;
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  const m = Math.floor(ms / 60000);
-  const s = Math.floor((ms % 60000) / 1000);
-  return `${pad(m)}:${pad(s)}`;
-};
 
 import logo from "@/assets/logo-blue.png";
 import windowsIcon from "@/assets/windows-icon.png";
@@ -138,22 +105,18 @@ const Header = () => (
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const countdown = useCountdown();
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
-      {/* Top urgency strip with real countdown */}
+      {/* Top urgency strip */}
       <div className="bg-blue-600 text-center py-2 px-3">
         <div className="flex items-center justify-center gap-2 md:gap-3 text-white text-xs md:text-base font-bold flex-wrap">
           <span className="inline-flex items-center gap-1.5">
-            <Clock className="w-4 h-4 md:w-5 md:h-5" />
-            <span>Oferta com 40% OFF termina em</span>
-          </span>
-          <span className="inline-flex items-center gap-1 bg-white/15 border border-white/30 rounded-md px-2 py-0.5 font-mono tabular-nums text-sm md:text-lg tracking-wider">
-            {countdown}
+            <Zap className="w-4 h-4 md:w-5 md:h-5 fill-yellow-300" />
+            <span>Oferta especial com 40% OFF liberada</span>
           </span>
           <span className="hidden sm:inline-flex items-center gap-1 text-yellow-200">
             <span className="w-1.5 h-1.5 rounded-full bg-yellow-300 animate-pulse" />
-            Restam 12 vagas
+            Vagas limitadas
           </span>
         </div>
       </div>
@@ -916,16 +879,15 @@ const Certificate = () => (
 
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => {
-  const countdown = useCountdown();
   return (
     <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-6">
           <span className="inline-flex items-center gap-2 bg-yellow-400 text-blue-900 text-xs md:text-sm font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-            <Clock className="w-4 h-4" /> Oferta termina em {countdown}
+            <Zap className="w-4 h-4 fill-blue-900" /> Oferta especial 40% OFF
           </span>
           <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
-          <p className="text-blue-100 text-base md:text-lg">Restam apenas 12 vagas • Acesso vitalício</p>
+          <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • 7 dias de garantia</p>
         </div>
 
         <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
