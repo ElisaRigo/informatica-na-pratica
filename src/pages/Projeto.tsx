@@ -9,7 +9,6 @@ import {
   Users,
   PlayCircle,
   Monitor,
-  Mail,
   FileText,
   Globe,
   Presentation,
@@ -27,8 +26,6 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
-  Printer,
-  FolderOpen,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
