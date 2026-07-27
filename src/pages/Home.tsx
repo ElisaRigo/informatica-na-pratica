@@ -339,8 +339,8 @@ const MiniValueSection = () => {
   return (
     <section className="py-6 md:py-8 bg-gradient-to-b from-blue-50 to-white">
       <div className="container mx-auto px-4 max-w-3xl text-center">
-        <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-4">
-          <Sparkles className="w-4 h-4" /> ÚLTIMAS VAGAS COM ESSE VALOR
+        <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-4">
+          <Flame className="w-4 h-4" /> OFERTA ESPECIAL POR TEMPO LIMITADO
         </span>
 
         <h2 className="text-slate-900 font-black text-2xl md:text-3xl lg:text-4xl leading-tight mb-3">
