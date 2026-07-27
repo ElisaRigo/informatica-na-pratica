@@ -351,18 +351,30 @@ const MiniValueSection = () => {
           Você não está comprando apenas um curso. Está conquistando a <strong className="text-slate-900">confiança para usar o computador com autonomia</strong>, sem depender de ninguém.
         </p>
 
-        <div className="grid sm:grid-cols-3 gap-3 mb-6 max-w-2xl mx-auto">
+        <div className="grid grid-cols-2 gap-3 mb-6 max-w-2xl mx-auto">
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-            <Heart className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-slate-800">Autonomia real</p>
+            <Headphones className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-800">Suporte nas Aulas</p>
           </div>
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-            <Award className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-slate-800">Certificado incluso</p>
+            <Users className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-800">+15.000 alunos</p>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <GraduationCap className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-800">20 anos ensinando</p>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <ShieldCheck className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-800">Garantia de 7 dias</p>
           </div>
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
             <InfinityIcon className="w-6 h-6 text-blue-600 mx-auto mb-2" />
             <p className="text-sm font-bold text-slate-800">Acesso vitalício</p>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <Award className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-800">Certificado incluso</p>
           </div>
         </div>
 
