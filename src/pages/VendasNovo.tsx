@@ -138,14 +138,24 @@ const Header = () => (
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const countdown = useCountdown();
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
-      {/* Top urgency strip */}
-      <div className="bg-blue-600 text-center py-2.5 px-4">
-        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
-          <span className="text-xl md:text-2xl">💻</span>
-          Você sente Dificuldade com o Computador?
-        </span>
+      {/* Top urgency strip with real countdown */}
+      <div className="bg-blue-600 text-center py-2 px-3">
+        <div className="flex items-center justify-center gap-2 md:gap-3 text-white text-xs md:text-base font-bold flex-wrap">
+          <span className="inline-flex items-center gap-1.5">
+            <Clock className="w-4 h-4 md:w-5 md:h-5" />
+            <span>Oferta com 40% OFF termina em</span>
+          </span>
+          <span className="inline-flex items-center gap-1 bg-white/15 border border-white/30 rounded-md px-2 py-0.5 font-mono tabular-nums text-sm md:text-lg tracking-wider">
+            {countdown}
+          </span>
+          <span className="hidden sm:inline-flex items-center gap-1 text-yellow-200">
+            <span className="w-1.5 h-1.5 rounded-full bg-yellow-300 animate-pulse" />
+            Restam 12 vagas
+          </span>
+        </div>
       </div>
 
       <div className="container mx-auto px-4 py-3 md:py-4">
@@ -155,13 +165,15 @@ const Hero = () => {
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            Aprenda a usar o computador
+            Em <span className="text-blue-600">poucas semanas</span>, você usa o computador sozinho(a)
             <br className="hidden md:block" />
-            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
+            <span className="text-slate-700 text-2xl md:text-3xl lg:text-4xl font-bold block mt-2">
+              mesmo que você nunca tenha ligado um na vida.
+            </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Imagine usar o computador com confiança e tranformar a sua rotina, sem depender de ninguém!
+            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
           </p>
 
           {/* Video */}
@@ -204,7 +216,11 @@ const Hero = () => {
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
-          <CTA>Quero começar agora!</CTA>
+          <CTA>Quero aprender sem depender de ninguém</CTA>
+
+          <p className="text-xs md:text-sm text-slate-500 mt-2">
+            Acesso em até 2 minutos • 7 dias de garantia • Pague em até 12x
+          </p>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
@@ -231,7 +247,7 @@ const Hero = () => {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
+              <p className="text-xs text-slate-600 font-medium">4.9/5 • +15.000 alunos já aprenderam</p>
             </div>
           </div>
         </div>
