@@ -127,7 +127,7 @@ const Hero = () => {
       <div className="bg-blue-600 text-center py-2.5 px-4">
         <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
           <span className="text-xl md:text-2xl">💻</span>
-          Você sente Dificuldade com o Computador?
+          Você sente vergonha por não saber usar o computador?
         </span>
       </div>
 
