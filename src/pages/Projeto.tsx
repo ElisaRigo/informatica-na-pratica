@@ -1098,13 +1098,12 @@ const StickyMobile = () => {
       </div>
       <button
         onClick={openCheckout}
-        className="relative w-full overflow-hidden bg-gradient-to-r from-green-500 via-green-600 to-green-500 active:scale-[.98] text-white font-black text-lg py-4 rounded-2xl flex flex-col items-center justify-center shadow-lg shadow-green-600/40 animate-pulse"
+        className="relative w-full overflow-hidden bg-gradient-to-r from-green-500 via-green-600 to-green-500 active:scale-[.98] text-white font-black text-lg py-4 rounded-2xl flex items-center justify-center shadow-lg shadow-green-600/40 animate-pulse"
       >
         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
         <span className="flex items-center gap-2">
-          <Zap className="w-5 h-5 fill-white" /> Quero aprender sem medo
+          <Monitor className="w-5 h-5" /> Quero aprender sem medo
         </span>
-        <span className="text-xs font-semibold text-green-100 mt-0.5">12x de R$ 29,70 ou R$ 297 à vista</span>
       </button>
       <p className="text-center text-[10px] text-slate-400 mt-1.5 flex items-center justify-center gap-1">
         <Lock className="w-3 h-3" /> Pagamento seguro • 7 dias de garantia
