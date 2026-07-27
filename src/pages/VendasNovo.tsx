@@ -1068,7 +1068,6 @@ const VendasNovo = () => {
       <AulaDemonstrativa />
       <SocialProof />
       <MiniValueSection />
-      <QuizIdentificacao />
       <Instructor />
       <Method />
       <Modules />
@@ -1081,6 +1080,7 @@ const VendasNovo = () => {
       <Pricing />
       <GuaranteeBlock />
       <FAQ />
+      <QuizIdentificacao />
       <FinalCTA />
       <Footer />
       <StickyMobile />
