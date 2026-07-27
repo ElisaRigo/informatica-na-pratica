@@ -504,14 +504,14 @@ const Modules = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-blue-100">
+    <section className="py-4 md:py-6 bg-blue-200">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-5">
-          <span className="inline-block bg-blue-200 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-blue-300 text-blue-900 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
             CONTEÚDO COMPLETO
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-slate-700 max-w-2xl mx-auto">
             +90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.
           </p>
         </div>
@@ -521,12 +521,12 @@ const Modules = () => {
               key={m.t}
               className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-blue-200 flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-blue-300 flex items-center justify-center mb-4">
                 <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
               <p className="text-slate-600 text-sm mb-3">{m.d}</p>
-              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{m.lessons}</span>
+              <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-1 rounded">{m.lessons}</span>
             </div>
           ))}
         </div>
