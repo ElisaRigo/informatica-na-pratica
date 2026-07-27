@@ -172,3 +172,14 @@ video::-webkit-media-controls-panel {
   display: inline-flex;
   animation: marquee 15s linear infinite;
 }
+
+/* Shimmer sweep for high-visibility CTAs */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
