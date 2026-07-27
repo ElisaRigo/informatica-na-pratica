@@ -1084,16 +1084,34 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = () => (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
-    <button
-      onClick={openCheckout}
-      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
-    >
-      <Monitor className="w-5 h-5" /> Quero aprender sem medo
-    </button>
-  </div>
-);
+const StickyMobile = () => {
+  const countdown = useCountdown();
+  return (
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t-2 border-green-500 p-3 shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
+      <div className="flex items-center justify-center gap-2 mb-2">
+        <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-full animate-pulse">
+          <Timer className="w-3 h-3" /> Oferta termina em {countdown}
+        </span>
+        <span className="inline-flex items-center gap-1 text-green-400 text-[10px] font-bold uppercase">
+          <Zap className="w-3 h-3 fill-green-400" /> Últimas vagas
+        </span>
+      </div>
+      <button
+        onClick={openCheckout}
+        className="relative w-full overflow-hidden bg-gradient-to-r from-green-500 via-green-600 to-green-500 active:scale-[.98] text-white font-black text-lg py-4 rounded-2xl flex flex-col items-center justify-center shadow-lg shadow-green-600/40 animate-pulse"
+      >
+        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
+        <span className="flex items-center gap-2">
+          <Zap className="w-5 h-5 fill-white" /> Quero aprender sem medo
+        </span>
+        <span className="text-xs font-semibold text-green-100 mt-0.5">12x de R$ 29,70 ou R$ 297 à vista</span>
+      </button>
+      <p className="text-center text-[10px] text-slate-400 mt-1.5 flex items-center justify-center gap-1">
+        <Lock className="w-3 h-3" /> Pagamento seguro • 7 dias de garantia
+      </p>
+    </div>
+  );
+};
 
 // ───────────────────────── Page ─────────────────────────
 const Home = () => {
