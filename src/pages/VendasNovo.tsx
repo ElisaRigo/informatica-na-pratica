@@ -161,19 +161,18 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Método usado por +15.000 alunos
           </span>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            Em <span className="text-blue-600">poucas semanas</span>, você usa o computador sozinho(a)
-            <br className="hidden md:block" />
-            <span className="text-slate-700 text-2xl md:text-3xl lg:text-4xl font-bold block mt-2">
-              mesmo que você nunca tenha ligado um na vida.
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-tight mb-4">
+            Chega de se sentir <span className="text-blue-600">travado(a)</span> na frente do computador.
+            <span className="text-slate-800 text-2xl md:text-4xl lg:text-5xl font-black block mt-3">
+              Aprenda de um jeito simples e sinta o orgulho de fazer sozinho(a).
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+          <p className="text-lg md:text-2xl text-slate-700 max-w-3xl mx-auto mb-5 leading-snug">
+            Um método <strong>calmo, no seu ritmo</strong>, feito para quem tem medo de errar — e que já mudou a vida de milhares de pessoas como você.
           </p>
 
           {/* Video */}
@@ -212,11 +211,12 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
-            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+          <p className="text-lg md:text-2xl text-slate-800 max-w-3xl mx-auto mb-4 font-semibold leading-snug">
+            Imagine abrir o computador sem medo, resolver tudo sozinho(a) e ainda ouvir da sua família:
+            <span className="text-blue-700"> "Nossa, como você aprendeu rápido!"</span>
           </p>
 
-          <CTA>Quero aprender sem depender de ninguém</CTA>
+          <CTA>SIM! Eu quero aprender agora</CTA>
 
           <p className="text-xs md:text-sm text-slate-500 mt-2">
             Acesso em até 2 minutos • 7 dias de garantia • Pague em até 12x
