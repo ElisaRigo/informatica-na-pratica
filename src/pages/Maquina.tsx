@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 
 import {
-  ShieldCheck, Star, CheckCircle2, X, Clock, Sparkles, Award, Users,
+  ShieldCheck, Star, CheckCircle2, X, Sparkles, Award, Users,
   PlayCircle, Zap, Heart, TrendingUp, Lock, Gift, GraduationCap,
   MessageCircle, Infinity as InfinityIcon, ChevronDown, CreditCard,
   Smartphone, Trophy, BookOpen, Headphones, ArrowRight
@@ -12,40 +12,6 @@ import {
 } from "@/components/ui/accordion";
 import heroCover from "@/assets/hero-video-cover.png";
 
-/* ---------- Countdown (persistent 20min) ---------- */
-const useCountdown = () => {
-  const KEY = "mq_countdown_expires";
-  const DURATION = 20 * 60 * 1000;
-  const [ms, setMs] = useState<number>(() => {
-    if (typeof window === "undefined") return DURATION;
-    const stored = Number(window.localStorage.getItem(KEY));
-    const now = Date.now();
-    if (!stored || stored < now) {
-      const expires = now + DURATION;
-      window.localStorage.setItem(KEY, String(expires));
-      return DURATION;
-    }
-    return stored - now;
-  });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setMs((prev) => {
-        const next = prev - 1000;
-        if (next <= 0) {
-          const expires = Date.now() + DURATION;
-          window.localStorage.setItem(KEY, String(expires));
-          return DURATION;
-        }
-        return next;
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  const m = Math.floor(ms / 60000);
-  const s = Math.floor((ms % 60000) / 1000);
-  return `${pad(m)}:${pad(s)}`;
-};
 
 const openCheckout = () => (window as any).openCheckout?.();
 

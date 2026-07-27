@@ -74,40 +74,6 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
   </button>
 );
 
-// ───────────────────────── Countdown ─────────────────────────
-const useCountdown = () => {
-  const KEY = "vn_countdown_expires";
-  const DURATION = 20 * 60 * 1000; // 20 minutes
-  const [ms, setMs] = useState<number>(() => {
-    if (typeof window === "undefined") return DURATION;
-    const stored = Number(window.localStorage.getItem(KEY));
-    const now = Date.now();
-    if (!stored || stored < now) {
-      const expires = now + DURATION;
-      window.localStorage.setItem(KEY, String(expires));
-      return DURATION;
-    }
-    return stored - now;
-  });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setMs((prev) => {
-        const next = prev - 1000;
-        if (next <= 0) {
-          const expires = Date.now() + DURATION;
-          window.localStorage.setItem(KEY, String(expires));
-          return DURATION;
-        }
-        return next;
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  const m = Math.floor(ms / 60000);
-  const s = Math.floor((ms % 60000) / 1000);
-  return `${pad(m)}:${pad(s)}`;
-};
 
 import logo from "@/assets/logo-blue.png";
 import windowsIcon from "@/assets/windows-icon.png";
