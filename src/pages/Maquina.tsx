@@ -34,17 +34,15 @@ const CTA = ({ children, className = "" }: { children: React.ReactNode; classNam
 
 /* ---------- Sticky top bar ---------- */
 const TopBar = () => {
-  const c = useCountdown();
   return (
     <div className="sticky top-0 z-50 bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 text-white">
       <div className="container mx-auto px-4 py-2 flex items-center justify-center gap-2 md:gap-4 text-xs md:text-sm font-bold flex-wrap">
         <span className="inline-flex items-center gap-1.5">
-          <Sparkles className="w-4 h-4" /> Oferta especial 40% OFF
+          <Sparkles className="w-4 h-4" /> Oferta especial 40% OFF liberada
         </span>
         <span className="hidden sm:inline text-white/60">•</span>
-        <span className="inline-flex items-center gap-1.5">
-          <Clock className="w-4 h-4" /> Termina em
-          <span className="font-mono tabular-nums bg-white/15 border border-white/30 px-2 py-0.5 rounded">{c}</span>
+        <span className="inline-flex items-center gap-1.5 text-yellow-200">
+          <Zap className="w-4 h-4 fill-yellow-300" /> Vagas limitadas
         </span>
       </div>
     </div>
@@ -454,13 +452,12 @@ const Guarantee = () => (
 
 /* ---------- OFFER / PRICING ---------- */
 const Offer = () => {
-  const c = useCountdown();
   return (
     <section id="oferta" className="py-14 md:py-20 bg-gradient-to-b from-blue-700 to-blue-900 text-white">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-8">
           <span className="inline-flex items-center gap-2 bg-yellow-400 text-blue-900 text-xs md:text-sm font-black px-4 py-1.5 rounded-full uppercase tracking-wide">
-            <Clock className="w-4 h-4" /> Oferta termina em {c}
+            <Zap className="w-4 h-4 fill-blue-900" /> Oferta especial 40% OFF
           </span>
           <h2 className="text-3xl md:text-5xl font-black mt-4">Garanta sua vaga hoje</h2>
         </div>
