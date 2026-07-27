@@ -1146,10 +1146,10 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
+      <SocialProof />
       <MiniValueSection />
       <QuizIdentificacao />
       <Instructor />
-      <SocialProof />
       <Method />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
