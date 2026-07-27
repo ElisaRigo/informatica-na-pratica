@@ -1119,7 +1119,6 @@ const Home = () => {
       <Instructor />
       <DarkProblemSection />
       <QuizIdentificacao />
-      <Method />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
@@ -1128,6 +1127,7 @@ const Home = () => {
       </section>
       <Certificate />
       <Pricing />
+      <Method />
       <GuaranteeBlock />
       <FAQ />
       <FinalCTA />
