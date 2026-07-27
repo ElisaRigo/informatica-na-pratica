@@ -211,11 +211,12 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
-            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+          <p className="text-lg md:text-2xl text-slate-800 max-w-3xl mx-auto mb-4 font-semibold leading-snug">
+            Imagine abrir o computador sem medo, resolver tudo sozinho(a) e ainda ouvir da sua família:
+            <span className="text-blue-700"> "Nossa, como você aprendeu rápido!"</span>
           </p>
 
-          <CTA>Quero aprender sem depender de ninguém</CTA>
+          <CTA>SIM! Eu quero aprender agora</CTA>
 
           <p className="text-xs md:text-sm text-slate-500 mt-2">
             Acesso em até 2 minutos • 7 dias de garantia • Pague em até 12x
