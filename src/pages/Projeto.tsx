@@ -103,12 +103,12 @@ import typingIcon from "@/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-white border-b border-slate-200 py-3 md:py-5">
+  <header className="bg-white border-b border-slate-200 py-2 md:py-3">
     <div className="container mx-auto px-4">
       <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
         <div className="relative group shrink-0">
-          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
-            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
+          <div className="relative bg-slate-100 rounded-xl p-2 md:p-3 border border-slate-200 shadow-lg">
+            <img src={logo} alt="Informática na Prática" className="h-14 md:h-[4.5rem] lg:h-[5.5rem]" />
           </div>
         </div>
         <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
@@ -125,32 +125,32 @@ const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
-      <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 text-center py-4 md:py-5 px-4 shadow-lg shadow-blue-900/20">
-        <span className="inline-flex items-center justify-center gap-2 md:gap-3 text-lg md:text-2xl lg:text-3xl font-black text-white uppercase tracking-wide whitespace-normal md:whitespace-nowrap w-full">
-          <Monitor className="w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 shrink-0" />
+      <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 text-center py-2.5 md:py-3 px-4 shadow-lg shadow-blue-900/20">
+        <span className="inline-flex items-center justify-center gap-2 md:gap-3 text-base md:text-xl lg:text-2xl font-black text-white uppercase tracking-wide whitespace-normal md:whitespace-nowrap w-full">
+          <Monitor className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 shrink-0" />
           Você sente vergonha por não saber usar o computador?
-          <ChevronDown className="w-5 h-5 md:w-6 md:h-6 shrink-0 animate-bounce" />
+          <ChevronDown className="w-4 h-4 md:w-5 md:h-5 shrink-0 animate-bounce" />
         </span>
       </div>
 
-      <div className="container mx-auto px-4 py-3 md:py-4">
+      <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
+          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-2 w-full">
             <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
           </span>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-2">
             Aprenda a usar o computador
             <br className="hidden md:block" />
             <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-4">
             Aulas simples, explicadas passo a passo, para você aprender do ZERO e usar o computador com confiança sem depender de Ninguém.
           </p>
 
           {/* Video */}
-          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
+          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-4">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
@@ -185,13 +185,13 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-5">
+          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-4">
             Em poucas aulas, você vai perder o medo do computador, ganhar confiança e aprender a criar documentos, planilhas, enviar e-mails, organizar arquivos e muito mais.
           </p>
 
           <CTA>Quero usar o computador com confiança</CTA>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-3 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
               <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
             </span>
@@ -204,7 +204,7 @@ const Hero = () => {
           </div>
 
           {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mt-5">
+          <div className="flex items-center justify-center gap-3 mt-4">
             <div className="flex -space-x-2">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
@@ -236,13 +236,13 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-3 md:py-4 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
-        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-2">Esse curso é pra você se…</h2>
+        <p className="text-center text-slate-600 mb-4 max-w-2xl mx-auto">
           Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
         </p>
-        <div className="grid md:grid-cols-2 gap-3 md:gap-4">
+        <div className="grid md:grid-cols-2 gap-2 md:gap-3">
           {items.map((t) => (
             <div
               key={t}
@@ -253,7 +253,7 @@ const Identification = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-5">
+        <div className="text-center mt-4">
           <CTA>Quero parar de depender dos outros</CTA>
         </div>
       </div>
