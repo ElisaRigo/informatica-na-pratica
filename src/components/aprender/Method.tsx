@@ -20,7 +20,7 @@ const steps = [
     n: "3",
     title: "Use sozinho no seu dia a dia",
     result: "Você deixa de depender dos outros",
-    desc: "Em poucos dias você já envia e-mails, cria documentos, organiza planilhas e navega na internet sem medo.",
+    desc: "Em poucos dias você já envia e-mails, cria documentos, organiza arquivos e navega na internet sem medo.",
   },
 ];
 
