@@ -976,8 +976,20 @@ const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
   const faqs = [
     {
+      q: "Tenho mais de 60 anos, será que consigo aprender?",
+      a: "Sim, com certeza. A maioria dos nossos alunos tem entre 50 e 75 anos. As aulas são pausadas, com letras grandes e explicações repetidas quantas vezes você precisar. Se a Dona Maria, 68 anos, conseguiu, você também consegue.",
+    },
+    {
+      q: "E se eu esquecer o que aprendi? Posso rever as aulas?",
+      a: "Pode rever quantas vezes quiser, pra sempre. O acesso é vitalício — você compra uma vez e assiste pelo resto da vida, no seu ritmo, sem pressa.",
+    },
+    {
       q: "Eu nunca mexi num computador. Vou conseguir mesmo?",
       a: "Sim! O curso foi feito justamente pra quem está começando do zero. A professora explica passo a passo, com linguagem simples, sem termos técnicos. +15.000 alunos já provaram que funciona.",
+    },
+    {
+      q: "E se eu não me adaptar? Perco meu dinheiro?",
+      a: "Não perde nada. Você tem 7 dias pra testar tudo. Se não gostar, por qualquer motivo, devolvemos 100% do valor — sem burocracia, sem perguntas.",
     },
     {
       q: "Quanto tempo leva pra concluir?",
@@ -992,16 +1004,12 @@ const FAQ = () => {
       a: "Sim. Você pode assistir no celular, tablet ou computador. Mas pra praticar é importante ter acesso a um computador.",
     },
     {
-      q: "Como funciona a garantia?",
-      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e devolvemos 100% do valor. Sem perguntas.",
+      q: "E se eu travar numa aula? Tem suporte?",
+      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
     },
     {
       q: "O certificado é válido?",
       a: "Sim. É um certificado digital de conclusão, aceito em todo o Brasil pra anexar em currículos, LinkedIn e processos seletivos.",
-    },
-    {
-      q: "E se eu travar numa aula? Tem suporte?",
-      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
     },
   ];
   return (
