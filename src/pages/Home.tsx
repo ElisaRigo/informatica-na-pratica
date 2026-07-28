@@ -1043,10 +1043,24 @@ const FinalCTA = () => (
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
-      <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
+      <p className="text-slate-300 text-base md:text-lg mb-6 max-w-2xl mx-auto">
         Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
         mais independente. <strong className="text-white">Hoje é o dia.</strong>
       </p>
+      {/* Recap de valor */}
+      <div className="max-w-md mx-auto bg-slate-800/70 border border-slate-700 rounded-2xl p-4 mb-6 text-left">
+        <div className="flex justify-between text-sm md:text-base text-slate-300 py-1">
+          <span>Curso completo</span><span className="line-through text-slate-500">R$ 497</span>
+        </div>
+        <div className="flex justify-between text-sm md:text-base text-slate-300 py-1">
+          <span>4 bônus exclusivos</span><span className="text-green-400 font-bold">GRÁTIS</span>
+        </div>
+        <div className="border-t border-slate-700 mt-2 pt-2 flex justify-between items-center">
+          <span className="text-white font-bold">Hoje você paga</span>
+          <span className="text-green-400 font-black text-xl md:text-2xl">R$ 297</span>
+        </div>
+        <p className="text-[11px] text-slate-400 mt-1 text-right">ou 12x de R$ 30,72</p>
+      </div>
       <CTA>Quero minha autonomia de volta</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
