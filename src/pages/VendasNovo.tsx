@@ -1142,6 +1142,7 @@ const VendasNovo = () => {
         </div>
       </section>
       <Certificate />
+      <ValuePrelude />
       <Pricing />
       <GuaranteeBlock />
       <FAQ />
