@@ -60,6 +60,8 @@ import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
 import { DarkProblemSection } from "@/components/aprender/DarkProblemSection";
 import { Method } from "@/components/aprender/Method";
+import { BeforeAfter } from "@/components/aprender/BeforeAfter";
+import { ExitIntentModal } from "@/components/aprender/ExitIntentModal";
 
 const openCheckout = () => openHotmartCheckout();
 
