@@ -924,18 +924,6 @@ const Certificate = () => (
   </section>
 );
 
-// ───────────────────────── Value Prelude ─────────────────────────
-const ValuePrelude = () => (
-  <section className="py-6 md:py-8 bg-slate-900">
-    <div className="container mx-auto px-4 max-w-3xl text-center">
-      <Sparkles className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-      <p className="text-2xl md:text-3xl font-black text-white leading-tight">
-        A sensação de finalmente conseguir fazer tudo sozinho não tem preço.
-      </p>
-    </div>
-  </section>
-);
-
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
   <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
@@ -1130,7 +1118,6 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <ValuePrelude />
       <MiniValueSection />
       <QuizIdentificacao />
       <Instructor />
