@@ -148,28 +148,28 @@ const Hero = () => {
           </p>
 
           {/* Video */}
-          <div className="max-w-5xl mx-auto mb-3">
-            <div className="inline-flex items-center justify-center gap-2 bg-amber-100 text-amber-800 text-sm md:text-lg font-bold px-4 py-2 rounded-full border border-amber-200 shadow-sm animate-pulse">
-              <PlayCircle className="w-5 h-5 md:w-6 md:h-6" />
-              Assista a 1ª aula gratuita — só 2 minutos
-            </div>
-          </div>
-
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
                   src={homeVideoThumb}
-                  alt="Aula demonstrativa gratuita"
+                  alt="Recado da professora"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
+                {/* Incentivo na margem superior do vídeo */}
+                <div className="absolute top-3 left-3 right-3 md:top-4 md:left-4 md:right-4 z-10 flex justify-start">
+                  <div className="inline-flex items-center gap-1.5 md:gap-2 bg-blue-600/90 backdrop-blur-sm text-white text-xs md:text-base font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border border-white/20 animate-pulse">
+                    <PlayCircle className="w-4 h-4 md:w-5 md:h-5" />
+                    Assista o recado da professora — só 2 min
+                  </div>
+                </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                     <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
                   </div>
                   <span className="bg-slate-900/70 text-white text-sm md:text-base font-semibold px-4 py-1.5 rounded-full">
-                    Clique e veja como é a aula
+                    Clique e conheça o curso
                   </span>
                 </div>
               </div>
