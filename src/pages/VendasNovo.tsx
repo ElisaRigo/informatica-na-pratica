@@ -144,7 +144,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Imagine usar o computador com confiança e tranformar a sua rotina, sem depender de ninguém!
+            Use o computador com confiança e nunca mais dependa de ninguém.
           </p>
 
           {/* Video */}
