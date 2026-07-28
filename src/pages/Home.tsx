@@ -1111,6 +1111,39 @@ const StickyMobile = () => {
   );
 };
 
+// ───────────────────────── Sticky Desktop CTA ─────────────────────────
+const StickyDesktop = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 900);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  if (!show) return null;
+  return (
+    <div className="hidden md:flex fixed bottom-4 inset-x-0 z-30 justify-center pointer-events-none px-4">
+      <div className="pointer-events-auto flex items-center gap-4 bg-slate-900/95 backdrop-blur border border-green-500/40 rounded-2xl shadow-2xl shadow-black/40 pl-5 pr-2 py-2">
+        <div className="flex flex-col leading-tight">
+          <span className="text-green-400 text-[11px] font-black uppercase tracking-wide flex items-center gap-1">
+            <Zap className="w-3.5 h-3.5 fill-green-400" /> 40% OFF disponível agora
+          </span>
+          <span className="text-white text-sm font-bold">
+            De <span className="line-through text-slate-400">R$ 497</span> por <span className="text-green-400">R$ 297</span> + 4 bônus grátis
+          </span>
+        </div>
+        <button
+          onClick={openCheckout}
+          className="bg-green-600 hover:bg-green-700 text-white font-black text-base px-5 py-3 rounded-xl shadow-lg shadow-green-600/30 flex items-center gap-2 whitespace-nowrap"
+        >
+          <Monitor className="w-5 h-5" /> Garantir minha vaga
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 // ───────────────────────── Page ─────────────────────────
 const Home = () => {
   useEffect(() => {
