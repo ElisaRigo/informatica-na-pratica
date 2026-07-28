@@ -60,6 +60,8 @@ import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
 import { DarkProblemSection } from "@/components/aprender/DarkProblemSection";
 import { Method } from "@/components/aprender/Method";
+import { BeforeAfter } from "@/components/aprender/BeforeAfter";
+import { ExitIntentModal } from "@/components/aprender/ExitIntentModal";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -1155,9 +1157,11 @@ const Home = () => {
       <Hero />
       <AulaDemonstrativa />
       <SocialProof />
-      <Instructor />
       <DarkProblemSection />
+      <QuizIdentificacao />
+      <Instructor />
       <Method />
+      <BeforeAfter />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
@@ -1168,12 +1172,12 @@ const Home = () => {
       <Certificate />
       <GuaranteeBlock />
       <FAQ />
-      <QuizIdentificacao />
       <Pricing />
       <FinalCTA />
       <Footer />
       <StickyMobile />
       <StickyDesktop />
+      <ExitIntentModal />
       <WhatsAppButton />
     </div>
   );
