@@ -147,14 +147,6 @@ const Hero = () => {
             Use o computador com confiança e nunca mais dependa de ninguém.
           </p>
 
-          {/* Incentivo acima do vídeo */}
-          <div className="max-w-5xl mx-auto mb-3">
-            <div className="inline-flex items-center gap-1.5 md:gap-2 bg-blue-600 text-white text-xs md:text-base font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border border-white/20 animate-pulse">
-              <PlayCircle className="w-4 h-4 md:w-5 md:h-5" />
-              Assista o recado da professora — só 2 min
-            </div>
-          </div>
-
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
             {!isPlaying ? (
@@ -165,6 +157,15 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
+
+                {/* Incentivo no topo da capa — metade dentro, metade fora */}
+                <div className="absolute -top-3 md:-top-4 left-1/2 -translate-x-1/2 z-20">
+                  <div className="inline-flex items-center gap-1.5 md:gap-2 bg-blue-600 text-white text-[10px] md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border-2 border-white/30 animate-pulse whitespace-nowrap">
+                    <PlayCircle className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                    Assista o recado da professora — só 2 min
+                  </div>
+                </div>
+
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                     <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
