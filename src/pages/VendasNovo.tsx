@@ -29,6 +29,7 @@ import {
   Headphones,
   MousePointer,
   Rocket,
+  Check,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -497,7 +498,10 @@ const Method = () => {
 
                 <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{s.t}</h3>
 
-                <div className="inline-block bg-green-50 border border-green-200 rounded-lg px-3 py-1.5 mb-3">
+                <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-3 py-2 mb-3">
+                  <div className="w-6 h-6 md:w-7 md:h-7 rounded bg-green-600 flex items-center justify-center shrink-0">
+                    <Check className="w-4 h-4 md:w-5 md:h-5 text-white" strokeWidth={3} />
+                  </div>
                   <p className="text-green-700 text-xs md:text-sm font-bold leading-snug">{s.badge}</p>
                 </div>
 
