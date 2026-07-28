@@ -976,8 +976,20 @@ const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
   const faqs = [
     {
+      q: "Tenho mais de 60 anos, será que consigo aprender?",
+      a: "Sim, com certeza. A maioria dos nossos alunos tem entre 50 e 75 anos. As aulas são pausadas, com letras grandes e explicações repetidas quantas vezes você precisar. Se a Dona Maria, 68 anos, conseguiu, você também consegue.",
+    },
+    {
+      q: "E se eu esquecer o que aprendi? Posso rever as aulas?",
+      a: "Pode rever quantas vezes quiser, pra sempre. O acesso é vitalício — você compra uma vez e assiste pelo resto da vida, no seu ritmo, sem pressa.",
+    },
+    {
       q: "Eu nunca mexi num computador. Vou conseguir mesmo?",
       a: "Sim! O curso foi feito justamente pra quem está começando do zero. A professora explica passo a passo, com linguagem simples, sem termos técnicos. +15.000 alunos já provaram que funciona.",
+    },
+    {
+      q: "E se eu não me adaptar? Perco meu dinheiro?",
+      a: "Não perde nada. Você tem 7 dias pra testar tudo. Se não gostar, por qualquer motivo, devolvemos 100% do valor — sem burocracia, sem perguntas.",
     },
     {
       q: "Quanto tempo leva pra concluir?",
@@ -992,16 +1004,12 @@ const FAQ = () => {
       a: "Sim. Você pode assistir no celular, tablet ou computador. Mas pra praticar é importante ter acesso a um computador.",
     },
     {
-      q: "Como funciona a garantia?",
-      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e devolvemos 100% do valor. Sem perguntas.",
+      q: "E se eu travar numa aula? Tem suporte?",
+      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
     },
     {
       q: "O certificado é válido?",
       a: "Sim. É um certificado digital de conclusão, aceito em todo o Brasil pra anexar em currículos, LinkedIn e processos seletivos.",
-    },
-    {
-      q: "E se eu travar numa aula? Tem suporte?",
-      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
     },
   ];
   return (
@@ -1035,10 +1043,24 @@ const FinalCTA = () => (
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
-      <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
+      <p className="text-slate-300 text-base md:text-lg mb-6 max-w-2xl mx-auto">
         Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
         mais independente. <strong className="text-white">Hoje é o dia.</strong>
       </p>
+      {/* Recap de valor */}
+      <div className="max-w-md mx-auto bg-slate-800/70 border border-slate-700 rounded-2xl p-4 mb-6 text-left">
+        <div className="flex justify-between text-sm md:text-base text-slate-300 py-1">
+          <span>Curso completo</span><span className="line-through text-slate-500">R$ 497</span>
+        </div>
+        <div className="flex justify-between text-sm md:text-base text-slate-300 py-1">
+          <span>4 bônus exclusivos</span><span className="text-green-400 font-bold">GRÁTIS</span>
+        </div>
+        <div className="border-t border-slate-700 mt-2 pt-2 flex justify-between items-center">
+          <span className="text-white font-bold">Hoje você paga</span>
+          <span className="text-green-400 font-black text-xl md:text-2xl">R$ 297</span>
+        </div>
+        <p className="text-[11px] text-slate-400 mt-1 text-right">ou 12x de R$ 30,72</p>
+      </div>
       <CTA>Quero minha autonomia de volta</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
@@ -1089,6 +1111,39 @@ const StickyMobile = () => {
   );
 };
 
+// ───────────────────────── Sticky Desktop CTA ─────────────────────────
+const StickyDesktop = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 900);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  if (!show) return null;
+  return (
+    <div className="hidden md:flex fixed bottom-4 inset-x-0 z-30 justify-center pointer-events-none px-4">
+      <div className="pointer-events-auto flex items-center gap-4 bg-slate-900/95 backdrop-blur border border-green-500/40 rounded-2xl shadow-2xl shadow-black/40 pl-5 pr-2 py-2">
+        <div className="flex flex-col leading-tight">
+          <span className="text-green-400 text-[11px] font-black uppercase tracking-wide flex items-center gap-1">
+            <Zap className="w-3.5 h-3.5 fill-green-400" /> 40% OFF disponível agora
+          </span>
+          <span className="text-white text-sm font-bold">
+            De <span className="line-through text-slate-400">R$ 497</span> por <span className="text-green-400">R$ 297</span> + 4 bônus grátis
+          </span>
+        </div>
+        <button
+          onClick={openCheckout}
+          className="bg-green-600 hover:bg-green-700 text-white font-black text-base px-5 py-3 rounded-xl shadow-lg shadow-green-600/30 flex items-center gap-2 whitespace-nowrap"
+        >
+          <Monitor className="w-5 h-5" /> Garantir minha vaga
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 // ───────────────────────── Page ─────────────────────────
 const Home = () => {
   useEffect(() => {
@@ -1118,6 +1173,7 @@ const Home = () => {
       <FinalCTA />
       <Footer />
       <StickyMobile />
+      <StickyDesktop />
       <WhatsAppButton />
     </div>
   );
