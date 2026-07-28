@@ -158,11 +158,11 @@ const Hero = () => {
                   loading="eager"
                 />
 
-                {/* Incentivo no topo da capa — metade dentro, metade fora */}
-                <div className="absolute -top-3 md:-top-4 left-1/2 -translate-x-1/2 z-20">
+                {/* Incentivo no topo da capa — dentro da imagem */}
+                <div className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 z-20">
                   <div className="inline-flex items-center gap-1.5 md:gap-2 bg-blue-600 text-white text-[10px] md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border-2 border-white/30 animate-pulse whitespace-nowrap">
                     <PlayCircle className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                    Assista o recado da professora — só 2 min
+                    Assista o recado da professora
                   </div>
                 </div>
 
