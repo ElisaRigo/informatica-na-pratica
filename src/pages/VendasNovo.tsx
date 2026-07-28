@@ -27,6 +27,8 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  MousePointer,
+  Rocket,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -441,39 +443,75 @@ const Method = () => {
   const steps = [
     {
       n: "1",
-      t: "Assiste a aula curta",
-      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no celular, computador ou tablet, quando quiser.",
+      icon: Play,
+      t: "Assista às aulas curtas e claras",
+      badge: "O computador deixa de ser um bicho de 7 cabeças",
+      d: "Aulas de 5 a 15 minutos, sem termos difíceis. Você assiste no celular, computador ou tablet, quando quiser.",
     },
     {
       n: "2",
-      t: "Faz junto comigo",
-      d: "Você abre o computador e vai clicando junto. Eu mostro cada passo, sem pular nada.",
+      icon: MousePointer,
+      t: "Pratique clicando junto comigo",
+      badge: "Você ganha confiança a cada passo",
+      d: "Eu mostro exatamente onde clicar. Você repete comigo e aprende na prática, sem pular nada.",
     },
     {
       n: "3",
-      t: "Pratica no seu dia a dia",
-      d: "Em poucos dias você já tá enviando e-mail, usando Word e mexendo na internet sem medo.",
+      icon: Rocket,
+      t: "Use sozinho no seu dia a dia",
+      badge: "Você deixa de depender dos outros",
+      d: "Em poucos dias você já envia e-mails, cria documentos, organiza arquivos e navega na internet sem medo.",
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-blue-600 text-white">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-5">
-          <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
-          <p className="text-blue-100 max-w-2xl mx-auto">
-            Sem complicação, sem termos técnicos. Só você, o computador e eu te guiando.
+    <section className="py-6 md:py-10 bg-white">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-6 md:mb-8">
+          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            <Monitor className="w-4 h-4" /> SUA TRANSFORMAÇÃO
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">
+            Do medo à confiança em 3 passos simples
+          </h2>
+          <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base">
+            Você não precisa ter experiência. Basta seguir o passo a passo.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {steps.map((s) => (
-            <div key={s.n} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-6">
-              <div className="w-12 h-12 rounded-full bg-white text-blue-600 font-black text-xl flex items-center justify-center mb-4">
-                {s.n}
+
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+          {steps.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.n}
+                className="relative bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                  </div>
+                  <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-slate-100 text-slate-500 font-bold text-sm md:text-base flex items-center justify-center">
+                    {s.n}
+                  </div>
+                </div>
+
+                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{s.t}</h3>
+
+                <div className="inline-block bg-green-50 border border-green-200 rounded-lg px-3 py-1.5 mb-3">
+                  <p className="text-green-700 text-xs md:text-sm font-bold leading-snug">{s.badge}</p>
+                </div>
+
+                <p className="text-slate-500 text-sm leading-relaxed">{s.d}</p>
               </div>
-              <h3 className="text-xl font-bold mb-2">{s.t}</h3>
-              <p className="text-blue-50 text-sm leading-relaxed">{s.d}</p>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        <div className="mt-6 md:mt-8 flex justify-center">
+          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm md:text-base font-bold px-4 py-2.5 rounded-full">
+            <ThumbsUp className="w-4 h-4 md:w-5 md:h-5" />
+            Se milhares de alunos conseguiram aprender dessa forma, você também consegue.
+          </div>
         </div>
       </div>
     </section>
