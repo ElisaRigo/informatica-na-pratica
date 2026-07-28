@@ -101,7 +101,7 @@ export const QuizIdentificacao = () => {
             <NotebookPen className="w-7 h-7 md:w-9 md:h-9 shrink-0" /> Teste rápido de 30 segundos
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-white mb-2">
-            Esse curso pode <span className="text-white underline decoration-4 decoration-white/40 underline-offset-4">te ajudar?</span>
+            Descubra se esse curso é <span className="text-white underline decoration-4 decoration-white/40 underline-offset-4">pra você!</span>
           </h2>
           <p className="text-white/90 max-w-xl mx-auto text-sm md:text-base">
             Responda 4 perguntas rápidas e receba uma orientação personalizada da Professora Elisa.
