@@ -184,7 +184,7 @@ const Hero = () => {
           </div>
 
           <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
-            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+            Em poucas aulas, você fará sozinho tarefas do dia a dia, como criar documentos, organizar arquivos, enviar e-mails e muito mais.
           </p>
 
           <CTA>Quero começar agora!</CTA>
