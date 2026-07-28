@@ -1173,6 +1173,7 @@ const Home = () => {
       <FinalCTA />
       <Footer />
       <StickyMobile />
+      <StickyDesktop />
       <WhatsAppButton />
     </div>
   );
