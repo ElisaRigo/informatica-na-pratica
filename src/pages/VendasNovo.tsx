@@ -158,21 +158,10 @@ const Hero = () => {
                   loading="eager"
                 />
 
-                {/* Incentivo no topo da capa — dentro da imagem */}
-                <div className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 z-20">
-                  <div className="inline-flex items-center gap-1.5 md:gap-2 bg-blue-600 text-white text-[10px] md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border-2 border-white/30 animate-pulse whitespace-nowrap">
-                    <PlayCircle className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                    Assista o recado da professora
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
+                    <PlayCircle className="w-8 h-8 md:w-10 md:h-10 text-blue-600" strokeWidth={1.5} />
                   </div>
-                </div>
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
-                  </div>
-                  <span className="bg-slate-900/70 text-white text-sm md:text-base font-semibold px-4 py-1.5 rounded-full">
-                    Clique e conheça o curso
-                  </span>
                 </div>
               </div>
             ) : (
