@@ -1130,6 +1130,7 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
+      <ValuePrelude />
       <MiniValueSection />
       <QuizIdentificacao />
       <Instructor />
@@ -1142,7 +1143,6 @@ const VendasNovo = () => {
         </div>
       </section>
       <Certificate />
-      <ValuePrelude />
       <Pricing />
       <GuaranteeBlock />
       <FAQ />
