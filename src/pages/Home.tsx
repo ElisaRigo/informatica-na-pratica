@@ -1155,29 +1155,16 @@ const Home = () => {
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
-      <AulaDemonstrativa />
-      <SocialProof />
       <DarkProblemSection />
-      <QuizIdentificacao />
-      <Instructor />
-      <Method />
       <BeforeAfter />
-      <Modules />
-      <section className="py-4 md:py-6 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <HeroBonuses variant="light" />
-        </div>
-      </section>
+      <Instructor />
+      <SocialProof />
       <MiniValueSection />
-      <Certificate />
       <GuaranteeBlock />
-      <FAQ />
-      <Pricing />
       <FinalCTA />
       <Footer />
       <StickyMobile />
       <StickyDesktop />
-      <ExitIntentModal />
       <WhatsAppButton />
     </div>
   );
