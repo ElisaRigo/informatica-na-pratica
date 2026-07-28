@@ -27,6 +27,8 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  MousePointer,
+  Rocket,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
