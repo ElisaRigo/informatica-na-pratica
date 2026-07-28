@@ -465,7 +465,7 @@ const Method = () => {
     },
   ];
   return (
-    <section className="py-6 md:py-10 bg-white">
+    <section className="py-6 md:py-10 bg-gradient-to-b from-slate-100 via-blue-50 to-slate-100">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
