@@ -98,8 +98,11 @@ export const QuizIdentificacao = () => {
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="flex items-center justify-center gap-3 bg-white text-primary text-xl md:text-3xl font-black px-6 md:px-8 py-3 md:py-4 rounded-full mb-4 shadow-lg w-full">
-            <NotebookPen className="w-7 h-7 md:w-9 md:h-9 shrink-0" /> Descubra se este curso é para você!
+            <NotebookPen className="w-7 h-7 md:w-9 md:h-9 shrink-0" /> Teste rápido de 30 segundos
           </span>
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-2">
+            Esse curso pode <span className="text-white underline decoration-4 decoration-white/40 underline-offset-4">te ajudar?</span>
+          </h2>
           <p className="text-white/90 max-w-xl mx-auto text-sm md:text-base">
             Responda 4 perguntas rápidas e receba uma orientação personalizada da Professora Elisa.
           </p>

@@ -1,5 +1,5 @@
-import Home from "./Home";
+import VendasNovo from "./VendasNovo";
 
-const Index = () => <Home />;
+const Index = () => <VendasNovo />;
 
 export default Index;

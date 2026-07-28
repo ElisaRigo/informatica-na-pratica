@@ -27,7 +27,6 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
-  Zap,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -58,7 +57,6 @@ import fbAvatar8 from "@/assets/avatar-8.jpg";
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
-import { Method } from "@/components/aprender/Method";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -76,6 +74,23 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
   </button>
 );
 
+// ───────────────────────── Countdown ─────────────────────────
+const useCountdown = () => {
+  const [t, setT] = useState({ h: 23, m: 47, s: 12 });
+  useEffect(() => {
+    const id = setInterval(() => {
+      setT(({ h, m, s }) => {
+        if (s > 0) return { h, m, s: s - 1 };
+        if (m > 0) return { h, m: m - 1, s: 59 };
+        if (h > 0) return { h: h - 1, m: 59, s: 59 };
+        return { h: 23, m: 59, s: 59 };
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
+};
 
 import logo from "@/assets/logo-blue.png";
 import windowsIcon from "@/assets/windows-icon.png";
@@ -109,34 +124,27 @@ const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Top urgency strip */}
-      <div className="bg-blue-600 text-center py-2 px-3">
-        <div className="flex items-center justify-center gap-2 md:gap-3 text-white text-xs md:text-base font-bold flex-wrap">
-          <span className="inline-flex items-center gap-1.5">
-            <Zap className="w-4 h-4 md:w-5 md:h-5 fill-yellow-300" />
-            <span>Oferta especial com 40% OFF liberada</span>
-          </span>
-          <span className="hidden sm:inline-flex items-center gap-1 text-yellow-200">
-            <span className="w-1.5 h-1.5 rounded-full bg-yellow-300 animate-pulse" />
-            Vagas limitadas
-          </span>
-        </div>
+      <div className="bg-blue-600 text-center py-2.5 px-4">
+        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
+          <span className="text-xl md:text-2xl">💻</span>
+          Você sente Dificuldade com o Computador?
+        </span>
       </div>
 
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Método usado por +15.000 alunos
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
           </span>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-tight mb-4">
-            Chega de se sentir <span className="text-blue-600">travado(a)</span> na frente do computador.
-            <span className="text-slate-800 text-2xl md:text-4xl lg:text-5xl font-black block mt-3">
-              Aprenda de um jeito simples e sinta o orgulho de fazer sozinho(a).
-            </span>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
+            Aprenda a usar o computador
+            <br className="hidden md:block" />
+            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-lg md:text-2xl text-slate-700 max-w-3xl mx-auto mb-5 leading-snug">
-            Um método <strong>calmo, no seu ritmo</strong>, feito para quem tem medo de errar — e que já mudou a vida de milhares de pessoas como você.
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
+            Imagine usar o computador com confiança e tranformar a sua rotina, sem depender de ninguém!
           </p>
 
           {/* Video */}
@@ -175,16 +183,11 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-lg md:text-2xl text-slate-800 max-w-3xl mx-auto mb-4 font-semibold leading-snug">
-            Imagine abrir o computador sem medo, resolver tudo sozinho(a) e ainda ouvir da sua família:
-            <span className="text-blue-700"> "Nossa, como você aprendeu rápido!"</span>
+          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
+            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
-          <CTA>SIM! Eu quero aprender agora</CTA>
-
-          <p className="text-xs md:text-sm text-slate-500 mt-2">
-            Acesso em até 2 minutos • 7 dias de garantia • Pague em até 12x
-          </p>
+          <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
@@ -211,7 +214,7 @@ const Hero = () => {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <p className="text-xs text-slate-600 font-medium">4.9/5 • +15.000 alunos já aprenderam</p>
+              <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
             </div>
           </div>
         </div>
@@ -432,6 +435,49 @@ const Instructor = () => (
   </section>
 );
 
+// ───────────────────────── Method (3 steps) ─────────────────────────
+const Method = () => {
+  const steps = [
+    {
+      n: "1",
+      t: "Assiste a aula curta",
+      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no celular, computador ou tablet, quando quiser.",
+    },
+    {
+      n: "2",
+      t: "Faz junto comigo",
+      d: "Você abre o computador e vai clicando junto. Eu mostro cada passo, sem pular nada.",
+    },
+    {
+      n: "3",
+      t: "Pratica no seu dia a dia",
+      d: "Em poucos dias você já tá enviando e-mail, usando Word e mexendo na internet sem medo.",
+    },
+  ];
+  return (
+    <section className="py-4 md:py-6 bg-blue-600 text-white">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-5">
+          <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
+          <p className="text-blue-100 max-w-2xl mx-auto">
+            Sem complicação, sem termos técnicos. Só você, o computador e eu te guiando.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {steps.map((s) => (
+            <div key={s.n} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-6">
+              <div className="w-12 h-12 rounded-full bg-white text-blue-600 font-black text-xl flex items-center justify-center mb-4">
+                {s.n}
+              </div>
+              <h3 className="text-xl font-bold mb-2">{s.t}</h3>
+              <p className="text-blue-50 text-sm leading-relaxed">{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 // ───────────────────────── Modules ─────────────────────────
 const Modules = () => {
@@ -474,14 +520,14 @@ const Modules = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-blue-200">
+    <section className="py-4 md:py-6 bg-slate-50">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-5">
-          <span className="inline-block bg-blue-300 text-blue-900 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
             CONTEÚDO COMPLETO
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
-          <p className="text-slate-700 max-w-2xl mx-auto">
+          <p className="text-slate-600 max-w-2xl mx-auto">
             +90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.
           </p>
         </div>
@@ -491,12 +537,12 @@ const Modules = () => {
               key={m.t}
               className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-blue-300 flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
                 <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
               <p className="text-slate-600 text-sm mb-3">{m.d}</p>
-              <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-1 rounded">{m.lessons}</span>
+              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{m.lessons}</span>
             </div>
           ))}
         </div>
@@ -836,101 +882,64 @@ const Certificate = () => (
 );
 
 // ───────────────────────── Pricing ─────────────────────────
-const Pricing = () => {
-  return (
-    <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <div className="text-center mb-6">
-          <span className="inline-flex items-center gap-2 bg-yellow-400 text-blue-900 text-xs md:text-sm font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-            <Zap className="w-4 h-4 fill-blue-900" /> Oferta especial 40% OFF
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
-          <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • 7 dias de garantia</p>
+const Pricing = () => (
+  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+    <div className="container mx-auto px-4 max-w-3xl">
+      <div className="text-center mb-8">
+        <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+          🔥 Oferta especial • 40% OFF
+        </span>
+        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
+        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
+      </div>
+
+      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
+        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
+        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+
+        <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
+          <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
+          <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
+          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
+          <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+            <span>🎁</span> Hoje você leva 4 bônus exclusivos
+          </p>
+          <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
+          <p className="text-base text-slate-600 mt-1">
+            ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
+          </p>
         </div>
 
-        <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
-          <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
-          <p className="text-center text-slate-500 text-sm mb-5">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+        <ul className="space-y-3 mb-6">
+          {[
+            "+90 videoaulas passo a passo",
+            "Acesso vitalício — assiste quantas vezes quiser",
+            "Certificado de conclusão",
+            "Suporte direto com a professora",
+            "Atualizações gratuitas pra sempre",
+            "Acesso pelo celular, tablet ou computador",
+          ].map((x) => (
+            <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
+              {x}
+            </li>
+          ))}
+        </ul>
 
-          {/* Value stack */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-5">
-            <p className="text-center text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">
-              Tudo o que você recebe hoje
-            </p>
-            <ul className="space-y-2 text-sm md:text-base">
-              <li className="flex items-baseline justify-between gap-3 border-b border-slate-200 pb-2">
-                <span className="text-slate-700">Curso Completo — 6 módulos + 90 aulas</span>
-                <span className="font-bold text-slate-900 whitespace-nowrap">R$ 497</span>
-              </li>
-              <li className="flex items-baseline justify-between gap-3 border-b border-slate-200 pb-2">
-                <span className="text-slate-700">4 Bônus exclusivos (Mercado, Atalhos, Currículo, E-mail)</span>
-                <span className="font-bold text-slate-900 whitespace-nowrap">R$ 368</span>
-              </li>
-              <li className="flex items-baseline justify-between gap-3 border-b border-slate-200 pb-2">
-                <span className="text-slate-700">Certificado de conclusão</span>
-                <span className="font-bold text-slate-900 whitespace-nowrap">R$ 97</span>
-              </li>
-              <li className="flex items-baseline justify-between gap-3 pb-1">
-                <span className="text-slate-700">Suporte direto com a professora</span>
-                <span className="font-bold text-slate-900 whitespace-nowrap">R$ 197</span>
-              </li>
-            </ul>
-            <div className="mt-3 pt-3 border-t-2 border-slate-300 flex items-baseline justify-between gap-3">
-              <span className="text-slate-600 font-semibold text-sm md:text-base">Valor total:</span>
-              <span className="text-slate-500 line-through font-black text-lg md:text-xl">R$ 1.159</span>
-            </div>
-          </div>
+        <CTA>Quero aproveitar o desconto!</CTA>
 
-          {/* Price highlight */}
-          <div className="bg-green-50 border-2 border-green-500 rounded-2xl p-5 md:p-6 text-center mb-5">
-            <p className="text-sm text-slate-600 font-semibold mb-1">Hoje, com desconto de R$ 862</p>
-            <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
-            <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-              <span>🎁</span> Com os 4 bônus exclusivos inclusos
-            </p>
-            <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
-            <p className="text-base text-slate-600 mt-1">
-              ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
-            </p>
-            <p className="inline-flex items-center gap-1.5 text-green-700 text-xs md:text-sm font-bold mt-3 bg-white px-3 py-1 rounded-full">
-              💡 Menos de R$ 1 por dia durante 1 ano
-            </p>
-          </div>
-
-          <ul className="space-y-3 mb-6">
-            {[
-              "+90 videoaulas passo a passo",
-              "Acesso vitalício — assiste quantas vezes quiser",
-              "Certificado de conclusão",
-              "Suporte direto com a professora",
-              "Atualizações gratuitas pra sempre",
-              "Acesso pelo celular, tablet ou computador",
-            ].map((x) => (
-              <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
-                <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
-                {x}
-              </li>
-            ))}
-          </ul>
-
-          <CTA>Sim, quero minha vaga hoje</CTA>
-
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
-            <span className="flex items-center gap-1.5">
-              <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-green-600" /> Processado pela Hotmart
-            </span>
-          </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
+          <span className="flex items-center gap-1.5">
+            <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
+          </span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
+          </span>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 // ───────────────────────── Guarantee ─────────────────────────
 const GuaranteeBlock = () => (
@@ -1066,9 +1075,10 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <SocialProof />
-      <Instructor />
       <MiniValueSection />
+      <QuizIdentificacao />
+      <Instructor />
+      <SocialProof />
       <Method />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
@@ -1077,11 +1087,10 @@ const VendasNovo = () => {
         </div>
       </section>
       <Certificate />
+      <Pricing />
       <GuaranteeBlock />
       <FAQ />
-      <QuizIdentificacao />
       <FinalCTA />
-      <Pricing />
       <Footer />
       <StickyMobile />
       <WhatsAppButton />
