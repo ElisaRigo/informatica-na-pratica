@@ -148,6 +148,13 @@ const Hero = () => {
           </p>
 
           {/* Video */}
+          <div className="max-w-5xl mx-auto mb-3">
+            <div className="inline-flex items-center justify-center gap-2 bg-amber-100 text-amber-800 text-sm md:text-lg font-bold px-4 py-2 rounded-full border border-amber-200 shadow-sm animate-pulse">
+              <PlayCircle className="w-5 h-5 md:w-6 md:h-6" />
+              Assista a 1ª aula gratuita — só 2 minutos
+            </div>
+          </div>
+
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
@@ -157,10 +164,13 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                     <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
                   </div>
+                  <span className="bg-slate-900/70 text-white text-sm md:text-base font-semibold px-4 py-1.5 rounded-full">
+                    Clique e veja como é a aula
+                  </span>
                 </div>
               </div>
             ) : (
