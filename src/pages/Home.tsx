@@ -1157,9 +1157,11 @@ const Home = () => {
       <Hero />
       <AulaDemonstrativa />
       <SocialProof />
-      <Instructor />
       <DarkProblemSection />
+      <QuizIdentificacao />
+      <Instructor />
       <Method />
+      <BeforeAfter />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
@@ -1170,12 +1172,12 @@ const Home = () => {
       <Certificate />
       <GuaranteeBlock />
       <FAQ />
-      <QuizIdentificacao />
       <Pricing />
       <FinalCTA />
       <Footer />
       <StickyMobile />
       <StickyDesktop />
+      <ExitIntentModal />
       <WhatsAppButton />
     </div>
   );
