@@ -527,6 +527,7 @@ const Modules = () => {
   const benefits = [
     { i: "📄", t: "Montar seu currículo e enviar por e-mail", d: "Conquiste vagas e novas oportunidades." },
     { i: "✉️", t: "Usar o e-mail com confiança", d: "Escrever, anexar arquivos e responder sem medo." },
+    { i: "📊", t: "Criar planilhas e controlar contas no Excel", d: "Organize gastos, orçamento e informações com clareza." },
     { i: "🏥", t: "Marcar consultas e resolver pela internet", d: "SUS, INSS, boletos — tudo do conforto de casa." },
     { i: "🔎", t: "Pesquisar qualquer coisa no Google", d: "Achar receitas, respostas e endereços em segundos." },
     { i: "📁", t: "Organizar fotos, documentos e arquivos", d: "Nunca mais perder um documento importante." },
