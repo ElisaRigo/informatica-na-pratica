@@ -26,6 +26,7 @@ const Informatica = lazy(() => import("./pages/Informatica"));
 const Aprender = lazy(() => import("./pages/Aprender"));
 const VendasNovo = lazy(() => import("./pages/VendasNovo"));
 const Ok = lazy(() => import("./pages/Ok"));
+const AltaConversao = lazy(() => import("./pages/AltaConversao"));
 
 
 const queryClient = new QueryClient();
