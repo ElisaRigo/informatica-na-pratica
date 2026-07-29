@@ -525,14 +525,11 @@ const Method = () => {
 // ───────────────────────── Transformation (Benefícios reais) ─────────────────────────
 const Modules = () => {
   const benefits = [
-    { i: "💳", t: "Fazer PIX e pagar contas sozinho(a)", d: "Sem depender de filho ou neto pra resolver o banco." },
     { i: "📄", t: "Montar seu currículo e enviar por e-mail", d: "Conquiste vagas e novas oportunidades." },
     { i: "✉️", t: "Usar o e-mail com confiança", d: "Escrever, anexar arquivos e responder sem medo." },
     { i: "🏥", t: "Marcar consultas e resolver pela internet", d: "SUS, INSS, boletos — tudo do conforto de casa." },
     { i: "🔎", t: "Pesquisar qualquer coisa no Google", d: "Achar receitas, respostas e endereços em segundos." },
-    { i: "👨‍👩‍👧", t: "Conversar com a família por vídeo", d: "Ver netos, filhos e amigos onde eles estiverem." },
     { i: "📁", t: "Organizar fotos, documentos e arquivos", d: "Nunca mais perder um documento importante." },
-    { i: "💼", t: "Participar de reuniões online", d: "Trabalho, cursos e eventos sem passar vergonha." },
   ];
   return (
     <section className="py-6 md:py-10 bg-slate-50">
@@ -587,7 +584,7 @@ const EmotionalVision = () => (
         <p>
           Você senta na frente do computador — <strong className="text-white">sem medo, sem tremer a mão</strong>.
         </p>
-        <p>Faz um PIX sozinho(a). Envia um e-mail. Baixa um documento. Marca uma consulta pela internet.</p>
+        <p>Envia um e-mail sozinho(a). Baixa um documento. Marca uma consulta pela internet.</p>
         <p>
           O telefone toca — é seu filho ou seu neto. Pela <strong className="text-white">primeira vez</strong>, você não
           liga pedindo ajuda. Você liga <strong className="text-yellow-300">contando o que conseguiu fazer</strong>.
