@@ -600,7 +600,8 @@ const Modules = () => {
                   </span>
                 </div>
 
-                center dot on line                <div className="hidden md:block absolute left-1/2 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-100" />
+                {/* center dot on timeline */}
+                <div className="hidden md:block absolute left-1/2 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-100" />
 
                 {/* card */}
                 <div
