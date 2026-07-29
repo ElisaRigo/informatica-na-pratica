@@ -522,80 +522,86 @@ const Method = () => {
   );
 };
 
-// ───────────────────────── Modules ─────────────────────────
+// ───────────────────────── Transformation (Benefícios reais) ─────────────────────────
 const Modules = () => {
-  const mods = [
-    {
-      i: windowsIcon,
-      t: "Windows e Organização",
-      d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos com segurança.",
-      lessons: "Módulo 1",
-    },
-    {
-      i: wordIcon,
-      t: "Word Profissional",
-      d: "Escreva cartas, currículos e documentos. Formate, salve e imprima sem medo.",
-      lessons: "Módulo 2",
-    },
-    {
-      i: excelIcon,
-      t: "Excel na Prática",
-      d: "Crie planilhas, fórmulas e organize contas e gastos do mês.",
-      lessons: "Módulo 3",
-    },
-    {
-      i: powerpointIcon,
-      t: "PowerPoint Impactante",
-      d: "Faça apresentações bonitas e profissionais, mesmo sem experiência.",
-      lessons: "Módulo 4",
-    },
-    {
-      i: internetIcon,
-      t: "Internet e E-mail",
-      d: "Pesquise no Google, envie e receba e-mails, evite golpes e use o YouTube.",
-      lessons: "Módulo 5",
-    },
-    {
-      i: typingIcon,
-      t: "Digitação Profissional",
-      d: "Ganhe velocidade no teclado e produtividade no dia a dia.",
-      lessons: "Módulo 6",
-    },
+  const benefits = [
+    { i: "💳", t: "Fazer PIX e pagar contas sozinho(a)", d: "Sem depender de filho ou neto pra resolver o banco." },
+    { i: "📄", t: "Montar seu currículo e enviar por e-mail", d: "Conquiste vagas e novas oportunidades." },
+    { i: "✉️", t: "Usar o e-mail com confiança", d: "Escrever, anexar arquivos e responder sem medo." },
+    { i: "🏥", t: "Marcar consultas e resolver pela internet", d: "SUS, INSS, boletos — tudo do conforto de casa." },
+    { i: "🔎", t: "Pesquisar qualquer coisa no Google", d: "Achar receitas, respostas e endereços em segundos." },
+    { i: "👨‍👩‍👧", t: "Conversar com a família por vídeo", d: "Ver netos, filhos e amigos onde eles estiverem." },
+    { i: "📁", t: "Organizar fotos, documentos e arquivos", d: "Nunca mais perder um documento importante." },
+    { i: "💼", t: "Participar de reuniões online", d: "Trabalho, cursos e eventos sem passar vergonha." },
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-5">
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-            CONTEÚDO COMPLETO
+    <section className="py-6 md:py-10 bg-slate-50">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-6">
+          <span className="inline-block bg-green-100 text-green-700 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
+            O que você vai conseguir fazer
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            +90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-2 leading-tight">
+            Sua nova vida com o computador começa aqui
+          </h2>
+          <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">
+            Você não vai só aprender informática. Você vai <strong>ganhar independência</strong>.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {mods.map((m) => (
+        <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
+          {benefits.map((b) => (
             <div
-              key={m.t}
-              className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              key={b.t}
+              className="flex items-start gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-300 transition-colors"
             >
-              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
-                <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
+              <span className="text-2xl md:text-3xl shrink-0">{b.i}</span>
+              <div>
+                <h3 className="text-slate-900 font-bold text-sm md:text-base leading-tight">{b.t}</h3>
+                <p className="text-slate-500 text-xs md:text-sm mt-0.5">{b.d}</p>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
-              <p className="text-slate-600 text-sm mb-3">{m.d}</p>
-              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{m.lessons}</span>
             </div>
           ))}
         </div>
-        <div className="text-center mt-5">
-          <CTA>Quero ver todas as aulas!</CTA>
+        <p className="text-center text-slate-500 text-xs md:text-sm mt-5 max-w-2xl mx-auto">
+          Tudo isso em <strong className="text-slate-800">6 módulos</strong> com +90 videoaulas curtas, passo a passo.
+        </p>
+        <div className="text-center mt-4">
+          <CTA>Quero parar de depender dos outros</CTA>
         </div>
       </div>
     </section>
   );
 };
+
+// ───────────────────────── Bloco Emocional (Vision) ─────────────────────────
+const EmotionalVision = () => (
+  <section className="py-8 md:py-14 bg-gradient-to-b from-blue-700 via-blue-800 to-slate-900 text-white">
+    <div className="container mx-auto px-4 max-w-3xl text-center">
+      <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+        Feche os olhos por 10 segundos
+      </span>
+      <h2 className="text-2xl md:text-4xl font-black leading-tight mb-5">
+        Imagine como será sua vida <span className="text-yellow-300">daqui a algumas semanas…</span>
+      </h2>
+      <div className="space-y-3 text-blue-50 text-base md:text-lg leading-relaxed">
+        <p>
+          Você senta na frente do computador — <strong className="text-white">sem medo, sem tremer a mão</strong>.
+        </p>
+        <p>Faz um PIX sozinho(a). Envia um e-mail. Baixa um documento. Marca uma consulta pela internet.</p>
+        <p>
+          O telefone toca — é seu filho ou seu neto. Pela <strong className="text-white">primeira vez</strong>, você não
+          liga pedindo ajuda. Você liga <strong className="text-yellow-300">contando o que conseguiu fazer</strong>.
+        </p>
+        <p className="text-lg md:text-xl font-bold text-white pt-2">
+          Isso não é sonho. É o que acontece com quem entra hoje.
+        </p>
+      </div>
+      <div className="mt-6">
+        <CTA>Quero viver isso!</CTA>
+      </div>
+    </div>
+  </section>
+);
 
 // ───────────────────────── Social Proof (WhatsApp + Facebook) ─────────────────────────
 const audioTestimonials = [
@@ -924,60 +930,75 @@ const Certificate = () => (
   </section>
 );
 
-// ───────────────────────── Pricing ─────────────────────────
+
+// ───────────────────────── Pricing (Oferta principal — hierarquia forte) ─────────────────────────
 const Pricing = () => (
-  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+  <section id="oferta" className="py-8 md:py-14 bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
-      <div className="text-center mb-8">
-        <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-          🔥 Oferta especial • 40% OFF
+      <div className="text-center mb-6">
+        <span className="inline-block bg-yellow-400 text-blue-900 text-xs md:text-sm font-black px-4 py-2 rounded-full mb-3 uppercase tracking-wide shadow-lg">
+          Oferta especial de hoje • 40% OFF
         </span>
-        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
-        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
+        <h2 className="text-3xl md:text-5xl font-black leading-tight">Sua vaga está aqui</h2>
+        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso liberado na hora • Vitalício</p>
       </div>
 
-      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
-        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
-        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
-
-        <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
-          <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
-          <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
-          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
-          <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-            <span>🎁</span> Hoje você leva 4 bônus exclusivos
-          </p>
-          <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
-          <p className="text-base text-slate-600 mt-1">
-            ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
-          </p>
+      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-yellow-400">
+        {/* Faixa de topo */}
+        <div className="bg-yellow-400 text-blue-900 text-center py-2 px-4 font-black text-sm md:text-base uppercase tracking-wide">
+          🎁 Hoje leva 4 bônus exclusivos (grátis)
         </div>
 
-        <ul className="space-y-3 mb-6">
-          {[
-            "+90 videoaulas passo a passo",
-            "Acesso vitalício — assiste quantas vezes quiser",
-            "Certificado de conclusão",
-            "Suporte direto com a professora",
-            "Atualizações gratuitas pra sempre",
-            "Acesso pelo celular, tablet ou computador",
-          ].map((x) => (
-            <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
-              {x}
-            </li>
-          ))}
-        </ul>
+        <div className="p-6 md:p-10">
+          <h3 className="text-xl md:text-2xl font-black text-center mb-1">Curso Completo de Informática</h3>
+          <p className="text-center text-slate-500 text-sm mb-5">+90 videoaulas • 6 módulos • Acesso vitalício</p>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
+          {/* Preço */}
+          <div className="bg-gradient-to-b from-green-50 to-white rounded-2xl p-6 text-center mb-5 border-2 border-green-200">
+            <p className="text-slate-500 text-sm mb-1">De <span className="line-through">R$ 497,00</span> por apenas</p>
+            <p className="text-6xl md:text-7xl font-black text-green-600 leading-none tracking-tight">R$ 297</p>
+            <p className="text-slate-700 text-base mt-2">à vista no PIX</p>
+            <p className="text-base text-slate-600 mt-1">
+              ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
+            </p>
+          </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
-          <span className="flex items-center gap-1.5">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
-          </span>
-          <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
-          </span>
+          {/* Tudo que inclui */}
+          <p className="text-center text-slate-500 text-xs font-black uppercase tracking-wide mb-3">Tudo que você recebe hoje</p>
+          <ul className="space-y-2.5 mb-6">
+            {[
+              ["+90 videoaulas passo a passo", "R$ 297"],
+              ["Acesso vitalício (nunca perde)", "Incluso"],
+              ["Certificado de conclusão", "Bônus"],
+              ["Suporte direto com a professora", "Bônus"],
+              ["Bônus 1: Atalhos essenciais", "R$ 97"],
+              ["Bônus 2: Currículo profissional", "R$ 97"],
+              ["Bônus 3: Mercado de trabalho", "R$ 87"],
+              ["Bônus 4: Materiais e apostilas", "R$ 87"],
+            ].map(([x, v]) => (
+              <li key={x} className="flex items-center justify-between gap-3 text-slate-800 text-sm md:text-base border-b border-slate-100 pb-2">
+                <span className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
+                  <span className="font-medium">{x}</span>
+                </span>
+                <span className={`text-xs md:text-sm font-bold shrink-0 ${v === "Bônus" ? "text-amber-600" : "text-slate-400"}`}>{v}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="bg-slate-50 rounded-xl p-3 text-center mb-5">
+            <p className="text-xs text-slate-500 uppercase font-bold tracking-wide">Valor total</p>
+            <p className="text-slate-400 line-through text-lg font-bold">R$ 862,00</p>
+            <p className="text-green-600 font-black text-2xl md:text-3xl leading-none mt-1">Você paga só R$ 297</p>
+          </div>
+
+          <CTA>Quero garantir meu acesso agora!</CTA>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4 text-xs text-slate-500">
+            <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-green-600" /> Acesso imediato</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1117,13 +1138,13 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
+      <SocialProof />
       <AulaDemonstrativa />
-      <MiniValueSection />
       <QuizIdentificacao />
       <Instructor />
-      <SocialProof />
-      <Method />
       <Modules />
+      <Method />
+      <EmotionalVision />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
@@ -1131,7 +1152,6 @@ const VendasNovo = () => {
       </section>
       <Certificate />
       <Pricing />
-      <GuaranteeBlock />
       <FAQ />
       <FinalCTA />
       <Footer />
