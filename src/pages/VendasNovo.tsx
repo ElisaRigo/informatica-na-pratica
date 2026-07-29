@@ -527,10 +527,29 @@ const Modules = () => {
   const benefits = [
     { i: "📄", t: "Montar seu currículo e enviar por e-mail", d: "Conquiste vagas e novas oportunidades." },
     { i: "✉️", t: "Usar o e-mail com confiança", d: "Escrever, anexar arquivos e responder sem medo." },
+    { i: "📊", t: "Criar planilhas e controlar contas no Excel", d: "Organize gastos, orçamento e informações com clareza." },
     { i: "🏥", t: "Marcar consultas e resolver pela internet", d: "SUS, INSS, boletos — tudo do conforto de casa." },
     { i: "🔎", t: "Pesquisar qualquer coisa no Google", d: "Achar receitas, respostas e endereços em segundos." },
-    { i: "📁", t: "Organizar fotos, documentos e arquivos", d: "Nunca mais perder um documento importante." },
-  ];
+    { i: "📁", t: " transition-colors"
+      >
+        <span className="text-2xl md:text-3xl shrink-0">{b.i}</span>
+        <div>
+          <h3 className="text-slate-900 font-bold text-sm md:text-base leading-tight">{b.t}</h3>
+          <p className="text-slate-500 text-xs md:text-sm mt-0.5">{b.d}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+  <p className="text-center text-slate-500 text-xs md:text-sm mt-5 max-w-2xl mx-auto">
+    Tudo isso em <strong className="text-slate-800">6 módulos</strong> com +90 videoaulas curtas, passo a passo.
+  </p>
+  <div className="text-center mt-4">
+    <CTA>Quero parar de depender dos outros</CTA>
+  </div>
+</div>
+</section>
+);
+};
   return (
     <section className="py-6 md:py-10 bg-slate-50">
       <div className="container mx-auto px-4 max-w-5xl">
