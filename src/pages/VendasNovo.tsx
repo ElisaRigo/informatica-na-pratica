@@ -524,86 +524,107 @@ const Method = () => {
 
 // ───────────────────────── Transformation (Módulos + Benefícios reais) ─────────────────────────
 const Modules = () => {
-  const modules = [
+  const steps = [
     {
       icon: windowsIcon,
-      title: "Windows e Organização",
-      benefit: "Organizar fotos, documentos e arquivos",
-      description: "Nunca mais perder um documento importante.",
+      module: "Windows",
+      outcome: "Organizar fotos, documentos e arquivos sem se perder",
     },
     {
       icon: wordIcon,
-      title: "Word Profissional",
-      benefit: "Montar seu currículo e enviar por e-mail",
-      description: "Conquiste vagas e novas oportunidades.",
+      module: "Word",
+      outcome: "Montar currículo e enviar por e-mail sozinho(a)",
     },
     {
       icon: excelIcon,
-      title: "Excel na Prática",
-      benefit: "Criar planilhas e controlar contas",
-      description: "Organize gastos, orçamento e informações com clareza.",
+      module: "Excel",
+      outcome: "Criar planilhas e controlar contas do dia a dia",
     },
     {
       icon: powerpointIcon,
-      title: "PowerPoint",
-      benefit: "Fazer apresentações bonitas e claras",
-      description: "Mostre suas ideias com confiança em qualquer lugar.",
+      module: "PowerPoint",
+      outcome: "Fazer apresentações bonitas e claras",
     },
     {
       icon: internetIcon,
-      title: "Internet e E-mail",
-      benefit: "Marcar consultas, pesquisar e usar o e-mail",
-      description: "SUS, INSS, boletos, Google — tudo do conforto de casa.",
+      module: "Internet e E-mail",
+      outcome: "Marcar consultas, pesquisar e resolver tudo online",
     },
     {
       icon: typingIcon,
-      title: "Digitação Profissional",
-      benefit: "Digitar mais rápido e sem olhar para o teclado",
-      description: "Ganhe velocidade e produtividade no dia a dia.",
+      module: "Digitação",
+      outcome: "Digitar mais rápido e sem olhar para o teclado",
     },
   ];
   return (
-    <section className="py-6 md:py-10 bg-slate-50">
+    <section className="py-6 md:py-10 bg-gradient-to-b from-slate-50 to-white">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-6">
-          <span className="inline-block bg-green-100 text-green-700 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
-            O que você vai conseguir fazer
+        <div className="text-center mb-6 md:mb-8">
+          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
+            Seu passo a passo
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-2 leading-tight">
-            Sua nova vida com o computador começa aqui
+            Do zero à independência no computador
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">
-            Você não vai só aprender informática. Você vai <strong>ganhar independência</strong>.
+            6 módulos práticos. Cada um te leva a uma conquista do dia a dia.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
-          {modules.map((m) => (
-            <div
-              key={m.title}
-              className="flex items-start gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-300 transition-colors"
-            >
-              <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100">
-                <img
-                  src={m.icon}
-                  alt={`Ícone do módulo ${m.title}`}
-                  className="w-7 h-7 md:w-8 md:h-8 object-contain"
-                  loading="lazy"
-                  width="32"
-                  height="32"
-                />
+
+        <div className="relative">
+          {/* vertical line */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-200 md:-translate-x-1/2" />
+
+          <div className="space-y-4 md:space-y-6">
+            {steps.map((s, idx) => (
+              <div
+                key={s.module}
+                className={`relative flex items-center gap-4 md:gap-8 ${
+                  idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
+                {/* number + icon bubble */}
+                <div className="relative z-10 shrink-0 flex flex-col items-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white border-2 border-blue-200 shadow-sm flex items-center justify-center">
+                    <img
+                      src={s.icon}
+                      alt={`Ícone ${s.module}`}
+                      className="w-6 h-6 md:w-8 md:h-8 object-contain"
+                      loading="lazy"
+                      width="32"
+                      height="32"
+                    />
+                  </div>
+                  <span className="mt-1 text-[10px] md:text-xs font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                center dot on line                <div className="hidden md:block absolute left-1/2 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-100" />
+
+                {/* card */}
+                <div
+                  className={`flex-1 bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm ${
+                    idx % 2 === 0 ? "md:text-right" : "md:text-left"
+                  }`}
+                >
+                  <p className="text-xs md:text-sm font-black text-blue-600 uppercase tracking-wide mb-1">
+                    Módulo {s.module}
+                  </p>
+                  <h3 className="text-slate-900 font-bold text-base md:text-lg leading-snug">
+                    {s.outcome}
+                  </h3>
+                </div>
+
+                {/* empty spacer for alternating layout */}
+                <div className="hidden md:block flex-1" />
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[10px] md:text-xs font-black text-blue-600 uppercase tracking-wide leading-none mb-1">
-                  {m.title}
-                </p>
-                <h3 className="text-slate-900 font-bold text-sm md:text-base leading-tight">{m.benefit}</h3>
-                <p className="text-slate-500 text-xs md:text-sm mt-0.5">{m.description}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <p className="text-center text-slate-500 text-xs md:text-sm mt-5 max-w-2xl mx-auto">
-          Tudo isso em <strong className="text-slate-800">6 módulos</strong> com +90 videoaulas curtas, passo a passo.
+
+        <p className="text-center text-slate-500 text-xs md:text-sm mt-6 max-w-2xl mx-auto">
+          Tudo em <strong className="text-slate-800">+90 videoaulas curtas</strong>, passo a passo.
         </p>
         <div className="text-center mt-4">
           <CTA>Quero parar de depender dos outros</CTA>
