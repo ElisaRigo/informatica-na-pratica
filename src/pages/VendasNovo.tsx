@@ -522,15 +522,45 @@ const Method = () => {
   );
 };
 
-// ───────────────────────── Transformation (Benefícios reais) ─────────────────────────
+// ───────────────────────── Transformation (Módulos + Benefícios reais) ─────────────────────────
 const Modules = () => {
-  const benefits = [
-    { i: "📄", t: "Montar seu currículo e enviar por e-mail", d: "Conquiste vagas e novas oportunidades." },
-    { i: "✉️", t: "Usar o e-mail com confiança", d: "Escrever, anexar arquivos e responder sem medo." },
-    { i: "📊", t: "Criar planilhas e controlar contas no Excel", d: "Organize gastos, orçamento e informações com clareza." },
-    { i: "🏥", t: "Marcar consultas e resolver pela internet", d: "SUS, INSS, boletos — tudo do conforto de casa." },
-    { i: "🔎", t: "Pesquisar qualquer coisa no Google", d: "Achar receitas, respostas e endereços em segundos." },
-    { i: "📁", t: "Organizar fotos, documentos e arquivos", d: "Nunca mais perder um documento importante." },
+  const modules = [
+    {
+      icon: windowsIcon,
+      title: "Windows e Organização",
+      benefit: "Organizar fotos, documentos e arquivos",
+      description: "Nunca mais perder um documento importante.",
+    },
+    {
+      icon: wordIcon,
+      title: "Word Profissional",
+      benefit: "Montar seu currículo e enviar por e-mail",
+      description: "Conquiste vagas e novas oportunidades.",
+    },
+    {
+      icon: excelIcon,
+      title: "Excel na Prática",
+      benefit: "Criar planilhas e controlar contas",
+      description: "Organize gastos, orçamento e informações com clareza.",
+    },
+    {
+      icon: powerpointIcon,
+      title: "PowerPoint",
+      benefit: "Fazer apresentações bonitas e claras",
+      description: "Mostre suas ideias com confiança em qualquer lugar.",
+    },
+    {
+      icon: internetIcon,
+      title: "Internet e E-mail",
+      benefit: "Marcar consultas, pesquisar e usar o e-mail",
+      description: "SUS, INSS, boletos, Google — tudo do conforto de casa.",
+    },
+    {
+      icon: typingIcon,
+      title: "Digitação Profissional",
+      benefit: "Digitar mais rápido e sem olhar para o teclado",
+      description: "Ganhe velocidade e produtividade no dia a dia.",
+    },
   ];
   return (
     <section className="py-6 md:py-10 bg-slate-50">
@@ -547,15 +577,27 @@ const Modules = () => {
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
-          {benefits.map((b) => (
+          {modules.map((m) => (
             <div
-              key={b.t}
+              key={m.title}
               className="flex items-start gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-300 transition-colors"
             >
-              <span className="text-2xl md:text-3xl shrink-0">{b.i}</span>
-              <div>
-                <h3 className="text-slate-900 font-bold text-sm md:text-base leading-tight">{b.t}</h3>
-                <p className="text-slate-500 text-xs md:text-sm mt-0.5">{b.d}</p>
+              <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100">
+                <img
+                  src={m.icon}
+                  alt={`Ícone do módulo ${m.title}`}
+                  className="w-7 h-7 md:w-8 md:h-8 object-contain"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[10px] md:text-xs font-black text-blue-600 uppercase tracking-wide leading-none mb-1">
+                  {m.title}
+                </p>
+                <h3 className="text-slate-900 font-bold text-sm md:text-base leading-tight">{m.benefit}</h3>
+                <p className="text-slate-500 text-xs md:text-sm mt-0.5">{m.description}</p>
               </div>
             </div>
           ))}
