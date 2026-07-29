@@ -930,21 +930,6 @@ const Certificate = () => (
   </section>
 );
 
-// ───────────────────────── Pricing ─────────────────────────
-const Pricing = () => (
-  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
-    <div className="container mx-auto px-4 max-w-3xl">
-      <div className="text-center mb-8">
-        <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-          🔥 Oferta especial • 40% OFF
-        </span>
-        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
-        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
-      </div>
-
-      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
-        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
-        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
 
 // ───────────────────────── Pricing (Oferta principal — hierarquia forte) ─────────────────────────
 const Pricing = () => (
