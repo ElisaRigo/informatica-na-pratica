@@ -636,34 +636,79 @@ const Modules = () => {
 };
 
 // ───────────────────────── Bloco Emocional (Vision) ─────────────────────────
-const EmotionalVision = () => (
-  <section className="py-8 md:py-14 bg-gradient-to-b from-blue-700 via-blue-800 to-slate-900 text-white">
-    <div className="container mx-auto px-4 max-w-3xl text-center">
-      <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-        Feche os olhos por 10 segundos
-      </span>
-      <h2 className="text-2xl md:text-4xl font-black leading-tight mb-5">
-        Imagine como será sua vida <span className="text-yellow-300">daqui a algumas semanas…</span>
-      </h2>
-      <div className="space-y-3 text-blue-50 text-base md:text-lg leading-relaxed">
-        <p>
-          Você senta na frente do computador — <strong className="text-white">sem medo, sem tremer a mão</strong>.
+const EmotionalVision = () => {
+  const moments = [
+    {
+      icon: Monitor,
+      title: "Você senta no computador",
+      subtitle: "E ele deixa de ser um bicho de sete cabeças",
+      before: "Tremia só de olhar a tela",
+      after: "Agora abre, navega e resolve com calma",
+    },
+    {
+      icon: Mail,
+      title: "Você manda um e-mail sozinho",
+      subtitle: "Sem depender de ninguém para escrever ou anexar arquivo",
+      before: "Pedía ajuda para enviar qualquer coisa",
+      after: "Agora escreve, anexa e responde sozinho(a)",
+    },
+    {
+      icon: HeartHandshake,
+      title: "Você conta a conquista para a família",
+      subtitle: "E ouve: 'nossa, aprendeu sozinho!'",
+      before: "Ficava de fora das conversas digitais",
+      after: "Agora participa e ainda ensina os outros",
+    },
+  ];
+
+  return (
+    <section className="py-8 md:py-14 bg-gradient-to-b from-blue-700 via-blue-800 to-slate-900 text-white">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-6 md:mb-10">
+          <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
+            Sua rotina muda em poucas semanas
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black leading-tight">
+            Veja o que muda no seu dia a dia
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+          {moments.map((m) => (
+            <div
+              key={m.title}
+              className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 md:p-6 text-center hover:bg-white/15 transition-colors"
+            >
+              <div className="mx-auto w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-yellow-400/20 flex items-center justify-center mb-4">
+                <m.icon className="w-7 h-7 md:w-8 md:h-8 text-yellow-300" strokeWidth={2} />
+              </div>
+              <h3 className="text-lg md:text-xl font-black text-white mb-1">{m.title}</h3>
+              <p className="text-blue-100 text-sm md:text-base mb-4">{m.subtitle}</p>
+
+              <div className="space-y-2 text-left">
+                <div className="flex items-start gap-2 text-sm text-blue-100/80">
+                  <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-red-400/30 flex items-center justify-center text-[10px]">✕</span>
+                  <span>{m.before}</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm text-white font-medium">
+                  <CheckCircle2 className="shrink-0 mt-0.5 w-4 h-4 text-green-400" />
+                  <span>{m.after}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-center text-blue-100 text-base md:text-lg font-medium mt-6 md:mt-8 max-w-2xl mx-auto">
+          Isso não é sonho. É o que acontece com quem começa o curso hoje.
         </p>
-        <p>Envia um e-mail sozinho(a). Baixa um documento. Marca uma consulta pela internet.</p>
-        <p>
-          O telefone toca — é seu filho ou seu neto. Pela <strong className="text-white">primeira vez</strong>, você não
-          liga pedindo ajuda. Você liga <strong className="text-yellow-300">contando o que conseguiu fazer</strong>.
-        </p>
-        <p className="text-lg md:text-xl font-bold text-white pt-2">
-          Isso não é sonho. É o que acontece com quem entra hoje.
-        </p>
+        <div className="text-center mt-5">
+          <CTA>Quero viver isso!</CTA>
+        </div>
       </div>
-      <div className="mt-6">
-        <CTA>Quero viver isso!</CTA>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // ───────────────────────── Social Proof (WhatsApp + Facebook) ─────────────────────────
 const audioTestimonials = [
