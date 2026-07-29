@@ -1061,6 +1061,97 @@ const FAQ = () => {
   );
 };
 
+// ───────────────────────── PAS: Agitação (custo da inação) ─────────────────────────
+const AgitateSection = () => {
+  const losses = [
+    "Perder oportunidades de emprego por não saber informática",
+    "Depender do filho, neto ou colega pra tarefas simples",
+    "Ficar de fora quando pedem pra enviar um documento ou preencher um cadastro",
+    "Sentir vergonha quando o assunto é computador",
+    "Deixar de resolver coisas do banco, INSS ou governo online",
+  ];
+  return (
+    <section className="py-5 md:py-8 bg-red-50 border-y border-red-100">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <div className="text-center mb-5">
+          <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            ⚠ E se você continuar do mesmo jeito?
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Cada dia sem aprender é uma <span className="text-red-600">oportunidade perdida</span>
+          </h2>
+        </div>
+        <ul className="space-y-2.5">
+          {losses.map((l) => (
+            <li key={l} className="flex items-start gap-3 bg-white border border-red-100 rounded-xl p-3.5 shadow-sm">
+              <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 font-black text-sm flex items-center justify-center shrink-0 mt-0.5">
+                ×
+              </span>
+              <span className="text-slate-800 font-medium">{l}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="text-center text-slate-700 mt-5 text-base md:text-lg">
+          A boa notícia: <strong className="text-slate-900">tudo isso muda em poucas semanas</strong> — com o método
+          certo.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── StoryBrand: Visão Sucesso vs Falha ─────────────────────────
+const VisionSection = () => {
+  const failure = [
+    "Continuar dependendo dos outros pra tudo no computador",
+    "Ficar de fora de vagas e oportunidades",
+    "Sentir vergonha e frustração",
+  ];
+  const success = [
+    "Usar o computador com autonomia total",
+    "Enviar e-mails, criar documentos e planilhas sozinho(a)",
+    "Se sentir orgulhoso(a) e no controle do seu dia a dia",
+  ];
+  return (
+    <section className="py-5 md:py-8 bg-white">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-6">
+          <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            SUA ESCOLHA HOJE
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900">
+            Duas rotas <span className="text-blue-600">a partir de agora</span>
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+          <div className="bg-slate-50 border-2 border-slate-200 rounded-2xl p-5 md:p-6">
+            <p className="text-xs font-black text-slate-500 uppercase tracking-wide mb-3">Sem o curso</p>
+            <ul className="space-y-2.5">
+              {failure.map((f) => (
+                <li key={f} className="flex items-start gap-2 text-slate-600">
+                  <span className="text-red-500 font-black">✕</span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-green-50 border-2 border-green-500 rounded-2xl p-5 md:p-6 shadow-lg">
+            <p className="text-xs font-black text-green-700 uppercase tracking-wide mb-3">Com o curso</p>
+            <ul className="space-y-2.5">
+              {success.map((s) => (
+                <li key={s} className="flex items-start gap-2 text-slate-800 font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ───────────────────────── Final CTA ─────────────────────────
 const FinalCTA = () => (
   <section className="py-4 md:py-6 bg-slate-900 text-white">
@@ -1068,8 +1159,8 @@ const FinalCTA = () => (
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
       <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-        Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
-        mais independente. <strong className="text-white">Hoje é o dia.</strong>
+        Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes.{" "}
+        <strong className="text-white">Hoje é o dia.</strong>
       </p>
       <CTA>Quero começar agora!</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
@@ -1085,12 +1176,8 @@ const Footer = () => (
       <p className="mb-1">© 2026 — Todos os direitos reservados</p>
       <p className="mb-3 text-slate-500">CNPJ: 32.373.460/0001-51</p>
       <div className="flex justify-center gap-4">
-        <a href="/termos-de-uso" className="hover:text-white">
-          Termos de Uso
-        </a>
-        <a href="/politica-de-privacidade" className="hover:text-white">
-          Privacidade
-        </a>
+        <a href="/termos-de-uso" className="hover:text-white">Termos de Uso</a>
+        <a href="/politica-de-privacidade" className="hover:text-white">Privacidade</a>
       </div>
     </div>
   </footer>
@@ -1108,32 +1195,66 @@ const StickyMobile = () => (
   </div>
 );
 
-// ───────────────────────── Page ─────────────────────────
-const VendasNovo = () => {
+// ───────────────────────── Page (StoryBrand + PAS + AIDA + JTBD + CRO) ─────────────────────────
+const Ok = () => {
   useEffect(() => {
-    document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
+    document.title = "Curso de Informática do Zero • Método Passo a Passo com Garantia";
   }, []);
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
+      {/* ATTENTION — Hero StoryBrand: herói + problema + guia + CTA */}
       <Header />
       <Hero />
-      <AulaDemonstrativa />
-      <MiniValueSection />
-      <QuizIdentificacao />
+
+      {/* PROBLEM (PAS) — identificação da dor */}
+      <Identification />
+
+      {/* AGITATE (PAS + JTBD) — custo da inação */}
+      <AgitateSection />
+
+      {/* GUIDE (StoryBrand) — a professora como guia confiável */}
       <Instructor />
-      <SocialProof />
+
+      {/* PLAN (StoryBrand) — 3 passos simples */}
       <Method />
+
+      {/* INTEREST — aula demonstrativa (prova funcional) */}
+      <AulaDemonstrativa />
+
+      {/* DESIRE — o que você vai receber (JTBD entregas) */}
       <Modules />
+
+      {/* Bônus — aumenta valor percebido antes do preço */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
       </section>
+
+      {/* Certificado — desejo/entrega social */}
       <Certificate />
+
+      {/* PROVA SOCIAL — quebra objeção "será que funciona pra mim?" */}
+      <SocialProof />
+
+      {/* Visão Sucesso vs Falha (StoryBrand) — clareza da escolha */}
+      <VisionSection />
+
+      {/* Microcompromisso — Quiz interativo */}
+      <QuizIdentificacao />
+
+      {/* ACTION — oferta clara */}
       <Pricing />
+
+      {/* Reversão de risco */}
       <GuaranteeBlock />
+
+      {/* Remoção de objeções finais */}
       <FAQ />
+
+      {/* CTA final */}
       <FinalCTA />
+
       <Footer />
       <StickyMobile />
       <WhatsAppButton />
@@ -1141,4 +1262,4 @@ const VendasNovo = () => {
   );
 };
 
-export default VendasNovo;
+export default Ok;
