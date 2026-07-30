@@ -190,10 +190,6 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
-            Em poucas aulas, você fará sozinho tarefas do dia a dia, como criar documentos, organizar arquivos, enviar e-mails e muito mais.
-          </p>
-
           <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
