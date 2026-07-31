@@ -126,14 +126,6 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
-      {/* Top urgency strip */}
-      <div className="bg-blue-600 text-center py-2.5 px-4">
-        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
-          <span className="text-xl md:text-2xl">💻</span>
-          Você sente Dificuldade com o Computador?
-        </span>
-      </div>
-
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full whitespace-nowrap">
