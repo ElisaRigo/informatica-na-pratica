@@ -190,7 +190,17 @@ const Hero = () => {
             )}
           </div>
 
+          <p className="text-xl md:text-3xl font-black text-slate-900 text-center leading-tight mt-2 mb-1">
+            <span className="text-blue-600">Domine o computador</span>{" "}
+            mesmo que você{" "}
+            <span className="text-green-600 underline decoration-green-500 decoration-4 underline-offset-4">
+              nunca tenha ligado um na vida
+            </span>
+            .
+          </p>
+
           <CTA>Quero começar agora!</CTA>
+
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
