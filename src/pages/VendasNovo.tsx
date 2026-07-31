@@ -137,7 +137,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full whitespace-nowrap">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Para iniciantes começando do zero
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Para quem está começando do zero
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
