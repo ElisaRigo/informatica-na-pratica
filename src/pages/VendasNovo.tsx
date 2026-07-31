@@ -190,7 +190,7 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-center text-lg md:text-2xl font-black text-slate-900 mt-4 mb-2">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
             Domine o computador mesmo que você nunca tenha ligado um na vida.
           </p>
 
