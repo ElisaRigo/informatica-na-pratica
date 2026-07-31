@@ -191,7 +191,8 @@ const Hero = () => {
           </div>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
-            Domine o computador mesmo que você nunca tenha ligado um na vida.
+            Domine o computador mesmo que você nunca tenha{" "}
+            <span className="text-blue-600 font-black">ligado um na vida</span>.
           </p>
 
           <CTA>Quero começar agora!</CTA>
