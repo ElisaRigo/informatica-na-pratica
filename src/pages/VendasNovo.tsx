@@ -137,20 +137,17 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full whitespace-nowrap">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Para quem está começando do zero
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Começando Do Zero
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            Use o computador com{" "}
-            <span className="text-blue-600">confiança</span> e{" "}
-            <span className="underline decoration-green-500 decoration-4 underline-offset-4">
-              nunca mais dependa de ninguém
-            </span>
-            .
+            Aprenda a usar o computador
+            <br className="hidden md:block" />
+            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
-            Aprenda do zero e faça sozinho as tarefas do dia a dia, como criar documentos, organizar arquivos, enviar e-mails e navegar na internet.
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
+            Use o computador com confiança e nunca mais dependa de ninguém.
           </p>
 
           {/* Video */}
@@ -189,6 +186,10 @@ const Hero = () => {
               </div>
             )}
           </div>
+
+          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
+            Em poucas aulas, você fará sozinho tarefas do dia a dia, como criar documentos, organizar arquivos, enviar e-mails e muito mais.
+          </p>
 
           <CTA>Quero começar agora!</CTA>
 
