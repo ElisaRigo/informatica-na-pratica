@@ -150,7 +150,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
-            Aprenda do zero e faça sozinho suas tarefas do dia a dia, como criar documentos, organizar arquivos, enviar e-mails e navegar na internet.
+            Aprenda do zero e faça sozinho as tarefas do dia a dia, como criar documentos, organizar arquivos, enviar e-mails e navegar na internet.
           </p>
 
           {/* Video */}
