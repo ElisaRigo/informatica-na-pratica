@@ -190,7 +190,7 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text/x-center text-lg md:text-2xl font-black text-slate-900 mt-4 mb-2">
+          <p className="text-center text-lg md:text-2xl font-black text-slate-900 mt-4 mb-2">
             Aprenda do zero, mesmo que nunca tenha usado um computador.
           </p>
 
