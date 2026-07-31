@@ -190,6 +190,10 @@ const Hero = () => {
             )}
           </div>
 
+          <p className="text-center text-lg md:text-2xl font-black text-slate-900 mt-4 mb-2">
+            Domine o computador mesmo que você nunca tenha ligado um na vida.
+          </p>
+
           <CTA>Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
