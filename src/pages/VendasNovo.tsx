@@ -150,7 +150,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Em poucas aulas, você faz sozinho as tarefas do dia a dia: criar documentos, organizar arquivos, enviar e-mails e muito mais.
+            Aprenda do zero, passo a passo. Em poucas aulas, você fará sozinho tarefas do dia a dia, como criar documentos, organizar arquivos, enviar e-mails e navegar na internet.
           </p>
 
           {/* Video */}
