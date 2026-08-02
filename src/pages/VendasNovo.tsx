@@ -27,16 +27,13 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
-  MousePointer,
-  Rocket,
-  Check,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
-import homeVideoThumbAsset from "@/assets/capa-hero-principal.png.asset.json";
+import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
@@ -113,8 +110,8 @@ const Header = () => (
             <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
           </div>
         </div>
-        <p className="text-slate-900 text-lg md:text-3xl lg:text-4xl font-bold leading-tight text-left">
-          Curso de <span className="text-sky-600">Informática Online</span> Simples e Passo a Passo.
+        <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
+          Curso de <span className="text-sky-600">Informática Online</span> — Simples e para Todos.
         </p>
       </div>
     </div>
@@ -126,23 +123,28 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
+      {/* Top urgency strip */}
+      <div className="bg-blue-600 text-center py-2.5 px-4">
+        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
+          <span className="text-xl md:text-2xl">💻</span>
+          Você sente Dificuldade com o Computador?
+        </span>
+      </div>
+
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-base md:text-2xl font-bold px-3 py-1.5 rounded-full mb-3 w-full whitespace-nowrap">
-            <GraduationCap className="w-6 h-6 md:w-9 md:h-9" /> Para quem está começando do zero
+          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            Use o computador com{" "}
-            <span className="text-blue-600">confiança</span> e{" "}
-            <span className="underline decoration-green-500 decoration-4 underline-offset-4">
-              nunca mais dependa de ninguém
-            </span>
-            .
+            Aprenda a usar o computador
+            <br className="hidden md:block" />
+            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
-            Aprenda do zero e faça sozinho as tarefas do dia a dia, como criar documentos, organizar arquivos, enviar e-mails e navegar na internet.
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
+            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
           </p>
 
           {/* Video */}
@@ -151,14 +153,13 @@ const Hero = () => {
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
                   src={homeVideoThumb}
-                  alt="Recado da professora"
+                  alt="Aula demonstrativa gratuita"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
-                    <PlayCircle className="w-8 h-8 md:w-10 md:h-10 text-blue-600" strokeWidth={1.5} />
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
                   </div>
                 </div>
               </div>
@@ -182,9 +183,8 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
-            Domine o computador mesmo que você nunca tenha{" "}
-            <span className="text-blue-600 font-black">ligado um na vida</span>.
+          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
+            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
           <CTA>Quero começar agora!</CTA>
@@ -440,266 +440,114 @@ const Method = () => {
   const steps = [
     {
       n: "1",
-      icon: Play,
-      t: "Assista às aulas curtas e claras",
-      badge: "O computador deixa de ser um bicho de 7 cabeças",
-      d: "Aulas de 5 a 15 minutos, sem termos difíceis. Você assiste no celular, computador ou tablet, quando quiser.",
+      t: "Assiste a aula curta",
+      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no celular, computador ou tablet, quando quiser.",
     },
     {
       n: "2",
-      icon: MousePointer,
-      t: "Pratique clicando junto comigo",
-      badge: "Você ganha confiança a cada passo",
-      d: "Eu mostro exatamente onde clicar. Você repete comigo e aprende na prática, sem pular nada.",
+      t: "Faz junto comigo",
+      d: "Você abre o computador e vai clicando junto. Eu mostro cada passo, sem pular nada.",
     },
     {
       n: "3",
-      icon: Rocket,
-      t: "Use sozinho no seu dia a dia",
-      badge: "Você deixa de depender dos outros",
-      d: "Em poucos dias você já envia e-mails, cria documentos, organiza arquivos e navega na internet sem medo.",
+      t: "Pratica no seu dia a dia",
+      d: "Em poucos dias você já tá enviando e-mail, usando Word e mexendo na internet sem medo.",
     },
   ];
   return (
-    <section className="py-6 md:py-10 bg-gradient-to-b from-slate-100 via-blue-50 to-slate-100">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-6 md:mb-8">
-          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <Monitor className="w-4 h-4" /> SUA TRANSFORMAÇÃO
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">
-            Do medo à confiança em 3 passos simples
-          </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base">
-            Você não precisa ter experiência. Basta seguir o passo a passo.
+    <section className="py-4 md:py-6 bg-blue-600 text-white">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-5">
+          <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
+          <p className="text-blue-100 max-w-2xl mx-auto">
+            Sem complicação, sem termos técnicos. Só você, o computador e eu te guiando.
           </p>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-          {steps.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div
-                key={s.n}
-                className="relative bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                  </div>
-                  <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-slate-100 text-slate-500 font-bold text-sm md:text-base flex items-center justify-center">
-                    {s.n}
-                  </div>
-                </div>
-
-                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{s.t}</h3>
-
-                <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-3 py-2 mb-3">
-                  <div className="w-6 h-6 md:w-7 md:h-7 rounded bg-green-600 flex items-center justify-center shrink-0">
-                    <Check className="w-4 h-4 md:w-5 md:h-5 text-white" strokeWidth={3} />
-                  </div>
-                  <p className="text-green-700 text-xs md:text-sm font-bold leading-snug">{s.badge}</p>
-                </div>
-
-                <p className="text-slate-500 text-sm leading-relaxed">{s.d}</p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {steps.map((s) => (
+            <div key={s.n} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-6">
+              <div className="w-12 h-12 rounded-full bg-white text-blue-600 font-black text-xl flex items-center justify-center mb-4">
+                {s.n}
               </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-6 md:mt-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm md:text-base font-bold px-4 py-2.5 rounded-full">
-            <ThumbsUp className="w-4 h-4 md:w-5 md:h-5" />
-            Se milhares de alunos conseguiram aprender dessa forma, você também consegue.
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Transformation (Módulos + Benefícios reais) ─────────────────────────
-const Modules = () => {
-  const steps = [
-    {
-      icon: windowsIcon,
-      module: "Windows",
-      outcome: "Organizar fotos, documentos e arquivos sem se perder",
-    },
-    {
-      icon: wordIcon,
-      module: "Word",
-      outcome: "Montar currículo e enviar por e-mail sozinho(a)",
-    },
-    {
-      icon: excelIcon,
-      module: "Excel",
-      outcome: "Criar planilhas e controlar contas do dia a dia",
-    },
-    {
-      icon: powerpointIcon,
-      module: "PowerPoint",
-      outcome: "Fazer apresentações bonitas e claras",
-    },
-    {
-      icon: internetIcon,
-      module: "Internet e E-mail",
-      outcome: "Marcar consultas, pesquisar e resolver tudo online",
-    },
-    {
-      icon: typingIcon,
-      module: "Digitação",
-      outcome: "Digitar mais rápido e sem olhar para o teclado",
-    },
-  ];
-  return (
-    <section className="py-6 md:py-10 bg-gradient-to-b from-slate-50 to-white">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-6 md:mb-8">
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
-            Seu passo a passo
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-2 leading-tight">
-            Do zero à independência no computador
-          </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">
-            6 módulos práticos. Cada um te leva a uma conquista do dia a dia.
-          </p>
-        </div>
-
-        <div className="relative">
-          {/* vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-200 md:-translate-x-1/2" />
-
-          <div className="space-y-4 md:space-y-6">
-            {steps.map((s, idx) => (
-              <div
-                key={s.module}
-                className={`relative flex items-center gap-4 md:gap-8 ${
-                  idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-              >
-                {/* number + icon bubble */}
-                <div className="relative z-10 shrink-0 flex flex-col items-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white border-2 border-blue-200 shadow-sm flex items-center justify-center">
-                    <img
-                      src={s.icon}
-                      alt={`Ícone ${s.module}`}
-                      className="w-6 h-6 md:w-8 md:h-8 object-contain"
-                      loading="lazy"
-                      width="32"
-                      height="32"
-                    />
-                  </div>
-                  <span className="mt-1 text-[10px] md:text-xs font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                {/* center dot on timeline */}
-                <div className="hidden md:block absolute left-1/2 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-100" />
-
-                {/* card */}
-                <div
-                  className={`flex-1 bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm ${
-                    idx % 2 === 0 ? "md:text-right" : "md:text-left"
-                  }`}
-                >
-                  <p className="text-xs md:text-sm font-black text-blue-600 uppercase tracking-wide mb-1">
-                    Módulo {s.module}
-                  </p>
-                  <h3 className="text-slate-900 font-bold text-base md:text-lg leading-snug">
-                    {s.outcome}
-                  </h3>
-                </div>
-
-                {/* empty spacer for alternating layout */}
-                <div className="hidden md:block flex-1" />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <p className="text-center text-slate-500 text-xs md:text-sm mt-6 max-w-2xl mx-auto">
-          Tudo em <strong className="text-slate-800">+90 videoaulas curtas</strong>, passo a passo.
-        </p>
-        <div className="text-center mt-4">
-          <CTA>Quero parar de depender dos outros</CTA>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Bloco Emocional (Vision) ─────────────────────────
-const EmotionalVision = () => {
-  const moments = [
-    {
-      icon: Monitor,
-      title: "Você senta no computador",
-      subtitle: "E ele deixa de ser um bicho de sete cabeças",
-      before: "Tremia só de olhar a tela",
-      after: "Agora abre, navega e resolve com calma",
-    },
-    {
-      icon: Mail,
-      title: "Você manda um e-mail sozinho",
-      subtitle: "Sem depender de ninguém para escrever ou anexar arquivo",
-      before: "Pedía ajuda para enviar qualquer coisa",
-      after: "Agora escreve, anexa e responde sozinho(a)",
-    },
-    {
-      icon: HeartHandshake,
-      title: "Você conta a conquista para a família",
-      subtitle: "E ouve: 'nossa, aprendeu sozinho!'",
-      before: "Ficava de fora das conversas digitais",
-      after: "Agora participa e ainda ensina os outros",
-    },
-  ];
-
-  return (
-    <section className="py-8 md:py-14 bg-gradient-to-b from-blue-700 via-blue-800 to-slate-900 text-white">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-6 md:mb-10">
-          <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
-            Sua rotina muda em poucas semanas
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black leading-tight">
-            Veja o que muda no seu dia a dia
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-          {moments.map((m) => (
-            <div
-              key={m.title}
-              className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 md:p-6 text-center hover:bg-white/15 transition-colors"
-            >
-              <div className="mx-auto w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-yellow-400/20 flex items-center justify-center mb-4">
-                <m.icon className="w-7 h-7 md:w-8 md:h-8 text-yellow-300" strokeWidth={2} />
-              </div>
-              <h3 className="text-lg md:text-xl font-black text-white mb-1">{m.title}</h3>
-              <p className="text-blue-100 text-sm md:text-base mb-4">{m.subtitle}</p>
-
-              <div className="space-y-2 text-left">
-                <div className="flex items-start gap-2 text-sm text-blue-100/80">
-                  <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-red-400/30 flex items-center justify-center text-[10px]">✕</span>
-                  <span>{m.before}</span>
-                </div>
-                <div className="flex items-start gap-2 text-sm text-white font-medium">
-                  <CheckCircle2 className="shrink-0 mt-0.5 w-4 h-4 text-green-400" />
-                  <span>{m.after}</span>
-                </div>
-              </div>
+              <h3 className="text-xl font-bold mb-2">{s.t}</h3>
+              <p className="text-blue-50 text-sm leading-relaxed">{s.d}</p>
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
 
-        <p className="text-center text-blue-100 text-base md:text-lg font-medium mt-6 md:mt-8 max-w-2xl mx-auto">
-          Isso não é sonho. É o que acontece com quem começa o curso hoje.
-        </p>
+// ───────────────────────── Modules ─────────────────────────
+const Modules = () => {
+  const mods = [
+    {
+      i: windowsIcon,
+      t: "Windows e Organização",
+      d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos com segurança.",
+      lessons: "Módulo 1",
+    },
+    {
+      i: wordIcon,
+      t: "Word Profissional",
+      d: "Escreva cartas, currículos e documentos. Formate, salve e imprima sem medo.",
+      lessons: "Módulo 2",
+    },
+    {
+      i: excelIcon,
+      t: "Excel na Prática",
+      d: "Crie planilhas, fórmulas e organize contas e gastos do mês.",
+      lessons: "Módulo 3",
+    },
+    {
+      i: powerpointIcon,
+      t: "PowerPoint Impactante",
+      d: "Faça apresentações bonitas e profissionais, mesmo sem experiência.",
+      lessons: "Módulo 4",
+    },
+    {
+      i: internetIcon,
+      t: "Internet e E-mail",
+      d: "Pesquise no Google, envie e receba e-mails, evite golpes e use o YouTube.",
+      lessons: "Módulo 5",
+    },
+    {
+      i: typingIcon,
+      t: "Digitação Profissional",
+      d: "Ganhe velocidade no teclado e produtividade no dia a dia.",
+      lessons: "Módulo 6",
+    },
+  ];
+  return (
+    <section className="py-4 md:py-6 bg-slate-50">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-5">
+          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+            CONTEÚDO COMPLETO
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            +90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {mods.map((m) => (
+            <div
+              key={m.t}
+              className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            >
+              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+                <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
+              <p className="text-slate-600 text-sm mb-3">{m.d}</p>
+              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{m.lessons}</span>
+            </div>
+          ))}
+        </div>
         <div className="text-center mt-5">
-          <CTA>Quero viver isso!</CTA>
+          <CTA>Quero ver todas as aulas!</CTA>
         </div>
       </div>
     </section>
@@ -1033,75 +881,60 @@ const Certificate = () => (
   </section>
 );
 
-
-// ───────────────────────── Pricing (Oferta principal — hierarquia forte) ─────────────────────────
+// ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
-  <section id="oferta" className="py-8 md:py-14 bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
+  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
-      <div className="text-center mb-6">
-        <span className="inline-block bg-yellow-400 text-blue-900 text-xs md:text-sm font-black px-4 py-2 rounded-full mb-3 uppercase tracking-wide shadow-lg">
-          Oferta especial de hoje • 40% OFF
+      <div className="text-center mb-8">
+        <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+          🔥 Oferta especial • 40% OFF
         </span>
-        <h2 className="text-3xl md:text-5xl font-black leading-tight">Sua vaga está aqui</h2>
-        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso liberado na hora • Vitalício</p>
+        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
+        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
       </div>
 
-      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-yellow-400">
-        {/* Faixa de topo */}
-        <div className="bg-yellow-400 text-blue-900 text-center py-2 px-4 font-black text-sm md:text-base uppercase tracking-wide">
-          🎁 Hoje leva 4 bônus exclusivos (grátis)
+      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
+        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
+        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+
+        <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
+          <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
+          <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
+          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
+          <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+            <span>🎁</span> Hoje você leva 4 bônus exclusivos
+          </p>
+          <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
+          <p className="text-base text-slate-600 mt-1">
+            ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
+          </p>
         </div>
 
-        <div className="p-6 md:p-10">
-          <h3 className="text-xl md:text-2xl font-black text-center mb-1">Curso Completo de Informática</h3>
-          <p className="text-center text-slate-500 text-sm mb-5">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+        <ul className="space-y-3 mb-6">
+          {[
+            "+90 videoaulas passo a passo",
+            "Acesso vitalício — assiste quantas vezes quiser",
+            "Certificado de conclusão",
+            "Suporte direto com a professora",
+            "Atualizações gratuitas pra sempre",
+            "Acesso pelo celular, tablet ou computador",
+          ].map((x) => (
+            <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
+              {x}
+            </li>
+          ))}
+        </ul>
 
-          {/* Preço */}
-          <div className="bg-gradient-to-b from-green-50 to-white rounded-2xl p-6 text-center mb-5 border-2 border-green-200">
-            <p className="text-slate-500 text-sm mb-1">De <span className="line-through">R$ 497,00</span> por apenas</p>
-            <p className="text-6xl md:text-7xl font-black text-green-600 leading-none tracking-tight">R$ 297</p>
-            <p className="text-slate-700 text-base mt-2">à vista no PIX</p>
-            <p className="text-base text-slate-600 mt-1">
-              ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
-            </p>
-          </div>
+        <CTA>Quero aproveitar o desconto!</CTA>
 
-          {/* Tudo que inclui */}
-          <p className="text-center text-slate-500 text-xs font-black uppercase tracking-wide mb-3">Tudo que você recebe hoje</p>
-          <ul className="space-y-2.5 mb-6">
-            {[
-              ["+90 videoaulas passo a passo", "R$ 297"],
-              ["Acesso vitalício (nunca perde)", "Incluso"],
-              ["Certificado de conclusão", "Bônus"],
-              ["Suporte direto com a professora", "Bônus"],
-              ["Bônus 1: Atalhos essenciais", "R$ 97"],
-              ["Bônus 2: Currículo profissional", "R$ 97"],
-              ["Bônus 3: Mercado de trabalho", "R$ 87"],
-              ["Bônus 4: Materiais e apostilas", "R$ 87"],
-            ].map(([x, v]) => (
-              <li key={x} className="flex items-center justify-between gap-3 text-slate-800 text-sm md:text-base border-b border-slate-100 pb-2">
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
-                  <span className="font-medium">{x}</span>
-                </span>
-                <span className={`text-xs md:text-sm font-bold shrink-0 ${v === "Bônus" ? "text-amber-600" : "text-slate-400"}`}>{v}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="bg-slate-50 rounded-xl p-3 text-center mb-5">
-            <p className="text-xs text-slate-500 uppercase font-bold tracking-wide">Valor total</p>
-            <p className="text-slate-400 line-through text-lg font-bold">R$ 862,00</p>
-            <p className="text-green-600 font-black text-2xl md:text-3xl leading-none mt-1">Você paga só R$ 297</p>
-          </div>
-
-          <CTA>Quero garantir meu acesso agora!</CTA>
-
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4 text-xs text-slate-500">
-            <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro</span>
-            <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-green-600" /> Acesso imediato</span>
-          </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
+          <span className="flex items-center gap-1.5">
+            <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
+          </span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
+          </span>
         </div>
       </div>
     </div>
@@ -1241,13 +1074,13 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
-      <SocialProof />
       <AulaDemonstrativa />
+      <MiniValueSection />
       <QuizIdentificacao />
       <Instructor />
-      <Modules />
+      <SocialProof />
       <Method />
-      <EmotionalVision />
+      <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
@@ -1255,6 +1088,7 @@ const VendasNovo = () => {
       </section>
       <Certificate />
       <Pricing />
+      <GuaranteeBlock />
       <FAQ />
       <FinalCTA />
       <Footer />
