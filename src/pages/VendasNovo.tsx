@@ -77,8 +77,8 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
   return (
     <button
       onClick={handleClick}
-      className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
-        size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
+      className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-nowrap w-full ${
+        size === "lg" ? "text-lg md:text-2xl px-5 py-4 md:px-10 md:py-5" : "text-base md:text-xl px-4 py-3 md:px-6 md:py-3"
       } ${subtle ? "bg-green-600/95" : ""}`}
     >
       <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
