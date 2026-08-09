@@ -1518,6 +1518,8 @@ const VendasNovo = () => {
       <Identification />
       {/* 2b. Prova viva imediata: aula real 1 logo após identificação */}
       <AulasReais aula={1} />
+      {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
+      <AgitateSection />
       {/* 4. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
       <Instructor />
       {/* 5. Solução: a transformação (plano claro, prova da promessa da professora) */}
