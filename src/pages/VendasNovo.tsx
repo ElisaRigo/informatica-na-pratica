@@ -1286,8 +1286,8 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
+      <StatsBar />
       <Identification />
-      <AgitateSection />
       <Method />
       <Instructor />
       <QuizIdentificacao />
