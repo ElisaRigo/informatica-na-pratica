@@ -87,7 +87,7 @@ export const DisclaimerSection = () => {
                   <li>• O prazo de 30 dias <strong>não é uma garantia</strong> de domínio completo do conteúdo.</li>
                   <li>• Resultados variam conforme a dedicação, disponibilidade e ritmo de aprendizado de cada aluno.</li>
                   <li>• O curso oferece todo o conteúdo necessário, mas o progresso depende do esforço individual.</li>
-                  <li>• Ofereço <strong>garantia de 7 dias</strong>: se não estiver satisfeito, devolvo 100% do valor pago.</li>
+                  <li>• Ofereço <strong>garantia de 7 dias</strong> para reembolso integral caso não esteja satisfeito.</li>
                 </ul>
               </div>
             </div>
