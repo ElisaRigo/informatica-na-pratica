@@ -853,22 +853,26 @@ const SocialProof = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-5">
-          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-slate-200 rounded-full px-5 py-2 bg-slate-50">
-            <div className="flex items-center gap-1.5">
-              <div className="flex -space-x-2">
-                {fbAvatars.slice(0, 5).map((av, i) => (
-                  <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
-                ))}
-              </div>
-              <span className="text-slate-900 text-sm font-bold ml-1">+15.000 alunos</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto mb-6">
+            <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
+              <Users className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
+              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">+15.000</span>
+              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Alunos formados</span>
             </div>
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-amber-400 text-lg">
-                  ★
-                </span>
-              ))}
-              <span className="text-slate-900 text-sm font-semibold ml-1">4.9/5</span>
+            <div className="flex flex-col items-center text-center bg-gradient-to-b from-amber-50 to-white border-2 border-amber-200 rounded-2xl p-4 md:p-5 shadow-md">
+              <Star className="w-7 h-7 md:w-9 md:h-9 text-amber-500 mb-1" />
+              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">4,9<span className="text-lg md:text-2xl text-slate-400">/5</span></span>
+              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Avaliação média</span>
+            </div>
+            <div className="flex flex-col items-center text-center bg-gradient-to-b from-green-50 to-white border-2 border-green-200 rounded-2xl p-4 md:p-5 shadow-md">
+              <CheckCircle2 className="w-7 h-7 md:w-9 md:h-9 text-green-600 mb-1" />
+              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">98%</span>
+              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Concluem o curso</span>
+            </div>
+            <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
+              <ShieldCheck className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
+              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">7 dias</span>
+              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Garantia total</span>
             </div>
           </div>
 
