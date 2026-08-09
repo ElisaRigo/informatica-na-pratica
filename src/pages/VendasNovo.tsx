@@ -122,6 +122,31 @@ const Header = () => (
   </header>
 );
 
+// ───────────────────────── Faixa de prova social (topo) ─────────────────────────
+const TopTrustBar = () => (
+  <section className="bg-blue-600 py-2 md:py-2.5">
+    <div className="container mx-auto px-4">
+      <div className="flex items-center justify-center gap-3 max-w-5xl mx-auto">
+        <div className="flex -space-x-2 shrink-0">
+          {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
+            <img key={i} src={a} alt="" className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-blue-600 object-cover" />
+          ))}
+        </div>
+        <div className="flex flex-col items-start leading-none">
+          <div className="flex">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-yellow-300 fill-yellow-300" />
+            ))}
+          </div>
+          <p className="text-white text-xs md:text-sm font-bold mt-0.5">
+            +15.000 alunos já aprenderam comigo
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
