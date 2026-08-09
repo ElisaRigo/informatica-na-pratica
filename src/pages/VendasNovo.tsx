@@ -277,7 +277,7 @@ const Identification = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA to="dor">Quero aprender do zero!</CTA>
         </div>
       </div>
     </section>
@@ -536,7 +536,7 @@ const Instructor = () => (
               </div>
             </div>
           </div>
-          <CTA size="md">Quero aprender sem medo!</CTA>
+          <CTA size="md" to="aula-1">Quero aprender sem medo!</CTA>
         </div>
       </div>
     </div>
@@ -732,7 +732,7 @@ const Modules = () => {
           Tudo em <strong className="text-slate-800">+90 videoaulas curtas</strong>, passo a passo.
         </p>
         <div className="text-center mt-4">
-          <CTA>Quero parar de depender dos outros</CTA>
+          <CTA to="depoimentos">Quero parar de depender dos outros</CTA>
         </div>
       </div>
     </section>
@@ -807,7 +807,7 @@ const EmotionalVision = () => {
           Isso não é sonho. É o que acontece com quem começa o curso hoje.
         </p>
         <div className="text-center mt-5">
-          <CTA>Quero viver isso!</CTA>
+          <CTA to="oferta">Quero viver isso!</CTA>
         </div>
       </div>
     </section>
