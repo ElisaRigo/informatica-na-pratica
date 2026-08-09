@@ -1228,7 +1228,7 @@ const VendasNovo = () => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
-    <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
+    <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
       <SocialProof />
