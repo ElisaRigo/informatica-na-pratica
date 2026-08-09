@@ -1018,6 +1018,7 @@ const StatsBar = () => (
 );
 
 const SocialProof = () => {
+  const [showMore, setShowMore] = useState(false);
   return (
     <>
     <section id="depoimentos" className="py-4 md:py-6 bg-white">
@@ -1104,19 +1105,31 @@ const SocialProof = () => {
           </p>
         </div>
 
-        {/* Facebook-style comments — primeira metade */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
-          {facebookComments.slice(0, 5).map((comment, index) => (
+        {/* Facebook-style comments — primeira metade (sempre visível) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-2">
+          {facebookComments.slice(0, 4).map((comment, index) => (
             <FBComment key={index} comment={comment} index={index} />
           ))}
         </div>
 
+        {/* Facebook-style comments — restante (revelado ao clicar) */}
+        {showMore && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-2">
+            {facebookComments.slice(4).map((comment, index) => (
+              <FBComment key={index + 4} comment={comment} index={index + 4} />
+            ))}
+          </div>
+        )}
 
-        {/* Facebook-style comments — segunda metade */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
-          {facebookComments.slice(5).map((comment, index) => (
-            <FBComment key={index + 5} comment={comment} index={index + 5} />
-          ))}
+        {/* Botão Ver mais / Ver menos */}
+        <div className="text-center mt-3 mb-5">
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-xl border-2 border-blue-200 transition-all active:scale-[.99]"
+          >
+            <ChevronDown className={`w-5 h-5 transition-transform ${showMore ? "rotate-180" : ""}`} />
+            {showMore ? "Ver menos depoimentos" : "Ver mais depoimentos"}
+          </button>
         </div>
       </div>
     </section>
