@@ -716,7 +716,6 @@ const audioTestimonials = [
 ];
 
 const whatsappScreenshots = [
-  { image: whatsappTestimonial1, description: "Mãe de aluna elogiando o curso e voltando para comprar outro" },
   { image: whatsappTestimonial2, description: "Aluno Roberto agradecendo pela didática das aulas de planilha" },
 ];
 
