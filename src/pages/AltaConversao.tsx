@@ -114,7 +114,7 @@ const Hero = () => {
           <div className="aspect-video w-full">
             {play ? (
               <iframe
-                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?cc_load_policy=0&autoplay=1&rel=0&modestbranding=1&showinfo=0&playsinline=1"
                 title="Recado da professora"
                 className="w-full h-full"
                 allow="autoplay; encrypted-media; picture-in-picture"

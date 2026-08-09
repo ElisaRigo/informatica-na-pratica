@@ -170,19 +170,14 @@ const Hero = () => {
             ) : (
               <div className="aspect-video relative">
                 <iframe
-                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"modestbranding=1src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"controls=1src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"showinfo=0src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"playsinline=1src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"iv_load_policy=3src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"cc_load_policy=0src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"fs=1src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&showinfo=0&controls=1&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"autoplay=1"
                   title="Aula gratuita"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
-                <a
-                  href="https://www.youtube.com/watch?v=0kFjFZX5c9I"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-                ></a>
+
               </div>
             )}
           </div>
@@ -302,21 +297,14 @@ const AulaDemonstrativa = () => {
           ) : (
             <div className="aspect-video relative">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"controls=1src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"modestbranding=1src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"showinfo=0src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"playsinline=1src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"iv_load_policy=3src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"cc_load_policy=0src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"fs=1src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1"autoplay=1"
                 title="Aula demonstrativa gratuita"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
-              <a
-                href="https://www.youtube.com/watch?v=_0OPLnEiMHk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-              >
-                Ver no YouTube
-              </a>
+
             </div>
           )}
         </div>
