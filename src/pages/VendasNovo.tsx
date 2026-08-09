@@ -1447,6 +1447,8 @@ const VendasNovo = () => {
       <Pricing />
       {/* 13. Reforço de valor pós-preço */}
       <Certificate />
+      {/* 13b. Garantia — reforça confiança antes das objeções */}
+      <GuaranteeBlock />
       {/* 14. Quebra de objeções */}
       <FAQ />
       {/* 15. Fechamento */}
