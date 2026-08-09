@@ -154,6 +154,25 @@ const Hero = () => {
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
+          {/* Prova social sutil — sem faixa */}
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <div className="flex -space-x-2">
+              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
+                <img key={i} src={a} alt="" className="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-white object-cover shadow-sm" />
+              ))}
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <span className="text-slate-600 text-xs md:text-sm font-semibold">
+                +15.000 alunos já aprenderam comigo
+              </span>
+            </div>
+          </div>
+
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-lg md:text-3xl font-bold px-4 py-2 rounded-full mb-3 w-full whitespace-nowrap">
             <GraduationCap className="w-7 h-7 md:w-11 md:h-11" /> Aulas fáceis e práticas
           </span>
