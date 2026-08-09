@@ -1120,14 +1120,6 @@ const SocialProof = () => {
             <FBComment key={index + 5} comment={comment} index={index + 5} />
           ))}
         </div>
-
-        {/* Transition */}
-        <div className="text-center mt-2">
-          <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-            E você ainda sai com um{" "}
-            <span className="text-blue-600">certificado de conclusão</span>.
-          </p>
-        </div>
       </div>
     </section>
 
