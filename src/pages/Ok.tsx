@@ -1202,7 +1202,7 @@ const Ok = () => {
   }, []);
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
-      {/* ATTENTION — Hero StoryBrand: herói + problema + guia + CTA */}
+      {/* ATTENTION — Hero: promessa + vídeo */}
       <Header />
       <Hero />
 
@@ -1212,38 +1212,38 @@ const Ok = () => {
       {/* AGITATE (PAS + JTBD) — custo da inação */}
       <AgitateSection />
 
-      {/* GUIDE (StoryBrand) — a professora como guia confiável */}
-      <Instructor />
-
-      {/* PLAN (StoryBrand) — 3 passos simples */}
+      {/* PLAN — como funciona (reduz incerteza cedo, desarma "vai ser difícil?") */}
       <Method />
 
-      {/* INTEREST — aula demonstrativa (prova funcional) */}
-      <AulaDemonstrativa />
+      {/* GUIDE — a professora como guia confiável (autoridade depois da esperança) */}
+      <Instructor />
 
-      {/* DESIRE — o que você vai receber (JTBD entregas) */}
+      {/* Microcompromisso — Quiz interativo (respiro entre blocos densos) */}
+      <QuizIdentificacao />
+
+      {/* DESIRE — o que você vai dominar (conteúdo/módulos) */}
       <Modules />
 
-      {/* Bônus — aumenta valor percebido antes do preço */}
+      {/* INTEREST — aula demonstrativa (prova funcional do método) */}
+      <AulaDemonstrativa />
+
+      {/* Visão Sucesso vs Falha — desejo emocional (antes vs depois) */}
+      <VisionSection />
+
+      {/* Bônus — empilha valor antes do preço */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
       </section>
 
-      {/* Certificado — desejo/entrega social */}
+      {/* Certificado — mais valor (fecha a value stack) */}
       <Certificate />
 
-      {/* PROVA SOCIAL — quebra objeção "será que funciona pra mim?" */}
+      {/* PROVA SOCIAL — empurrão de confiança imediatamente antes do preço */}
       <SocialProof />
 
-      {/* Visão Sucesso vs Falha (StoryBrand) — clareza da escolha */}
-      <VisionSection />
-
-      {/* Microcompromisso — Quiz interativo */}
-      <QuizIdentificacao />
-
-      {/* ACTION — oferta clara */}
+      {/* ACTION — oferta ancorada (todo o valor já foi estabelecido) */}
       <Pricing />
 
       {/* Reversão de risco */}
