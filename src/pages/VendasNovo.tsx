@@ -895,6 +895,35 @@ const FBComment = ({ comment, index }: { comment: (typeof facebookComments)[0]; 
   </div>
 );
 
+const StatsBar = () => (
+  <section className="py-4 md:py-6 bg-white">
+    <div className="container mx-auto px-4 max-w-6xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto">
+        <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
+          <Users className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">+15.000</span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Alunos formados</span>
+        </div>
+        <div className="flex flex-col items-center text-center bg-gradient-to-b from-amber-50 to-white border-2 border-amber-200 rounded-2xl p-4 md:p-5 shadow-md">
+          <Star className="w-7 h-7 md:w-9 md:h-9 text-amber-500 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">4,9<span className="text-lg md:text-2xl text-slate-400">/5</span></span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Avaliação média</span>
+        </div>
+        <div className="flex flex-col items-center text-center bg-gradient-to-b from-green-50 to-white border-2 border-green-200 rounded-2xl p-4 md:p-5 shadow-md">
+          <CheckCircle2 className="w-7 h-7 md:w-9 md:h-9 text-green-600 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">98%</span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Concluem o curso</span>
+        </div>
+        <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
+          <ShieldCheck className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">7 dias</span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Garantia total</span>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const SocialProof = () => {
   return (
     <>
@@ -902,28 +931,7 @@ const SocialProof = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto mb-6">
-            <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
-              <Users className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
-              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">+15.000</span>
-              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Alunos formados</span>
-            </div>
-            <div className="flex flex-col items-center text-center bg-gradient-to-b from-amber-50 to-white border-2 border-amber-200 rounded-2xl p-4 md:p-5 shadow-md">
-              <Star className="w-7 h-7 md:w-9 md:h-9 text-amber-500 mb-1" />
-              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">4,9<span className="text-lg md:text-2xl text-slate-400">/5</span></span>
-              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Avaliação média</span>
-            </div>
-            <div className="flex flex-col items-center text-center bg-gradient-to-b from-green-50 to-white border-2 border-green-200 rounded-2xl p-4 md:p-5 shadow-md">
-              <CheckCircle2 className="w-7 h-7 md:w-9 md:h-9 text-green-600 mb-1" />
-              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">98%</span>
-              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Concluem o curso</span>
-            </div>
-            <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
-              <ShieldCheck className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
-              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">7 dias</span>
-              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Garantia total</span>
-            </div>
-          </div>
+
 
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="flex -space-x-2">
@@ -1278,6 +1286,7 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
+      <StatsBar />
       <Identification />
       <AgitateSection />
       <Method />
