@@ -1516,14 +1516,14 @@ const VendasNovo = () => {
       <StatsBar />
       {/* 2. Identificação — "esse curso é pra mim" */}
       <Identification />
+      {/* 2b. Prova viva imediata: aula real 1 logo após identificação */}
+      <AulasReais aula={1} />
       {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
       {/* 4. Solução: a transformação (plano claro) */}
       <Method />
       {/* 5. Autoridade: quem vai te ensinar */}
       <Instructor />
-      {/* 6. Prova viva da autoridade: aula real 1 */}
-      <AulasReais aula={1} />
       {/* 7. Micro-compromisso: quiz interativo */}
       <QuizIdentificacao />
       {/* 8. Conteúdo/entregável */}
