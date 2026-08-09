@@ -890,9 +890,12 @@ const SocialProof = () => {
               <Smartphone className="w-5 h-5 text-blue-600" />
               <h3 className="text-lg font-bold text-slate-900">Prints de Conversas</h3>
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-3">
               {whatsappScreenshots.map((screenshot, index) => (
-                <div key={index} className="bg-slate-100 rounded-xl p-1.5 shadow-lg border border-slate-200">
+                <div
+                  key={index}
+                  className="bg-slate-100 rounded-2xl p-2 shadow-xl border-2 border-blue-200 ring-2 ring-blue-100"
+                >
                   <div className="bg-slate-200 rounded-t-lg pt-1.5 pb-0.5 px-3">
                     <div className="flex items-center justify-center">
                       <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
@@ -901,7 +904,7 @@ const SocialProof = () => {
                   <img
                     src={screenshot.image}
                     alt={screenshot.description}
-                    className="w-full h-auto rounded-b-md"
+                    className="w-full h-auto rounded-b-lg"
                     loading="lazy"
                   />
                 </div>
