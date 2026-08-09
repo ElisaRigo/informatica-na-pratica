@@ -1288,6 +1288,7 @@ const VendasNovo = () => {
       <Hero />
       <StatsBar />
       <Identification />
+      <AgitateSection />
       <Method />
       <Instructor />
       <QuizIdentificacao />
