@@ -869,10 +869,10 @@ const SocialProof = () => {
               <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">98%</span>
               <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Concluem o curso</span>
             </div>
-            <div className="flex flex-col items-center text-center bg-gradient-to-b from-green-50 to-white border-2 border-green-200 rounded-2xl p-4 md:p-5 shadow-md">
-              <ShieldCheck className="w-7 h-7 md:w-9 md:h-9 text-green-600 mb-1" />
-              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">0</span>
-              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Reembolsos</span>
+            <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
+              <InfinityIcon className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
+              <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">Vitalício</span>
+              <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Acesso para sempre</span>
             </div>
           </div>
 
