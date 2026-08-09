@@ -276,9 +276,6 @@ const Identification = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-5">
-          <CTA to="dor">Quero aprender do zero!</CTA>
-        </div>
       </div>
     </section>
   );
@@ -536,7 +533,7 @@ const Instructor = () => (
               </div>
             </div>
           </div>
-          <CTA size="md" to="aula-1">Quero aprender sem medo!</CTA>
+          
         </div>
       </div>
     </div>
@@ -731,9 +728,6 @@ const Modules = () => {
         <p className="text-center text-slate-500 text-xs md:text-sm mt-6 max-w-2xl mx-auto">
           Tudo em <strong className="text-slate-800">+90 videoaulas curtas</strong>, passo a passo.
         </p>
-        <div className="text-center mt-4">
-          <CTA to="depoimentos">Quero parar de depender dos outros</CTA>
-        </div>
       </div>
     </section>
   );
@@ -806,9 +800,6 @@ const EmotionalVision = () => {
         <p className="text-center text-blue-100 text-base md:text-lg font-medium mt-6 md:mt-8 max-w-2xl mx-auto">
           Isso não é sonho. É o que acontece com quem começa o curso hoje.
         </p>
-        <div className="text-center mt-5">
-          <CTA to="oferta">Quero viver isso!</CTA>
-        </div>
       </div>
     </section>
   );
@@ -1328,6 +1319,9 @@ const FAQ = () => {
               {open === i && <div className="px-5 pb-5 text-slate-700 leading-relaxed">{f.a}</div>}
             </div>
           ))}
+        </div>
+        <div className="text-center mt-6">
+          <CTA>Quero garantir minha vaga agora!</CTA>
         </div>
       </div>
     </section>
