@@ -1222,18 +1222,6 @@ const Footer = () => (
   </footer>
 );
 
-// ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = () => (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
-    <button
-      onClick={openCheckout}
-      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
-    >
-      <Monitor className="w-5 h-5" /> Quero começar agora!
-    </button>
-  </div>
-);
-
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
   useEffect(() => {
