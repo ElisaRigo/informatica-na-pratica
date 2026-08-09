@@ -1410,7 +1410,6 @@ const VendasNovo = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
-      <TopTrustBar />
       <Hero />
       {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
       <StatsBar />
