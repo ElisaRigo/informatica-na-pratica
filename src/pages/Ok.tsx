@@ -177,12 +177,7 @@ const Hero = () => {
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
-                <a
-                  href="https://www.youtube.com/watch?v=0kFjFZX5c9I"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-                ></a>
+
               </div>
             )}
           </div>
@@ -309,14 +304,7 @@ const AulaDemonstrativa = () => {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
-              <a
-                href="https://www.youtube.com/watch?v=_0OPLnEiMHk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-              >
-                Ver no YouTube
-              </a>
+
             </div>
           )}
         </div>
