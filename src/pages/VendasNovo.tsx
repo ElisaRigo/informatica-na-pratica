@@ -1281,8 +1281,9 @@ const VendasNovo = () => {
       <Identification />
       <AgitateSection />
       <SocialProof />
-
+      <Instructor />
       <QuizIdentificacao />
+
       <Modules />
       <Pricing />
       <Method />
