@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "Como funciona a garantia de 7 dias?",
-    answer: "É simples: se você não gostar do curso por qualquer motivo nos primeiros 7 dias, basta enviar um e-mail solicitando o reembolso. Devolvemos 100% do valor, sem perguntas.",
+    answer: "É simples: se você não gostar do curso por qualquer motivo nos primeiros 7 dias, basta enviar um e-mail. Devolvemos 100% do valor, sem perguntas.",
   },
   {
     question: "Posso assistir pelo celular?",
