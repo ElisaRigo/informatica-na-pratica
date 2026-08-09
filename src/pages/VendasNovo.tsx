@@ -983,7 +983,7 @@ const SocialProof = () => {
     </section>
 
     {/* Faixa animada — Você é capaz de aprender */}
-    <div className="bg-gradient-to-r from-blue-600 via-blue-600/90 to-blue-600 overflow-hidden border-y border-blue-500/60 animate-marquee-wrap">
+    <div className="bg-gradient-to-r from-blue-600 via-blue-600/90 to-blue-600 overflow-hidden border-y border-blue-500/60">
       <div className="animate-marquee whitespace-nowrap py-3">
         {Array.from({ length: 6 }).map((_, i) => (
           <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
