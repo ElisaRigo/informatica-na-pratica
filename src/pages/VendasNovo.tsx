@@ -265,9 +265,11 @@ const AgitateSection = () => {
           certo.
         </p>
       </div>
+      <TwoRoutes />
     </section>
   );
 };
+
 
 // ───────────────────────── Aulas Reais (após a Professora) ─────────────────────────
 
@@ -321,43 +323,68 @@ const AulaVideo = ({
   );
 };
 
-const AulasReais = () => {
+const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
+  const isFirst = aula === 1;
   return (
     <section className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> 2 AULAS REAIS — ASSISTA AGORA
+            <PlayCircle className="w-4 h-4" /> {isFirst ? "AULA REAL — ASSISTA AGORA" : "MAIS UMA AULA REAL"}
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Veja como é uma aula <span className="text-blue-600">passo a passo</span> — do jeito que você vai aprender
+            {isFirst ? (
+              <>
+                Veja como é uma aula <span className="text-blue-600">passo a passo</span> — do jeito que você vai
+                aprender
+              </>
+            ) : (
+              <>
+                Antes de decidir, <span className="text-blue-600">assista mais uma aula</span> comigo
+              </>
+            )}
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.
+            {isFirst
+              ? "Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela."
+              : "Se você entendeu essa aula, você vai entender o curso inteiro. É exatamente esse o ritmo."}
           </p>
         </div>
 
-        <AulaVideo
-          videoId="_0OPLnEiMHk"
-          thumb={aulaGratisThumb}
-          label="Aula 1"
-          subtitle="Primeiros passos no computador"
-        />
-        <AulaVideo
-          videoId="-sdVG1OtDks"
-          thumb={aprendaComigoThumb}
-          label="Aula 2"
-          subtitle="Aprenda comigo, na prática"
-        />
+        {isFirst ? (
+          <AulaVideo
+            videoId="_0OPLnEiMHk"
+            thumb={aulaGratisThumb}
+            label="Aula 1"
+            subtitle="Primeiros passos no computador"
+          />
+        ) : (
+          <AulaVideo
+            videoId="-sdVG1OtDks"
+            thumb={aprendaComigoThumb}
+            label="Aula 2"
+            subtitle="Aprenda comigo, na prática"
+          />
+        )}
 
         <p className="text-center text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-          Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
-          zero e usarem o computador com confiança.
+          {isFirst ? (
+            <>
+              Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
+              zero e usarem o computador com confiança.
+            </>
+          ) : (
+            <>
+              Agora imagine <strong className="text-slate-900">+90 aulas assim</strong>, na ordem certa, do zero até
+              você usar o computador sozinho(a).
+            </>
+          )}
         </p>
       </div>
     </section>
   );
 };
+
 
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
@@ -1363,24 +1390,25 @@ const VendasNovo = () => {
       <StatsBar />
       {/* 2. Identificação — "esse curso é pra mim" */}
       <Identification />
-      {/* 3. Problema / agitação da dor */}
+      {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
-      {/* 4. Contraste de futuro: com x sem o curso */}
-      <TwoRoutes />
-      {/* 5. Solução: a transformação (plano claro) */}
+      {/* 4. Solução: a transformação (plano claro) */}
       <Method />
-      {/* 6. Autoridade: quem vai te ensinar */}
+      {/* 5. Autoridade: quem vai te ensinar */}
       <Instructor />
-      {/* 6b. Prova viva da autoridade: 2 aulas reais logo após a professora */}
-      <AulasReais />
+      {/* 6. Prova viva da autoridade: aula real 1 */}
+      <AulasReais aula={1} />
       {/* 7. Micro-compromisso: quiz interativo */}
       <QuizIdentificacao />
       {/* 8. Conteúdo/entregável */}
       <Modules />
-      {/* 9. Prova social profunda + aula real */}
+      {/* 9. Prova social profunda */}
       <SocialProof />
       {/* 10. Visão emocional (desejo antes do preço) */}
       <EmotionalVision />
+      {/* 10b. Reengajamento antes da oferta: aula real 2 */}
+      <AulasReais aula={2} />
+
       {/* 11. Value stack: bônus antes da oferta */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
