@@ -187,18 +187,6 @@ const Hero = () => {
             <span className="text-blue-600 font-black">ligado um na vida</span>.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
-            <span className="flex items-center gap-1.5">
-              <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-green-600" /> Acesso imediato
-            </span>
-          </div>
-
           {/* Social proof inline */}
           <div className="flex items-center justify-center gap-3 mt-5">
             <div className="flex -space-x-2">
