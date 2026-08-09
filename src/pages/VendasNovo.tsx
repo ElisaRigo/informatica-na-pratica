@@ -1538,8 +1538,8 @@ const VendasNovo = () => {
       <SocialProof />
       {/* 10. Visão emocional (desejo antes do preço) */}
       <EmotionalVision />
-      {/* 10b. Reengajamento antes da oferta: aula real 2 */}
-      <AulasReais aula={2} />
+      {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
+      <Aula2Destaque />
 
       {/* 11. Value stack: bônus antes da oferta */}
       <section className="py-4 md:py-6 bg-slate-50">
