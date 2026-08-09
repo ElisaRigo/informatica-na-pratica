@@ -1239,8 +1239,8 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <SocialProof />
-      <QuizIdentificacao />
       <Instructor />
+      <QuizIdentificacao />
       <Modules />
       <Method />
       <EmotionalVision />
