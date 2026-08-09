@@ -1390,24 +1390,25 @@ const VendasNovo = () => {
       <StatsBar />
       {/* 2. Identificação — "esse curso é pra mim" */}
       <Identification />
-      {/* 3. Problema / agitação da dor */}
+      {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
-      {/* 4. Contraste de futuro: com x sem o curso */}
-      <TwoRoutes />
-      {/* 5. Solução: a transformação (plano claro) */}
+      {/* 4. Solução: a transformação (plano claro) */}
       <Method />
-      {/* 6. Autoridade: quem vai te ensinar */}
+      {/* 5. Autoridade: quem vai te ensinar */}
       <Instructor />
-      {/* 6b. Prova viva da autoridade: 2 aulas reais logo após a professora */}
-      <AulasReais />
+      {/* 6. Prova viva da autoridade: aula real 1 */}
+      <AulasReais aula={1} />
       {/* 7. Micro-compromisso: quiz interativo */}
       <QuizIdentificacao />
       {/* 8. Conteúdo/entregável */}
       <Modules />
-      {/* 9. Prova social profunda + aula real */}
+      {/* 9. Prova social profunda */}
       <SocialProof />
       {/* 10. Visão emocional (desejo antes do preço) */}
       <EmotionalVision />
+      {/* 10b. Reengajamento antes da oferta: aula real 2 */}
+      <AulasReais aula={2} />
+
       {/* 11. Value stack: bônus antes da oferta */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
