@@ -187,8 +187,6 @@ const Hero = () => {
             <span className="text-blue-600 font-black">ligado um na vida</span>.
           </p>
 
-          <CTA>Quero começar agora!</CTA>
-
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
               <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
