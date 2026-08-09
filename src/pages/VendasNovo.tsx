@@ -1270,9 +1270,6 @@ const Pricing = () => (
   <section id="oferta" className="py-8 md:py-14 bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-6">
-        <span className="inline-block bg-yellow-400 text-blue-900 text-xs md:text-sm font-black px-4 py-2 rounded-full mb-3 uppercase tracking-wide shadow-lg">
-          Oferta especial de hoje • 40% OFF
-        </span>
         <h2 className="text-3xl md:text-5xl font-black leading-tight">Sua vaga está aqui</h2>
         <p className="text-blue-100 text-base md:text-lg mt-2">Acesso liberado na hora • Vitalício</p>
       </div>
