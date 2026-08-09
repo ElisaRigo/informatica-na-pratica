@@ -41,6 +41,7 @@ const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
+import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
@@ -1018,8 +1019,6 @@ const SocialProof = () => {
           ))}
         </div>
 
-        {/* Aula real inserida entre os depoimentos */}
-        <AulaDemonstrativa />
 
         {/* Facebook-style comments — segunda metade */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
@@ -1350,6 +1349,8 @@ const VendasNovo = () => {
       <Method />
       {/* 6. Autoridade: quem vai te ensinar */}
       <Instructor />
+      {/* 6b. Prova viva da autoridade: 2 aulas reais logo após a professora */}
+      <AulasReais />
       {/* 7. Micro-compromisso: quiz interativo */}
       <QuizIdentificacao />
       {/* 8. Conteúdo/entregável */}
