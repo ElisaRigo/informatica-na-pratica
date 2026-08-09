@@ -971,12 +971,11 @@ const SocialProof = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center space-y-4">
-          <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
-          <CTA>Quero aprender sem medo!</CTA>
-          <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
+        {/* Transition */}
+        <div className="text-center mt-2">
+          <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
+            E você ainda sai com um{" "}
+            <span className="text-blue-600">certificado de conclusão</span>.
           </p>
         </div>
       </div>
