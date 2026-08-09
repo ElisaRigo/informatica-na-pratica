@@ -265,9 +265,11 @@ const AgitateSection = () => {
           certo.
         </p>
       </div>
+      <TwoRoutes />
     </section>
   );
 };
+
 
 // ───────────────────────── Aulas Reais (após a Professora) ─────────────────────────
 
