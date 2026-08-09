@@ -65,18 +65,28 @@ import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
 const openCheckout = () => openHotmartCheckout();
 
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
-  <button
-    onClick={openCheckout}
-    className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
-      size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
-    } ${subtle ? "bg-green-600/95" : ""}`}
-  >
-    <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
-    <span>{children}</span>
-    <ArrowRight className="hidden sm:inline-block w-5 h-5 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
-  </button>
-);
+const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to }: any) => {
+  const handleClick = () => {
+    if (to) {
+      const el = document.getElementById(to);
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    openCheckout();
+  };
+  return (
+    <button
+      onClick={handleClick}
+      className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
+        size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
+      } ${subtle ? "bg-green-600/95" : ""}`}
+    >
+      <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
+      <span>{children}</span>
+      <ArrowRight className="hidden sm:inline-block w-5 h-5 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+    </button>
+  );
+};
 
 // ───────────────────────── Countdown ─────────────────────────
 const useCountdown = () => {
@@ -249,7 +259,7 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section id="identificacao" className="py-4 md:py-6 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
         <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
@@ -267,7 +277,7 @@ const Identification = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA to="dor">Quero aprender do zero!</CTA>
         </div>
       </div>
     </section>
@@ -284,7 +294,7 @@ const AgitateSection = () => {
     "Deixar de resolver coisas do banco, INSS ou governo online",
   ];
   return (
-    <section className="py-5 md:py-8 bg-red-50 border-y border-red-100">
+    <section id="dor" className="py-5 md:py-8 bg-red-50 border-y border-red-100">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-5">
           <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -370,7 +380,7 @@ const AulaVideo = ({
 const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
   const isFirst = aula === 1;
   return (
-    <section className="py-4 md:py-6 bg-white border-t border-slate-200">
+    <section id={`aula-${aula}`} className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -471,7 +481,7 @@ const MiniValueSection = () => {
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
-  <section className="py-4 md:py-6 bg-white">
+  <section id="professora" className="py-4 md:py-6 bg-white">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
@@ -526,7 +536,7 @@ const Instructor = () => (
               </div>
             </div>
           </div>
-          <CTA size="md">Quero aprender sem medo!</CTA>
+          <CTA size="md" to="aula-1">Quero aprender sem medo!</CTA>
         </div>
       </div>
     </div>
@@ -651,7 +661,7 @@ const Modules = () => {
     },
   ];
   return (
-    <section className="py-6 md:py-10 bg-gradient-to-b from-slate-50 to-white">
+    <section id="modulos" className="py-6 md:py-10 bg-gradient-to-b from-slate-50 to-white">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
@@ -722,7 +732,7 @@ const Modules = () => {
           Tudo em <strong className="text-slate-800">+90 videoaulas curtas</strong>, passo a passo.
         </p>
         <div className="text-center mt-4">
-          <CTA>Quero parar de depender dos outros</CTA>
+          <CTA to="depoimentos">Quero parar de depender dos outros</CTA>
         </div>
       </div>
     </section>
@@ -797,7 +807,7 @@ const EmotionalVision = () => {
           Isso não é sonho. É o que acontece com quem começa o curso hoje.
         </p>
         <div className="text-center mt-5">
-          <CTA>Quero viver isso!</CTA>
+          <CTA to="oferta">Quero viver isso!</CTA>
         </div>
       </div>
     </section>
@@ -1021,7 +1031,7 @@ const StatsBar = () => (
 const SocialProof = () => {
   return (
     <>
-    <section className="py-4 md:py-6 bg-white">
+    <section id="depoimentos" className="py-4 md:py-6 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-5">
