@@ -516,9 +516,6 @@ const Aula2Destaque = () => {
             repetir esse progresso em <strong className="text-blue-600">+90 aulas</strong>, na ordem certa, até dominar
             o computador de uma vez por todas.
           </p>
-          <p className="text-slate-500 text-sm md:text-base mt-3 flex items-center justify-center gap-2">
-            <ArrowRight className="w-4 h-4 text-blue-500" /> Veja abaixo tudo que está incluso no curso completo
-          </p>
         </div>
       </div>
     </section>
