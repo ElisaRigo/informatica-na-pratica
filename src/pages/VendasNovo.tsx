@@ -229,7 +229,47 @@ const Identification = () => {
   );
 };
 
+// ───────────────────────── Agitação (custo de não aprender) ─────────────────────────
+const AgitateSection = () => {
+  const losses = [
+    "Perder oportunidades de emprego por não saber informática",
+    "Depender do filho, neto ou colega pra tarefas simples",
+    "Ficar de fora quando pedem pra enviar um documento ou preencher um cadastro",
+    "Sentir vergonha quando o assunto é computador",
+    "Deixar de resolver coisas do banco, INSS ou governo online",
+  ];
+  return (
+    <section className="py-5 md:py-8 bg-red-50 border-y border-red-100">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <div className="text-center mb-5">
+          <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            ⚠ E se você continuar do mesmo jeito?
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Cada dia sem aprender é uma <span className="text-red-600">oportunidade perdida</span>
+          </h2>
+        </div>
+        <ul className="space-y-2.5">
+          {losses.map((l) => (
+            <li key={l} className="flex items-start gap-3 bg-white border border-red-100 rounded-xl p-3.5 shadow-sm">
+              <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 font-black text-sm flex items-center justify-center shrink-0 mt-0.5">
+                ×
+              </span>
+              <span className="text-slate-800 font-medium">{l}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="text-center text-slate-700 mt-5 text-base md:text-lg">
+          A boa notícia: <strong className="text-slate-900">tudo isso muda em poucas semanas</strong> — com o método
+          certo.
+        </p>
+      </div>
+    </section>
+  );
+};
+
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
+
 const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
@@ -1238,9 +1278,12 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
+      <Identification />
+      <AgitateSection />
       <SocialProof />
       <Instructor />
       <QuizIdentificacao />
+
       <Modules />
       <Pricing />
       <Method />
