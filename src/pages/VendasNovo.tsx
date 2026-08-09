@@ -187,8 +187,6 @@ const Hero = () => {
             <span className="text-blue-600 font-black">ligado um na vida</span>.
           </p>
 
-          <CTA>Quero começar agora!</CTA>
-
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
               <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
@@ -1224,25 +1222,13 @@ const Footer = () => (
   </footer>
 );
 
-// ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = () => (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
-    <button
-      onClick={openCheckout}
-      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
-    >
-      <Monitor className="w-5 h-5" /> Quero começar agora!
-    </button>
-  </div>
-);
-
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
-    <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
+    <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
       <SocialProof />
@@ -1262,7 +1248,6 @@ const VendasNovo = () => {
       <FAQ />
       <FinalCTA />
       <Footer />
-      <StickyMobile />
       <WhatsAppButton />
     </div>
   );
