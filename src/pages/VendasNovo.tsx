@@ -819,6 +819,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
 
 const SocialProof = () => {
   return (
+    <>
     <section className="py-4 md:py-6 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
@@ -991,6 +992,7 @@ const SocialProof = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
