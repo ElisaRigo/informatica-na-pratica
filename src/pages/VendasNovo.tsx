@@ -1338,25 +1338,39 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
+      {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
       <StatsBar />
+      {/* 2. Identificação — "esse curso é pra mim" */}
       <Identification />
+      {/* 3. Problema / agitação da dor */}
       <AgitateSection />
-      <Method />
-      <Instructor />
-      <QuizIdentificacao />
-
-      <Modules />
-      <SocialProof />
-      <Pricing />
-      <EmotionalVision />
+      {/* 4. Contraste de futuro: com x sem o curso */}
       <TwoRoutes />
+      {/* 5. Solução: a transformação (plano claro) */}
+      <Method />
+      {/* 6. Autoridade: quem vai te ensinar */}
+      <Instructor />
+      {/* 7. Micro-compromisso: quiz interativo */}
+      <QuizIdentificacao />
+      {/* 8. Conteúdo/entregável */}
+      <Modules />
+      {/* 9. Prova social profunda + aula real */}
+      <SocialProof />
+      {/* 10. Visão emocional (desejo antes do preço) */}
+      <EmotionalVision />
+      {/* 11. Value stack: bônus antes da oferta */}
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
       </section>
+      {/* 12. Oferta */}
+      <Pricing />
+      {/* 13. Reforço de valor pós-preço */}
       <Certificate />
+      {/* 14. Quebra de objeções */}
       <FAQ />
+      {/* 15. Fechamento */}
       <FinalCTA />
       <Footer />
       <WhatsAppButton />
