@@ -447,7 +447,7 @@ const Aula2Destaque = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5">
           <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
-            <PlayCircle className="w-4 h-4" /> AULA GRATUITA Nº 2
+            <PlayCircle className="w-4 h-4" /> AULA PRÁTICA Nº 2
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Eu sei que pode parecer difícil agora…{" "}
@@ -487,10 +487,10 @@ const Aula2Destaque = () => {
                     <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
                   </div>
                 </div>
-                <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
                   <PlayCircle className="w-4 h-4" /> Aula 2
                 </div>
-                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
                   ▶ Assista agora
                 </div>
               </div>
@@ -515,9 +515,6 @@ const Aula2Destaque = () => {
             Se você acompanhou essa aula, <strong className="text-slate-900">você já consegue</strong>. Agora imagine
             repetir esse progresso em <strong className="text-blue-600">+90 aulas</strong>, na ordem certa, até dominar
             o computador de uma vez por todas.
-          </p>
-          <p className="text-slate-500 text-sm md:text-base mt-3 flex items-center justify-center gap-2">
-            <ArrowRight className="w-4 h-4 text-blue-500" /> Veja abaixo tudo que está incluso no curso completo
           </p>
         </div>
       </div>
