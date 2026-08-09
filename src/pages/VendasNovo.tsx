@@ -487,10 +487,10 @@ const Aula2Destaque = () => {
                     <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
                   </div>
                 </div>
-                <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
                   <PlayCircle className="w-4 h-4" /> Aula 2
                 </div>
-                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
                   ▶ Assista agora
                 </div>
               </div>
