@@ -707,14 +707,6 @@ const EmotionalVision = () => {
 };
 
 // ───────────────────────── Social Proof (WhatsApp + Facebook) ─────────────────────────
-const audioTestimonials = [
-  { name: "Antonio", description: "Depoimento sobre sua experiência com o curso", audioSrc: "/audio/antonio-1.ogg" },
-  { name: "Antonio", description: "Continuação do depoimento", audioSrc: "/audio/antonio-2.ogg" },
-  { name: "Amanda", description: "Como o curso transformou sua rotina", audioSrc: "/audio/amanda.mp4" },
-  { name: "Vanderlei", description: "Superou as dificuldades com tecnologia", audioSrc: "/audio/vanderlei.ogg" },
-  { name: "Bruna", description: "Gratidão pelo aprendizado", audioSrc: "/audio/bruna.aac" },
-];
-
 const whatsappScreenshots = [
   { image: whatsappTestimonial1, description: "Mãe de aluna elogiando o curso e voltando para comprar outro" },
   { image: whatsappTestimonial2, description: "Aluno Roberto agradecendo pela didática das aulas de planilha" },
@@ -722,141 +714,58 @@ const whatsappScreenshots = [
 
 const fbAvatars = [fbAvatar1, fbAvatar2, fbAvatar3, fbAvatar4, fbAvatar5, fbAvatar6, fbAvatar7, fbAvatar8];
 
-const facebookComments = [
+const testimonialCards = [
+  {
+    name: "Maria G.",
+    age: "68 anos",
+    text: "Com 68 anos aprendi a mexer no computador. Agora envio e-mails e converso com meus netos por vídeo. Deus abençoe!",
+    avatar: fbAvatar1,
+    likes: 42,
+  },
   {
     name: "Luciana M.",
-    text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌",
-    time: "2 h",
+    age: "Aluna há 2 meses",
+    text: "Aprendi em 1 semana o que não consegui em meses. A professora é maravilhosa e tem uma paciência infinita!",
+    avatar: fbAvatar2,
     likes: 14,
-    hasHeart: true,
-  },
-  {
-    name: "Tereza S.",
-    text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍",
-    time: "5 h",
-    likes: 23,
-    hasHeart: false,
-  },
-  {
-    name: "Carlos A.",
-    text: "Melhor investimento que fiz! Já indiquei pra toda família",
-    time: "1 d",
-    likes: 8,
-    hasHeart: false,
-  },
-  {
-    name: "Juliana R.",
-    text: "Ganhei uma promoção no trabalho por causa do curso! 🎉",
-    time: "3 d",
-    likes: 31,
-    hasHeart: true,
-  },
-  {
-    name: "Marcos V.",
-    text: "Achei que era difícil mas a didática é perfeita, parabéns!",
-    time: "1 sem",
-    likes: 12,
-    hasHeart: false,
-  },
-  {
-    name: "Patrícia S.",
-    text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏",
-    time: "1 sem",
-    likes: 19,
-    hasHeart: true,
   },
   {
     name: "Roberto L.",
-    text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪",
-    time: "2 sem",
+    age: "Aluno há 3 meses",
+    text: "Finalmente consigo fazer planilhas no trabalho sem pedir ajuda pra ninguém. Recomendo demais!",
+    avatar: fbAvatar3,
     likes: 7,
-    hasHeart: false,
   },
   {
-    name: "Maria G.",
-    text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏",
-    time: "3 sem",
-    likes: 42,
-    hasHeart: true,
+    name: "Tereza S.",
+    age: "Aluna há 1 mês",
+    text: "Tô conseguindo usar o computador sozinha! Antes tinha vergonha de pedir ajuda, hoje faço tudo eu mesma.",
+    avatar: fbAvatar4,
+    likes: 23,
+  },
+  {
+    name: "Juliana R.",
+    age: "Aluna há 4 meses",
+    text: "Ganhei uma promoção no trabalho por causa do curso! Aprendi Excel e Word de verdade. Muito obrigada!",
+    avatar: fbAvatar5,
+    likes: 31,
+  },
+  {
+    name: "Carlos A.",
+    age: "Aluno há 2 meses",
+    text: "Melhor investimento que fiz! Já indiquei pra toda família. A didática é simples e direta, perfeita pra iniciantes.",
+    avatar: fbAvatar6,
+    likes: 8,
   },
 ];
 
-const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimonials)[0] }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [hasError, setHasError] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  const togglePlay = () => {
-    if (audioRef.current && !hasError) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch(() => setHasError(true));
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      const p = (audioRef.current.currentTime / audioRef.current.duration) * 100;
-      setProgress(p || 0);
-    }
-  };
-
-  const handleEnded = () => {
-    setIsPlaying(false);
-    setProgress(0);
-  };
-
-  const handleError = () => {
-    setHasError(true);
-    setIsPlaying(false);
-  };
-
-  return (
-    <div
-      className={`bg-white border rounded-xl p-4 transition-all ${hasError ? "border-red-300 opacity-50" : "border-slate-200 hover:border-blue-300 shadow-sm"}`}
-    >
-      <audio
-        ref={audioRef}
-        src={testimonial.audioSrc}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={handleEnded}
-        onError={handleError}
-        preload="none"
-      />
-      <div className="flex items-center gap-3">
-        <button
-          onClick={togglePlay}
-          disabled={hasError}
-          className={`w-12 h-12 rounded-full flex items-center justify-center transition-transform shadow-md ${hasError ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:scale-105"}`}
-        >
-          {isPlaying ? <Pause className="w-5 h-5 text-white" /> : <Play className="w-5 h-5 text-white ml-0.5" />}
-        </button>
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-slate-900 font-semibold text-sm">{testimonial.name}</span>
-            <Volume2 className="w-3 h-3 text-blue-600" />
-          </div>
-          <p className="text-slate-500 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
-          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
-            <div className="h-full bg-blue-500 transition-all duration-100" style={{ width: `${progress}%` }} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const SocialProof = () => {
   return (
-    <section className="py-4 md:py-6 bg-white">
+    <section className="py-4 md:py-6 bg-gradient-to-b from-blue-50 via-white to-white">
       <div className="container mx-auto px-4 max-w-6xl">
-        {/* Header */}
+        {/* Trust badge */}
         <div className="text-center mb-5">
-          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-slate-200 rounded-full px-5 py-2 bg-slate-50">
+          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-blue-200 rounded-full px-5 py-2 bg-white shadow-sm">
             <div className="flex items-center gap-1.5">
               <div className="flex -space-x-2">
                 {fbAvatars.slice(0, 5).map((av, i) => (
@@ -867,62 +776,69 @@ const SocialProof = () => {
             </div>
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-amber-400 text-lg">
-                  ★
-                </span>
+                <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
               ))}
               <span className="text-slate-900 text-sm font-semibold ml-1">4.9/5</span>
             </div>
           </div>
 
+          {/* New motivating title */}
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3 leading-tight">
-            Veja o que dizem os alunos que <span className="text-blue-600">saíram do zero</span>
+            Pessoas como você <span className="text-blue-600">já conseguiram</span> — você também vai
           </h2>
           <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-medium">
-            Histórias reais de pessoas que{" "}
-            <span className="text-slate-900 font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
-            confiança
+            Histórias reais de quem <span className="text-slate-900 font-bold">tinha medo do computador</span> e hoje
+            usa com confiança, sozinho
           </p>
         </div>
 
-        {/* WhatsApp + Audios */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-5">
-          {/* WhatsApp Screenshots */}
-          <div className="order-1 lg:order-2">
-            <div className="flex items-center gap-2 mb-4">
-              <Smartphone className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Prints de Conversas</h3>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              {whatsappScreenshots.map((screenshot, index) => (
-                <div key={index} className="bg-slate-100 rounded-xl p-1.5 shadow-lg border border-slate-200">
-                  <div className="bg-slate-200 rounded-t-lg pt-1.5 pb-0.5 px-3">
-                    <div className="flex items-center justify-center">
-                      <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
-                    </div>
+        {/* Testimonial cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto mb-5">
+          {testimonialCards.map((t, index) => (
+            <div key={index} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-start gap-3 mb-3">
+                <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-slate-900 font-bold text-sm">{t.name}</p>
+                  <p className="text-slate-400 text-xs">{t.age}</p>
+                  <div className="flex items-center gap-0.5 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                    ))}
                   </div>
-                  <img
-                    src={screenshot.image}
-                    alt={screenshot.description}
-                    className="w-full h-auto rounded-b-md"
-                    loading="lazy"
-                  />
                 </div>
-              ))}
+              </div>
+              <p className="text-slate-700 text-sm leading-relaxed mb-3">{t.text}</p>
+              <div className="flex items-center gap-2 text-slate-400 text-xs">
+                <ThumbsUp className="w-3.5 h-3.5 text-blue-500" />
+                <span>{t.likes} pessoas acharam útil</span>
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Audio Players */}
-          <div className="order-2 lg:order-1">
-            <div className="flex items-center gap-2 mb-4">
-              <Volume2 className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Áudios de Alunos</h3>
-            </div>
-            <div className="space-y-3">
-              {audioTestimonials.map((testimonial, index) => (
-                <AudioPlayerLight key={index} testimonial={testimonial} />
-              ))}
-            </div>
+        {/* WhatsApp Screenshots */}
+        <div className="max-w-3xl mx-auto mb-5">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Smartphone className="w-5 h-5 text-green-600" />
+            <h3 className="text-lg font-bold text-slate-900">Mensagens reais de alunos</h3>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {whatsappScreenshots.map((screenshot, index) => (
+              <div key={index} className="bg-slate-100 rounded-xl p-1.5 shadow-lg border border-slate-200">
+                <div className="bg-slate-200 rounded-t-lg pt-1.5 pb-0.5 px-3">
+                  <div className="flex items-center justify-center">
+                    <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
+                  </div>
+                </div>
+                <img
+                  src={screenshot.image}
+                  alt={screenshot.description}
+                  className="w-full h-auto rounded-b-md"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -933,53 +849,6 @@ const SocialProof = () => {
             <br />
             <span className="text-slate-500 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
           </p>
-        </div>
-
-        {/* Facebook-style comments */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
-          {facebookComments.map((comment, index) => (
-            <div key={index} className="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
-              <div className="flex gap-2">
-                <img
-                  src={fbAvatars[index % fbAvatars.length]}
-                  alt=""
-                  className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]"
-                />
-                <div className="flex-1 min-w-0">
-                  <div className="bg-slate-100 rounded-2xl px-3 py-2">
-                    <p className="text-slate-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
-                      {comment.name}
-                    </p>
-                    <p className="text-slate-700 text-xs leading-relaxed">{comment.text}</p>
-                  </div>
-                  <div className="flex items-center gap-3 mt-1 px-2">
-                    <span className="text-[11px] text-slate-400">{comment.time}</span>
-                    <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
-                      Curtir
-                    </span>
-                    <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
-                      Responder
-                    </span>
-                    {comment.likes > 0 && (
-                      <span className="ml-auto text-[11px] text-slate-400 flex items-center gap-0.5">
-                        <span className="flex items-center -space-x-1">
-                          <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
-                            <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
-                          </span>
-                          {comment.hasHeart && (
-                            <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0">
-                              <Heart className="w-2.5 h-2.5 text-white fill-white" />
-                            </span>
-                          )}
-                        </span>
-                        {comment.likes}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
 
         {/* CTA */}
