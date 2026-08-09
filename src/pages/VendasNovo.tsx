@@ -1294,6 +1294,7 @@ const VendasNovo = () => {
       <QuizIdentificacao />
 
       <Modules />
+      <SocialProof />
       <Pricing />
       <EmotionalVision />
       <section className="py-4 md:py-6 bg-slate-50">
