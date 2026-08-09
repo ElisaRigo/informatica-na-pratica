@@ -876,12 +876,12 @@ const SocialProof = () => {
           </div>
 
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3 leading-tight">
-            Veja o que dizem os alunos que <span className="text-blue-600">saíram do zero</span>
+            Se eles conseguiram, <span className="text-blue-600">você também consegue</span>
           </h2>
           <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-medium">
-            Histórias reais de pessoas que{" "}
-            <span className="text-slate-900 font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
-            confiança
+            Pessoas como você, que{" "}
+            <span className="text-slate-900 font-bold">nunca tinham tocado num computador</span> — e hoje fazem tudo
+            sozinhas, sem pedir ajuda a ninguém
           </p>
         </div>
 
