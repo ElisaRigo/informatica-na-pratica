@@ -168,7 +168,7 @@ const Hero = () => {
                 ))}
               </div>
               <span className="text-slate-600 text-xs md:text-sm font-semibold">
-                +15.000 alunos já aprenderam comigo
+                +15.000 alunos já aprenderam
               </span>
             </div>
           </div>
