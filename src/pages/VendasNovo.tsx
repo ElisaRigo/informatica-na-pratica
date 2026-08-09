@@ -259,7 +259,7 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section id="identificacao" className="py-4 md:py-6 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
         <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
@@ -294,7 +294,7 @@ const AgitateSection = () => {
     "Deixar de resolver coisas do banco, INSS ou governo online",
   ];
   return (
-    <section className="py-5 md:py-8 bg-red-50 border-y border-red-100">
+    <section id="dor" className="py-5 md:py-8 bg-red-50 border-y border-red-100">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-5">
           <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -380,7 +380,7 @@ const AulaVideo = ({
 const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
   const isFirst = aula === 1;
   return (
-    <section className="py-4 md:py-6 bg-white border-t border-slate-200">
+    <section id={`aula-${aula}`} className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -481,7 +481,7 @@ const MiniValueSection = () => {
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
-  <section className="py-4 md:py-6 bg-white">
+  <section id="professora" className="py-4 md:py-6 bg-white">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
@@ -661,7 +661,7 @@ const Modules = () => {
     },
   ];
   return (
-    <section className="py-6 md:py-10 bg-gradient-to-b from-slate-50 to-white">
+    <section id="modulos" className="py-6 md:py-10 bg-gradient-to-b from-slate-50 to-white">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
@@ -1031,7 +1031,7 @@ const StatsBar = () => (
 const SocialProof = () => {
   return (
     <>
-    <section className="py-4 md:py-6 bg-white">
+    <section id="depoimentos" className="py-4 md:py-6 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-5">
