@@ -919,9 +919,8 @@ const SocialProof = () => {
         {/* Highlight phrase */}
         <div className="text-center my-4 max-w-4xl mx-auto">
           <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-            Se essas pessoas conseguiram, <span className="text-green-600">você também consegue.</span>
-            <br />
-            <span className="text-slate-500 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+            Eles começaram do zero.{" "}
+            <span className="text-green-600">Agora é a sua vez de conseguir.</span>
           </p>
         </div>
 
