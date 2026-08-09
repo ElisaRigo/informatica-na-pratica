@@ -434,6 +434,97 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
   );
 };
 
+// ───────────────────────── Aula 2 em destaque (reengajamento antes da oferta) ─────────────────────────
+const Aula2Destaque = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const aprendizados = [
+    { icon: MousePointer, text: "Clicar, digitar e se mexer no computador sem travar" },
+    { icon: FileText, text: "Criar e salvar um documento sem medo de perder" },
+    { icon: Globe, text: "Entrar na internet e achar o que precisa sozinho(a)" },
+  ];
+  return (
+    <section id="aula-2" className="py-6 md:py-10 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-5">
+          <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
+            <PlayCircle className="w-4 h-4" /> AULA GRATUITA Nº 2
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Eu sei que pode parecer difícil agora…{" "}
+            <span className="text-blue-600">mas veja o quanto é simples</span>
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Mais uma aula real do curso, sem edição, sem roteiro. É exatamente assim que você vai aprender em casa — no
+            seu tempo, do seu jeito.
+          </p>
+        </div>
+
+        {/* Bullets do que você vai ver */}
+        <div className="max-w-2xl mx-auto grid gap-2.5 mb-5">
+          {aprendizados.map((a) => (
+            <div
+              key={a.text}
+              className="flex items-center gap-3 bg-white border border-blue-100 rounded-xl px-4 py-3 shadow-sm"
+            >
+              <span className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                <a.icon className="w-5 h-5 text-blue-600" />
+              </span>
+              <span className="text-slate-800 font-medium text-sm md:text-base">{a.text}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Vídeo em moldura destacada */}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-sm opacity-30" />
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20 border-2 border-blue-200">
+            {!isPlaying ? (
+              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+                <img src={aprendaComigoThumb} alt="Aula 2 — Aprenda comigo na prática" className="w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
+                    <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
+                  </div>
+                </div>
+                <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                  <PlayCircle className="w-4 h-4" /> Aula 2
+                </div>
+                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                  ▶ Assista agora
+                </div>
+              </div>
+            ) : (
+              <div className="aspect-video relative">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                  title="Aula 2 — Aprenda comigo na prática"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Gancho de transição para a oferta */}
+        <div className="max-w-2xl mx-auto mt-5 text-center">
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+            Se você acompanhou essa aula, <strong className="text-slate-900">você já consegue</strong>. Agora imagine
+            repetir esse progresso em <strong className="text-blue-600">+90 aulas</strong>, na ordem certa, até dominar
+            o computador de uma vez por todas.
+          </p>
+          <p className="text-slate-500 text-sm md:text-base mt-3 flex items-center justify-center gap-2">
+            <ArrowRight className="w-4 h-4 text-blue-500" /> Veja abaixo tudo que está incluso no curso completo
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
