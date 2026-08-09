@@ -1282,7 +1282,6 @@ const VendasNovo = () => {
       <AgitateSection />
       <Method />
       <Instructor />
-      <SocialProof />
       <QuizIdentificacao />
 
       <Modules />
