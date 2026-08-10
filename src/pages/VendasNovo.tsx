@@ -1561,6 +1561,7 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
+      <TrustCards />
       {/* 2. Identificação — "esse curso é pra mim" */}
       <Identification />
       {/* 2b. Prova viva imediata: aula real 1 logo após identificação */}
