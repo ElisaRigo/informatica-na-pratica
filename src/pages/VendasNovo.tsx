@@ -221,7 +221,7 @@ const Hero = () => {
 
           {/* Selos de confiança movidos para acima da seção de Identificação */}
 
-          <p className="text-base md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto mb-5 leading-snug">
+          <p className="text-lg md:text-3xl text-slate-700 font-semibold max-w-3xl mx-auto mb-5 leading-snug">
             <strong className="text-slate-900">Aprenda Informática</strong> do jeito certo e use o computador com{" "}
             <strong className="text-blue-600">confiança</strong> no trabalho e no dia a dia.
           </p>
