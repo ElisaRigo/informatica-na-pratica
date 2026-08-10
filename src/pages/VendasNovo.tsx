@@ -1083,19 +1083,20 @@ const StatsBar = () => (
           </div>
         </div>
         <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-          <Star className="w-5 h-5 text-amber-500 shrink-0 fill-amber-500" />
+          <Award className="w-5 h-5 text-amber-500 shrink-0" />
           <div className="leading-tight">
-            <div className="text-base md:text-xl font-black text-slate-900">4,9<span className="text-xs text-slate-400">/5</span></div>
-            <div className="text-[11px] md:text-xs text-slate-600 font-medium">nota dos alunos</div>
+            <div className="text-base md:text-xl font-black text-slate-900">+10 anos</div>
+            <div className="text-[11px] md:text-xs text-slate-600 font-medium">ensinando informática</div>
           </div>
         </div>
         <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-          <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
+          <Headphones className="w-5 h-5 text-green-600 shrink-0" />
           <div className="leading-tight">
-            <div className="text-base md:text-xl font-black text-slate-900">98%</div>
-            <div className="text-[11px] md:text-xs text-slate-600 font-medium">terminam o curso</div>
+            <div className="text-base md:text-xl font-black text-slate-900">Suporte</div>
+            <div className="text-[11px] md:text-xs text-slate-600 font-medium">professora no WhatsApp</div>
           </div>
         </div>
+
         <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
           <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0" />
           <div className="leading-tight">
