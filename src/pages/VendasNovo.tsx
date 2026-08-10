@@ -1081,14 +1081,14 @@ const StatsBar = () => (
           <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Alunos formados</span>
         </div>
         <div className="flex flex-col items-center text-center bg-gradient-to-b from-amber-50 to-white border-2 border-amber-200 rounded-2xl p-4 md:p-5 shadow-md">
-          <Star className="w-7 h-7 md:w-9 md:h-9 text-amber-500 mb-1" />
-          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">4,9<span className="text-lg md:text-2xl text-slate-400">/5</span></span>
-          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Avaliação média</span>
+          <Award className="w-7 h-7 md:w-9 md:h-9 text-amber-500 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">+20</span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Anos ensinando</span>
         </div>
         <div className="flex flex-col items-center text-center bg-gradient-to-b from-green-50 to-white border-2 border-green-200 rounded-2xl p-4 md:p-5 shadow-md">
-          <CheckCircle2 className="w-7 h-7 md:w-9 md:h-9 text-green-600 mb-1" />
-          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">98%</span>
-          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Concluem o curso</span>
+          <Headphones className="w-7 h-7 md:w-9 md:h-9 text-green-600 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">Total</span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Suporte nas aulas</span>
         </div>
         <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
           <ShieldCheck className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
