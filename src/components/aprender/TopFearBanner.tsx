@@ -10,7 +10,7 @@ export const TopFearBanner = () => {
           </span>
           <span
             className="font-black text-base sm:text-lg md:text-xl text-blue-900 uppercase tracking-tight whitespace-nowrap"
-            style={{ fontFamily: '"Arial Black", "Helvetica Neue", Arial, sans-serif', fontWeight: 900 }}
+            style={{ fontFamily: '"Montserrat", sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}
           >
             VOCÊ TEM MEDO DO COMPUTADOR?
           </span>
