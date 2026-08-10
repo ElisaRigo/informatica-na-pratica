@@ -1072,43 +1072,33 @@ const FBComment = ({ comment, index }: { comment: (typeof facebookComments)[0]; 
 );
 
 const StatsBar = () => (
-  <section className="py-3 md:py-5 bg-white">
-    <div className="container mx-auto px-4 max-w-4xl">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
-        <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-          <Users className="w-5 h-5 text-blue-600 shrink-0" />
-          <div className="leading-tight">
-            <div className="text-base md:text-xl font-black text-slate-900">+15.000</div>
-            <div className="text-[11px] md:text-xs text-slate-600 font-medium">já aprenderam</div>
-          </div>
+  <section className="py-4 md:py-6 bg-white">
+    <div className="container mx-auto px-4 max-w-6xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto">
+        <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
+          <Users className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">+15.000</span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Alunos formados</span>
         </div>
-        <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-          <Award className="w-5 h-5 text-amber-500 shrink-0" />
-          <div className="leading-tight">
-            <div className="text-base md:text-xl font-black text-slate-900">+10 anos</div>
-            <div className="text-[11px] md:text-xs text-slate-600 font-medium">ensinando informática</div>
-          </div>
+        <div className="flex flex-col items-center text-center bg-gradient-to-b from-amber-50 to-white border-2 border-amber-200 rounded-2xl p-4 md:p-5 shadow-md">
+          <Star className="w-7 h-7 md:w-9 md:h-9 text-amber-500 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">4,9<span className="text-lg md:text-2xl text-slate-400">/5</span></span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Avaliação média</span>
         </div>
-        <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-          <Headphones className="w-5 h-5 text-green-600 shrink-0" />
-          <div className="leading-tight">
-            <div className="text-base md:text-xl font-black text-slate-900">Suporte</div>
-            <div className="text-[11px] md:text-xs text-slate-600 font-medium">professora no WhatsApp</div>
-          </div>
+        <div className="flex flex-col items-center text-center bg-gradient-to-b from-green-50 to-white border-2 border-green-200 rounded-2xl p-4 md:p-5 shadow-md">
+          <CheckCircle2 className="w-7 h-7 md:w-9 md:h-9 text-green-600 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">98%</span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Concluem o curso</span>
         </div>
-
-        <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-          <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0" />
-          <div className="leading-tight">
-            <div className="text-base md:text-xl font-black text-slate-900">7 dias</div>
-            <div className="text-[11px] md:text-xs text-slate-600 font-medium">risco zero</div>
-          </div>
+        <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
+          <ShieldCheck className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
+          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">7 dias</span>
+          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Garantia total</span>
         </div>
       </div>
     </div>
   </section>
 );
-
 
 const SocialProof = () => {
   const [showMore, setShowMore] = useState(false);
