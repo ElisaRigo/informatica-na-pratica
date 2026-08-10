@@ -1498,6 +1498,43 @@ const TwoRoutes = () => {
   );
 };
 
+// ───────────────────────── Sticky CTA (fixo no rodapé) ─────────────────────────
+const StickyCTA = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const pricing = document.getElementById("oferta");
+      // Mostra após passar o hero; esconde quando a seção de oferta está visível
+      if (pricing) {
+        const rect = pricing.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        setShow(y > 700 && !inView);
+      } else {
+        setShow(y > 700);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  if (!show) return null;
+  return (
+    <div className="fixed bottom-0 inset-x-0 z-40 px-3 pb-3 md:pb-4 pointer-events-none">
+      <div className="max-w-2xl mx-auto pointer-events-auto">
+        <button
+          onClick={() => openCheckout()}
+          className="group flex w-full items-center justify-center gap-2 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-2xl shadow-green-600/30 transition-all whitespace-nowrap text-lg md:text-xl px-5 py-4"
+        >
+          <Monitor className="w-5 h-5 shrink-0" />
+          <span>Quero começar agora</span>
+          <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
   useEffect(() => {
@@ -1537,7 +1574,9 @@ const VendasNovo = () => {
         </div>
       </section>
       {/* 12. Oferta */}
-      <Pricing />
+      <section id="oferta">
+        <Pricing />
+      </section>
       {/* 13. Reforço de valor pós-preço */}
       <Certificate />
       {/* 13b. Garantia — reforça confiança antes das objeções */}
@@ -1548,6 +1587,7 @@ const VendasNovo = () => {
       <FinalCTA />
       <Footer />
       <WhatsAppButton />
+      <StickyCTA />
     </div>
   );
 };
