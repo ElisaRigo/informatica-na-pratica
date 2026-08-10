@@ -185,8 +185,10 @@ const Hero = () => {
             <GraduationCap className="w-7 h-7 md:w-11 md:h-11" /> Aulas fáceis e práticas
           </span>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            Domine o Computador em{" "}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-3">
+            Domine o Computador
+            <br />
+            em{" "}
             <span className="text-blue-600 underline decoration-green-500 decoration-4 underline-offset-4">
               Pouco Tempo
             </span>
