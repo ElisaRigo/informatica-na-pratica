@@ -8,7 +8,10 @@ export const TopFearBanner = () => {
           <span className="text-lg md:text-2xl leading-none" aria-hidden="true">
             😰
           </span>
-          <span className="font-black text-base sm:text-lg md:text-xl text-blue-900 uppercase tracking-tight whitespace-nowrap">
+          <span
+            className="font-black text-base sm:text-lg md:text-xl text-blue-900 uppercase tracking-tight whitespace-nowrap"
+            style={{ fontFamily: '"Arial Black", "Helvetica Neue", Arial, sans-serif', fontWeight: 900 }}
+          >
             VOCÊ TEM MEDO DO COMPUTADOR?
           </span>
         </div>
