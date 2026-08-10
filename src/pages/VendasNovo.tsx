@@ -181,9 +181,20 @@ const Hero = () => {
             </div>
           </div>
 
-          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-lg md:text-3xl font-bold px-4 py-2 rounded-full mb-3 w-full whitespace-nowrap">
-            <GraduationCap className="w-7 h-7 md:w-11 md:h-11" /> Aulas fáceis e práticas
-          </span>
+          <div className="mb-4 -mx-4 md:-mx-8">
+            <div className="border-y py-3 md:py-4 px-4 text-center" style={{ backgroundColor: "#152b22", borderColor: "#1f4d3a" }}>
+              <div className="flex items-center justify-center gap-2 md:gap-3">
+                <span className="text-xl md:text-2xl" aria-hidden="true">😰</span>
+                <span className="font-black text-sm sm:text-base md:text-xl text-white uppercase tracking-wide">
+                  VOCÊ TEM MEDO DO COMPUTADOR?
+                </span>
+              </div>
+              <p className="mt-1 font-bold text-sm sm:text-base md:text-lg" style={{ color: "#4ade80" }}>
+                Não se preocupe... Eu te ensino do zero!
+              </p>
+            </div>
+          </div>
+
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-3">
             Domine o Computador
