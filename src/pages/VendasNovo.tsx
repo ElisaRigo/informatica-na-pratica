@@ -182,7 +182,7 @@ const Hero = () => {
           </div>
 
           <div className="mb-4 -mx-4 md:-mx-8">
-            <div className="border-y py-3 md:py-4 px-4 text-center" style={{ backgroundColor: "#152b22", borderColor: "#1f4d3a" }}>
+            <div className="border-y py-3 md:py-4 px-4 text-center bg-black border-slate-800">
               <div className="flex items-center justify-center gap-2 md:gap-3">
                 <span className="text-xl md:text-2xl" aria-hidden="true">😰</span>
                 <span className="font-black text-sm sm:text-base md:text-xl text-white uppercase tracking-wide">
