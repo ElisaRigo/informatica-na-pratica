@@ -5,11 +5,11 @@ export const TopFearBanner = () => {
         className="border-y-2 py-3 md:py-4 px-4 text-center bg-blue-50 border-blue-300"
       >
         <div className="flex items-center justify-center gap-1.5 md:gap-3">
-          <span className="text-lg md:text-2xl leading-none" aria-hidden="true">
+          <span className="text-xl md:text-2xl leading-none" aria-hidden="true">
             😰
           </span>
           <span
-            className="font-black text-base sm:text-lg md:text-xl text-blue-900 uppercase tracking-tight whitespace-nowrap"
+            className="font-black text-lg sm:text-xl md:text-2xl text-blue-900 uppercase tracking-tight whitespace-nowrap"
             style={{ fontFamily: '"Montserrat", sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}
           >
             VOCÊ TEM MEDO DO COMPUTADOR?
