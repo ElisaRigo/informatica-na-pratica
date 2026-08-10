@@ -263,8 +263,7 @@ const Hero = () => {
           </div>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
-            Domine o computador mesmo que você nunca tenha{" "}
-            <span className="text-blue-600 font-black">ligado um na vida</span>.
+            <span className="text-blue-600 font-black">Use o computador com confiança</span> e nunca mais dependa de ninguém.
           </p>
 
         </div>
