@@ -194,9 +194,41 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-4 tracking-tight">
             Mesmo começando do zero
           </p>
+
+          {/* Selos de destaque */}
+          <div className="flex flex-wrap justify-center gap-2 mb-4">
+            <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
+              <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
+            </span>
+            <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5" /> CURSO ONLINE
+            </span>
+          </div>
+
+          {/* Selos de confiança */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4">
+            {[
+              { icon: Headphones, label: "Suporte nas Aulas", sub: "Aprenda com orientação" },
+              { icon: ShieldCheck, label: "Garantia 7 Dias", sub: "Risco zero para você" },
+              { icon: Award, label: "Certificado", sub: "Reconhecido no mercado" },
+              { icon: Users, label: "+15.000 Alunos", sub: "+20 anos ensinando" },
+            ].map((item) => (
+              <div key={item.label} className="flex flex-col items-center text-center p-2 md:p-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-blue-600 mb-1 md:mb-2" />
+                <span className="text-slate-900 font-bold text-xs md:text-sm">{item.label}</span>
+                <span className="text-slate-500 text-[10px] md:text-xs">{item.sub}</span>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-base md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto mb-5 leading-snug">
+            <strong className="text-slate-900">Aprenda Informática</strong> do jeito certo e use o computador com{" "}
+            <strong className="text-blue-600">confiança</strong> no trabalho e no dia a dia.
+          </p>
+
 
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
