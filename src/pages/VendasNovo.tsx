@@ -208,21 +208,7 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Selos de confiança */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4">
-            {[
-              { icon: Headphones, label: "Suporte nas Aulas", sub: "Aprenda com orientação", bg: "bg-green-50/70 border-green-100", ic: "text-green-600" },
-              { icon: ShieldCheck, label: "Garantia 7 Dias", sub: "Risco zero para você", bg: "bg-indigo-50/70 border-indigo-100", ic: "text-indigo-600" },
-              { icon: Award, label: "Certificado", sub: "Reconhecido no mercado", bg: "bg-amber-50/70 border-amber-100", ic: "text-amber-500" },
-              { icon: Users, label: "+15.000 Alunos", sub: "+20 anos ensinando", bg: "bg-sky-50/70 border-sky-100", ic: "text-sky-600" },
-            ].map((item) => (
-              <div key={item.label} className={`flex flex-col items-center text-center p-2 md:p-4 border rounded-xl shadow-sm ${item.bg}`}>
-                <item.icon className={`w-6 h-6 md:w-8 md:h-8 mb-1 md:mb-2 ${item.ic}`} />
-                <span className="text-slate-900 font-bold text-xs md:text-sm">{item.label}</span>
-                <span className="text-slate-500 text-[10px] md:text-xs">{item.sub}</span>
-              </div>
-            ))}
-          </div>
+          {/* Selos de confiança movidos para acima da seção de Identificação */}
 
           <p className="text-base md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto mb-5 leading-snug">
             <strong className="text-slate-900">Aprenda Informática</strong> do jeito certo e use o computador com{" "}
@@ -277,6 +263,28 @@ const Hero = () => {
     </section>
   );
 };
+
+// ───────────────────────── Selos de confiança ─────────────────────────
+const TrustCards = () => (
+  <section className="py-4 md:py-6 bg-slate-50">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
+        {[
+          { icon: Headphones, label: "Suporte nas Aulas", sub: "Aprenda com orientação", bg: "bg-green-50/70 border-green-100", ic: "text-green-600" },
+          { icon: ShieldCheck, label: "Garantia 7 Dias", sub: "Risco zero para você", bg: "bg-indigo-50/70 border-indigo-100", ic: "text-indigo-600" },
+          { icon: Award, label: "Certificado", sub: "Reconhecido no mercado", bg: "bg-amber-50/70 border-amber-100", ic: "text-amber-500" },
+          { icon: Users, label: "+15.000 Alunos", sub: "+20 anos ensinando", bg: "bg-sky-50/70 border-sky-100", ic: "text-sky-600" },
+        ].map((item) => (
+          <div key={item.label} className={`flex flex-col items-center text-center p-2 md:p-4 border rounded-xl shadow-sm ${item.bg}`}>
+            <item.icon className={`w-6 h-6 md:w-8 md:h-8 mb-1 md:mb-2 ${item.ic}`} />
+            <span className="text-slate-900 font-bold text-xs md:text-sm">{item.label}</span>
+            <span className="text-slate-500 text-[10px] md:text-xs">{item.sub}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 // ───────────────────────── Identification ─────────────────────────
 const Identification = () => {
@@ -1553,6 +1561,7 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
+      <TrustCards />
       {/* 2. Identificação — "esse curso é pra mim" */}
       <Identification />
       {/* 2b. Prova viva imediata: aula real 1 logo após identificação */}
