@@ -188,7 +188,7 @@ const Hero = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
             Domine o Computador em{" "}
             <span className="text-blue-600 underline decoration-green-500 decoration-4 underline-offset-4">
-              30 Dias
+              Pouco Tempo
             </span>
           </h1>
 
