@@ -262,9 +262,15 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5 tracking-tight">
-            <span className="text-blue-600 font-black">Use o computador com confiança</span> e nunca mais dependa de ninguém.
-          </p>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 max-w-4xl mx-auto mb-5 leading-tight tracking-tight">
+            Use o computador com <span className="text-blue-600">confiança</span>
+            <br className="hidden md:block" /> e{" "}
+            <span className="underline decoration-emerald-500 decoration-4 underline-offset-4">
+              nunca mais dependa de ninguém
+            </span>
+            .
+          </h2>
+
 
         </div>
       </div>
