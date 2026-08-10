@@ -1102,35 +1102,6 @@ const FBComment = ({ comment, index }: { comment: (typeof facebookComments)[0]; 
   </div>
 );
 
-const StatsBar = () => (
-  <section className="py-4 md:py-6 bg-white">
-    <div className="container mx-auto px-4 max-w-6xl">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto">
-        <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
-          <Users className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
-          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">+15.000</span>
-          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Alunos formados</span>
-        </div>
-        <div className="flex flex-col items-center text-center bg-gradient-to-b from-amber-50 to-white border-2 border-amber-200 rounded-2xl p-4 md:p-5 shadow-md">
-          <Award className="w-7 h-7 md:w-9 md:h-9 text-amber-500 mb-1" />
-          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">+20</span>
-          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Anos ensinando</span>
-        </div>
-        <div className="flex flex-col items-center text-center bg-gradient-to-b from-green-50 to-white border-2 border-green-200 rounded-2xl p-4 md:p-5 shadow-md">
-          <Headphones className="w-7 h-7 md:w-9 md:h-9 text-green-600 mb-1" />
-          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">Total</span>
-          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Suporte nas aulas</span>
-        </div>
-        <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-4 md:p-5 shadow-md">
-          <ShieldCheck className="w-7 h-7 md:w-9 md:h-9 text-blue-600 mb-1" />
-          <span className="text-2xl md:text-4xl font-black text-slate-900 leading-none">7 dias</span>
-          <span className="text-xs md:text-sm text-slate-600 font-semibold mt-1">Garantia total</span>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
 const SocialProof = () => {
   const [showMore, setShowMore] = useState(false);
   return (
@@ -1576,7 +1547,6 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
-      <StatsBar />
       {/* 2. Identificação — "esse curso é pra mim" */}
       <Identification />
       {/* 2b. Prova viva imediata: aula real 1 logo após identificação */}
