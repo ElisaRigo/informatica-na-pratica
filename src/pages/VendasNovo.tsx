@@ -1079,7 +1079,7 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <section className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700">
+      <section className="py-4 md:py-6 bg-slate-900">
         <div className="container mx-auto px-4 max-w-xl">
           <div className="text-center">
             <p className="text-white/90 text-base md:text-lg">
@@ -1091,10 +1091,10 @@ const VendasNovo = () => {
             <p className="text-white/90 text-base md:text-lg mt-1">
               ou <span className="font-bold text-lg md:text-2xl">R$ 297,00</span> à vista
             </p>
-            <p className="text-amber-300 font-bold text-xs md:text-sm mt-2 flex items-center justify-center gap-1.5">
+            <p className="text-amber-400 font-bold text-xs md:text-sm mt-2 flex items-center justify-center gap-1.5">
               <Gift className="w-3.5 h-3.5" /> Hoje você leva 4 bônus exclusivos
             </p>
-            <p className="inline-flex items-center justify-center gap-1.5 text-blue-100 text-xs md:text-sm mt-2">
+            <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
               <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
             </p>
             <button
@@ -1111,14 +1111,14 @@ const VendasNovo = () => {
                 { icon: Headphones, label: "Suporte Direto" },
                 { icon: Users, label: "+15.000 Alunos" },
               ].map((item, i) => (
-                <div key={i} className="flex items-center justify-center gap-2 bg-white/15 border border-white/25 rounded-full px-3 py-2.5 md:px-4 md:py-3">
-                  <item.icon className="w-4 h-4 md:w-5 md:h-5 text-white shrink-0" />
+                <div key={i} className="flex items-center justify-center gap-2 bg-slate-900/60 border border-white/10 rounded-full px-3 py-2.5 md:px-4 md:py-3">
+                  <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
                   <span className="text-white font-semibold text-xs md:text-sm whitespace-nowrap">{item.label}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-4 rounded-xl border-2 border-[#25D366]/60 bg-[#25D366]/20 px-5 py-4 text-center shadow-lg shadow-blue-900/20">
+            <div className="mt-4 rounded-xl border-2 border-[#25D366]/50 bg-[#25D366]/15 px-5 py-4 text-center shadow-lg shadow-[#25D366]/10">
               <p className="flex flex-row items-center justify-center gap-1.5 text-[#25D366] font-black text-sm md:text-lg">
                 <Shield className="w-5 h-5" /> <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
               </p>
