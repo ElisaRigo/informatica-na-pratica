@@ -1085,7 +1085,7 @@ const VendasNovo = () => {
             <div className="mb-3 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
               Oportunidade única
             </div>
-            <h2 className="text-[clamp(1.1rem,4.5vw,2.25rem)] md:text-4xl font-extrabold tracking-tight whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground leading-tight">
+            <h2 className="text-[clamp(0.9rem,4.2vw,2.25rem)] md:text-4xl font-extrabold tracking-tight whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground leading-tight">
               Sua vez de perder o medo do computador
             </h2>
             <div className="mt-3 flex items-center justify-center gap-2">
