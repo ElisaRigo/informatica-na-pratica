@@ -1080,7 +1080,7 @@ const VendasNovo = () => {
       <Hero />
       <AulaDemonstrativa />
       <section className="py-4 md:py-6 bg-slate-100">
-        <div className="container mx-auto px-4 max-w-xl">
+        <div className="container mx-auto px-4 max-w-2xl">
           <div className="text-center">
             <div className="mb-3 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
               Oportunidade única
