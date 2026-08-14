@@ -1082,10 +1082,18 @@ const VendasNovo = () => {
       <section className="py-4 md:py-6 bg-slate-100">
         <div className="container mx-auto px-4 max-w-xl">
           <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-3 leading-tight">
+            <div className="mb-3 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+              Oportunidade única
+            </div>
+            <h2 className="text-[clamp(1.1rem,4.5vw,2.25rem)] md:text-4xl font-extrabold tracking-tight whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground leading-tight">
               Sua vez de perder o medo do computador
             </h2>
-            <p className="text-slate-700 text-base md:text-lg">
+            <div className="mt-3 flex items-center justify-center gap-2">
+              <div className="h-1 w-10 rounded-full bg-primary" />
+              <div className="h-1 w-20 rounded-full bg-primary/50" />
+              <div className="h-1 w-8 rounded-full bg-primary" />
+            </div>
+            <p className="text-slate-700 text-base md:text-lg mt-4">
               de <span className="line-through text-lg md:text-2xl">R$ 497,00</span> por apenas
             </p>
             <p className="text-[#16a34a] font-black text-3xl md:text-4xl leading-tight mt-1">
