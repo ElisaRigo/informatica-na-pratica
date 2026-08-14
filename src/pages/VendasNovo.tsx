@@ -1076,7 +1076,11 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <MiniValueSection />
+      <section className="py-4 md:py-6 bg-slate-900">
+        <div className="container mx-auto px-4">
+          <HeroPricing />
+        </div>
+      </section>
       <QuizIdentificacao />
       <Instructor />
       <SocialProof />
