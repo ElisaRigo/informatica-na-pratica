@@ -1070,6 +1070,7 @@ const StickyMobile = () => (
 const VendasNovo = () => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
+    (window as any).openCheckout = () => openHotmartCheckout();
   }, []);
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
