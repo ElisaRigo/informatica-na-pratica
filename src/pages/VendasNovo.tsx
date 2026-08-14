@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import {
   ShieldCheck,
+  Shield,
   Lock,
   CheckCircle2,
   Star,
@@ -27,6 +28,8 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  Gift,
+  Rocket,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
