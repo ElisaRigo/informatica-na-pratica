@@ -60,7 +60,6 @@ import fbAvatar8 from "@/assets/avatar-8.jpg";
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
-import { HeroPricing } from "@/components/aprender-only/HeroPricing";
 
 const openCheckout = () => openHotmartCheckout();
 
