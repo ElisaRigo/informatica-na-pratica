@@ -58,8 +58,10 @@ import fbAvatar8 from "@/assets/avatar-8.jpg";
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
+import { PricingV2 } from "@/components/aprender-only/PricingV2";
 
 const openCheckout = () => openHotmartCheckout();
+(window as any).openCheckout = openCheckout;
 
 // ───────────────────────── CTA Button ─────────────────────────
 const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
@@ -1124,7 +1126,7 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <MiniValueSection />
+      <PricingV2 />
       <QuizIdentificacao />
       <Instructor />
       <SocialProof />
