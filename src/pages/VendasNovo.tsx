@@ -57,6 +57,7 @@ import fbAvatar8 from "@/assets/avatar-8.jpg";
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
+import { HeroPricing } from "@/components/aprender-only/HeroPricing";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -1069,13 +1070,18 @@ const StickyMobile = () => (
 const VendasNovo = () => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
+    (window as any).openCheckout = () => openHotmartCheckout();
   }, []);
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <MiniValueSection />
+      <section className="py-4 md:py-6 bg-slate-900">
+        <div className="container mx-auto px-4">
+          <HeroPricing />
+        </div>
+      </section>
       <QuizIdentificacao />
       <Instructor />
       <SocialProof />
