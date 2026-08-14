@@ -1082,6 +1082,9 @@ const VendasNovo = () => {
       <section className="py-4 md:py-6 bg-slate-100">
         <div className="container mx-auto px-4 max-w-xl">
           <div className="text-center">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-3 leading-tight">
+              Sua vez de perder o medo do computador
+            </h2>
             <p className="text-slate-700 text-base md:text-lg">
               de <span className="line-through text-lg md:text-2xl">R$ 497,00</span> por apenas
             </p>
