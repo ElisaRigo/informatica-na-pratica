@@ -27,6 +27,7 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  Gift,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -883,58 +884,83 @@ const Certificate = () => (
 
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
-  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
-    <div className="container mx-auto px-4 max-w-3xl">
-      <div className="text-center mb-8">
-        <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-          🔥 Oferta especial • 40% OFF
-        </span>
-        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
-        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
-      </div>
+  <section id="oferta" className="py-4 md:py-6 bg-slate-50">
+    <div className="container mx-auto px-4 max-w-xl">
+      <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+        <div className="p-8 sm:p-10 text-center">
+          {/* Pricing Header */}
+          <div className="space-y-1">
+            <p className="text-slate-500 text-sm font-medium uppercase tracking-wider">
+              de <span className="line-through decoration-red-500 decoration-2">R$ 497,00</span> por apenas
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-green-600 tracking-tight">
+              Só 12x de R$ 30,72
+            </h2>
+            <p className="text-slate-700 font-semibold text-lg">ou R$ 297,00 à vista</p>
+          </div>
 
-      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
-        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
-        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+          {/* Value Indicators */}
+          <div className="mt-6 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-sm font-bold border border-amber-100">
+              <Gift className="w-4 h-4 text-amber-500" />
+              Hoje você leva 4 bônus exclusivos
+            </div>
+            <div className="flex items-center justify-center gap-4 text-slate-400 text-xs font-medium">
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4" /> Pagamento 100% seguro
+              </span>
+              <span className="w-1 h-1 bg-slate-300 rounded-full" />
+              <span>Acesso imediato</span>
+            </div>
+          </div>
 
-        <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
-          <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
-          <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
-          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
-          <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-            <span>🎁</span> Hoje você leva 4 bônus exclusivos
-          </p>
-          <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
-          <p className="text-base text-slate-600 mt-1">
-            ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
-          </p>
-        </div>
+          {/* CTA Button */}
+          <div className="mt-8">
+            <CTA>Quero perder o medo do computador</CTA>
+          </div>
 
-        <ul className="space-y-3 mb-6">
-          {[
-            "+90 videoaulas passo a passo",
-            "Acesso vitalício — assiste quantas vezes quiser",
-            "Certificado de conclusão",
-            "Suporte direto com a professora",
-            "Atualizações gratuitas pra sempre",
-            "Acesso pelo celular, tablet ou computador",
-          ].map((x) => (
-            <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
-              {x}
-            </li>
-          ))}
-        </ul>
+          {/* Feature Grid */}
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+              <div className="p-2 bg-green-100 rounded-lg">
+                <PlayCircle className="w-4 h-4 text-green-600" />
+              </div>
+              <span className="text-slate-700 text-sm font-semibold">+90 Videoaulas</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+              <div className="p-2 bg-green-100 rounded-lg">
+                <InfinityIcon className="w-4 h-4 text-green-600" />
+              </div>
+              <span className="text-slate-700 text-sm font-semibold">Acesso Vitalício</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+              <div className="p-2 bg-green-100 rounded-lg">
+                <Headphones className="w-4 h-4 text-green-600" />
+              </div>
+              <span className="text-slate-700 text-sm font-semibold">Suporte Direto</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+              <div className="p-2 bg-green-100 rounded-lg">
+                <Users className="w-4 h-4 text-green-600" />
+              </div>
+              <span className="text-slate-700 text-sm font-semibold">+15.000 Alunos</span>
+            </div>
+          </div>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
-
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
-          <span className="flex items-center gap-1.5">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
-          </span>
-          <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
-          </span>
+          {/* Guarantee Box */}
+          <div className="mt-8 p-6 rounded-2xl bg-green-50 border-2 border-green-100 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-4 border border-green-100 rounded-full flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-green-600" />
+              <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest">Segurança Total</span>
+            </div>
+            <p className="text-green-800 font-extrabold text-sm tracking-wide uppercase">
+              Garantia Incondicional de 7 Dias
+            </p>
+            <p className="mt-2 text-slate-700 text-sm leading-relaxed">
+              <span className="text-green-600 font-bold uppercase">Risco Zero!</span> Se não gostar, devolvemos{" "}
+              <span className="text-green-600 font-bold underline decoration-green-200">100% do seu dinheiro.</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
