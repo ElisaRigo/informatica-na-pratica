@@ -336,30 +336,30 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-3 md:py-4 bg-slate-50">
       <div className="container mx-auto px-4 max-w-xl">
-        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
-          <div className="p-8 sm:p-10 text-center">
+        <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 overflow-hidden">
+          <div className="p-5 sm:p-6 text-center">
             {/* Pricing Header */}
-            <div className="space-y-1">
-              <p className="text-slate-500 text-sm font-medium uppercase tracking-wider">
+            <div className="space-y-0.5">
+              <p className="text-slate-500 text-xs font-medium uppercase tracking-wider">
                 de <span className="line-through decoration-red-500 decoration-2">R$ 497,00</span> por apenas
               </p>
-              <h2 className="text-4xl sm:text-5xl font-extrabold text-green-600 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-green-600 tracking-tight">
                 Só 12x de R$ 30,72
               </h2>
-              <p className="text-slate-700 font-semibold text-lg">ou R$ 297,00 à vista</p>
+              <p className="text-slate-700 font-semibold text-base">ou R$ 297,00 à vista</p>
             </div>
 
             {/* Value Indicators */}
-            <div className="mt-6 space-y-3">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-sm font-bold border border-amber-100">
-                <Gift className="w-4 h-4 text-amber-500" />
+            <div className="mt-4 space-y-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold border border-amber-100">
+                <Gift className="w-3.5 h-3.5 text-amber-500" />
                 Hoje você leva 4 bônus exclusivos
               </div>
-              <div className="flex items-center justify-center gap-4 text-slate-400 text-xs font-medium">
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4" /> Pagamento 100% seguro
+              <div className="flex items-center justify-center gap-3 text-slate-400 text-[10px] font-medium">
+                <span className="flex items-center gap-1">
+                  <ShieldCheck className="w-3 h-3" /> Pagamento 100% seguro
                 </span>
                 <span className="w-1 h-1 bg-slate-300 rounded-full" />
                 <span>Acesso imediato</span>
@@ -367,48 +367,48 @@ const MiniValueSection = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="mt-8">
+            <div className="mt-5">
               <CTA>Quero perder o medo do computador</CTA>
             </div>
 
             {/* Feature Grid */}
-            <div className="mt-8 grid grid-cols-2 gap-3">
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <div className="p-2 bg-green-100 rounded-lg">
-                  <PlayCircle className="w-4 h-4 text-green-600" />
+            <div className="mt-5 grid grid-cols-2 gap-2">
+              <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-100">
+                <div className="p-1.5 bg-green-100 rounded-md">
+                  <PlayCircle className="w-3.5 h-3.5 text-green-600" />
                 </div>
-                <span className="text-slate-700 text-sm font-semibold">+90 Videoaulas</span>
+                <span className="text-slate-700 text-xs font-semibold">+90 Videoaulas</span>
               </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <div className="p-2 bg-green-100 rounded-lg">
-                  <InfinityIcon className="w-4 h-4 text-green-600" />
+              <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-100">
+                <div className="p-1.5 bg-green-100 rounded-md">
+                  <InfinityIcon className="w-3.5 h-3.5 text-green-600" />
                 </div>
-                <span className="text-slate-700 text-sm font-semibold">Acesso Vitalício</span>
+                <span className="text-slate-700 text-xs font-semibold">Acesso Vitalício</span>
               </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <div className="p-2 bg-green-100 rounded-lg">
-                  <Headphones className="w-4 h-4 text-green-600" />
+              <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-100">
+                <div className="p-1.5 bg-green-100 rounded-md">
+                  <Headphones className="w-3.5 h-3.5 text-green-600" />
                 </div>
-                <span className="text-slate-700 text-sm font-semibold">Suporte Direto</span>
+                <span className="text-slate-700 text-xs font-semibold">Suporte Direto</span>
               </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <div className="p-2 bg-green-100 rounded-lg">
-                  <Users className="w-4 h-4 text-green-600" />
+              <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-100">
+                <div className="p-1.5 bg-green-100 rounded-md">
+                  <Users className="w-3.5 h-3.5 text-green-600" />
                 </div>
-                <span className="text-slate-700 text-sm font-semibold">+15.000 Alunos</span>
+                <span className="text-slate-700 text-xs font-semibold">+15.000 Alunos</span>
               </div>
             </div>
 
             {/* Guarantee Box */}
-            <div className="mt-8 p-6 rounded-2xl bg-green-50 border-2 border-green-100 relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-4 border border-green-100 rounded-full flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-green-600" />
-                <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest">Segurança Total</span>
+            <div className="mt-5 p-4 rounded-xl bg-green-50 border-2 border-green-100 relative">
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-white px-3 border border-green-100 rounded-full flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-green-600" />
+                <span className="text-[9px] font-bold text-green-700 uppercase tracking-widest">Segurança Total</span>
               </div>
-              <p className="text-green-800 font-extrabold text-sm tracking-wide uppercase">
+              <p className="text-green-800 font-extrabold text-xs tracking-wide uppercase">
                 Garantia Incondicional de 7 Dias
               </p>
-              <p className="mt-2 text-slate-700 text-sm leading-relaxed">
+              <p className="mt-1 text-slate-700 text-xs leading-relaxed">
                 <span className="text-green-600 font-bold uppercase">Risco Zero!</span> Se não gostar, devolvemos{" "}
                 <span className="text-green-600 font-bold underline decoration-green-200">100% do seu dinheiro.</span>
               </p>
