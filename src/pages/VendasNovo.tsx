@@ -1080,8 +1080,53 @@ const VendasNovo = () => {
       <Hero />
       <AulaDemonstrativa />
       <section className="py-4 md:py-6 bg-slate-900">
-        <div className="container mx-auto px-4">
-          <HeroPricing />
+        <div className="container mx-auto px-4 max-w-xl">
+          <div className="text-center">
+            <p className="text-white/90 text-base md:text-lg">
+              de <span className="line-through text-lg md:text-2xl">R$ 497,00</span> por apenas
+            </p>
+            <p className="text-[#25D366] font-black text-3xl md:text-4xl leading-tight mt-1">
+              Só 12x de R$ 30,72
+            </p>
+            <p className="text-white/90 text-base md:text-lg mt-1">
+              ou <span className="font-bold text-lg md:text-2xl">R$ 297,00</span> à vista
+            </p>
+            <p className="text-amber-400 font-bold text-xs md:text-sm mt-2 flex items-center justify-center gap-1.5">
+              <Gift className="w-3.5 h-3.5" /> Hoje você leva 4 bônus exclusivos
+            </p>
+            <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
+              <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+            </p>
+            <button
+              onClick={() => (window as any).openCheckout?.()}
+              className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#1a9e4c] hover:bg-[#157a3a] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl"
+            >
+              <Rocket className="w-5 h-5" /> Quero perder o medo do computador
+            </button>
+
+            <div className="grid grid-cols-2 gap-3 mt-4">
+              {[
+                { icon: Play, label: "+90 Videoaulas" },
+                { icon: InfinityIcon, label: "Acesso Vitalício" },
+                { icon: Headphones, label: "Suporte Direto" },
+                { icon: Users, label: "+15.000 Alunos" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center justify-center gap-2 bg-slate-900/60 border border-white/10 rounded-full px-3 py-2.5 md:px-4 md:py-3">
+                  <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
+                  <span className="text-white font-semibold text-xs md:text-sm whitespace-nowrap">{item.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 rounded-xl border-2 border-[#25D366]/50 bg-[#25D366]/15 px-5 py-4 text-center shadow-lg shadow-[#25D366]/10">
+              <p className="flex flex-row items-center justify-center gap-1.5 text-[#25D366] font-black text-sm md:text-lg">
+                <Shield className="w-5 h-5" /> <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
+              </p>
+              <p className="text-white text-sm md:text-base mt-1.5 leading-snug">
+                <span className="text-[#fae614] font-bold">RISCO ZERO!</span> Se não gostar, devolvo <span className="text-[#25D366] font-bold whitespace-nowrap">100% do seu dinheiro.</span>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
       <QuizIdentificacao />
