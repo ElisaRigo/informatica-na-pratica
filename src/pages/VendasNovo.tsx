@@ -336,36 +336,84 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
-    <section className="py-4 md:py-6 bg-blue-50">
-      <div className="container mx-auto px-4 max-w-xl text-center">
-        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
-        <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
-        <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
-        <p className="text-slate-500 text-sm md:text-base">
-          de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
-        </p>
-        <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-          <span>🎁</span> Hoje você leva 4 bônus exclusivos
-        </p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
-        </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-        </p>
-        <div className="mt-5">
-          <CTA>Quero perder o medo do computador</CTA>
-        </div>
-        <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
-          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
-            <ShieldCheck className="w-5 h-5" />{" "}
-            <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
-          </p>
-          <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
-          </p>
+    <section className="py-4 md:py-6 bg-slate-50">
+      <div className="container mx-auto px-4 max-w-xl">
+        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+          <div className="p-8 sm:p-10 text-center">
+            {/* Pricing Header */}
+            <div className="space-y-1">
+              <p className="text-slate-500 text-sm font-medium uppercase tracking-wider">
+                de <span className="line-through decoration-red-500 decoration-2">R$ 497,00</span> por apenas
+              </p>
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-green-600 tracking-tight">
+                Só 12x de R$ 30,72
+              </h2>
+              <p className="text-slate-700 font-semibold text-lg">ou R$ 297,00 à vista</p>
+            </div>
+
+            {/* Value Indicators */}
+            <div className="mt-6 space-y-3">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-sm font-bold border border-amber-100">
+                <Gift className="w-4 h-4 text-amber-500" />
+                Hoje você leva 4 bônus exclusivos
+              </div>
+              <div className="flex items-center justify-center gap-4 text-slate-400 text-xs font-medium">
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4" /> Pagamento 100% seguro
+                </span>
+                <span className="w-1 h-1 bg-slate-300 rounded-full" />
+                <span>Acesso imediato</span>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mt-8">
+              <CTA>Quero perder o medo do computador</CTA>
+            </div>
+
+            {/* Feature Grid */}
+            <div className="mt-8 grid grid-cols-2 gap-3">
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <div className="p-2 bg-green-100 rounded-lg">
+                  <PlayCircle className="w-4 h-4 text-green-600" />
+                </div>
+                <span className="text-slate-700 text-sm font-semibold">+90 Videoaulas</span>
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <div className="p-2 bg-green-100 rounded-lg">
+                  <InfinityIcon className="w-4 h-4 text-green-600" />
+                </div>
+                <span className="text-slate-700 text-sm font-semibold">Acesso Vitalício</span>
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <div className="p-2 bg-green-100 rounded-lg">
+                  <Headphones className="w-4 h-4 text-green-600" />
+                </div>
+                <span className="text-slate-700 text-sm font-semibold">Suporte Direto</span>
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <div className="p-2 bg-green-100 rounded-lg">
+                  <Users className="w-4 h-4 text-green-600" />
+                </div>
+                <span className="text-slate-700 text-sm font-semibold">+15.000 Alunos</span>
+              </div>
+            </div>
+
+            {/* Guarantee Box */}
+            <div className="mt-8 p-6 rounded-2xl bg-green-50 border-2 border-green-100 relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-4 border border-green-100 rounded-full flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-green-600" />
+                <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest">Segurança Total</span>
+              </div>
+              <p className="text-green-800 font-extrabold text-sm tracking-wide uppercase">
+                Garantia Incondicional de 7 Dias
+              </p>
+              <p className="mt-2 text-slate-700 text-sm leading-relaxed">
+                <span className="text-green-600 font-bold uppercase">Risco Zero!</span> Se não gostar, devolvemos{" "}
+                <span className="text-green-600 font-bold underline decoration-green-200">100% do seu dinheiro.</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
