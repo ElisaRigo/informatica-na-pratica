@@ -37,6 +37,12 @@ const Curso = () => {
       {/* 2.5️⃣ ÁUDIOS DE DEPOIMENTOS - Prova social auditiva */}
       <AudioTestimonialsV2 />
       
+      {/* 🎯 CTA ESTRATÉGICO 1 - Após depoimentos em áudio */}
+      <StrategicCTAV2 
+        headline="Eu também quero aprender!"
+        buttonText="Quero Aprender Informática sem Medo"
+      />
+      
       {/* 📜 CERTIFICADO - Prova tangível de conquista */}
       <CertificateSection />
       
