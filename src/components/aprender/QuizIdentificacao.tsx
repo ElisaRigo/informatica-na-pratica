@@ -94,25 +94,25 @@ export const QuizIdentificacao = () => {
   const progress = done ? 100 : Math.round((step / QUESTIONS.length) * 100);
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-br from-primary to-blue-700">
+    <section className="py-8 md:py-12 bg-gradient-to-br from-primary to-blue-700">
       <div className="container mx-auto px-4 max-w-3xl">
-        <div className="text-center mb-6 md:mb-8">
-          <span className="flex items-center justify-center gap-3 bg-white text-primary text-xl md:text-3xl font-black px-6 md:px-8 py-3 md:py-4 rounded-full mb-4 shadow-lg w-full">
+        <div className="text-center mb-4 md:mb-6">
+          <span className="flex items-center justify-center gap-3 bg-white text-primary text-xl md:text-3xl font-black px-6 md:px-8 py-3 md:py-4 rounded-full mb-3 shadow-lg w-full">
             <NotebookPen className="w-7 h-7 md:w-9 md:h-9 shrink-0" /> Teste rápido de 30 segundos
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-white mb-2">
-            Esse curso pode <span className="text-white underline decoration-4 decoration-white/40 underline-offset-4">te ajudar?</span>
+          <h2 className="text-lg md:text-4xl font-black text-white mb-1 whitespace-nowrap">
+            Descubra se esse curso é <span className="text-white underline decoration-4 decoration-white/40 underline-offset-4">pra você!</span>
           </h2>
           <p className="text-white/90 max-w-xl mx-auto text-sm md:text-base">
             Responda 4 perguntas rápidas e receba uma orientação personalizada da Professora Elisa.
           </p>
         </div>
 
-        <div className="bg-white border border-slate-200 rounded-2xl shadow-lg p-5 md:p-8">
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-lg p-4 md:p-6">
           {!done && (
             <>
               {/* Progress */}
-              <div className="mb-6">
+              <div className="mb-4">
                 <div className="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
                   <span>Pergunta {step + 1} de {QUESTIONS.length}</span>
                   <span>{progress}%</span>
@@ -126,18 +126,18 @@ export const QuizIdentificacao = () => {
               </div>
 
               {/* Question */}
-              <h3 className="text-lg md:text-2xl font-black text-slate-900 mb-5 leading-tight">
+              <h3 className="text-lg md:text-2xl font-black text-slate-900 mb-3 leading-tight">
                 {step + 1}. {QUESTIONS[step].q}
               </h3>
 
-              <div className="grid gap-3">
+              <div className="grid gap-2.5">
                 {QUESTIONS[step].options.map((opt, i) => {
                   const Icon = opt.icon;
                   return (
                   <button
                       key={`q${step}-opt${i}`}
                       onClick={() => handleAnswer(opt.profile)}
-                      className="group flex items-center gap-4 text-left bg-white border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50 rounded-xl p-4 md:p-5 transition-all shadow-sm hover:shadow-md"
+                      className="group flex items-center gap-4 text-left bg-white border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50 rounded-xl p-3.5 md:p-4 transition-all shadow-sm hover:shadow-md"
                     >
                       <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-blue-100 group-hover:bg-blue-600 flex items-center justify-center shrink-0 transition-colors">
                         <Icon className="w-5 h-5 md:w-6 md:h-6 text-blue-600 group-hover:text-white transition-colors" />
@@ -156,7 +156,7 @@ export const QuizIdentificacao = () => {
           {done && (
             <div className="animate-fade-in">
               {/* Teacher header */}
-              <div className="flex items-center gap-4 mb-5">
+              <div className="flex items-center gap-4 mb-4">
                 <img
                   src={elisa}
                   alt="Professora Elisa"
@@ -170,18 +170,18 @@ export const QuizIdentificacao = () => {
                 </div>
               </div>
 
-              <h3 className="text-xl md:text-3xl font-black text-slate-900 leading-tight mb-3">
+              <h3 className="text-xl md:text-3xl font-black text-slate-900 leading-tight mb-2">
                 {result.title}
               </h3>
-              <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-5">
+              <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
                 {result.message}
               </p>
 
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 md:p-5 mb-6">
+              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 md:p-5 mb-4">
                 <div className="text-xs font-black text-blue-700 uppercase tracking-wide mb-3">
                   O que você vai conquistar:
                 </div>
-                <ul className="space-y-2.5">
+                <ul className="space-y-2">
                   {result.bullets.map((b, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
@@ -204,7 +204,7 @@ export const QuizIdentificacao = () => {
 
               <button
                 onClick={reset}
-                className="mt-5 mx-auto flex items-center gap-2 text-slate-500 hover:text-blue-600 text-sm font-semibold transition-colors"
+                className="mt-4 mx-auto flex items-center gap-2 text-slate-500 hover:text-blue-600 text-sm font-semibold transition-colors"
               >
                 <RotateCcw className="w-4 h-4" /> Refazer o teste
               </button>
