@@ -1637,6 +1637,8 @@ const Home = () => {
       <AulasReais aula={1} />
       {/* 3. Identificação — "esse curso é pra mim" */}
       <Identification />
+      {/* 3b. Aula real do curso antes da agitação da dor */}
+      <AulaCursoReal />
       {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
       {/* 4. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
