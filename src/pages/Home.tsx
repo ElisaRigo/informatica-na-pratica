@@ -42,6 +42,7 @@ import certificado from "@/assets/certificado-exemplo.png";
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
 import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import environmentThumb from "@/assets/environment-thumb.jpg";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
