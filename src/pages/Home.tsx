@@ -1179,39 +1179,7 @@ const FBComment = ({ comment, index }: { comment: (typeof facebookComments)[0]; 
   </div>
 );
 
-// ───────────────────────── Social Proof (teaser — quebra de objeção) ─────────────────────────
-const SocialProofTeaser = () => (
-  <section className="py-6 md:py-8 bg-white">
-    <div className="container mx-auto px-4 max-w-6xl">
-      <div className="text-center mb-5">
-        <div className="flex items-center justify-center gap-3 mb-3">
-          <div className="flex -space-x-2">
-            {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
-              <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
-            ))}
-          </div>
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-            ))}
-          </div>
-        </div>
-        <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-          Gente igual a você <span className="text-blue-600">já está conseguindo</span>
-        </h2>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
-        {facebookComments.slice(0, 3).map((comment, index) => (
-          <FBComment key={index} comment={comment} index={index} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
 const SocialProof = () => {
-
   const [showMore, setShowMore] = useState(false);
   return (
     <>
@@ -1616,10 +1584,7 @@ const Home = () => {
       <AulasReais aula={1} />
       {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
-      {/* 3c. Prova social curta: esperança logo após a dor */}
-      <SocialProofTeaser />
       {/* 4. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
-
       <Instructor />
       {/* 5. Solução: a transformação (plano claro, prova da promessa da professora) */}
       <Method />
