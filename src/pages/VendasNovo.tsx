@@ -191,7 +191,7 @@ const Hero = () => {
               <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
             </span>
             <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <GraduationCap className="w-4 h-4 md:w-5 md:h-5" /> CURSO ONLINE
+              <Headphones className="w-4 h-4 md:w-5 md:h-5" /> SUPORTE AO ALUNO
             </span>
           </div>
 
