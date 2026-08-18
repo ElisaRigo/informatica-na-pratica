@@ -202,7 +202,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto mb-4 leading-snug">
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-5 leading-snug font-medium">
             Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
           </p>
 
@@ -242,7 +242,7 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto mb-4 leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-5 leading-relaxed font-medium">
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
