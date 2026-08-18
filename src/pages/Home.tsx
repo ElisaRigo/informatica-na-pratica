@@ -208,13 +208,10 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-2 tracking-tight">
-            Mesmo começando do zero
-          </p>
-          <p className="text-sm md:text-base text-slate-500 max-w-2xl mx-auto mb-4 tracking-tight flex items-center justify-center gap-1.5">
-            <Clock className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-4">
+            <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
             No seu ritmo, passo a passo
-          </p>
+          </div>
 
           {/* Selos de destaque */}
           <div className="flex flex-wrap justify-center gap-2 mb-4">
