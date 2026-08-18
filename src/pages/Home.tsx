@@ -204,12 +204,16 @@ const Hero = () => {
 
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-3">
-            Domine o Computador
-            <br />
-            <span className="text-blue-600 underline decoration-green-500 decoration-4 underline-offset-4">
-              Começando do Zero
+            Aprenda a usar o computador{" "}
+            <span className="text-blue-600">
+              mesmo que você nunca tenha ligado um na vida.
             </span>
           </h1>
+
+          <p className="text-base md:text-xl text-slate-500 max-w-2xl mx-auto mb-4">
+            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+          </p>
+
 
           <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-4">
             <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
