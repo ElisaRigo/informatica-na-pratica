@@ -193,20 +193,6 @@ const Hero = () => {
           </p>
 
 
-          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-4">
-            <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
-            No seu ritmo, passo a passo
-          </div>
-
-          {/* Selos de destaque */}
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
-            <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
-            </span>
-            <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <Sparkles className="w-4 h-4 md:w-5 md:h-5" /> CURSO ONLINE
-            </span>
-          </div>
 
           {/* Selos de confiança movidos para acima da seção de Identificação */}
 
