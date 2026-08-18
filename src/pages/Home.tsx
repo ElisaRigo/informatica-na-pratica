@@ -41,7 +41,8 @@ const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa-v2.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
-import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import aulaPratica2ThumbAsset from "@/assets/aula-pratica-2-thumb.jpg.asset.json";
+const aulaPratica2Thumb = aulaPratica2ThumbAsset.url;
 import environmentThumbAsset from "@/assets/capa-aula-simples-v2.jpg.asset.json";
 const environmentThumb = environmentThumbAsset.url;
 import avatar1 from "@/assets/testimonial-new-1.jpg";
@@ -605,7 +606,7 @@ const Aula2Destaque = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20 border-2 border-blue-200">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                <img src={aprendaComigoThumb} alt="Aula 2 — Aprenda comigo na prática" className="w-full h-full object-cover" loading="lazy" />
+                <img src={aulaPratica2Thumb} alt="Aula 2 — Aprenda comigo na prática" className="w-full h-full object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
