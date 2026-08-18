@@ -10,8 +10,6 @@ import {
   PlayCircle,
   Monitor,
   Mail,
-  FileText,
-  Globe,
   Presentation,
   Keyboard,
   Sparkles,
@@ -566,11 +564,6 @@ const AulaCursoReal = () => {
 // ───────────────────────── Aula 2 em destaque (reengajamento antes da oferta) ─────────────────────────
 const Aula2Destaque = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const aprendizados = [
-    { icon: MousePointer, text: "Clicar, digitar e se mexer no computador sem travar" },
-    { icon: FileText, text: "Criar e salvar um documento sem medo de perder" },
-    { icon: Globe, text: "Entrar na internet e achar o que precisa sozinho(a)" },
-  ];
   return (
     <section id="aula-2" className="py-6 md:py-10 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -586,21 +579,6 @@ const Aula2Destaque = () => {
             Mais uma aula real do curso, sem edição, sem roteiro. É exatamente assim que você vai aprender em casa — no
             seu tempo, do seu jeito.
           </p>
-        </div>
-
-        {/* Bullets do que você vai ver */}
-        <div className="max-w-2xl mx-auto grid gap-2.5 mb-5">
-          {aprendizados.map((a) => (
-            <div
-              key={a.text}
-              className="flex items-center gap-3 bg-white border border-blue-100 rounded-xl px-4 py-3 shadow-sm"
-            >
-              <span className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                <a.icon className="w-5 h-5 text-blue-600" />
-              </span>
-              <span className="text-slate-800 font-medium text-sm md:text-base">{a.text}</span>
-            </div>
-          ))}
         </div>
 
         {/* Vídeo em moldura destacada */}
