@@ -10,8 +10,6 @@ import {
   PlayCircle,
   Monitor,
   Mail,
-  FileText,
-  Globe,
   Presentation,
   Keyboard,
   Sparkles,
