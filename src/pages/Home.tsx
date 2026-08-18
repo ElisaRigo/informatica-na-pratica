@@ -1685,12 +1685,12 @@ const Home = () => {
       <TrustCards />
       {/* 2. Prova viva imediata: aula real do curso antes da identificação */}
       <AulaCursoReal />
+      {/* 2b. Sessão de valor logo após a prova viva do primeiro vídeo */}
+      <ValueSection />
       {/* 3. Identificação — "esse curso é pra mim" */}
       <Identification />
       {/* 3b. Aula real passo a passo antes da agitação da dor */}
       <AulasReais aula={1} />
-      {/* 3c. Sessão de valor logo após a prova viva do segundo vídeo */}
-      <ValueSection />
       {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
       {/* 4. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
