@@ -259,7 +259,7 @@ const Hero = () => {
 
 // ───────────────────────── Selos de confiança ─────────────────────────
 const TrustCards = () => (
-  <section className="py-4 md:py-6 bg-slate-50">
+  <section className="py-3 md:py-4 bg-slate-50">
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
         {[
@@ -290,7 +290,7 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section id="identificacao" className="py-4 md:py-6 bg-slate-50">
+    <section id="identificacao" className="py-3 md:py-4 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
         <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
@@ -322,7 +322,7 @@ const AgitateSection = () => {
     "Deixar de resolver coisas do banco, INSS ou governo online",
   ];
   return (
-    <section id="dor" className="py-5 md:py-8 bg-red-50 border-y border-red-100">
+    <section id="dor" className="py-4 md:py-6 bg-red-50 border-y border-red-100">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-5">
           <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -408,7 +408,7 @@ const AulaVideo = ({
 const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
   const isFirst = aula === 1;
   return (
-    <section id={`aula-${aula}`} className="py-4 md:py-6 bg-white border-t border-slate-200">
+    <section id={`aula-${aula}`} className="py-3 md:py-5 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -471,7 +471,7 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
 const AulaCursoReal = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section id="aula-curso" className="py-5 md:py-8 bg-gradient-to-b from-white via-blue-50/50 to-white border-y border-blue-100">
+    <section id="aula-curso" className="py-4 md:py-6 bg-gradient-to-b from-white via-blue-50/50 to-white border-y border-blue-100">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
