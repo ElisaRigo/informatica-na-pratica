@@ -220,14 +220,6 @@ const Hero = () => {
           <p className="text-base md:text-xl font-bold text-blue-700 tracking-wide mb-1.5">
             Aprenda Informática do jeito certo!
           </p>
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-4">
-            Use o computador com <span className="text-blue-600">confiança</span>
-            <br className="hidden md:block" /> e{" "}
-            <span className="underline decoration-emerald-500 decoration-4 underline-offset-4">
-              nunca mais dependa de ninguém
-            </span>
-            .
-          </h2>
 
           {/* Selos de destaque */}
           <div className="flex flex-wrap justify-center gap-2 mb-5">
@@ -271,6 +263,14 @@ const Hero = () => {
             )}
           </div>
 
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 leading-tight tracking-tight mt-5 mb-4">
+            Use o computador com <span className="text-blue-600">confiança</span>
+            <br className="hidden md:block" /> e{" "}
+            <span className="underline decoration-emerald-500 decoration-4 underline-offset-4">
+              nunca mais dependa de ninguém
+            </span>
+            .
+          </h2>
 
         </div>
       </div>
