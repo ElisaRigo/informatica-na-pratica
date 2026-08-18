@@ -226,11 +226,6 @@ const Hero = () => {
 
           {/* Selos de confiança movidos para acima da seção de Identificação */}
 
-          <p className="text-lg md:text-3xl text-slate-700 font-semibold max-w-3xl mx-auto mb-5 leading-snug">
-            <strong className="text-slate-900">Aprenda Informática do jeito certo!</strong>
-          </p>
-
-
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
             {!isPlaying ? (
