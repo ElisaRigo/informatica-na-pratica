@@ -497,15 +497,16 @@ const AulaCursoReal = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
-            <PlayCircle className="w-4 h-4" /> AULA REAL DO CURSO
+            <PlayCircle className="w-4 h-4" /> AULA DE EXCEL SEM ENROLAÇÃO
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Veja como é uma aula de verdade — <span className="text-blue-600">do jeito simples que você vai aprender</span>
+            Achou que Excel era difícil? <span className="text-blue-600">Assista 3 minutos e mude de ideia</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Sem termos difíceis, sem pressa. A professora explica cada clique como se você estivesse do lado dela.
+            Nada de teoria. Você vê a tela, ouve a explicação e já entende o que fazer — no seu tempo, quantas vezes precisar.
           </p>
         </div>
+
 
         <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
           {!isPlaying ? (
