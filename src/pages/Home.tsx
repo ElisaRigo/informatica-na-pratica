@@ -497,15 +497,16 @@ const AulaCursoReal = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
-            <PlayCircle className="w-4 h-4" /> AULA REAL DO CURSO
+            <PlayCircle className="w-4 h-4" /> AULA DE EXCEL SEM ENROLAÇÃO
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Veja como é uma aula de verdade — <span className="text-blue-600">do jeito simples que você vai aprender</span>
+            Achou que Excel era difícil? <span className="text-blue-600">Assista 3 minutos e mude de ideia</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Sem termos difíceis, sem pressa. A professora explica cada clique como se você estivesse do lado dela.
+            Nada de teoria. Você vê a tela, ouve a explicação e já entende o que fazer — no seu tempo, quantas vezes precisar.
           </p>
         </div>
+
 
         <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
           {!isPlaying ? (
@@ -537,9 +538,26 @@ const AulaCursoReal = () => {
           )}
         </div>
 
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-5">
+          {[
+            { t: "Explicação lenta", d: "No ritmo de quem nunca mexeu" },
+            { t: "Passo a passo na tela", d: "Você vê cada clique acontecendo" },
+            { t: "Repita quando quiser", d: "Assista de novo até dominar" },
+          ].map((i) => (
+            <div key={i.t} className="flex items-start gap-2.5 bg-white border border-blue-100 rounded-xl p-3 shadow-sm text-left">
+              <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+              <div>
+                <p className="font-bold text-slate-900 text-sm md:text-base leading-tight">{i.t}</p>
+                <p className="text-slate-500 text-xs md:text-sm">{i.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <p className="text-center text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-          Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do zero e usarem o computador com confiança no dia a dia.
+          Se você acompanhou essa aula até o fim, <strong className="text-slate-900">você é capaz</strong> — e o curso inteiro segue exatamente esse ritmo.
         </p>
+
       </div>
     </section>
   );
