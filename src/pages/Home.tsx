@@ -225,10 +225,18 @@ const Hero = () => {
 
           {/* Selos de confiança movidos para acima da seção de Identificação */}
 
-          <p className="text-lg md:text-3xl text-slate-700 font-semibold max-w-3xl mx-auto mb-5 leading-snug">
+          <p className="text-lg md:text-3xl text-slate-700 font-semibold max-w-3xl mx-auto mb-3 leading-snug">
             <strong className="text-slate-900">Aprenda Informática do jeito certo!</strong>
           </p>
 
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 max-w-4xl mx-auto mb-5 leading-tight tracking-tight">
+            Use o computador com <span className="text-blue-600">confiança</span>
+            <br className="hidden md:block" /> e{" "}
+            <span className="underline decoration-emerald-500 decoration-4 underline-offset-4">
+              nunca mais dependa de ninguém
+            </span>
+            .
+          </h2>
 
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
@@ -261,15 +269,6 @@ const Hero = () => {
               </div>
             )}
           </div>
-
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 max-w-4xl mx-auto mb-3 leading-tight tracking-tight">
-            Use o computador com <span className="text-blue-600">confiança</span>
-            <br className="hidden md:block" /> e{" "}
-            <span className="underline decoration-emerald-500 decoration-4 underline-offset-4">
-              nunca mais dependa de ninguém
-            </span>
-            .
-          </h2>
 
 
         </div>
