@@ -246,14 +246,6 @@ const Hero = () => {
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 max-w-4xl mx-auto mb-3 leading-tight tracking-tight">
-            Use o computador com <span className="text-blue-600">confiança</span>
-            <br className="hidden md:block" /> e{" "}
-            <span className="underline decoration-emerald-500 decoration-4 underline-offset-4">
-              nunca mais dependa de ninguém
-            </span>
-            .
-          </h2>
 
 
         </div>
