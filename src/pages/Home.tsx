@@ -564,42 +564,6 @@ const AulaCursoReal = () => {
 // ───────────────────────── Aula 2 em destaque (reengajamento antes da oferta) ─────────────────────────
 const Aula2Destaque = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const aprendizados = [
-    { icon: MousePointer, text: "Clicar, digitar e se mexer no computador sem travar" },
-    { icon: FileText, text: "Criar e salvar um documento sem medo de perder" },
-    { icon: Globe, text: "Entrar na internet e achar o que precisa sozinho(a)" },
-  ];
-  return (
-    <section id="aula-2" className="py-6 md:py-10 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-5">
-          <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
-            <PlayCircle className="w-4 h-4" /> AULA PRÁTICA Nº 2
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Eu sei que pode parecer difícil agora…{" "}
-            <span className="text-blue-600">mas veja o quanto é simples</span>
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Mais uma aula real do curso, sem edição, sem roteiro. É exatamente assim que você vai aprender em casa — no
-            seu tempo, do seu jeito.
-          </p>
-        </div>
-
-        {/* Bullets do que você vai ver */}
-        <div className="max-w-2xl mx-auto grid gap-2.5 mb-5">
-          {aprendizados.map((a) => (
-            <div
-              key={a.text}
-              className="flex items-center gap-3 bg-white border border-blue-100 rounded-xl px-4 py-3 shadow-sm"
-            >
-              <span className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                <a.icon className="w-5 h-5 text-blue-600" />
-              </span>
-              <span className="text-slate-800 font-medium text-sm md:text-base">{a.text}</span>
-            </div>
-          ))}
-        </div>
 
         {/* Vídeo em moldura destacada */}
         <div className="relative max-w-4xl mx-auto">
