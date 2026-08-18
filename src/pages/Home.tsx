@@ -347,7 +347,6 @@ const AgitateSection = () => {
           certo.
         </p>
       </div>
-      <TwoRoutes />
     </section>
   );
 };
@@ -1526,57 +1525,6 @@ const Footer = () => (
   </footer>
 );
 
-// ───────────────────────── Duas rotas ─────────────────────────
-const TwoRoutes = () => {
-  const failure = [
-    "Continuar dependendo dos outros pra tudo no computador",
-    "Ficar de fora de vagas e oportunidades",
-    "Sentir vergonha e frustração",
-  ];
-  const success = [
-    "Usar o computador com autonomia total",
-    "Enviar e-mails, criar documentos e planilhas sozinho(a)",
-    "Se sentir orgulhoso(a) e no controle do seu dia a dia",
-  ];
-  return (
-    <section className="py-5 md:py-8 bg-white">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-6">
-          <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            SUA ESCOLHA HOJE
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900">
-            Duas rotas <span className="text-blue-600">a partir de agora</span>
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-          <div className="bg-slate-50 border-2 border-slate-200 rounded-2xl p-5 md:p-6">
-            <p className="text-xs font-black text-slate-500 uppercase tracking-wide mb-3">Sem o curso</p>
-            <ul className="space-y-2.5">
-              {failure.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-slate-600">
-                  <span className="text-red-500 font-black">✕</span>
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-green-50 border-2 border-green-500 rounded-2xl p-5 md:p-6 shadow-lg">
-            <p className="text-xs font-black text-green-700 uppercase tracking-wide mb-3">Com o curso</p>
-            <ul className="space-y-2.5">
-              {success.map((s) => (
-                <li key={s} className="flex items-start gap-2 text-slate-800 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
-                  <span>{s}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ───────────────────────── Sticky CTA (fixo no rodapé) ─────────────────────────
 const StickyCTA = () => {
