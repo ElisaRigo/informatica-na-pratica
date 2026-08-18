@@ -1578,22 +1578,22 @@ const Home = () => {
       <AulaCursoReal />
       {/* 2b. Sessão de valor logo após a prova viva do primeiro vídeo */}
       <ValueSection />
-      {/* 3. Identificação — "esse curso é pra mim" */}
-      <Identification />
-      {/* 3b. Aula real passo a passo antes da agitação da dor */}
-      <AulasReais aula={1} />
-      {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
-      <AgitateSection />
-      {/* 4. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
-      <Instructor />
-      {/* 5. Solução: a transformação (plano claro, prova da promessa da professora) */}
-      <Method />
-      {/* 7. Micro-compromisso: quiz interativo */}
-      <QuizIdentificacao />
-      {/* 8. Conteúdo/entregável */}
-      <Modules />
-      {/* 9. Prova social profunda */}
+      {/* 3. Prova social profunda antes da identificação */}
       <SocialProof />
+      {/* 4. Identificação — "esse curso é pra mim" */}
+      <Identification />
+      {/* 4b. Aula real passo a passo antes da agitação da dor */}
+      <AulasReais aula={1} />
+      {/* 5. Problema / agitação da dor + contraste de futuro (bloco único) */}
+      <AgitateSection />
+      {/* 6. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
+      <Instructor />
+      {/* 7. Solução: a transformação (plano claro, prova da promessa da professora) */}
+      <Method />
+      {/* 8. Micro-compromisso: quiz interativo */}
+      <QuizIdentificacao />
+      {/* 9. Conteúdo/entregável */}
+      <Modules />
       {/* 10. Visão emocional (desejo antes do preço) */}
       <EmotionalVision />
       {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
