@@ -488,6 +488,22 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
 // ───────────────────────── Aula 2 em destaque (reengajamento antes da oferta) ─────────────────────────
 const Aula2Destaque = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  return (
+    <section id="aula-2" className="py-6 md:py-10 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-5">
+          <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
+            <PlayCircle className="w-4 h-4" /> AULA PRÁTICA Nº 2
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Eu sei que pode parecer difícil agora…{" "}
+            <span className="text-blue-600">mas veja o quanto é simples</span>
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Mais uma aula real do curso, sem edição, sem roteiro. É exatamente assim que você vai aprender em casa — no
+            seu tempo, do seu jeito.
+          </p>
+        </div>
 
         {/* Vídeo em moldura destacada */}
         <div className="relative max-w-4xl mx-auto">
