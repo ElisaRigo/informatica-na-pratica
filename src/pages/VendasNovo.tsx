@@ -242,6 +242,10 @@ const Hero = () => {
             )}
           </div>
 
+          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto mb-4 leading-relaxed">
+            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+          </p>
+
           <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 max-w-4xl mx-auto mb-3 leading-tight tracking-tight">
             Use o computador com <span className="text-blue-600">confiança</span>
             <br className="hidden md:block" /> e{" "}
