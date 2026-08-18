@@ -202,7 +202,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="text-sm md:text-base text-slate-500 max-w-2xl mx-auto mb-4">
+          <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto mb-4 leading-snug">
             Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
           </p>
 
