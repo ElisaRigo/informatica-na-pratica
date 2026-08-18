@@ -213,22 +213,10 @@ const Hero = () => {
             No seu ritmo, passo a passo
           </div>
 
-          {/* Selos de destaque */}
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
-            <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
-            </span>
-            <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <Sparkles className="w-4 h-4 md:w-5 md:h-5" /> CURSO ONLINE
-            </span>
-          </div>
-
-          {/* Selos de confiança movidos para acima da seção de Identificação */}
-
           <p className="text-base md:text-xl font-bold text-blue-700 tracking-wide mb-1.5">
             Aprenda Informática do jeito certo!
           </p>
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-5">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-4">
             Use o computador com <span className="text-blue-600">confiança</span>
             <br className="hidden md:block" /> e{" "}
             <span className="underline decoration-emerald-500 decoration-4 underline-offset-4">
@@ -236,6 +224,16 @@ const Hero = () => {
             </span>
             .
           </h2>
+
+          {/* Selos de destaque */}
+          <div className="flex flex-wrap justify-center gap-2 mb-5">
+            <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
+              <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
+            </span>
+            <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5" /> CURSO ONLINE
+            </span>
+          </div>
 
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
