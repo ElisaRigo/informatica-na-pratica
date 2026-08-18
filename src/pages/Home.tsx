@@ -1434,10 +1434,10 @@ const Pricing = () => (
               ["Acesso vitalício (nunca perde)", "Incluso"],
               ["Certificado de conclusão", "Bônus"],
               ["Suporte direto com a professora", "Bônus"],
-              ["Bônus 1: Atalhos essenciais", "R$ 97"],
+              ["Bônus 1: Atalhos essenciais", "R$ 47"],
               ["Bônus 2: Currículo profissional", "R$ 97"],
-              ["Bônus 3: Mercado de trabalho", "R$ 87"],
-              ["Bônus 4: Materiais e apostilas", "R$ 87"],
+              ["Bônus 3: Mercado de trabalho", "R$ 127"],
+              ["Bônus 4: E-mail Profissional", "R$ 97"],
             ].map(([x, v]) => (
               <li key={x} className="flex items-center justify-between gap-3 text-slate-800 text-sm md:text-base border-b border-slate-100 pb-2">
                 <span className="flex items-center gap-2">
@@ -1451,7 +1451,7 @@ const Pricing = () => (
 
           <div className="bg-slate-50 rounded-xl p-3 text-center mb-5">
             <p className="text-xs text-slate-500 uppercase font-bold tracking-wide">Valor total</p>
-            <p className="text-slate-400 line-through text-lg font-bold">R$ 862,00</p>
+            <p className="text-slate-400 line-through text-lg font-bold">R$ 665,00</p>
             <p className="text-green-600 font-black text-2xl md:text-3xl leading-none mt-1">Você paga só R$ 297</p>
           </div>
 
