@@ -45,6 +45,8 @@ import aulaPratica2ThumbAsset from "@/assets/aula-pratica-2-thumb.jpg.asset.json
 const aulaPratica2Thumb = aulaPratica2ThumbAsset.url;
 import environmentThumbAsset from "@/assets/capa-aula-simples-v2.jpg.asset.json";
 const environmentThumb = environmentThumbAsset.url;
+import aulaRealThumbAsset from "@/assets/capa-aula-real.jpg.asset.json";
+const aulaRealThumb = aulaRealThumbAsset.url;
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
@@ -455,7 +457,7 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
         {isFirst ? (
           <AulaVideo
             videoId="g_F1-d7tdQ0"
-            thumb={environmentThumb}
+            thumb={aulaRealThumb}
             label="Aula 1"
             subtitle="Primeiros passos no computador"
           />
