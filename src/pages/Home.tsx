@@ -654,66 +654,74 @@ const Aula2Destaque = () => {
 
 // ───────────────────────── Value Section (depois do 2º vídeo) ─────────────────────────
 const ValueSection = () => (
-  <section className="py-8 md:py-14 bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
-    <div className="container mx-auto px-4 max-w-3xl">
-      <div className="text-center mb-6 md:mb-8">
-        <h2 className="text-2xl md:text-4xl font-black leading-tight">Tudo isso por menos de R$ 1 por dia</h2>
-        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso vitalício • +90 videoaulas • Suporte direto</p>
+  <section className="py-8 md:py-14 bg-slate-100">
+    <div className="container mx-auto px-4 max-w-2xl text-center">
+      <span className="inline-block bg-blue-100 text-blue-700 text-[11px] md:text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
+        Oportunidade única
+      </span>
+
+      <h2 className="text-2xl md:text-4xl font-black text-slate-800 leading-tight">
+        Sua vez de perder <span className="text-blue-600">o medo do computador</span>
+      </h2>
+
+      <div className="flex items-center justify-center gap-2 mt-3 mb-5">
+        <span className="h-1.5 w-8 rounded-full bg-blue-600" />
+        <span className="h-1.5 w-14 rounded-full bg-blue-300" />
+        <span className="h-1.5 w-8 rounded-full bg-blue-600" />
       </div>
 
-      <div className="text-center">
-        <p className="text-blue-100 text-base md:text-lg mb-1">
-          de <span className="line-through text-blue-200/70">R$ 497,00</span> por apenas
-        </p>
-        <p className="text-5xl md:text-6xl font-black text-green-400 leading-none tracking-tight">
-          Só 12x de R$ 30,72
-        </p>
-        <p className="text-white text-lg md:text-xl mt-3">
-          ou <strong className="text-white">R$ 297,00</strong> à vista
-        </p>
+      <p className="text-slate-500 text-base md:text-lg">
+        de <span className="line-through">R$ 497,00</span> por apenas
+      </p>
+      <p className="text-3xl md:text-5xl font-black text-green-600 leading-tight mt-1">
+        Só 12x de R$ 30,72
+      </p>
+      <p className="text-slate-500 text-base md:text-lg mt-1">
+        ou <strong className="text-slate-800">R$ 297,00</strong> à vista
+      </p>
 
-        <p className="text-amber-300 font-bold text-base md:text-lg mt-4 flex items-center justify-center gap-2">
-          <Gift className="w-5 h-5" /> Hoje você leva 4 bônus exclusivos
+      <p className="text-amber-600 font-bold text-sm md:text-base mt-3 flex items-center justify-center gap-2">
+        <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
+      </p>
+
+      <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-sm mt-2">
+        <ShieldCheck className="w-4 h-4" /> Pagamento 100% seguro · Acesso imediato
+      </p>
+
+      <div className="mt-6 max-w-xl mx-auto">
+        <CTA>Quero perder o medo do computador</CTA>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 mt-4 max-w-xl mx-auto">
+        {[
+          { icon: PlayCircle, label: "+90 Videoaulas" },
+          { icon: InfinityIcon, label: "Acesso Vitalício" },
+          { icon: Headphones, label: "Suporte Direto" },
+          { icon: Users, label: "+15.000 Alunos" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="flex items-center justify-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-3"
+          >
+            <item.icon className="w-5 h-5 text-blue-600 shrink-0" />
+            <span className="text-sm font-semibold text-slate-700">{item.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-4 mt-4 max-w-xl mx-auto">
+        <p className="flex items-center justify-center gap-2 text-green-600 font-black text-sm md:text-base">
+          <ShieldCheck className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
         </p>
-
-        <p className="inline-flex items-center justify-center gap-1.5 text-blue-100 text-sm md:text-base mt-3">
-          <ShieldCheck className="w-4 h-4" /> Pagamento 100% seguro · Acesso imediato
+        <p className="text-slate-700 text-sm md:text-base mt-1">
+          <span className="text-amber-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvo{" "}
+          <span className="text-green-600 font-bold">100% do seu dinheiro.</span>
         </p>
-
-        <div className="mt-6 max-w-xl mx-auto">
-          <CTA>Quero perder o medo do computador</CTA>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 mt-6 max-w-xl mx-auto">
-          {[
-            { icon: PlayCircle, label: "+90 Videoaulas" },
-            { icon: InfinityIcon, label: "Acesso Vitalício" },
-            { icon: Headphones, label: "Suporte Direto" },
-            { icon: Users, label: "+15.000 Alunos" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-3 py-3"
-            >
-              <item.icon className="w-5 h-5 text-blue-200 shrink-0" />
-              <span className="text-sm font-bold text-white">{item.label}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="bg-green-500/20 border-2 border-green-400/50 rounded-2xl p-4 mt-6 max-w-xl mx-auto">
-          <p className="flex items-center justify-center gap-2 text-green-300 font-black text-sm md:text-base">
-            <ShieldCheck className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
-          </p>
-          <p className="text-white text-sm md:text-base mt-1">
-            <span className="text-amber-300 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-            <span className="text-green-300 font-bold">100% do seu dinheiro.</span>
-          </p>
-        </div>
       </div>
     </div>
   </section>
 );
+
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
