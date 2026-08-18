@@ -39,7 +39,7 @@ import heroCover from "@/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/assets/capa-hero-principal-home-v2.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
-import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
+import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa-v2.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
 import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import environmentThumb from "@/assets/environment-thumb.jpg";
