@@ -347,7 +347,6 @@ const AgitateSection = () => {
           certo.
         </p>
       </div>
-      <TwoRoutes />
     </section>
   );
 };
