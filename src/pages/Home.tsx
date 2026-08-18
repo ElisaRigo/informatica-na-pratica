@@ -652,44 +652,68 @@ const Aula2Destaque = () => {
 };
 
 
-// ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
-const MiniValueSection = () => {
-  return (
-    <section className="py-4 md:py-6 bg-blue-50">
-      <div className="container mx-auto px-4 max-w-xl text-center">
-        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
-        <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
-        <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
-        <p className="text-slate-500 text-sm md:text-base">
-          de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
+// ───────────────────────── Value Section (depois do 2º vídeo) ─────────────────────────
+const ValueSection = () => (
+  <section className="py-8 md:py-14 bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
+    <div className="container mx-auto px-4 max-w-3xl">
+      <div className="text-center mb-6 md:mb-8">
+        <h2 className="text-2xl md:text-4xl font-black leading-tight">Tudo isso por menos de R$ 1 por dia</h2>
+        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso vitalício • +90 videoaulas • Suporte direto</p>
+      </div>
+
+      <div className="text-center">
+        <p className="text-blue-100 text-base md:text-lg mb-1">
+          de <span className="line-through text-blue-200/70">R$ 497,00</span> por apenas
         </p>
-        <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-          <span>🎁</span> Hoje você leva 4 bônus exclusivos
+        <p className="text-5xl md:text-6xl font-black text-green-400 leading-none tracking-tight">
+          Só 12x de R$ 30,72
         </p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
+        <p className="text-white text-lg md:text-xl mt-3">
+          ou <strong className="text-white">R$ 297,00</strong> à vista
         </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+
+        <p className="text-amber-300 font-bold text-base md:text-lg mt-4 flex items-center justify-center gap-2">
+          <Gift className="w-5 h-5" /> Hoje você leva 4 bônus exclusivos
         </p>
-        <div className="mt-5">
+
+        <p className="inline-flex items-center justify-center gap-1.5 text-blue-100 text-sm md:text-base mt-3">
+          <ShieldCheck className="w-4 h-4" /> Pagamento 100% seguro · Acesso imediato
+        </p>
+
+        <div className="mt-6 max-w-xl mx-auto">
           <CTA>Quero perder o medo do computador</CTA>
         </div>
-        <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
-          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
-            <ShieldCheck className="w-5 h-5" />{" "}
-            <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
+
+        <div className="grid grid-cols-2 gap-3 mt-6 max-w-xl mx-auto">
+          {[
+            { icon: PlayCircle, label: "+90 Videoaulas" },
+            { icon: InfinityIcon, label: "Acesso Vitalício" },
+            { icon: Headphones, label: "Suporte Direto" },
+            { icon: Users, label: "+15.000 Alunos" },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-3 py-3"
+            >
+              <item.icon className="w-5 h-5 text-blue-200 shrink-0" />
+              <span className="text-sm font-bold text-white">{item.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-green-500/20 border-2 border-green-400/50 rounded-2xl p-4 mt-6 max-w-xl mx-auto">
+          <p className="flex items-center justify-center gap-2 text-green-300 font-black text-sm md:text-base">
+            <ShieldCheck className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
           </p>
-          <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
+          <p className="text-white text-sm md:text-base mt-1">
+            <span className="text-amber-300 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
+            <span className="text-green-300 font-bold">100% do seu dinheiro.</span>
           </p>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
