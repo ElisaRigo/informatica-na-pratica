@@ -202,9 +202,8 @@ const Hero = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-3">
             Domine o Computador
             <br />
-            em{" "}
             <span className="text-blue-600 underline decoration-green-500 decoration-4 underline-offset-4">
-              Pouco Tempo
+              Começando do Zero
             </span>
           </h1>
 
