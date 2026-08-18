@@ -1646,12 +1646,12 @@ const Home = () => {
       <Hero />
       {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
       <TrustCards />
-      {/* 2. Prova viva imediata: aula real do curso antes da identificação */}
-      <AulaCursoReal />
+      {/* 2. Prova viva imediata: aula real passo a passo antes da identificação */}
+      <AulasReais aula={1} />
       {/* 3. Identificação — "esse curso é pra mim" */}
       <Identification />
-      {/* 3b. Aula real passo a passo antes da agitação da dor */}
-      <AulasReais aula={1} />
+      {/* 3b. Aula real do curso antes da agitação da dor */}
+      <AulaCursoReal />
       {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
       {/* 4. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
