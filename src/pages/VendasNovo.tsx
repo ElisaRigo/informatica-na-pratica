@@ -195,10 +195,10 @@ const Hero = () => {
             </span>
           </div>
 
-          <h1 className="text-[1.75rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-[-0.05em] mb-3 mx-0 px-6 md:mx-[-1rem] md:px-4">
+          <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-3 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
             <span className="block">Aprenda a usar o computador</span>
             <span className="block text-blue-600">
-              mesmo que você nunca tenha <br className="md:hidden" /> ligado um na vida.
+              mesmo que você nunca tenha ligado um na vida.
             </span>
           </h1>
 
