@@ -1437,16 +1437,17 @@ const StickyCTA = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY;
       const pricing = document.getElementById("oferta");
-      // Mostra após passar o hero; esconde quando a seção de oferta está visível
-      if (pricing) {
+      const valueSection = document.getElementById("sessao-valor");
+      const inOffer = pricing ? (() => {
         const rect = pricing.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        setShow(y > 700 && !inView);
-      } else {
-        setShow(y > 700);
-      }
+        return rect.top < window.innerHeight && rect.bottom > 0;
+      })() : false;
+      const valuePassed = valueSection ? (() => {
+        const rect = valueSection.getBoundingClientRect();
+        return rect.bottom <= 0;
+      })() : window.scrollY > 700;
+      setShow(valuePassed && !inOffer);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -1502,7 +1503,7 @@ const VendasNovo = () => {
       <Aula2Destaque />
 
       {/* 11. Value stack: bônus antes da oferta */}
-      <section className="py-4 md:py-6 bg-slate-50">
+      <section id="sessao-valor" className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>

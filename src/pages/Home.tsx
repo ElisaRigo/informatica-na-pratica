@@ -596,7 +596,7 @@ const Aula2Destaque = () => {
 
 // ───────────────────────── Value Section (depois do 2º vídeo) ─────────────────────────
 const ValueSection = () => (
-  <section className="py-8 md:py-14 bg-slate-100">
+  <section id="sessao-valor" className="py-8 md:py-14 bg-slate-100">
     <div className="container mx-auto px-4 max-w-2xl text-center">
       <span className="inline-block bg-blue-100 text-blue-700 text-[11px] md:text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
         Oportunidade única
@@ -1531,16 +1531,17 @@ const StickyCTA = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY;
       const pricing = document.getElementById("oferta");
-      // Mostra após passar o hero; esconde quando a seção de oferta está visível
-      if (pricing) {
+      const valueSection = document.getElementById("sessao-valor");
+      const inOffer = pricing ? (() => {
         const rect = pricing.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        setShow(y > 700 && !inView);
-      } else {
-        setShow(y > 700);
-      }
+        return rect.top < window.innerHeight && rect.bottom > 0;
+      })() : false;
+      const valuePassed = valueSection ? (() => {
+        const rect = valueSection.getBoundingClientRect();
+        return rect.bottom <= 0;
+      })() : window.scrollY > 700;
+      setShow(valuePassed && !inOffer);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
