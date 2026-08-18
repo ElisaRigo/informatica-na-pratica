@@ -1616,7 +1616,10 @@ const Home = () => {
       <AulasReais aula={1} />
       {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
+      {/* 3c. Prova social curta: esperança logo após a dor */}
+      <SocialProofTeaser />
       {/* 4. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
+
       <Instructor />
       {/* 5. Solução: a transformação (plano claro, prova da promessa da professora) */}
       <Method />
