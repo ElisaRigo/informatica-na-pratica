@@ -462,7 +462,7 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
         ) : (
           <AulaVideo
             videoId="-sdVG1OtDks"
-            thumb={aprendaComigoThumb}
+            thumb={aulaPratica2Thumb}
             label="Aula 2"
             subtitle="Aprenda comigo, na prática"
           />
