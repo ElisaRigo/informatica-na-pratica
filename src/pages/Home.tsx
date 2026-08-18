@@ -203,14 +203,14 @@ const Hero = () => {
           </div>
 
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-3">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
             Aprenda a usar o computador{" "}
             <span className="text-blue-600">
               mesmo que você nunca tenha ligado um na vida.
             </span>
           </h1>
 
-          <p className="text-base md:text-xl text-slate-500 max-w-2xl mx-auto mb-4">
+          <p className="text-sm md:text-base text-slate-500 max-w-2xl mx-auto mb-4">
             Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
           </p>
 
