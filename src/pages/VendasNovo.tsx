@@ -1343,7 +1343,7 @@ const Pricing = () => (
 
           <div className="bg-slate-50 rounded-xl p-3 text-center mb-5">
             <p className="text-xs text-slate-500 uppercase font-bold tracking-wide">Valor total</p>
-            <p className="text-slate-400 line-through text-lg font-bold">R$ 862,00</p>
+            <p className="text-slate-400 line-through text-lg font-bold">R$ 665,00</p>
             <p className="text-green-600 font-black text-2xl md:text-3xl leading-none mt-1">Você paga só R$ 297</p>
           </div>
 
