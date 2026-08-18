@@ -516,21 +516,6 @@ const AulaCursoReal = () => {
           )}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-5">
-          {[
-            { t: "Explicação lenta", d: "No ritmo de quem nunca mexeu" },
-            { t: "Passo a passo na tela", d: "Você vê cada clique acontecendo" },
-            { t: "Repita quando quiser", d: "Assista de novo até dominar" },
-          ].map((i) => (
-            <div key={i.t} className="flex items-start gap-2.5 bg-white border border-blue-100 rounded-xl p-3 shadow-sm text-left">
-              <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-              <div>
-                <p className="font-bold text-slate-900 text-sm md:text-base leading-tight">{i.t}</p>
-                <p className="text-slate-500 text-xs md:text-sm">{i.d}</p>
-              </div>
-            </div>
-          ))}
-        </div>
 
         <p className="text-center text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
           Se você acompanhou essa aula até o fim, <strong className="text-slate-900">você é capaz</strong> — e o curso inteiro segue exatamente esse ritmo.
