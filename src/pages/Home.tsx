@@ -452,8 +452,8 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
 
         {isFirst ? (
           <AulaVideo
-            videoId="_0OPLnEiMHk"
-            thumb={aulaGratisThumb}
+            videoId="g_F1-d7tdQ0"
+            thumb={environmentThumb}
             label="Aula 1"
             subtitle="Primeiros passos no computador"
           />
@@ -506,7 +506,7 @@ const AulaCursoReal = () => {
         <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
           {!isPlaying ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-              <img src={environmentThumb} alt="Aula real do curso" className="w-full h-full object-cover" loading="lazy" />
+              <img src={aulaGratisThumb} alt="Aula real do curso" className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
                   <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
@@ -522,7 +522,7 @@ const AulaCursoReal = () => {
           ) : (
             <div className="aspect-video relative">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/g_F1-d7tdQ0?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&autoplay=1"
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&autoplay=1"
                 title="Aula real do curso"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
