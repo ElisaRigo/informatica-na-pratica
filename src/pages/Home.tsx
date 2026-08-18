@@ -166,10 +166,10 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
-      <div className="container mx-auto px-4 py-3 md:py-4">
+      <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="max-w-5xl mx-auto text-center">
           {/* Prova social sutil — sem faixa, 1 linha */}
-          <div className="flex items-center justify-center gap-3 mb-3">
+          <div className="flex items-center justify-center gap-3 mb-2">
             <div className="flex -space-x-2 shrink-0">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-white object-cover shadow-sm" />
@@ -186,13 +186,13 @@ const Hero = () => {
           </div>
 
 
-          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-3">
+          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-2">
             <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
             No seu ritmo, passo a passo
           </div>
 
           {/* Selos de destaque */}
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
+          <div className="flex flex-wrap justify-center gap-2 mb-3">
             <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
               <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
             </span>
@@ -201,21 +201,21 @@ const Hero = () => {
             </span>
           </div>
 
-          <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-3 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
+          <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
             <span className="block">Aprenda a usar o computador</span>
             <span className="block text-blue-600">
               mesmo que você nunca tenha ligado um na vida.
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-5 leading-snug font-medium">
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
             Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
           </p>
 
 
 
           {/* Video */}
-          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
+          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-3">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
@@ -246,7 +246,7 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-5 leading-relaxed font-medium">
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
@@ -259,7 +259,7 @@ const Hero = () => {
 
 // ───────────────────────── Selos de confiança ─────────────────────────
 const TrustCards = () => (
-  <section className="py-4 md:py-6 bg-slate-50">
+  <section className="py-3 md:py-4 bg-slate-50">
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
         {[
@@ -290,7 +290,7 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section id="identificacao" className="py-4 md:py-6 bg-slate-50">
+    <section id="identificacao" className="py-3 md:py-4 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
         <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
@@ -322,7 +322,7 @@ const AgitateSection = () => {
     "Deixar de resolver coisas do banco, INSS ou governo online",
   ];
   return (
-    <section id="dor" className="py-5 md:py-8 bg-red-50 border-y border-red-100">
+    <section id="dor" className="py-4 md:py-6 bg-red-50 border-y border-red-100">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-5">
           <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -408,7 +408,7 @@ const AulaVideo = ({
 const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
   const isFirst = aula === 1;
   return (
-    <section id={`aula-${aula}`} className="py-4 md:py-6 bg-white border-t border-slate-200">
+    <section id={`aula-${aula}`} className="py-3 md:py-5 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -471,7 +471,7 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
 const AulaCursoReal = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section id="aula-curso" className="py-5 md:py-8 bg-gradient-to-b from-white via-blue-50/50 to-white border-y border-blue-100">
+    <section id="aula-curso" className="py-4 md:py-6 bg-gradient-to-b from-white via-blue-50/50 to-white border-y border-blue-100">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
