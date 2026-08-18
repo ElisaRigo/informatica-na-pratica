@@ -1480,23 +1480,23 @@ const VendasNovo = () => {
       <Hero />
       {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
       <TrustCards />
-      {/* 2. Identificação — "esse curso é pra mim" */}
+      {/* 2. Prova social profunda antes da identificação */}
+      <SocialProof />
+      {/* 3. Identificação — "esse curso é pra mim" */}
       <Identification />
-      {/* 2b. Prova viva imediata: aula real 1 logo após identificação */}
+      {/* 3b. Prova viva imediata: aula real 1 logo após identificação */}
       <AulasReais aula={1} />
-      {/* 3. Problema / agitação da dor + contraste de futuro (bloco único) */}
+      {/* 4. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
-      {/* 4. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
+      {/* 5. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
       <Instructor />
-      {/* 5. Solução: a transformação (plano claro, prova da promessa da professora) */}
+      {/* 6. Solução: a transformação (plano claro, prova da promessa da professora) */}
       <Method />
       {/* 7. Micro-compromisso: quiz interativo */}
       <QuizIdentificacao />
       {/* 8. Conteúdo/entregável */}
       <Modules />
-      {/* 9. Prova social profunda */}
-      <SocialProof />
-      {/* 10. Visão emocional (desejo antes do preço) */}
+      {/* 9. Visão emocional (desejo antes do preço) */}
       <EmotionalVision />
       {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
       <Aula2Destaque />
