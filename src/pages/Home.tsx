@@ -600,7 +600,7 @@ const ValueSection = () => (
         Oportunidade única
       </span>
 
-      <h2 className="text-2xl md:text-4xl font-black text-slate-800 leading-tight">
+      <h2 className="text-3xl md:text-5xl font-black text-slate-800 leading-tight">
         Sua vez de <span className="text-blue-600">Dominar o computador!</span>
       </h2>
 
