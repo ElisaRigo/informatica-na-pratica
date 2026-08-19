@@ -610,23 +610,21 @@ const ValueSection = () => (
         <span className="h-1.5 w-8 rounded-full bg-blue-600" />
       </div>
 
-      <div className="bg-white/70 rounded-2xl p-5 md:p-7 border border-slate-200/60 shadow-sm">
-        <p className="text-slate-600 text-base md:text-lg">
-          de <span className="line-through">R$ 497,00</span> por apenas
-        </p>
-        <p className="text-4xl md:text-6xl font-black text-green-600 leading-tight mt-1">
-          R$ 297,00
-        </p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
-          <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
-        </p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
-        </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-        </p>
-      </div>
+      <p className="text-slate-600 text-base md:text-lg">
+        de <span className="line-through">R$ 497,00</span> por apenas
+      </p>
+      <p className="text-4xl md:text-6xl font-black text-green-600 leading-tight mt-1">
+        R$ 297,00
+      </p>
+      <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
+        <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
+      </p>
+      <p className="text-slate-600 text-base md:text-lg mt-1">
+        ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
+      </p>
+      <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
+        <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+      </p>
 
       <div className="mt-6 max-w-xl mx-auto">
         <CTA>Quero perder o medo do computador</CTA>
