@@ -1438,16 +1438,16 @@ const StickyCTA = () => {
   useEffect(() => {
     const onScroll = () => {
       const pricing = document.getElementById("oferta");
-      const valueSection = document.getElementById("sessao-valor");
+      const depoimentos = document.getElementById("depoimentos");
       const inOffer = pricing ? (() => {
         const rect = pricing.getBoundingClientRect();
         return rect.top < window.innerHeight && rect.bottom > 0;
       })() : false;
-      const valuePassed = valueSection ? (() => {
-        const rect = valueSection.getBoundingClientRect();
-        return rect.bottom <= 0;
+      const depoimentosStarted = depoimentos ? (() => {
+        const rect = depoimentos.getBoundingClientRect();
+        return rect.top < window.innerHeight;
       })() : window.scrollY > 700;
-      setShow(valuePassed && !inOffer);
+      setShow(depoimentosStarted && !inOffer);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
