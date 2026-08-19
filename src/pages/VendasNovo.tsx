@@ -187,9 +187,9 @@ const Hero = () => {
           </div>
 
           <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
-            <span className="block">Aprenda a usar o computador</span>
+            <span className="block">Domine o computador</span>
             <span className="block text-blue-600">
-              mesmo que você nunca tenha ligado um na vida.
+              mesmo começando do Zero
             </span>
           </h1>
 
