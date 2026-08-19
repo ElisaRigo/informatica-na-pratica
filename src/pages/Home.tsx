@@ -191,16 +191,6 @@ const Hero = () => {
             No seu ritmo, passo a passo
           </div>
 
-          {/* Selos de destaque */}
-          <div className="flex flex-wrap justify-center gap-2 mb-3">
-            <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
-            </span>
-            <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <Headphones className="w-4 h-4 md:w-5 md:h-5" /> SUPORTE AO ALUNO
-            </span>
-          </div>
-
           <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
             <span className="block">Aprenda a usar o computador</span>
             <span className="block text-blue-600">
