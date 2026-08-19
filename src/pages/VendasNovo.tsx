@@ -186,11 +186,10 @@ const Hero = () => {
             No seu ritmo, passo a passo
           </div>
 
-          <h1 className="text-[2.4rem] md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
+          <h1 className="text-[2rem] md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
             <span className="block">Domine o computador</span>
-            <span className="block text-blue-600">
-              mesmo começando <span className="text-[2.7rem] md:text-7xl lg:text-8xl underline decoration-4 underline-offset-4">do Zero</span>
-            </span>
+            <span className="block text-blue-600">mesmo começando</span>
+            <span className="block text-blue-600 underline decoration-4 underline-offset-4">do Zero</span>
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
