@@ -475,7 +475,7 @@ const AulaCursoReal = () => {
             <PlayCircle className="w-4 h-4" /> AULA REAL DO CURSO
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Achou que aprender computador era difícil? <span className="text-blue-600">Assista 3 minutos e mude de ideia</span>
+            Você acha que aprender Informática é difícil? <span className="text-blue-600">Assista e mude de ideia!</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
             Nada de teoria. Você vê a tela, ouve a explicação e já entende o que fazer — no seu tempo, quantas vezes precisar.
