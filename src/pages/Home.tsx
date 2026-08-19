@@ -601,7 +601,7 @@ const ValueSection = () => (
       </span>
 
       <h2 className="text-2xl md:text-4xl font-black text-slate-800 leading-tight">
-        Sua vez de perder <span className="text-blue-600">o medo do computador</span>
+        Sua vez de <span className="text-blue-600">Dominar o computador!</span>
       </h2>
 
       <div className="flex items-center justify-center gap-2 mt-3 mb-5">
