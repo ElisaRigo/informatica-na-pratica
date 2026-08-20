@@ -1499,6 +1499,8 @@ const VendasNovo = () => {
       <Hero />
       {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
       <PainIdentification />
+      {/* 1b. Contraste positivo: sonhos realizados */}
+      <DreamRealization />
       {/* 2. Prova social profunda */}
       <SocialProof />
       {/* 3. Prova viva imediata: aula real 1 */}
