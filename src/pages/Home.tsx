@@ -346,12 +346,13 @@ const DreamRealization = () => {
 // ───────────────────────── Agitação (custo de não aprender) ─────────────────────────
 const AgitateSection = () => {
   const losses = [
-    "Perder oportunidades de emprego por não saber informática",
-    "Depender do filho, neto ou colega pra tarefas simples",
-    "Ficar de fora quando pedem pra enviar um documento ou preencher um cadastro",
+    "Perder uma vaga de emprego por não saber o básico do computador",
+    "Depender do filho, do neto ou do colega para tarefas simples",
+    "Ficar travado(a) quando pedem um documento ou um cadastro",
     "Sentir vergonha quando o assunto é computador",
-    "Deixar de resolver coisas do banco, INSS ou governo online",
+    "Não conseguir resolver banco, INSS e serviços do governo pela internet",
   ];
+
   return (
     <section id="dor" className="py-4 md:py-6 bg-red-50 border-y border-red-100">
       <div className="container mx-auto px-4 max-w-3xl">
