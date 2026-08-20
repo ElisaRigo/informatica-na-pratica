@@ -1429,7 +1429,7 @@ const Pricing = () => (
             <p className="text-green-600 font-black text-2xl md:text-3xl leading-none mt-1">Você paga só R$ 297</p>
           </div>
 
-          <CTA>Quero começar agora</CTA>
+          <CTA>Quero Aprender Informática</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4 text-xs text-slate-500">
             <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro</span>
