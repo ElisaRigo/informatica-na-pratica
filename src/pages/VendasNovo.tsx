@@ -1518,6 +1518,9 @@ const VendasNovo = () => {
       {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
       <Aula2Destaque />
 
+      {/* 10c. Sonhos realizados como aquecimento antes do value stack */}
+      <DreamRealization />
+
       {/* 11. Value stack: bônus antes da oferta */}
       <section id="sessao-valor" className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
