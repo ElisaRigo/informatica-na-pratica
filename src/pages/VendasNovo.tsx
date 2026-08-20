@@ -290,38 +290,6 @@ const PainIdentification = () => {
   );
 };
 
-// ───────────────────────── Identification ─────────────────────────
-const Identification = () => {
-  const items = [
-    "Sente vergonha de pedir ajuda toda hora pro filho ou neto",
-    "Tem medo de clicar em algo e estragar o computador",
-    "Não sabe anexar um arquivo, enviar um e-mail ou salvar uma foto",
-    "Já tentou aprender sozinho(a) no YouTube e se perdeu",
-    "Precisa do computador pra trabalhar, estudar ou resolver coisas do dia a dia",
-    "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
-  ];
-  return (
-    <section id="identificacao" className="py-3 md:py-4 bg-slate-50">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
-        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
-          Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
-        </p>
-        <div className="grid md:grid-cols-2 gap-3 md:gap-4">
-          {items.map((t) => (
-            <div
-              key={t}
-              className="flex items-start gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-300 transition-colors"
-            >
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
-              <span className="text-slate-700 font-medium">{t}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ───────────────────────── Agitação (custo de não aprender) ─────────────────────────
 const AgitateSection = () => {
@@ -1497,11 +1465,9 @@ const VendasNovo = () => {
       <Hero />
       {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
       <PainIdentification />
-      {/* 2. Prova social profunda antes da identificação */}
+      {/* 2. Prova social profunda */}
       <SocialProof />
-      {/* 3. Identificação — "esse curso é pra mim" */}
-      <Identification />
-      {/* 3b. Prova viva imediata: aula real 1 logo após identificação */}
+      {/* 3. Prova viva imediata: aula real 1 */}
       <AulasReais aula={1} />
       {/* 4. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
