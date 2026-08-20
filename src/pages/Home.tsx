@@ -1515,7 +1515,7 @@ const FAQ = () => {
           ))}
         </div>
         <div className="text-center mt-6">
-          <CTA>Quero garantir minha vaga agora!</CTA>
+          <CTA>Quero Aprender Informática</CTA>
         </div>
       </div>
     </section>
