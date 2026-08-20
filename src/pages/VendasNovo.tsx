@@ -1496,8 +1496,8 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
-      {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
-      <TrustCards />
+      {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
+      <PainIdentification />
       {/* 2. Prova social profunda antes da identificação */}
       <SocialProof />
       {/* 3. Identificação — "esse curso é pra mim" */}
