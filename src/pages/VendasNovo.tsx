@@ -259,30 +259,29 @@ const Hero = () => {
 // ───────────────────────── Mini identificação de dores ─────────────────────────
 const PainIdentification = () => {
   const pains = [
-    { icon: HelpCircle, label: "Fica perdido(a)?", sub: "Não sabe por onde começar no computador", bg: "bg-rose-50 border-rose-100", ic: "text-rose-500" },
-    { icon: Users, label: "Depende dos outros?", sub: "Precisa pedir ajuda até para tarefas simples", bg: "bg-orange-50 border-orange-100", ic: "text-orange-500" },
-    { icon: AlertTriangle, label: "Tem medo de clicar?", sub: "Com medo de fazer algo errado e estragar", bg: "bg-red-50 border-red-100", ic: "text-red-500" },
-    { icon: TrendingDown, label: "Perde oportunidades?", sub: "Vaga, concurso ou promoção passam por causa disso", bg: "bg-pink-50 border-pink-100", ic: "text-pink-500" },
-    { icon: RotateCcw, label: "Já tentou e desistiu?", sub: "YouTube confuso, curso rápido demais", bg: "bg-purple-50 border-purple-100", ic: "text-purple-500" },
-    { icon: Frown, label: "Sente vergonha?", sub: "Evita admitir que não sabe usar o computador", bg: "bg-amber-50 border-amber-100", ic: "text-amber-500" },
+    { icon: HelpCircle, label: "Fica perdido(a)?", bg: "bg-rose-50 border-rose-100", ic: "text-rose-500" },
+    { icon: Users, label: "Depende dos outros?", bg: "bg-orange-50 border-orange-100", ic: "text-orange-500" },
+    { icon: AlertTriangle, label: "Tem medo de clicar?", bg: "bg-red-50 border-red-100", ic: "text-red-500" },
+    { icon: TrendingDown, label: "Perde oportunidades?", bg: "bg-pink-50 border-pink-100", ic: "text-pink-500" },
+    { icon: RotateCcw, label: "Já tentou e desistiu?", bg: "bg-purple-50 border-purple-100", ic: "text-purple-500" },
+    { icon: Frown, label: "Sente vergonha?", bg: "bg-amber-50 border-amber-100", ic: "text-amber-500" },
   ];
   return (
     <section className="py-4 md:py-6 bg-slate-50 border-y border-slate-100">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-4 md:mb-5">
+        <div className="text-center mb-3 md:mb-4">
           <span className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-2">
             <AlertTriangle className="w-4 h-4" /> Como você se sente hoje?
           </span>
-          <h2 className="text-xl md:text-3xl font-black text-slate-900 leading-tight">
-            Se você se identifica com alguma dessas situações, <span className="text-blue-600">esse curso é para você</span>
+          <h2 className="text-lg md:text-2xl font-black text-slate-900 leading-tight">
+            Se você se identifica, <span className="text-blue-600">esse curso é para você</span>
           </h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
           {pains.map((item) => (
-            <div key={item.label} className={`flex flex-col items-center text-center p-2.5 md:p-4 border rounded-xl shadow-sm ${item.bg}`}>
-              <item.icon className={`w-6 h-6 md:w-7 md:h-7 mb-1.5 ${item.ic}`} />
-              <span className="text-slate-900 font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-slate-500 text-[10px] md:text-xs leading-tight mt-0.5">{item.sub}</span>
+            <div key={item.label} className={`flex items-center gap-2 md:gap-3 p-3 md:p-4 border rounded-xl shadow-sm ${item.bg}`}>
+              <item.icon className={`w-6 h-6 md:w-7 md:h-7 shrink-0 ${item.ic}`} />
+              <span className="text-slate-900 font-bold text-sm md:text-base leading-tight">{item.label}</span>
             </div>
           ))}
         </div>
