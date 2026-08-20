@@ -258,13 +258,19 @@ const Hero = () => {
 
 // ───────────────────────── Mini identificação de dores ─────────────────────────
 const PainIdentification = () => {
-  const pains = [
-    { icon: HelpCircle, label: "Fica perdido(a)?", sub: "Não sabe por onde começar no computador", bg: "bg-rose-50 border-rose-100", ic: "text-rose-500" },
-    { icon: Users, label: "Depende dos outros?", sub: "Precisa pedir ajuda até para tarefas simples", bg: "bg-orange-50 border-orange-100", ic: "text-orange-500" },
-    { icon: AlertTriangle, label: "Tem medo de clicar?", sub: "Com medo de fazer algo errado e estragar", bg: "bg-red-50 border-red-100", ic: "text-red-500" },
-    { icon: TrendingDown, label: "Perde oportunidades?", sub: "Vaga, concurso ou promoção passam por causa disso", bg: "bg-pink-50 border-pink-100", ic: "text-pink-500" },
-    { icon: RotateCcw, label: "Já tentou e desistiu?", sub: "YouTube confuso, curso rápido demais", bg: "bg-purple-50 border-purple-100", ic: "text-purple-500" },
-    { icon: Frown, label: "Sente vergonha?", sub: "Evita admitir que não sabe usar o computador", bg: "bg-amber-50 border-amber-100", ic: "text-amber-500" },
+  const rows = [
+    {
+      left: { icon: HelpCircle, label: "Fica perdido(a)?", sub: "Não sabe por onde começar no computador", ic: "text-rose-500", bg: "bg-rose-50" },
+      right: { icon: Users, label: "Depende dos outros?", sub: "Precisa pedir ajuda até para tarefas simples", ic: "text-orange-500", bg: "bg-orange-50" },
+    },
+    {
+      left: { icon: AlertTriangle, label: "Tem medo de clicar?", sub: "Com medo de fazer algo errado e estragar", ic: "text-red-500", bg: "bg-red-50" },
+      right: { icon: TrendingDown, label: "Perde oportunidades?", sub: "Vaga, concurso ou promoção passam por causa disso", ic: "text-pink-500", bg: "bg-pink-50" },
+    },
+    {
+      left: { icon: RotateCcw, label: "Já tentou e desistiu?", sub: "YouTube confuso, curso rápido demais", ic: "text-purple-500", bg: "bg-purple-50" },
+      right: { icon: Frown, label: "Sente vergonha?", sub: "Evita admitir que não sabe usar o computador", ic: "text-amber-500", bg: "bg-amber-50" },
+    },
   ];
   return (
     <section className="py-4 md:py-6 bg-slate-50 border-y border-slate-100">
@@ -277,12 +283,26 @@ const PainIdentification = () => {
             Se você se identifica com alguma dessas situações, <span className="text-blue-600">esse curso é para você</span>
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-          {pains.map((item) => (
-            <div key={item.label} className={`flex flex-col items-center text-center p-2.5 md:p-4 border rounded-xl shadow-sm ${item.bg}`}>
-              <item.icon className={`w-6 h-6 md:w-7 md:h-7 mb-1.5 ${item.ic}`} />
-              <span className="text-slate-900 font-bold text-xs md:text-sm">{item.label}</span>
-              <span className="text-slate-500 text-[10px] md:text-xs leading-tight mt-0.5">{item.sub}</span>
+        <div className="space-y-2 md:space-y-3">
+          {rows.map((row, i) => (
+            <div
+              key={i}
+              className="bg-white border border-slate-200 rounded-2xl p-3 md:p-4 shadow-sm flex flex-col md:flex-row md:items-center gap-3 md:gap-0"
+            >
+              {[row.left, row.right].map((item, idx) => (
+                <div
+                  key={idx}
+                  className={`flex items-center gap-3 md:flex-1 md:px-4 ${idx === 0 ? "md:border-r md:border-slate-100" : ""}`}
+                >
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full ${item.bg} flex items-center justify-center shrink-0`}>
+                    <item.icon className={`w-5 h-5 md:w-6 md:h-6 ${item.ic}`} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-slate-900 font-bold text-sm md:text-base leading-tight">{item.label}</p>
+                    <p className="text-slate-500 text-xs md:text-sm leading-tight mt-0.5">{item.sub}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
