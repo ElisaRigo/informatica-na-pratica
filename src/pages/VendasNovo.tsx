@@ -572,7 +572,7 @@ const MiniValueSection = () => {
           <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
         </p>
         <div className="mt-5">
-          <CTA>Quero perder o medo do computador</CTA>
+          <CTA>Quero Aprender Informática</CTA>
         </div>
         <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
           <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
