@@ -283,9 +283,9 @@ const PainIdentification = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6">
           {pains.map((item) => (
-            <div key={item.label} className={`relative flex flex-col items-center text-center gap-2 md:gap-3 p-4 md:p-6 border-2 rounded-2xl shadow-sm hover:shadow-md transition-shadow ${item.bg}`}>
-              <div className="flex items-center justify-center w-11 h-11 md:w-13 md:h-13 rounded-full bg-white shadow-sm">
-                <item.icon className={`w-6 h-6 md:w-7 md:h-7 shrink-0 ${item.ic}`} />
+            <div key={item.label} className={`relative flex flex-col items-center text-center gap-2 md:gap-3 p-3.5 md:p-5 border-2 rounded-2xl shadow-sm hover:shadow-md transition-shadow ${item.bg}`}>
+              <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-sm">
+                <item.icon className={`w-5 h-5 md:w-6 md:h-6 shrink-0 ${item.ic}`} />
               </div>
               <span className="text-slate-900 font-extrabold text-sm md:text-lg leading-tight">{item.label}</span>
             </div>
