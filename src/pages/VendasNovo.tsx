@@ -267,21 +267,21 @@ const PainIdentification = () => {
     { icon: Frown, label: "Sente vergonha?", bg: "bg-amber-50 border-amber-100", ic: "text-amber-500" },
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50 border-y border-slate-100">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-3 md:mb-4">
-          <span className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-2">
-            <AlertTriangle className="w-4 h-4" /> Como você se sente hoje?
+    <section className="py-5 md:py-7 bg-slate-50 border-y border-slate-100">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-4 md:mb-5">
+          <span className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-sm md:text-base font-bold px-3.5 py-2 rounded-full mb-2">
+            <AlertTriangle className="w-4 h-4 md:w-5 md:h-5" /> Como você se sente hoje?
           </span>
-          <h2 className="text-lg md:text-2xl font-black text-slate-900 leading-tight">
+          <h2 className="text-xl md:text-3xl font-black text-slate-900 leading-tight">
             Se você se identifica, <span className="text-blue-600">esse curso é para você</span>
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {pains.map((item) => (
-            <div key={item.label} className={`flex items-center gap-2 md:gap-3 p-3 md:p-4 border rounded-xl shadow-sm ${item.bg}`}>
-              <item.icon className={`w-6 h-6 md:w-7 md:h-7 shrink-0 ${item.ic}`} />
-              <span className="text-slate-900 font-bold text-sm md:text-base leading-tight">{item.label}</span>
+            <div key={item.label} className={`flex items-center gap-3 md:gap-4 p-4 md:p-5 border-2 rounded-2xl shadow-sm ${item.bg}`}>
+              <item.icon className={`w-7 h-7 md:w-8 md:h-8 shrink-0 ${item.ic}`} />
+              <span className="text-slate-900 font-extrabold text-base md:text-lg leading-tight">{item.label}</span>
             </div>
           ))}
         </div>
