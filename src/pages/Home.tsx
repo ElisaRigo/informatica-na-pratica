@@ -1375,9 +1375,10 @@ const Pricing = () => (
   <section id="oferta" className="py-8 md:py-14 bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-6">
-        <h2 className="text-3xl md:text-5xl font-black leading-tight">Sua vaga está aqui</h2>
-        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso liberado na hora • Vitalício</p>
+        <h2 className="text-3xl md:text-5xl font-black leading-tight">Comece hoje mesmo, do zero</h2>
+        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso liberado na hora • Para sempre seu</p>
       </div>
+
 
       <div className="bg-white text-slate-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-yellow-400">
         {/* Faixa de topo */}
