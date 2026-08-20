@@ -290,6 +290,40 @@ const PainIdentification = () => {
   );
 };
 
+// ───────────────────────── Sonhos realizados (contraste positivo) ─────────────────────────
+const DreamRealization = () => {
+  const dreams = [
+    { icon: Mail, label: "Enviar e-mails sozinho(a)", bg: "bg-green-50 border-green-100", ic: "text-green-600" },
+    { icon: Monitor, label: "Usar o computador com confiança", bg: "bg-blue-50 border-blue-100", ic: "text-blue-600" },
+    { icon: Award, label: "Conquistar novas oportunidades", bg: "bg-yellow-50 border-yellow-100", ic: "text-yellow-600" },
+    { icon: HeartHandshake, label: "Ajudar a família sem depender de ninguém", bg: "bg-rose-50 border-rose-100", ic: "text-rose-600" },
+    { icon: Sparkles, label: "Ter orgulho de si mesmo(a)", bg: "bg-purple-50 border-purple-100", ic: "text-purple-600" },
+    { icon: CheckCircle2, label: "Aprender no seu ritmo, sem pressa", bg: "bg-sky-50 border-sky-100", ic: "text-sky-600" },
+  ];
+  return (
+    <section className="py-5 md:py-7 bg-white border-y border-slate-100">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-4 md:mb-5">
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Agora imagine você assim
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-5">
+          {dreams.map((item) => (
+            <div key={item.label} className={`flex items-center gap-3 md:gap-4 p-4 md:p-5 border-2 rounded-2xl shadow-sm ${item.bg}`}>
+              <item.icon className={`w-7 h-7 md:w-8 md:h-8 shrink-0 ${item.ic}`} />
+              <span className="text-slate-900 font-extrabold text-base md:text-lg leading-tight">{item.label}</span>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-base md:text-lg font-black text-slate-900">
+          Tudo isso é possível — <span className="text-blue-600">começando do zero</span>
+        </p>
+      </div>
+    </section>
+  );
+};
+
 
 // ───────────────────────── Agitação (custo de não aprender) ─────────────────────────
 const AgitateSection = () => {
@@ -1465,6 +1499,8 @@ const VendasNovo = () => {
       <Hero />
       {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
       <PainIdentification />
+      {/* 1b. Contraste positivo: sonhos realizados */}
+      <DreamRealization />
       {/* 2. Prova social profunda */}
       <SocialProof />
       {/* 3. Prova viva imediata: aula real 1 */}
