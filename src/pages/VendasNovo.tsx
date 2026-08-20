@@ -259,26 +259,31 @@ const Hero = () => {
 // ───────────────────────── Mini identificação de dores ─────────────────────────
 const PainIdentification = () => {
   const pains = [
-    { icon: HelpCircle, label: "Fica perdido(a)?", bg: "bg-rose-50 border-rose-100", ic: "text-rose-500" },
-    { icon: Users, label: "Depende dos outros?", bg: "bg-orange-50 border-orange-100", ic: "text-orange-500" },
-    { icon: AlertTriangle, label: "Tem medo de clicar?", bg: "bg-red-50 border-red-100", ic: "text-red-500" },
-    { icon: TrendingDown, label: "Perde oportunidades?", bg: "bg-pink-50 border-pink-100", ic: "text-pink-500" },
-    { icon: RotateCcw, label: "Já tentou e desistiu?", bg: "bg-purple-50 border-purple-100", ic: "text-purple-500" },
-    { icon: Frown, label: "Sente vergonha?", bg: "bg-amber-50 border-amber-100", ic: "text-amber-500" },
+    { icon: HelpCircle, label: "Fica perdido(a)?", bg: "bg-gradient-to-br from-rose-50 to-orange-50 border-rose-100", ic: "text-rose-500" },
+    { icon: Users, label: "Depende dos outros?", bg: "bg-gradient-to-br from-orange-50 to-amber-50 border-orange-100", ic: "text-orange-500" },
+    { icon: AlertTriangle, label: "Tem medo de clicar?", bg: "bg-gradient-to-br from-red-50 to-rose-50 border-red-100", ic: "text-red-500" },
+    { icon: TrendingDown, label: "Perde oportunidades?", bg: "bg-gradient-to-br from-pink-50 to-rose-50 border-pink-100", ic: "text-pink-500" },
+    { icon: RotateCcw, label: "Já tentou e desistiu?", bg: "bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-100", ic: "text-purple-500" },
+    { icon: Frown, label: "Sente vergonha?", bg: "bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-100", ic: "text-amber-500" },
   ];
   return (
-    <section className="py-5 md:py-7 bg-slate-50 border-y border-slate-100">
+    <section className="py-6 md:py-8 bg-gradient-to-b from-white via-slate-50/60 to-white border-y border-slate-100">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-4 md:mb-5">
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-1.5 bg-rose-100 text-rose-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            <Heart className="w-3.5 h-3.5 md:w-4 md:h-4" /> Você não está sozinho(a)
+          </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Como você se sente hoje?
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6">
           {pains.map((item) => (
-            <div key={item.label} className={`flex items-center gap-3 md:gap-4 p-4 md:p-5 border-2 rounded-2xl shadow-sm ${item.bg}`}>
-              <item.icon className={`w-7 h-7 md:w-8 md:h-8 shrink-0 ${item.ic}`} />
-              <span className="text-slate-900 font-extrabold text-base md:text-lg leading-tight">{item.label}</span>
+            <div key={item.label} className={`relative flex flex-col items-center text-center gap-2 md:gap-3 p-4 md:p-6 border-2 rounded-2xl shadow-sm hover:shadow-md transition-shadow ${item.bg}`}>
+              <div className="flex items-center justify-center w-11 h-11 md:w-13 md:h-13 rounded-full bg-white shadow-sm">
+                <item.icon className={`w-6 h-6 md:w-7 md:h-7 shrink-0 ${item.ic}`} />
+              </div>
+              <span className="text-slate-900 font-extrabold text-sm md:text-lg leading-tight">{item.label}</span>
             </div>
           ))}
         </div>
