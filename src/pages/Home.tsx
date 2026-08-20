@@ -375,9 +375,10 @@ const AgitateSection = () => {
           ))}
         </ul>
         <p className="text-center text-slate-700 mt-5 text-base md:text-lg">
-          A boa notícia: <strong className="text-slate-900">tudo isso muda em poucas semanas</strong> — com o método
-          certo.
+          A boa notícia: <strong className="text-slate-900">isso muda com o método certo</strong> — e é exatamente o
+          que você vai ver agora.
         </p>
+
       </div>
     </section>
   );
