@@ -1527,13 +1527,14 @@ const FinalCTA = () => (
   <section className="py-4 md:py-6 bg-slate-900 text-white">
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
-      <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
+      <h2 className="text-3xl md:text-5xl font-black mb-4">Hoje é o dia de parar de depender dos outros</h2>
       <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-        Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
-        mais independente. <strong className="text-white">Hoje é o dia.</strong>
+        Daqui a poucas semanas você vai olhar para trás e não vai acreditar que tinha medo do computador. O primeiro
+        passo é agora. <strong className="text-white">Comece a sua primeira aula hoje.</strong>
       </p>
-      <CTA>Quero começar agora!</CTA>
+      <CTA>Quero Aprender Informática</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
+
     </div>
   </section>
 );
