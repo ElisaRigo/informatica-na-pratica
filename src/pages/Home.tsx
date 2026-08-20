@@ -277,33 +277,33 @@ const PainIdentification = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50 border-y border-slate-100">
+    <section className="py-5 md:py-7 bg-slate-50 border-y border-slate-100">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-4 md:mb-5">
-          <span className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-2">
-            <AlertTriangle className="w-4 h-4" /> Como você se sente hoje?
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-sm md:text-base font-bold px-4 py-2 rounded-full mb-3">
+            <AlertTriangle className="w-5 h-5" /> Como você se sente hoje?
           </span>
-          <h2 className="text-xl md:text-3xl font-black text-slate-900 leading-tight">
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Se você se identifica com alguma dessas situações, <span className="text-blue-600">esse curso é para você</span>
           </h2>
         </div>
-        <div className="space-y-2 md:space-y-3">
+        <div className="space-y-3 md:space-y-4">
           {rows.map((row, i) => (
             <div
               key={i}
-              className="bg-white border border-slate-200 rounded-2xl p-3 md:p-4 shadow-sm flex flex-col md:flex-row md:items-center gap-3 md:gap-0"
+              className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm flex flex-col md:flex-row md:items-center gap-4 md:gap-0"
             >
               {[row.left, row.right].map((item, idx) => (
                 <div
                   key={idx}
-                  className={`flex items-center gap-3 md:flex-1 md:px-4 ${idx === 0 ? "md:border-r md:border-slate-100" : ""}`}
+                  className={`flex items-center gap-4 md:flex-1 md:px-4 ${idx === 0 ? "md:border-r md:border-slate-100" : ""}`}
                 >
-                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full ${item.bg} flex items-center justify-center shrink-0`}>
-                    <item.icon className={`w-5 h-5 md:w-6 md:h-6 ${item.ic}`} />
+                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-full ${item.bg} flex items-center justify-center shrink-0`}>
+                    <item.icon className={`w-6 h-6 md:w-7 md:h-7 ${item.ic}`} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-slate-900 font-bold text-sm md:text-base leading-tight">{item.label}</p>
-                    <p className="text-slate-500 text-xs md:text-sm leading-tight mt-0.5">{item.sub}</p>
+                    <p className="text-slate-900 font-bold text-base md:text-lg leading-snug">{item.label}</p>
+                    <p className="text-slate-500 text-sm md:text-base leading-snug mt-1">{item.sub}</p>
                   </div>
                 </div>
               ))}
