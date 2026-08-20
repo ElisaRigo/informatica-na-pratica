@@ -1465,11 +1465,9 @@ const VendasNovo = () => {
       <Hero />
       {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
       <PainIdentification />
-      {/* 2. Prova social profunda antes da identificação */}
+      {/* 2. Prova social profunda */}
       <SocialProof />
-      {/* 3. Identificação — "esse curso é pra mim" */}
-      <Identification />
-      {/* 3b. Prova viva imediata: aula real 1 logo após identificação */}
+      {/* 3. Prova viva imediata: aula real 1 */}
       <AulasReais aula={1} />
       {/* 4. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />

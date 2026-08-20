@@ -1560,11 +1560,9 @@ const Home = () => {
       <AulaCursoReal />
       {/* 2b. Sessão de valor logo após a prova viva do primeiro vídeo */}
       <ValueSection />
-      {/* 3. Prova social profunda antes da identificação */}
+      {/* 3. Prova social profunda */}
       <SocialProof />
-      {/* 4. Identificação — "esse curso é pra mim" */}
-      <Identification />
-      {/* 4b. Aula real passo a passo antes da agitação da dor */}
+      {/* 4. Aula real passo a passo antes da agitação da dor */}
       <AulasReais aula={1} />
       {/* 5. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
