@@ -334,8 +334,9 @@ const DreamRealization = () => {
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Esse é o seu próximo passo — <span className="text-blue-600">começando do zero</span>
+          Tudo isso começa com uma decisão hoje — <span className="text-blue-600">e a primeira aula ainda hoje</span>
         </p>
+
       </div>
     </section>
   );
