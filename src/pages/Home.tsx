@@ -193,7 +193,7 @@ const Hero = () => {
 
           <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-2">
             <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
-            No seu ritmo, passo a passo
+            Feito para quem começa do zero
           </div>
 
           <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
@@ -204,8 +204,9 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
-            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+            Aulas simples, no seu ritmo, com a professora explicando cada clique. Em poucas semanas você usa o computador sozinho(a).
           </p>
+
 
           {/* Selos de destaque */}
           <div className="flex flex-wrap justify-center gap-2 mb-3">
@@ -250,8 +251,9 @@ const Hero = () => {
           </div>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
-            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+            Em poucas aulas você já cria documentos e planilhas, organiza seus arquivos, envia e-mails e resolve tudo sem pedir ajuda.
           </p>
+
 
 
         </div>
@@ -292,8 +294,9 @@ const PainIdentification = () => {
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Se você se identificou, <span className="text-blue-600">esse curso é para você</span>
+          Isso não é falta de capacidade. <span className="text-blue-600">É falta de alguém que ensine do seu jeito.</span>
         </p>
+
       </div>
     </section>
   );
@@ -331,8 +334,9 @@ const DreamRealization = () => {
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Esse é o seu próximo passo — <span className="text-blue-600">começando do zero</span>
+          Tudo isso começa com uma decisão hoje — <span className="text-blue-600">e a primeira aula ainda hoje</span>
         </p>
+
       </div>
     </section>
   );
@@ -342,12 +346,13 @@ const DreamRealization = () => {
 // ───────────────────────── Agitação (custo de não aprender) ─────────────────────────
 const AgitateSection = () => {
   const losses = [
-    "Perder oportunidades de emprego por não saber informática",
-    "Depender do filho, neto ou colega pra tarefas simples",
-    "Ficar de fora quando pedem pra enviar um documento ou preencher um cadastro",
+    "Perder uma vaga de emprego por não saber o básico do computador",
+    "Depender do filho, do neto ou do colega para tarefas simples",
+    "Ficar travado(a) quando pedem um documento ou um cadastro",
     "Sentir vergonha quando o assunto é computador",
-    "Deixar de resolver coisas do banco, INSS ou governo online",
+    "Não conseguir resolver banco, INSS e serviços do governo pela internet",
   ];
+
   return (
     <section id="dor" className="py-4 md:py-6 bg-red-50 border-y border-red-100">
       <div className="container mx-auto px-4 max-w-3xl">
@@ -370,9 +375,10 @@ const AgitateSection = () => {
           ))}
         </ul>
         <p className="text-center text-slate-700 mt-5 text-base md:text-lg">
-          A boa notícia: <strong className="text-slate-900">tudo isso muda em poucas semanas</strong> — com o método
-          certo.
+          A boa notícia: <strong className="text-slate-900">isso muda com o método certo</strong> — e é exatamente o
+          que você vai ver agora.
         </p>
+
       </div>
     </section>
   );
@@ -1369,9 +1375,10 @@ const Pricing = () => (
   <section id="oferta" className="py-8 md:py-14 bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-6">
-        <h2 className="text-3xl md:text-5xl font-black leading-tight">Sua vaga está aqui</h2>
-        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso liberado na hora • Vitalício</p>
+        <h2 className="text-3xl md:text-5xl font-black leading-tight">Comece hoje mesmo, do zero</h2>
+        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso liberado na hora • Para sempre seu</p>
       </div>
+
 
       <div className="bg-white text-slate-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-yellow-400">
         {/* Faixa de topo */}
@@ -1422,7 +1429,7 @@ const Pricing = () => (
             <p className="text-green-600 font-black text-2xl md:text-3xl leading-none mt-1">Você paga só R$ 297</p>
           </div>
 
-          <CTA>Quero começar agora</CTA>
+          <CTA>Quero Aprender Informática</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4 text-xs text-slate-500">
             <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro</span>
@@ -1508,7 +1515,7 @@ const FAQ = () => {
           ))}
         </div>
         <div className="text-center mt-6">
-          <CTA>Quero garantir minha vaga agora!</CTA>
+          <CTA>Quero Aprender Informática</CTA>
         </div>
       </div>
     </section>
@@ -1520,13 +1527,14 @@ const FinalCTA = () => (
   <section className="py-4 md:py-6 bg-slate-900 text-white">
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
-      <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
+      <h2 className="text-3xl md:text-5xl font-black mb-4">Hoje é o dia de parar de depender dos outros</h2>
       <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-        Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
-        mais independente. <strong className="text-white">Hoje é o dia.</strong>
+        Daqui a poucas semanas você vai olhar para trás e não vai acreditar que tinha medo do computador. O primeiro
+        passo é agora. <strong className="text-white">Comece a sua primeira aula hoje.</strong>
       </p>
-      <CTA>Quero começar agora!</CTA>
+      <CTA>Quero Aprender Informática</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
+
     </div>
   </section>
 );
