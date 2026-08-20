@@ -646,7 +646,7 @@ const ValueSection = () => (
       </p>
 
       <div className="mt-6 max-w-xl mx-auto">
-        <CTA>Quero perder o medo do computador</CTA>
+        <CTA>Quero Aprender Informática</CTA>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mt-4 max-w-xl mx-auto">
