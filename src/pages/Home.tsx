@@ -193,7 +193,7 @@ const Hero = () => {
 
           <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-2">
             <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
-            No seu ritmo, passo a passo
+            Feito para quem começa do zero
           </div>
 
           <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
@@ -204,8 +204,9 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
-            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+            Aulas simples, no seu ritmo, com a professora explicando cada clique. Em poucas semanas você usa o computador sozinho(a).
           </p>
+
 
           {/* Selos de destaque */}
           <div className="flex flex-wrap justify-center gap-2 mb-3">
