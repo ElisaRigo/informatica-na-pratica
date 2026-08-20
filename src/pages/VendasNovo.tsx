@@ -29,6 +29,11 @@ import {
   Rocket,
   Check,
   Gift,
+  HelpCircle,
+  AlertTriangle,
+  Frown,
+  RotateCcw,
+  TrendingDown,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
@@ -251,27 +256,40 @@ const Hero = () => {
   );
 };
 
-// ───────────────────────── Selos de confiança ─────────────────────────
-const TrustCards = () => (
-  <section className="py-3 md:py-4 bg-slate-50">
-    <div className="container mx-auto px-4">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
-        {[
-          { icon: Headphones, label: "Suporte nas Aulas", sub: "Aprenda com orientação", bg: "bg-green-50/70 border-green-100", ic: "text-green-600" },
-          { icon: ShieldCheck, label: "Garantia 7 Dias", sub: "Risco zero para você", bg: "bg-indigo-50/70 border-indigo-100", ic: "text-indigo-600" },
-          { icon: Award, label: "Certificado", sub: "Reconhecido no mercado", bg: "bg-amber-50/70 border-amber-100", ic: "text-amber-500" },
-          { icon: Users, label: "+15.000 Alunos", sub: "+20 anos ensinando", bg: "bg-sky-50/70 border-sky-100", ic: "text-sky-600" },
-        ].map((item) => (
-          <div key={item.label} className={`flex flex-col items-center text-center p-2 md:p-4 border rounded-xl shadow-sm ${item.bg}`}>
-            <item.icon className={`w-6 h-6 md:w-8 md:h-8 mb-1 md:mb-2 ${item.ic}`} />
-            <span className="text-slate-900 font-bold text-xs md:text-sm">{item.label}</span>
-            <span className="text-slate-500 text-[10px] md:text-xs">{item.sub}</span>
-          </div>
-        ))}
+// ───────────────────────── Mini identificação de dores ─────────────────────────
+const PainIdentification = () => {
+  const pains = [
+    { icon: HelpCircle, label: "Fica perdido(a)?", sub: "Não sabe por onde começar no computador", bg: "bg-rose-50 border-rose-100", ic: "text-rose-500" },
+    { icon: Users, label: "Depende dos outros?", sub: "Precisa pedir ajuda até para tarefas simples", bg: "bg-orange-50 border-orange-100", ic: "text-orange-500" },
+    { icon: AlertTriangle, label: "Tem medo de clicar?", sub: "Com medo de fazer algo errado e estragar", bg: "bg-red-50 border-red-100", ic: "text-red-500" },
+    { icon: TrendingDown, label: "Perde oportunidades?", sub: "Vaga, concurso ou promoção passam por causa disso", bg: "bg-pink-50 border-pink-100", ic: "text-pink-500" },
+    { icon: RotateCcw, label: "Já tentou e desistiu?", sub: "YouTube confuso, curso rápido demais", bg: "bg-purple-50 border-purple-100", ic: "text-purple-500" },
+    { icon: Frown, label: "Sente vergonha?", sub: "Evita admitir que não sabe usar o computador", bg: "bg-amber-50 border-amber-100", ic: "text-amber-500" },
+  ];
+  return (
+    <section className="py-4 md:py-6 bg-slate-50 border-y border-slate-100">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-4 md:mb-5">
+          <span className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-2">
+            <AlertTriangle className="w-4 h-4" /> Como você se sente hoje?
+          </span>
+          <h2 className="text-xl md:text-3xl font-black text-slate-900 leading-tight">
+            Se você se identifica com alguma dessas situações, <span className="text-blue-600">esse curso é para você</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+          {pains.map((item) => (
+            <div key={item.label} className={`flex flex-col items-center text-center p-2.5 md:p-4 border rounded-xl shadow-sm ${item.bg}`}>
+              <item.icon className={`w-6 h-6 md:w-7 md:h-7 mb-1.5 ${item.ic}`} />
+              <span className="text-slate-900 font-bold text-xs md:text-sm">{item.label}</span>
+              <span className="text-slate-500 text-[10px] md:text-xs leading-tight mt-0.5">{item.sub}</span>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // ───────────────────────── Identification ─────────────────────────
 const Identification = () => {
@@ -1478,8 +1496,8 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
-      {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
-      <TrustCards />
+      {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
+      <PainIdentification />
       {/* 2. Prova social profunda antes da identificação */}
       <SocialProof />
       {/* 3. Identificação — "esse curso é pra mim" */}
