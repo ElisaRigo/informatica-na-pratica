@@ -1499,8 +1499,6 @@ const VendasNovo = () => {
       <Hero />
       {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
       <PainIdentification />
-      {/* 1b. Contraste positivo: sonhos realizados */}
-      <DreamRealization />
       {/* 2. Prova social profunda */}
       <SocialProof />
       {/* 3. Prova viva imediata: aula real 1 */}
@@ -1519,6 +1517,9 @@ const VendasNovo = () => {
       <EmotionalVision />
       {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
       <Aula2Destaque />
+
+      {/* 10c. Sonhos realizados como aquecimento antes do value stack */}
+      <DreamRealization />
 
       {/* 11. Value stack: bônus antes da oferta */}
       <section id="sessao-valor" className="py-4 md:py-6 bg-slate-50">
