@@ -297,31 +297,36 @@ const PainIdentification = () => {
 // ───────────────────────── Sonhos realizados (contraste positivo) ─────────────────────────
 const DreamRealization = () => {
   const dreams = [
-    { icon: Mail, label: "Enviar e-mails sozinho(a)", bg: "bg-green-50 border-green-100", ic: "text-green-600" },
-    { icon: Monitor, label: "Usar o computador com confiança", bg: "bg-blue-50 border-blue-100", ic: "text-blue-600" },
-    { icon: Award, label: "Conquistar novas oportunidades", bg: "bg-yellow-50 border-yellow-100", ic: "text-yellow-600" },
-    { icon: HeartHandshake, label: "Ajudar a família sem depender de ninguém", bg: "bg-rose-50 border-rose-100", ic: "text-rose-600" },
-    { icon: Sparkles, label: "Ter orgulho de si mesmo(a)", bg: "bg-purple-50 border-purple-100", ic: "text-purple-600" },
-    { icon: CheckCircle2, label: "Aprender no seu ritmo, sem pressa", bg: "bg-sky-50 border-sky-100", ic: "text-sky-600" },
+    { icon: Rocket, label: "Fazer sozinho(a) o que antes dependia dos outros", bg: "bg-gradient-to-br from-emerald-50 to-green-50 border-green-100", ic: "text-green-600" },
+    { icon: Star, label: "Usar o computador sem medo de errar", bg: "bg-gradient-to-br from-blue-50 to-sky-50 border-blue-100", ic: "text-blue-600" },
+    { icon: Award, label: "Abrir portas para novas oportunidades", bg: "bg-gradient-to-br from-amber-50 to-yellow-50 border-yellow-100", ic: "text-amber-600" },
+    { icon: Heart, label: "Ajudar a família com orgulho e segurança", bg: "bg-gradient-to-br from-rose-50 to-pink-50 border-rose-100", ic: "text-rose-600" },
+    { icon: Sparkles, label: "Se sentir capaz e independente todos os dias", bg: "bg-gradient-to-br from-purple-50 to-violet-50 border-purple-100", ic: "text-purple-600" },
+    { icon: Clock, label: "Aprender no seu tempo, sem pressa", bg: "bg-gradient-to-br from-sky-50 to-cyan-50 border-sky-100", ic: "text-sky-600" },
   ];
   return (
-    <section className="py-5 md:py-7 bg-white border-y border-slate-100">
+    <section className="py-6 md:py-8 bg-gradient-to-b from-white via-blue-50/40 to-white border-y border-blue-100">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-4 md:mb-5">
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-1.5 bg-blue-100 text-blue-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" /> O futuro que você merece
+          </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Agora imagine você assim
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6">
           {dreams.map((item) => (
-            <div key={item.label} className={`flex items-center gap-3 md:gap-4 p-4 md:p-5 border-2 rounded-2xl shadow-sm ${item.bg}`}>
-              <item.icon className={`w-7 h-7 md:w-8 md:h-8 shrink-0 ${item.ic}`} />
-              <span className="text-slate-900 font-extrabold text-base md:text-lg leading-tight">{item.label}</span>
+            <div key={item.label} className={`relative flex flex-col items-center text-center gap-2 md:gap-3 p-4 md:p-6 border-2 rounded-2xl shadow-sm hover:shadow-md transition-shadow ${item.bg}`}>
+              <div className="flex items-center justify-center w-11 h-11 md:w-13 md:h-13 rounded-full bg-white shadow-sm">
+                <item.icon className={`w-6 h-6 md:w-7 md:h-7 shrink-0 ${item.ic}`} />
+              </div>
+              <span className="text-slate-900 font-extrabold text-sm md:text-lg leading-tight">{item.label}</span>
             </div>
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Tudo isso é possível — <span className="text-blue-600">começando do zero</span>
+          Esse é o seu próximo passo — <span className="text-blue-600">começando do zero</span>
         </p>
       </div>
     </section>
