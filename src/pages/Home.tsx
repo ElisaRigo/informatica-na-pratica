@@ -1587,8 +1587,8 @@ const Home = () => {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
-      {/* 1. Prova social imediata (reduz incerteza logo após o gancho) */}
-      <TrustCards />
+      {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
+      <PainIdentification />
       {/* 2. Prova viva imediata: aula real do curso antes da identificação */}
       <AulaCursoReal />
       {/* 2b. Sessão de valor logo após a prova viva do primeiro vídeo */}
