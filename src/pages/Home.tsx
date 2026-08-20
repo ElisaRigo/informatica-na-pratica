@@ -29,6 +29,11 @@ import {
   Rocket,
   Check,
   Gift,
+  HelpCircle,
+  AlertTriangle,
+  Frown,
+  RotateCcw,
+  TrendingDown,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
