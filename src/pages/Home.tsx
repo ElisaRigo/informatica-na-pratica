@@ -1590,11 +1590,11 @@ const Home = () => {
       <Hero />
       {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
       <PainIdentification />
-      {/* 1b. Contraste positivo: sonhos realizados */}
-      <DreamRealization />
       {/* 2. Prova viva imediata: aula real do curso antes da identificação */}
       <AulaCursoReal />
-      {/* 2b. Sessão de valor logo após a prova viva do primeiro vídeo */}
+      {/* 2b. Sonhos realizados como aquecimento antes da oferta de valor */}
+      <DreamRealization />
+      {/* 2c. Sessão de valor logo após a prova viva do primeiro vídeo */}
       <ValueSection />
       {/* 3. Prova social profunda */}
       <SocialProof />
