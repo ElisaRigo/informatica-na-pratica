@@ -171,10 +171,10 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
-      <div className="container mx-auto px-4 py-3 md:py-5">
+      <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Prova social sutil — 1 linha */}
-          <div className="flex items-center justify-center gap-3 mb-3">
+          {/* Prova social sutil — sem faixa, 1 linha */}
+          <div className="flex items-center justify-center gap-3 mb-2">
             <div className="flex -space-x-2 shrink-0">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-white object-cover shadow-sm" />
@@ -190,34 +190,31 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-sm md:text-base mb-3">
-            <Clock className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
-            Você não precisa saber nada para começar
+
+          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-2">
+            <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
+            Comece hoje, no seu ritmo
           </div>
 
-          <h1 className="text-[1.85rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-3 mx-0 px-2 md:mx-[-1rem] md:px-4 text-center">
-            <span className="block">Use o computador com confiança</span>
-            <span className="block text-blue-600">sem depender de ninguém.</span>
-            <span className="block text-[1.35rem] md:text-4xl lg:text-5xl text-slate-700 mt-1">Mesmo começando do zero.</span>
+          <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
+            <span className="block">Use o computador sozinho(a),</span>
+            <span className="block text-blue-600">
+              sem medo e sem depender de ninguém.
+            </span>
           </h1>
 
-          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-4 leading-snug font-medium">
-            Método simples para quem tem medo de errar. Aulas curtas, linguagem do dia a dia e suporte para tirar dúvidas.
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
+            Aulas simples, curtas e passo a passo — feitas para quem está começando do zero.
           </p>
 
+
           {/* Selos de destaque */}
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
+          <div className="flex flex-wrap justify-center gap-2 mb-3">
             <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
               <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
             </span>
             <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
               <Headphones className="w-4 h-4 md:w-5 md:h-5" /> SUPORTE AO ALUNO
-            </span>
-            <span className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <Award className="w-4 h-4 md:w-5 md:h-5" /> CERTIFICADO
-            </span>
-            <span className="inline-flex items-center gap-2 bg-rose-50 border border-rose-200 text-rose-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" /> GARANTIA 7 DIAS
             </span>
           </div>
 
@@ -248,13 +245,17 @@ const Hero = () => {
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
+
               </div>
             )}
           </div>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
-            Em poucas aulas você já cria documentos, planilhas, envia e-mails e navega na internet sozinho(a).
+            Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segurança, mesmo começando do zero.
           </p>
+
+
+
         </div>
       </div>
     </section>
