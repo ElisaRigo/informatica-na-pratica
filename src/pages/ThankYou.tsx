@@ -6,118 +6,87 @@ import logoImage from "@/assets/logo-blue.png";
 
 const ThankYou = () => {
   useEffect(() => {
-    const isProduction = window.location.hostname === 'informaticanapratica.com.br' ||
+    // Só rastrear conversões no domínio de produção
+    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
                          window.location.hostname === 'www.informaticanapratica.com.br';
-
+    
     if (!isProduction) {
-      console.log('Conversão ignorada - fora do domínio de produção');
+      console.log('Google Ads conversion skipped - not on production domain');
       return;
     }
 
-    // ID da transação (Hotmart pode enviar via querystring) — usado para dedupe
-    const params = new URLSearchParams(window.location.search);
-    const transactionId =
-      params.get('transaction') || params.get('transaction_id') || params.get('hottok') || '';
-    const value = Number(params.get('value') || params.get('off_price') || 297);
+    // Função para disparar as conversões
+    const trackConversion = () => {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        // Disparar evento de conversão do Google Analytics
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'G-08B5E33G3F',
+          'transaction_id': '',
+          'value': 297.0,
+          'currency': 'BRL'
+        });
+        
+        // Disparar pageview para garantir que o GA4 rastreie a página
+        (window as any).gtag('config', 'G-08B5E33G3F', {
+          page_path: '/obrigada',
+          page_title: 'Obrigada - Compra Confirmada'
+        });
+        
+        // Disparar evento de conversão do Google Ads
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
+          'value': 297.0,
+          'currency': 'BRL',
+          'transaction_id': ''
+        });
+        
+        // Disparar evento de conversão de matrícula do Google Ads
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17641842157/B6aWCPfmzr0bEO3LpNxB',
+          'value': 1.0,
+          'currency': 'BRL',
+          'transaction_id': ''
+        });
+        
+        console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
+        
+        // Disparar conversão do Facebook Pixel
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Purchase', {
+            value: 297.00,
+            currency: 'BRL'
+          });
+          console.log('✅ Facebook Pixel conversion tracked successfully');
+        }
+        
+        return true;
+      }
+      return false;
+    };
 
-    // Evita disparo duplicado (StrictMode / refresh)
-    const dedupeKey = `purchase_tracked_${transactionId || 'default'}`;
-    if (sessionStorage.getItem(dedupeKey)) {
-      console.log('Purchase já rastreado nesta sessão');
+    // Tentar disparar imediatamente
+    if (trackConversion()) {
       return;
     }
 
-    let gaDone = false;
-    let fbDone = false;
-
-    const trackGoogle = () => {
-      const gtag = (window as any).gtag;
-      if (!gtag) return false;
-
-      gtag('event', 'purchase', {
-        send_to: 'G-08B5E33G3F',
-        transaction_id: transactionId,
-        value,
-        currency: 'BRL',
-        items: [{ item_id: 'curso-informatica', item_name: 'Curso Informática na Prática', price: value, quantity: 1 }],
-      });
-
-      gtag('config', 'G-08B5E33G3F', {
-        page_path: '/obrigada',
-        page_title: 'Obrigada - Compra Confirmada',
-      });
-
-      // Google Ads - conversão de compra
-      gtag('event', 'conversion', {
-        send_to: 'AW-17641842157/fmoACInw160bEO3LpNxB',
-        value,
-        currency: 'BRL',
-        transaction_id: transactionId,
-      });
-
-      // Google Ads - conversão de matrícula
-      gtag('event', 'conversion', {
-        send_to: 'AW-17641842157/B6aWCPfmzr0bEO3LpNxB',
-        value: 1.0,
-        currency: 'BRL',
-        transaction_id: transactionId,
-      });
-
-      console.log('✅ GA4 + Google Ads purchase rastreado');
-      return true;
-    };
-
-    const trackMeta = () => {
-      const fbq = (window as any).fbq;
-      if (!fbq) return false;
-
-      fbq(
-        'track',
-        'Purchase',
-        {
-          value,
-          currency: 'BRL',
-          content_name: 'Curso Informática na Prática',
-          content_type: 'product',
-          content_ids: ['curso-informatica'],
-          num_items: 1,
-        },
-        transactionId ? { eventID: transactionId } : undefined
-      );
-
-      console.log('✅ Meta Pixel Purchase rastreado');
-      return true;
-    };
-
-    const runAll = () => {
-      if (!gaDone) gaDone = trackGoogle();
-      if (!fbDone) fbDone = trackMeta();
-      return gaDone && fbDone;
-    };
-
-    if (runAll()) {
-      sessionStorage.setItem(dedupeKey, '1');
-      return;
-    }
-
-    // Os pixels carregam com 2s de delay — aguardar até 10s
+    // Se gtag não estiver disponível, esperar até que esteja (max 5 segundos)
+    console.log('⏳ Aguardando gtag carregar...');
     let attempts = 0;
-    const maxAttempts = 100;
+    const maxAttempts = 50; // 5 segundos (50 * 100ms)
+    
     const interval = setInterval(() => {
       attempts++;
-      if (runAll()) {
-        sessionStorage.setItem(dedupeKey, '1');
+      
+      if (trackConversion()) {
         clearInterval(interval);
       } else if (attempts >= maxAttempts) {
-        console.error('❌ Pixels não carregaram:', { gaDone, fbDone });
-        if (gaDone || fbDone) sessionStorage.setItem(dedupeKey, '1');
+        console.error('❌ gtag não carregou após 5 segundos');
         clearInterval(interval);
       }
     }, 100);
 
     return () => clearInterval(interval);
   }, []);
-
 
 
   return (

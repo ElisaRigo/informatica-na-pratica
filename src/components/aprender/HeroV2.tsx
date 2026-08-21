@@ -65,9 +65,10 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2 md:mb-4">
             <span className="block">Domine o Computador</span>
             <span className="block">
+              em{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                  Começando do Zero
+                  30 Dias
                 </span>
                 <span className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-primary/30 to-accent/30 -skew-x-12" />
               </span>
@@ -108,7 +109,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
 
         {/* Frase de impacto */}
         <p className="text-center text-lg md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
-          <strong className="text-white">Aprenda Informática do jeito certo!</strong>
+          <strong className="text-white">Aprenda Informática</strong> do jeito certo e use o computador com <strong className="text-primary">confiança</strong> no trabalho e no dia a dia.
         </p>
 
         {/* Video Container */}
@@ -143,7 +144,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
             ) : (
               <div className="aspect-video">
                 <iframe
-                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&cc_load_policy=0&autoplay=1&vq=hd1080&hd=1"
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
                   title="Veja como é fácil aprender"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -197,7 +198,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
               ) : (
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&showinfo=0&playsinline=1&cc_load_policy=0&autoplay=1"
+                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                     title="Aula gratuita"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -12,7 +12,7 @@ const videos = [
     title: "Assista essa aula e Veja como é Fácil Aprender!",
     subtitle: "Assista uma demonstração e sinta a didática simples e passo a passo",
     thumb: freeClassThumb,
-    embedUrl: "https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&showinfo=0&cc_load_policy=0&autoplay=1",
+    embedUrl: "https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&autoplay=1",
     badge: "🎓 AULA DEMO",
     badgeColor: "bg-gradient-to-r from-primary to-accent",
   },
@@ -20,7 +20,7 @@ const videos = [
     title: "Uma Aula Real do Curso",
     subtitle: "Essa é uma das +90 aulas — veja a qualidade com seus próprios olhos",
     thumb: environmentThumb,
-    embedUrl: "https://www.youtube.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&showinfo=0&cc_load_policy=0&autoplay=1",
+    embedUrl: "https://www.youtube.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&autoplay=1",
     badge: "🎬 AULA REAL",
     badgeColor: "bg-gradient-to-r from-red-500 to-rose-600",
   },
@@ -121,7 +121,7 @@ const Aula = () => {
 
         {/* Frase de impacto */}
         <p className="text-center text-lg md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-6">
-          Aprenda Informática do jeito certo!
+          Aprenda Informática do jeito certo e use o computador com <strong className="text-primary">confiança</strong> no trabalho e no dia a dia.
         </p>
 
         {/* Vídeos empilhados */}
