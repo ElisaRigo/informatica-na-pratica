@@ -204,7 +204,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
-            Aulas simples, curtas e passo a passo — feitas para quem está começando do zero.
+            Aulas simples, curtas e passo a passo, feitas para quem está começando do zero.
           </p>
 
 
