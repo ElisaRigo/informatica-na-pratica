@@ -246,7 +246,7 @@ const Hero = () => {
           </div>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
-            Em poucas aulas, você usa o computador sozinho — mesmo começando do zero.
+            Em poucas aulas você já escreve documentos, faz planilhas, envia e-mails e usa a internet com segurança — mesmo que nunca tenha ligado um computador na vida.
           </p>
 
 
