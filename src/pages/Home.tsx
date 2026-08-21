@@ -625,9 +625,9 @@ const Aula2Destaque = () => {
 
 // ───────────────────────── Value Section (depois do 2º vídeo) ─────────────────────────
 const ValueSection = () => (
-  <section id="sessao-valor" className="py-8 md:py-14 bg-slate-100">
+  <section id="sessao-valor" className="py-5 md:py-8 bg-slate-100">
     <div className="container mx-auto px-4 max-w-2xl text-center">
-      <span className="inline-block bg-blue-100 text-blue-700 text-[11px] md:text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
+      <span className="inline-block bg-blue-100 text-blue-700 text-[11px] md:text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full mb-2">
         Oportunidade única
       </span>
 
@@ -635,7 +635,7 @@ const ValueSection = () => (
         Sua vez de <span className="text-blue-600">Dominar o computador!</span>
       </h2>
 
-      <div className="flex items-center justify-center gap-2 mt-3 mb-5">
+      <div className="flex items-center justify-center gap-2 mt-2 mb-3">
         <span className="h-1.5 w-8 rounded-full bg-blue-600" />
         <span className="h-1.5 w-14 rounded-full bg-blue-300" />
         <span className="h-1.5 w-8 rounded-full bg-blue-600" />
@@ -657,11 +657,11 @@ const ValueSection = () => (
         <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
       </p>
 
-      <div className="mt-6 max-w-xl mx-auto">
+      <div className="mt-4 max-w-xl mx-auto">
         <CTA>Quero Aprender Informática</CTA>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 mt-4 max-w-xl mx-auto">
+      <div className="grid grid-cols-2 gap-3 mt-3 max-w-xl mx-auto">
         {[
           { icon: PlayCircle, label: "+90 Videoaulas" },
           { icon: InfinityIcon, label: "Acesso Vitalício" },
@@ -670,7 +670,7 @@ const ValueSection = () => (
         ].map((item) => (
           <div
             key={item.label}
-            className="flex items-center justify-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-3"
+            className="flex items-center justify-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5"
           >
             <item.icon className="w-5 h-5 text-blue-600 shrink-0" />
             <span className="text-sm font-semibold text-slate-700">{item.label}</span>
@@ -678,7 +678,7 @@ const ValueSection = () => (
         ))}
       </div>
 
-      <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-4 mt-4 max-w-xl mx-auto">
+      <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-3 mt-3 max-w-xl mx-auto">
         <p className="flex items-center justify-center gap-2 text-green-600 font-black text-sm md:text-base">
           <ShieldCheck className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
         </p>
