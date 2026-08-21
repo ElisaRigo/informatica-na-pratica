@@ -569,7 +569,7 @@ const MiniValueSection = () => {
         <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
         <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-2 mb-3" />
         <p className="text-slate-600 text-base md:text-lg">
-          de <span className="line-through">R$ 497,00</span> por apenas
+          de <span className="line-through text-lg md:text-2xl font-bold">R$ 497,00</span> por apenas
         </p>
         <p className="text-4xl md:text-6xl font-black text-green-600 leading-tight mt-1">
           R$ 297,00
