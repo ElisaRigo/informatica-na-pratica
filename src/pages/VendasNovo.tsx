@@ -1464,26 +1464,6 @@ const Footer = () => (
 
 // ───────────────────────── Sticky CTA (fixo no rodapé) ─────────────────────────
 const StickyCTA = () => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const onScroll = () => {
-      const pricing = document.getElementById("oferta");
-      const depoimentos = document.getElementById("depoimentos");
-      const inOffer = pricing ? (() => {
-        const rect = pricing.getBoundingClientRect();
-        return rect.top < window.innerHeight && rect.bottom > 0;
-      })() : false;
-      const depoimentosStarted = depoimentos ? (() => {
-        const rect = depoimentos.getBoundingClientRect();
-        return rect.top < window.innerHeight;
-      })() : window.scrollY > 700;
-      setShow(depoimentosStarted && !inOffer);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  if (!show) return null;
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 px-3 pb-3 md:pb-4 pointer-events-none">
       <div className="max-w-2xl mx-auto pointer-events-auto">
