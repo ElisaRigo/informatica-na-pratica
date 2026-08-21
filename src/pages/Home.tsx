@@ -251,7 +251,7 @@ const Hero = () => {
           </div>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
-            Em poucas aulas você já escreve documentos, faz planilhas, envia e-mails e usa a internet com segurança — mesmo que nunca tenha ligado um computador na vida.
+            Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segurança, mesmo começando do zero.
           </p>
 
 
