@@ -528,7 +528,8 @@ const Provas = () => {
       </div>
     </div>
   </section>
-);
+  );
+};
 
 /* ───────────────────────── Certificado ───────────────────────── */
 const Certificado = () => (
