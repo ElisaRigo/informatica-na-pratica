@@ -60,7 +60,7 @@ import fbAvatar8 from "@/assets/avatar-8.jpg";
 
 import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
-import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
+import { HomeQuizIdentificacao } from "@/components/HomeQuizIdentificacao";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -1587,7 +1587,7 @@ const Home = () => {
       {/* 5. Solução: a transformação (plano claro, prova da promessa da professora) */}
       <Method />
       {/* 7. Micro-compromisso: quiz interativo */}
-      <QuizIdentificacao />
+      <HomeQuizIdentificacao />
       {/* 8. Conteúdo/entregável */}
       <Modules />
       {/* 9. Prova social profunda */}
