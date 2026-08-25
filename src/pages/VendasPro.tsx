@@ -35,7 +35,6 @@ import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json"
 const homeVideoThumb = homeVideoThumbAsset.url;
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
-import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
