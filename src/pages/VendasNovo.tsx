@@ -21,6 +21,8 @@ import {
   X,
   Gift,
   Clock,
+  ThumbsUp,
+
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
@@ -37,6 +39,15 @@ import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
 import avatar4 from "@/assets/testimonial-new-4.jpg";
 import avatar5 from "@/assets/testimonial-new-5.jpg";
+import fbAvatar1 from "@/assets/avatar-1.jpg";
+import fbAvatar2 from "@/assets/avatar-2.jpg";
+import fbAvatar3 from "@/assets/avatar-3.jpg";
+import fbAvatar4 from "@/assets/avatar-4.jpg";
+import fbAvatar5 from "@/assets/avatar-5.jpg";
+import fbAvatar6 from "@/assets/avatar-6.jpg";
+import fbAvatar7 from "@/assets/avatar-7.jpg";
+import fbAvatar8 from "@/assets/avatar-8.jpg";
+
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
 import excelIcon from "@/assets/excel-icon.png";
@@ -333,6 +344,19 @@ const Professora = () => (
 );
 
 /* ───────────────────────── Provas ───────────────────────── */
+const fbAvatars = [fbAvatar1, fbAvatar2, fbAvatar3, fbAvatar4, fbAvatar5, fbAvatar6, fbAvatar7, fbAvatar8];
+
+const facebookComments = [
+  { name: "Luciana M.", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", likes: 14, hasHeart: true },
+  { name: "Tereza S.", text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍", time: "5 h", likes: 23, hasHeart: false },
+  { name: "Carlos A.", text: "Melhor investimento que fiz! Já indiquei pra toda família", time: "1 d", likes: 8, hasHeart: false },
+  { name: "Juliana R.", text: "Ganhei uma promoção no trabalho por causa do curso! 🎉", time: "3 d", likes: 31, hasHeart: true },
+  { name: "Marcos V.", text: "Achei que era difícil mas a didática é perfeita, parabéns!", time: "1 sem", likes: 12, hasHeart: false },
+  { name: "Patrícia S.", text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏", time: "1 sem", likes: 19, hasHeart: true },
+  { name: "Roberto L.", text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪", time: "2 sem", likes: 7, hasHeart: false },
+  { name: "Maria G.", text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42, hasHeart: true },
+];
+
 const Provas = () => (
   <section className="bg-stone-900 text-white">
     <div className="container mx-auto px-4 py-9 md:py-14">
@@ -361,6 +385,43 @@ const Provas = () => (
           <img src={whatsappTestimonial1} alt="Depoimento de aluno no WhatsApp" className="w-full rounded-2xl border-4 border-amber-400" loading="lazy" />
           <img src={whatsappTestimonial2} alt="Depoimento de aluna no WhatsApp" className="w-full rounded-2xl border-4 border-amber-400" loading="lazy" />
         </div>
+
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
+          {facebookComments.map((comment, index) => (
+            <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
+              <div className="flex gap-2">
+                <img src={fbAvatars[index % fbAvatars.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" loading="lazy" />
+                <div className="flex-1 min-w-0">
+                  <div className="bg-slate-100 rounded-2xl px-3 py-2">
+                    <p className="text-slate-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{comment.name}</p>
+                    <p className="text-slate-700 text-sm leading-relaxed">{comment.text}</p>
+                  </div>
+                  <div className="flex items-center gap-3 mt-1 px-2">
+                    <span className="text-[11px] text-slate-400">{comment.time}</span>
+                    <span className="text-[11px] text-slate-500 font-medium">Curtir</span>
+                    <span className="text-[11px] text-slate-500 font-medium">Responder</span>
+                    {comment.likes > 0 && (
+                      <span className="ml-auto text-[11px] text-slate-400 flex items-center gap-0.5">
+                        <span className="flex items-center -space-x-1">
+                          <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
+                            <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
+                          </span>
+                          {comment.hasHeart && (
+                            <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0">
+                              <Heart className="w-2.5 h-2.5 text-white fill-white" />
+                            </span>
+                          )}
+                        </span>
+                        {comment.likes}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   </section>
