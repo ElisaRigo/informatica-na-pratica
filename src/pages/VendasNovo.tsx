@@ -433,7 +433,10 @@ const AudioDepoimento = ({ testimonial }: { testimonial: (typeof audioTestimonia
 
 
 
-const Provas = () => (
+const Provas = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleComments = showAll ? facebookComments : facebookComments.slice(0, 3);
+  return (
   <section className="bg-stone-900 text-white">
     <div className="container mx-auto px-4 py-9 md:py-14">
       <div className="max-w-4xl mx-auto">
@@ -477,7 +480,7 @@ const Provas = () => (
 
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
-          {facebookComments.map((comment, index) => (
+          {visibleComments.map((comment, index) => (
             <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
                 <img src={fbAvatars[index % fbAvatars.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" loading="lazy" />
@@ -512,10 +515,21 @@ const Provas = () => (
           ))}
         </div>
 
+        {facebookComments.length > 3 && (
+          <button
+            onClick={() => setShowAll((v) => !v)}
+            className="mt-4 mx-auto flex items-center gap-2 text-amber-400 font-bold text-base md:text-lg hover:text-amber-300 transition-colors"
+          >
+            {showAll ? "Ver menos" : "Ver mais depoimentos"}
+            <ChevronDown className={`w-5 h-5 transition-transform ${showAll ? "rotate-180" : ""}`} />
+          </button>
+        )}
+
       </div>
     </div>
   </section>
-);
+  );
+};
 
 /* ───────────────────────── Certificado ───────────────────────── */
 const Certificado = () => (
