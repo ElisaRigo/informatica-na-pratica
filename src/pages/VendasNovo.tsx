@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ShieldCheck,
   Lock,
@@ -6,6 +6,10 @@ import {
   Star,
   Award,
   PlayCircle,
+  Play,
+  Pause,
+  Volume2,
+
   Monitor,
   Mail,
   FileText,
