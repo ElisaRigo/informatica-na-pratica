@@ -625,7 +625,7 @@ const Certificado = () => (
 
 /* ───────────────────────── Oferta ───────────────────────── */
 const included = [
-  { icon: Monitor, t: "Curso completo do zero ao avançado" },
+  { icon: Monitor, t: "Curso completo de informática, do zero ao que você precisa no dia a dia" },
   { icon: FileText, t: "Word, Excel, PowerPoint e Windows" },
   { icon: Globe, t: "Internet, e-mail, downloads e impressão" },
   { icon: Keyboard, t: "Treino de digitação passo a passo" },
