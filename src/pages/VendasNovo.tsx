@@ -344,6 +344,14 @@ const Professora = () => (
         </div>
       </div>
     </div>
+    {/* Situação da professora */}
+    <div className="max-w-4xl mx-auto px-4">
+      <div className="mt-2 rounded-2xl border-4 border-stone-900 bg-amber-400 px-6 py-5 shadow-[8px_8px_0_0_rgba(28,25,23,1)]">
+        <p className="text-center text-lg md:text-2xl font-black text-stone-900 leading-snug">
+          "o problema nunca foi a pessoa — era o jeito que ensinavam"
+        </p>
+      </div>
+    </div>
   </section>
 );
 
