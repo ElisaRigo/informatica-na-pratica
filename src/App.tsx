@@ -61,7 +61,7 @@ const App = () => (
             <Route path="/vendas-novo" element={<VendasNovo />} />
             <Route path="/online" element={<Online />} />
             <Route path="/agora" element={<Agora />} />
-            <Route path="/venda-pro" element={<VendasPro />} />
+            <Route path="/vendas-pro" element={<VendasPro />} />
 
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
