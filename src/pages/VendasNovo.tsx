@@ -433,7 +433,10 @@ const AudioDepoimento = ({ testimonial }: { testimonial: (typeof audioTestimonia
 
 
 
-const Provas = () => (
+const Provas = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleComments = showAll ? facebookComments : facebookComments.slice(0, 3);
+  return (
   <section className="bg-stone-900 text-white">
     <div className="container mx-auto px-4 py-9 md:py-14">
       <div className="max-w-4xl mx-auto">
