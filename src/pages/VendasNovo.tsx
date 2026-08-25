@@ -458,7 +458,6 @@ const Provas = () => (
         </h2>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <img src={whatsappTestimonial1} alt="Depoimento de aluno no WhatsApp" className="w-full rounded-2xl border-4 border-amber-400" loading="lazy" />
           <img src={whatsappTestimonial2} alt="Depoimento de aluna no WhatsApp" className="w-full rounded-2xl border-4 border-amber-400" loading="lazy" />
         </div>
 
