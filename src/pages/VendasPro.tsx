@@ -35,7 +35,6 @@ import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json"
 const homeVideoThumb = homeVideoThumbAsset.url;
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
-import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
@@ -474,24 +473,16 @@ const Provas = () => (
         </h2>
 
         {/* Prints do WhatsApp */}
-        <div className="mt-6">
+        <div className="mt-6 max-w-sm mx-auto">
           <p className="font-black text-lg md:text-xl mb-3 flex items-center gap-2 justify-center">
-            <Smartphone className="w-5 h-5 text-amber-400" /> Prints de conversas reais
+            <Smartphone className="w-5 h-5 text-amber-400" /> Print de conversa real
           </p>
-          <div className="grid gap-4 md:grid-cols-2 max-w-2xl mx-auto">
-            <img
-              src={whatsappTestimonial1}
-              alt="Depoimento de aluno no WhatsApp"
-              className="w-full rounded-2xl border-4 border-amber-400"
-              loading="lazy"
-            />
-            <img
-              src={whatsappTestimonial2}
-              alt="Depoimento de aluna no WhatsApp"
-              className="w-full rounded-2xl border-4 border-amber-400"
-              loading="lazy"
-            />
-          </div>
+          <img
+            src={whatsappTestimonial2}
+            alt="Depoimento de aluna no WhatsApp"
+            className="w-full rounded-2xl border-4 border-amber-400"
+            loading="lazy"
+          />
         </div>
 
         {/* Áudios de alunos */}
