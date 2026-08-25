@@ -21,6 +21,8 @@ import {
   X,
   Gift,
   Clock,
+  ThumbsUp,
+
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
@@ -37,6 +39,15 @@ import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
 import avatar4 from "@/assets/testimonial-new-4.jpg";
 import avatar5 from "@/assets/testimonial-new-5.jpg";
+import fbAvatar1 from "@/assets/avatar-1.jpg";
+import fbAvatar2 from "@/assets/avatar-2.jpg";
+import fbAvatar3 from "@/assets/avatar-3.jpg";
+import fbAvatar4 from "@/assets/avatar-4.jpg";
+import fbAvatar5 from "@/assets/avatar-5.jpg";
+import fbAvatar6 from "@/assets/avatar-6.jpg";
+import fbAvatar7 from "@/assets/avatar-7.jpg";
+import fbAvatar8 from "@/assets/avatar-8.jpg";
+
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
 import excelIcon from "@/assets/excel-icon.png";
