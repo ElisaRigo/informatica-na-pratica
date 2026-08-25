@@ -564,10 +564,23 @@ const FAQ = () => {
             </div>
           ))}
         </div>
+
+        <p className="mt-6 text-center text-base text-slate-600">
+          Ficou com alguma dúvida?{" "}
+          <a
+            href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-green-700 underline"
+          >
+            Fale com a nossa equipe no WhatsApp
+          </a>
+        </p>
       </div>
     </section>
   );
 };
+
 
 /* ───────────────── CTA final ───────────────── */
 const CTAFinal = () => (
