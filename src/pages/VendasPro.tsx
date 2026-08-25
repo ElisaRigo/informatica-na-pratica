@@ -418,24 +418,35 @@ const AudioPlayer = ({ item }: { item: (typeof audios)[0] }) => {
 
 /* ───────────────────────── Provas ───────────────────────── */
 const depoimentos = [
-  {
-    txt: "Eu tinha medo até de ligar o computador. Hoje faço meu currículo sozinha e já mandei para três empresas.",
-    nome: "Maria, 54 anos",
-  },
-  {
-    txt: "As aulas são calmas. Quando não entendo, assisto de novo. Nunca me senti burro estudando com a professora.",
-    nome: "José Antônio, 61 anos",
-  },
-  {
-    txt: "Precisava de Excel no trabalho e estava travando. Em poucas semanas montei minha primeira planilha sozinha.",
-    nome: "Aline, 33 anos",
-  },
+  { txt: "Eu tinha medo de mexer no computador. Com a Elisa, aprendi de um jeito leve e hoje faço tudo no trabalho!", nome: "Aline S.", foto: avatar1 },
+  { txt: "As aulas são diretas. Em poucos dias já estava criando planilhas e documentos.", nome: "João M.", foto: avatar3 },
+  { txt: "O suporte da Elisa fez toda a diferença. Recomendo para quem quer aprender de verdade.", nome: "Carla T.", foto: avatar2 },
+  { txt: "Finalmente consigo fazer meu currículo sozinha! Não sabia que era tão fácil.", nome: "Maria L.", foto: avatar4 },
+  { txt: "Nunca imaginei que ia aprender a usar Excel. Agora uso no dia a dia e me sinto mais confiante.", nome: "Roberto P.", foto: avatar6 },
+  { txt: "A prof. Elisa explica com paciência e clareza. Eu que achava impossível, hoje me viro super bem!", nome: "Sandra F.", foto: avatar5 },
+  { txt: "Consegui meu primeiro emprego de escritório graças ao curso. Hoje trabalho com computador todo dia e me sinto muito mais independente!", nome: "Claudia R.", foto: finalPhoto1 },
+  { txt: "Antes dependia dos outros para tudo. Hoje faço minhas contas online, mando e-mails e até ajudo meus filhos com o computador.", nome: "Paulo S.", foto: finalPhoto2 },
+  { txt: "Achava que nunca ia conseguir. Com apenas 2 semanas de curso, já estava organizando meus documentos no Word. Valeu cada centavo!", nome: "Fernanda C.", foto: finalPhoto3 },
+];
+
+const fbAvatars = [fbAvatar1, fbAvatar2, fbAvatar3, fbAvatar4, fbAvatar5, fbAvatar6, fbAvatar7, fbAvatar8];
+
+const fbComments = [
+  { name: "Luciana M.", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", likes: 14, hasHeart: true },
+  { name: "Tereza S.", text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍", time: "5 h", likes: 23, hasHeart: false },
+  { name: "Carlos A.", text: "Melhor investimento que fiz! Já indiquei pra toda família", time: "1 d", likes: 8, hasHeart: false },
+  { name: "Juliana R.", text: "Ganhei uma promoção no trabalho por causa do curso! 🎉", time: "3 d", likes: 31, hasHeart: true },
+  { name: "Marcos V.", text: "Achei que era difícil mas a didática é perfeita, parabéns!", time: "1 sem", likes: 12, hasHeart: false },
+  { name: "Patrícia S.", text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏", time: "1 sem", likes: 19, hasHeart: true },
+  { name: "Roberto L.", text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪", time: "2 sem", likes: 7, hasHeart: false },
+  { name: "Maria G.", text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42, hasHeart: true },
 ];
 
 const Provas = () => (
   <section className="bg-stone-900 text-white">
     <div className="container mx-auto px-4 py-9 md:py-14">
       <div className="max-w-5xl mx-auto">
+        {/* Credibilidade */}
         <div className="flex items-center justify-center gap-3">
           <div className="flex -space-x-3">
             {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
@@ -459,47 +470,120 @@ const Provas = () => (
         </div>
 
         <h2 className="mt-6 text-2xl md:text-4xl font-black text-center leading-tight">
-          Mensagens que a professora <span className="text-amber-400">recebe todo dia</span>
+          Veja o que dizem os alunos que <span className="text-amber-400">saíram do zero</span>
         </h2>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          <img
-            src={whatsappTestimonial1}
-            alt="Depoimento de aluno no WhatsApp"
-            className="w-full rounded-2xl border-4 border-amber-400"
-            loading="lazy"
-          />
-          <img
-            src={whatsappTestimonial2}
-            alt="Depoimento de aluna no WhatsApp"
-            className="w-full rounded-2xl border-4 border-amber-400"
-            loading="lazy"
-          />
+        {/* Prints do WhatsApp */}
+        <div className="mt-6">
+          <p className="font-black text-lg md:text-xl mb-3 flex items-center gap-2 justify-center">
+            <Smartphone className="w-5 h-5 text-amber-400" /> Prints de conversas reais
+          </p>
+          <div className="grid gap-4 md:grid-cols-2 max-w-2xl mx-auto">
+            <img
+              src={whatsappTestimonial1}
+              alt="Depoimento de aluno no WhatsApp"
+              className="w-full rounded-2xl border-4 border-amber-400"
+              loading="lazy"
+            />
+            <img
+              src={whatsappTestimonial2}
+              alt="Depoimento de aluna no WhatsApp"
+              className="w-full rounded-2xl border-4 border-amber-400"
+              loading="lazy"
+            />
+          </div>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <div>
-            <p className="font-black text-lg md:text-xl mb-3 flex items-center gap-2">
-              <Volume2 className="w-5 h-5 text-amber-400" /> Áudios de alunos
-            </p>
-            <div className="space-y-3">
-              {audios.map((a, i) => (
-                <AudioPlayer key={i} item={a} />
-              ))}
-            </div>
+        {/* Áudios de alunos */}
+        <div className="mt-8 max-w-2xl mx-auto">
+          <p className="font-black text-lg md:text-xl mb-3 flex items-center gap-2 justify-center">
+            <Volume2 className="w-5 h-5 text-amber-400" /> Áudios de alunos
+          </p>
+          <div className="space-y-3">
+            {audios.map((a, i) => (
+              <AudioPlayer key={i} item={a} />
+            ))}
           </div>
+        </div>
 
-          <div>
-            <p className="font-black text-lg md:text-xl mb-3">O que eles dizem</p>
-            <div className="space-y-3">
-              {depoimentos.map((d) => (
-                <div key={d.nome} className="bg-white text-stone-800 rounded-2xl p-4">
-                  <p className="text-base md:text-lg leading-snug">"{d.txt}"</p>
-                  <p className="mt-2 font-black text-stone-900 text-sm md:text-base">— {d.nome}</p>
+        {/* Depoimentos em texto com foto */}
+        <div className="mt-8">
+          <p className="font-black text-lg md:text-xl mb-3 flex items-center gap-2 justify-center">
+            <Quote className="w-5 h-5 text-amber-400" /> O que eles dizem
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {depoimentos.map((d) => (
+              <div key={d.nome} className="bg-white text-stone-800 rounded-2xl p-4 flex flex-col">
+                <Quote className="w-7 h-7 text-amber-400 mb-2" />
+                <p className="text-sm md:text-base leading-snug flex-1">"{d.txt}"</p>
+                <div className="mt-3 flex items-center gap-2.5">
+                  <img
+                    src={d.foto}
+                    alt={`Foto de ${d.nome} - Aluno do Curso de Informática`}
+                    className="w-10 h-10 rounded-full object-cover border-2 border-stone-200"
+                    loading="lazy"
+                  />
+                  <span className="font-black text-stone-900 text-sm md:text-base">— {d.nome}</span>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+        </div>
+
+        {/* Comentários estilo Facebook */}
+        <div className="mt-8">
+          <p className="font-black text-lg md:text-xl mb-3 flex items-center gap-2 justify-center">
+            <MessageCircle className="w-5 h-5 text-amber-400" /> Comentários de alunos
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {fbComments.map((c, i) => (
+              <div key={i} className="bg-white rounded-lg p-3 shadow-sm">
+                <div className="flex gap-2">
+                  <img
+                    src={fbAvatars[i % fbAvatars.length]}
+                    alt=""
+                    className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]"
+                    loading="lazy"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="bg-slate-100 rounded-2xl px-3 py-2">
+                      <p className="text-gray-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">{c.name}</p>
+                      <p className="text-gray-700 text-xs leading-relaxed">{c.text}</p>
+                    </div>
+                    <div className="flex items-center gap-3 mt-1 px-2">
+                      <span className="text-[11px] text-gray-400">{c.time}</span>
+                      <span className="text-[11px] text-gray-500 font-medium cursor-pointer hover:underline">Curtir</span>
+                      <span className="text-[11px] text-gray-500 font-medium cursor-pointer hover:underline">Responder</span>
+                      {c.likes > 0 && (
+                        <span className="ml-auto text-[11px] text-gray-400 flex items-center gap-0.5">
+                          <span className="flex items-center -space-x-1">
+                            <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
+                              <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
+                            </span>
+                            {c.hasHeart && (
+                              <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0">
+                                <Heart className="w-2.5 h-2.5 text-white fill-white" />
+                              </span>
+                            )}
+                          </span>
+                          {c.likes}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Frase de destaque */}
+        <div className="text-center mt-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-snug">
+            Se essas pessoas conseguiram, <span className="text-amber-400">você também consegue.</span>
+            <br />
+            <span className="text-stone-300 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+          </p>
         </div>
       </div>
     </div>
