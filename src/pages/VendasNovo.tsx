@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ShieldCheck,
   Lock,
@@ -6,6 +6,10 @@ import {
   Star,
   Award,
   PlayCircle,
+  Play,
+  Pause,
+  Volume2,
+
   Monitor,
   Mail,
   FileText,
@@ -357,6 +361,78 @@ const facebookComments = [
   { name: "Maria G.", text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏", time: "3 sem", likes: 42, hasHeart: true },
 ];
 
+const audioTestimonials = [
+  { name: "Antonio", description: "Depoimento sobre sua experiência com o curso", audioSrc: "/audio/antonio-1.ogg" },
+  { name: "Antonio", description: "Continuação do depoimento", audioSrc: "/audio/antonio-2.ogg" },
+  { name: "Amanda", description: "Como o curso transformou sua rotina", audioSrc: "/audio/amanda.mp4" },
+  { name: "Vanderlei", description: "Superou as dificuldades com tecnologia", audioSrc: "/audio/vanderlei.ogg" },
+  { name: "Bruna", description: "Gratidão pelo aprendizado", audioSrc: "/audio/bruna.aac" },
+];
+
+const AudioDepoimento = ({ testimonial }: { testimonial: (typeof audioTestimonials)[0] }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [hasError, setHasError] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const togglePlay = () => {
+    if (audioRef.current && !hasError) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(() => setHasError(true));
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    <div className={`bg-stone-800 border-2 rounded-xl p-4 ${hasError ? "border-red-400/40 opacity-60" : "border-amber-400/40"}`}>
+      <audio
+        ref={audioRef}
+        src={testimonial.audioSrc}
+        preload="none"
+        onTimeUpdate={() => {
+          if (audioRef.current) {
+            const p = (audioRef.current.currentTime / audioRef.current.duration) * 100;
+            setProgress(p || 0);
+          }
+        }}
+        onEnded={() => {
+          setIsPlaying(false);
+          setProgress(0);
+        }}
+        onError={() => {
+          setHasError(true);
+          setIsPlaying(false);
+        }}
+      />
+      <div className="flex items-center gap-3">
+        <button
+          onClick={togglePlay}
+          disabled={hasError}
+          aria-label={`Ouvir depoimento de ${testimonial.name}`}
+          className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform ${hasError ? "bg-stone-600 cursor-not-allowed" : "bg-amber-400 hover:scale-105"}`}
+        >
+          {isPlaying ? <Pause className="w-5 h-5 text-stone-900" /> : <Play className="w-5 h-5 text-stone-900 ml-0.5" />}
+        </button>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="font-bold text-sm">{testimonial.name}</span>
+            <Volume2 className="w-3 h-3 text-amber-400" />
+          </div>
+          <p className="text-stone-300 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
+          <div className="h-1.5 bg-stone-700 rounded-full overflow-hidden">
+            <div className="h-full bg-amber-400 transition-all duration-100" style={{ width: `${progress}%` }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
 const Provas = () => (
   <section className="bg-stone-900 text-white">
     <div className="container mx-auto px-4 py-9 md:py-14">
@@ -385,6 +461,20 @@ const Provas = () => (
           <img src={whatsappTestimonial1} alt="Depoimento de aluno no WhatsApp" className="w-full rounded-2xl border-4 border-amber-400" loading="lazy" />
           <img src={whatsappTestimonial2} alt="Depoimento de aluna no WhatsApp" className="w-full rounded-2xl border-4 border-amber-400" loading="lazy" />
         </div>
+
+        <div className="mt-6">
+          <div className="flex items-center gap-2 mb-3">
+            <Volume2 className="w-5 h-5 text-amber-400" />
+            <h3 className="text-lg font-black">Áudios de alunos</h3>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {audioTestimonials.map((t, i) => (
+              <AudioDepoimento key={i} testimonial={t} />
+            ))}
+          </div>
+        </div>
+
+
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
           {facebookComments.map((comment, index) => (
