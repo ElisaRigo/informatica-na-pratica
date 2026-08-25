@@ -480,7 +480,7 @@ const Provas = () => {
 
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
-          {facebookComments.map((comment, index) => (
+          {visibleComments.map((comment, index) => (
             <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
                 <img src={fbAvatars[index % fbAvatars.length]} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]" loading="lazy" />
@@ -514,6 +514,16 @@ const Provas = () => {
             </div>
           ))}
         </div>
+
+        {facebookComments.length > 3 && (
+          <button
+            onClick={() => setShowAll((v) => !v)}
+            className="mt-4 mx-auto flex items-center gap-2 text-amber-400 font-bold text-base md:text-lg hover:text-amber-300 transition-colors"
+          >
+            {showAll ? "Ver menos" : "Ver mais depoimentos"}
+            <ChevronDown className={`w-5 h-5 transition-transform ${showAll ? "rotate-180" : ""}`} />
+          </button>
+        )}
 
       </div>
     </div>
