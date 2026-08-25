@@ -473,24 +473,16 @@ const Provas = () => (
         </h2>
 
         {/* Prints do WhatsApp */}
-        <div className="mt-6">
+        <div className="mt-6 max-w-sm mx-auto">
           <p className="font-black text-lg md:text-xl mb-3 flex items-center gap-2 justify-center">
-            <Smartphone className="w-5 h-5 text-amber-400" /> Prints de conversas reais
+            <Smartphone className="w-5 h-5 text-amber-400" /> Print de conversa real
           </p>
-          <div className="grid gap-4 md:grid-cols-2 max-w-2xl mx-auto">
-            <img
-              src={whatsappTestimonial1}
-              alt="Depoimento de aluno no WhatsApp"
-              className="w-full rounded-2xl border-4 border-amber-400"
-              loading="lazy"
-            />
-            <img
-              src={whatsappTestimonial2}
-              alt="Depoimento de aluna no WhatsApp"
-              className="w-full rounded-2xl border-4 border-amber-400"
-              loading="lazy"
-            />
-          </div>
+          <img
+            src={whatsappTestimonial2}
+            alt="Depoimento de aluna no WhatsApp"
+            className="w-full rounded-2xl border-4 border-amber-400"
+            loading="lazy"
+          />
         </div>
 
         {/* Áudios de alunos */}
