@@ -318,7 +318,7 @@ const Professora = () => (
         <img
           src={elisa}
           alt="Professora Elisa, do curso Informática na Prática"
-          className="w-44 h-44 md:w-full md:h-auto mx-auto object-cover rounded-2xl border-4 border-stone-900 shadow-[8px_8px_0_0_rgba(251,191,36,1)]"
+          className="w-full max-w-[320px] h-auto mx-auto md:w-full object-cover rounded-2xl border-4 border-stone-900 shadow-[8px_8px_0_0_rgba(251,191,36,1)]"
           loading="lazy"
         />
         <div className="text-center md:text-left">
