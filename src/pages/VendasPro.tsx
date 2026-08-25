@@ -22,6 +22,10 @@ import {
   Volume2,
   Users,
   CalendarDays,
+  Quote,
+  ThumbsUp,
+  MessageCircle,
+  Smartphone,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
