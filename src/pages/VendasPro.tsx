@@ -327,18 +327,26 @@ const Modulos = () => (
 const Professora = () => (
   <section className="bg-[#FBF6EF]">
     <div className="container mx-auto px-4 py-9 md:py-14">
-      <div className="max-w-4xl mx-auto grid gap-6 md:grid-cols-[280px_1fr] items-center">
+      <div className="max-w-4xl mx-auto grid gap-6 md:grid-cols-[380px_1fr] items-center">
         <img
           src={elisa}
           alt="Professora Elisa, do curso Informática na Prática"
-          className="w-44 h-44 md:w-full md:h-auto mx-auto object-cover rounded-2xl border-4 border-stone-900 shadow-[8px_8px_0_0_rgba(251,191,36,1)]"
+          className="w-56 h-56 md:w-full md:h-auto md:aspect-[4/5] mx-auto object-cover rounded-2xl border-4 border-stone-900 shadow-[8px_8px_0_0_rgba(251,191,36,1)]"
           loading="lazy"
         />
         <div className="text-center md:text-left">
           <h2 className="text-2xl md:text-4xl font-black text-stone-900 leading-tight">
             Quem vai te ensinar é a professora Elisa
           </h2>
-          <p className="mt-3 text-base md:text-xl text-stone-700 leading-snug">
+          <blockquote className="mt-4 relative bg-white border-2 border-stone-900 rounded-2xl p-4 md:p-5 shadow-[4px_4px_0_0_rgba(28,25,23,1)]">
+            <Quote className="w-7 h-7 md:w-8 md:h-8 text-amber-400 fill-amber-400 shrink-0 mb-2" />
+            <p className="text-base md:text-xl font-semibold text-stone-900 leading-snug italic">
+              “Não importa a sua idade ou experiência. Se você chegou até aqui, eu vou te ensinar — com
+              calma, repetindo quantas vezes for preciso. Você é capaz.”
+            </p>
+            <footer className="mt-2 text-sm md:text-base font-bold text-stone-600">— Professora Elisa</footer>
+          </blockquote>
+          <p className="mt-4 text-base md:text-xl text-stone-700 leading-snug">
             São <b>20 anos ensinando informática</b> e mais de <b>15.000 alunos</b> que começaram exatamente
             como você. Nada de termo técnico: é a mesma explicação que ela daria sentada ao seu lado, com
             calma, repetindo quantas vezes for preciso.
