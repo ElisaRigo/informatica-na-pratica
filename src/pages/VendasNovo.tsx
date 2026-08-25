@@ -462,6 +462,20 @@ const Provas = () => (
           <img src={whatsappTestimonial2} alt="Depoimento de aluna no WhatsApp" className="w-full rounded-2xl border-4 border-amber-400" loading="lazy" />
         </div>
 
+        <div className="mt-6">
+          <div className="flex items-center gap-2 mb-3">
+            <Volume2 className="w-5 h-5 text-amber-400" />
+            <h3 className="text-lg font-black">Áudios de alunos</h3>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {audioTestimonials.map((t, i) => (
+              <AudioDepoimento key={i} testimonial={t} />
+            ))}
+          </div>
+        </div>
+
+
+
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
           {facebookComments.map((comment, index) => (
             <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
