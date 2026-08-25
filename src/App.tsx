@@ -25,6 +25,7 @@ const ImagemWhatsApp = lazy(() => import("./pages/ImagemWhatsApp"));
 const Informatica = lazy(() => import("./pages/Informatica"));
 const Aprender = lazy(() => import("./pages/Aprender"));
 const VendasNovo = lazy(() => import("./pages/VendasNovo"));
+const Online = lazy(() => import("./pages/Online"));
 
 
 const queryClient = new QueryClient();
