@@ -630,7 +630,7 @@ const bonusCards = [
 const pillars = [
   { icon: InfinityIcon, t: "Pagamento único", s: "Paga uma vez e pronto. Sem mensalidade." },
   { icon: Clock, t: "Acesso vitalício", s: "Curso seu pra sempre, pra rever quando quiser." },
-  { icon: PlayCircle, t: "+90 aulas", s: "Videoaulas curtas, do zero ao avançado." },
+  { icon: PlayCircle, t: "+90 aulas", s: "Videoaulas curtas, do zero ao prático." },
   { icon: Headphones, t: "Suporte humano", s: "Tira dúvida comigo e minha equipe no WhatsApp." },
 ];
 
