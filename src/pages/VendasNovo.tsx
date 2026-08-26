@@ -616,7 +616,7 @@ const included = [
   { icon: Globe, t: "Internet, e-mail, downloads e impressão" },
   { icon: Keyboard, t: "Treino de digitação passo a passo" },
   { icon: Award, t: "Certificado de conclusão" },
-  { icon: Headphones, t: "Suporte no WhatsApp com a equipe" },
+  { icon: Headphones, t: "Suporte no WhatsApp com a professora" },
   { icon: InfinityIcon, t: "Acesso vitalício, sem mensalidade" },
 ];
 
