@@ -17,6 +17,7 @@ import {
   Presentation,
   Keyboard,
   GraduationCap,
+  Briefcase,
   Infinity as InfinityIcon,
   ChevronDown,
   ArrowRight,
@@ -617,7 +618,13 @@ const included = [
   { icon: Award, t: "Certificado de conclusão" },
   { icon: Headphones, t: "Suporte no WhatsApp com a equipe" },
   { icon: InfinityIcon, t: "Acesso vitalício, sem mensalidade" },
-  { icon: Gift, t: "Hoje você leva 4 bônus exclusivos" },
+];
+
+const bonusCards = [
+  { icon: Mail, title: "E-mail Profissional", desc: "Crie, configure e organize seu e-mail com assinatura.", value: "R$ 97" },
+  { icon: Briefcase, title: "Mercado de Trabalho", desc: "Currículo, postura e como se apresentar bem.", value: "R$ 127" },
+  { icon: Keyboard, title: "Atalhos Essenciais", desc: "Guia rápido com atalhos que economizam tempo.", value: "R$ 47" },
+  { icon: FileText, title: "Currículo Profissional", desc: "Template pronto e dicas de um currículo que destaca.", value: "R$ 97" },
 ];
 
 const pillars = [
@@ -662,6 +669,34 @@ const Oferta = () => (
               </li>
             ))}
           </ul>
+
+          {/* Bônus exclusivos em destaque */}
+          <div className="mt-6 border-t-2 border-dashed border-stone-300 pt-5">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Gift className="w-5 h-5 md:w-6 md:h-6 text-amber-600" />
+              <p className="text-center text-sm md:text-base font-black text-stone-900 uppercase tracking-wide">
+                Hoje você leva 4 bônus exclusivos
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2.5 md:gap-3">
+              {bonusCards.map((b) => (
+                <div
+                  key={b.title}
+                  className="bg-[#FBF6EF] border-2 border-stone-900 rounded-xl p-3 md:p-4 flex flex-col items-center text-center"
+                >
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <b.icon className="w-4 h-4 md:w-5 md:h-5 text-amber-600 shrink-0" />
+                    <span className="text-xs md:text-sm font-black text-stone-900 leading-tight">{b.title}</span>
+                  </div>
+                  <p className="text-[11px] md:text-xs text-stone-600 leading-snug mb-2">{b.desc}</p>
+                  <span className="text-xs md:text-sm font-bold text-stone-500 line-through">{b.value}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-center text-sm md:text-base font-black text-amber-700">
+              + R$ 368 em bônus inclusos hoje
+            </p>
+          </div>
 
           {/* Preço — só depois dos pilares */}
           <div className="mt-6 text-center border-t-2 border-dashed border-stone-300 pt-5">
