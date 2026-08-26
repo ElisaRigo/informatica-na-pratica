@@ -465,7 +465,7 @@ const Provas = () => {
         </div>
 
         <h2 className="mt-6 text-2xl md:text-4xl font-black text-center leading-tight">
-          Mensagens que a professora <span className="text-amber-400">recebe todo dia</span>
+          Mensagens que eu <span className="text-amber-400">recebo todo dia</span>
         </h2>
 
         <div className="mt-6 grid gap-4 md:grid-cols-2 items-start">
