@@ -224,7 +224,7 @@ const Identificacao = () => (
 /* ───────────────────────── Método ───────────────────────── */
 const steps = [
   { n: "1", t: "Você assiste uma aula curta", d: "De 5 a 12 minutos, sem pressa e sem palavra difícil." },
-  { n: "2", t: "Você faz junto no seu computador", d: "A professora mostra a tela e você repete o mesmo passo." },
+  { n: "2", t: "Você faz junto no seu computador", d: "Eu mostro a tela e você repete o mesmo passo." },
   { n: "3", t: "Você repete quantas vezes quiser", d: "Pode voltar a aula mil vezes. Ninguém vai te apressar." },
   { n: "4", t: "Você usa na vida real", d: "Currículo, planilha, e-mail, pesquisa, foto, impressão." },
 ];
