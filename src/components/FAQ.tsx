@@ -44,8 +44,8 @@ const faqs = [
     answer: "Você tem 7 dias corridos para testar todo o conteúdo. Se por qualquer motivo decidir que o curso não é para você, basta nos avisar e devolvemos 100% do valor pago. Sem perguntas, sem burocracia.",
   },
   {
-    question: "Vou aprender apenas o básico ou também coisas avançadas?",
-    answer: "O curso cobre desde o absoluto zero até recursos intermediários/avançados. Você aprende desde ligar o computador até criar planilhas com fórmulas, documentos profissionais e apresentações impactantes.",
+    question: "Vou aprender apenas o básico ou também coisas práticas?",
+    answer: "O curso cobre desde o absoluto zero até recursos práticos do dia a dia. Você aprende desde ligar o computador até criar planilhas com fórmulas, documentos profissionais e apresentações impactantes.",
   },
   {
     question: "Qual a diferença deste curso para vídeos grátis na internet?",
