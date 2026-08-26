@@ -851,6 +851,7 @@ const VendasNovo = () => {
       <Professora />
       <Provas />
       <Certificado />
+      <Comparison />
       <Oferta />
       <Escolhas />
       <FAQ />
