@@ -165,7 +165,7 @@ const Hero = () => (
         </h1>
 
         <p className="mt-4 text-lg md:text-2xl text-stone-700 leading-snug">
-          Aulas curtas, do zero, com a professora explicando devagar e repetindo quantas vezes você precisar.
+          Aulas curtas, do zero, comigo explicando devagar e repetindo quantas vezes você precisar.
         </p>
 
         <div className="mt-5 md:mt-7">
