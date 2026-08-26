@@ -618,7 +618,13 @@ const included = [
   { icon: Award, t: "Certificado de conclusão" },
   { icon: Headphones, t: "Suporte no WhatsApp com a equipe" },
   { icon: InfinityIcon, t: "Acesso vitalício, sem mensalidade" },
-  { icon: Gift, t: "Hoje você leva 4 bônus exclusivos" },
+];
+
+const bonusCards = [
+  { icon: Mail, title: "E-mail Profissional", desc: "Crie, configure e organize seu e-mail com assinatura.", value: "R$ 97" },
+  { icon: Briefcase, title: "Mercado de Trabalho", desc: "Currículo, postura e como se apresentar bem.", value: "R$ 127" },
+  { icon: Keyboard, title: "Atalhos Essenciais", desc: "Guia rápido com atalhos que economizam tempo.", value: "R$ 47" },
+  { icon: FileText, title: "Currículo Profissional", desc: "Template pronto e dicas de um currículo que destaca.", value: "R$ 97" },
 ];
 
 const pillars = [
