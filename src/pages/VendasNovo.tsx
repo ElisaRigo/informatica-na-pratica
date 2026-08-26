@@ -598,9 +598,9 @@ const Comparison = () => (
             <p className="text-xs md:text-sm font-black text-red-600 text-center">Presencial</p>
             <p className="text-xs md:text-sm font-black text-[#1a7a3f] text-center">Online</p>
           </div>
-          <ComparisonRow label="Valor" traditional="Mensalidades que se somam por meses — valor caro" online="Pagamento único, sem mensalidade" />
+          <ComparisonRow label="Valor" traditional="Mensalidades todos os meses" online="Pagamento único, sem mensalidade" />
           <ComparisonRow label="Horário" traditional="Preso a horários rígidos da turma" online="Assiste quando quiser, no seu ritmo" />
-          <ComparisonRow label="Atenção" traditional="Turmas cheias, sem atenção individual" online="Aula particular: eu explico só pra você" />
+          <ComparisonRow label="Atenção" traditional="Turmas cheias, sem atenção individual" online="Sem turma e sem horário fixo: Tudo com calma" />
           <ComparisonRow label="Repetir" traditional="Perdeu a aula? Perdeu." online="Repete quantas vezes precisar" />
         </div>
       </div>
