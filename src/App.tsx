@@ -57,7 +57,7 @@ const App = () => (
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
             <Route path="/informatica" element={<Informatica />} />
             <Route path="/aprender" element={<Aprender />} />
-            <Route path="/vendas-novo" element={<VendasNovo />} />
+            <Route path="/aprenda" element={<VendasNovo />} />
             <Route path="/online" element={<Online />} />
             <Route path="/agora" element={<Agora />} />
 
