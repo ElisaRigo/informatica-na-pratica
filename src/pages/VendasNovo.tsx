@@ -323,11 +323,11 @@ const Professora = () => (
         />
         <div className="text-center md:text-left">
           <h2 className="text-2xl md:text-4xl font-black text-stone-900 leading-tight">
-            Quem vai te ensinar é a professora Elisa
+            Eu sou a professora Elisa
           </h2>
           <p className="mt-3 text-base md:text-xl text-stone-700 leading-snug">
-            Ela ensina informática para adultos que estão começando do zero. Nada de termo técnico:
-            é a mesma explicação que ela daria sentada ao seu lado, com calma, repetindo quantas vezes
+            Eu ensino informática para adultos que estão começando do zero. Nada de termo técnico:
+            é a mesma explicação que eu daria sentada ao seu lado, com calma, repetindo quantas vezes
             for preciso.
           </p>
           <p className="mt-3 text-base md:text-xl font-bold text-stone-900">
@@ -339,7 +339,7 @@ const Professora = () => (
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 font-bold text-stone-900 underline decoration-amber-400 decoration-4 underline-offset-4"
           >
-            <Headphones className="w-5 h-5" /> Falar com a professora antes de comprar
+            <Headphones className="w-5 h-5" /> Falar comigo antes de comprar
           </a>
         </div>
       </div>
