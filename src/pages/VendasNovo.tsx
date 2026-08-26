@@ -200,7 +200,7 @@ const Identificacao = () => (
     <div className="container mx-auto px-4 py-8 md:py-14">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-black text-stone-900 text-center leading-tight">
-          Marque quantas dessas frases <span className="underline decoration-amber-400 decoration-8 underline-offset-2">são a sua vida hoje</span>
+          Você se identifica com alguma <span className="underline decoration-amber-400 decoration-8 underline-offset-2">destas situações?</span>
         </h2>
         <ul className="mt-6 space-y-3">
           {pains.map((p) => (
