@@ -348,7 +348,7 @@ const Professora = () => (
     <div className="max-w-4xl mx-auto px-4">
       <div className="mt-2 rounded-2xl border-4 border-stone-900 bg-amber-400 px-6 py-5 shadow-[8px_8px_0_0_rgba(28,25,23,1)]">
         <p className="text-center text-lg md:text-2xl font-black text-stone-900 leading-snug">
-          "o problema nunca foi a pessoa — era o jeito que ensinavam"
+          "O problema nunca foi a pessoa — era o jeito que ensinavam"
         </p>
       </div>
     </div>
@@ -568,7 +568,7 @@ const Certificado = () => (
 
 /* ───────────────────────── Oferta ───────────────────────── */
 const included = [
-  { icon: Monitor, t: "Curso completo do zero ao avançado" },
+  { icon: Monitor, t: "Curso completo do zero" },
   { icon: FileText, t: "Word, Excel, PowerPoint e Windows" },
   { icon: Globe, t: "Internet, e-mail, downloads e impressão" },
   { icon: Keyboard, t: "Treino de digitação passo a passo" },
