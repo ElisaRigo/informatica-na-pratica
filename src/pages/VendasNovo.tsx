@@ -17,6 +17,7 @@ import {
   Presentation,
   Keyboard,
   GraduationCap,
+  Briefcase,
   Infinity as InfinityIcon,
   ChevronDown,
   ArrowRight,
