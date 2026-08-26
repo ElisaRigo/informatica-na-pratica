@@ -670,6 +670,34 @@ const Oferta = () => (
             ))}
           </ul>
 
+          {/* Bônus exclusivos em destaque */}
+          <div className="mt-6 border-t-2 border-dashed border-stone-300 pt-5">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Gift className="w-5 h-5 md:w-6 md:h-6 text-amber-600" />
+              <p className="text-center text-sm md:text-base font-black text-stone-900 uppercase tracking-wide">
+                Hoje você leva 4 bônus exclusivos
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2.5 md:gap-3">
+              {bonusCards.map((b) => (
+                <div
+                  key={b.title}
+                  className="bg-[#FBF6EF] border-2 border-stone-900 rounded-xl p-3 md:p-4 flex flex-col items-center text-center"
+                >
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <b.icon className="w-4 h-4 md:w-5 md:h-5 text-amber-600 shrink-0" />
+                    <span className="text-xs md:text-sm font-black text-stone-900 leading-tight">{b.title}</span>
+                  </div>
+                  <p className="text-[11px] md:text-xs text-stone-600 leading-snug mb-2">{b.desc}</p>
+                  <span className="text-xs md:text-sm font-bold text-stone-500 line-through">{b.value}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-center text-sm md:text-base font-black text-amber-700">
+              + R$ 368 em bônus inclusos hoje
+            </p>
+          </div>
+
           {/* Preço — só depois dos pilares */}
           <div className="mt-6 text-center border-t-2 border-dashed border-stone-300 pt-5">
             <p className="text-base md:text-lg text-stone-500 font-bold">
