@@ -566,6 +566,48 @@ const Certificado = () => (
   </section>
 );
 
+/* ───────────────────────── Comparação ───────────────────────── */
+const ComparisonRow = ({ label, traditional, online }: { label: string; traditional: string; online: string }) => (
+  <div className="grid grid-cols-[1fr_1.1fr_1.1fr] gap-2 md:gap-3 items-center py-2.5 border-b-2 border-dashed border-stone-300 last:border-0">
+    <p className="text-xs md:text-sm font-bold text-stone-700 pr-1">{label}</p>
+    <div className="flex items-center gap-1.5 md:gap-2">
+      <X className="w-4 h-4 md:w-5 md:h-5 text-red-600 shrink-0" />
+      <span className="text-[11px] md:text-sm font-medium text-stone-600 leading-tight">{traditional}</span>
+    </div>
+    <div className="flex items-center gap-1.5 md:gap-2">
+      <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-[#25D366] shrink-0" />
+      <span className="text-[11px] md:text-sm font-bold text-stone-900 leading-tight">{online}</span>
+    </div>
+  </div>
+);
+
+const Comparison = () => (
+  <section className="bg-[#FBF6EF] border-y-4 border-stone-900">
+    <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-xl md:text-3xl font-black text-stone-900 text-center leading-tight">
+          Curso online x curso presencial tradicional
+        </h2>
+        <p className="mt-2 text-center text-sm md:text-base text-stone-600 font-medium">
+          Pense nos cursos presenciais: você passa meses pagando mensalidades que acumulam, fica preso a horários rígidos e ainda assiste aulas em turmas cheias, sem atenção individual.
+        </p>
+
+        <div className="mt-5 bg-white border-4 border-stone-900 rounded-2xl p-4 md:p-6 shadow-[8px_8px_0_0_rgba(28,25,23,1)]">
+          <div className="grid grid-cols-[1fr_1.1fr_1.1fr] gap-2 md:gap-3 pb-2 border-b-4 border-stone-900">
+            <p className="text-xs md:text-sm font-black text-stone-900"></p>
+            <p className="text-xs md:text-sm font-black text-red-600 text-center">Presencial</p>
+            <p className="text-xs md:text-sm font-black text-[#1a7a3f] text-center">Online</p>
+          </div>
+          <ComparisonRow label="Valor" traditional="Mensalidades que se somam por meses — valor caro" online="Pagamento único, sem mensalidade" />
+          <ComparisonRow label="Horário" traditional="Preso a horários rígidos da turma" online="Assiste quando quiser, no seu ritmo" />
+          <ComparisonRow label="Atenção" traditional="Turmas cheias, sem atenção individual" online="Aula particular: eu explico só pra você" />
+          <ComparisonRow label="Repetir" traditional="Perdeu a aula? Perdeu." online="Repete quantas vezes precisar" />
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 /* ───────────────────────── Oferta ───────────────────────── */
 const included = [
   { icon: Monitor, t: "Curso completo do zero" },
@@ -809,6 +851,7 @@ const VendasNovo = () => {
       <Professora />
       <Provas />
       <Certificado />
+      <Comparison />
       <Oferta />
       <Escolhas />
       <FAQ />
