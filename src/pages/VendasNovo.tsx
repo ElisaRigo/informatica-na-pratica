@@ -646,7 +646,7 @@ const Oferta = () => (
               R$ 297
             </p>
             <p className="mt-2 text-base md:text-xl font-bold text-stone-700">
-              à vista ou em até 12x no cartão
+              à vista ou em até 12x 30,72 no cartão
             </p>
             <p className="mt-1 text-sm md:text-base text-stone-500">
               Pagamento único. Você nunca mais paga nada.
