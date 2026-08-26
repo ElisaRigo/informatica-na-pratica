@@ -601,7 +601,7 @@ const Comparison = () => (
           <ComparisonRow label="Valor" traditional="Mensalidades que se somam por meses — valor caro" online="Pagamento único, sem mensalidade" />
           <ComparisonRow label="Horário" traditional="Preso a horários rígidos da turma" online="Assiste quando quiser, no seu ritmo" />
           <ComparisonRow label="Atenção" traditional="Turmas cheias, sem atenção individual" online="Aula particular: eu explico só pra você" />
-          <ComparisonRow label="Repetir" traditional="Perdeu a aula? Atravessou." online="Revolta quantas vezes precisar" />
+          <ComparisonRow label="Repetir" traditional="Perdeu a aula? Perdeu." online="Repete quantas vezes precisar" />
         </div>
       </div>
     </div>
