@@ -326,7 +326,7 @@ const Professora = () => (
             Eu sou a professora Elisa
           </h2>
           <p className="mt-3 text-base md:text-xl text-stone-700 leading-snug">
-            Eu ensino informática para adultos que estão começando do zero. Nada de termo técnico:
+            Há mais de 20 anos eu ensino informática para adultos que estão começando do zero. Nada de termo técnico:
             é a mesma explicação que eu daria sentada ao seu lado, com calma, repetindo quantas vezes
             for preciso.
           </p>
@@ -583,8 +583,7 @@ const Oferta = () => (
     <div className="container mx-auto px-4 py-10 md:py-16">
       <div className="max-w-2xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-black text-stone-900 text-center leading-tight">
-          Uma aula particular custa mais de R$ 80. <br className="hidden md:block" />
-          O curso inteiro custa menos que isso por mês.
+          Pelo preço de uma única mensalidade tradicional, você garante acesso vitalício e aprende com a liberdade que você merece. 
         </h2>
 
         <div className="mt-6 bg-white border-4 border-stone-900 rounded-2xl p-5 md:p-8 shadow-[10px_10px_0_0_rgba(28,25,23,1)]">
