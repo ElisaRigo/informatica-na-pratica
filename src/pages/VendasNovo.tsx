@@ -326,7 +326,7 @@ const Professora = () => (
             Eu sou a professora Elisa
           </h2>
           <p className="mt-3 text-base md:text-xl text-stone-700 leading-snug">
-            Eu ensino informática para adultos que estão começando do zero. Nada de termo técnico:
+            Há mais de 20 anos eu ensino informática para adultos que estão começando do zero. Nada de termo técnico:
             é a mesma explicação que eu daria sentada ao seu lado, com calma, repetindo quantas vezes
             for preciso.
           </p>
