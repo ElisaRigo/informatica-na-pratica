@@ -620,6 +620,13 @@ const included = [
   { icon: Gift, t: "Hoje você leva 4 bônus exclusivos" },
 ];
 
+const pillars = [
+  { icon: InfinityIcon, t: "Pagamento único", s: "Paga uma vez e pronto. Sem mensalidade." },
+  { icon: Clock, t: "Acesso vitalício", s: "Curso seu pra sempre, pra rever quando quiser." },
+  { icon: PlayCircle, t: "+90 aulas", s: "Videoaulas curtas, do zero ao avançado." },
+  { icon: Headphones, t: "Suporte humano", s: "Tira dúvida comigo e minha equipe no WhatsApp." },
+];
+
 const Oferta = () => (
   <section id="oferta" className="bg-amber-400">
     <div className="container mx-auto px-4 py-10 md:py-16">
@@ -628,7 +635,25 @@ const Oferta = () => (
           Pelo preço de uma única mensalidade tradicional, você garante acesso vitalício e aprende com a liberdade que você merece. 
         </h2>
 
+        {/* Pilares de destaque */}
+        <div className="mt-6 grid grid-cols-2 gap-3 md:gap-4">
+          {pillars.map((p) => (
+            <div
+              key={p.t}
+              className="bg-stone-900 text-white rounded-2xl p-4 md:p-5 flex flex-col items-center text-center border-4 border-stone-900 shadow-[6px_6px_0_0_rgba(255,255,255,0.6)]"
+            >
+              <p.icon className="w-8 h-8 md:w-10 md:h-10 text-amber-400 mb-2" />
+              <span className="text-lg md:text-xl font-black leading-tight">{p.t}</span>
+              <span className="mt-1 text-xs md:text-sm text-stone-300 leading-snug">{p.s}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Tudo que vem junto */}
         <div className="mt-6 bg-white border-4 border-stone-900 rounded-2xl p-5 md:p-8 shadow-[10px_10px_0_0_rgba(28,25,23,1)]">
+          <p className="text-center text-sm md:text-base font-black text-stone-900 uppercase tracking-wide mb-3">
+            E você ainda leva:
+          </p>
           <ul className="space-y-2.5">
             {included.map((i) => (
               <li key={i.t} className="flex items-start gap-3">
@@ -638,6 +663,7 @@ const Oferta = () => (
             ))}
           </ul>
 
+          {/* Preço — só depois dos pilares */}
           <div className="mt-6 text-center border-t-2 border-dashed border-stone-300 pt-5">
             <p className="text-base md:text-lg text-stone-500 font-bold">
               De <span className="line-through">R$ 497,00</span> por apenas
