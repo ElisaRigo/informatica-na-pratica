@@ -741,7 +741,7 @@ const Fechamento = () => (
           Nunca é tarde para aprender. <span className="text-amber-400">Só é cedo demais pra desistir.</span>
         </h2>
         <p className="mt-3 text-base md:text-xl text-stone-300">
-          Comece hoje, no seu ritmo, com quem tem paciência de te ensinar de verdade.
+          Comece hoje, no seu ritmo, comigo, que tenho paciência de te ensinar de verdade.
         </p>
         <div className="mt-6">
           <CTA>Quero começar meu curso hoje</CTA>
