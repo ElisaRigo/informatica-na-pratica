@@ -632,7 +632,7 @@ const Oferta = () => (
     <div className="container mx-auto px-4 py-10 md:py-16">
       <div className="max-w-2xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-black text-stone-900 text-center leading-tight">
-          Pelo preço de uma única mensalidade tradicional, você garante acesso vitalício e aprende com a liberdade que você merece. 
+          Por menos do que você imagina, você aprende do zero e fica com acesso ao curso para sempre! 
         </h2>
 
         {/* Pilares de destaque */}
