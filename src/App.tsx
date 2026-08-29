@@ -25,8 +25,6 @@ const ImagemWhatsApp = lazy(() => import("./pages/ImagemWhatsApp"));
 const Informatica = lazy(() => import("./pages/Informatica"));
 const Aprender = lazy(() => import("./pages/Aprender"));
 const VendasNovo = lazy(() => import("./pages/VendasNovo"));
-const Online = lazy(() => import("./pages/Online"));
-const Agora = lazy(() => import("./pages/Agora"));
 
 
 const queryClient = new QueryClient();
@@ -39,7 +37,7 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
-            <Route path="/" element={<VendasNovo />} />
+            <Route path="/" element={<Index />} />
             <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
@@ -57,10 +55,7 @@ const App = () => (
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
             <Route path="/informatica" element={<Informatica />} />
             <Route path="/aprender" element={<Aprender />} />
-            <Route path="/aprenda" element={<VendasNovo />} />
-            <Route path="/online" element={<Online />} />
-            <Route path="/agora" element={<Agora />} />
-
+            <Route path="/vendas-novo" element={<VendasNovo />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
