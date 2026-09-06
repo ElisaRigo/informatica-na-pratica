@@ -29,6 +29,7 @@ import {
   Rocket,
   Check,
   Gift,
+  Globe,
   HelpCircle,
   AlertTriangle,
   Frown,
@@ -127,15 +128,27 @@ import typingIcon from "@/assets/typing-icon.png";
 const Header = () => (
   <header className="bg-white border-b border-slate-200 py-3 md:py-5">
     <div className="container mx-auto px-4">
-      <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
+      <div className="flex flex-row items-center justify-center gap-3 md:gap-6">
         <div className="relative group shrink-0">
           <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
-            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
+            <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24" />
           </div>
         </div>
-        <p className="text-slate-900 text-lg md:text-3xl lg:text-4xl font-bold leading-tight text-left">
-          <span className="block">Curso de Informática</span>
-          <span className="block text-sky-600 text-base md:text-2xl lg:text-3xl font-semibold">online — com suporte</span>
+        <p className="text-slate-900 font-bold leading-tight text-left">
+          <span className="block text-2xl md:text-4xl lg:text-5xl tracking-tight">
+            Curso de Informática
+          </span>
+          <span className="inline-flex items-center gap-1.5 md:gap-2 flex-wrap text-sky-600 text-sm md:text-2xl lg:text-3xl font-semibold mt-0.5">
+            <span className="inline-flex items-center gap-1">
+              <Globe className="w-4 h-4 md:w-5 md:h-5 shrink-0" aria-hidden="true" />
+              online
+            </span>
+            <span className="text-sky-400/80">—</span>
+            <span className="inline-flex items-center gap-1">
+              <Headphones className="w-4 h-4 md:w-5 md:h-5 shrink-0" aria-hidden="true" />
+              com suporte
+            </span>
+          </span>
         </p>
       </div>
     </div>
