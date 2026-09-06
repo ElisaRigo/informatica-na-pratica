@@ -308,7 +308,7 @@ const PainIdentification = () => {
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Se você se identificou, <span className="text-blue-600">esse curso é para você</span>
+          Se você se identificou com alguma dessas situações, <span className="text-blue-600">saiba que isso pode mudar.</span>
         </p>
       </div>
     </section>
