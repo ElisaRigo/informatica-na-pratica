@@ -129,7 +129,8 @@ const Header = () => (
           </div>
         </div>
         <p className="text-slate-900 text-lg md:text-3xl lg:text-4xl font-bold leading-tight text-left">
-          Curso de <span className="text-sky-600">Informática Online</span> Simples e Fácil.
+          <span className="block">Curso de Informática</span>
+          <span className="block text-sky-600 text-base md:text-2xl lg:text-3xl font-semibold">online — com suporte</span>
         </p>
       </div>
     </div>
