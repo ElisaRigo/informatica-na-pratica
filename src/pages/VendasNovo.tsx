@@ -130,17 +130,17 @@ const Header = () => (
           </div>
         </div>
         <p className="text-slate-900 font-bold leading-tight text-left">
-          <span className="block text-4xl md:text-5xl lg:text-6xl tracking-tight">
+          <span className="block text-2xl md:text-4xl lg:text-5xl tracking-tight">
             Curso de Informática
           </span>
-          <span className="inline-flex items-center gap-1.5 md:gap-2 flex-wrap text-sky-600 text-base md:text-2xl lg:text-3xl font-semibold mt-1">
+          <span className="inline-flex items-center gap-1.5 md:gap-2 flex-wrap text-sky-600 text-sm md:text-2xl lg:text-3xl font-semibold mt-0.5">
             <span className="inline-flex items-center gap-1">
-              <Globe className="w-5 h-5 md:w-6 md:h-6 shrink-0" aria-hidden="true" />
+              <Globe className="w-4 h-4 md:w-5 md:h-5 shrink-0" aria-hidden="true" />
               online
             </span>
             <span className="text-sky-400/80">—</span>
             <span className="inline-flex items-center gap-1">
-              <Headphones className="w-5 h-5 md:w-6 md:h-6 shrink-0" aria-hidden="true" />
+              <Headphones className="w-4 h-4 md:w-5 md:h-5 shrink-0" aria-hidden="true" />
               com suporte
             </span>
           </span>
