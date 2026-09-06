@@ -16,7 +16,8 @@ export const Header = () => {
           />
         </div>
         <h1 className="text-base md:text-xl lg:text-2xl text-foreground mt-1 tracking-tight leading-tight px-2">
-          <span className="text-primary font-bold">Informática do zero:</span> simples, prático e para todos
+          <span className="block text-primary font-bold">Curso de Informática</span>
+          <span className="block text-foreground/90 font-medium text-sm md:text-base lg:text-lg">online — com suporte</span>
         </h1>
       </div>
     </header>
