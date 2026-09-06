@@ -199,7 +199,6 @@ const Hero = () => {
             </div>
           </div>
 
-
           <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-2">
             <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
             Comece hoje, no seu ritmo
@@ -213,19 +212,8 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
-            Aulas simples, curtas e passo a passo, feitas para quem está começando do zero.
+            Aulas simples, curtas e passo a passo. Para quem nunca ligou um computador ou não sabe por onde começar.
           </p>
-
-
-          {/* Selos de destaque */}
-          <div className="flex flex-wrap justify-center gap-2 mb-3">
-            <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
-            </span>
-            <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <Headphones className="w-4 h-4 md:w-5 md:h-5" /> SUPORTE AO ALUNO
-            </span>
-          </div>
 
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-3">
@@ -260,11 +248,8 @@ const Hero = () => {
           </div>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
-Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segurança e confiança
+            Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segurança e confiança.
           </p>
-
-
-
 
         </div>
       </div>
@@ -275,12 +260,12 @@ Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segu
 // ───────────────────────── Mini identificação de dores ─────────────────────────
 const PainIdentification = () => {
   const pains = [
-    { icon: HelpCircle, label: "Fica perdido(a)?", bg: "bg-gradient-to-br from-rose-50 to-orange-50 border-rose-100", ic: "text-rose-500" },
-    { icon: Users, label: "Depende dos outros?", bg: "bg-gradient-to-br from-orange-50 to-amber-50 border-orange-100", ic: "text-orange-500" },
-    { icon: AlertTriangle, label: "Tem medo de clicar?", bg: "bg-gradient-to-br from-red-50 to-rose-50 border-red-100", ic: "text-red-500" },
-    { icon: TrendingDown, label: "Perde oportunidades?", bg: "bg-gradient-to-br from-pink-50 to-rose-50 border-pink-100", ic: "text-pink-500" },
-    { icon: RotateCcw, label: "Já tentou e desistiu?", bg: "bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-100", ic: "text-purple-500" },
-    { icon: Frown, label: "Sente vergonha?", bg: "bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-100", ic: "text-amber-500" },
+    { icon: HelpCircle, label: "Fica perdido(a) na tela do computador", bg: "bg-gradient-to-br from-rose-50 to-orange-50 border-rose-100", ic: "text-rose-500" },
+    { icon: Users, label: "Depende do filho ou neto pra tudo", bg: "bg-gradient-to-br from-orange-50 to-amber-50 border-orange-100", ic: "text-orange-500" },
+    { icon: AlertTriangle, label: "Tem medo de clicar no lugar errado", bg: "bg-gradient-to-br from-red-50 to-rose-50 border-red-100", ic: "text-red-500" },
+    { icon: TrendingDown, label: "Perde vaga por não saber informática", bg: "bg-gradient-to-br from-pink-50 to-rose-50 border-pink-100", ic: "text-pink-500" },
+    { icon: RotateCcw, label: "Já tentou aprender e desistiu", bg: "bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-100", ic: "text-purple-500" },
+    { icon: Frown, label: "Evita o PC pra não passar vergonha", bg: "bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-100", ic: "text-amber-500" },
   ];
   return (
     <section className="py-6 md:py-8 bg-gradient-to-b from-white via-slate-50/60 to-white border-y border-slate-100">
@@ -290,7 +275,7 @@ const PainIdentification = () => {
             <Heart className="w-3.5 h-3.5 md:w-4 md:h-4" /> Você não está sozinho(a)
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Como você se sente hoje?
+            Você se identifica?
           </h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6">
@@ -304,7 +289,7 @@ const PainIdentification = () => {
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Se você se identificou, <span className="text-blue-600">esse curso é para você</span>
+          Se você se viu em alguma dessas, <span className="text-blue-600">o curso foi feito pra você</span>
         </p>
       </div>
     </section>
@@ -314,22 +299,22 @@ const PainIdentification = () => {
 // ───────────────────────── Sonhos realizados (contraste positivo) ─────────────────────────
 const DreamRealization = () => {
   const dreams = [
-    { icon: Rocket, label: "Fazer sozinho(a) o que antes dependia dos outros", bg: "bg-gradient-to-br from-emerald-50 to-green-50 border-green-100", ic: "text-green-600" },
-    { icon: Star, label: "Usar o computador sem medo de errar", bg: "bg-gradient-to-br from-blue-50 to-sky-50 border-blue-100", ic: "text-blue-600" },
-    { icon: Award, label: "Abrir portas para novas oportunidades", bg: "bg-gradient-to-br from-amber-50 to-yellow-50 border-yellow-100", ic: "text-amber-600" },
-    { icon: Heart, label: "Ajudar a família com orgulho e segurança", bg: "bg-gradient-to-br from-rose-50 to-pink-50 border-rose-100", ic: "text-rose-600" },
-    { icon: Sparkles, label: "Se sentir capaz e independente todos os dias", bg: "bg-gradient-to-br from-purple-50 to-violet-50 border-purple-100", ic: "text-purple-600" },
-    { icon: Clock, label: "Aprender no seu tempo, sem pressa", bg: "bg-gradient-to-br from-sky-50 to-cyan-50 border-sky-100", ic: "text-sky-600" },
+    { icon: Mail, label: "Manda currículo sozinho(a) pelo e-mail", bg: "bg-gradient-to-br from-blue-50 to-sky-50 border-blue-100", ic: "text-blue-600" },
+    { icon: Monitor, label: "Acessa banco, INSS e governo online sozinho(a)", bg: "bg-gradient-to-br from-emerald-50 to-green-50 border-green-100", ic: "text-green-600" },
+    { icon: HeartHandshake, label: "Ajudou filho ou neto com uma tarefa na internet", bg: "bg-gradient-to-br from-rose-50 to-pink-50 border-rose-100", ic: "text-rose-600" },
+    { icon: Star, label: "Fala com orgulho: 'eu sei usar o computador'", bg: "bg-gradient-to-br from-amber-50 to-yellow-50 border-yellow-100", ic: "text-amber-600" },
+    { icon: Award, label: "Faz currículo bonito e se candidata a vagas", bg: "bg-gradient-to-br from-purple-50 to-violet-50 border-purple-100", ic: "text-purple-600" },
+    { icon: Rocket, label: "Resolve sozinho(a) sem pedir ajuda a ninguém", bg: "bg-gradient-to-br from-sky-50 to-cyan-50 border-sky-100", ic: "text-sky-600" },
   ];
   return (
     <section className="py-6 md:py-8 bg-gradient-to-b from-white via-blue-50/40 to-white border-y border-blue-100">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-5 md:mb-6">
-          <span className="inline-flex items-center gap-1.5 bg-blue-100 text-blue-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" /> O futuro que você merece
+          <span className="inline-flex items-center gap-1.5 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" /> Imagine você assim
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Agora imagine você assim
+            Em poucas semanas, você vai...
           </h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6">
@@ -343,7 +328,7 @@ const DreamRealization = () => {
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Esse é o seu próximo passo — <span className="text-blue-600">começando do zero</span>
+          Isso não é sonho — <span className="text-blue-600">é o que acontece com quem começa</span>
         </p>
       </div>
     </section>
@@ -1385,37 +1370,25 @@ const FAQ = () => {
   const faqs = [
     {
       q: "Eu nunca mexi num computador. Vou conseguir mesmo?",
-      a: "Sim! O curso foi feito justamente pra quem está começando do zero. A professora explica passo a passo, com linguagem simples, sem termos técnicos. +15.000 alunos já provaram que funciona.",
+      a: "Sim. O curso foi feito pra quem começa do zero. A professora explica passo a passo, sem termos difíceis. +15.000 alunos já provaram que funciona.",
     },
     {
-      q: "Quanto tempo leva pra concluir?",
-      a: "Você aprende no seu ritmo. Em média os alunos terminam em 30 a 60 dias dedicando 20-30 min por dia. Mas como o acesso é vitalício, você tem o tempo que precisar.",
-    },
-    {
-      q: "Em quanto tempo recebo o acesso?",
-      a: "Na hora. Logo após o pagamento aprovado você recebe os dados de acesso no seu e-mail.",
-    },
-    {
-      q: "Funciona no celular?",
-      a: "Sim. Você pode assistir no celular, tablet ou computador. Mas pra praticar é importante ter acesso a um computador.",
+      q: "Quanto tempo tenho acesso?",
+      a: "Acesso vitalício. Você assiste quantas vezes quiser, no celular, tablet ou computador.",
     },
     {
       q: "Como funciona a garantia?",
-      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e devolvemos 100% do valor. Sem perguntas.",
+      a: "Você tem 7 dias pra testar. Se não gostar, devolvemos 100% do valor. Sem perguntas.",
     },
     {
-      q: "O certificado é válido?",
-      a: "Sim. É um certificado digital de conclusão, aceito em todo o Brasil pra anexar em currículos, LinkedIn e processos seletivos.",
-    },
-    {
-      q: "E se eu travar numa aula? Tem suporte?",
-      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
+      q: "E se eu travar numa aula?",
+      a: "Você tem suporte direto com a professora pelo WhatsApp e pela área do aluno.",
     },
   ];
   return (
     <section className="py-4 md:py-6 bg-slate-50">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-5">Perguntas frequentes</h2>
+        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-5">Ainda tem dúvida?</h2>
         <div className="space-y-3">
           {faqs.map((f, i) => (
             <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
@@ -1442,16 +1415,15 @@ const FAQ = () => {
 
 // ───────────────────────── Final CTA ─────────────────────────
 const FinalCTA = () => (
-  <section className="py-4 md:py-6 bg-slate-900 text-white">
+  <section className="py-6 md:py-10 bg-slate-900 text-white">
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
-      <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-        Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
-        mais independente. <strong className="text-white">Hoje é o dia.</strong>
+      <p className="text-slate-300 text-base md:text-lg mb-6 max-w-2xl mx-auto">
+        Em poucas semanas você vai usar o computador sozinho(a). Sua vida fica mais leve e independente. <strong className="text-white">Hoje é o dia.</strong>
       </p>
       <CTA>Quero começar agora!</CTA>
-      <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
+      <p className="text-xs text-slate-400 mt-4">Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
   </section>
 );
@@ -1503,47 +1475,35 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
-      {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
+      {/* 1. Identificação de dores */}
       <PainIdentification />
-      {/* 2. Prova social profunda */}
-      <SocialProof />
-      {/* 3. Prova viva imediata: aula real 1 */}
+      {/* 2. Prova viva: aula real */}
       <AulasReais aula={1} />
-      {/* 4. Problema / agitação da dor + contraste de futuro (bloco único) */}
-      <AgitateSection />
-      {/* 5. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
-      <Instructor />
-      {/* 6. Solução: a transformação (plano claro, prova da promessa da professora) */}
-      <Method />
-      {/* 7. Micro-compromisso: quiz interativo */}
-      <QuizIdentificacao />
-      {/* 8. Conteúdo/entregável */}
-      <Modules />
-      {/* 9. Visão emocional (desejo antes do preço) */}
-      <EmotionalVision />
-      {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
-      <Aula2Destaque />
-
-      {/* 10c. Sonhos realizados como aquecimento antes do value stack */}
+      {/* 3. Sonhos realizados */}
       <DreamRealization />
-
-      {/* 11. Value stack: bônus antes da oferta */}
+      {/* 4. Autoridade */}
+      <Instructor />
+      {/* 5. Método */}
+      <Method />
+      {/* 6. Conteúdo */}
+      <Modules />
+      {/* 7. Prova social */}
+      <SocialProof />
+      {/* 8. Bônus */}
       <section id="sessao-valor" className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
       </section>
-      {/* 12. Oferta */}
+      {/* 9. Oferta */}
       <section id="oferta">
         <Pricing />
       </section>
-      {/* 13. Reforço de valor pós-preço */}
-      <Certificate />
-      {/* 13b. Garantia — reforça confiança antes das objeções */}
+      {/* 10. Garantia */}
       <GuaranteeBlock />
-      {/* 14. Quebra de objeções */}
+      {/* 11. FAQ */}
       <FAQ />
-      {/* 15. Fechamento */}
+      {/* 12. Fechamento */}
       <FinalCTA />
       <Footer />
       <WhatsAppButton />
