@@ -200,20 +200,20 @@ const Hero = () => {
           </div>
 
 
-          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-2">
-            <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
-            Comece hoje, no seu ritmo
+          <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-sm md:text-base mb-2">
+            <Users className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
+            +15.000 alunos já aprenderam comigo
           </div>
 
           <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
-            <span className="block">Use o computador sozinho(a),</span>
+            <span className="block">Aprenda a usar o computador</span>
             <span className="block text-blue-600">
-              sem medo e sem depender de ninguém.
+              sozinho(a) — do zero.
             </span>
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
-            Aulas simples, curtas e passo a passo, feitas para quem está começando do zero.
+            Mesmo que hoje você não saiba nada. Aulas curtas, simples e com suporte da professora.
           </p>
 
 
@@ -260,7 +260,18 @@ const Hero = () => {
           </div>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
-Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segurança e confiança
+            Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segurança — <span className="text-blue-600 font-bold">mesmo que agora não saiba por onde começar</span>.
+          </p>
+
+          <div className="max-w-md mx-auto mb-3">
+            <CTA>Quero começar agora</CTA>
+          </div>
+          <p className="text-sm md:text-base text-slate-500 font-medium flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            <ShieldCheck className="w-4 h-4 text-green-600" /> Pagamento seguro
+            <span className="text-slate-300 hidden sm:inline">•</span>
+            <Award className="w-4 h-4 text-green-600" /> Garantia de 7 dias
+            <span className="text-slate-300 hidden sm:inline">•</span>
+            <Clock className="w-4 h-4 text-green-600" /> Acesso imediato
           </p>
 
 
