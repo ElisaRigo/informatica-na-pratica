@@ -43,9 +43,14 @@ import heroCover from "@/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/assets/hero-video-cover-home-v4.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
-import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
+import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa-v2.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
-import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import aulaPratica2ThumbAsset from "@/assets/aula-pratica-2-thumb.jpg.asset.json";
+const aulaPratica2Thumb = aulaPratica2ThumbAsset.url;
+import environmentThumbAsset from "@/assets/capa-aula-simples-v2.jpg.asset.json";
+const environmentThumb = environmentThumbAsset.url;
+import aulaRealThumbAsset from "@/assets/capa-aula-real.jpg.asset.json";
+const aulaRealThumb = aulaRealThumbAsset.url;
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
@@ -248,7 +253,6 @@ const Hero = () => {
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
 Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segurança e confiança
           </p>
-
 
 
 
@@ -459,15 +463,15 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
 
         {isFirst ? (
           <AulaVideo
-            videoId="_0OPLnEiMHk"
-            thumb={aulaGratisThumb}
+            videoId="g_F1-d7tdQ0"
+            thumb={aulaRealThumb}
             label="Aula 1"
             subtitle="Primeiros passos no computador"
           />
         ) : (
           <AulaVideo
             videoId="-sdVG1OtDks"
-            thumb={aprendaComigoThumb}
+            thumb={aulaPratica2Thumb}
             label="Aula 2"
             subtitle="Aprenda comigo, na prática"
           />
@@ -491,11 +495,70 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
   );
 };
 
+// ───────────────────────── Aula do Curso (segundo vídeo de /curso) ─────────────────────────
+const AulaCursoReal = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  return (
+    <section id="aula-curso" className="py-4 md:py-6 bg-gradient-to-b from-white via-blue-50/50 to-white border-y border-blue-100">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
+            <PlayCircle className="w-4 h-4" /> AULA REAL DO CURSO
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Você acha que aprender Informática é difícil? <span className="text-blue-600">Assista e mude de ideia!</span>
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Nada de teoria. Você vê a tela, ouve a explicação e já entende o que fazer — no seu tempo, quantas vezes precisar.
+          </p>
+        </div>
+
+
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
+          {!isPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+              <img src={aulaGratisThumb} alt="Aula real do curso" className="w-full h-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                <PlayCircle className="w-4 h-4" /> Aula Real
+              </div>
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                ▶ Assista agora
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&autoplay=1"
+                title="Aula real do curso"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          )}
+        </div>
+
+
+        <p className="text-center text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          Se você acompanhou essa aula até o fim, <strong className="text-slate-900">você é capaz</strong> — e o curso inteiro segue exatamente esse ritmo.
+        </p>
+
+      </div>
+    </section>
+  );
+};
+
 // ───────────────────────── Aula 2 em destaque (reengajamento antes da oferta) ─────────────────────────
 const Aula2Destaque = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section id="aula-2" className="py-4 md:py-6 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
+    <section id="aula-2" className="py-6 md:py-10 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5">
           <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
@@ -517,7 +580,7 @@ const Aula2Destaque = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20 border-2 border-blue-200">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                <img src={aprendaComigoThumb} alt="Aula 2 — Aprenda comigo na prática" className="w-full h-full object-cover" loading="lazy" />
+                <img src={aulaPratica2Thumb} alt="Aula 2 — Aprenda comigo na prática" className="w-full h-full object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
@@ -560,46 +623,74 @@ const Aula2Destaque = () => {
 };
 
 
-// ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
-const MiniValueSection = () => {
-  return (
-    <section className="py-3 md:py-5 bg-blue-50">
-      <div className="container mx-auto px-4 max-w-xl text-center">
-        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
-        <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
-        <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-2 mb-3" />
-        <p className="text-slate-600 text-base md:text-lg">
-          de <span className="line-through text-lg md:text-2xl font-bold">R$ 497,00</span> por apenas
-        </p>
-        <p className="text-4xl md:text-6xl font-black text-green-600 leading-tight mt-1">
-          R$ 297,00
-        </p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
-          <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
-        </p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
-        </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-        </p>
-        <div className="mt-4">
-          <CTA>Quero Aprender Informática</CTA>
-        </div>
-        <div className="mt-3 rounded-xl border-2 border-green-200 bg-green-50 px-4 py-3 text-center shadow-sm">
-          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
-            <ShieldCheck className="w-5 h-5" />{" "}
-            <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
-          </p>
-          <p className="text-slate-700 text-sm md:text-base mt-1 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
-          </p>
-        </div>
+// ───────────────────────── Value Section (depois do 2º vídeo) ─────────────────────────
+const ValueSection = () => (
+  <section id="sessao-valor" className="py-5 md:py-8 bg-slate-100">
+    <div className="container mx-auto px-4 max-w-2xl text-center">
+      <span className="inline-block bg-blue-100 text-blue-700 text-[11px] md:text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full mb-2">
+        Oportunidade única
+      </span>
+
+      <h2 className="text-3xl md:text-5xl font-black text-slate-800 leading-tight">
+        Sua vez de <span className="text-blue-600">Dominar o computador!</span>
+      </h2>
+
+      <div className="flex items-center justify-center gap-2 mt-2 mb-3">
+        <span className="h-1.5 w-8 rounded-full bg-blue-600" />
+        <span className="h-1.5 w-14 rounded-full bg-blue-300" />
+        <span className="h-1.5 w-8 rounded-full bg-blue-600" />
       </div>
-    </section>
-  );
-};
+
+      <p className="text-slate-600 text-base md:text-lg">
+        de <span className="line-through text-lg md:text-2xl font-bold">R$ 497,00</span> por apenas
+      </p>
+      <p className="text-4xl md:text-6xl font-black text-green-600 leading-tight mt-1">
+        R$ 297,00
+      </p>
+      <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
+        <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
+      </p>
+      <p className="text-slate-600 text-base md:text-lg mt-1">
+        ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
+      </p>
+      <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
+        <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+      </p>
+
+      <div className="mt-4 max-w-xl mx-auto">
+        <CTA>Quero Aprender Informática</CTA>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 mt-3 max-w-xl mx-auto">
+        {[
+          { icon: PlayCircle, label: "+90 Videoaulas" },
+          { icon: InfinityIcon, label: "Acesso Vitalício" },
+          { icon: Headphones, label: "Suporte Direto" },
+          { icon: Users, label: "+15.000 Alunos" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="flex items-center justify-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5"
+          >
+            <item.icon className="w-5 h-5 text-blue-600 shrink-0" />
+            <span className="text-sm font-semibold text-slate-700">{item.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-3 mt-3 max-w-xl mx-auto">
+        <p className="flex items-center justify-center gap-2 text-green-600 font-black text-sm md:text-base">
+          <ShieldCheck className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
+        </p>
+        <p className="text-slate-700 text-sm md:text-base mt-1">
+          <span className="text-amber-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvo{" "}
+          <span className="text-green-600 font-bold">100% do seu dinheiro.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
@@ -1481,7 +1572,7 @@ const StickyCTA = () => {
 };
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = () => {
+const Home = () => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
@@ -1491,30 +1582,33 @@ const VendasNovo = () => {
       <Hero />
       {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
       <PainIdentification />
-      {/* 2. Prova social profunda */}
+      {/* 2. Prova viva imediata: aula real do curso antes da identificação */}
+      <AulaCursoReal />
+      {/* 2b. Sonhos realizados como aquecimento antes da oferta de valor */}
+      <DreamRealization />
+      {/* 2c. Sessão de valor logo após a prova viva do primeiro vídeo */}
+      <ValueSection />
+      {/* 3. Prova social profunda */}
       <SocialProof />
-      {/* 3. Prova viva imediata: aula real 1 */}
+      {/* 4. Aula real passo a passo antes da agitação da dor */}
       <AulasReais aula={1} />
-      {/* 4. Problema / agitação da dor + contraste de futuro (bloco único) */}
+      {/* 5. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
-      {/* 5. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
+      {/* 6. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
       <Instructor />
-      {/* 6. Solução: a transformação (plano claro, prova da promessa da professora) */}
+      {/* 7. Solução: a transformação (plano claro, prova da promessa da professora) */}
       <Method />
-      {/* 7. Micro-compromisso: quiz interativo */}
+      {/* 8. Micro-compromisso: quiz interativo */}
       <QuizIdentificacao />
-      {/* 8. Conteúdo/entregável */}
+      {/* 9. Conteúdo/entregável */}
       <Modules />
-      {/* 9. Visão emocional (desejo antes do preço) */}
+      {/* 10. Visão emocional (desejo antes do preço) */}
       <EmotionalVision />
       {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
       <Aula2Destaque />
 
-      {/* 10c. Sonhos realizados como aquecimento antes do value stack */}
-      <DreamRealization />
-
       {/* 11. Value stack: bônus antes da oferta */}
-      <section id="sessao-valor" className="py-4 md:py-6 bg-slate-50">
+      <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
@@ -1538,4 +1632,4 @@ const VendasNovo = () => {
   );
 };
 
-export default VendasNovo;
+export default Home;
