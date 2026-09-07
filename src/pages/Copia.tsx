@@ -1586,7 +1586,7 @@ const StickyCTA = () => {
 };
 
 // ───────────────────────── Page ─────────────────────────
-const Home = () => {
+const Copia = () => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
