@@ -35,6 +35,8 @@ import logo from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import homeVideoThumbAsset from "@/assets/capa-video-principal.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
+import bannerCopiaAsset from "@/assets/banner-copia.jpg.asset.json";
+const bannerCopia = bannerCopiaAsset.url;
 import aulaRealThumbAsset from "@/assets/capa-aula-real.jpg.asset.json";
 const aulaRealThumb = aulaRealThumbAsset.url;
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa-v2.jpg.asset.json";
@@ -99,23 +101,15 @@ const CTA = ({
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-slate-950 border-b border-slate-800 py-3">
-    <div className="container mx-auto px-4 flex items-center justify-center gap-3">
-      <div className="bg-white/95 rounded-xl p-1.5 md:p-2 shrink-0">
-        <img src={logo} alt="Informática na Prática" className="h-10 md:h-14" />
-      </div>
-      <p className="text-white font-bold leading-tight text-left">
-        <span className="block text-xl md:text-3xl tracking-tight whitespace-nowrap">Curso de Informática</span>
-        <span className="flex items-center gap-3 text-[11px] md:text-sm text-slate-400 font-semibold mt-0.5">
-          <span className="inline-flex items-center gap-1">
-            <Globe className="w-3.5 h-3.5 text-blue-400" /> Online
-          </span>
-          <span className="inline-flex items-center gap-1">
-            <Headphones className="w-3.5 h-3.5 text-blue-400" /> Com suporte
-          </span>
-        </span>
-      </p>
-    </div>
+  <header className="bg-slate-950 border-b border-slate-800">
+    <button onClick={openCheckout} className="w-full block p-0 border-0 bg-transparent cursor-pointer">
+      <img
+        src={bannerCopia}
+        alt="Domine o Computador Começando do Zero — Matricule-se agora"
+        className="w-full h-auto object-cover object-center"
+        loading="eager"
+      />
+    </button>
   </header>
 );
 
