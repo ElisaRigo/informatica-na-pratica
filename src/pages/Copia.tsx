@@ -619,8 +619,7 @@ const Professora = () => (
           <p className="text-blue-400 font-bold text-sm mb-1">QUEM VAI TE ENSINAR</p>
           <h3 className="text-2xl md:text-4xl font-black text-white mb-2">Professora Elisa</h3>
           <p className="text-slate-300 leading-relaxed text-sm md:text-base">
-            Mais de 20 anos ensinando informática para adultos que nunca tinham ligado um computador. A didática dela é
-            simples, calma e sem termos difíceis — por isso mais de 15.000 alunos conseguiram aprender.
+             Há mais de 20 anos ensino informática para adultos que nunca tinham ligado um computador. A didática  é simples, calma e sem termos difíceis — por isso mais de 15.000 alunos conseguiram aprender comigo.
           </p>
         </div>
       </div>
@@ -802,18 +801,16 @@ const Oferta = () => (
         </ul>
 
         <div className="text-center mt-5 pt-5 border-t border-slate-800">
-          <p className="text-slate-300 text-sm">
-            Valor real de tudo: <span className="line-through">R$ 865,00</span>
-          </p>
+           <p className="text-slate-300 text-sm"></p>
           <p className="text-slate-300 text-base mt-3">
             De <span className="line-through font-bold text-xl">R$ 497,00</span> por apenas
           </p>
           <p className="text-6xl md:text-7xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
-          <p className="text-slate-300 font-semibold">à vista ou em até 12x no cartão</p>
-          <p className="text-slate-300 text-sm mt-1">Menos de R$ 1,00 por dia no primeiro ano — e o acesso é para sempre.</p>
+           <p className="text-slate-300 font-semibold">à vista ou em até 12 x 30,72,no cartão</p>
+           <p className="text-slate-300 text-sm mt-1">Curso completo  — e o acesso é para sempre.</p>
 
           <div className="mt-5">
-            <CTA sub="Pagamento seguro • Acesso imediato">QUERO MINHA VAGA POR R$ 297</CTA>
+             <CTA sub="Pagamento seguro • Acesso imediato">Quero começar agora</CTA>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-slate-300 text-xs font-semibold">
@@ -833,7 +830,7 @@ const GarantiaCertificado = () => (
     <div className="container mx-auto px-4 max-w-4xl grid md:grid-cols-2 gap-4 items-center">
       <div className="bg-slate-900 border-2 border-green-500/40 rounded-2xl p-6 text-center">
         <ShieldCheck className="w-14 h-14 text-green-400 mx-auto mb-3" />
-        <h3 className="text-2xl md:text-3xl font-black text-white mb-2">O risco é todo nosso</h3>
+         <h3 className="text-2xl md:text-3xl font-black text-white mb-2">O risco é zero</h3>
         <p className="text-slate-300 leading-relaxed text-sm md:text-base">
           Entre, assista as aulas e teste por 7 dias. Se você achar que não é para você, devolvemos 100% do valor. Sem
           perguntas, sem burocracia.
