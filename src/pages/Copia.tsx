@@ -28,6 +28,7 @@ import {
   Globe,
   Rocket,
   Flame,
+  MessageCircle,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
@@ -876,6 +877,153 @@ const StickyCTA = () => (
   </div>
 );
 
+// ───────────────────────── Exit Popup (saída segura) ─────────────────────────
+const WHATSAPP_LINK =
+  "https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica";
+
+const ExitPopup = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const hasTriggered = useRef(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("copia_exit_popup_seen") === "1") return;
+
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY < 10 && !hasTriggered.current) {
+        hasTriggered.current = true;
+        setIsOpen(true);
+        localStorage.setItem("copia_exit_popup_seen", "1");
+      }
+    };
+
+    const isMobile = window.matchMedia("(pointer: coarse)").matches;
+    let scrollListener: (() => void) | undefined;
+    let timeTimer: number | undefined;
+
+    const trigger = () => {
+      if (hasTriggered.current) return;
+      hasTriggered.current = true;
+      setIsOpen(true);
+      localStorage.setItem("copia_exit_popup_seen", "1");
+    };
+
+    if (isMobile) {
+      const onScroll = () => {
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+        if (maxScroll > 0 && window.scrollY / maxScroll > 0.5) trigger();
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      scrollListener = () => window.removeEventListener("scroll", onScroll);
+      timeTimer = window.setTimeout(trigger, 35000);
+    } else {
+      document.addEventListener("mouseleave", handleMouseLeave);
+      scrollListener = () => document.removeEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (scrollListener) scrollListener();
+      if (timeTimer) window.clearTimeout(timeTimer);
+    };
+  }, []);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-sm">
+      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden">
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-colors"
+          aria-label="Fechar"
+        >
+          <X className="w-4 h-4" />
+        </button>
+
+        <div className="p-5 pb-0">
+          <span className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-300 px-3 py-1 rounded-full text-[11px] font-bold mb-3">
+            <AlertTriangle className="w-3.5 h-3.5 text-red-500" /> NÃO SAIA AINDA
+          </span>
+          <h3 className="text-2xl md:text-3xl font-black text-white leading-tight">
+            Veja como a informática pode ser <span className="text-green-400">simples</span>
+          </h3>
+          <p className="text-slate-300 text-sm md:text-base mt-2">
+            Assista uma aula real. Depois, se quiser sair, fique à vontade.
+          </p>
+        </div>
+
+        <div className="p-5">
+          <div className="rounded-xl overflow-hidden border border-slate-700 shadow-lg">
+            {!playing ? (
+              <div
+                className="relative aspect-video cursor-pointer group"
+                onClick={() => setPlaying(true)}
+              >
+                <img
+                  src={aulaGratisThumb}
+                  alt="Aula demonstrativa do curso"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
+                  </div>
+                </div>
+                <span className="absolute bottom-3 left-3 bg-slate-950/80 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                  ▶ Aula 2 · 8 minutos
+                </span>
+              </div>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                  title="Aula demonstrativa"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="px-5 pb-2">
+          <ul className="space-y-2">
+            {[
+              "Aulas curtas, do zero, sem termos difíceis",
+              "+15.000 alunos já aprenderam",
+              "7 dias de garantia para testar",
+            ].map((t) => (
+              <li key={t} className="flex items-center gap-2 text-slate-200 text-sm md:text-base">
+                <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" /> {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="p-5 pt-3 space-y-2.5">
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-[#25D366] hover:bg-[#20BA5A] active:scale-[.99] text-white font-black text-base rounded-xl py-3.5 flex items-center justify-center gap-2 transition-all"
+          >
+            <MessageCircle className="w-5 h-5" /> Tirar dúvida no WhatsApp
+          </a>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-sm rounded-xl py-3 transition-colors"
+          >
+            Continuar navegando
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 // ───────────────────────── Página ─────────────────────────
 const Copia = () => {
@@ -903,6 +1051,7 @@ const Copia = () => {
       <Footer />
       <StickyCTA />
       <WhatsAppButton />
+      <ExitPopup />
     </div>
   );
 };
