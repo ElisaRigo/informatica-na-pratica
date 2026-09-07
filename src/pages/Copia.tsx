@@ -69,57 +69,7 @@ const openCheckout = () => openHotmartCheckout();
 const scrollToOferta = () => {
   const el = document.getElementById("oferta");
   if (!el) return;
-
-  const startY = window.scrollY;
-  const startTime = performance.now();
-  const duration = 2400; // 2,4s de rolagem suave
-  let finished = false;
-
-  // easeOutCubic: começo tranquilo, desaceleração longa no final
-  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-
-  const fineTune = () => {
-    // Ajusta pequenos desvios causados por layout shift (imagens carregando)
-    let attempts = 0;
-    const interval = setInterval(() => {
-      const rectTop = el!.getBoundingClientRect().top;
-      if (Math.abs(rectTop) <= 8 || attempts >= 20) {
-        clearInterval(interval);
-        return;
-      }
-      window.scrollBy(0, rectTop * 0.35);
-      attempts++;
-    }, 60);
-  };
-
-  const finalize = () => {
-    if (finished) return;
-    finished = true;
-    // Garante parada exatamente no topo da seção de oferta
-    window.scrollTo(0, el!.getBoundingClientRect().top + window.scrollY);
-    fineTune();
-  };
-
-  const step = (now: number) => {
-    if (finished) return;
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-
-    // Recalcula o destino a cada frame para acompanhar mudanças de layout
-    const targetY = el!.getBoundingClientRect().top + window.scrollY;
-    const diff = targetY - startY;
-
-    window.scrollTo(0, startY + diff * easeOutCubic(progress));
-
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    } else {
-      finalize();
-    }
-  };
-
-  requestAnimationFrame(step);
-  setTimeout(finalize, duration + 200); // fallback caso o rAF seja limitado
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
 
