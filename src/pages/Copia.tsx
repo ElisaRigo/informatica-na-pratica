@@ -518,10 +518,10 @@ const ComoComeca = () => (
 
 // ───────────────────────── Aula real + método ─────────────────────────
 
-const AulaCard = ({ videoId, thumb, label, subtitle }: { videoId: string; thumb: string; label: string; subtitle: string }) => {
+const AulaCard = ({ videoId, thumb, label, subtitle, id }: { videoId: string; thumb: string; label: string; subtitle: string; id?: string }) => {
   const [playing, setPlaying] = useState(false);
   return (
-    <div className="rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-900">
+    <div id={id} className="rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-900">
       {!playing ? (
         <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
           <img src={thumb} alt={subtitle} className="w-full h-full object-cover" loading="lazy" />
@@ -572,7 +572,7 @@ const Aulas = () => {
         <div className="space-y-6 mb-8">
           <AulaCard videoId="_0OPLnEiMHk" thumb={aulaGratisThumb} label="Assista" subtitle="Você acha que informática é difícil? " />
           <AulaCard videoId="-sdVG1OtDks" thumb={aulaPratica2Thumb} label="Confira" subtitle="Aprenda comigo, na prática, clique por clique" />
-          <AulaCard videoId="g_F1-d7tdQ0" thumb={aulaRealThumb} label="Veja" subtitle="Tudo no seu ritmo - Com Calma" />
+          <AulaCard id="aula-3" videoId="g_F1-d7tdQ0" thumb={aulaRealThumb} label="Veja" subtitle="Tudo no seu ritmo - Com Calma" />
         </div>
 
         <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-3">
@@ -926,10 +926,10 @@ const Copia = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const el = document.getElementById("aulas");
+      const el = document.getElementById("aula-3");
       if (!el) return;
       const rect = el.getBoundingClientRect();
-      setShowSticky(rect.top < window.innerHeight * 0.75);
+      setShowSticky(rect.bottom < window.innerHeight);
     };
 
     handleScroll();
