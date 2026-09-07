@@ -1,5 +1,7 @@
-import Home from "./Home";
+import { lazy } from "react";
 
-const Index = () => <Home />;
+const Copia = lazy(() => import("./Copia"));
+
+const Index = () => <Copia />;
 
 export default Index;
