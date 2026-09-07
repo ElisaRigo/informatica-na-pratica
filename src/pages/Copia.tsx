@@ -28,6 +28,7 @@ import {
   Globe,
   Rocket,
   Flame,
+  MessageCircle,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
