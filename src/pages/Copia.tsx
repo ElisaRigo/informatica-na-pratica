@@ -553,7 +553,7 @@ const AulaCard = ({ videoId, thumb, label, subtitle }: { videoId: string; thumb:
 
 const Aulas = () => {
   return (
-    <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
+    <section id="aulas" className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
       <div className="container mx-auto px-4 max-w-3xl text-center">
         <span className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
           <PlayCircle className="w-4 h-4 text-red-500" /> PARE DE ADIAR — APERTE O PLAY
@@ -900,8 +900,12 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky CTA ─────────────────────────
-const StickyCTA = () => (
-  <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:hidden">
+const StickyCTA = ({ visible }: { visible: boolean }) => (
+  <div
+    className={`fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:hidden transition-transform duration-300 ${
+      visible ? "translate-y-0" : "translate-y-full"
+    }`}
+  >
     <button
       onClick={openCheckout}
       className="w-full bg-green-600 hover:bg-green-500 text-white font-black text-base rounded-xl py-3.5 shadow-lg"
@@ -914,8 +918,23 @@ const StickyCTA = () => (
 
 // ───────────────────────── Página ─────────────────────────
 const Copia = () => {
+  const [showSticky, setShowSticky] = useState(false);
+
   useEffect(() => {
     document.title = "Curso de Informática do Zero — Pare de depender dos outros";
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = document.getElementById("aulas");
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      setShowSticky(rect.top < window.innerHeight * 0.75);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -936,7 +955,7 @@ const Copia = () => {
       <FAQ />
       <CTAFinal />
       <Footer />
-      <StickyCTA />
+      <StickyCTA visible={showSticky} />
       <WhatsAppButton />
     </div>
   );
