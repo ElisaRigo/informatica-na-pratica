@@ -5,4 +5,4 @@
 - [x] Remover CTAs acima da seção de valor/oferta na /copia (manter fixo e os abaixo)
 
 ## Próximo
-- [ ] Criar popup de saída persuasivo na /copia com aula 2 + reforço de valor + suporte WhatsApp
+- [x] Criar popup de saída persuasivo na /copia com aula 2 + reforço de valor + suporte WhatsApp
