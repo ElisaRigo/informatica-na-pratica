@@ -67,6 +67,37 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 const openCheckout = () => openHotmartCheckout();
 
+const scrollToValor = () => {
+  const el = document.getElementById("oferta");
+  if (!el) return;
+
+  const startY = window.scrollY;
+  const targetY = el.getBoundingClientRect().top + startY - 16;
+  const distance = targetY - startY;
+  const duration = Math.min(2200, Math.max(1200, Math.abs(distance) * 0.6));
+  let startTime: number | null = null;
+
+  const easeInOutQuad = (t: number) =>
+    t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+  const step = (timestamp: number) => {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeInOutQuad(progress);
+
+    window.scrollTo(0, startY + distance * eased);
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+
+  window.requestAnimationFrame(step);
+};
+
+
+
 
 
 
@@ -903,7 +934,7 @@ const Footer = () => (
 const StickyCTA = () => (
   <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:hidden">
     <button
-      onClick={openCheckout}
+      onClick={scrollToValor}
       className="w-full bg-green-600 hover:bg-green-500 text-white font-black text-base rounded-xl py-3.5 shadow-lg"
     >
       QUERO COMEÇAR AGORA
