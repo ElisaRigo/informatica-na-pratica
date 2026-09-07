@@ -887,43 +887,48 @@ const ExitPopup = () => {
   const hasTriggered = useRef(false);
 
   useEffect(() => {
-    if (localStorage.getItem("copia_exit_popup_seen") === "1") return;
-
-    const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY < 10 && !hasTriggered.current) {
-        hasTriggered.current = true;
-        setIsOpen(true);
-        localStorage.setItem("copia_exit_popup_seen", "1");
-      }
-    };
-
-    const isMobile = window.matchMedia("(pointer: coarse)").matches;
-    let scrollListener: (() => void) | undefined;
-    let timeTimer: number | undefined;
+    if (sessionStorage.getItem("copia_exit_popup_seen") === "1") return;
 
     const trigger = () => {
       if (hasTriggered.current) return;
       hasTriggered.current = true;
       setIsOpen(true);
-      localStorage.setItem("copia_exit_popup_seen", "1");
+      sessionStorage.setItem("copia_exit_popup_seen", "1");
     };
 
-    if (isMobile) {
-      const onScroll = () => {
-        const maxScroll = document.body.scrollHeight - window.innerHeight;
-        if (maxScroll > 0 && window.scrollY / maxScroll > 0.5) trigger();
-      };
-      window.addEventListener("scroll", onScroll, { passive: true });
-      scrollListener = () => window.removeEventListener("scroll", onScroll);
-      timeTimer = window.setTimeout(trigger, 35000);
-    } else {
-      document.addEventListener("mouseleave", handleMouseLeave);
-      scrollListener = () => document.removeEventListener("mouseleave", handleMouseLeave);
-    }
+    // Desktop: mouse sai pela barra superior (fechar aba / trocar de aba)
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY < 10) trigger();
+    };
+    document.addEventListener("mouseleave", handleMouseLeave);
+
+    // Usuário saiu da aba/app e voltou (trocou de página e retornou)
+    let wasHidden = false;
+    const handleVisibility = () => {
+      if (document.hidden) {
+        wasHidden = true;
+      } else if (wasHidden) {
+        trigger();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    // Botão "voltar" do navegador: intercepta e mostra o popup
+    window.history.pushState({ copiaGuard: true }, "");
+    const handlePopState = () => {
+      trigger();
+      window.history.pushState({ copiaGuard: true }, "");
+    };
+    window.addEventListener("popstate", handlePopState);
+
+    // Celular: fallback por tempo de leitura
+    const timeTimer = window.setTimeout(trigger, 45000);
 
     return () => {
-      if (scrollListener) scrollListener();
-      if (timeTimer) window.clearTimeout(timeTimer);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("visibilitychange", handleVisibility);
+      window.removeEventListener("popstate", handlePopState);
+      window.clearTimeout(timeTimer);
     };
   }, []);
 
