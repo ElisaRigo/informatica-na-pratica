@@ -120,15 +120,15 @@ const Hero = () => {
   const [playing, setPlaying] = useState(false);
   return (
     <section className="relative bg-slate-900 overflow-hidden">
-      <div className="absolute top-[-6rem] left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] bg-blue-600/15 rounded-full blur-3xl" />
+      <div className="absolute top-[-6rem] left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-blue-500/10 rounded-full blur-3xl" />
       <div className="container mx-auto px-4 py-6 md:py-10 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold mb-4">
-            <AlertTriangle className="w-4 h-4" /> PARA QUEM TRAVA NA FRENTE DO COMPUTADOR
+          <div className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-400 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold mb-4">
+            <AlertTriangle className="w-4 h-4 text-red-500" /> PARA QUEM TRAVA NA FRENTE DO COMPUTADOR
           </div>
 
           <h1 className="text-[2.1rem] md:text-6xl font-black text-white leading-[1.03] tracking-[-0.04em] mb-4">
-            Cansado(a) de sentir <span className="text-red-400">vergonha</span> por não saber usar o computador?
+            Cansado(a) de sentir <span className="text-red-500">vergonha</span> por não saber usar o computador?
           </h1>
 
           <p className="text-lg md:text-2xl text-slate-300 leading-snug mb-5 font-medium">
@@ -141,7 +141,7 @@ const Hero = () => {
             {!playing ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
                 <img src={homeVideoThumb} alt="Recado da professora Elisa" className="w-full h-full object-cover" loading="eager" />
-                <div className="absolute inset-0 flex items-center justify-center bg-slate-950/20">
+                <div className="absolute inset-0 flex items-center justify-center bg-black/10">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
                     <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
                   </div>
@@ -232,7 +232,7 @@ const Diagnostico = () => {
             <Sparkles className="w-4 h-4" /> DIAGNÓSTICO EM 30 SEGUNDOS
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
-            Marque o que <span className="text-red-400">acontece com você</span> hoje
+            Marque o que <span className="text-red-500">acontece com você</span> hoje
           </h2>
           <p className="text-slate-300 mt-2 text-base md:text-lg">Seja sincero(a). Ninguém está vendo.</p>
         </div>
@@ -246,13 +246,13 @@ const Diagnostico = () => {
                 onClick={() => toggle(i)}
                 className={`flex items-center gap-3 text-left rounded-xl px-4 py-3.5 border-2 transition-all ${
                   on
-                    ? "bg-red-500/10 border-red-500/60"
+                    ? "bg-red-600/15 border-red-600"
                     : "bg-slate-800/60 border-slate-700 hover:border-slate-600"
                 }`}
               >
                 <span
                   className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 border-2 ${
-                    on ? "bg-red-500 border-red-500" : "border-slate-500"
+                    on ? "bg-red-600 border-red-600" : "border-slate-500"
                   }`}
                 >
                   {on && <Check className="w-4 h-4 text-white" strokeWidth={3} />}
@@ -280,7 +280,7 @@ const Diagnostico = () => {
             <p className="text-slate-300 text-base md:text-xl leading-snug mb-4">
               Isso não é falta de inteligência. É só <strong className="text-white">falta de alguém para te ensinar do
               jeito certo</strong> — devagar, do zero, sem termos difíceis.
-              <br className="hidden md:block" /> É exatamente isso que a professora Elisa faz há mais de 10 anos.
+              <br className="hidden md:block" /> É exatamente isso que a professora Elisa faz há mais de 20 anos.
             </p>
             <CTA sub="Comece hoje mesmo, no seu ritmo">QUERO APRENDER DO ZERO</CTA>
           </div>
@@ -296,7 +296,7 @@ const Custo = () => (
     <div className="container mx-auto px-4 max-w-4xl">
       <div className="text-center mb-6">
         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
-          O que <span className="text-red-400">não saber</span> já te custou?
+          O que <span className="text-red-500">não saber</span> já te custou?
         </h2>
         <p className="text-slate-300 mt-2 text-base md:text-lg">A conta é mais alta do que parece.</p>
       </div>
@@ -307,8 +307,8 @@ const Custo = () => (
           { icon: Frown, t: "Dependência diária", d: "Toda vez que precisa de um documento, precisa pedir favor para alguém." },
           { icon: Clock, t: "Tempo passando", d: "Mais um ano adiando algo que se aprende em poucas semanas." },
         ].map(({ icon: I, t, d }) => (
-          <div key={t} className="bg-slate-900 border border-slate-800 border-l-4 border-l-red-500/70 rounded-xl p-5">
-            <I className="w-7 h-7 text-red-400 mb-2" />
+          <div key={t} className="bg-slate-900 border border-slate-800 border-l-4 border-l-red-600 rounded-xl p-5">
+            <I className="w-7 h-7 text-red-500 mb-2" />
             <p className="text-white font-bold text-lg mb-1">{t}</p>
             <p className="text-slate-300 text-sm leading-relaxed">{d}</p>
           </div>
@@ -316,7 +316,7 @@ const Custo = () => (
       </div>
 
       <p className="text-center text-slate-300 text-lg md:text-2xl font-semibold mt-6 leading-snug">
-        Continuar como está é a opção <span className="text-red-400">mais cara</span> de todas.
+        Continuar como está é a opção <span className="text-red-500 font-black">mais cara</span> de todas.
       </p>
     </div>
   </section>
@@ -330,8 +330,8 @@ const AntesDepois = () => (
         Sua vida em <span className="text-green-400">2 colunas</span>
       </h2>
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-slate-950 border border-red-500/30 rounded-2xl p-5">
-          <p className="text-red-400 font-black text-lg mb-3 flex items-center gap-2">
+        <div className="bg-slate-950 border border-red-600/40 rounded-2xl p-5">
+          <p className="text-red-500 font-black text-lg mb-3 flex items-center gap-2">
             <X className="w-5 h-5" /> HOJE
           </p>
           <ul className="space-y-2.5">
@@ -343,7 +343,7 @@ const AntesDepois = () => (
               "Acha que já passou da idade",
             ].map((t) => (
               <li key={t} className="flex gap-2 text-slate-300 text-sm md:text-base">
-                <X className="w-4 h-4 text-red-400 mt-1 shrink-0" /> {t}
+                <X className="w-4 h-4 text-red-500 mt-1 shrink-0" /> {t}
               </li>
             ))}
           </ul>
@@ -403,7 +403,7 @@ const ParaQuem = () => (
         </div>
 
         <div className="bg-slate-950 border border-slate-700 rounded-2xl p-5">
-          <p className="text-red-300 font-black text-base md:text-lg mb-3 flex items-center gap-2">
+          <p className="text-red-500 font-black text-base md:text-lg mb-3 flex items-center gap-2">
             <X className="w-5 h-5" /> NÃO É PARA VOCÊ SE…
           </p>
           <ul className="space-y-2.5">
@@ -414,7 +414,7 @@ const ParaQuem = () => (
               "Você não está disposto(a) a praticar alguns minutos por dia",
             ].map((t) => (
               <li key={t} className="flex gap-2 text-slate-300 text-sm md:text-base">
-                <X className="w-4 h-4 text-red-400 mt-1 shrink-0" /> {t}
+                <X className="w-4 h-4 text-red-500 mt-1 shrink-0" /> {t}
               </li>
             ))}
           </ul>
@@ -482,7 +482,7 @@ const AulaCard = ({ videoId, thumb, label, subtitle }: { videoId: string; thumb:
       {!playing ? (
         <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
           <img src={thumb} alt={subtitle} className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 flex items-center justify-center bg-slate-950/25">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/10">
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
               <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
             </div>
@@ -512,11 +512,11 @@ const Aulas = () => {
   return (
     <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
       <div className="container mx-auto px-4 max-w-3xl text-center">
-        <span className="inline-flex items-center gap-2 bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
-          <PlayCircle className="w-4 h-4" /> PARE DE ADIAR — APERTE O PLAY
+        <span className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-400 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
+          <PlayCircle className="w-4 h-4 text-red-500" /> PARE DE ADIAR — APERTE O PLAY
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
-          Enquanto você adia, <span className="text-red-400">a vida não espera.</span>
+          Enquanto você adia, <span className="text-red-500">a vida não espera.</span>
         </h2>
         <p className="text-slate-300 mb-2 text-base md:text-lg leading-relaxed">
           Quantas vagas você já deixou passar? Quantas vezes precisou pedir ajuda para fazer algo simples no
@@ -573,13 +573,13 @@ const Aulas = () => {
 const Professora = () => (
   <section className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
     <div className="container mx-auto px-4 max-w-3xl">
-      <div className="flex flex-col md:flex-row items-center gap-5 bg-slate-950 border border-slate-800 rounded-2xl p-5 md:p-7">
-        <img src={elisa} alt="Professora Elisa" className="w-28 h-28 md:w-40 md:h-40 rounded-2xl object-cover border border-slate-700 shrink-0" />
+      <div className="flex flex-col md:flex-row items-center gap-6 bg-slate-950 border border-slate-800 rounded-2xl p-6 md:p-8">
+        <img src={elisa} alt="Professora Elisa" className="w-44 h-44 md:w-60 md:h-60 rounded-2xl object-cover border-2 border-slate-700 shrink-0" />
         <div className="text-center md:text-left">
           <p className="text-blue-400 font-bold text-sm mb-1">QUEM VAI TE ENSINAR</p>
-          <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Professora Elisa</h3>
+          <h3 className="text-2xl md:text-4xl font-black text-white mb-2">Professora Elisa</h3>
           <p className="text-slate-300 leading-relaxed text-sm md:text-base">
-            Mais de 10 anos ensinando informática para adultos que nunca tinham ligado um computador. A didática dela é
+            Mais de 20 anos ensinando informática para adultos que nunca tinham ligado um computador. A didática dela é
             simples, calma e sem termos difíceis — por isso mais de 15.000 alunos conseguiram aprender.
           </p>
         </div>
