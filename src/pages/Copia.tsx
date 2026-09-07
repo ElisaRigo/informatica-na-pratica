@@ -66,44 +66,56 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 const openCheckout = () => openHotmartCheckout();
 
-const smoothScrollTo = (targetY: number) => {
-  const startY = window.scrollY;
-  const diff = targetY - startY;
-  if (Math.abs(diff) < 2) return;
-  // Duração proporcional à distância: começa na hora e desacelera no final
-  const duration = Math.min(1400, Math.max(700, Math.abs(diff) * 0.35));
-  const startTime = performance.now();
-
-  // easeOutCubic: início imediato (sem sensação de atraso), parada suave
-  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-
-  const step = (now: number) => {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    window.scrollTo(0, startY + diff * easeOutCubic(progress));
-    if (progress < 1) requestAnimationFrame(step);
-  };
-
-  requestAnimationFrame(step);
-};
-
 const scrollToOferta = () => {
   const el = document.getElementById("oferta");
   if (!el) return;
 
-  const rect = el.getBoundingClientRect();
-  const elementTop = rect.top + window.scrollY;
-  const viewportHeight = window.innerHeight;
+  const startY = window.scrollY;
+  const startTime = performance.now();
+  const duration = 2400; // 2,4s de rolagem suave
+  let finished = false;
 
-  // Para com o topo da seção visível, com um pequeno respiro
-  const offset = 16;
-  let targetY = elementTop - offset;
+  // easeOutCubic: começo tranquilo, desaceleração longa no final
+  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
-  // Garante que não passe do final da página
-  const maxScroll = document.documentElement.scrollHeight - viewportHeight;
-  targetY = Math.max(0, Math.min(targetY, maxScroll));
+  // Posição absoluta no documento, considerando offsetParents
+  const getAbsoluteTop = (element: HTMLElement): number => {
+    let top = 0;
+    let current: HTMLElement | null = element;
+    while (current) {
+      top += current.offsetTop;
+      current = current.offsetParent as HTMLElement | null;
+    }
+    return top;
+  };
 
-  smoothScrollTo(targetY);
+  const finalize = () => {
+    if (finished) return;
+    finished = true;
+    // Garante parada exatamente no topo da seção de oferta
+    window.scrollTo(0, getAbsoluteTop(el!));
+  };
+
+  const step = (now: number) => {
+    if (finished) return;
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Recalcula o destino a cada frame para acompanhar mudanças de layout
+    const targetY = el!.getBoundingClientRect().top + window.scrollY;
+    const diff = targetY - startY;
+
+    window.scrollTo(0, startY + diff * easeOutCubic(progress));
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      finalize();
+    }
+  };
+
+  requestAnimationFrame(step);
+  setTimeout(finalize, duration + 200); // fallback caso o rAF seja limitado
 };
 
 
@@ -205,8 +217,6 @@ const Hero = () => {
               </div>
             )}
           </div>
-
-          <CTA sub="Compra segura • Garantia de 7 dias">QUERO PARAR DE DEPENDER DOS OUTROS</CTA>
 
           {/* Prova social */}
           <div className="flex items-center justify-center gap-3 mt-5">
@@ -319,12 +329,11 @@ const Diagnostico = () => {
             <h3 className="text-2xl md:text-4xl font-black text-white leading-tight mb-3">
               Você marcou {sel.length} de {PAINS.length}
             </h3>
-            <p className="text-slate-300 text-base md:text-xl leading-snug mb-4">
+            <p className="text-slate-300 text-base md:text-xl leading-snug mb-0">
               Isso não é falta de inteligência. É só <strong className="text-white">falta de alguém para te ensinar do
               jeito certo</strong> — devagar, do zero, sem termos difíceis.
               <br className="hidden md:block" /> É exatamente isso que a professora Elisa faz há mais de 20 anos.
             </p>
-            <CTA sub="Comece hoje mesmo, no seu ritmo">QUERO APRENDER DO ZERO</CTA>
           </div>
         )}
       </div>
@@ -582,14 +591,6 @@ const Aulas = () => {
           São <strong className="text-white">+90 aulas assim</strong>, na ordem certa, até você usar o computador
           sozinho(a). <strong className="text-white">A única coisa entre você e a sua independência é começar hoje.</strong>
         </p>
-
-        <button
-          onClick={openCheckout}
-          className="bg-green-600 hover:bg-green-500 text-white font-black text-base md:text-lg rounded-xl px-8 py-4 shadow-lg shadow-green-900/40 mb-8 w-full md:w-auto"
-        >
-          QUERO APRENDER ASSIM · R$ 297
-        </button>
-
 
         <div className="grid md:grid-cols-3 gap-3 text-left">
           {[
