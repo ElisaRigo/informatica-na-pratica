@@ -70,7 +70,29 @@ const openCheckout = () => openHotmartCheckout();
 const scrollToOferta = () => {
   const el = document.getElementById("oferta");
   if (!el) return;
-  el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  const startY = window.scrollY;
+  const targetY = el.getBoundingClientRect().top + startY - 16;
+  const distance = targetY - startY;
+  const duration = Math.min(2600, Math.max(1400, Math.abs(distance) * 1.2));
+  let startTime: number | null = null;
+
+  const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
+
+  const step = (timestamp: number) => {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutQuart(progress);
+
+    window.scrollTo(0, startY + distance * eased);
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+
+  window.requestAnimationFrame(step);
 };
 
 
