@@ -66,6 +66,14 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 const openCheckout = () => openHotmartCheckout();
 
+const scrollToOferta = () => {
+  const el = document.getElementById("oferta");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
+
 // ───────────────────────── CTA ─────────────────────────
 const CTA = ({
   children = "QUERO APRENDER AGORA",
@@ -871,13 +879,14 @@ const Footer = () => (
 const StickyCTA = () => (
   <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:hidden">
     <button
-      onClick={openCheckout}
+      onClick={scrollToOferta}
       className="w-full bg-green-600 hover:bg-green-500 text-white font-black text-base rounded-xl py-3.5 shadow-lg"
     >
-      QUERO COMEÇAR AGORA · R$ 297
+      QUERO COMEÇAR AGORA
     </button>
   </div>
 );
+
 
 // ───────────────────────── Página ─────────────────────────
 const Copia = () => {
