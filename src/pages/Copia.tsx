@@ -123,7 +123,7 @@ const Hero = () => {
       <div className="absolute top-[-6rem] left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-blue-500/10 rounded-full blur-3xl" />
       <div className="container mx-auto px-4 py-6 md:py-10 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-400 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold mb-4">
+          <div className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-300 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold mb-4">
             <AlertTriangle className="w-4 h-4 text-red-500" /> PARA QUEM TRAVA NA FRENTE DO COMPUTADOR
           </div>
 
@@ -512,7 +512,7 @@ const Aulas = () => {
   return (
     <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
       <div className="container mx-auto px-4 max-w-3xl text-center">
-        <span className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-400 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
+        <span className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
           <PlayCircle className="w-4 h-4 text-red-500" /> PARE DE ADIAR — APERTE O PLAY
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
