@@ -66,12 +66,43 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 const openCheckout = () => openHotmartCheckout();
 
+const smoothScrollTo = (targetY: number, duration = 1500) => {
+  const startY = window.scrollY;
+  const diff = targetY - startY;
+  const startTime = performance.now();
+
+  const easeInOutCubic = (t: number) =>
+    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+  const step = (now: number) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  };
+
+  requestAnimationFrame(step);
+};
+
 const scrollToOferta = () => {
   const el = document.getElementById("oferta");
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+  if (!el) return;
+
+  const rect = el.getBoundingClientRect();
+  const elementTop = rect.top + window.scrollY;
+  const elementHeight = rect.height;
+  const viewportHeight = window.innerHeight;
+
+  // Centraliza a seção verticalmente na tela
+  let targetY = elementTop - viewportHeight / 2 + elementHeight / 2;
+
+  // Garante que não passe do final da página
+  const maxScroll = document.documentElement.scrollHeight - viewportHeight;
+  targetY = Math.max(0, Math.min(targetY, maxScroll));
+
+  smoothScrollTo(targetY, 1600);
 };
+
 
 
 // ───────────────────────── CTA ─────────────────────────
