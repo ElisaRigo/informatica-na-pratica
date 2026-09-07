@@ -28,6 +28,7 @@ import {
   Globe,
   Rocket,
   Flame,
+  ClipboardCheck,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
@@ -196,18 +197,20 @@ const Hero = () => {
 
 // ───────────────────────── Selos de confiança ─────────────────────────
 const TrustSeals = () => (
-  <div className="bg-slate-950 border-y border-slate-800 py-3">
+  <div className="bg-slate-950 border-y border-slate-800 py-4 md:py-5">
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
         {[
           { icon: InfinityIcon, t: "Acesso vitalício" },
           { icon: ShieldCheck, t: "Garantia 7 dias" },
           { icon: Headphones, t: "Suporte humano" },
           { icon: Award, t: "Certificado" },
         ].map(({ icon: I, t }) => (
-          <div key={t} className="flex items-center gap-2 justify-center bg-slate-900 border border-slate-800 rounded-xl px-3 py-2">
-            <I className="w-4 h-4 md:w-5 md:h-5 text-blue-400 shrink-0" />
-            <span className="text-[11px] md:text-sm font-bold text-slate-200">{t}</span>
+          <div key={t} className="flex min-h-28 flex-col items-center justify-center gap-2.5 bg-slate-900 border border-slate-700 rounded-xl px-3 py-4 text-center">
+            <span className="flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-blue-500/15 border border-blue-500/30">
+              <I className="w-6 h-6 md:w-7 md:h-7 text-blue-400" strokeWidth={2.2} />
+            </span>
+            <span className="text-sm md:text-base font-bold text-slate-100 leading-tight">{t}</span>
           </div>
         ))}
       </div>
@@ -217,13 +220,37 @@ const TrustSeals = () => (
 
 // ───────────────────── NOVO: Diagnóstico interativo ─────────────────────
 const PAINS = [
-  "Fico travado(a) quando preciso mexer no computador",
-  "Tenho medo de clicar errado e estragar alguma coisa",
-  "Preciso pedir ajuda pra filho, neto ou colega",
-  "Já perdi (ou deixei de tentar) uma vaga por não saber",
-  "Não consigo fazer um currículo, documento ou planilha",
-  "Sinto vergonha de dizer que não sei usar",
+  {
+    label: "Fico travado(a) quando preciso mexer no computador",
+    response: "Você não precisa decorar tudo. Com uma sequência simples, cada clique começa a fazer sentido.",
+  },
+  {
+    label: "Tenho medo de clicar errado e estragar alguma coisa",
+    response: "Esse medo diminui quando você pratica com orientação e entende o que cada botão realmente faz.",
+  },
+  {
+    label: "Preciso pedir ajuda pra filho, neto ou colega",
+    response: "Você pode conquistar independência para resolver suas tarefas sem precisar chamar alguém toda vez.",
+  },
+  {
+    label: "Já perdi (ou deixei de tentar) uma vaga por não saber",
+    response: "Aprender o básico mais pedido no trabalho pode devolver sua confiança para buscar novas oportunidades.",
+  },
+  {
+    label: "Não consigo fazer um currículo, documento ou planilha",
+    response: "Você vai aprender essas tarefas na prática, acompanhando cada etapa diretamente na tela.",
+  },
+  {
+    label: "Sinto vergonha de dizer que não sei usar",
+    response: "Não saber ainda não é motivo de vergonha. Você só precisa de uma explicação calma, começando do zero.",
+  },
 ];
+
+const getDiagnosticTitle = (count: number) => {
+  if (count === 1) return "Existe um ponto específico te prendendo";
+  if (count <= 3) return "Você não precisa continuar enfrentando isso sozinho(a)";
+  return "O computador tem pesado demais na sua rotina";
+};
 
 const Diagnostico = () => {
   const [sel, setSel] = useState<number[]>([]);
@@ -235,7 +262,7 @@ const Diagnostico = () => {
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-6">
           <span className="inline-flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
-            <Sparkles className="w-4 h-4" /> DIAGNÓSTICO EM 30 SEGUNDOS
+            <ClipboardCheck className="w-5 h-5" /> DIAGNÓSTICO EM 30 SEGUNDOS
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
             Marque o que <span className="text-red-500">acontece com você</span> hoje
@@ -244,7 +271,7 @@ const Diagnostico = () => {
         </div>
 
         <div className="grid gap-2.5">
-          {PAINS.map((p, i) => {
+          {PAINS.map((pain, i) => {
             const on = sel.includes(i);
             return (
               <button
@@ -263,7 +290,7 @@ const Diagnostico = () => {
                 >
                   {on && <Check className="w-4 h-4 text-white" strokeWidth={3} />}
                 </span>
-                <span className={`text-sm md:text-lg font-semibold ${on ? "text-white" : "text-slate-300"}`}>{p}</span>
+                <span className={`text-sm md:text-lg font-semibold ${on ? "text-white" : "text-slate-300"}`}>{pain.label}</span>
               </button>
             );
           })}
@@ -278,15 +305,31 @@ const Diagnostico = () => {
             {sel.length === 0 ? "Marque pelo menos 1 opção" : "VER MEU RESULTADO"}
           </button>
         ) : (
-          <div className="mt-6 bg-gradient-to-b from-blue-600/20 to-slate-900 border-2 border-blue-500/40 rounded-2xl p-5 md:p-8 text-center">
-            <p className="text-blue-300 font-bold text-sm mb-2">SEU RESULTADO</p>
-            <h3 className="text-2xl md:text-4xl font-black text-white leading-tight mb-3">
-              Você marcou {sel.length} de {PAINS.length}
-            </h3>
-            <p className="text-slate-300 text-base md:text-xl leading-snug mb-0">
-              Isso não é falta de inteligência. É só <strong className="text-white">falta de alguém para te ensinar do
-              jeito certo</strong> — devagar, do zero, sem termos difíceis.
-              <br className="hidden md:block" /> É exatamente isso que a professora Elisa faz há mais de 20 anos.
+          <div className="mt-6 bg-gradient-to-b from-blue-600/20 to-slate-900 border-2 border-blue-500/40 rounded-2xl p-5 md:p-8">
+            <div className="text-center">
+              <span className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/20 border border-blue-400/40">
+                <ClipboardCheck className="w-7 h-7 text-blue-300" />
+              </span>
+              <p className="text-blue-300 font-bold text-sm mb-2">SEU RESULTADO PERSONALIZADO</p>
+              <h3 className="text-2xl md:text-4xl font-black text-white leading-tight mb-3">
+                {getDiagnosticTitle(sel.length)}
+              </h3>
+              <p className="text-slate-300 text-base md:text-lg leading-snug mb-5">
+                Pelas suas respostas, este é o caminho que mais pode ajudar você agora:
+              </p>
+            </div>
+
+            <div className="space-y-2.5">
+              {sel.map((painIndex) => (
+                <div key={painIndex} className="flex items-start gap-3 rounded-xl bg-slate-950/70 border border-slate-700 p-3.5">
+                  <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                  <p className="text-slate-200 text-sm md:text-base leading-relaxed">{PAINS[painIndex].response}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-center text-slate-200 text-base md:text-lg leading-snug mt-5">
+              Isso não é falta de inteligência. A professora Elisa ensina há mais de 20 anos, com calma, do zero e sem termos difíceis.
             </p>
           </div>
         )}
