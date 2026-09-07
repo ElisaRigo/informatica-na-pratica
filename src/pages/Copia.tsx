@@ -877,9 +877,9 @@ const Copia = () => {
       <Hero />
       <TrustSeals />
       <Diagnostico />
+      <Aulas />
       <Custo />
       <ParaQuem />
-      <AulaReal />
       <AntesDepois />
       <Professora />
       <ProvaSocial />
