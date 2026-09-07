@@ -367,7 +367,110 @@ const AntesDepois = () => (
   </section>
 );
 
+// ───────────────────────── É para você? ─────────────────────────
+const ParaQuem = () => (
+  <section className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+          Esse curso é <span className="text-green-400">para você</span>?
+        </h2>
+        <p className="text-slate-300 mt-2 text-base md:text-lg">Seja honesto(a) e veja em qual lado você está.</p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-slate-950 border-2 border-green-500/40 rounded-2xl p-5">
+          <p className="text-green-300 font-black text-base md:text-lg mb-3 flex items-center gap-2">
+            <CheckCircle2 className="w-5 h-5" /> É PARA VOCÊ SE…
+          </p>
+          <ul className="space-y-2.5">
+            {[
+              "Você nunca ligou um computador ou mexe com muito medo",
+              "Você precisa aprender para conseguir um emprego melhor",
+              "Você quer parar de pedir ajuda para filho, neto ou colega",
+              "Você tem mais de 40 anos e acha que já passou da hora",
+              "Você quer aprender no seu ritmo, sem pressão e sem prova",
+            ].map((t) => (
+              <li key={t} className="flex gap-2 text-slate-100 text-sm md:text-base font-medium">
+                <Check className="w-4 h-4 text-green-400 mt-1 shrink-0" strokeWidth={3} /> {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="bg-slate-950 border border-slate-700 rounded-2xl p-5">
+          <p className="text-red-300 font-black text-base md:text-lg mb-3 flex items-center gap-2">
+            <X className="w-5 h-5" /> NÃO É PARA VOCÊ SE…
+          </p>
+          <ul className="space-y-2.5">
+            {[
+              "Você já domina Windows, Word e Excel com segurança",
+              "Você procura curso avançado de programação ou design",
+              "Você quer aprender sem assistir nenhuma aula",
+              "Você não está disposto(a) a praticar alguns minutos por dia",
+            ].map((t) => (
+              <li key={t} className="flex gap-2 text-slate-300 text-sm md:text-base">
+                <X className="w-4 h-4 text-red-400 mt-1 shrink-0" /> {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p className="text-center text-slate-100 text-lg md:text-2xl font-bold mt-6 leading-snug">
+        Se você se viu na coluna verde, <span className="text-green-400">é o seu momento de começar.</span>
+      </p>
+    </div>
+  </section>
+);
+
+// ───────────────────────── Como começa ─────────────────────────
+const ComoComeca = () => (
+  <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <div className="text-center mb-6">
+        <span className="inline-flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 text-blue-200 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
+          <Rocket className="w-4 h-4" /> SIMPLES ASSIM
+        </span>
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+          Você começa a assistir hoje
+        </h2>
+        <p className="text-slate-300 mt-2 text-base md:text-lg">Sem espera, sem burocracia, sem complicação.</p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-3">
+        {[
+          { n: "1", t: "Você garante sua vaga", d: "Cartão em até 12x, Pix ou boleto. Leva menos de 3 minutos." },
+          { n: "2", t: "Recebe o acesso no e-mail", d: "Seu login chega logo após a confirmação do pagamento." },
+          { n: "3", t: "Assiste a primeira aula", d: "Começa do começo mesmo: ligar o computador e usar o mouse." },
+        ].map(({ n, t, d }) => (
+          <div key={n} className="bg-slate-900 border border-slate-700 rounded-xl p-5">
+            <span className="w-9 h-9 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center mb-2">
+              {n}
+            </span>
+            <p className="text-white font-bold mb-1">{t}</p>
+            <p className="text-slate-300 text-sm leading-relaxed">{d}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-slate-200 text-xs md:text-sm font-semibold">
+        <span className="inline-flex items-center gap-1.5 bg-slate-900 border border-slate-700 rounded-full px-3 py-1.5">
+          <Clock className="w-4 h-4 text-blue-400" /> 15 minutos por dia já bastam
+        </span>
+        <span className="inline-flex items-center gap-1.5 bg-slate-900 border border-slate-700 rounded-full px-3 py-1.5">
+          <InfinityIcon className="w-4 h-4 text-blue-400" /> Acesso vitalício
+        </span>
+        <span className="inline-flex items-center gap-1.5 bg-slate-900 border border-slate-700 rounded-full px-3 py-1.5">
+          <Headphones className="w-4 h-4 text-blue-400" /> Suporte de verdade
+        </span>
+      </div>
+    </div>
+  </section>
+);
+
 // ───────────────────────── Aula real + método ─────────────────────────
+
 const AulaReal = () => {
   const [playing, setPlaying] = useState(false);
   return (
