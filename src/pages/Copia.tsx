@@ -35,6 +35,8 @@ import logo from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import homeVideoThumbAsset from "@/assets/capa-video-principal.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
+import bannerCopiaAsset from "@/assets/banner-copia.jpg.asset.json";
+const bannerCopia = bannerCopiaAsset.url;
 import aulaRealThumbAsset from "@/assets/capa-aula-real.jpg.asset.json";
 const aulaRealThumb = aulaRealThumbAsset.url;
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa-v2.jpg.asset.json";
