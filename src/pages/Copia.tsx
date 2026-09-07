@@ -512,28 +512,42 @@ const Aulas = () => {
   return (
     <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
       <div className="container mx-auto px-4 max-w-3xl text-center">
-        <span className="inline-flex items-center gap-2 bg-green-500/15 border border-green-500/30 text-green-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
-          <PlayCircle className="w-4 h-4" /> AULAS REAIS DO CURSO — APERTE O PLAY
+        <span className="inline-flex items-center gap-2 bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
+          <PlayCircle className="w-4 h-4" /> PARE DE ADIAR — APERTE O PLAY
         </span>
-        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-2">
-          Não acredite na gente. <span className="text-blue-400">Veja com seus próprios olhos.</span>
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
+          Enquanto você adia, <span className="text-red-400">a vida não espera.</span>
         </h2>
-        <p className="text-slate-300 mb-6 text-base md:text-lg">
-          Você já começa a aprender agora. Essas são aulas de verdade, do jeitinho que você vai assistir lá dentro —
-          sem termos difíceis, sem pressa, cada clique explicado.
+        <p className="text-slate-300 mb-2 text-base md:text-lg leading-relaxed">
+          Quantas vagas você já deixou passar? Quantas vezes precisou pedir ajuda para fazer algo simples no
+          computador?
+        </p>
+        <p className="text-white font-bold mb-6 text-base md:text-lg">
+          Aperte o play e veja com seus próprios olhos: a saída existe — e é mais fácil do que te disseram.
         </p>
 
         <div className="space-y-6 mb-8">
-          <AulaCard videoId="g_F1-d7tdQ0" thumb={aulaRealThumb} label="Aula 1" subtitle="Primeiros passos no computador — começando do zero" />
+          <AulaCard videoId="g_F1-d7tdQ0" thumb={aulaRealThumb} label="Aula 1" subtitle="Começando do zero absoluto — mesmo que você nunca tenha ligado um computador" />
           <AulaCard videoId="_0OPLnEiMHk" thumb={aulaGratisThumb} label="Aula 2" subtitle="Você acha que informática é difícil? Assista e mude de ideia" />
-          <AulaCard videoId="-sdVG1OtDks" thumb={aulaPratica2Thumb} label="Aula 3" subtitle="Aprenda comigo, na prática" />
+          <AulaCard videoId="-sdVG1OtDks" thumb={aulaPratica2Thumb} label="Aula 3" subtitle="Aprenda comigo, na prática, clique por clique" />
         </div>
 
-        <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
-          Se você entendeu essas aulas, <strong className="text-white">você vai entender o curso inteiro</strong>. Agora
-          imagine <strong className="text-white">+90 aulas assim</strong>, na ordem certa, do zero até você usar o
-          computador sozinho(a).
+        <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-3">
+          Se você entendeu essas aulas, acabou de provar uma coisa para si mesmo(a):{" "}
+          <strong className="text-white">o problema nunca foi você.</strong> Ninguém tinha te ensinado do jeito certo.
         </p>
+        <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
+          São <strong className="text-white">+90 aulas assim</strong>, na ordem certa, até você usar o computador
+          sozinho(a). <strong className="text-white">A única coisa entre você e a sua independência é começar hoje.</strong>
+        </p>
+
+        <button
+          onClick={openCheckout}
+          className="bg-green-600 hover:bg-green-500 text-white font-black text-base md:text-lg rounded-xl px-8 py-4 shadow-lg shadow-green-900/40 mb-8 w-full md:w-auto"
+        >
+          QUERO APRENDER ASSIM · R$ 297
+        </button>
+
 
         <div className="grid md:grid-cols-3 gap-3 text-left">
           {[
