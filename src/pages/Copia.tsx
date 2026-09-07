@@ -885,7 +885,7 @@ const CTAFinal = () => (
   <section className="bg-gradient-to-b from-blue-700 to-slate-950 py-12 md:py-16">
     <div className="container mx-auto px-4 max-w-2xl text-center">
       <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
-        Daqui a um ano você vai desejar ter começado hoje
+        Daqui a um mês você vai desejar ter começado hoje
       </h2>
       <p className="text-blue-100 text-lg md:text-xl mb-6 leading-snug">
         Escolha entre continuar dependendo dos outros ou aprender de uma vez por todas.
