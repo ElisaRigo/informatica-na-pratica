@@ -375,7 +375,7 @@ const AntesDepois = () => (
   <section className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
     <div className="container mx-auto px-4 max-w-4xl">
       <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight mb-6">
-        Sua vida em <span className="text-green-400">2 colunas</span>
+        Sua vida vai Mudar
       </h2>
       <div className="grid md:grid-cols-2 gap-4">
         <div className="bg-slate-950 border border-red-600/40 rounded-2xl p-5">
