@@ -74,7 +74,7 @@ const scrollToOferta = () => {
   const startY = window.scrollY;
   const targetY = el.getBoundingClientRect().top + startY - 16;
   const distance = targetY - startY;
-  const duration = Math.min(2600, Math.max(1400, Math.abs(distance) * 1.2));
+  const duration = Math.min(2600, Math.max(1400, Math.abs(distance) * 1.0));
   let startTime: number | null = null;
 
   const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
