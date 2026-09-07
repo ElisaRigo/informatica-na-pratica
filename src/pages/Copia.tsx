@@ -614,13 +614,13 @@ const Oferta = () => (
               <span className="flex items-center gap-2 text-slate-200 text-sm md:text-base">
                 <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" /> {t}
               </span>
-              <span className="text-slate-500 text-sm font-semibold whitespace-nowrap">{v}</span>
+              <span className="text-slate-400 text-sm font-semibold whitespace-nowrap">{v}</span>
             </li>
           ))}
         </ul>
 
         <div className="text-center mt-5 pt-5 border-t border-slate-800">
-          <p className="text-slate-400 text-sm">
+          <p className="text-slate-300 text-sm">
             Valor real de tudo: <span className="line-through">R$ 865,00</span>
           </p>
           <p className="text-slate-300 text-base mt-3">
