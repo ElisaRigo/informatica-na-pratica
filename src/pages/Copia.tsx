@@ -575,9 +575,9 @@ const Aulas = () => {
         </p>
 
         <div className="space-y-6 mb-8">
-          <AulaCard videoId="g_F1-d7tdQ0" thumb={aulaRealThumb} label="Aula 1" subtitle="Começando do zero absoluto — mesmo que você nunca tenha ligado um computador" />
           <AulaCard videoId="_0OPLnEiMHk" thumb={aulaGratisThumb} label="Aula 2" subtitle="Você acha que informática é difícil? Assista e mude de ideia" />
           <AulaCard videoId="-sdVG1OtDks" thumb={aulaPratica2Thumb} label="Aula 3" subtitle="Aprenda comigo, na prática, clique por clique" />
+          <AulaCard videoId="g_F1-d7tdQ0" thumb={aulaRealThumb} label="Aula 1" subtitle="Começando do zero absoluto — mesmo que você nunca tenha ligado um computador" />
         </div>
 
         <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-3">
