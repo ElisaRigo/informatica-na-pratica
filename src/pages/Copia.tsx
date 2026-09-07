@@ -67,33 +67,6 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 const openCheckout = () => openHotmartCheckout();
 
-const scrollToOferta = () => {
-  const el = document.getElementById("oferta");
-  if (!el) return;
-
-  const startY = window.scrollY;
-  const targetY = el.getBoundingClientRect().top + startY - 16;
-  const distance = targetY - startY;
-  const duration = Math.min(2600, Math.max(1400, Math.abs(distance) * 1.0));
-  let startTime: number | null = null;
-
-  const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
-
-  const step = (timestamp: number) => {
-    if (!startTime) startTime = timestamp;
-    const elapsed = timestamp - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = easeOutQuart(progress);
-
-    window.scrollTo(0, startY + distance * eased);
-
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    }
-  };
-
-  window.requestAnimationFrame(step);
-};
 
 
 
@@ -930,7 +903,7 @@ const Footer = () => (
 const StickyCTA = () => (
   <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:hidden">
     <button
-      onClick={scrollToOferta}
+      onClick={openCheckout}
       className="w-full bg-green-600 hover:bg-green-500 text-white font-black text-base rounded-xl py-3.5 shadow-lg"
     >
       QUERO COMEÇAR AGORA
