@@ -475,44 +475,65 @@ const ComoComeca = () => (
 
 // ───────────────────────── Aula real + método ─────────────────────────
 
-const AulaReal = () => {
+const AulaCard = ({ videoId, thumb, label, subtitle }: { videoId: string; thumb: string; label: string; subtitle: string }) => {
   const [playing, setPlaying] = useState(false);
+  return (
+    <div className="rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-900">
+      {!playing ? (
+        <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
+          <img src={thumb} alt={subtitle} className="w-full h-full object-cover" loading="lazy" />
+          <div className="absolute inset-0 flex items-center justify-center bg-slate-950/25">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+              <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
+            </div>
+          </div>
+          <div className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+            <PlayCircle className="w-4 h-4" /> {label}
+          </div>
+        </div>
+      ) : (
+        <div className="aspect-video">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1`}
+            title={subtitle}
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      )}
+      <p className="text-white font-bold text-sm md:text-base py-3 px-4 text-center">{subtitle}</p>
+    </div>
+  );
+};
+
+const Aulas = () => {
   return (
     <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
       <div className="container mx-auto px-4 max-w-3xl text-center">
         <span className="inline-flex items-center gap-2 bg-green-500/15 border border-green-500/30 text-green-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
-          <PlayCircle className="w-4 h-4" /> AULA REAL DO CURSO
+          <PlayCircle className="w-4 h-4" /> AULAS REAIS DO CURSO — APERTE O PLAY
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-2">
-          Veja com seus olhos como é fácil
+          Não acredite na gente. <span className="text-blue-400">Veja com seus próprios olhos.</span>
         </h2>
-        <p className="text-slate-300 mb-5 text-base md:text-lg">
-          Uma aula de verdade, do jeitinho que você vai assistir lá dentro.
+        <p className="text-slate-300 mb-6 text-base md:text-lg">
+          Você já começa a aprender agora. Essas são aulas de verdade, do jeitinho que você vai assistir lá dentro —
+          sem termos difíceis, sem pressa, cada clique explicado.
         </p>
 
-        <div className="rounded-2xl overflow-hidden border border-slate-700 shadow-2xl mb-5">
-          {!playing ? (
-            <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
-              <img src={aulaRealThumb} alt="Aula real do curso" className="w-full h-full object-cover" loading="lazy" />
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-950/25">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
-                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="aspect-video">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                title="Aula demonstrativa"
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
-          )}
+        <div className="space-y-6 mb-8">
+          <AulaCard videoId="g_F1-d7tdQ0" thumb={aulaRealThumb} label="Aula 1" subtitle="Primeiros passos no computador — começando do zero" />
+          <AulaCard videoId="_0OPLnEiMHk" thumb={aulaGratisThumb} label="Aula 2" subtitle="Você acha que informática é difícil? Assista e mude de ideia" />
+          <AulaCard videoId="-sdVG1OtDks" thumb={aulaPratica2Thumb} label="Aula 3" subtitle="Aprenda comigo, na prática" />
         </div>
+
+        <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
+          Se você entendeu essas aulas, <strong className="text-white">você vai entender o curso inteiro</strong>. Agora
+          imagine <strong className="text-white">+90 aulas assim</strong>, na ordem certa, do zero até você usar o
+          computador sozinho(a).
+        </p>
 
         <div className="grid md:grid-cols-3 gap-3 text-left">
           {[
