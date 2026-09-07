@@ -828,7 +828,7 @@ const Oferta = () => (
             De <span className="line-through font-bold text-xl">R$ 497,00</span> por apenas
           </p>
           <p className="text-6xl md:text-7xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
-           <p className="text-slate-300 font-semibold">à vista ou em até 12 x 30,72,no cartão</p>
+            <p className="text-slate-300 font-semibold">à vista ou em até 12 x 30,72 no cartão</p>
            <p className="text-slate-300 text-sm mt-1">Curso completo  — e o acesso é para sempre.</p>
 
           <div className="mt-5">
