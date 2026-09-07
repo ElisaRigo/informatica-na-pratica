@@ -853,11 +853,13 @@ const Copia = () => {
       <TrustSeals />
       <Diagnostico />
       <Custo />
+      <ParaQuem />
       <AulaReal />
       <AntesDepois />
       <Professora />
       <ProvaSocial />
       <Oferta />
+      <ComoComeca />
       <GarantiaCertificado />
       <FAQ />
       <CTAFinal />
