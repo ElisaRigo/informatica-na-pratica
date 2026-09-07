@@ -78,24 +78,26 @@ const scrollToOferta = () => {
   // easeOutCubic: começo tranquilo, desaceleração longa no final
   const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
-  // Posição absoluta no documento, considerando offsetParents
-  const getAbsoluteTop = (element: HTMLElement): number => {
-    let top = 0;
-    let current: HTMLElement | null = element;
-    while (current) {
-      top += current.offsetTop;
-      current = current.offsetParent as HTMLElement | null;
-    }
-    return top;
+  const fineTune = () => {
+    // Ajusta pequenos desvios causados por layout shift (imagens carregando)
+    let attempts = 0;
+    const interval = setInterval(() => {
+      const rectTop = el!.getBoundingClientRect().top;
+      if (Math.abs(rectTop) <= 8 || attempts >= 20) {
+        clearInterval(interval);
+        return;
+      }
+      window.scrollBy(0, rectTop * 0.35);
+      attempts++;
+    }, 60);
   };
 
   const finalize = () => {
     if (finished) return;
     finished = true;
     // Garante parada exatamente no topo da seção de oferta
-    const target = getAbsoluteTop(el!);
-    console.log("finalize", { target, scrollY: window.scrollY, rectTop: el!.getBoundingClientRect().top, offsetTop: el!.offsetTop });
-    window.scrollTo(0, target);
+    window.scrollTo(0, el!.getBoundingClientRect().top + window.scrollY);
+    fineTune();
   };
 
   const step = (now: number) => {
