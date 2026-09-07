@@ -93,7 +93,9 @@ const scrollToOferta = () => {
     if (finished) return;
     finished = true;
     // Garante parada exatamente no topo da seção de oferta
-    window.scrollTo(0, getAbsoluteTop(el!));
+    const target = getAbsoluteTop(el!);
+    console.log("finalize", { target, scrollY: window.scrollY, rectTop: el!.getBoundingClientRect().top, offsetTop: el!.offsetTop });
+    window.scrollTo(0, target);
   };
 
   const step = (now: number) => {
