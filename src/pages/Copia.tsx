@@ -942,13 +942,13 @@ const ExitPopup = () => {
 
         <div className="p-5 pb-0">
           <span className="inline-flex items-center gap-2 bg-red-600/15 border border-red-600/40 text-red-300 px-3 py-1 rounded-full text-[11px] font-bold mb-3">
-            <AlertTriangle className="w-3.5 h-3.5 text-red-500" /> ESPERA ANTES DE IR
+            <AlertTriangle className="w-3.5 h-3.5 text-red-500" /> NÃO SAIA AINDA
           </span>
           <h3 className="text-2xl md:text-3xl font-black text-white leading-tight">
             Veja como a informática pode ser <span className="text-green-400">simples</span>
           </h3>
           <p className="text-slate-300 text-sm md:text-base mt-2">
-            Assista uma aula real. Se fizer sentido para você, aproveite a oferta de hoje.
+            Assista uma aula real. Depois, se quiser sair, fique à vontade.
           </p>
         </div>
 
@@ -1003,41 +1003,12 @@ const ExitPopup = () => {
           </ul>
         </div>
 
-        {/* Reforço de oferta */}
-        <div className="px-5 pb-2">
-          <div className="bg-slate-950 border border-slate-800 rounded-xl p-4">
-            <p className="text-slate-300 text-sm text-center">
-              Oferta de hoje: <span className="line-through">R$ 865,00</span>
-            </p>
-            <p className="text-center text-4xl md:text-5xl font-black text-green-400 leading-none my-1">
-              R$ 297
-            </p>
-            <p className="text-center text-slate-300 text-sm">
-              à vista ou em até 12x no cartão
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-3 text-[11px] text-slate-400 font-semibold">
-              <span className="inline-flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-green-400" /> 7 dias de garantia</span>
-              <span className="inline-flex items-center gap-1"><Award className="w-3.5 h-3.5 text-blue-400" /> Certificado</span>
-              <span className="inline-flex items-center gap-1"><InfinityIcon className="w-3.5 h-3.5 text-blue-400" /> Acesso vitalício</span>
-            </div>
-          </div>
-        </div>
-
         <div className="p-5 pt-3 space-y-2.5">
-          <button
-            onClick={openCheckout}
-            className="w-full bg-green-600 hover:bg-green-500 active:scale-[.99] text-white font-black text-lg rounded-xl py-4 flex items-center justify-center gap-2 shadow-[0_10px_40px_-10px_rgba(34,197,94,.7)] transition-all"
-          >
-            QUERO MINHA VAGA POR R$ 297
-          </button>
-          <p className="text-center text-xs text-slate-400 flex items-center justify-center gap-1">
-            <Lock className="w-3 h-3" /> Pagamento seguro · Acesso imediato
-          </p>
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-[#25D366] hover:bg-[#20BA5A] active:scale-[.99] text-white font-bold text-base rounded-xl py-3.5 flex items-center justify-center gap-2 transition-all"
+            className="w-full bg-[#25D366] hover:bg-[#20BA5A] active:scale-[.99] text-white font-black text-base rounded-xl py-3.5 flex items-center justify-center gap-2 transition-all"
           >
             <MessageCircle className="w-5 h-5" /> Tirar dúvida no WhatsApp
           </a>
