@@ -8,56 +8,40 @@ import {
   Award,
   Users,
   PlayCircle,
-  Monitor,
-  Mail,
-  Presentation,
-  Keyboard,
   Sparkles,
-  GraduationCap,
-  HeartHandshake,
+
   Infinity as InfinityIcon,
   ChevronDown,
   ArrowRight,
   Play,
   Pause,
   Volume2,
-  Smartphone,
   ThumbsUp,
   Heart,
   Headphones,
-  MousePointer,
-  Rocket,
-  Check,
   Gift,
-  Globe,
-  HelpCircle,
   AlertTriangle,
   Frown,
-  RotateCcw,
   TrendingDown,
+  X,
+  Check,
+  Globe,
+  Rocket,
+  Flame,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import logoBlue from "@/assets/logo-blue.png";
+import logo from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
-import elisaTeaching from "@/assets/elisa-teaching.jpg";
-import heroCover from "@/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/assets/capa-video-principal.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
-import certificado from "@/assets/certificado-exemplo.png";
-import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa-v2.jpg.asset.json";
-const aulaGratisThumb = aulaGratisThumbAsset.url;
-import aulaPratica2ThumbAsset from "@/assets/aula-pratica-2-thumb.jpg.asset.json";
-const aulaPratica2Thumb = aulaPratica2ThumbAsset.url;
-import environmentThumbAsset from "@/assets/capa-aula-simples-v2.jpg.asset.json";
-const environmentThumb = environmentThumbAsset.url;
 import aulaRealThumbAsset from "@/assets/capa-aula-real.jpg.asset.json";
 const aulaRealThumb = aulaRealThumbAsset.url;
+import certificado from "@/assets/certificado-exemplo.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
 import avatar4 from "@/assets/testimonial-new-4.jpg";
 import avatar5 from "@/assets/testimonial-new-5.jpg";
-import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import fbAvatar1 from "@/assets/avatar-1.jpg";
 import fbAvatar2 from "@/assets/avatar-2.jpg";
@@ -67,56 +51,6 @@ import fbAvatar5 from "@/assets/avatar-5.jpg";
 import fbAvatar6 from "@/assets/avatar-6.jpg";
 import fbAvatar7 from "@/assets/avatar-7.jpg";
 import fbAvatar8 from "@/assets/avatar-8.jpg";
-
-import { openHotmartCheckout } from "@/lib/checkoutTracking";
-import { HeroBonuses } from "@/components/aprender/HeroBonuses";
-import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
-
-const openCheckout = () => openHotmartCheckout();
-
-// ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to }: any) => {
-  const handleClick = () => {
-    if (to) {
-      const el = document.getElementById(to);
-      el?.scrollIntoView({ behavior: "smooth", block: "start" });
-      return;
-    }
-    openCheckout();
-  };
-  return (
-    <button
-      onClick={handleClick}
-      className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-nowrap w-full ${
-        size === "lg" ? "text-lg md:text-2xl px-5 py-4 md:px-10 md:py-5" : "text-base md:text-xl px-4 py-3 md:px-6 md:py-3"
-      } ${subtle ? "bg-green-600/95" : ""}`}
-    >
-      <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
-      <span>{children}</span>
-      <ArrowRight className="hidden sm:inline-block w-5 h-5 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
-    </button>
-  );
-};
-
-// ───────────────────────── Countdown ─────────────────────────
-const useCountdown = () => {
-  const [t, setT] = useState({ h: 23, m: 47, s: 12 });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setT(({ h, m, s }) => {
-        if (s > 0) return { h, m, s: s - 1 };
-        if (m > 0) return { h, m: m - 1, s: 59 };
-        if (h > 0) return { h: h - 1, m: 59, s: 59 };
-        return { h: 23, m: 59, s: 59 };
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
-};
-
-import logo from "@/assets/logo-blue.png";
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
 import excelIcon from "@/assets/excel-icon.png";
@@ -124,431 +58,346 @@ import powerpointIcon from "@/assets/powerpoint-icon.png";
 import internetIcon from "@/assets/internet-icon.png";
 import typingIcon from "@/assets/typing-icon.png";
 
+import { openHotmartCheckout } from "@/lib/checkoutTracking";
+
+const openCheckout = () => openHotmartCheckout();
+
+// ───────────────────────── CTA ─────────────────────────
+const CTA = ({
+  children = "QUERO APRENDER AGORA",
+  sub,
+  size = "lg",
+}: {
+  children?: React.ReactNode;
+  sub?: string;
+  size?: "lg" | "sm";
+}) => (
+  <div className="w-full">
+    <button
+      onClick={openCheckout}
+      className={`group inline-flex w-full items-center justify-center gap-2 bg-green-600 hover:bg-green-500 active:scale-[.99] text-white font-black rounded-xl shadow-[0_10px_40px_-10px_rgba(34,197,94,.7)] transition-all ${
+        size === "lg" ? "text-lg md:text-2xl px-5 py-4 md:px-10 md:py-5" : "text-base md:text-lg px-4 py-3"
+      }`}
+    >
+      <span className="leading-tight text-center">{children}</span>
+    </button>
+    {sub && (
+      <p className="text-center text-xs md:text-sm text-slate-400 mt-2 flex items-center justify-center gap-1.5">
+        <Lock className="w-3.5 h-3.5" /> {sub}
+      </p>
+    )}
+  </div>
+);
+
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-white border-b border-slate-200 py-3 md:py-5">
-    <div className="container mx-auto px-4">
-      <div className="flex flex-row items-center justify-center gap-3 md:gap-6">
-        <div className="relative group shrink-0">
-          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
-            <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24" />
-          </div>
-        </div>
-        <p className="text-slate-900 font-bold leading-tight text-left">
-          <span className="block text-2xl md:text-4xl lg:text-5xl tracking-tight">
-            Curso de Informática
-          </span>
-          <span className="inline-flex items-center gap-1.5 md:gap-2 flex-wrap text-sky-600 text-sm md:text-2xl lg:text-3xl font-semibold mt-0.5">
-            <span className="inline-flex items-center gap-1">
-              <Globe className="w-4 h-4 md:w-5 md:h-5 shrink-0" aria-hidden="true" />
-              Online
-            </span>
-            <span className="text-sky-400/80">—</span>
-            <span className="inline-flex items-center gap-1">
-              <Headphones className="w-4 h-4 md:w-5 md:h-5 shrink-0" aria-hidden="true" />
-              Com suporte
-            </span>
-          </span>
-        </p>
+  <header className="bg-slate-950 border-b border-slate-800 py-3">
+    <div className="container mx-auto px-4 flex items-center justify-center gap-3">
+      <div className="bg-white/95 rounded-xl p-1.5 md:p-2 shrink-0">
+        <img src={logo} alt="Informática na Prática" className="h-10 md:h-14" />
       </div>
+      <p className="text-white font-bold leading-tight text-left">
+        <span className="block text-xl md:text-3xl tracking-tight whitespace-nowrap">Curso de Informática</span>
+        <span className="flex items-center gap-3 text-[11px] md:text-sm text-slate-400 font-semibold mt-0.5">
+          <span className="inline-flex items-center gap-1">
+            <Globe className="w-3.5 h-3.5 text-blue-400" /> Online
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <Headphones className="w-3.5 h-3.5 text-blue-400" /> Com suporte
+          </span>
+        </span>
+      </p>
     </div>
   </header>
 );
 
-// ───────────────────────── Faixa de prova social (topo) ─────────────────────────
-const TopTrustBar = () => (
-  <section className="bg-blue-600 py-2 md:py-2.5">
-    <div className="container mx-auto px-4">
-      <div className="flex items-center justify-center gap-3 max-w-5xl mx-auto">
-        <div className="flex -space-x-2 shrink-0">
-          {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
-            <img key={i} src={a} alt="" className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-blue-600 object-cover" />
-          ))}
-        </div>
-        <div className="flex flex-col items-start leading-none">
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-yellow-300 fill-yellow-300" />
-            ))}
+// ───────────────────────── Hero (dor) ─────────────────────────
+const Hero = () => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <section className="relative bg-slate-900 overflow-hidden">
+      <div className="absolute top-[-6rem] left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] bg-blue-600/15 rounded-full blur-3xl" />
+      <div className="container mx-auto px-4 py-6 md:py-10 relative z-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold mb-4">
+            <AlertTriangle className="w-4 h-4" /> PARA QUEM TRAVA NA FRENTE DO COMPUTADOR
           </div>
-          <p className="text-white text-xs md:text-sm font-bold mt-0.5">
-            +15.000 alunos já aprenderam comigo
+
+          <h1 className="text-[2.1rem] md:text-6xl font-black text-white leading-[1.03] tracking-[-0.04em] mb-4">
+            Cansado(a) de sentir <span className="text-red-400">vergonha</span> por não saber usar o computador?
+          </h1>
+
+          <p className="text-lg md:text-2xl text-slate-300 leading-snug mb-5 font-medium">
+            Em poucas semanas você usa o computador <strong className="text-white">sozinho(a)</strong> — sem pedir ajuda,
+            sem medo de errar e sem passar mais nenhuma situação constrangedora.
           </p>
+
+          {/* Vídeo */}
+          <div className="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl mb-4">
+            {!playing ? (
+              <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
+                <img src={homeVideoThumb} alt="Recado da professora Elisa" className="w-full h-full object-cover" loading="eager" />
+                <div className="absolute inset-0 flex items-center justify-center bg-slate-950/20">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
+                  </div>
+                </div>
+                <span className="absolute bottom-3 left-3 bg-slate-950/80 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                  ▶ Assista o recado da professora
+                </span>
+              </div>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                  title="Recado da professora"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </div>
+
+          <CTA sub="Compra segura • Garantia de 7 dias">QUERO PARAR DE DEPENDER DOS OUTROS</CTA>
+
+          {/* Prova social */}
+          <div className="flex items-center justify-center gap-3 mt-5">
+            <div className="flex -space-x-2">
+              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
+                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-slate-900 object-cover" />
+              ))}
+            </div>
+            <div className="text-left">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-xs text-slate-400 font-semibold">+15.000 alunos já aprenderam</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Selos de confiança ─────────────────────────
+const TrustSeals = () => (
+  <div className="bg-slate-950 border-y border-slate-800 py-3">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto">
+        {[
+          { icon: InfinityIcon, t: "Acesso vitalício" },
+          { icon: ShieldCheck, t: "Garantia 7 dias" },
+          { icon: Headphones, t: "Suporte humano" },
+          { icon: Award, t: "Certificado" },
+        ].map(({ icon: I, t }) => (
+          <div key={t} className="flex items-center gap-2 justify-center bg-slate-900 border border-slate-800 rounded-xl px-3 py-2">
+            <I className="w-4 h-4 md:w-5 md:h-5 text-blue-400 shrink-0" />
+            <span className="text-[11px] md:text-sm font-bold text-slate-200">{t}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+// ───────────────────── NOVO: Diagnóstico interativo ─────────────────────
+const PAINS = [
+  "Fico travado(a) quando preciso mexer no computador",
+  "Tenho medo de clicar errado e estragar alguma coisa",
+  "Preciso pedir ajuda pra filho, neto ou colega",
+  "Já perdi (ou deixei de tentar) uma vaga por não saber",
+  "Não consigo fazer um currículo, documento ou planilha",
+  "Sinto vergonha de dizer que não sei usar",
+];
+
+const Diagnostico = () => {
+  const [sel, setSel] = useState<number[]>([]);
+  const [done, setDone] = useState(false);
+  const toggle = (i: number) => setSel((s) => (s.includes(i) ? s.filter((x) => x !== i) : [...s, i]));
+
+  return (
+    <section id="diagnostico" className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <div className="text-center mb-6">
+          <span className="inline-flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
+            <Sparkles className="w-4 h-4" /> DIAGNÓSTICO EM 30 SEGUNDOS
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+            Marque o que <span className="text-red-400">acontece com você</span> hoje
+          </h2>
+          <p className="text-slate-400 mt-2 text-base md:text-lg">Seja sincero(a). Ninguém está vendo.</p>
+        </div>
+
+        <div className="grid gap-2.5">
+          {PAINS.map((p, i) => {
+            const on = sel.includes(i);
+            return (
+              <button
+                key={i}
+                onClick={() => toggle(i)}
+                className={`flex items-center gap-3 text-left rounded-xl px-4 py-3.5 border-2 transition-all ${
+                  on
+                    ? "bg-red-500/10 border-red-500/60"
+                    : "bg-slate-800/60 border-slate-700 hover:border-slate-600"
+                }`}
+              >
+                <span
+                  className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 border-2 ${
+                    on ? "bg-red-500 border-red-500" : "border-slate-500"
+                  }`}
+                >
+                  {on && <Check className="w-4 h-4 text-white" strokeWidth={3} />}
+                </span>
+                <span className={`text-sm md:text-lg font-semibold ${on ? "text-white" : "text-slate-300"}`}>{p}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {!done ? (
+          <button
+            onClick={() => setDone(true)}
+            disabled={sel.length === 0}
+            className="mt-5 w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-40 disabled:cursor-not-allowed text-white font-black text-lg md:text-xl rounded-xl px-6 py-4 transition-all"
+          >
+            {sel.length === 0 ? "Marque pelo menos 1 opção" : "VER MEU RESULTADO"}
+          </button>
+        ) : (
+          <div className="mt-6 bg-gradient-to-b from-blue-600/20 to-slate-900 border-2 border-blue-500/40 rounded-2xl p-5 md:p-8 text-center">
+            <p className="text-blue-300 font-bold text-sm mb-2">SEU RESULTADO</p>
+            <h3 className="text-2xl md:text-4xl font-black text-white leading-tight mb-3">
+              Você marcou {sel.length} de {PAINS.length}
+            </h3>
+            <p className="text-slate-300 text-base md:text-xl leading-snug mb-4">
+              Isso não é falta de inteligência. É só <strong className="text-white">falta de alguém para te ensinar do
+              jeito certo</strong> — devagar, do zero, sem termos difíceis.
+              <br className="hidden md:block" /> É exatamente isso que a professora Elisa faz há mais de 10 anos.
+            </p>
+            <CTA sub="Comece hoje mesmo, no seu ritmo">QUERO APRENDER DO ZERO</CTA>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Custo de continuar assim ─────────────────────────
+const Custo = () => (
+  <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+          O que <span className="text-red-400">não saber</span> já te custou?
+        </h2>
+        <p className="text-slate-400 mt-2 text-base md:text-lg">A conta é mais alta do que parece.</p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-3">
+        {[
+          { icon: TrendingDown, t: "Vagas perdidas", d: "Quase toda vaga hoje pede o básico de computador. Sem isso, seu currículo nem é lido." },
+          { icon: Frown, t: "Dependência diária", d: "Toda vez que precisa de um documento, precisa pedir favor para alguém." },
+          { icon: Clock, t: "Tempo passando", d: "Mais um ano adiando algo que se aprende em poucas semanas." },
+        ].map(({ icon: I, t, d }) => (
+          <div key={t} className="bg-slate-900 border border-slate-800 border-l-4 border-l-red-500/70 rounded-xl p-5">
+            <I className="w-7 h-7 text-red-400 mb-2" />
+            <p className="text-white font-bold text-lg mb-1">{t}</p>
+            <p className="text-slate-400 text-sm leading-relaxed">{d}</p>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-center text-slate-300 text-lg md:text-2xl font-semibold mt-6 leading-snug">
+        Continuar como está é a opção <span className="text-red-400">mais cara</span> de todas.
+      </p>
+    </div>
+  </section>
+);
+
+// ───────────────────────── Antes x Depois ─────────────────────────
+const AntesDepois = () => (
+  <section className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight mb-6">
+        Sua vida em <span className="text-green-400">2 colunas</span>
+      </h2>
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-slate-950 border border-red-500/30 rounded-2xl p-5">
+          <p className="text-red-400 font-black text-lg mb-3 flex items-center gap-2">
+            <X className="w-5 h-5" /> HOJE
+          </p>
+          <ul className="space-y-2.5">
+            {[
+              "Trava na frente da tela",
+              "Depende de filho, neto ou colega",
+              "Evita vagas que pedem computador",
+              "Sente vergonha de perguntar",
+              "Acha que já passou da idade",
+            ].map((t) => (
+              <li key={t} className="flex gap-2 text-slate-300 text-sm md:text-base">
+                <X className="w-4 h-4 text-red-400 mt-1 shrink-0" /> {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="bg-gradient-to-b from-green-600/15 to-slate-950 border border-green-500/40 rounded-2xl p-5">
+          <p className="text-green-400 font-black text-lg mb-3 flex items-center gap-2">
+            <Rocket className="w-5 h-5" /> DEPOIS DO CURSO
+          </p>
+          <ul className="space-y-2.5">
+            {[
+              "Liga, mexe e resolve sozinho(a)",
+              "Faz currículo, documentos e planilhas",
+              "Envia e-mail e usa a internet com segurança",
+              "Se candidata a vagas com confiança",
+              "Ensina o que aprendeu para outras pessoas",
+            ].map((t) => (
+              <li key={t} className="flex gap-2 text-white text-sm md:text-base font-medium">
+                <CheckCircle2 className="w-4 h-4 text-green-400 mt-1 shrink-0" /> {t}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
   </section>
 );
 
-// ───────────────────────── Hero ─────────────────────────
-const Hero = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+// ───────────────────────── Aula real + método ─────────────────────────
+const AulaReal = () => {
+  const [playing, setPlaying] = useState(false);
   return (
-    <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
-      <div className="container mx-auto px-4 py-2 md:py-3">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Prova social sutil — sem faixa, 1 linha */}
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <div className="flex -space-x-2 shrink-0">
-              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
-                <img key={i} src={a} alt="" className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-white object-cover shadow-sm" />
-              ))}
-            </div>
-            <div className="text-left shrink-0">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-xs text-slate-600 font-semibold mt-0.5">+15.000 alunos já aprenderam</p>
-            </div>
-          </div>
-
-
-          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-800 px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-base md:text-lg mb-2">
-            <Clock className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
-            Comece hoje, no seu ritmo
-          </div>
-
-          <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
-            <span className="block">Você vai dominar o computador</span>
-            <span className="block text-blue-600">
-              de forma simples, prática e sem depender de ninguém.
-            </span>
-          </h1>
-
-          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
-             Aulas fáceis, curtas e passo a passo, mesmo que você esteja começando do zero.
-          </p>
-
-
-          {/* Selos de destaque */}
-          <div className="flex flex-wrap justify-center gap-2 mb-3">
-            <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <InfinityIcon className="w-4 h-4 md:w-5 md:h-5" /> ACESSO VITALÍCIO
-            </span>
-            <span className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm">
-              <Headphones className="w-4 h-4 md:w-5 md:h-5" /> SUPORTE AO ALUNO
-            </span>
-          </div>
-
-          {/* Video */}
-          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-3">
-            {!isPlaying ? (
-              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                <img
-                  src={homeVideoThumb}
-                  alt="Recado da professora"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
-                    <PlayCircle className="w-8 h-8 md:w-10 md:h-10 text-blue-600" strokeWidth={1.5} />
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="aspect-video relative">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&autoplay=1"
-                  title="Aula gratuita"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-
-              </div>
-            )}
-          </div>
-
-          <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-relaxed font-medium">
-Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segurança e confiança
-          </p>
-
-
-
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Mini identificação de dores ─────────────────────────
-const PainIdentification = () => {
-  const pains = [
-    { icon: HelpCircle, label: "Fica perdido(a)?", bg: "bg-gradient-to-br from-rose-50 to-orange-50 border-rose-100", ic: "text-rose-500" },
-    { icon: Users, label: "Depende dos outros?", bg: "bg-gradient-to-br from-orange-50 to-amber-50 border-orange-100", ic: "text-orange-500" },
-    { icon: AlertTriangle, label: "Tem medo de clicar?", bg: "bg-gradient-to-br from-red-50 to-rose-50 border-red-100", ic: "text-red-500" },
-    { icon: TrendingDown, label: "Perde oportunidades?", bg: "bg-gradient-to-br from-pink-50 to-rose-50 border-pink-100", ic: "text-pink-500" },
-    { icon: RotateCcw, label: "Já tentou e desistiu?", bg: "bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-100", ic: "text-purple-500" },
-    { icon: Frown, label: "Sente vergonha?", bg: "bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-100", ic: "text-amber-500" },
-  ];
-  return (
-    <section className="py-6 md:py-8 bg-gradient-to-b from-white via-slate-50/60 to-white border-y border-slate-100">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-5 md:mb-6">
-          <span className="inline-flex items-center gap-1.5 bg-rose-100 text-rose-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <Heart className="w-3.5 h-3.5 md:w-4 md:h-4" /> Você não está sozinho(a)
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Como você se sente hoje?
-          </h2>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6">
-          {pains.map((item) => (
-            <div key={item.label} className={`relative flex flex-col items-center text-center gap-2 md:gap-3 p-3.5 md:p-5 border-2 rounded-2xl shadow-sm hover:shadow-md transition-shadow ${item.bg}`}>
-              <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-sm">
-                <item.icon className={`w-5 h-5 md:w-6 md:h-6 shrink-0 ${item.ic}`} />
-              </div>
-              <span className="text-slate-900 font-extrabold text-sm md:text-lg leading-tight">{item.label}</span>
-            </div>
-          ))}
-        </div>
-        <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Se você se identificou com alguma dessas situações, <span className="text-blue-600">saiba que isso pode mudar.</span>
-        </p>
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Sonhos realizados (contraste positivo) ─────────────────────────
-const DreamRealization = () => {
-  const dreams = [
-    { icon: Rocket, label: "Fazer sozinho(a) o que antes dependia dos outros", bg: "bg-gradient-to-br from-emerald-50 to-green-50 border-green-100", ic: "text-green-600" },
-    { icon: Star, label: "Usar o computador sem medo de errar", bg: "bg-gradient-to-br from-blue-50 to-sky-50 border-blue-100", ic: "text-blue-600" },
-    { icon: Award, label: "Abrir portas para novas oportunidades", bg: "bg-gradient-to-br from-amber-50 to-yellow-50 border-yellow-100", ic: "text-amber-600" },
-    { icon: Heart, label: "Ajudar a família com orgulho e segurança", bg: "bg-gradient-to-br from-rose-50 to-pink-50 border-rose-100", ic: "text-rose-600" },
-    { icon: Sparkles, label: "Se sentir capaz e independente todos os dias", bg: "bg-gradient-to-br from-purple-50 to-violet-50 border-purple-100", ic: "text-purple-600" },
-    { icon: Clock, label: "Aprender no seu tempo, sem pressa", bg: "bg-gradient-to-br from-sky-50 to-cyan-50 border-sky-100", ic: "text-sky-600" },
-  ];
-  return (
-    <section className="py-6 md:py-8 bg-gradient-to-b from-white via-blue-50/40 to-white border-y border-blue-100">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-5 md:mb-6">
-          <span className="inline-flex items-center gap-1.5 bg-blue-100 text-blue-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" /> O futuro que você merece
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Agora imagine você assim
-          </h2>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6">
-          {dreams.map((item) => (
-            <div key={item.label} className={`relative flex flex-col items-center text-center gap-2 md:gap-3 p-3.5 md:p-5 border-2 rounded-2xl shadow-sm hover:shadow-md transition-shadow ${item.bg}`}>
-              <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-sm">
-                <item.icon className={`w-5 h-5 md:w-6 md:h-6 shrink-0 ${item.ic}`} />
-              </div>
-              <span className="text-slate-900 font-extrabold text-sm md:text-lg leading-tight">{item.label}</span>
-            </div>
-          ))}
-        </div>
-        <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Esse é o seu próximo passo — <span className="text-blue-600">começando do zero</span>
-        </p>
-      </div>
-    </section>
-  );
-};
-
-
-// ───────────────────────── Agitação (custo de não aprender) ─────────────────────────
-const AgitateSection = () => {
-  const losses = [
-    "Perder oportunidades de emprego por não saber informática",
-    "Depender do filho, neto ou colega pra tarefas simples",
-    "Ficar de fora quando pedem pra enviar um documento ou preencher um cadastro",
-    "Sentir vergonha quando o assunto é computador",
-    "Deixar de resolver coisas do banco, INSS ou governo online",
-  ];
-  return (
-    <section id="dor" className="py-4 md:py-6 bg-red-50 border-y border-red-100">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <div className="text-center mb-5">
-          <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            ⚠ E se você continuar do mesmo jeito?
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Cada dia sem aprender é uma <span className="text-red-600">oportunidade perdida</span>
-          </h2>
-        </div>
-        <ul className="space-y-2.5">
-          {losses.map((l) => (
-            <li key={l} className="flex items-start gap-3 bg-white border border-red-100 rounded-xl p-3.5 shadow-sm">
-              <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 font-black text-sm flex items-center justify-center shrink-0 mt-0.5">
-                ×
-              </span>
-              <span className="text-slate-800 font-medium">{l}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="text-center text-slate-700 mt-5 text-base md:text-lg">
-          A boa notícia: <strong className="text-slate-900">tudo isso muda em poucas semanas</strong> — com o método
-          certo.
-        </p>
-      </div>
-    </section>
-  );
-};
-
-
-// ───────────────────────── Aulas Reais (após a Professora) ─────────────────────────
-
-const AulaVideo = ({
-  videoId,
-  thumb,
-  label,
-  subtitle,
-}: {
-  videoId: string;
-  thumb: string;
-  label: string;
-  subtitle: string;
-}) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  return (
-    <div className="mb-6 last:mb-0">
-      <div className="flex flex-wrap items-center gap-2 mb-2">
-        <span className="inline-flex items-center gap-1.5 bg-blue-100 text-blue-700 text-xs md:text-sm font-bold px-3 py-1 rounded-full">
-          {label}
+    <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
+      <div className="container mx-auto px-4 max-w-3xl text-center">
+        <span className="inline-flex items-center gap-2 bg-green-500/15 border border-green-500/30 text-green-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
+          <PlayCircle className="w-4 h-4" /> AULA REAL DO CURSO
         </span>
-        <span className="text-slate-600 text-sm md:text-base font-medium">{subtitle}</span>
-      </div>
-      <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200">
-        {!isPlaying ? (
-          <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-            <img src={thumb} alt={label} className="w-full h-full object-cover" loading="lazy" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
-              </div>
-            </div>
-            <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/40 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-              Assista agora
-            </div>
-          </div>
-        ) : (
-          <div className="aspect-video relative">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&autoplay=1`}
-              title={label}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
-  const isFirst = aula === 1;
-  return (
-    <section id={`aula-${aula}`} className="py-3 md:py-5 bg-white border-t border-slate-200">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-6 md:mb-8">
-          <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> {isFirst ? "AULA REAL — ASSISTA AGORA" : "MAIS UMA AULA REAL"}
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            {isFirst ? (
-              <>
-                Veja como é uma aula <span className="text-blue-600">passo a passo</span> — do jeito que você vai
-                aprender
-              </>
-            ) : (
-              <>
-                Antes de decidir, <span className="text-blue-600">assista mais uma aula</span> comigo
-              </>
-            )}
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            {isFirst
-              ? "Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela."
-              : "Se você entendeu essa aula, você vai entender o curso inteiro. É exatamente esse o ritmo."}
-          </p>
-        </div>
-
-        {isFirst ? (
-          <AulaVideo
-            videoId="g_F1-d7tdQ0"
-            thumb={aulaRealThumb}
-            label="Aula 1"
-            subtitle="Primeiros passos no computador"
-          />
-        ) : (
-          <AulaVideo
-            videoId="-sdVG1OtDks"
-            thumb={aulaPratica2Thumb}
-            label="Aula 2"
-            subtitle="Aprenda comigo, na prática"
-          />
-        )}
-
-        <p className="text-center text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-          {isFirst ? (
-            <>
-              Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
-              zero e usarem o computador com confiança.
-            </>
-          ) : (
-            <>
-              Agora imagine <strong className="text-slate-900">+90 aulas assim</strong>, na ordem certa, do zero até
-              você usar o computador sozinho(a).
-            </>
-          )}
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-2">
+          Veja com seus olhos como é fácil
+        </h2>
+        <p className="text-slate-400 mb-5 text-base md:text-lg">
+          Uma aula de verdade, do jeitinho que você vai assistir lá dentro.
         </p>
-      </div>
-    </section>
-  );
-};
 
-// ───────────────────────── Aula do Curso (segundo vídeo de /curso) ─────────────────────────
-const AulaCursoReal = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  return (
-    <section id="aula-curso" className="py-4 md:py-6 bg-gradient-to-b from-white via-blue-50/50 to-white border-y border-blue-100">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-5 md:mb-6">
-          <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
-            <PlayCircle className="w-4 h-4" /> AULA REAL DO CURSO
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Você acha que aprender Informática é difícil? <span className="text-blue-600">Assista e mude de ideia!</span>
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Nada de teoria. Você vê a tela, ouve a explicação e já entende o que fazer — no seu tempo, quantas vezes precisar.
-          </p>
-        </div>
-
-
-        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
-          {!isPlaying ? (
-            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-              <img src={aulaGratisThumb} alt="Aula real do curso" className="w-full h-full object-cover" loading="lazy" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
-                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
+        <div className="rounded-2xl overflow-hidden border border-slate-700 shadow-2xl mb-5">
+          {!playing ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
+              <img src={aulaRealThumb} alt="Aula real do curso" className="w-full h-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 flex items-center justify-center bg-slate-950/25">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <PlayCircle className="w-4 h-4" /> Aula Real
-              </div>
-              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-                ▶ Assista agora
-              </div>
             </div>
           ) : (
-            <div className="aspect-video relative">
+            <div className="aspect-video">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&autoplay=1"
-                title="Aula real do curso"
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                title="Aula demonstrativa"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -558,617 +407,106 @@ const AulaCursoReal = () => {
           )}
         </div>
 
-
-        <p className="text-center text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-          Se você acompanhou essa aula até o fim, <strong className="text-slate-900">você é capaz</strong> — e o curso inteiro segue exatamente esse ritmo.
-        </p>
-
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Aula 2 em destaque (reengajamento antes da oferta) ─────────────────────────
-const Aula2Destaque = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  return (
-    <section id="aula-2" className="py-6 md:py-10 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-5">
-          <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
-            <PlayCircle className="w-4 h-4" /> AULA PRÁTICA Nº 2
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Eu sei que pode parecer difícil agora…{" "}
-            <span className="text-blue-600">mas veja o quanto é simples</span>
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Mais uma aula real do curso, sem edição, sem roteiro. É exatamente assim que você vai aprender em casa — no
-            seu tempo, do seu jeito.
-          </p>
-        </div>
-
-        {/* Vídeo em moldura destacada */}
-        <div className="relative max-w-4xl mx-auto">
-          <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-sm opacity-30" />
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20 border-2 border-blue-200">
-            {!isPlaying ? (
-              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                <img src={aulaPratica2Thumb} alt="Aula 2 — Aprenda comigo na prática" className="w-full h-full object-cover" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
-                    <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
-                  </div>
-                </div>
-                <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                  <PlayCircle className="w-4 h-4" /> Aula 2
-                </div>
-                <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-                  ▶ Assista agora
-                </div>
-              </div>
-            ) : (
-              <div className="aspect-video relative">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&autoplay=1"
-                  title="Aula 2 — Aprenda comigo na prática"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Gancho de transição para a oferta */}
-        <div className="max-w-2xl mx-auto mt-5 text-center">
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed">
-            Se você acompanhou essa aula, <strong className="text-slate-900">você já consegue</strong>. Agora imagine
-            repetir esse progresso em <strong className="text-blue-600">+90 aulas</strong>, na ordem certa, até dominar
-            o computador de uma vez por todas.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-
-// ───────────────────────── Value Section (depois do 2º vídeo) ─────────────────────────
-const ValueSection = () => (
-  <section id="sessao-valor" className="py-5 md:py-8 bg-slate-100">
-    <div className="container mx-auto px-4 max-w-2xl text-center">
-      <span className="inline-block bg-blue-100 text-blue-700 text-[11px] md:text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full mb-2">
-        Oportunidade única
-      </span>
-
-      <h2 className="text-3xl md:text-5xl font-black text-slate-800 leading-tight">
-        Sua vez de <span className="text-blue-600">Dominar o computador!</span>
-      </h2>
-
-      <div className="flex items-center justify-center gap-2 mt-2 mb-3">
-        <span className="h-1.5 w-8 rounded-full bg-blue-600" />
-        <span className="h-1.5 w-14 rounded-full bg-blue-300" />
-        <span className="h-1.5 w-8 rounded-full bg-blue-600" />
-      </div>
-
-      <p className="text-slate-600 text-base md:text-lg">
-        de <span className="line-through text-lg md:text-2xl font-bold">R$ 497,00</span> por apenas
-      </p>
-      <p className="text-4xl md:text-6xl font-black text-green-600 leading-tight mt-1">
-        R$ 297,00
-      </p>
-      <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
-        <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
-      </p>
-      <p className="text-slate-600 text-base md:text-lg mt-1">
-        ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
-      </p>
-      <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-        <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-      </p>
-
-      <div className="mt-4 max-w-xl mx-auto">
-        <CTA>Quero Aprender Informática</CTA>
-      </div>
-
-      <div className="grid grid-cols-2 gap-3 mt-3 max-w-xl mx-auto">
-        {[
-          { icon: PlayCircle, label: "+90 Videoaulas" },
-          { icon: InfinityIcon, label: "Acesso Vitalício" },
-          { icon: Headphones, label: "Suporte Direto" },
-          { icon: Users, label: "+15.000 Alunos" },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className="flex items-center justify-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5"
-          >
-            <item.icon className="w-5 h-5 text-blue-600 shrink-0" />
-            <span className="text-sm font-semibold text-slate-700">{item.label}</span>
-          </div>
-        ))}
-      </div>
-
-      <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-3 mt-3 max-w-xl mx-auto">
-        <p className="flex items-center justify-center gap-2 text-green-600 font-black text-sm md:text-base">
-          <ShieldCheck className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
-        </p>
-        <p className="text-slate-700 text-sm md:text-base mt-1">
-          <span className="text-amber-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvo{" "}
-          <span className="text-green-600 font-bold">100% do seu dinheiro.</span>
-        </p>
-      </div>
-    </div>
-  </section>
-);
-
-
-// ───────────────────────── Instructor ─────────────────────────
-const Instructor = () => (
-  <section id="professora" className="py-4 md:py-6 bg-white">
-    <div className="container mx-auto px-4 max-w-5xl">
-      <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div className="relative">
-          <img src={elisa} alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
-          <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl border border-slate-200 px-4 py-3 flex items-center gap-2">
-            <Users className="w-5 h-5 text-blue-600" />
-            <div>
-              <div className="text-lg font-black text-slate-900 leading-none">+15.000</div>
-              <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wide">Alunos formados</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-            <Sparkles className="w-4 h-4" /> Quem vai te ensinar
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">
-            Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
-          </h2>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
-            Há mais de <strong>20 anos</strong> eu ensino informática pra adultos que nunca tinham tocado num
-            computador. E descobri uma coisa:{" "}
-            <strong>o problema nunca foi a pessoa — era o jeito que ensinavam.</strong>
-          </p>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6">
-            Por isso criei um método simples, devagar e com linguagem do dia a dia. Sem palavras difíceis, sem pressa.
-            Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
-          </p>
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
-                +20 anos
-                <br />
-                de experiência
-              </div>
-            </div>
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <Award className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
-                Método
-                <br />
-                próprio
-              </div>
-            </div>
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <HeartHandshake className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
-                Suporte
-                <br />
-                humano
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-// ───────────────────────── Method (3 steps) ─────────────────────────
-const Method = () => {
-  const steps = [
-    {
-      n: "1",
-      icon: Play,
-      t: "Assista às aulas curtas e claras",
-      badge: "O computador deixa de ser um bicho de 7 cabeças",
-      d: "Aulas de 5 a 15 minutos, sem termos difíceis. Você assiste no celular, computador ou tablet, quando quiser.",
-    },
-    {
-      n: "2",
-      icon: MousePointer,
-      t: "Pratique clicando junto comigo",
-      badge: "Você ganha confiança a cada passo",
-      d: "Eu mostro exatamente onde clicar. Você repete comigo e aprende na prática, sem pular nada.",
-    },
-    {
-      n: "3",
-      icon: Rocket,
-      t: "Use sozinho no seu dia a dia",
-      badge: "Você deixa de depender dos outros",
-      d: "Em poucos dias você já envia e-mails, cria documentos, organiza arquivos e navega na internet sem medo.",
-    },
-  ];
-  return (
-    <section className="py-6 md:py-10 bg-gradient-to-b from-slate-100 via-blue-50 to-slate-100">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-6 md:mb-8">
-          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <Monitor className="w-4 h-4" /> SUA TRANSFORMAÇÃO
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">
-            Do medo à confiança em 3 passos simples
-          </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base">
-            Você não precisa ter experiência. Basta seguir o passo a passo.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-          {steps.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div
-                key={s.n}
-                className="relative bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                  </div>
-                  <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-slate-100 text-slate-500 font-bold text-sm md:text-base flex items-center justify-center">
-                    {s.n}
-                  </div>
-                </div>
-
-                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{s.t}</h3>
-
-                <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-3 py-2 mb-3">
-                  <div className="w-6 h-6 md:w-7 md:h-7 rounded bg-green-600 flex items-center justify-center shrink-0">
-                    <Check className="w-4 h-4 md:w-5 md:h-5 text-white" strokeWidth={3} />
-                  </div>
-                  <p className="text-green-700 text-xs md:text-sm font-bold leading-snug">{s.badge}</p>
-                </div>
-
-                <p className="text-slate-500 text-sm leading-relaxed">{s.d}</p>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-6 md:mt-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm md:text-base font-bold px-4 py-2.5 rounded-full">
-            <ThumbsUp className="w-4 h-4 md:w-5 md:h-5" />
-            Se milhares de alunos conseguiram aprender dessa forma, você também consegue.
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Transformation (Módulos + Benefícios reais) ─────────────────────────
-const Modules = () => {
-  const steps = [
-    {
-      icon: windowsIcon,
-      module: "Windows",
-      outcome: "Organizar fotos, documentos e arquivos sem se perder",
-    },
-    {
-      icon: wordIcon,
-      module: "Word",
-      outcome: "Montar currículo e enviar por e-mail sozinho(a)",
-    },
-    {
-      icon: excelIcon,
-      module: "Excel",
-      outcome: "Criar planilhas e controlar contas do dia a dia",
-    },
-    {
-      icon: powerpointIcon,
-      module: "PowerPoint",
-      outcome: "Fazer apresentações bonitas e claras",
-    },
-    {
-      icon: internetIcon,
-      module: "Internet e E-mail",
-      outcome: "Marcar consultas, pesquisar e resolver tudo online",
-    },
-    {
-      icon: typingIcon,
-      module: "Digitação",
-      outcome: "Digitar mais rápido e sem olhar para o teclado",
-    },
-  ];
-  return (
-    <section id="modulos" className="py-6 md:py-10 bg-gradient-to-b from-slate-50 to-white">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-6 md:mb-8">
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
-            Seu passo a passo
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-2 leading-tight">
-            Do zero à independência no computador
-          </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">
-            6 módulos práticos. Cada um te leva a uma conquista do dia a dia.
-          </p>
-        </div>
-
-        <div className="relative">
-          {/* vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-200 md:-translate-x-1/2" />
-
-          <div className="space-y-4 md:space-y-6">
-            {steps.map((s, idx) => (
-              <div
-                key={s.module}
-                className={`relative flex items-center gap-4 md:gap-8 ${
-                  idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-              >
-                {/* number + icon bubble */}
-                <div className="relative z-10 shrink-0 flex flex-col items-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white border-2 border-blue-200 shadow-sm flex items-center justify-center">
-                    <img
-                      src={s.icon}
-                      alt={`Ícone ${s.module}`}
-                      className="w-6 h-6 md:w-8 md:h-8 object-contain"
-                      loading="lazy"
-                      width="32"
-                      height="32"
-                    />
-                  </div>
-                  <span className="mt-1 text-[10px] md:text-xs font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                {/* center dot on timeline */}
-                <div className="hidden md:block absolute left-1/2 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-100" />
-
-                {/* card */}
-                <div
-                  className={`flex-1 bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm ${
-                    idx % 2 === 0 ? "md:text-right" : "md:text-left"
-                  }`}
-                >
-                  <p className="text-xs md:text-sm font-black text-blue-600 uppercase tracking-wide mb-1">
-                    Módulo {s.module}
-                  </p>
-                  <h3 className="text-slate-900 font-bold text-base md:text-lg leading-snug">
-                    {s.outcome}
-                  </h3>
-                </div>
-
-                {/* empty spacer for alternating layout */}
-                <div className="hidden md:block flex-1" />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <p className="text-center text-slate-500 text-xs md:text-sm mt-6 max-w-2xl mx-auto">
-          Tudo em <strong className="text-slate-800">+90 videoaulas curtas</strong>, passo a passo.
-        </p>
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Bloco Emocional (Vision) ─────────────────────────
-const EmotionalVision = () => {
-  const moments = [
-    {
-      icon: Monitor,
-      title: "Você senta no computador",
-      subtitle: "E ele deixa de ser um bicho de sete cabeças",
-      before: "Tremia só de olhar a tela",
-      after: "Agora abre, navega e resolve com calma",
-    },
-    {
-      icon: Mail,
-      title: "Você manda um e-mail sozinho",
-      subtitle: "Sem depender de ninguém para escrever ou anexar arquivo",
-      before: "Pedía ajuda para enviar qualquer coisa",
-      after: "Agora escreve, anexa e responde sozinho(a)",
-    },
-    {
-      icon: HeartHandshake,
-      title: "Você conta a conquista para a família",
-      subtitle: "E ouve: 'nossa, aprendeu sozinho!'",
-      before: "Ficava de fora das conversas digitais",
-      after: "Agora participa e ainda ensina os outros",
-    },
-  ];
-
-  return (
-    <section className="py-8 md:py-14 bg-gradient-to-b from-blue-700 via-blue-800 to-slate-900 text-white">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-6 md:mb-10">
-          <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
-            Sua rotina muda em poucas semanas
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black leading-tight">
-            Veja o que muda no seu dia a dia
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-          {moments.map((m) => (
-            <div
-              key={m.title}
-              className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 md:p-6 text-center hover:bg-white/15 transition-colors"
-            >
-              <div className="mx-auto w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-yellow-400/20 flex items-center justify-center mb-4">
-                <m.icon className="w-7 h-7 md:w-8 md:h-8 text-yellow-300" strokeWidth={2} />
-              </div>
-              <h3 className="text-lg md:text-xl font-black text-white mb-1">{m.title}</h3>
-              <p className="text-blue-100 text-sm md:text-base mb-4">{m.subtitle}</p>
-
-              <div className="space-y-2 text-left">
-                <div className="flex items-start gap-2 text-sm text-blue-100/80">
-                  <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-red-400/30 flex items-center justify-center text-[10px]">✕</span>
-                  <span>{m.before}</span>
-                </div>
-                <div className="flex items-start gap-2 text-sm text-white font-medium">
-                  <CheckCircle2 className="shrink-0 mt-0.5 w-4 h-4 text-green-400" />
-                  <span>{m.after}</span>
-                </div>
-              </div>
+        <div className="grid md:grid-cols-3 gap-3 text-left">
+          {[
+            { n: "1", t: "Aulas curtas", d: "De 5 a 12 minutos. Você assiste no seu tempo, quantas vezes quiser." },
+            { n: "2", t: "Passo a passo na tela", d: "A professora mostra cada clique. Você só repete junto." },
+            { n: "3", t: "Suporte quando travar", d: "Ficou com dúvida? Você fala com a nossa equipe e destrava." },
+          ].map(({ n, t, d }) => (
+            <div key={n} className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+              <span className="w-8 h-8 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center mb-2">
+                {n}
+              </span>
+              <p className="text-white font-bold mb-1">{t}</p>
+              <p className="text-slate-400 text-sm leading-relaxed">{d}</p>
             </div>
           ))}
         </div>
-
-        <p className="text-center text-blue-100 text-base md:text-lg font-medium mt-6 md:mt-8 max-w-2xl mx-auto">
-          Isso não é sonho. É o que acontece com quem começa o curso hoje.
-        </p>
       </div>
     </section>
   );
 };
 
-// ───────────────────────── Social Proof (WhatsApp + Facebook) ─────────────────────────
+// ───────────────────────── Professora ─────────────────────────
+const Professora = () => (
+  <section className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-3xl">
+      <div className="flex flex-col md:flex-row items-center gap-5 bg-slate-950 border border-slate-800 rounded-2xl p-5 md:p-7">
+        <img src={elisa} alt="Professora Elisa" className="w-28 h-28 md:w-40 md:h-40 rounded-2xl object-cover border border-slate-700 shrink-0" />
+        <div className="text-center md:text-left">
+          <p className="text-blue-400 font-bold text-sm mb-1">QUEM VAI TE ENSINAR</p>
+          <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Professora Elisa</h3>
+          <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+            Mais de 10 anos ensinando informática para adultos que nunca tinham ligado um computador. A didática dela é
+            simples, calma e sem termos difíceis — por isso mais de 15.000 alunos conseguiram aprender.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ───────────────────────── Prova social ─────────────────────────
 const audioTestimonials = [
   { name: "Antonio", description: "Continuação do depoimento", audioSrc: "/audio/antonio-2.ogg" },
   { name: "Vanderlei", description: "Superou as dificuldades com tecnologia", audioSrc: "/audio/vanderlei.ogg" },
   { name: "Bruna", description: "Gratidão pelo aprendizado", audioSrc: "/audio/bruna.aac" },
 ];
 
-const whatsappScreenshots = [
-  { image: whatsappTestimonial2, description: "Aluno Roberto agradecendo pela didática das aulas de planilha" },
-];
-
 const fbAvatars = [fbAvatar1, fbAvatar2, fbAvatar3, fbAvatar4, fbAvatar5, fbAvatar6, fbAvatar7, fbAvatar8];
 
 const facebookComments = [
-  {
-    name: "Luciana M.",
-    text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌",
-    time: "2 h",
-    likes: 14,
-    hasHeart: true,
-  },
-  {
-    name: "Tereza S.",
-    text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍",
-    time: "5 h",
-    likes: 23,
-    hasHeart: false,
-  },
-  {
-    name: "Carlos A.",
-    text: "Melhor investimento que fiz! Já indiquei pra toda família",
-    time: "1 d",
-    likes: 8,
-    hasHeart: false,
-  },
-  {
-    name: "Juliana R.",
-    text: "Ganhei uma promoção no trabalho por causa do curso! 🎉",
-    time: "3 d",
-    likes: 31,
-    hasHeart: true,
-  },
-  {
-    name: "Marcos V.",
-    text: "Achei que era difícil mas a didática é perfeita, parabéns!",
-    time: "1 sem",
-    likes: 12,
-    hasHeart: false,
-  },
-  {
-    name: "Patrícia S.",
-    text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏",
-    time: "1 sem",
-    likes: 19,
-    hasHeart: true,
-  },
-  {
-    name: "Roberto L.",
-    text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪",
-    time: "2 sem",
-    likes: 7,
-    hasHeart: false,
-  },
-  {
-    name: "Maria G.",
-    text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏",
-    time: "3 sem",
-    likes: 42,
-    hasHeart: true,
-  },
+  { name: "Luciana M.", text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌", time: "2 h", hasHeart: true },
+  { name: "Tereza S.", text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍", time: "5 h", hasHeart: false },
+  { name: "Juliana R.", text: "Ganhei uma promoção no trabalho por causa do curso! 🎉", time: "3 d", hasHeart: true },
+  { name: "Maria G.", text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏", time: "3 sem", hasHeart: true },
+  { name: "Roberto L.", text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪", time: "2 sem", hasHeart: false },
+  { name: "Patrícia S.", text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏", time: "1 sem", hasHeart: true },
 ];
 
-const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimonials)[0] }) => {
+const AudioPlayer = ({ testimonial }: { testimonial: (typeof audioTestimonials)[0] }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [hasError, setHasError] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
-    if (audioRef.current && !hasError) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch(() => setHasError(true));
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      const p = (audioRef.current.currentTime / audioRef.current.duration) * 100;
-      setProgress(p || 0);
-    }
-  };
-
-  const handleEnded = () => {
-    setIsPlaying(false);
-    setProgress(0);
-  };
-
-  const handleError = () => {
-    setHasError(true);
-    setIsPlaying(false);
+    if (!audioRef.current || hasError) return;
+    if (isPlaying) audioRef.current.pause();
+    else audioRef.current.play().catch(() => setHasError(true));
+    setIsPlaying(!isPlaying);
   };
 
   return (
-    <div
-      className={`bg-white border rounded-xl p-4 transition-all ${hasError ? "border-red-300 opacity-50" : "border-slate-200 hover:border-blue-300 shadow-sm"}`}
-    >
+    <div className={`bg-slate-900 border rounded-xl p-4 ${hasError ? "border-slate-800 opacity-50" : "border-slate-800"}`}>
       <audio
         ref={audioRef}
         src={testimonial.audioSrc}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={handleEnded}
-        onError={handleError}
-        preload="none"
+        onTimeUpdate={(e) => {
+          const a = e.currentTarget;
+          if (a.duration) setProgress((a.currentTime / a.duration) * 100);
+        }}
+        onEnded={() => {
+          setIsPlaying(false);
+          setProgress(0);
+        }}
+        onError={() => setHasError(true)}
       />
       <div className="flex items-center gap-3">
         <button
           onClick={togglePlay}
-          disabled={hasError}
-          className={`w-12 h-12 rounded-full flex items-center justify-center transition-transform shadow-md ${hasError ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:scale-105"}`}
+          className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${hasError ? "bg-slate-700" : "bg-blue-600 hover:scale-105 transition-transform"}`}
         >
           {isPlaying ? <Pause className="w-5 h-5 text-white" /> : <Play className="w-5 h-5 text-white ml-0.5" />}
         </button>
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-slate-900 font-semibold text-sm">{testimonial.name}</span>
-            <Volume2 className="w-3 h-3 text-blue-600" />
+            <span className="text-white font-semibold text-sm">{testimonial.name}</span>
+            <Volume2 className="w-3 h-3 text-blue-400" />
           </div>
-          <p className="text-slate-500 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
-          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
-            <div className="h-full bg-blue-500 transition-all duration-100" style={{ width: `${progress}%` }} />
+          <p className="text-slate-400 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
+          <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+            <div className="h-full bg-blue-500 rounded-full transition-all duration-100" style={{ width: `${progress}%` }} />
           </div>
         </div>
       </div>
@@ -1176,274 +514,130 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
   );
 };
 
-const FBComment = ({ comment, index }: { comment: (typeof facebookComments)[0]; index: number }) => (
-  <div className="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
-    <div className="flex gap-2">
-      <img
-        src={fbAvatars[index % fbAvatars.length]}
-        alt=""
-        className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]"
-      />
-      <div className="flex-1 min-w-0">
-        <div className="bg-slate-100 rounded-2xl px-3 py-2">
-          <p className="text-slate-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
-            {comment.name}
-          </p>
-          <p className="text-slate-700 text-xs leading-relaxed">{comment.text}</p>
-        </div>
-        <div className="flex items-center gap-3 mt-1 px-2">
-          <span className="text-[11px] text-slate-400">{comment.time}</span>
-          <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
-            Curtir
-          </span>
-          <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
-            Responder
-          </span>
-          {comment.likes > 0 && (
-            <span className="ml-auto text-[11px] text-slate-400 flex items-center gap-0.5">
-              <span className="flex items-center -space-x-1">
-                <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
-                  <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
-                </span>
-                {comment.hasHeart && (
-                  <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0">
-                    <Heart className="w-2.5 h-2.5 text-white fill-white" />
-                  </span>
-                )}
-              </span>
-              {comment.likes}
-            </span>
-          )}
-        </div>
+const ProvaSocial = () => (
+  <section id="depoimentos" className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+          Se eles conseguiram, <span className="text-green-400">você também consegue</span>
+        </h2>
+        <p className="text-slate-400 mt-2 text-base md:text-lg">Alunos que começaram exatamente como você.</p>
       </div>
-    </div>
-  </div>
-);
 
-const SocialProof = () => {
-  const [showMore, setShowMore] = useState(false);
-  return (
-    <>
-    <section id="depoimentos" className="py-4 md:py-6 bg-white">
-      <div className="container mx-auto px-4 max-w-6xl">
-        {/* Header */}
-        <div className="text-center mb-5">
+      <div className="grid md:grid-cols-3 gap-3 mb-5">
+        {audioTestimonials.map((t) => (
+          <AudioPlayer key={t.name} testimonial={t} />
+        ))}
+      </div>
 
-
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="flex -space-x-2">
-              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
-                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
-              ))}
-            </div>
-            <div className="text-left">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
-            </div>
-          </div>
-
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3 leading-tight">
-            Se eles conseguiram, <span className="text-blue-600">você também consegue</span>
-          </h2>
-          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-medium">
-            Pessoas como você, que{" "}
-            <span className="text-slate-900 font-bold">nunca tinham tocado num computador</span> — e hoje fazem tudo
-            sozinhas, sem pedir ajuda a ninguém
-          </p>
-        </div>
-
-        {/* WhatsApp + Audios */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-5">
-          {/* WhatsApp Screenshots */}
-          <div className="order-1 lg:order-2">
-            <div className="flex items-center gap-2 mb-4">
-              <Smartphone className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Prints de Conversas</h3>
-            </div>
-            <div className="space-y-3">
-              {whatsappScreenshots.map((screenshot, index) => (
-                <div
-                  key={index}
-                  className="bg-slate-100 rounded-2xl p-2 shadow-xl border-2 border-blue-200 ring-2 ring-blue-100"
-                >
-                  <div className="bg-slate-200 rounded-t-lg pt-1.5 pb-0.5 px-3">
-                    <div className="flex items-center justify-center">
-                      <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
-                    </div>
-                  </div>
-                  <img
-                    src={screenshot.image}
-                    alt={screenshot.description}
-                    className="w-full h-auto rounded-b-lg"
-                    loading="lazy"
-                  />
+      <div className="grid md:grid-cols-2 gap-4 items-start">
+        <img
+          src={whatsappTestimonial2}
+          alt="Mensagem de aluno agradecendo pelas aulas"
+          className="rounded-xl border border-slate-800 w-full"
+          loading="lazy"
+        />
+        <div className="space-y-2">
+          {facebookComments.map((c, i) => (
+            <div key={c.name} className="bg-slate-900 border border-slate-800 rounded-xl p-3 flex gap-2">
+              <img src={fbAvatars[i % fbAvatars.length]} alt="" className="w-8 h-8 rounded-full object-cover blur-[3px] shrink-0" />
+              <div className="flex-1 min-w-0">
+                <p className="text-slate-300 text-xs font-semibold blur-[3px] select-none">{c.name}</p>
+                <p className="text-slate-200 text-sm leading-relaxed">{c.text}</p>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-[11px] text-slate-500">{c.time}</span>
+                  <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
+                    <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
+                  </span>
+                  {c.hasHeart && (
+                    <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center">
+                      <Heart className="w-2.5 h-2.5 text-white fill-white" />
+                    </span>
+                  )}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-
-          {/* Audio Players */}
-          <div className="order-2 lg:order-1">
-            <div className="flex items-center gap-2 mb-4">
-              <Volume2 className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Áudios de Alunos</h3>
-            </div>
-            <div className="space-y-3">
-              {audioTestimonials.map((testimonial, index) => (
-                <AudioPlayerLight key={index} testimonial={testimonial} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Highlight phrase */}
-        <div className="text-center my-4 max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-            Eles começaram do zero.{" "}
-            <span className="text-green-600">Agora é a sua vez de conseguir.</span>
-          </p>
-        </div>
-
-        {/* Facebook-style comments — primeira metade (sempre visível) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-2">
-          {facebookComments.slice(0, 4).map((comment, index) => (
-            <FBComment key={index} comment={comment} index={index} />
           ))}
         </div>
-
-        {/* Facebook-style comments — restante (revelado ao clicar) */}
-        {showMore && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-2">
-            {facebookComments.slice(4).map((comment, index) => (
-              <FBComment key={index + 4} comment={comment} index={index + 4} />
-            ))}
-          </div>
-        )}
-
-        {/* Botão Ver mais / Ver menos */}
-        <div className="text-center mt-3 mb-5">
-          <button
-            onClick={() => setShowMore(!showMore)}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-xl border-2 border-blue-200 transition-all active:scale-[.99]"
-          >
-            <ChevronDown className={`w-5 h-5 transition-transform ${showMore ? "rotate-180" : ""}`} />
-            {showMore ? "Ver menos depoimentos" : "Ver mais depoimentos"}
-          </button>
-        </div>
-      </div>
-    </section>
-
-    </>
-  );
-};
-
-// ───────────────────────── Certificate ─────────────────────────
-const Certificate = () => (
-  <section className="py-4 md:py-6 bg-slate-50">
-    <div className="container mx-auto px-4 max-w-5xl">
-      <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <img
-          src={certificado}
-          alt="Certificado de conclusão"
-          className="rounded-2xl shadow-xl border border-slate-200"
-        />
-        <div>
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-            BÔNUS
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">Você sai com certificado de conclusão</h2>
-          <p className="text-slate-700 text-base md:text-lg mb-6">
-            Ao terminar o curso, você recebe um certificado digital pra anexar no currículo, no LinkedIn ou pra mostrar
-            pra família que <strong>você conseguiu</strong>.
-          </p>
-          <ul className="space-y-2 mb-6">
-            {[
-              "Certificado digital válido em todo Brasil",
-              "Pronto pra anexar no currículo",
-              "Modelo profissional e elegante",
-            ].map((x) => (
-              <li key={x} className="flex items-center gap-2 text-slate-700">
-                <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
-                {x}
-              </li>
-            ))}
-          </ul>
-          <CTA size="md">Quero meu certificado!</CTA>
-        </div>
       </div>
     </div>
   </section>
 );
 
+// ───────────────────────── Oferta ─────────────────────────
+const modulos = [
+  { icon: windowsIcon, t: "Windows do zero", d: "Ligar, mexer no mouse, salvar e organizar arquivos" },
+  { icon: wordIcon, t: "Word", d: "Currículo, cartas e documentos prontos para imprimir" },
+  { icon: excelIcon, t: "Excel", d: "Planilhas de controle e contas do dia a dia" },
+  { icon: powerpointIcon, t: "PowerPoint", d: "Apresentações bonitas e simples" },
+  { icon: internetIcon, t: "Internet e e-mail", d: "Pesquisar, enviar e-mail e navegar com segurança" },
+  { icon: typingIcon, t: "Digitação", d: "Digitar mais rápido e sem olhar o teclado" },
+];
 
-// ───────────────────────── Pricing (Oferta principal — hierarquia forte) ─────────────────────────
-const Pricing = () => (
-  <section id="oferta" className="py-8 md:py-14 bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
+const Oferta = () => (
+  <section id="oferta" className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-6">
-        <h2 className="text-3xl md:text-5xl font-black leading-tight">Sua vaga está aqui</h2>
-        <p className="text-blue-100 text-base md:text-lg mt-2">Acesso liberado na hora • Vitalício</p>
+        <span className="inline-flex items-center gap-2 bg-orange-500/15 border border-orange-500/30 text-orange-300 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
+          <Flame className="w-4 h-4" /> OFERTA DE HOJE
+        </span>
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">Tudo o que você recebe</h2>
       </div>
 
-      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-yellow-400">
-        {/* Faixa de topo */}
-        <div className="bg-yellow-400 text-blue-900 text-center py-2 px-4 font-black text-sm md:text-base uppercase tracking-wide">
-          🎁 Hoje leva 4 bônus exclusivos (grátis)
-        </div>
+      {/* Módulos */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 mb-5">
+        {modulos.map((m) => (
+          <div key={m.t} className="bg-slate-950 border border-slate-800 rounded-xl p-3 text-center">
+            <img src={m.icon} alt="" className="w-9 h-9 mx-auto mb-2" loading="lazy" />
+            <p className="text-white font-bold text-sm">{m.t}</p>
+            <p className="text-slate-400 text-[11px] leading-snug mt-1">{m.d}</p>
+          </div>
+        ))}
+      </div>
 
-        <div className="p-6 md:p-10">
-          <h3 className="text-xl md:text-2xl font-black text-center mb-1">Curso Completo de Informática</h3>
-          <p className="text-center text-slate-500 text-sm mb-5">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+      {/* Value stack */}
+      <div className="bg-slate-950 border border-slate-800 rounded-2xl p-5 md:p-7">
+        <p className="text-center text-blue-300 font-bold text-sm mb-4 flex items-center justify-center gap-2">
+          <Gift className="w-4 h-4" /> HOJE VOCÊ LEVA 4 BÔNUS EXCLUSIVOS
+        </p>
+        <ul className="divide-y divide-slate-800">
+          {[
+            ["Curso completo com +90 videoaulas", "R$ 497"],
+            ["Bônus 1 · Atalhos do computador", "R$ 97"],
+            ["Bônus 2 · Mercado de trabalho", "R$ 127"],
+            ["Bônus 3 · Currículo campeão", "R$ 97"],
+            ["Bônus 4 · Suporte com a equipe", "R$ 47"],
+            ["Certificado de conclusão", "Incluso"],
+            ["Acesso vitalício", "Incluso"],
+          ].map(([t, v]) => (
+            <li key={t} className="flex items-center justify-between gap-3 py-2.5">
+              <span className="flex items-center gap-2 text-slate-200 text-sm md:text-base">
+                <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" /> {t}
+              </span>
+              <span className="text-slate-500 text-sm font-semibold whitespace-nowrap">{v}</span>
+            </li>
+          ))}
+        </ul>
 
-          {/* Preço */}
-          <div className="bg-gradient-to-b from-green-50 to-white rounded-2xl p-6 text-center mb-5 border-2 border-green-200">
-            <p className="text-slate-500 text-sm mb-1">De <span className="line-through">R$ 497,00</span> por apenas</p>
-            <p className="text-6xl md:text-7xl font-black text-green-600 leading-none tracking-tight">R$ 297</p>
-            <p className="text-slate-700 text-base mt-2">à vista no PIX</p>
-            <p className="text-base text-slate-600 mt-1">
-              ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
-            </p>
+        <div className="text-center mt-5 pt-5 border-t border-slate-800">
+          <p className="text-slate-400 text-sm">
+            Valor real de tudo: <span className="line-through">R$ 865,00</span>
+          </p>
+          <p className="text-slate-300 text-base mt-3">
+            De <span className="line-through font-bold text-xl">R$ 497,00</span> por apenas
+          </p>
+          <p className="text-6xl md:text-7xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
+          <p className="text-slate-300 font-semibold">à vista ou em até 12x no cartão</p>
+          <p className="text-slate-500 text-sm mt-1">Menos de R$ 1,00 por dia no primeiro ano — e o acesso é para sempre.</p>
+
+          <div className="mt-5">
+            <CTA sub="Pagamento seguro • Acesso imediato">QUERO MINHA VAGA POR R$ 297</CTA>
           </div>
 
-          {/* Tudo que inclui */}
-          <p className="text-center text-slate-500 text-xs font-black uppercase tracking-wide mb-3">Tudo que você recebe hoje</p>
-          <ul className="space-y-2.5 mb-6">
-            {[
-              ["+90 videoaulas passo a passo", "R$ 297"],
-              ["Acesso vitalício (nunca perde)", "Incluso"],
-              ["Certificado de conclusão", "Bônus"],
-              ["Suporte direto com a professora", "Bônus"],
-              ["Bônus 1: Atalhos essenciais", "R$ 47"],
-              ["Bônus 2: Currículo profissional", "R$ 97"],
-              ["Bônus 3: Mercado de trabalho", "R$ 127"],
-              ["Bônus 4: E-mail Profissional", "R$ 97"],
-            ].map(([x, v]) => (
-              <li key={x} className="flex items-center justify-between gap-3 text-slate-800 text-sm md:text-base border-b border-slate-100 pb-2">
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
-                  <span className="font-medium">{x}</span>
-                </span>
-                <span className={`text-xs md:text-sm font-bold shrink-0 ${v === "Bônus" ? "text-amber-600" : "text-slate-400"}`}>{v}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="bg-slate-50 rounded-xl p-3 text-center mb-5">
-            <p className="text-xs text-slate-500 uppercase font-bold tracking-wide">Valor total</p>
-            <p className="text-slate-400 line-through text-lg font-bold">R$ 665,00</p>
-            <p className="text-green-600 font-black text-2xl md:text-3xl leading-none mt-1">Você paga só R$ 297</p>
-          </div>
-
-          <CTA>Quero começar agora</CTA>
-
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4 text-xs text-slate-500">
-            <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro</span>
-            <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-green-600" /> Acesso imediato</span>
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-slate-400 text-xs font-semibold">
+            <span className="inline-flex items-center gap-1"><Lock className="w-3.5 h-3.5" /> Site seguro</span>
+            <span className="inline-flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5" /> Garantia 7 dias</span>
+            <span className="inline-flex items-center gap-1"><Users className="w-3.5 h-3.5" /> +15.000 alunos</span>
           </div>
         </div>
       </div>
@@ -1451,197 +645,122 @@ const Pricing = () => (
   </section>
 );
 
-// ───────────────────────── Guarantee ─────────────────────────
-const GuaranteeBlock = () => (
-  <section className="py-4 md:py-6 bg-white">
-    <div className="container mx-auto px-4 max-w-3xl">
-      <div className="bg-green-50 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-600 mb-5">
-          <ShieldCheck className="w-12 h-12 text-white" />
-        </div>
-        <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Garantia incondicional de 7 dias</h2>
-        <p className="text-slate-700 text-base md:text-lg leading-relaxed">
-          Faça sua matrícula hoje, assista as aulas, teste o método. Se em <strong>7 dias</strong> você achar que o
-          curso não é pra você — por qualquer motivo — <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas,
-          sem burocracia. <strong>O risco é todo nosso.</strong>
+// ───────────────────────── Garantia + Certificado ─────────────────────────
+const GarantiaCertificado = () => (
+  <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-4xl grid md:grid-cols-2 gap-4 items-center">
+      <div className="bg-slate-900 border-2 border-green-500/40 rounded-2xl p-6 text-center">
+        <ShieldCheck className="w-14 h-14 text-green-400 mx-auto mb-3" />
+        <h3 className="text-2xl md:text-3xl font-black text-white mb-2">O risco é todo nosso</h3>
+        <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+          Entre, assista as aulas e teste por 7 dias. Se você achar que não é para você, devolvemos 100% do valor. Sem
+          perguntas, sem burocracia.
+        </p>
+      </div>
+      <div className="text-center">
+        <img src={certificado} alt="Exemplo do certificado de conclusão" className="rounded-xl border border-slate-800 w-full" loading="lazy" />
+        <p className="text-slate-400 text-sm mt-2 flex items-center justify-center gap-2">
+          <Award className="w-4 h-4 text-blue-400" /> Certificado de conclusão em seu nome
         </p>
       </div>
     </div>
   </section>
 );
 
-// ───────────────────────── FAQ ─────────────────────────
+// ───────────────────────── FAQ (objeções) ─────────────────────────
 const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
-  const faqs = [
-    {
-      q: "Eu nunca mexi num computador. Vou conseguir mesmo?",
-      a: "Sim! O curso foi feito justamente pra quem está começando do zero. A professora explica passo a passo, com linguagem simples, sem termos técnicos. +15.000 alunos já provaram que funciona.",
-    },
-    {
-      q: "Quanto tempo leva pra concluir?",
-      a: "Você aprende no seu ritmo. Em média os alunos terminam em 30 a 60 dias dedicando 20-30 min por dia. Mas como o acesso é vitalício, você tem o tempo que precisar.",
-    },
-    {
-      q: "Em quanto tempo recebo o acesso?",
-      a: "Na hora. Logo após o pagamento aprovado você recebe os dados de acesso no seu e-mail.",
-    },
-    {
-      q: "Funciona no celular?",
-      a: "Sim. Você pode assistir no celular, tablet ou computador. Mas pra praticar é importante ter acesso a um computador.",
-    },
-    {
-      q: "Como funciona a garantia?",
-      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e devolvemos 100% do valor. Sem perguntas.",
-    },
-    {
-      q: "O certificado é válido?",
-      a: "Sim. É um certificado digital de conclusão, aceito em todo o Brasil pra anexar em currículos, LinkedIn e processos seletivos.",
-    },
-    {
-      q: "E se eu travar numa aula? Tem suporte?",
-      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
-    },
+  const items = [
+    ["Eu não sei NADA de computador. Serve pra mim?", "Serve, e foi feito exatamente para você. A primeira aula começa em ligar o computador e usar o mouse."],
+    ["Sou mais velho(a), será que consigo?", "Sim. Boa parte dos nossos alunos tem mais de 50 anos. As aulas são lentas, repetíveis e sem termos difíceis."],
+    ["Por quanto tempo tenho acesso?", "Para sempre. Você paga uma vez e assiste quantas vezes quiser, na hora que quiser."],
+    ["E se eu travar em alguma aula?", "Você fala com a nossa equipe de suporte e recebe ajuda até conseguir."],
+    ["Como eu pago?", "Cartão em até 12x, Pix ou boleto. O acesso chega no seu e-mail logo após a confirmação."],
+    ["E se eu não gostar?", "Você tem 7 dias para pedir o dinheiro de volta, integralmente."],
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-5">Perguntas frequentes</h2>
-        <div className="space-y-3">
-          {faqs.map((f, i) => (
-            <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+    <section className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
+      <div className="container mx-auto px-4 max-w-2xl">
+        <h2 className="text-3xl md:text-5xl font-black text-white text-center mb-6">Ainda com dúvida?</h2>
+        <div className="space-y-2">
+          {items.map(([q, a], i) => (
+            <div key={q} className="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between gap-3 p-5 text-left"
+                className="w-full flex items-center justify-between gap-3 text-left px-4 py-3.5"
               >
-                <span className="font-bold text-slate-900">{f.q}</span>
-                <ChevronDown
-                  className={`w-5 h-5 text-slate-500 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
-                />
+                <span className="text-white font-bold text-sm md:text-base">{q}</span>
+                <ChevronDown className={`w-5 h-5 text-blue-400 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`} />
               </button>
-              {open === i && <div className="px-5 pb-5 text-slate-700 leading-relaxed">{f.a}</div>}
+              {open === i && <p className="px-4 pb-4 text-slate-300 text-sm md:text-base leading-relaxed">{a}</p>}
             </div>
           ))}
-        </div>
-        <div className="text-center mt-6">
-          <CTA>Quero garantir minha vaga agora!</CTA>
         </div>
       </div>
     </section>
   );
 };
 
-// ───────────────────────── Final CTA ─────────────────────────
-const FinalCTA = () => (
-  <section className="py-4 md:py-6 bg-slate-900 text-white">
-    <div className="container mx-auto px-4 max-w-3xl text-center">
-      <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
-      <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
-      <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-        Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
-        mais independente. <strong className="text-white">Hoje é o dia.</strong>
+// ───────────────────────── CTA final ─────────────────────────
+const CTAFinal = () => (
+  <section className="bg-gradient-to-b from-blue-700 to-slate-950 py-12 md:py-16">
+    <div className="container mx-auto px-4 max-w-2xl text-center">
+      <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
+        Daqui a um ano você vai desejar ter começado hoje
+      </h2>
+      <p className="text-blue-100 text-lg md:text-xl mb-6 leading-snug">
+        Escolha entre continuar dependendo dos outros ou aprender de uma vez por todas.
       </p>
-      <CTA>Quero começar agora!</CTA>
-      <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
+      <CTA sub="Acesso imediato • Garantia de 7 dias">COMEÇAR AGORA POR R$ 297</CTA>
     </div>
   </section>
 );
 
-// ───────────────────────── Footer ─────────────────────────
 const Footer = () => (
-  <footer className="bg-slate-950 text-slate-400 py-10 text-center text-xs">
-    <div className="container mx-auto px-4">
-      <p className="font-bold text-slate-300 mb-2">Informática na Prática LTDA</p>
-      <p className="mb-1">© 2026 — Todos os direitos reservados</p>
-      <p className="mb-3 text-slate-500">CNPJ: 32.373.460/0001-51</p>
-      <div className="flex justify-center gap-4">
-        <a href="/termos-de-uso" className="hover:text-white">
-          Termos de Uso
-        </a>
-        <a href="/politica-de-privacidade" className="hover:text-white">
-          Privacidade
-        </a>
-      </div>
+  <footer className="bg-slate-950 border-t border-slate-800 py-6">
+    <div className="container mx-auto px-4 text-center text-slate-500 text-xs space-y-1">
+      <p className="font-semibold text-slate-400">Informática na Prática LTDA</p>
+      <p>© {new Date().getFullYear()} · Todos os direitos reservados</p>
     </div>
   </footer>
 );
 
+// ───────────────────────── Sticky CTA ─────────────────────────
+const StickyCTA = () => (
+  <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:hidden">
+    <button
+      onClick={openCheckout}
+      className="w-full bg-green-600 hover:bg-green-500 text-white font-black text-base rounded-xl py-3.5 shadow-lg"
+    >
+      QUERO COMEÇAR AGORA · R$ 297
+    </button>
+  </div>
+);
 
-// ───────────────────────── Sticky CTA (fixo no rodapé) ─────────────────────────
-const StickyCTA = () => {
-  return (
-    <div className="fixed bottom-0 inset-x-0 z-40 px-3 pb-3 md:pb-4 pointer-events-none">
-      <div className="max-w-2xl mx-auto pointer-events-auto">
-        <button
-          onClick={() => openCheckout()}
-          className="group flex w-full items-center justify-center gap-2 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-2xl shadow-green-600/30 transition-all whitespace-nowrap text-lg md:text-xl px-5 py-4"
-        >
-          <Monitor className="w-5 h-5 shrink-0" />
-          <span>Quero começar agora</span>
-          <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
-        </button>
-      </div>
-    </div>
-  );
-};
-
-// ───────────────────────── Page ─────────────────────────
+// ───────────────────────── Página ─────────────────────────
 const Copia = () => {
   useEffect(() => {
-    document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
+    document.title = "Curso de Informática do Zero — Pare de depender dos outros";
   }, []);
+
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
-      {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
-      <PainIdentification />
-      {/* 2. Prova viva imediata: aula real do curso antes da identificação */}
-      <AulaCursoReal />
-      {/* 2b. Sonhos realizados como aquecimento antes da oferta de valor */}
-      <DreamRealization />
-      {/* 2c. Sessão de valor logo após a prova viva do primeiro vídeo */}
-      <ValueSection />
-      {/* 3. Prova social profunda */}
-      <SocialProof />
-      {/* 4. Aula real passo a passo antes da agitação da dor */}
-      <AulasReais aula={1} />
-      {/* 5. Problema / agitação da dor + contraste de futuro (bloco único) */}
-      <AgitateSection />
-      {/* 6. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
-      <Instructor />
-      {/* 7. Solução: a transformação (plano claro, prova da promessa da professora) */}
-      <Method />
-      {/* 8. Micro-compromisso: quiz interativo */}
-      <QuizIdentificacao />
-      {/* 9. Conteúdo/entregável */}
-      <Modules />
-      {/* 10. Visão emocional (desejo antes do preço) */}
-      <EmotionalVision />
-      {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
-      <Aula2Destaque />
-
-      {/* 11. Value stack: bônus antes da oferta */}
-      <section className="py-4 md:py-6 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <HeroBonuses variant="light" />
-        </div>
-      </section>
-      {/* 12. Oferta */}
-      <section id="oferta">
-        <Pricing />
-      </section>
-      {/* 13. Reforço de valor pós-preço */}
-      <Certificate />
-      {/* 13b. Garantia — reforça confiança antes das objeções */}
-      <GuaranteeBlock />
-      {/* 14. Quebra de objeções */}
+      <TrustSeals />
+      <Diagnostico />
+      <Custo />
+      <AulaReal />
+      <AntesDepois />
+      <Professora />
+      <ProvaSocial />
+      <Oferta />
+      <GarantiaCertificado />
       <FAQ />
-      {/* 15. Fechamento */}
-      <FinalCTA />
+      <CTAFinal />
       <Footer />
-      <WhatsAppButton />
       <StickyCTA />
+      <WhatsAppButton />
     </div>
   );
 };
