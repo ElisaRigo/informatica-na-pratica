@@ -524,7 +524,7 @@ const AulaCard = ({ videoId, thumb, label, subtitle, id }: { videoId: string; th
               <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
             </div>
           </div>
-          <div className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+          <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
             <PlayCircle className="w-4 h-4" /> {label}
           </div>
         </div>
