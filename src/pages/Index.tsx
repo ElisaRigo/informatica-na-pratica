@@ -1,5 +1,5 @@
-import Home from "./Home";
+import Copia from "./Copia";
 
-const Index = () => <Home />;
+const Index = () => <Copia />;
 
 export default Index;
