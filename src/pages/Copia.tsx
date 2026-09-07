@@ -8,12 +8,8 @@ import {
   Award,
   Users,
   PlayCircle,
-  Monitor,
-  Mail,
-  Keyboard,
   Sparkles,
-  GraduationCap,
-  HeartHandshake,
+
   Infinity as InfinityIcon,
   ChevronDown,
   ArrowRight,
