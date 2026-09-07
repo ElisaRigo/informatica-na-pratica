@@ -25,8 +25,6 @@ import {
   TrendingDown,
   X,
   Check,
-  FileText,
-  Table2,
   Globe,
   Rocket,
   Flame,
