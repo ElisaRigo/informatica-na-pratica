@@ -569,7 +569,7 @@ const Aulas = () => {
           Aperte o play e veja com seus próprios olhos: a saída existe — e é mais fácil do que te disseram.
         </p>
 
-        <div className="space-y-6 mb-8">
+        <div className="space-y-6 mb-8 max-w-xl ml-auto">
           <AulaCard videoId="_0OPLnEiMHk" thumb={aulaGratisThumb} label="Assista" subtitle="Você acha que informática é difícil? " />
           <AulaCard videoId="-sdVG1OtDks" thumb={aulaPratica2Thumb} label="Confira" subtitle="Aprenda comigo, na prática, clique por clique" />
           <AulaCard id="aula-3" videoId="g_F1-d7tdQ0" thumb={aulaRealThumb} label="Veja" subtitle="Tudo no seu ritmo - Com Calma" />
