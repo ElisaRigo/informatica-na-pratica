@@ -889,8 +889,6 @@ const ExitPopup = () => {
   useEffect(() => {
     if (sessionStorage.getItem("copia_exit_popup_seen") === "1") return;
 
-    let mouseExitArmed = false;
-
     const trigger = () => {
       if (hasTriggered.current) return;
       hasTriggered.current = true;
@@ -898,31 +896,39 @@ const ExitPopup = () => {
       sessionStorage.setItem("copia_exit_popup_seen", "1");
     };
 
-    // Desktop: somente quando o cursor realmente sai pelo topo da janela.
+    // Desktop: mouse sai pela barra superior (fechar aba / trocar de aba)
     const handleMouseLeave = (e: MouseEvent) => {
-      if (mouseExitArmed && e.clientY <= 0 && !e.relatedTarget) trigger();
+      if (e.clientY < 10) trigger();
     };
     document.addEventListener("mouseleave", handleMouseLeave);
 
-    // Celular: mostra apenas na primeira tentativa de voltar, sem prender a navegação.
-    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    // Usuário saiu da aba/app e voltou (trocou de página e retornou)
+    let wasHidden = false;
+    const handleVisibility = () => {
+      if (document.hidden) {
+        wasHidden = true;
+      } else if (wasHidden) {
+        trigger();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    // Botão "voltar" do navegador: intercepta e mostra o popup
+    window.history.pushState({ copiaGuard: true }, "");
     const handlePopState = () => {
       trigger();
+      window.history.pushState({ copiaGuard: true }, "");
     };
-    if (isTouchDevice) {
-      window.history.pushState({ copiaExitGuard: true }, "", window.location.href);
-      window.addEventListener("popstate", handlePopState);
-    }
+    window.addEventListener("popstate", handlePopState);
 
-    // Evita disparar enquanto a pessoa ainda está chegando à página.
-    const armTimer = window.setTimeout(() => {
-      mouseExitArmed = true;
-    }, 10000);
+    // Celular: fallback por tempo de leitura
+    const timeTimer = window.setTimeout(trigger, 45000);
 
     return () => {
       document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("visibilitychange", handleVisibility);
       window.removeEventListener("popstate", handlePopState);
-      window.clearTimeout(armTimer);
+      window.clearTimeout(timeTimer);
     };
   }, []);
 
