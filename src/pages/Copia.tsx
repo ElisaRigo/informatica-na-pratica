@@ -66,18 +66,21 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 const openCheckout = () => openHotmartCheckout();
 
-const smoothScrollTo = (targetY: number, duration = 1500) => {
+const smoothScrollTo = (targetY: number) => {
   const startY = window.scrollY;
   const diff = targetY - startY;
+  if (Math.abs(diff) < 2) return;
+  // Duração proporcional à distância: começa na hora e desacelera no final
+  const duration = Math.min(1400, Math.max(700, Math.abs(diff) * 0.35));
   const startTime = performance.now();
 
-  const easeInOutCubic = (t: number) =>
-    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  // easeOutCubic: início imediato (sem sensação de atraso), parada suave
+  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
   const step = (now: number) => {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
+    window.scrollTo(0, startY + diff * easeOutCubic(progress));
     if (progress < 1) requestAnimationFrame(step);
   };
 
@@ -90,17 +93,17 @@ const scrollToOferta = () => {
 
   const rect = el.getBoundingClientRect();
   const elementTop = rect.top + window.scrollY;
-  const elementHeight = rect.height;
   const viewportHeight = window.innerHeight;
 
-  // Centraliza a seção verticalmente na tela
-  let targetY = elementTop - viewportHeight / 2 + elementHeight / 2;
+  // Para com o topo da seção visível, com um pequeno respiro
+  const offset = 16;
+  let targetY = elementTop - offset;
 
   // Garante que não passe do final da página
   const maxScroll = document.documentElement.scrollHeight - viewportHeight;
   targetY = Math.max(0, Math.min(targetY, maxScroll));
 
-  smoothScrollTo(targetY, 1600);
+  smoothScrollTo(targetY);
 };
 
 
