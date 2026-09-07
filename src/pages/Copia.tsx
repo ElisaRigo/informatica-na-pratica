@@ -1051,6 +1051,7 @@ const Copia = () => {
       <Footer />
       <StickyCTA />
       <WhatsAppButton />
+      <ExitPopup />
     </div>
   );
 };
