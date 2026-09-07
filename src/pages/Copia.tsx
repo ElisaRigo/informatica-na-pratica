@@ -609,7 +609,7 @@ const Professora = () => (
   <section className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="flex flex-col md:flex-row items-center gap-6 bg-slate-950 border border-slate-800 rounded-2xl p-6 md:p-8">
-        <img src={elisa} alt="Professora Elisa" className="w-44 h-44 md:w-60 md:h-60 rounded-2xl object-cover border-2 border-slate-700 shrink-0" />
+        <img src={elisa} alt="Professora Elisa" className="w-56 h-56 md:w-80 md:h-80 rounded-2xl object-cover border-2 border-slate-700 shrink-0" />
         <div className="text-center md:text-left">
           <p className="text-blue-400 font-bold text-sm mb-1">QUEM VAI TE ENSINAR</p>
           <h3 className="text-2xl md:text-4xl font-black text-white mb-2">Professora Elisa</h3>
