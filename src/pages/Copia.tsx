@@ -82,7 +82,7 @@ const CTA = ({
       <span className="leading-tight text-center">{children}</span>
     </button>
     {sub && (
-      <p className="text-center text-xs md:text-sm text-slate-400 mt-2 flex items-center justify-center gap-1.5">
+      <p className="text-center text-xs md:text-sm text-slate-300 mt-2 flex items-center justify-center gap-1.5">
         <Lock className="w-3.5 h-3.5" /> {sub}
       </p>
     )}
@@ -175,7 +175,7 @@ const Hero = () => {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <p className="text-xs text-slate-400 font-semibold">+15.000 alunos já aprenderam</p>
+              <p className="text-xs text-slate-300 font-semibold">+15.000 alunos já aprenderam</p>
             </div>
           </div>
         </div>
@@ -230,7 +230,7 @@ const Diagnostico = () => {
           <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
             Marque o que <span className="text-red-400">acontece com você</span> hoje
           </h2>
-          <p className="text-slate-400 mt-2 text-base md:text-lg">Seja sincero(a). Ninguém está vendo.</p>
+          <p className="text-slate-300 mt-2 text-base md:text-lg">Seja sincero(a). Ninguém está vendo.</p>
         </div>
 
         <div className="grid gap-2.5">
@@ -294,7 +294,7 @@ const Custo = () => (
         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
           O que <span className="text-red-400">não saber</span> já te custou?
         </h2>
-        <p className="text-slate-400 mt-2 text-base md:text-lg">A conta é mais alta do que parece.</p>
+        <p className="text-slate-300 mt-2 text-base md:text-lg">A conta é mais alta do que parece.</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-3">
@@ -306,7 +306,7 @@ const Custo = () => (
           <div key={t} className="bg-slate-900 border border-slate-800 border-l-4 border-l-red-500/70 rounded-xl p-5">
             <I className="w-7 h-7 text-red-400 mb-2" />
             <p className="text-white font-bold text-lg mb-1">{t}</p>
-            <p className="text-slate-400 text-sm leading-relaxed">{d}</p>
+            <p className="text-slate-300 text-sm leading-relaxed">{d}</p>
           </div>
         ))}
       </div>
@@ -367,7 +367,110 @@ const AntesDepois = () => (
   </section>
 );
 
+// ───────────────────────── É para você? ─────────────────────────
+const ParaQuem = () => (
+  <section className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+          Esse curso é <span className="text-green-400">para você</span>?
+        </h2>
+        <p className="text-slate-300 mt-2 text-base md:text-lg">Seja honesto(a) e veja em qual lado você está.</p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-slate-950 border-2 border-green-500/40 rounded-2xl p-5">
+          <p className="text-green-300 font-black text-base md:text-lg mb-3 flex items-center gap-2">
+            <CheckCircle2 className="w-5 h-5" /> É PARA VOCÊ SE…
+          </p>
+          <ul className="space-y-2.5">
+            {[
+              "Você nunca ligou um computador ou mexe com muito medo",
+              "Você precisa aprender para conseguir um emprego melhor",
+              "Você quer parar de pedir ajuda para filho, neto ou colega",
+              "Você tem mais de 40 anos e acha que já passou da hora",
+              "Você quer aprender no seu ritmo, sem pressão e sem prova",
+            ].map((t) => (
+              <li key={t} className="flex gap-2 text-slate-100 text-sm md:text-base font-medium">
+                <Check className="w-4 h-4 text-green-400 mt-1 shrink-0" strokeWidth={3} /> {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="bg-slate-950 border border-slate-700 rounded-2xl p-5">
+          <p className="text-red-300 font-black text-base md:text-lg mb-3 flex items-center gap-2">
+            <X className="w-5 h-5" /> NÃO É PARA VOCÊ SE…
+          </p>
+          <ul className="space-y-2.5">
+            {[
+              "Você já domina Windows, Word e Excel com segurança",
+              "Você procura curso avançado de programação ou design",
+              "Você quer aprender sem assistir nenhuma aula",
+              "Você não está disposto(a) a praticar alguns minutos por dia",
+            ].map((t) => (
+              <li key={t} className="flex gap-2 text-slate-300 text-sm md:text-base">
+                <X className="w-4 h-4 text-red-400 mt-1 shrink-0" /> {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p className="text-center text-slate-100 text-lg md:text-2xl font-bold mt-6 leading-snug">
+        Se você se viu na coluna verde, <span className="text-green-400">é o seu momento de começar.</span>
+      </p>
+    </div>
+  </section>
+);
+
+// ───────────────────────── Como começa ─────────────────────────
+const ComoComeca = () => (
+  <section className="bg-slate-950 py-10 md:py-14 border-b border-slate-800">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <div className="text-center mb-6">
+        <span className="inline-flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 text-blue-200 px-4 py-1.5 rounded-full text-xs font-bold mb-3">
+          <Rocket className="w-4 h-4" /> SIMPLES ASSIM
+        </span>
+        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+          Você começa a assistir hoje
+        </h2>
+        <p className="text-slate-300 mt-2 text-base md:text-lg">Sem espera, sem burocracia, sem complicação.</p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-3">
+        {[
+          { n: "1", t: "Você garante sua vaga", d: "Cartão em até 12x, Pix ou boleto. Leva menos de 3 minutos." },
+          { n: "2", t: "Recebe o acesso no e-mail", d: "Seu login chega logo após a confirmação do pagamento." },
+          { n: "3", t: "Assiste a primeira aula", d: "Começa do começo mesmo: ligar o computador e usar o mouse." },
+        ].map(({ n, t, d }) => (
+          <div key={n} className="bg-slate-900 border border-slate-700 rounded-xl p-5">
+            <span className="w-9 h-9 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center mb-2">
+              {n}
+            </span>
+            <p className="text-white font-bold mb-1">{t}</p>
+            <p className="text-slate-300 text-sm leading-relaxed">{d}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-slate-200 text-xs md:text-sm font-semibold">
+        <span className="inline-flex items-center gap-1.5 bg-slate-900 border border-slate-700 rounded-full px-3 py-1.5">
+          <Clock className="w-4 h-4 text-blue-400" /> 15 minutos por dia já bastam
+        </span>
+        <span className="inline-flex items-center gap-1.5 bg-slate-900 border border-slate-700 rounded-full px-3 py-1.5">
+          <InfinityIcon className="w-4 h-4 text-blue-400" /> Acesso vitalício
+        </span>
+        <span className="inline-flex items-center gap-1.5 bg-slate-900 border border-slate-700 rounded-full px-3 py-1.5">
+          <Headphones className="w-4 h-4 text-blue-400" /> Suporte de verdade
+        </span>
+      </div>
+    </div>
+  </section>
+);
+
 // ───────────────────────── Aula real + método ─────────────────────────
+
 const AulaReal = () => {
   const [playing, setPlaying] = useState(false);
   return (
@@ -379,7 +482,7 @@ const AulaReal = () => {
         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-2">
           Veja com seus olhos como é fácil
         </h2>
-        <p className="text-slate-400 mb-5 text-base md:text-lg">
+        <p className="text-slate-300 mb-5 text-base md:text-lg">
           Uma aula de verdade, do jeitinho que você vai assistir lá dentro.
         </p>
 
@@ -418,7 +521,7 @@ const AulaReal = () => {
                 {n}
               </span>
               <p className="text-white font-bold mb-1">{t}</p>
-              <p className="text-slate-400 text-sm leading-relaxed">{d}</p>
+              <p className="text-slate-300 text-sm leading-relaxed">{d}</p>
             </div>
           ))}
         </div>
@@ -504,7 +607,7 @@ const AudioPlayer = ({ testimonial }: { testimonial: (typeof audioTestimonials)[
             <span className="text-white font-semibold text-sm">{testimonial.name}</span>
             <Volume2 className="w-3 h-3 text-blue-400" />
           </div>
-          <p className="text-slate-400 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
+          <p className="text-slate-300 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
           <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
             <div className="h-full bg-blue-500 rounded-full transition-all duration-100" style={{ width: `${progress}%` }} />
           </div>
@@ -521,7 +624,7 @@ const ProvaSocial = () => (
         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
           Se eles conseguiram, <span className="text-green-400">você também consegue</span>
         </h2>
-        <p className="text-slate-400 mt-2 text-base md:text-lg">Alunos que começaram exatamente como você.</p>
+        <p className="text-slate-300 mt-2 text-base md:text-lg">Alunos que começaram exatamente como você.</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-3 mb-5">
@@ -545,7 +648,7 @@ const ProvaSocial = () => (
                 <p className="text-slate-300 text-xs font-semibold blur-[3px] select-none">{c.name}</p>
                 <p className="text-slate-200 text-sm leading-relaxed">{c.text}</p>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-[11px] text-slate-500">{c.time}</span>
+                  <span className="text-[11px] text-slate-400">{c.time}</span>
                   <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
                     <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
                   </span>
@@ -590,7 +693,7 @@ const Oferta = () => (
           <div key={m.t} className="bg-slate-950 border border-slate-800 rounded-xl p-3 text-center">
             <img src={m.icon} alt="" className="w-9 h-9 mx-auto mb-2" loading="lazy" />
             <p className="text-white font-bold text-sm">{m.t}</p>
-            <p className="text-slate-400 text-[11px] leading-snug mt-1">{m.d}</p>
+            <p className="text-slate-300 text-[11px] leading-snug mt-1">{m.d}</p>
           </div>
         ))}
       </div>
@@ -614,13 +717,13 @@ const Oferta = () => (
               <span className="flex items-center gap-2 text-slate-200 text-sm md:text-base">
                 <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" /> {t}
               </span>
-              <span className="text-slate-500 text-sm font-semibold whitespace-nowrap">{v}</span>
+              <span className="text-slate-400 text-sm font-semibold whitespace-nowrap">{v}</span>
             </li>
           ))}
         </ul>
 
         <div className="text-center mt-5 pt-5 border-t border-slate-800">
-          <p className="text-slate-400 text-sm">
+          <p className="text-slate-300 text-sm">
             Valor real de tudo: <span className="line-through">R$ 865,00</span>
           </p>
           <p className="text-slate-300 text-base mt-3">
@@ -628,13 +731,13 @@ const Oferta = () => (
           </p>
           <p className="text-6xl md:text-7xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
           <p className="text-slate-300 font-semibold">à vista ou em até 12x no cartão</p>
-          <p className="text-slate-500 text-sm mt-1">Menos de R$ 1,00 por dia no primeiro ano — e o acesso é para sempre.</p>
+          <p className="text-slate-300 text-sm mt-1">Menos de R$ 1,00 por dia no primeiro ano — e o acesso é para sempre.</p>
 
           <div className="mt-5">
             <CTA sub="Pagamento seguro • Acesso imediato">QUERO MINHA VAGA POR R$ 297</CTA>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-slate-400 text-xs font-semibold">
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-slate-300 text-xs font-semibold">
             <span className="inline-flex items-center gap-1"><Lock className="w-3.5 h-3.5" /> Site seguro</span>
             <span className="inline-flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5" /> Garantia 7 dias</span>
             <span className="inline-flex items-center gap-1"><Users className="w-3.5 h-3.5" /> +15.000 alunos</span>
@@ -659,7 +762,7 @@ const GarantiaCertificado = () => (
       </div>
       <div className="text-center">
         <img src={certificado} alt="Exemplo do certificado de conclusão" className="rounded-xl border border-slate-800 w-full" loading="lazy" />
-        <p className="text-slate-400 text-sm mt-2 flex items-center justify-center gap-2">
+        <p className="text-slate-300 text-sm mt-2 flex items-center justify-center gap-2">
           <Award className="w-4 h-4 text-blue-400" /> Certificado de conclusão em seu nome
         </p>
       </div>
@@ -750,11 +853,13 @@ const Copia = () => {
       <TrustSeals />
       <Diagnostico />
       <Custo />
+      <ParaQuem />
       <AulaReal />
       <AntesDepois />
       <Professora />
       <ProvaSocial />
       <Oferta />
+      <ComoComeca />
       <GarantiaCertificado />
       <FAQ />
       <CTAFinal />
