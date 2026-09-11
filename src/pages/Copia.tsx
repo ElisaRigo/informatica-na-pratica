@@ -849,7 +849,7 @@ const Oferta = ({ onOpenModal }: { onOpenModal: () => void }) => (
            <p className="text-slate-300 text-sm mt-1">Curso completo  — e o acesso é para sempre.</p>
 
           <div className="mt-5">
-             <CTA sub="Pagamento seguro • Acesso imediato">Quero começar agora</CTA>
+             <CTA onClick={onOpenModal} sub="Pagamento seguro • Acesso imediato">Quero começar agora</CTA>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-slate-300 text-xs font-semibold">
