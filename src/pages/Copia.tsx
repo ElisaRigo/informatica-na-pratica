@@ -1038,10 +1038,13 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           </p>
         </div>
 
-        <div className="bg-slate-950/50 border border-slate-700/50 rounded-xl p-2 mb-3 text-center">
-          <p className="text-slate-300 text-[10px] md:text-[11px] leading-snug flex items-center justify-center gap-1.5">
-            <Lock className="w-3 h-3 text-blue-400 shrink-0" />
-            Pagamento processado com segurança pela <span className="text-white font-bold">Hotmart</span>
+        <div className="bg-slate-950/50 border border-slate-700/50 rounded-xl p-2.5 mb-3 text-center">
+          <p className="text-slate-300 text-xs md:text-sm leading-snug flex flex-col items-center justify-center gap-0.5">
+            <span className="flex items-center justify-center gap-1.5">
+              <Lock className="w-3 h-3 text-blue-400 shrink-0" />
+              Pagamento processado com segurança
+            </span>
+            <span>pela plataforma <span className="text-white font-bold">Hotmart</span></span>
           </p>
         </div>
 
