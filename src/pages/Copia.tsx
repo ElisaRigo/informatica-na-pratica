@@ -1032,9 +1032,12 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
         </div>
 
         <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2.5 mb-2 text-center">
-          <p className="text-white font-bold text-xs md:text-sm leading-snug">
-            <ShieldCheck className="w-4 h-4 text-green-400 inline-block align-text-bottom mr-1" />
-            7 dias de garantia incondicional. Risco zero para você.
+          <p className="text-white font-bold text-xs md:text-sm leading-snug flex flex-col items-center justify-center gap-0.5">
+            <span className="flex items-center justify-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-green-400 shrink-0" />
+              7 dias de garantia incondicional
+            </span>
+            <span className="text-green-100 font-semibold text-[11px] md:text-xs">Risco zero para você</span>
           </p>
         </div>
 
