@@ -994,10 +994,11 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
             </div>
           </div>
           <p className="text-slate-100 text-sm md:text-base leading-snug max-w-xs mx-auto">
-            Não é apenas um curso. É sua chance de aprender a usar o computador com confiança.
+            Comece sem medo.
+            Eu vou te ensinar passo a passo. 💙
           </p>
           <p className="text-blue-300 text-xs md:text-sm font-bold mt-2">
-            Comece sem medo. Eu vou te ensinar passo a passo. 💙
+            
           </p>
         </div>
 
