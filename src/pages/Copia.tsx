@@ -1091,6 +1091,9 @@ const Copia = () => {
 
   useEffect(() => {
     document.title = "Curso de Informática do Zero — Pare de depender dos outros";
+    // Pré-carrega a foto do modal para abrir instantaneamente
+    const img = new Image();
+    img.src = elisaModal;
   }, []);
 
   return (
