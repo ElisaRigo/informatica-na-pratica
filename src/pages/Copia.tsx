@@ -978,7 +978,7 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
 
         <div className="text-center mb-4">
           <h3 className="text-xl md:text-2xl font-black text-white leading-tight">
-            Falta pouco para você começar a aprender
+             Falta pouco para você começar 
           </h3>
         </div>
 
