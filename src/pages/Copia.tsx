@@ -1095,7 +1095,7 @@ const Copia = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 pb-20 md:pb-0">
-      <Header />
+      <Header onOpenModal={() => setModalOpen(true)} />
       <Hero />
       <Aulas />
       <Oferta onOpenModal={() => setModalOpen(true)} />
