@@ -997,7 +997,7 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
             Não é apenas um curso. É sua chance de aprender a usar o computador com confiança.
           </p>
           <p className="text-blue-300 text-xs md:text-sm font-bold mt-2">
-            Estamos juntos nessa. Te espero no curso.
+            Comece sem medo. Eu vou te ensinar passo a passo. 💙
           </p>
         </div>
 
