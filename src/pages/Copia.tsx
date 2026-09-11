@@ -935,23 +935,8 @@ const StickyCTA = () => (
 
 // ───────────────────────── Página ─────────────────────────
 const Copia = () => {
-  const [showSticky, setShowSticky] = useState(false);
-
   useEffect(() => {
     document.title = "Curso de Informática do Zero — Pare de depender dos outros";
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const el = document.getElementById("aula-3");
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      setShowSticky(rect.bottom < window.innerHeight);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -972,7 +957,7 @@ const Copia = () => {
       <FAQ />
       <CTAFinal />
       <Footer />
-      <StickyCTA visible={showSticky} />
+      <StickyCTA />
       <WhatsAppButton />
     </div>
   );
