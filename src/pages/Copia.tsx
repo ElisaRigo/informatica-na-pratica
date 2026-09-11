@@ -29,6 +29,8 @@ import {
   Rocket,
   Flame,
   ClipboardCheck,
+  Monitor,
+  Shield,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
