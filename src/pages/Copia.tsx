@@ -1032,7 +1032,7 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky CTA ─────────────────────────
-const StickyCTA = () => (
+const StickyCTA = ({ onOpenModal }: { onOpenModal: () => void }) => (
   <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:p-4 transition-transform duration-300 translate-y-0">
     <div className="max-w-4xl mx-auto flex items-center justify-between gap-3">
       <div className="hidden md:block text-left">
@@ -1040,7 +1040,7 @@ const StickyCTA = () => (
         <p className="text-slate-300 text-xs">Acesso vitalício por R$ 297</p>
       </div>
       <button
-        onClick={scrollToOferta}
+        onClick={onOpenModal}
         className="w-full md:w-auto bg-green-600 hover:bg-green-500 text-white font-black text-base md:text-lg rounded-xl py-3.5 md:px-8 shadow-lg transition-colors"
       >
         QUERO COMEÇAR AGORA
