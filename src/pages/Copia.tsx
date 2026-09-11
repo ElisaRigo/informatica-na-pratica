@@ -1052,6 +1052,8 @@ const StickyCTA = ({ onOpenModal }: { onOpenModal: () => void }) => (
 
 // ───────────────────────── Página ─────────────────────────
 const Copia = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
     document.title = "Curso de Informática do Zero — Pare de depender dos outros";
   }, []);
@@ -1061,7 +1063,7 @@ const Copia = () => {
       <Header />
       <Hero />
       <Aulas />
-      <Oferta />
+      <Oferta onOpenModal={() => setModalOpen(true)} />
       <Custo />
       <Diagnostico />
       <ParaQuem />
@@ -1071,10 +1073,11 @@ const Copia = () => {
       <ComoComeca />
       <GarantiaCertificado />
       <FAQ />
-      <CTAFinal />
+      <CTAFinal onOpenModal={() => setModalOpen(true)} />
       <Footer />
-      <StickyCTA />
+      <StickyCTA onOpenModal={() => setModalOpen(true)} />
       <WhatsAppButton />
+      <CheckoutModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
