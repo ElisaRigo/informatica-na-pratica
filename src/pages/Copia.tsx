@@ -9,7 +9,7 @@ import {
   Users,
   PlayCircle,
   Sparkles,
-
+  BookOpen,
   Infinity as InfinityIcon,
   ChevronDown,
   ArrowRight,
@@ -937,11 +937,10 @@ const CTAFinal = ({ onOpenModal }: { onOpenModal: () => void }) => (
 
 // ───────────────────────── Modal de checkout ─────────────────────────
 const CHECKOUT_ITEMS = [
-  "Curso completo com +90 videoaulas",
-  "4 bônus exclusivos de apoio",
-  "Suporte direto com a equipe",
-  "Certificado de conclusão",
-  "Acesso vitalício",
+  { icon: PlayCircle, label: "+90 Videoaulas" },
+  { icon: BookOpen, label: "Curso Completo" },
+  { icon: InfinityIcon, label: "Acesso Vitalício" },
+  { icon: Headphones, label: "Suporte Direto" },
 ];
 
 const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
@@ -1002,15 +1001,16 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           </p>
         </div>
 
-        <div className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 mb-4">
-          <ul className="grid grid-cols-2 gap-2">
-            {CHECKOUT_ITEMS.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-slate-200 text-sm md:text-base">
-                <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
-                <span className="leading-tight">{item}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="grid grid-cols-2 gap-2 mb-4">
+          {CHECKOUT_ITEMS.map(({ icon: I, label }) => (
+            <div
+              key={label}
+              className="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5"
+            >
+              <I className="w-4 h-4 text-blue-400 shrink-0" />
+              <span className="text-slate-100 text-xs md:text-sm font-bold leading-tight">{label}</span>
+            </div>
+          ))}
         </div>
 
         <div className="text-center mb-3">
@@ -1021,14 +1021,21 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <p className="text-slate-300 font-semibold text-xs md:text-sm">à vista ou em até 12 x 30,72 no cartão</p>
         </div>
 
-        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2.5 mb-4 text-center">
+        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2.5 mb-3 text-center">
           <p className="text-white font-bold text-xs md:text-sm leading-snug">
             <ShieldCheck className="w-3.5 h-3.5 text-green-400 inline-block align-text-bottom mr-1" />
             7 dias de garantia. Risco zero.
           </p>
         </div>
 
-        <CTA onClick={openCheckout} sub="Pagamento seguro • Acesso imediato">QUERO COMEÇAR AGORA</CTA>
+        <div className="bg-slate-950/50 border border-slate-700/50 rounded-xl p-2.5 mb-4 text-center">
+          <p className="text-slate-300 text-[11px] md:text-xs leading-snug flex items-center justify-center gap-1.5">
+            <Lock className="w-3 h-3 text-blue-400 shrink-0" />
+            Pagamento processado com segurança pela <span className="text-white font-bold">Hotmart</span>
+          </p>
+        </div>
+
+        <CTA onClick={openCheckout} sub="Acesso imediato após a confirmação">QUERO COMEÇAR AGORA</CTA>
       </div>
     </div>
   );
