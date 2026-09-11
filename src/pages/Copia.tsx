@@ -127,9 +127,9 @@ const CTA = ({
 );
 
 // ───────────────────────── Header ─────────────────────────
-const Header = () => (
+const Header = ({ onOpenModal }: { onOpenModal: () => void }) => (
   <header className="bg-slate-950 border-b border-slate-800">
-    <button onClick={openCheckout} className="w-full block p-0 border-0 bg-transparent cursor-pointer">
+    <button onClick={onOpenModal} className="w-full block p-0 border-0 bg-transparent cursor-pointer">
       <img
         src={bannerCopia}
         alt="Domine o Computador Começando do Zero — Matricule-se agora"
