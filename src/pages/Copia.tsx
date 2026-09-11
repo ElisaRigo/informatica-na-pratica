@@ -31,6 +31,7 @@ import {
   ClipboardCheck,
   Monitor,
   Shield,
+  Zap,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
@@ -939,10 +940,10 @@ const CTAFinal = ({ onOpenModal }: { onOpenModal: () => void }) => (
 
 // ───────────────────────── Modal de checkout ─────────────────────────
 const CHECKOUT_ITEMS = [
-  { icon: PlayCircle, label: "+90 Videoaulas" },
-  { icon: BookOpen, label: "Curso Completo" },
-  { icon: InfinityIcon, label: "Acesso Vitalício" },
-  { icon: Headphones, label: "Suporte Direto" },
+  { icon: Zap, label: "Acesso imediato", sub: "Login enviado por e-mail" },
+  { icon: ShieldCheck, label: "Garantia 7 dias", sub: "100% do dinheiro de volta" },
+  { icon: Headphones, label: "Suporte humanizado", sub: "Tire dúvidas pelo WhatsApp" },
+  { icon: InfinityIcon, label: "Acesso vitalício", sub: "Assista quando quiser" },
 ];
 
 const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
@@ -1012,13 +1013,16 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
         </div>
 
         <div className="grid grid-cols-2 gap-2 mb-4">
-          {CHECKOUT_ITEMS.map(({ icon: I, label }) => (
+          {CHECKOUT_ITEMS.map(({ icon: I, label, sub }) => (
             <div
               key={label}
-              className="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5"
+              className="flex items-center gap-2.5 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5"
             >
-              <I className="w-4 h-4 text-blue-400 shrink-0" />
-              <span className="text-slate-100 text-xs md:text-sm font-bold leading-tight">{label}</span>
+              <I className="w-5 h-5 text-blue-400 shrink-0" />
+              <div className="text-left">
+                <p className="text-slate-100 text-xs md:text-sm font-bold leading-tight">{label}</p>
+                <p className="text-slate-400 text-[10px] md:text-xs leading-tight">{sub}</p>
+              </div>
             </div>
           ))}
         </div>
