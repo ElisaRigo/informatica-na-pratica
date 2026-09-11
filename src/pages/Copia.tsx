@@ -98,14 +98,16 @@ const CTA = ({
   children = "QUERO APRENDER AGORA",
   sub,
   size = "lg",
+  onClick = openCheckout,
 }: {
   children?: React.ReactNode;
   sub?: string;
   size?: "lg" | "sm";
+  onClick?: () => void;
 }) => (
   <div className="w-full">
     <button
-      onClick={openCheckout}
+      onClick={onClick}
       className={`group inline-flex w-full items-center justify-center gap-2 bg-green-600 hover:bg-green-500 active:scale-[.99] text-white font-black rounded-xl shadow-[0_10px_40px_-10px_rgba(34,197,94,.7)] transition-all ${
         size === "lg" ? "text-lg md:text-2xl px-5 py-4 md:px-10 md:py-5" : "text-base md:text-lg px-4 py-3"
       }`}
@@ -765,7 +767,7 @@ const modulos = [
   { icon: typingIcon, t: "Digitação", d: "Digitar mais rápido e sem olhar o teclado" },
 ];
 
-const Oferta = () => (
+const Oferta = ({ onOpenModal }: { onOpenModal: () => void }) => (
   <section id="oferta" className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-6">
@@ -847,7 +849,7 @@ const Oferta = () => (
            <p className="text-slate-300 text-sm mt-1">Curso completo  — e o acesso é para sempre.</p>
 
           <div className="mt-5">
-             <CTA sub="Pagamento seguro • Acesso imediato">Quero começar agora</CTA>
+             <CTA onClick={onOpenModal} sub="Pagamento seguro • Acesso imediato">Quero começar agora</CTA>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-slate-300 text-xs font-semibold">
@@ -918,7 +920,7 @@ const FAQ = () => {
 };
 
 // ───────────────────────── CTA final ─────────────────────────
-const CTAFinal = () => (
+const CTAFinal = ({ onOpenModal }: { onOpenModal: () => void }) => (
   <section className="bg-gradient-to-b from-blue-700 to-slate-950 py-12 md:py-16">
     <div className="container mx-auto px-4 max-w-2xl text-center">
       <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
@@ -927,10 +929,98 @@ const CTAFinal = () => (
       <p className="text-blue-100 text-lg md:text-xl mb-6 leading-snug">
         Escolha entre continuar dependendo dos outros ou aprender de uma vez por todas.
       </p>
-      <CTA sub="Acesso imediato • Garantia de 7 dias">COMEÇAR AGORA POR R$ 297</CTA>
+      <CTA onClick={onOpenModal} sub="Acesso imediato • Garantia de 7 dias">COMEÇAR AGORA POR R$ 297</CTA>
     </div>
   </section>
 );
+
+// ───────────────────────── Modal de checkout ─────────────────────────
+const CHECKOUT_ITEMS = [
+  "Curso completo com +90 videoaulas",
+  "Bônus · Atalhos do computador",
+  "Bônus · Mercado de trabalho",
+  "Bônus · Currículo campeão",
+  "Bônus · Suporte com a equipe",
+  "Certificado de conclusão",
+  "Acesso vitalício",
+];
+
+const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="relative w-full max-w-lg bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-5 md:p-7 animate-in fade-in zoom-in-95 duration-200"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors"
+          aria-label="Fechar"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div className="text-center mb-5">
+          <span className="inline-flex items-center gap-2 bg-orange-500/15 border border-orange-500/30 text-orange-300 px-3 py-1 rounded-full text-xs font-bold mb-3">
+            <Flame className="w-3.5 h-3.5" /> OFERTA DE HOJE
+          </span>
+          <h3 className="text-2xl md:text-3xl font-black text-white leading-tight">
+            Tudo pronto para você começar
+          </h3>
+          <p className="text-slate-300 text-sm md:text-base mt-1">
+            Revise o que você leva com essa matrícula:
+          </p>
+        </div>
+
+        <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 mb-4">
+          <ul className="space-y-2">
+            {CHECKOUT_ITEMS.map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-slate-200 text-sm md:text-base">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="text-center mb-4">
+          <p className="text-slate-300 text-sm">
+            De <span className="line-through font-bold text-lg">R$ 865,00</span> por apenas
+          </p>
+          <p className="text-5xl md:text-6xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
+          <p className="text-slate-300 font-semibold text-sm md:text-base">à vista ou em até 12 x 30,72 no cartão</p>
+        </div>
+
+        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-3 mb-5 text-center">
+          <p className="text-white font-bold text-sm md:text-base leading-snug">
+            <ShieldCheck className="w-4 h-4 text-green-400 inline-block align-text-bottom mr-1" />
+            Garantia de 7 dias. Se não gostar, devolvemos 100% do seu dinheiro.
+          </p>
+        </div>
+
+        <CTA onClick={openCheckout} sub="Pagamento seguro • Acesso imediato">QUERO COMEÇAR AGORA</CTA>
+      </div>
+    </div>
+  );
+};
 
 const Footer = () => (
   <footer className="bg-slate-950 border-t border-slate-800 py-6">
@@ -942,7 +1032,7 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky CTA ─────────────────────────
-const StickyCTA = () => (
+const StickyCTA = ({ onOpenModal }: { onOpenModal: () => void }) => (
   <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:p-4 transition-transform duration-300 translate-y-0">
     <div className="max-w-4xl mx-auto flex items-center justify-between gap-3">
       <div className="hidden md:block text-left">
@@ -950,7 +1040,7 @@ const StickyCTA = () => (
         <p className="text-slate-300 text-xs">Acesso vitalício por R$ 297</p>
       </div>
       <button
-        onClick={scrollToOferta}
+        onClick={onOpenModal}
         className="w-full md:w-auto bg-green-600 hover:bg-green-500 text-white font-black text-base md:text-lg rounded-xl py-3.5 md:px-8 shadow-lg transition-colors"
       >
         QUERO COMEÇAR AGORA
@@ -962,6 +1052,8 @@ const StickyCTA = () => (
 
 // ───────────────────────── Página ─────────────────────────
 const Copia = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
     document.title = "Curso de Informática do Zero — Pare de depender dos outros";
   }, []);
@@ -971,7 +1063,7 @@ const Copia = () => {
       <Header />
       <Hero />
       <Aulas />
-      <Oferta />
+      <Oferta onOpenModal={() => setModalOpen(true)} />
       <Custo />
       <Diagnostico />
       <ParaQuem />
@@ -981,10 +1073,11 @@ const Copia = () => {
       <ComoComeca />
       <GarantiaCertificado />
       <FAQ />
-      <CTAFinal />
+      <CTAFinal onOpenModal={() => setModalOpen(true)} />
       <Footer />
-      <StickyCTA />
+      <StickyCTA onOpenModal={() => setModalOpen(true)} />
       <WhatsAppButton />
+      <CheckoutModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
