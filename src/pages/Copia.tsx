@@ -937,11 +937,10 @@ const CTAFinal = ({ onOpenModal }: { onOpenModal: () => void }) => (
 
 // ───────────────────────── Modal de checkout ─────────────────────────
 const CHECKOUT_ITEMS = [
-  "Curso completo com +90 videoaulas",
-  "4 bônus exclusivos de apoio",
-  "Suporte direto com a equipe",
-  "Certificado de conclusão",
-  "Acesso vitalício",
+  { icon: PlayCircle, label: "+90 Videoaulas" },
+  { icon: BookOpen, label: "Curso Completo" },
+  { icon: InfinityIcon, label: "Acesso Vitalício" },
+  { icon: Headphones, label: "Suporte Direto" },
 ];
 
 const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
@@ -1002,15 +1001,16 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           </p>
         </div>
 
-        <div className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 mb-4">
-          <ul className="grid grid-cols-2 gap-2">
-            {CHECKOUT_ITEMS.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-slate-200 text-sm md:text-base">
-                <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
-                <span className="leading-tight">{item}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="grid grid-cols-2 gap-2 mb-4">
+          {CHECKOUT_ITEMS.map(({ icon: I, label }) => (
+            <div
+              key={label}
+              className="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5"
+            >
+              <I className="w-4 h-4 text-blue-400 shrink-0" />
+              <span className="text-slate-100 text-xs md:text-sm font-bold leading-tight">{label}</span>
+            </div>
+          ))}
         </div>
 
         <div className="text-center mb-3">
