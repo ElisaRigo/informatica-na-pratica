@@ -973,10 +973,10 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
       >
         <button
           onClick={onClose}
-          className="absolute top-2.5 right-2.5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors"
+          className="absolute top-2 right-2 text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition-colors"
           aria-label="Fechar"
         >
-          <X className="w-4 h-4" />
+          <X className="w-5 h-5" />
         </button>
 
         <div className="bg-emerald-950/60 border border-emerald-500/30 rounded-xl px-3 py-1.5 mb-3 text-center flex items-center justify-center gap-2">
