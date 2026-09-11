@@ -33,6 +33,8 @@ import {
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
+import elisaModalAsset from "@/assets/elisa-modal.jpg.asset.json";
+const elisaModal = elisaModalAsset.url;
 import homeVideoThumbAsset from "@/assets/capa-video-principal.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import bannerCopiaAsset from "@/assets/banner-copia.jpg.asset.json";
