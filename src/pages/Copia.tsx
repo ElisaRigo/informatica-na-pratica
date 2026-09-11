@@ -937,10 +937,8 @@ const CTAFinal = ({ onOpenModal }: { onOpenModal: () => void }) => (
 // ───────────────────────── Modal de checkout ─────────────────────────
 const CHECKOUT_ITEMS = [
   "Curso completo com +90 videoaulas",
-  "Bônus · Atalhos do computador",
-  "Bônus · Mercado de trabalho",
-  "Bônus · Currículo campeão",
-  "Bônus · Suporte com a equipe",
+  "4 bônus exclusivos de apoio",
+  "Suporte direto com a equipe",
   "Certificado de conclusão",
   "Acesso vitalício",
 ];
@@ -967,7 +965,7 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-lg bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-5 md:p-7 animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-md bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-5 md:p-6 animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -978,41 +976,51 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <X className="w-5 h-5" />
         </button>
 
-        <div className="text-center mb-5">
-          <span className="inline-flex items-center gap-2 bg-orange-500/15 border border-orange-500/30 text-orange-300 px-3 py-1 rounded-full text-xs font-bold mb-3">
-            <Flame className="w-3.5 h-3.5" /> OFERTA DE HOJE
-          </span>
-          <h3 className="text-2xl md:text-3xl font-black text-white leading-tight">
-            Tudo pronto para você começar
+        <div className="text-center mb-4">
+          <h3 className="text-xl md:text-2xl font-black text-white leading-tight">
+            Falta pouco para você começar a aprender
           </h3>
-          <p className="text-slate-300 text-sm md:text-base mt-1">
-            Revise o que você leva com essa matrícula:
-          </p>
         </div>
 
-        <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 mb-4">
-          <ul className="space-y-2">
+        <div className="flex items-center gap-3 bg-gradient-to-r from-blue-600/20 to-slate-900 border border-blue-500/30 rounded-xl p-3 mb-4">
+          <img
+            src={elisa}
+            alt="Professora Elisa"
+            className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-blue-400/40 shrink-0"
+          />
+          <div>
+            <p className="text-slate-100 text-sm md:text-base leading-snug">
+              Não é apenas um curso. É sua chance de usar o computador com confiança.
+            </p>
+            <p className="text-blue-300 text-xs md:text-sm font-bold mt-1">
+              Estamos juntos nessa. Te espero no curso. — Profª Elisa
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 mb-4">
+          <ul className="space-y-1.5">
             {CHECKOUT_ITEMS.map((item) => (
-              <li key={item} className="flex items-start gap-2.5 text-slate-200 text-sm md:text-base">
-                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+              <li key={item} className="flex items-start gap-2 text-slate-200 text-sm md:text-base">
+                <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="text-center mb-4">
-          <p className="text-slate-300 text-sm">
-            De <span className="line-through font-bold text-lg">R$ 865,00</span> por apenas
+        <div className="text-center mb-3">
+          <p className="text-slate-300 text-xs md:text-sm">
+            De <span className="line-through font-bold text-base">R$ 865,00</span> por apenas
           </p>
-          <p className="text-5xl md:text-6xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
-          <p className="text-slate-300 font-semibold text-sm md:text-base">à vista ou em até 12 x 30,72 no cartão</p>
+          <p className="text-4xl md:text-5xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
+          <p className="text-slate-300 font-semibold text-xs md:text-sm">à vista ou em até 12 x 30,72 no cartão</p>
         </div>
 
-        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-3 mb-5 text-center">
-          <p className="text-white font-bold text-sm md:text-base leading-snug">
-            <ShieldCheck className="w-4 h-4 text-green-400 inline-block align-text-bottom mr-1" />
-            Garantia de 7 dias. Se não gostar, devolvemos 100% do seu dinheiro.
+        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2.5 mb-4 text-center">
+          <p className="text-white font-bold text-xs md:text-sm leading-snug">
+            <ShieldCheck className="w-3.5 h-3.5 text-green-400 inline-block align-text-bottom mr-1" />
+            7 dias de garantia. Risco zero.
           </p>
         </div>
 
