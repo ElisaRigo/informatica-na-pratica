@@ -786,6 +786,33 @@ const Oferta = () => (
         ))}
       </div>
 
+      {/* Selos de valor + garantia */}
+      <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 md:p-5 mb-5">
+        <div className="grid grid-cols-2 gap-2.5 mb-3">
+          {[
+            { icon: PlayCircle, t: "+90 Videoaulas" },
+            { icon: InfinityIcon, t: "Acesso Vitalício" },
+            { icon: Headphones, t: "Suporte Direto" },
+            { icon: Users, t: "+15.000 Alunos" },
+          ].map(({ icon: I, t }) => (
+            <div key={t} className="flex items-center gap-2 bg-slate-900/60 border border-slate-700 rounded-full px-3 py-2.5">
+              <I className="w-4 h-4 text-blue-400 shrink-0" />
+              <span className="text-slate-100 text-xs md:text-sm font-bold leading-tight">{t}</span>
+            </div>
+          ))}
+        </div>
+        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-4 text-center">
+          <div className="flex items-center justify-center gap-2 mb-1.5">
+            <ShieldCheck className="w-5 h-5 text-green-400" />
+            <p className="text-green-300 font-black text-sm md:text-base uppercase tracking-wide">Garantia incondicional de 7 dias</p>
+          </div>
+          <p className="text-white font-bold text-sm md:text-base leading-snug">
+            <span className="text-yellow-400 font-black">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
+            <span className="text-green-400 font-black">100% do seu dinheiro</span>.
+          </p>
+        </div>
+      </div>
+
       {/* Value stack */}
       <div className="bg-slate-950 border border-slate-800 rounded-2xl p-5 md:p-7">
         <p className="text-center text-blue-300 font-bold text-sm mb-4 flex items-center justify-center gap-2">
