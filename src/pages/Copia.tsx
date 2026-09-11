@@ -9,7 +9,7 @@ import {
   Users,
   PlayCircle,
   Sparkles,
-
+  BookOpen,
   Infinity as InfinityIcon,
   ChevronDown,
   ArrowRight,
