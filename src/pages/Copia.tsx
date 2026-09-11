@@ -939,10 +939,10 @@ const CTAFinal = ({ onOpenModal }: { onOpenModal: () => void }) => (
 
 // ───────────────────────── Modal de checkout ─────────────────────────
 const CHECKOUT_ITEMS = [
-  { icon: PlayCircle, label: "+90 Videoaulas" },
-  { icon: BookOpen, label: "Curso Completo" },
-  { icon: InfinityIcon, label: "Acesso Vitalício" },
-  { icon: Headphones, label: "Suporte Direto" },
+  { icon: Zap, label: "Acesso imediato", sub: "Login enviado por e-mail" },
+  { icon: ShieldCheck, label: "Garantia 7 dias", sub: "100% do dinheiro de volta" },
+  { icon: Headphones, label: "Suporte humanizado", sub: "Tire dúvidas pelo WhatsApp" },
+  { icon: InfinityIcon, label: "Acesso vitalício", sub: "Assista quando quiser" },
 ];
 
 const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
