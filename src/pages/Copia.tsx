@@ -984,20 +984,23 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           </h3>
         </div>
 
-        <div className="flex items-center gap-3 bg-gradient-to-r from-blue-600/20 to-slate-900 border border-blue-500/30 rounded-xl p-3 mb-4">
-          <img
-            src={elisa}
-            alt="Professora Elisa"
-            className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-blue-400/40 shrink-0"
-          />
-          <div>
-            <p className="text-slate-100 text-sm md:text-base leading-snug">
-              Não é apenas um curso. É sua chance de usar o computador com confiança.
-            </p>
-            <p className="text-blue-300 text-xs md:text-sm font-bold mt-1">
-              Estamos juntos nessa. Te espero no curso. — Profª Elisa
-            </p>
+        <div className="text-center mb-4">
+          <div className="relative inline-block mx-auto mb-3">
+            <img
+              src={elisaModal}
+              alt="Professora Elisa"
+              className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top border-4 border-blue-500/40 shadow-xl shadow-blue-900/20"
+            />
+            <div className="absolute -bottom-1 -right-1 bg-green-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full border-2 border-slate-900">
+              PROFª ELISA
+            </div>
           </div>
+          <p className="text-slate-100 text-sm md:text-base leading-snug max-w-xs mx-auto">
+            Não é apenas um curso. É sua chance de aprender a usar o computador com confiança.
+          </p>
+          <p className="text-blue-300 text-xs md:text-sm font-bold mt-2">
+            Estamos juntos nessa. Te espero no curso.
+          </p>
         </div>
 
         <div className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 mb-4">
