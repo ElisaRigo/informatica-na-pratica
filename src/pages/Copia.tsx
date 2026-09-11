@@ -1003,11 +1003,11 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
         </div>
 
         <div className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 mb-4">
-          <ul className="space-y-1.5">
+          <ul className="grid grid-cols-2 gap-2">
             {CHECKOUT_ITEMS.map((item) => (
               <li key={item} className="flex items-start gap-2 text-slate-200 text-sm md:text-base">
                 <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
-                <span>{item}</span>
+                <span className="leading-tight">{item}</span>
               </li>
             ))}
           </ul>
