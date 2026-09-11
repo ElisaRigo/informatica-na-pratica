@@ -767,7 +767,7 @@ const modulos = [
   { icon: typingIcon, t: "Digitação", d: "Digitar mais rápido e sem olhar o teclado" },
 ];
 
-const Oferta = () => (
+const Oferta = ({ onOpenModal }: { onOpenModal: () => void }) => (
   <section id="oferta" className="bg-slate-900 py-10 md:py-14 border-b border-slate-800">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-6">
