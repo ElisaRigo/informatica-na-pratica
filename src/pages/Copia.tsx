@@ -1035,7 +1035,7 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           </p>
         </div>
 
-        <CTA onClick={openCheckout} sub="Acesso imediato após a confirmação">QUERO COMEÇAR AGORA</CTA>
+        <CTA onClick={openCheckout} sub="Acesso imediato após a confirmação">QUERO ACESSAR O CURSO</CTA>
       </div>
     </div>
   );
