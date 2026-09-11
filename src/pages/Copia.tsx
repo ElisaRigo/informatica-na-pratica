@@ -29,6 +29,8 @@ import {
   Rocket,
   Flame,
   ClipboardCheck,
+  Monitor,
+  Shield,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
@@ -976,9 +978,16 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <X className="w-5 h-5" />
         </button>
 
+        <div className="bg-emerald-50/95 border border-emerald-200 rounded-xl px-3 py-2 mb-4 text-center flex items-center justify-center gap-2">
+          <Lock className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+          <span className="text-emerald-700 font-bold text-xs md:text-sm">Ambiente 100% Seguro</span>
+          <Shield className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+        </div>
+
         <div className="text-center mb-4">
-          <h3 className="text-xl md:text-2xl font-black text-white leading-tight">
-             Falta pouco para você começar 
+          <h3 className="text-lg md:text-xl font-black text-white leading-tight flex items-center justify-center gap-2">
+            <Monitor className="w-5 h-5 md:w-6 md:h-6 text-blue-400 shrink-0" />
+            Falta pouco para você começar!
           </h3>
         </div>
 
