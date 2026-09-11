@@ -997,6 +997,8 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
             <img
               src={elisaModal}
               alt="Professora Elisa"
+              loading="eager"
+              fetchPriority="high"
               className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover object-top border-4 border-blue-500/40 shadow-xl shadow-blue-900/20"
             />
             <div className="absolute -bottom-1 -right-1 bg-green-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full border-2 border-slate-900">
