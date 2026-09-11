@@ -1031,10 +1031,10 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <p className="text-slate-300 font-semibold text-[11px] md:text-xs">à vista ou em até 12 x 30,72 no cartão</p>
         </div>
 
-        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2 mb-2 text-center">
-          <p className="text-white font-bold text-[11px] md:text-xs leading-snug">
-            <ShieldCheck className="w-3.5 h-3.5 text-green-400 inline-block align-text-bottom mr-1" />
-            7 dias de garantia. Risco zero.
+        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2.5 mb-2 text-center">
+          <p className="text-white font-bold text-xs md:text-sm leading-snug">
+            <ShieldCheck className="w-4 h-4 text-green-400 inline-block align-text-bottom mr-1" />
+            7 dias de garantia incondicional. Risco zero para você.
           </p>
         </div>
 
@@ -1044,7 +1044,7 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
               <Lock className="w-3 h-3 text-blue-400 shrink-0" />
               Pagamento processado com segurança
             </span>
-            <span>pela plataforma <span className="text-white font-bold">Hotmart</span></span>
+            <span>pela plataforma <span className="text-white font-bold text-sm md:text-base">Hotmart</span></span>
           </p>
         </div>
 
