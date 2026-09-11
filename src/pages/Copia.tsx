@@ -944,10 +944,10 @@ const Copia = () => {
       <Header />
       <Hero />
       <TrustSeals />
-      <Diagnostico />
       <Aulas />
       <Oferta />
       <Custo />
+      <Diagnostico />
       <ParaQuem />
       <AntesDepois />
       <Professora />
