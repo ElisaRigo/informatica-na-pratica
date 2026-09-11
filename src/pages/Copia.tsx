@@ -1012,10 +1012,10 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           {CHECKOUT_ITEMS.map(({ icon: I, label, sub }) => (
             <div
               key={label}
-              className="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-2"
+              className="flex flex-col items-center justify-center text-center gap-1 bg-slate-950 border border-slate-800 rounded-xl px-2 py-2.5"
             >
-              <I className="w-4 h-4 text-blue-400 shrink-0" />
-              <div className="text-left">
+              <I className="w-5 h-5 text-blue-400 shrink-0" />
+              <div>
                 <p className="text-slate-100 text-[11px] md:text-xs font-bold leading-tight">{label}</p>
                 <p className="text-slate-400 text-[10px] leading-tight">{sub}</p>
               </div>
