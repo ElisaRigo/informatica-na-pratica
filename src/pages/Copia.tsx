@@ -1004,7 +1004,7 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
             </div>
           </div>
           <p className="text-slate-100 text-sm md:text-base leading-snug max-w-xs mx-auto">
-            Eu vou te ensinar passo a passo!
+            Eu vou estar com você passo a passo!
           </p>
         </div>
 
