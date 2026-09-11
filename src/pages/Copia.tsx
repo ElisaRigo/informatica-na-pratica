@@ -69,6 +69,27 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 const openCheckout = () => openHotmartCheckout();
 
+const scrollToOferta = () => {
+  const el = document.getElementById("oferta");
+  if (!el) return;
+  const target = el.getBoundingClientRect().top + window.scrollY - 16;
+  const start = window.scrollY;
+  const diff = target - start;
+  const duration = Math.min(1800, Math.max(900, Math.abs(diff) * 0.45));
+  const startTime = performance.now();
+
+  const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
+
+  const step = (now: number) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + diff * easeOutQuart(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  };
+
+  requestAnimationFrame(step);
+};
+
 
 
 
@@ -894,41 +915,28 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky CTA ─────────────────────────
-const StickyCTA = ({ visible }: { visible: boolean }) => (
-  <div
-    className={`fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:hidden transition-transform duration-300 ${
-      visible ? "translate-y-0" : "translate-y-full"
-    }`}
-  >
-    <button
-      onClick={openCheckout}
-      className="w-full bg-green-600 hover:bg-green-500 text-white font-black text-base rounded-xl py-3.5 shadow-lg"
-    >
-      QUERO COMEÇAR AGORA
-    </button>
+const StickyCTA = () => (
+  <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:p-4 transition-transform duration-300 translate-y-0">
+    <div className="max-w-4xl mx-auto flex items-center justify-between gap-3">
+      <div className="hidden md:block text-left">
+        <p className="text-white font-black text-sm">Curso de Informática do Zero</p>
+        <p className="text-slate-300 text-xs">Acesso vitalício por R$ 297</p>
+      </div>
+      <button
+        onClick={scrollToOferta}
+        className="w-full md:w-auto bg-green-600 hover:bg-green-500 text-white font-black text-base md:text-lg rounded-xl py-3.5 md:px-8 shadow-lg transition-colors"
+      >
+        QUERO COMEÇAR AGORA
+      </button>
+    </div>
   </div>
 );
 
 
 // ───────────────────────── Página ─────────────────────────
 const Copia = () => {
-  const [showSticky, setShowSticky] = useState(false);
-
   useEffect(() => {
     document.title = "Curso de Informática do Zero — Pare de depender dos outros";
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const el = document.getElementById("aula-3");
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      setShowSticky(rect.bottom < window.innerHeight);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -949,7 +957,7 @@ const Copia = () => {
       <FAQ />
       <CTAFinal />
       <Footer />
-      <StickyCTA visible={showSticky} />
+      <StickyCTA />
       <WhatsAppButton />
     </div>
   );
