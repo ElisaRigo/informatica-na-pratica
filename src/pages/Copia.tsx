@@ -968,36 +968,36 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-md bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-5 md:p-6 animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-sm bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-4 md:p-5 animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors"
+          className="absolute top-2.5 right-2.5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors"
           aria-label="Fechar"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
-        <div className="bg-emerald-950/60 border border-emerald-500/30 rounded-xl px-3 py-2 mb-4 text-center flex items-center justify-center gap-2">
+        <div className="bg-emerald-950/60 border border-emerald-500/30 rounded-xl px-3 py-1.5 mb-3 text-center flex items-center justify-center gap-2">
           <Lock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
           <span className="text-emerald-50 font-bold text-xs md:text-sm">Ambiente 100% Seguro</span>
           <Shield className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
         </div>
 
-        <div className="text-center mb-4">
-          <h3 className="text-lg md:text-xl font-black text-white leading-tight flex items-center justify-center gap-2">
-            <Monitor className="w-5 h-5 md:w-6 md:h-6 text-blue-400 shrink-0" />
+        <div className="text-center mb-3">
+          <h3 className="text-base md:text-lg font-black text-white leading-tight flex items-center justify-center gap-2">
+            <Monitor className="w-4 h-4 md:w-5 md:h-5 text-blue-400 shrink-0" />
             Falta pouco para você começar!
           </h3>
         </div>
 
-        <div className="text-center mb-4">
-          <div className="relative inline-block mx-auto mb-3">
+        <div className="text-center mb-3">
+          <div className="relative inline-block mx-auto mb-2">
             <img
               src={elisaModal}
               alt="Professora Elisa"
-              className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-top border-4 border-blue-500/40 shadow-xl shadow-blue-900/20"
+              className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover object-top border-4 border-blue-500/40 shadow-xl shadow-blue-900/20"
             />
             <div className="absolute -bottom-1 -right-1 bg-green-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full border-2 border-slate-900">
               PROFª ELISA
@@ -1006,43 +1006,40 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <p className="text-slate-100 text-sm md:text-base leading-snug max-w-xs mx-auto">
             Eu vou te ensinar passo a passo!
           </p>
-          <p className="text-blue-300 text-xs md:text-sm font-bold mt-2">
-            
-          </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 mb-4">
+        <div className="grid grid-cols-2 gap-1.5 mb-3">
           {CHECKOUT_ITEMS.map(({ icon: I, label, sub }) => (
             <div
               key={label}
-              className="flex items-center gap-2.5 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5"
+              className="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-2"
             >
-              <I className="w-5 h-5 text-blue-400 shrink-0" />
+              <I className="w-4 h-4 text-blue-400 shrink-0" />
               <div className="text-left">
-                <p className="text-slate-100 text-xs md:text-sm font-bold leading-tight">{label}</p>
-                <p className="text-slate-400 text-[10px] md:text-xs leading-tight">{sub}</p>
+                <p className="text-slate-100 text-[11px] md:text-xs font-bold leading-tight">{label}</p>
+                <p className="text-slate-400 text-[10px] leading-tight">{sub}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mb-3">
+        <div className="text-center mb-2">
           <p className="text-slate-300 text-xs md:text-sm">
-            De <span className="line-through font-bold text-base">R$ 865,00</span> por apenas
+            De <span className="line-through font-bold text-base">R$ 497,00</span> por apenas
           </p>
-          <p className="text-4xl md:text-5xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
-          <p className="text-slate-300 font-semibold text-xs md:text-sm">à vista ou em até 12 x 30,72 no cartão</p>
+          <p className="text-3xl md:text-4xl font-black text-green-400 leading-none tracking-tight my-1">R$ 297</p>
+          <p className="text-slate-300 font-semibold text-[11px] md:text-xs">à vista ou em até 12 x 30,72 no cartão</p>
         </div>
 
-        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2.5 mb-3 text-center">
-          <p className="text-white font-bold text-xs md:text-sm leading-snug">
+        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2 mb-2 text-center">
+          <p className="text-white font-bold text-[11px] md:text-xs leading-snug">
             <ShieldCheck className="w-3.5 h-3.5 text-green-400 inline-block align-text-bottom mr-1" />
             7 dias de garantia. Risco zero.
           </p>
         </div>
 
-        <div className="bg-slate-950/50 border border-slate-700/50 rounded-xl p-2.5 mb-4 text-center">
-          <p className="text-slate-300 text-[11px] md:text-xs leading-snug flex items-center justify-center gap-1.5">
+        <div className="bg-slate-950/50 border border-slate-700/50 rounded-xl p-2 mb-3 text-center">
+          <p className="text-slate-300 text-[10px] md:text-[11px] leading-snug flex items-center justify-center gap-1.5">
             <Lock className="w-3 h-3 text-blue-400 shrink-0" />
             Pagamento processado com segurança pela <span className="text-white font-bold">Hotmart</span>
           </p>
