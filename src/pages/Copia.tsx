@@ -978,10 +978,10 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <X className="w-5 h-5" />
         </button>
 
-        <div className="bg-emerald-50/95 border border-emerald-200 rounded-xl px-3 py-2 mb-4 text-center flex items-center justify-center gap-2">
-          <Lock className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-          <span className="text-emerald-700 font-bold text-xs md:text-sm">Ambiente 100% Seguro</span>
-          <Shield className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+        <div className="bg-emerald-950/60 border border-emerald-500/30 rounded-xl px-3 py-2 mb-4 text-center flex items-center justify-center gap-2">
+          <Lock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+          <span className="text-emerald-50 font-bold text-xs md:text-sm">Ambiente 100% Seguro</span>
+          <Shield className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
         </div>
 
         <div className="text-center mb-4">
