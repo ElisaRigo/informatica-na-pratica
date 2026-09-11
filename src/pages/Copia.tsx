@@ -1021,14 +1021,21 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <p className="text-slate-300 font-semibold text-xs md:text-sm">à vista ou em até 12 x 30,72 no cartão</p>
         </div>
 
-        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2.5 mb-4 text-center">
+        <div className="bg-green-900/25 border border-green-500/40 rounded-xl p-2.5 mb-3 text-center">
           <p className="text-white font-bold text-xs md:text-sm leading-snug">
             <ShieldCheck className="w-3.5 h-3.5 text-green-400 inline-block align-text-bottom mr-1" />
             7 dias de garantia. Risco zero.
           </p>
         </div>
 
-        <CTA onClick={openCheckout} sub="Pagamento seguro • Acesso imediato">QUERO COMEÇAR AGORA</CTA>
+        <div className="bg-slate-950/50 border border-slate-700/50 rounded-xl p-2.5 mb-4 text-center">
+          <p className="text-slate-300 text-[11px] md:text-xs leading-snug flex items-center justify-center gap-1.5">
+            <Lock className="w-3 h-3 text-blue-400 shrink-0" />
+            Pagamento processado com segurança pela <span className="text-white font-bold">Hotmart</span>
+          </p>
+        </div>
+
+        <CTA onClick={openCheckout} sub="Acesso imediato após a confirmação">QUERO COMEÇAR AGORA</CTA>
       </div>
     </div>
   );
