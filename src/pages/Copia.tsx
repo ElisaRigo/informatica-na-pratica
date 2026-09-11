@@ -69,6 +69,27 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 
 const openCheckout = () => openHotmartCheckout();
 
+const scrollToOferta = () => {
+  const el = document.getElementById("oferta");
+  if (!el) return;
+  const target = el.getBoundingClientRect().top + window.scrollY - 16;
+  const start = window.scrollY;
+  const diff = target - start;
+  const duration = Math.min(1800, Math.max(900, Math.abs(diff) * 0.45));
+  const startTime = performance.now();
+
+  const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
+
+  const step = (now: number) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + diff * easeOutQuart(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  };
+
+  requestAnimationFrame(step);
+};
+
 
 
 
