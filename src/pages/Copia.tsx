@@ -940,10 +940,10 @@ const CTAFinal = ({ onOpenModal }: { onOpenModal: () => void }) => (
 
 // ───────────────────────── Modal de checkout ─────────────────────────
 const CHECKOUT_ITEMS = [
-  { icon: Zap, label: "Acesso imediato", sub: "Login enviado por e-mail" },
-  { icon: ShieldCheck, label: "Garantia 7 dias", sub: "100% do dinheiro de volta" },
-  { icon: Headphones, label: "Suporte humanizado", sub: "Tire dúvidas pelo WhatsApp" },
-  { icon: InfinityIcon, label: "Acesso vitalício", sub: "Assista quando quiser" },
+  { icon: Zap, label: "Acesso imediato", sub: "\n" },
+  { icon: ShieldCheck, label: "Garantia 7 dias", sub: "\n" },
+  { icon: Headphones, label: "Suporte humanizado", sub: "\n\n\n" },
+  { icon: InfinityIcon, label: "Acesso vitalício", sub: "\n" },
 ];
 
 const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
