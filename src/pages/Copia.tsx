@@ -98,14 +98,16 @@ const CTA = ({
   children = "QUERO APRENDER AGORA",
   sub,
   size = "lg",
+  onClick = openCheckout,
 }: {
   children?: React.ReactNode;
   sub?: string;
   size?: "lg" | "sm";
+  onClick?: () => void;
 }) => (
   <div className="w-full">
     <button
-      onClick={openCheckout}
+      onClick={onClick}
       className={`group inline-flex w-full items-center justify-center gap-2 bg-green-600 hover:bg-green-500 active:scale-[.99] text-white font-black rounded-xl shadow-[0_10px_40px_-10px_rgba(34,197,94,.7)] transition-all ${
         size === "lg" ? "text-lg md:text-2xl px-5 py-4 md:px-10 md:py-5" : "text-base md:text-lg px-4 py-3"
       }`}
