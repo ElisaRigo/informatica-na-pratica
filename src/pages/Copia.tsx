@@ -31,6 +31,7 @@ import {
   ClipboardCheck,
   Monitor,
   Shield,
+  Zap,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logo from "@/assets/logo-blue.png";
