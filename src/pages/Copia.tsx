@@ -970,7 +970,6 @@ const Copia = () => {
     <div className="min-h-screen bg-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
-      <TrustSeals />
       <Aulas />
       <Oferta />
       <Custo />
