@@ -74,7 +74,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
             </span>
           </h1>
           <p className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium">
-            Mesmo começando do zero
+            Aprenda Informática do jeito certo!
           </p>
         </div>
 
@@ -108,7 +108,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
 
         {/* Frase de impacto */}
         <p className="text-center text-lg md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
-          <strong className="text-white">Aprenda Informática do jeito certo!</strong>
+          <strong className="text-white"></strong>
         </p>
 
         {/* Video Container */}
