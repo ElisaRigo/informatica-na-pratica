@@ -29,7 +29,6 @@ import {
   Rocket,
   Check,
   Gift,
-  Globe,
   HelpCircle,
   AlertTriangle,
   Frown,
@@ -41,7 +40,7 @@ import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
-import homeVideoThumbAsset from "@/assets/capa-video-principal.png.asset.json";
+import homeVideoThumbAsset from "@/assets/hero-video-cover-home-v4.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
 import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa-v2.jpg.asset.json";
@@ -128,27 +127,14 @@ import typingIcon from "@/assets/typing-icon.png";
 const Header = () => (
   <header className="bg-white border-b border-slate-200 py-3 md:py-5">
     <div className="container mx-auto px-4">
-      <div className="flex flex-row items-center justify-center gap-3 md:gap-6">
+      <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
         <div className="relative group shrink-0">
           <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
-            <img src={logo} alt="Informática na Prática" className="h-14 md:h-20 lg:h-24" />
+            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
           </div>
         </div>
-        <p className="text-slate-900 font-bold leading-tight text-left">
-          <span className="block text-2xl md:text-4xl lg:text-5xl tracking-tight">
-            Curso de Informática
-          </span>
-          <span className="inline-flex items-center gap-1.5 md:gap-2 flex-wrap text-sky-600 text-sm md:text-2xl lg:text-3xl font-semibold mt-0.5">
-            <span className="inline-flex items-center gap-1">
-              <Globe className="w-4 h-4 md:w-5 md:h-5 shrink-0" aria-hidden="true" />
-              Online
-            </span>
-            <span className="text-sky-400/80">—</span>
-            <span className="inline-flex items-center gap-1">
-              <Headphones className="w-4 h-4 md:w-5 md:h-5 shrink-0" aria-hidden="true" />
-              Com suporte
-            </span>
-          </span>
+        <p className="text-slate-900 text-lg md:text-3xl lg:text-4xl font-bold leading-tight text-left">
+          Curso de <span className="text-sky-600">Informática Online</span> Simples e Fácil.
         </p>
       </div>
     </div>
@@ -211,14 +197,14 @@ const Hero = () => {
           </div>
 
           <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
-            <span className="block">Você vai dominar o computador</span>
+            <span className="block">Use o computador sozinho(a),</span>
             <span className="block text-blue-600">
-              de forma simples, prática e sem depender de ninguém.
+              sem medo e sem depender de ninguém.
             </span>
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
-             Aulas fáceis, curtas e passo a passo, mesmo que você esteja começando do zero.
+            Aulas simples, curtas e passo a passo, feitas para quem está começando do zero.
           </p>
 
 
@@ -308,7 +294,7 @@ const PainIdentification = () => {
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Se você se identificou com alguma dessas situações, <span className="text-blue-600">saiba que isso pode mudar.</span>
+          Se você se identificou, <span className="text-blue-600">esse curso é para você</span>
         </p>
       </div>
     </section>
