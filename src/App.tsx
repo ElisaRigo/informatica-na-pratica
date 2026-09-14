@@ -28,6 +28,8 @@ const VendasNovo = lazy(() => import("./pages/VendasNovo"));
 const Ok = lazy(() => import("./pages/Ok"));
 const AltaConversao = lazy(() => import("./pages/AltaConversao"));
 const Copia = lazy(() => import("./pages/Copia"));
+const Portugal = lazy(() => import("./pages/Portugal"));
+
 
 
 const queryClient = new QueryClient();
