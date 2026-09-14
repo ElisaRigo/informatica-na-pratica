@@ -4,7 +4,7 @@ import { Gift } from "lucide-react";
 
 const valueItems = [
   { icon: Monitor, label: "+90 Videoaulas" },
-  { icon: BookOpen, label: "Curso Completo" },
+  { icon: BookOpen, label: "\n" },
   { icon: Award, label: "Certificado Incluso" },
   { icon: Infinity, label: "Acesso Vitalício" },
   { icon: Headphones, label: "Suporte Direto" },
@@ -27,7 +27,7 @@ export const HeroPricing = () => {
         {/* Urgency banner */}
         <div className="bg-gradient-to-r from-destructive to-destructive/80 py-4 px-4">
           <p className="text-white font-black text-center text-lg md:text-2xl tracking-wide animate-pulse">
-            🔥 ÚLTIMAS VAGAS COM 40% OFF!
+            🔥 Oferta por tempo Limitado.
           </p>
         </div>
 
