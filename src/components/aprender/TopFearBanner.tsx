@@ -18,7 +18,7 @@ export const TopFearBanner = () => {
         <p
           className="mt-1 font-bold text-sm sm:text-base md:text-lg text-green-600"
         >
-          Não se preocupe... Eu te ensino!
+          Não se preocupe... Eu te ensino do zero!
         </p>
       </div>
     </div>
