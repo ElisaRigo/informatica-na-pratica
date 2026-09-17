@@ -1681,6 +1681,7 @@ const VendasNovo = () => {
       <Footer />
       <WhatsAppButton />
       <StickyCTA />
+      <CheckoutModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
