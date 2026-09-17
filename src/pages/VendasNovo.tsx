@@ -35,7 +35,11 @@ import {
   Frown,
   RotateCcw,
   TrendingDown,
+  X,
+  Zap,
+  Shield,
 } from "lucide-react";
+import elisaModal from "@/assets/elisa-modal.jpg";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
