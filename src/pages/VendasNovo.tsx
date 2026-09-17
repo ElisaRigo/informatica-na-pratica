@@ -73,6 +73,9 @@ import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
 
 const openCheckout = () => openHotmartCheckout();
 
+// Modal global da página: CTAs abrem o modal de confirmação (exceto WhatsApp)
+let requestOpenModal: () => void = () => openCheckout();
+
 // ───────────────────────── CTA Button ─────────────────────────
 const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to }: any) => {
   const handleClick = () => {
@@ -81,7 +84,7 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
       el?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
-    openCheckout();
+    requestOpenModal();
   };
   return (
     <button
