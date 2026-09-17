@@ -35,7 +35,11 @@ import {
   Frown,
   RotateCcw,
   TrendingDown,
+  X,
+  Zap,
+  Shield,
 } from "lucide-react";
+import elisaModal from "@/assets/elisa-modal.jpg";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
@@ -69,15 +73,22 @@ import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
 
 const openCheckout = () => openHotmartCheckout();
 
+// Modal global da página: CTAs abrem o modal de confirmação (exceto WhatsApp)
+let requestOpenModal: () => void = () => openCheckout();
+
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to }: any) => {
+const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to, onClick }: any) => {
   const handleClick = () => {
+    if (onClick) {
+      onClick();
+      return;
+    }
     if (to) {
       const el = document.getElementById(to);
       el?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
-    openCheckout();
+    requestOpenModal();
   };
   return (
     <button
@@ -1476,13 +1487,127 @@ const Footer = () => (
 );
 
 
+// ───────────────────────── Modal de checkout (tema claro) ─────────────────────────
+const CHECKOUT_ITEMS = [
+  { icon: Zap, label: "Acesso imediato" },
+  { icon: ShieldCheck, label: "Garantia 7 dias" },
+  { icon: Headphones, label: "Suporte humanizado" },
+  { icon: InfinityIcon, label: "Acesso vitalício" },
+];
+
+const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="relative w-full max-w-sm bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 md:p-5 animate-in fade-in zoom-in-95 duration-200"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-2 text-slate-400 hover:text-slate-900 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+          aria-label="Fechar"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div className="bg-green-50 border border-green-300 rounded-xl px-3 py-1.5 mb-3 text-center flex items-center justify-center gap-2">
+          <Lock className="w-3.5 h-3.5 text-green-600 shrink-0" />
+          <span className="text-green-800 font-bold text-xs md:text-sm">Ambiente 100% Seguro</span>
+          <Shield className="w-3.5 h-3.5 text-green-600 shrink-0" />
+        </div>
+
+        <div className="text-center mb-3">
+          <h3 className="text-base md:text-lg font-black text-slate-900 leading-tight flex items-center justify-center gap-2">
+            <Monitor className="w-4 h-4 md:w-5 md:h-5 text-blue-600 shrink-0" />
+            Falta pouco para você começar!
+          </h3>
+        </div>
+
+        <div className="text-center mb-3">
+          <div className="relative inline-block mx-auto mb-2">
+            <img
+              src={elisaModal}
+              alt="Professora Elisa"
+              loading="eager"
+              fetchPriority="high"
+              className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover object-top border-4 border-blue-100 shadow-xl shadow-blue-900/10"
+            />
+            <div className="absolute -bottom-1 -right-1 bg-green-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full border-2 border-white">
+              PROFª ELISA
+            </div>
+          </div>
+          <p className="text-slate-700 text-sm md:text-base leading-snug max-w-xs mx-auto">
+            Eu vou estar com você passo a passo!
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-1.5 mb-3">
+          {CHECKOUT_ITEMS.map(({ icon: I, label }) => (
+            <div
+              key={label}
+              className="flex flex-col items-center justify-center text-center gap-1 bg-slate-50 border border-slate-200 rounded-xl px-2 py-2.5"
+            >
+              <I className="w-5 h-5 text-blue-600 shrink-0" />
+              <p className="text-slate-800 text-[11px] md:text-xs font-bold leading-tight">{label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mb-2">
+          <p className="text-slate-600 text-xs md:text-sm">
+            De <span className="line-through font-bold text-base">R$ 497,00</span> por apenas
+          </p>
+          <p className="text-3xl md:text-4xl font-black text-green-600 leading-none tracking-tight my-1">R$ 297</p>
+          <p className="text-slate-600 font-semibold text-[11px] md:text-xs">à vista ou em até 12 x 30,72 no cartão</p>
+        </div>
+
+        <div className="bg-green-50 border border-green-300 rounded-xl p-2.5 mb-2 text-center">
+          <p className="text-green-900 font-bold text-xs md:text-sm leading-snug flex flex-col items-center justify-center gap-0.5">
+            <span className="flex items-center justify-center gap-1.5">
+              <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-green-600 shrink-0" />
+              7 dias de garantia incondicional
+            </span>
+            <span className="text-green-700 font-semibold text-[11px] md:text-xs">Risco zero para você</span>
+          </p>
+        </div>
+
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 mb-3 text-center">
+          <p className="text-slate-600 text-sm md:text-base leading-snug flex flex-col items-center justify-center gap-0.5">
+            <span className="flex items-center justify-center gap-1.5">
+              <Lock className="w-4 h-4 text-blue-600 shrink-0" />
+              Pagamento processado com segurança
+            </span>
+            <span>pela plataforma <span className="text-slate-900 font-bold text-base md:text-lg">Hotmart</span></span>
+          </p>
+        </div>
+
+        <CTA onClick={openCheckout}>QUERO ACESSAR O CURSO</CTA>
+      </div>
+    </div>
+  );
+};
+
 // ───────────────────────── Sticky CTA (fixo no rodapé) ─────────────────────────
 const StickyCTA = () => {
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 px-3 pb-3 md:pb-4 pointer-events-none">
       <div className="max-w-2xl mx-auto pointer-events-auto">
         <button
-          onClick={() => openCheckout()}
+          onClick={() => requestOpenModal()}
           className="group flex w-full items-center justify-center gap-2 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-2xl shadow-green-600/30 transition-all whitespace-nowrap text-lg md:text-xl px-5 py-4"
         >
           <Monitor className="w-5 h-5 shrink-0" />
@@ -1496,8 +1621,16 @@ const StickyCTA = () => {
 
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
+    requestOpenModal = () => setModalOpen(true);
+    // Pré-carrega a foto do modal para abrir instantaneamente
+    const img = new Image();
+    img.src = elisaModal;
+    return () => {
+      requestOpenModal = () => openCheckout();
+    };
   }, []);
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -1548,6 +1681,7 @@ const VendasNovo = () => {
       <Footer />
       <WhatsAppButton />
       <StickyCTA />
+      <CheckoutModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
