@@ -77,8 +77,12 @@ const openCheckout = () => openHotmartCheckout();
 let requestOpenModal: () => void = () => openCheckout();
 
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to }: any) => {
+const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to, onClick }: any) => {
   const handleClick = () => {
+    if (onClick) {
+      onClick();
+      return;
+    }
     if (to) {
       const el = document.getElementById(to);
       el?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1617,8 +1621,16 @@ const StickyCTA = () => {
 
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
+    requestOpenModal = () => setModalOpen(true);
+    // Pré-carrega a foto do modal para abrir instantaneamente
+    const img = new Image();
+    img.src = elisaModal;
+    return () => {
+      requestOpenModal = () => openCheckout();
+    };
   }, []);
   return (
     <div className="min-h-screen bg-white text-slate-900">
