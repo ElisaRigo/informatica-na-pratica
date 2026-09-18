@@ -1,7 +1,6 @@
 import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -38,6 +37,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CheckoutModalLight, preloadCheckoutModalImage } from "@/components/CheckoutModalLight";
 
 import { HeroV2 } from "@/components/aprender/HeroV2";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
@@ -224,8 +224,13 @@ const Informatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isEnvPlaying, setIsEnvPlaying] = useState(false);
   const [shouldLoadEnv, setShouldLoadEnv] = useState(false);
-  
+  const [modalOpen, setModalOpen] = useState(false);
+
   const envRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    preloadCheckoutModalImage();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -236,7 +241,7 @@ const Informatica = () => {
     return () => observer.disconnect();
   }, []);
 
-  (window as any).openCheckout = () => openHotmartCheckout();
+  (window as any).openCheckout = () => setModalOpen(true);
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -703,6 +708,8 @@ const Informatica = () => {
 
       {/* FLOATING WHATSAPP */}
       <WhatsAppButton />
+
+      <CheckoutModalLight open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
