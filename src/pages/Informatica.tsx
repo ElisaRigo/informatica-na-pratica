@@ -219,6 +219,24 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
   );
 };
 
+// ─── Sticky CTA (fixo no rodapé) ───────────────────────────────────
+const StickyCTA = ({ onOpenModal }: { onOpenModal: () => void }) => (
+  <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur border-t border-slate-800 p-3 md:p-4">
+    <div className="max-w-4xl mx-auto flex items-center justify-between gap-3">
+      <div className="hidden md:block text-left">
+        <p className="text-white font-black text-sm">Curso de Informática do Zero</p>
+        <p className="text-slate-300 text-xs">Acesso vitalício por R$ 297</p>
+      </div>
+      <button
+        onClick={onOpenModal}
+        className="w-full md:w-auto bg-success hover:bg-success/90 text-white font-black text-base md:text-lg rounded-xl py-3.5 md:px-8 shadow-lg shadow-success/30 transition-all hover:scale-[1.02]"
+      >
+        QUERO COMEÇAR AGORA
+      </button>
+    </div>
+  </div>
+);
+
 // ─── Main Page ──────────────────────────────────────────────────────
 const Informatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -244,7 +262,7 @@ const Informatica = () => {
   (window as any).openCheckout = () => setModalOpen(true);
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-slate-900 pb-20 md:pb-0">
       {/* ─── HERO (mesmo da home /aprender) ─── */}
       <HeroV2
         problemSection={
@@ -705,6 +723,8 @@ const Informatica = () => {
           </div>
         </div>
       </footer>
+
+      <StickyCTA onOpenModal={() => setModalOpen(true)} />
 
       {/* FLOATING WHATSAPP */}
       <WhatsAppButton />
