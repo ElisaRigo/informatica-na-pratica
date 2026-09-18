@@ -1577,11 +1577,25 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           ))}
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 mb-2 flex items-center justify-center gap-2">
-          <Gift className="w-4 h-4 md:w-5 md:h-5 text-blue-600 shrink-0" />
-          <span className="text-slate-800 text-xs md:text-sm font-bold">
-            Hoje você leva <span className="text-blue-600">4 bônus exclusivos</span>
-          </span>
+        <div className="mb-2 text-center">
+          <p className="text-slate-500 text-[11px] md:text-xs font-bold uppercase tracking-wide mb-1.5">
+            Escolha como pagar
+          </p>
+          <div className="flex items-center justify-center gap-2">
+            {[
+              { icon: Zap, label: "PIX" },
+              { icon: CreditCard, label: "Cartão" },
+              { icon: Barcode, label: "Boleto" },
+            ].map(({ icon: I, label }) => (
+              <div
+                key={label}
+                className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-full px-3 py-1.5"
+              >
+                <I className="w-4 h-4 text-blue-600 shrink-0" />
+                <span className="text-slate-800 text-xs md:text-sm font-bold">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="text-center mb-2">
