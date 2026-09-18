@@ -28,6 +28,8 @@ import {
   MousePointer,
   Rocket,
   Check,
+  CreditCard,
+  Barcode,
   Gift,
   Globe,
   HelpCircle,
