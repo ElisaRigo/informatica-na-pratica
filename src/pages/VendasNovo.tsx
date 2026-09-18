@@ -1581,6 +1581,8 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
             Hoje você leva <span className="text-blue-600">4 bônus exclusivos</span>
           </span>
         </div>
+
+        <div className="text-center mb-2">
           <p className="text-slate-600 text-xs md:text-sm">
             De <span className="line-through font-bold text-base">R$ 497,00</span> por apenas
           </p>
