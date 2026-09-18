@@ -1553,6 +1553,14 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <p className="text-slate-700 text-sm md:text-base leading-snug max-w-xs mx-auto">
             Eu vou estar com você passo a passo!
           </p>
+          <div className="flex items-center justify-center gap-1 mt-2">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+            ))}
+            <span className="text-slate-700 text-[11px] md:text-xs font-bold ml-1">
+              +15.000 alunos já aprenderam comigo
+            </span>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-1.5 mb-3">
@@ -1567,7 +1575,12 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           ))}
         </div>
 
-        <div className="text-center mb-2">
+        <div className="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 mb-2 flex items-center justify-center gap-2">
+          <Gift className="w-4 h-4 md:w-5 md:h-5 text-blue-600 shrink-0" />
+          <span className="text-slate-800 text-xs md:text-sm font-bold">
+            Hoje você leva <span className="text-blue-600">4 bônus exclusivos</span>
+          </span>
+        </div>
           <p className="text-slate-600 text-xs md:text-sm">
             De <span className="line-through font-bold text-base">R$ 497,00</span> por apenas
           </p>
