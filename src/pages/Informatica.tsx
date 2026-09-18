@@ -134,7 +134,7 @@ const Informatica = () => {
 
             <div className="relative mx-auto w-full max-w-sm">
               <div className="overflow-hidden rounded-lg border border-border bg-card shadow-card">
-                <img src={elisaPhoto} alt="Professora Elisa" className="aspect-[4/5] w-full object-cover" fetchPriority="high" />
+                <img src={elisaPhoto} alt="Professora Elisa" className="aspect-[4/5] w-full object-cover" loading="eager" />
                 <div className="border-t border-border p-4 text-center">
                   <p className="font-black">Professora Elisa</p>
                   <p className="text-sm text-muted-foreground">Mais de 20 anos ensinando informática</p>
@@ -405,12 +405,8 @@ const Informatica = () => {
       </footer>
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur">
-        <div className="mx-auto flex max-w-4xl items-center justify-between gap-3">
-          <div className="hidden md:block">
-            <p className="font-black">Curso completo por R$ 297</p>
-            <p className="text-xs text-muted-foreground">Acesso vitalício e garantia de 7 dias</p>
-          </div>
-          <Button onClick={openModal} className="h-auto w-full rounded-xl bg-success px-8 py-3.5 text-base font-black text-success-foreground shadow-cta hover:bg-success/90 md:w-auto">
+        <div className="mx-auto max-w-4xl">
+          <Button onClick={openModal} className="h-auto w-full rounded-xl bg-success px-8 py-3.5 text-base font-black text-success-foreground shadow-cta hover:bg-success/90">
             QUERO COMEÇAR AGORA
           </Button>
         </div>
