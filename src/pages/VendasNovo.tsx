@@ -1616,13 +1616,13 @@ const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           </p>
         </div>
 
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 mb-3 text-center">
-          <p className="text-slate-600 text-sm md:text-base leading-snug flex flex-col items-center justify-center gap-0.5">
-            <span className="flex items-center justify-center gap-1.5">
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-2.5 mb-3 text-center">
+          <p className="text-slate-600 text-xs md:text-sm leading-snug flex flex-col items-center justify-center gap-0.5">
+            <span className="flex items-center justify-center gap-1.5 whitespace-nowrap">
               <Lock className="w-4 h-4 text-blue-600 shrink-0" />
               Pagamento processado com segurança
             </span>
-            <span>pela plataforma <span className="text-slate-900 font-bold text-base md:text-lg">Hotmart</span></span>
+            <span className="whitespace-nowrap">pela plataforma <span className="text-slate-900 font-bold text-sm md:text-base">Hotmart</span></span>
           </p>
         </div>
 
