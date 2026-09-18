@@ -38,6 +38,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CheckoutModalLight, preloadCheckoutModalImage } from "@/components/CheckoutModalLight";
 
 import { HeroV2 } from "@/components/aprender/HeroV2";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
@@ -224,8 +225,13 @@ const Informatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isEnvPlaying, setIsEnvPlaying] = useState(false);
   const [shouldLoadEnv, setShouldLoadEnv] = useState(false);
-  
+  const [modalOpen, setModalOpen] = useState(false);
+
   const envRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    preloadCheckoutModalImage();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -236,7 +242,7 @@ const Informatica = () => {
     return () => observer.disconnect();
   }, []);
 
-  (window as any).openCheckout = () => openHotmartCheckout();
+  (window as any).openCheckout = () => setModalOpen(true);
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -703,6 +709,8 @@ const Informatica = () => {
 
       {/* FLOATING WHATSAPP */}
       <WhatsAppButton />
+
+      <CheckoutModalLight open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
