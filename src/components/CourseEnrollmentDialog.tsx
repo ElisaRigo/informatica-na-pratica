@@ -94,29 +94,31 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
 
         <div className="mt-4 grid grid-cols-2 gap-2">
           {benefits.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex min-h-20 flex-col items-center justify-center gap-1 rounded-lg border border-border bg-panel p-2 text-center">
-              <Icon className="h-6 w-6 text-primary" />
-              <span className="text-sm font-bold text-foreground">{label}</span>
+            <div key={label} className="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-lg border border-border bg-panel px-1 py-1.5 text-center">
+              <Icon className="h-5 w-5 text-primary" />
+              <span className="text-xs font-bold text-foreground md:text-sm">{label}</span>
             </div>
           ))}
         </div>
 
-        <p className="mt-4 text-center text-sm font-bold uppercase text-muted-foreground">Escolha como pagar</p>
-        <div className="mt-2 flex items-center justify-center gap-2">
+        <p className="mt-3 text-center text-xs font-bold text-muted-foreground md:text-sm">
+          Pix, cartão ou boleto: você escolhe no próximo passo
+        </p>
+        <div className="mt-1.5 flex items-center justify-center gap-2">
           {paymentMethods.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full border border-border bg-background px-2 py-2 text-sm font-bold text-foreground">
-              <Icon className="h-5 w-5 shrink-0 text-primary" />
+            <div key={label} className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full border border-border bg-background px-2 py-1.5 text-xs font-bold text-foreground md:text-sm">
+              <Icon className="h-4 w-4 shrink-0 text-primary" />
               <span>{label}</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-4 text-center">
-          <p className="text-base text-muted-foreground">
+        <div className="mt-3 text-center">
+          <p className="text-sm text-muted-foreground">
             De <span className="line-through">R$ 497,00</span> por apenas
           </p>
-          <p className="mt-1 text-5xl font-black leading-none text-success">R$ 297</p>
-          <p className="mt-2 text-sm font-semibold text-muted-foreground">à vista ou em até 12x de R$ 30,72 no cartão</p>
+          <p className="mt-0.5 text-4xl font-black leading-none text-success md:text-5xl">R$ 297</p>
+          <p className="mt-1 text-xs font-semibold text-muted-foreground md:text-sm">à vista ou em até 12x de R$ 30,72 no cartão</p>
         </div>
 
         <div className="mt-4 rounded-lg border border-success/40 bg-success/10 px-3 py-3 text-center">
