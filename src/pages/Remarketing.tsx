@@ -287,7 +287,7 @@ const Offer = () => (
   <section id="oferta" className="bg-primary py-7 text-primary-foreground md:py-10">
     <div className="container mx-auto max-w-3xl px-4">
       <div className="text-center">
-        <span className="inline-flex items-center gap-2 rounded-full bg-warning px-4 py-2 text-sm font-black text-warning-foreground"><Award className="h-5 w-5" /> EU SEPAR ESTA CONDIÇÃO PARA VOCÊ</span>
+        <span className="inline-flex items-center gap-2 rounded-full bg-warning px-4 py-2 text-sm font-black text-warning-foreground"><Award className="h-5 w-5" /> EU SEPAR_EI ESTA CONDIÇÃO PARA VOCÊ</span>
         <h2 className="mt-3 text-3xl font-black md:text-5xl">Quero te ver usando o computador com confiança</h2>
         <p className="mt-2 text-primary-foreground/80">Curso completo, meu suporte e acesso vitalício.</p>
       </div>
