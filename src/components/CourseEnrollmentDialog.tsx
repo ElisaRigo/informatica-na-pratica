@@ -73,7 +73,7 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
             <img
               src={elisa}
               alt="Professora Elisa"
-              className="h-20 w-20 rounded-full border-4 border-primary/20 object-cover shadow-card md:h-24 md:w-24"
+              className="h-20 w-20 rounded-full border-4 border-primary/20 object-cover object-[center_20%] shadow-card md:h-24 md:w-24"
             />
             <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-success px-2.5 py-0.5 text-[10px] font-black text-success-foreground shadow-card md:text-xs">
               PROFª ELISA
@@ -104,14 +104,6 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
         <p className="mt-3 text-center text-xs font-bold text-muted-foreground md:text-sm">
           Pix, cartão ou boleto: você escolhe no próximo passo
         </p>
-        <div className="mt-1.5 flex items-center justify-center gap-2">
-          {paymentMethods.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full border border-border bg-background px-2 py-1.5 text-xs font-bold text-foreground md:text-sm">
-              <Icon className="h-4 w-4 shrink-0 text-primary" />
-              <span>{label}</span>
-            </div>
-          ))}
-        </div>
 
         <div className="mt-3 text-center">
           <p className="text-sm text-muted-foreground">
