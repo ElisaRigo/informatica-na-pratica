@@ -24,8 +24,8 @@ import { CourseEnrollmentDialog } from "@/components/CourseEnrollmentDialog";
 import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 import logo from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
-import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
-import lessonVideoThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
+import homeVideoThumb from "@/assets/hero-video-cover-home.jpg";
+import lessonVideoThumb from "@/assets/capa-aula-excel.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
@@ -105,7 +105,7 @@ const Hero = () => {
                 onClick={() => setIsPlaying(true)}
                 className="group relative block h-auto w-full rounded-none p-0"
               >
-                <img src={homeVideoThumbAsset.url} alt="Professora Elisa apresentando o curso" className="aspect-video w-full object-cover" />
+                <img src={homeVideoThumb} alt="Professora Elisa apresentando o curso" className="aspect-video w-full object-cover" />
                 <span className="absolute inset-0 flex items-center justify-center">
                   <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/80 shadow-card transition-transform group-hover:scale-105 md:h-20 md:w-20">
                     <PlayCircle className="h-11 w-11 text-primary md:h-14 md:w-14" />
@@ -267,7 +267,7 @@ const TeacherAndLesson = () => {
             <div className="mt-4 overflow-hidden rounded-xl border border-border shadow-card">
               {!isPlaying ? (
                 <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir aula real">
-                  <img src={lessonVideoThumbAsset.url} alt="Aula real com a Professora Elisa" className="aspect-video w-full object-cover" loading="lazy" />
+                  <img src={lessonVideoThumb} alt="Aula real com a Professora Elisa" className="aspect-video w-full object-cover" loading="lazy" />
                   <span className="absolute inset-0 flex items-center justify-center"><PlayCircle className="h-16 w-16 text-primary transition-transform group-hover:scale-105" /></span>
                 </Button>
               ) : (
