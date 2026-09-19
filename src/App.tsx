@@ -25,9 +25,6 @@ const ImagemWhatsApp = lazy(() => import("./pages/ImagemWhatsApp"));
 const Informatica = lazy(() => import("./pages/Informatica"));
 const Aprender = lazy(() => import("./pages/Aprender"));
 const VendasNovo = lazy(() => import("./pages/VendasNovo"));
-const Ok = lazy(() => import("./pages/Ok"));
-const AltaConversao = lazy(() => import("./pages/AltaConversao"));
-const Copia = lazy(() => import("./pages/Copia"));
 
 
 const queryClient = new QueryClient();
@@ -58,10 +55,7 @@ const App = () => (
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
             <Route path="/informatica" element={<Informatica />} />
             <Route path="/aprender" element={<Aprender />} />
-            <Route path="/cursodeinformatica" element={<VendasNovo />} />
-            <Route path="/ok" element={<Ok />} />
-            <Route path="/alta-conversao" element={<AltaConversao />} />
-            <Route path="/copia" element={<Copia />} />
+            <Route path="/vendas-novo" element={<VendasNovo />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

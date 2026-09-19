@@ -53,7 +53,7 @@ export const CapableSection = () => {
               ) : (
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&showinfo=0&playsinline=1&cc_load_policy=0&autoplay=1"
+                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                     title="Veja como é fácil aprender"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

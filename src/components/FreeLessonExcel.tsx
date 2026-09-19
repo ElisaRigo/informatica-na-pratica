@@ -70,7 +70,7 @@ export const FreeLessonExcel = () => {
                 <iframe
                   width="960"
                   height="540"
-                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&showinfo=0&playsinline=1&cc_load_policy=0&autoplay=1"
+                  src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1"
                   title="Aula Gratuita de Excel"
                   frameBorder="0"
                   loading="lazy"

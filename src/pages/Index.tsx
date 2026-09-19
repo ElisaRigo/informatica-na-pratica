@@ -1,7 +1,5 @@
-import { lazy } from "react";
+import VendasNovo from "./VendasNovo";
 
-const Copia = lazy(() => import("./Copia"));
-
-const Index = () => <Copia />;
+const Index = () => <VendasNovo />;
 
 export default Index;
