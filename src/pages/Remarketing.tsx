@@ -193,8 +193,8 @@ const SocialProof = () => (
           <span><strong className="block text-2xl text-primary md:text-3xl">4,9</strong><small className="font-bold text-muted-foreground">avaliação</small></span>
           <span><strong className="block text-2xl text-primary md:text-3xl">20 anos</strong><small className="font-bold text-muted-foreground">ensinando</small></span>
         </div>
-        <h2 className="mt-5 text-2xl font-black text-foreground md:text-4xl">Pessoas que também começaram com medo</h2>
-        <p className="mt-2 text-muted-foreground">Elas só precisavam de uma explicação simples e da oportunidade de tentar.</p>
+        <h2 className="mt-5 text-2xl font-black text-foreground md:text-4xl">Alunos que começaram com medo, igual você</h2>
+        <p className="mt-2 text-muted-foreground">Eles só precisavam de uma explicação simples — e é isso que eu dou em todas as aulas.</p>
       </div>
       <div className="mx-auto mt-5 grid max-w-2xl grid-cols-2 gap-3">
         {[whatsappTestimonial1, whatsappTestimonial2].map((image, index) => (
@@ -203,7 +203,7 @@ const SocialProof = () => (
           </div>
         ))}
       </div>
-      <p className="mt-5 text-center text-xl font-black text-foreground md:text-2xl">Se eles conseguiram, <span className="text-success">você também pode conseguir.</span></p>
+      <p className="mt-5 text-center text-xl font-black text-foreground md:text-2xl">Se eles conseguiram, <span className="text-success">você também consegue — eu vou te ajudar.</span></p>
     </div>
   </section>
 );
@@ -222,9 +222,9 @@ const CourseContent = () => {
     <section className="bg-muted py-6 md:py-9">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center">
-          <span className="text-sm font-black uppercase text-primary">Tudo em um só curso</span>
-          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">O que você recebe ao se inscrever</h2>
-          <p className="mt-2 text-muted-foreground">Mais de 90 aulas práticas para usar o computador com confiança.</p>
+          <span className="text-sm font-black uppercase text-primary">Eu preparei tudo em um só curso</span>
+          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">O que eu vou te ensinar</h2>
+          <p className="mt-2 text-muted-foreground">Mais de 90 aulas práticas que eu gravei para você usar o computador com confiança.</p>
         </div>
         <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3">
           {lessons.map((lesson) => (
@@ -236,7 +236,7 @@ const CourseContent = () => {
           ))}
         </div>
         <div className="mt-4 grid gap-2 sm:grid-cols-3">
-          {["Suporte com a professora", "Certificado de conclusão", "Acesso vitalício às aulas"].map((item) => (
+          {["Suporte direto comigo", "Certificado de conclusão", "Acesso vitalício às aulas"].map((item) => (
             <p key={item} className="flex items-center gap-2 rounded-lg bg-primary/10 p-3 text-sm font-bold text-foreground">
               <CheckCircle2 className="h-5 w-5 shrink-0 text-success" />{item}
             </p>
@@ -256,14 +256,14 @@ const TeacherAndLesson = () => {
         <div className="grid items-center gap-5 md:grid-cols-[.75fr_1.25fr]">
           <div className="text-center md:text-left">
             <img src={elisa} alt="Professora Elisa" className="mx-auto aspect-[4/5] max-h-72 rounded-xl object-cover object-top shadow-card md:mx-0" />
-            <h2 className="mt-3 text-2xl font-black text-foreground">Professora Elisa</h2>
-            <p className="mt-1 font-bold text-primary">Há mais de 20 anos ensinando informática</p>
+            <h2 className="mt-3 text-2xl font-black text-foreground">Eu sou a Professora Elisa</h2>
+            <p className="mt-1 font-bold text-primary">Há mais de 20 anos eu ensino informática</p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">“Eu vou explicar com calma, sem palavras difíceis e sem julgamento. Você não estará sozinho.”</p>
           </div>
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-warning/15 px-3 py-1.5 text-xs font-black text-warning"><PlayCircle className="h-4 w-4" /> VEJA COMO ELA ENSINA</span>
-            <h2 className="mt-2 text-2xl font-black text-foreground md:text-3xl">Assista a uma aula real antes de decidir</h2>
-            <p className="mt-2 text-muted-foreground">Veja a explicação calma e passo a passo que você encontrará dentro do curso.</p>
+            <span className="inline-flex items-center gap-2 rounded-full bg-warning/15 px-3 py-1.5 text-xs font-black text-warning"><PlayCircle className="h-4 w-4" /> VEJA COMO EU ENSINO</span>
+            <h2 className="mt-2 text-2xl font-black text-foreground md:text-3xl">Assista a uma aula real comigo antes de decidir</h2>
+            <p className="mt-2 text-muted-foreground">Assim você já conhece minha explicação calma e passo a passo, igual às aulas do curso.</p>
             <div className="mt-4 overflow-hidden rounded-xl border border-border shadow-card">
               {!isPlaying ? (
                 <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir aula real">
@@ -287,9 +287,9 @@ const Offer = () => (
   <section id="oferta" className="bg-primary py-7 text-primary-foreground md:py-10">
     <div className="container mx-auto max-w-3xl px-4">
       <div className="text-center">
-        <span className="inline-flex items-center gap-2 rounded-full bg-warning px-4 py-2 text-sm font-black text-warning-foreground"><Award className="h-5 w-5" /> CONDIÇÃO ESPECIAL DE HOJE</span>
-        <h2 className="mt-3 text-3xl font-black md:text-5xl">Comece com segurança e no seu ritmo</h2>
-        <p className="mt-2 text-primary-foreground/80">Curso completo, suporte e acesso vitalício.</p>
+        <span className="inline-flex items-center gap-2 rounded-full bg-warning px-4 py-2 text-sm font-black text-warning-foreground"><Award className="h-5 w-5" /> EU SEPAR ESTA CONDIÇÃO PARA VOCÊ</span>
+        <h2 className="mt-3 text-3xl font-black md:text-5xl">Quero te ver usando o computador com confiança</h2>
+        <p className="mt-2 text-primary-foreground/80">Curso completo, meu suporte e acesso vitalício.</p>
       </div>
       <div className="mt-5 rounded-xl border-2 border-warning bg-background p-5 text-foreground shadow-card md:p-8">
         <div className="text-center">
@@ -305,10 +305,10 @@ const Offer = () => (
         </div>
         <div className="mt-5 rounded-lg border border-success/30 bg-success/10 p-4 text-center">
           <ShieldCheck className="mx-auto h-8 w-8 text-success" />
-          <p className="mt-1 text-lg font-black text-success">Você tem 7 dias para conhecer o curso</p>
-          <p className="mt-1 text-sm text-muted-foreground">Se não gostar, basta pedir o reembolso dentro desse prazo.</p>
+          <p className="mt-1 text-lg font-black text-success">Você tem 7 dias para conhecer minhas aulas</p>
+          <p className="mt-1 text-sm text-muted-foreground">Se não gostar, basta pedir — eu devolvo seu dinheiro.</p>
         </div>
-        <div className="mt-5"><CTA>Sim, quero aprender informática</CTA></div>
+        <div className="mt-5"><CTA>Sim, Elisa, quero aprender com você</CTA></div>
         <TrustRow />
       </div>
     </div>
