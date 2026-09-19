@@ -22,6 +22,8 @@ import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { CourseEnrollmentDialog } from "@/components/CourseEnrollmentDialog";
 import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 import elisa from "@/assets/elisa-photo.jpg";
+import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
+const elisaHeader = elisaHeaderAsset.url;
 import homeVideoThumb from "@/assets/hero-video-cover-home.jpg";
 import lessonVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
@@ -64,7 +66,7 @@ const TrustRow = () => (
 const Header = () => (
   <header className="border-b border-border bg-background py-3">
     <div className="container mx-auto flex items-center justify-center gap-3 px-4">
-      <img src={elisa} alt="Professora Elisa" className="h-16 w-16 shrink-0 rounded-full border-2 border-primary object-cover object-top shadow-card md:h-20 md:w-20" />
+      <img src={elisaHeader} alt="Professora Elisa" className="h-16 w-16 shrink-0 rounded-full border-2 border-primary object-cover shadow-card md:h-20 md:w-20" />
       <p className="max-w-xs text-xl font-black leading-tight text-foreground md:max-w-none md:text-2xl">
         Aprenda <span className="text-primary">Informática</span> do zero, passo a passo
       </p>
