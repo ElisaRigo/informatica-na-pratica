@@ -103,14 +103,10 @@ import typingIcon from "@/assets/typing-icon.png";
 const Header = () => (
   <header className="bg-white border-b border-slate-200 py-3 md:py-5">
     <div className="container mx-auto px-4">
-      <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
-        <div className="relative group shrink-0">
-          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
-            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
-          </div>
-        </div>
-        <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
-          Curso de <span className="text-sky-600">Informática Online</span> — Simples e para Todos.
+      <div className="flex flex-row items-center justify-center gap-3 md:gap-5">
+        <img src={elisa} alt="Professora Elisa" className="h-14 w-14 shrink-0 rounded-full border-2 border-sky-600 object-cover object-top shadow-lg md:h-20 md:w-20" />
+        <p className="text-slate-900 text-lg md:text-2xl lg:text-3xl font-black leading-tight text-left">
+          Aprenda <span className="text-sky-600">Informática</span> do zero, passo a passo
         </p>
       </div>
     </div>

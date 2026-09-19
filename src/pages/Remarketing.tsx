@@ -65,9 +65,9 @@ const TrustRow = () => (
 const Header = () => (
   <header className="border-b border-border bg-background py-3">
     <div className="container mx-auto flex items-center justify-center gap-3 px-4">
-      <img src={logo} alt="Informática na Prática" className="h-14 md:h-16" />
-      <p className="max-w-md text-base font-black leading-tight text-foreground md:text-xl">
-        Curso de <span className="text-primary">Informática Online</span> — simples e passo a passo
+      <img src={elisa} alt="Professora Elisa" className="h-14 w-14 shrink-0 rounded-full border-2 border-primary object-cover object-top shadow-card md:h-16 md:w-16" />
+      <p className="max-w-xs text-lg font-black leading-tight text-foreground md:max-w-none md:text-xl">
+        Aprenda <span className="text-primary">Informática</span> do zero, passo a passo
       </p>
     </div>
   </header>
