@@ -1,34 +1,46 @@
-# Plano: Otimizações de Conversão na Página Principal
+# Plano: Página de Remarketing de Alta Conversão
 
-## Avaliação geral
+## Objetivo
+Transformar `/remarketing` em uma página mais curta e decisiva para quem já conhece o curso, reduzindo distrações e respondendo rapidamente às dúvidas que impediram a compra.
 
-A página já está bem acima da média para conversão: vídeo de vendas no topo, aula demonstrativa real, quiz interativo, prova social (15.000+ alunos), professora apresentada, bônus, certificado, garantia, FAQ, CTA fixo no celular e modal de confirmação antes da Hotmart. A estrutura está boa — o que resta são ajustes finos de persuasão e medição.
+## Nova estrutura
+1. **Primeira tela de retomada**
+   - Mensagem acolhedora de retorno, sem pressionar nem afirmar que a pessoa “abandonou”.
+   - Benefício principal, condição de R$ 297 (de R$ 497), 4 bônus exclusivos e garantia já visíveis.
+   - Vídeo, botão de inscrição e sinais de segurança no mesmo bloco.
 
-## Melhorias propostas (por ordem de impacto)
+2. **Bloco “O que pode estar te impedindo?”**
+   - Respostas curtas às objeções mais comuns: medo de não conseguir, pouco tempo, dificuldade para acompanhar e receio de investir.
+   - Linguagem simples, positiva e focada em computador.
 
-### 1. Medir o que funciona (prioridade máxima)
-Hoje não sabemos onde as pessoas abandonam. Sem isso, qualquer mudança é no escuro.
-- Adicionar eventos de acompanhamento (Google Ads / Meta Pixel já existentes): `quiz_start`, `quiz_complete`, `video_aula_play`, `modal_aberto`, `clique_checkout`.
-- Resultado: relatório claro de onde os visitantes travam, para decidir as próximas mudanças com dados.
+3. **Prova antes da explicação**
+   - Trazer resultados e relatos de alunos para perto do início.
+   - Manter apenas as provas mais fortes para evitar uma página cansativa.
 
-### 2. Urgência real na oferta
-- Adicionar um contador regressivo discreto na seção de preço (ex.: "Oferta de hoje termina em: 23:59:59") — reforça os 40% OFF + 4 bônus exclusivos que já existem.
-- Alternativa mais leve: selo "Últimas vagas com bônus hoje" sem contador.
+4. **Oferta resumida e concreta**
+   - Mostrar o que a pessoa recebe: mais de 90 aulas, Word, Excel, internet, arquivos, suporte, acesso vitalício, certificado e 4 bônus.
+   - Remover o quiz e repetições que fazem sentido na página principal, mas criam demora no remarketing.
 
-### 3. Prova social perto do botão de compra
-- Repetir 1 ou 2 depoimentos curtos (nome + frase) dentro ou logo acima da seção de preço/oferta. Hoje os depoimentos ficam longe do momento da decisão.
+5. **Professora e aula real**
+   - Apresentação curta da Profª Elisa e uma amostra da didática, sem duplicar vídeos ou explicações longas.
 
-### 4. Reforço no modal de confirmação
-- Adicionar no modal uma frase curta de urgência: "Bônus disponíveis somente hoje" junto ao preço.
+6. **Decisão sem risco**
+   - Unir preço, bônus, acesso vitalício, prova social e garantia de 7 dias em um bloco final forte.
+   - FAQ compacto com as objeções essenciais e chamada final para inscrição.
 
-### 5. FAQ com foco em objeções de compra
-- Garantir que o FAQ responda as 3 maiores dúvidas de quem hesita: "Nunca usei computador, consigo?", "Como recebo o acesso?", "E se eu não gostar?" — com respostas de 1-2 linhas (público de baixa letramento).
+## Estratégias aplicadas
+- Continuidade: “você já conhece; agora veja o que faltava para decidir”.
+- Redução de risco: garantia e segurança próximas aos botões.
+- Especificidade: resultados práticos, conteúdo e valor claros.
+- Prova social no momento de decisão.
+- Urgência ética: usar “condição disponível hoje” sem contador reiniciado ou falsa escassez.
+- Consistência: todos os botões abrem o mesmo modal e seguem para a Hotmart.
 
-## O que NÃO mexer
-- Estrutura das seções, quiz, vídeos, faixa azul e CTAs — já foram refinados e funcionam.
+## Ajustes de conformidade
+- Remover referências a celular e tablet, mantendo o conteúdo exclusivamente sobre computadores.
+- Não usar “grátis”, “sem juros” ou promessas garantidas.
+- Preservar R$ 297 de R$ 497, acesso vitalício e “Hoje você leva 4 bônus exclusivos”.
 
-## Detalhes técnicos
-- Eventos usam `src/lib/checkoutTracking.ts` e os pixels já carregados (Meta 787096354071974 / Google Ads).
-- Contador regressivo: componente simples em `Pricing`, reinício diário à meia-noite (sem mentira de escassez falsa por visitante).
-- Nada de captura de dados no quiz (mantém a regra atual).
-- Verificação com `bunx tsgo --noEmit` e teste no celular via Playwright ao final.
+## Verificação
+- Conferir a página em celular e computador.
+- Validar abertura do modal, reprodução do vídeo, botões e ausência de textos cortados ou sobrepostos.
