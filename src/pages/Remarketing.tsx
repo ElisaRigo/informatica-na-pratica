@@ -21,7 +21,6 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { CourseEnrollmentDialog } from "@/components/CourseEnrollmentDialog";
 import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
-import logo from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import homeVideoThumb from "@/assets/hero-video-cover-home.jpg";
 import lessonVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";

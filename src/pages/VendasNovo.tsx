@@ -91,7 +91,6 @@ const useCountdown = () => {
   return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
 };
 
-import logo from "@/assets/logo-blue.png";
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
 import excelIcon from "@/assets/excel-icon.png";
