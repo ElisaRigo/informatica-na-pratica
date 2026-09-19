@@ -80,7 +80,7 @@ const Hero = () => {
   return (
     <section className="bg-background">
       <div className="bg-primary px-3 py-2.5 text-center font-black text-primary-foreground">
-        💻 Que bom ter você de volta — sua condição especial continua disponível
+        💻 Sua condição de 40% OFF + 4 bônus exclusivos ainda está disponível
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
         <div className="text-center">
