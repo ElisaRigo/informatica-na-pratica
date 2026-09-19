@@ -132,7 +132,7 @@ const Hero = () => {
             <p className="text-5xl font-black leading-none text-success">R$ 297</p>
             <p className="mt-2 font-black text-warning">Hoje você leva 4 bônus exclusivos</p>
             <p className="mt-1 text-sm font-semibold text-foreground">Mais de 90 aulas • acesso vitalício</p>
-            <div className="mt-4"><CTA>Sim, Elisa, eu quero começar</CTA></div>
+            <div className="mt-4"><CTA>Sim, eu quero começar</CTA></div>
             <TrustRow />
           </div>
         </div>
@@ -178,7 +178,7 @@ const Objections = () => {
             </div>
           ))}
         </div>
-        <div className="mx-auto mt-5 max-w-xl"><CTA compact>Quero começar com você, Elisa</CTA></div>
+        <div className="mx-auto mt-5 max-w-xl"><CTA compact>Quero começar agora</CTA></div>
       </div>
     </section>
   );
@@ -308,7 +308,7 @@ const Offer = () => (
           <p className="mt-1 text-lg font-black text-success">Você tem 7 dias para conhecer minhas aulas</p>
           <p className="mt-1 text-sm text-muted-foreground">Se não gostar, basta pedir — eu devolvo seu dinheiro.</p>
         </div>
-        <div className="mt-5"><CTA>Sim, Elisa, quero aprender com você</CTA></div>
+        <div className="mt-5"><CTA>Sim, quero aprender agora</CTA></div>
         <TrustRow />
       </div>
     </div>
@@ -350,7 +350,7 @@ const FinalCTA = () => (
       <Monitor className="mx-auto h-12 w-12 text-primary" />
       <h2 className="mt-3 text-3xl font-black md:text-5xl">Eu quero te ver livre para usar o computador</h2>
       <p className="mx-auto mt-3 max-w-2xl text-background/75 md:text-lg">Dê o primeiro passo hoje. Eu vou acompanhar você com calma, desde o começo.</p>
-      <div className="mt-5"><CTA>Quero começar com você, Elisa</CTA></div>
+      <div className="mt-5"><CTA>Quero começar agora</CTA></div>
       <p className="mt-3 text-xs font-semibold text-background/70">Pagamento seguro • 7 dias de garantia • acesso vitalício</p>
     </div>
   </section>
