@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
+import elisa from "@/assets/elisa-photo.jpg";
 import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
 const elisaHeader = elisaHeaderAsset.url;
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
