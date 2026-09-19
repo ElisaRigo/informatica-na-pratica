@@ -11,7 +11,6 @@ import {
   Lock,
   Mail,
   Monitor,
-  MousePointerClick,
   PlayCircle,
   ShieldCheck,
   Star,
