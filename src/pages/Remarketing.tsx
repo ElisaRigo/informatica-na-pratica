@@ -126,7 +126,7 @@ const Hero = () => {
       <div className="bg-blue-600 text-center py-2.5 px-4">
         <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
           <span className="text-xl md:text-2xl">💻</span>
-          Você sente Dificuldade com o Computador?
+          Que bom te ver de volta! Sua oferta ainda está ativa 💻
         </span>
       </div>
 
@@ -137,13 +137,13 @@ const Hero = () => {
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            Aprenda a usar o computador
+            Ainda dá tempo de aprender a usar o computador
             <br className="hidden md:block" />
-            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
+            <span className="text-blue-600"> e sua condição especial continua de pé!</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+            Você visitou a página e não concluiu sua inscrição. Hoje você ainda garante 40% OFF + 4 bônus exclusivos!
           </p>
 
           {/* Video */}
