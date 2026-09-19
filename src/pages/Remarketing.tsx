@@ -80,18 +80,18 @@ const Hero = () => {
   return (
     <section className="bg-background">
       <div className="bg-primary px-3 py-2.5 text-center font-black text-primary-foreground">
-        💻 Sua condição de 40% OFF + 4 bônus exclusivos ainda está disponível
+        💻 Eu guardei sua condição de 40% OFF + 4 bônus exclusivos
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-black text-primary md:text-base">
-            <MousePointerClick className="h-5 w-5" /> Faltou pouco para você começar
+            <MousePointerClick className="h-5 w-5" /> Faltou pouco para você começar — mas eu guardei sua vaga
           </span>
           <h1 className="mx-auto mt-3 max-w-4xl text-3xl font-black leading-tight text-foreground md:text-5xl">
-            Ainda tem dúvida se vai conseguir? <span className="text-primary">Veja como aprender pode ser simples.</span>
+            Ainda tem dúvida se vai conseguir? <span className="text-primary">Eu te ensino com calma, passo a passo.</span>
           </h1>
           <p className="mx-auto mt-3 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            A Profª Elisa ensina cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
+            Eu sou a Profª Elisa. Eu explico cada clique sem pressa, e você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
           </p>
         </div>
 
@@ -127,12 +127,12 @@ const Hero = () => {
           </div>
 
           <div className="rounded-xl border-2 border-primary/20 bg-panel p-4 text-center shadow-card md:p-5">
-            <p className="font-bold text-muted-foreground">Curso completo + 4 bônus</p>
+            <p className="font-bold text-muted-foreground">Eu incluí tudo: curso completo + 4 bônus</p>
             <p className="mt-2 text-sm text-muted-foreground">De <span className="line-through">R$ 497</span> por</p>
             <p className="text-5xl font-black leading-none text-success">R$ 297</p>
             <p className="mt-2 font-black text-warning">Hoje você leva 4 bônus exclusivos</p>
             <p className="mt-1 text-sm font-semibold text-foreground">Mais de 90 aulas • acesso vitalício</p>
-            <div className="mt-4"><CTA>Quero aproveitar minha condição</CTA></div>
+            <div className="mt-4"><CTA>Sim, Elisa, eu quero começar</CTA></div>
             <TrustRow />
           </div>
         </div>
@@ -147,7 +147,7 @@ const Hero = () => {
             <div className="flex" aria-label="Avaliação de cinco estrelas">
               {Array.from({ length: 5 }).map((_, index) => <Star key={index} className="h-4 w-4 fill-warning text-warning" />)}
             </div>
-            <p className="text-xs font-bold text-muted-foreground">+15.000 alunos já aprenderam</p>
+            <p className="text-xs font-bold text-muted-foreground">+15.000 alunos que eu já ajudei</p>
           </div>
         </div>
       </div>
@@ -157,10 +157,10 @@ const Hero = () => {
 
 const Objections = () => {
   const items = [
-    { icon: Monitor, title: "“Tenho medo de não conseguir”", text: "Você começa do zero e acompanha cada clique junto com a professora." },
-    { icon: Clock3, title: "“Não tenho muito tempo”", text: "As aulas são curtas e o acesso é vitalício. Você aprende no seu ritmo." },
-    { icon: Headphones, title: "“E se eu tiver dúvidas?”", text: "Você conta com suporte humano para não ficar sozinho quando travar." },
-    { icon: ShieldCheck, title: "“Tenho receio de investir”", text: "Você pode conhecer o curso por 7 dias. Se não gostar, recebe seu dinheiro de volta." },
+    { icon: Monitor, title: "“Tenho medo de não conseguir”", text: "Eu começo do zero com você e explico cada clique, sem pressa e sem julgamento." },
+    { icon: Clock3, title: "“Não tenho muito tempo”", text: "Eu gravei aulas curtas e o acesso é vitalício. Você aprende no seu ritmo, do seu jeito." },
+    { icon: Headphones, title: "“E se eu tiver dúvidas?”", text: "Você não fica sozinho: eu e minha equipe de suporte te ajudamos sempre que travar." },
+    { icon: ShieldCheck, title: "“Tenho receio de investir”", text: "Você tem 7 dias para conhecer minhas aulas. Se não gostar, eu devolvo seu dinheiro." },
   ];
 
   return (
@@ -168,7 +168,7 @@ const Objections = () => {
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center">
           <span className="text-sm font-black uppercase text-primary">Talvez seja isso que faltava saber</span>
-          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">O que está impedindo você de começar?</h2>
+          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">Me diga: o que está te impedindo de começar?</h2>
         </div>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {items.map(({ icon: Icon, title, text }) => (
@@ -178,7 +178,7 @@ const Objections = () => {
             </div>
           ))}
         </div>
-        <div className="mx-auto mt-5 max-w-xl"><CTA compact>Agora eu quero começar</CTA></div>
+        <div className="mx-auto mt-5 max-w-xl"><CTA compact>Quero começar com você, Elisa</CTA></div>
       </div>
     </section>
   );
