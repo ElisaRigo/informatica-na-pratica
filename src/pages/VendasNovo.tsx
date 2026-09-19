@@ -54,16 +54,15 @@ import fbAvatar6 from "@/assets/avatar-6.jpg";
 import fbAvatar7 from "@/assets/avatar-7.jpg";
 import fbAvatar8 from "@/assets/avatar-8.jpg";
 
-import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
-
-const openCheckout = () => openHotmartCheckout();
+import { CourseEnrollmentDialog } from "@/components/CourseEnrollmentDialog";
+import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 
 // ───────────────────────── CTA Button ─────────────────────────
 const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
   <button
-    onClick={openCheckout}
+    onClick={requestCheckout}
     className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
       size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
     } ${subtle ? "bg-green-600/95" : ""}`}
@@ -1057,7 +1056,7 @@ const Footer = () => (
 const StickyMobile = () => (
   <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
     <button
-      onClick={openCheckout}
+      onClick={requestCheckout}
       className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
     >
       <Monitor className="w-5 h-5" /> Quero começar agora!
@@ -1067,9 +1066,18 @@ const StickyMobile = () => (
 
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
+
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
+
+  useEffect(() => {
+    const openDialog = () => setCheckoutOpen(true);
+    window.addEventListener(CHECKOUT_MODAL_EVENT, openDialog);
+    return () => window.removeEventListener(CHECKOUT_MODAL_EVENT, openDialog);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Header />
@@ -1094,6 +1102,7 @@ const VendasNovo = () => {
       <Footer />
       <StickyMobile />
       <WhatsAppButton />
+      <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
     </div>
   );
 };

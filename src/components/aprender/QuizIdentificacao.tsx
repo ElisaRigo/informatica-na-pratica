@@ -4,7 +4,7 @@ import {
   NotebookPen, ShieldCheck, Target, Heart,
 } from "lucide-react";
 import elisa from "@/assets/elisa-photo.jpg";
-import { openHotmartCheckout } from "@/lib/checkoutTracking";
+import { requestCheckout } from "@/lib/requestCheckout";
 
 type Profile = "trabalho" | "pessoal";
 
@@ -192,7 +192,7 @@ export const QuizIdentificacao = () => {
               </div>
 
               <button
-                onClick={() => openHotmartCheckout()}
+                onClick={requestCheckout}
                 className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-black text-base md:text-lg py-4 md:py-5 rounded-xl shadow-lg transition-all hover:shadow-xl active:scale-[0.99]"
               >
                 {result.cta}
