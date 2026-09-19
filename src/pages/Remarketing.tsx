@@ -287,7 +287,7 @@ const Offer = () => (
   <section id="oferta" className="bg-primary py-7 text-primary-foreground md:py-10">
     <div className="container mx-auto max-w-3xl px-4">
       <div className="text-center">
-        <span className="inline-flex items-center gap-2 rounded-full bg-warning px-4 py-2 text-sm font-black text-warning-foreground"><Award className="h-5 w-5" /> EU SEPAR_EI ESTA CONDIÇÃO PARA VOCÊ</span>
+        <span className="inline-flex items-center gap-2 rounded-full bg-warning px-4 py-2 text-sm font-black text-warning-foreground"><Award className="h-5 w-5" /> EU SEPAREI ESTA CONDIÇÃO PARA VOCÊ</span>
         <h2 className="mt-3 text-3xl font-black md:text-5xl">Quero te ver usando o computador com confiança</h2>
         <p className="mt-2 text-primary-foreground/80">Curso completo, meu suporte e acesso vitalício.</p>
       </div>
@@ -318,17 +318,17 @@ const Offer = () => (
 const FAQ = () => {
   const [open, setOpen] = useState(0);
   const faqs = [
-    ["Nunca usei computador. Vou conseguir?", "Sim. As aulas começam do zero e mostram cada clique com linguagem simples."],
-    ["E se eu esquecer uma aula?", "O acesso é vitalício. Você pode assistir novamente quantas vezes precisar."],
-    ["Como recebo o acesso?", "Após a confirmação do pagamento, os dados de acesso chegam no seu e-mail."],
-    ["Vou ter ajuda quando surgir uma dúvida?", "Sim. Você conta com suporte humano durante seus estudos."],
-    ["Como funciona a garantia?", "Você tem 7 dias para conhecer o curso e pode pedir o reembolso se não gostar."],
+    ["Nunca usei computador. Vou conseguir?", "Sim. Eu começo do zero e mostro cada clique com linguagem simples."],
+    ["E se eu esquecer uma aula?", "Pode ficar tranquilo: o acesso é vitalício e você pode assistir de novo quantas vezes precisar."],
+    ["Como recebo o acesso?", "Assim que o pagamento for confirmado, eu envio seus dados de acesso no seu e-mail."],
+    ["Vou ter ajuda quando surgir uma dúvida?", "Sim. Eu e minha equipe vamos te ajudar sempre que você precisar."],
+    ["Como funciona a garantia?", "Você tem 7 dias para conhecer minhas aulas. Se não gostar, eu devolvo seu dinheiro."],
   ];
 
   return (
     <section className="bg-muted py-6 md:py-9">
       <div className="container mx-auto max-w-3xl px-4">
-        <h2 className="text-center text-2xl font-black text-foreground md:text-4xl">Ficou alguma dúvida?</h2>
+        <h2 className="text-center text-2xl font-black text-foreground md:text-4xl">Ainda tem dúvida? Eu te respondo:</h2>
         <div className="mt-5 space-y-2">
           {faqs.map(([question, answer], index) => (
             <div key={question} className="overflow-hidden rounded-lg border border-border bg-background">
@@ -348,9 +348,9 @@ const FinalCTA = () => (
   <section className="bg-foreground py-7 text-background md:py-10">
     <div className="container mx-auto max-w-3xl px-4 text-center">
       <Monitor className="mx-auto h-12 w-12 text-primary" />
-      <h2 className="mt-3 text-3xl font-black md:text-5xl">Você não precisa continuar dependendo dos outros</h2>
-      <p className="mx-auto mt-3 max-w-2xl text-background/75 md:text-lg">Dê o primeiro passo hoje. A Profª Elisa vai acompanhar você com calma, desde o começo.</p>
-      <div className="mt-5"><CTA>Quero começar com a Profª Elisa</CTA></div>
+      <h2 className="mt-3 text-3xl font-black md:text-5xl">Eu quero te ver livre para usar o computador</h2>
+      <p className="mx-auto mt-3 max-w-2xl text-background/75 md:text-lg">Dê o primeiro passo hoje. Eu vou acompanhar você com calma, desde o começo.</p>
+      <div className="mt-5"><CTA>Quero começar com você, Elisa</CTA></div>
       <p className="mt-3 text-xs font-semibold text-background/70">Pagamento seguro • 7 dias de garantia • acesso vitalício</p>
     </div>
   </section>
