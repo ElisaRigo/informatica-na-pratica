@@ -54,10 +54,10 @@ const App = () => (
             <Route path="/video-whatsapp" element={<VideoWhatsApp />} />
             <Route path="/aula" element={<Aula />} />
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
-            <Route path="/informatica" element={<Informatica />} />
+            <Route path="/informatica2" element={<Informatica />} />
             <Route path="/aprender" element={<Aprender />} />
             <Route path="/vendas-novo" element={<VendasNovo />} />
-            <Route path="/remarketing" element={<Remarketing />} />
+            <Route path="/informatica" element={<Remarketing />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
