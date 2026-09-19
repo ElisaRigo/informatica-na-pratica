@@ -25,6 +25,7 @@ import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 import logo from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
+import lessonVideoThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
@@ -266,7 +267,7 @@ const TeacherAndLesson = () => {
             <div className="mt-4 overflow-hidden rounded-xl border border-border shadow-card">
               {!isPlaying ? (
                 <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir aula real">
-                  <img src="/placeholder.svg" alt="Aula real com a Professora Elisa" className="aspect-video w-full bg-muted object-cover" />
+                  <img src={lessonVideoThumbAsset.url} alt="Aula real com a Professora Elisa" className="aspect-video w-full object-cover" loading="lazy" />
                   <span className="absolute inset-0 flex items-center justify-center"><PlayCircle className="h-16 w-16 text-primary transition-transform group-hover:scale-105" /></span>
                 </Button>
               ) : (
