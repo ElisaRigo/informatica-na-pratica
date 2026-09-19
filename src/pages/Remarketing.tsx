@@ -78,10 +78,9 @@ const Hero = () => {
 
   return (
     <section className="bg-background">
-      <div className="bg-primary px-3 py-3">
+      <div className="bg-primary px-3 py-4">
         <div className="container mx-auto max-w-3xl text-center text-primary-foreground">
-          <p className="text-base font-black leading-tight md:text-2xl">“Vou te ensinar a usar o computador de uma vez por todas!”</p>
-          <p className="mt-0.5 text-sm font-semibold opacity-90 md:text-lg">— Profª Elisa</p>
+          <p className="text-xl font-black leading-tight md:text-3xl">Vou te ensinar a usar o computador de uma vez por todas!</p>
         </div>
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
