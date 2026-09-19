@@ -103,8 +103,8 @@ const Header = () => (
   <header className="bg-white border-b border-slate-200 py-3 md:py-5">
     <div className="container mx-auto px-4">
       <div className="flex flex-row items-center justify-center gap-3 md:gap-5">
-        <img src={elisa} alt="Professora Elisa" className="h-14 w-14 shrink-0 rounded-full border-2 border-sky-600 object-cover object-top shadow-lg md:h-20 md:w-20" />
-        <p className="text-slate-900 text-lg md:text-2xl lg:text-3xl font-black leading-tight text-left">
+        <img src={elisa} alt="Professora Elisa" className="h-16 w-16 shrink-0 rounded-full border-2 border-sky-600 object-cover object-top shadow-lg md:h-24 md:w-24" />
+        <p className="text-slate-900 text-xl md:text-3xl lg:text-4xl font-black leading-tight text-left">
           Aprenda <span className="text-sky-600">Informática</span> do zero, passo a passo
         </p>
       </div>
