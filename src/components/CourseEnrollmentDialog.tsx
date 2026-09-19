@@ -92,7 +92,7 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
           </div>
         </div>
 
-        <div className="mt-4 grid grid-cols-2 gap-2">
+        <div className="mt-3 grid grid-cols-2 gap-1.5">
           {benefits.map(({ icon: Icon, label }) => (
             <div key={label} className="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-lg border border-border bg-panel px-1 py-1.5 text-center">
               <Icon className="h-5 w-5 text-primary" />
