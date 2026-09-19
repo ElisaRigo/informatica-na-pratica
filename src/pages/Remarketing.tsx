@@ -25,7 +25,7 @@ import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 import logo from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import homeVideoThumb from "@/assets/hero-video-cover-home.jpg";
-import lessonVideoThumb from "@/assets/capa-aula-excel.jpg";
+import lessonVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
@@ -272,7 +272,7 @@ const TeacherAndLesson = () => {
                 </Button>
               ) : (
                 <div className="aspect-video">
-                  <iframe src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1" title="Aula real da Professora Elisa" className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                  <iframe src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1" title="Aula real da Professora Elisa" className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                 </div>
               )}
             </div>
