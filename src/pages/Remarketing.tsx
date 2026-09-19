@@ -85,13 +85,13 @@ const Hero = () => {
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-black text-primary md:text-base">
-            <MousePointerClick className="h-5 w-5" /> Faltou pouco para você começar
+          <MousePointerClick className="h-5 w-5" /> Profª Elisa tem algo para te contar
           </span>
           <h1 className="mx-auto mt-3 max-w-4xl text-3xl font-black leading-tight text-foreground md:text-5xl">
-            Ainda tem dúvida se vai conseguir? <span className="text-primary">Veja como aprender pode ser simples.</span>
+            Ainda tem dúvida se vai conseguir? <span className="text-primary">Deixa comigo: eu te mostro cada passo.</span>
           </h1>
           <p className="mx-auto mt-3 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            A Profª Elisa ensina cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
+            Eu vou te ensinar cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
           </p>
         </div>
 
@@ -157,10 +157,10 @@ const Hero = () => {
 
 const Objections = () => {
   const items = [
-    { icon: Monitor, title: "“Tenho medo de não conseguir”", text: "Você começa do zero e acompanha cada clique junto com a professora." },
-    { icon: Clock3, title: "“Não tenho muito tempo”", text: "As aulas são curtas e o acesso é vitalício. Você aprende no seu ritmo." },
-    { icon: Headphones, title: "“E se eu tiver dúvidas?”", text: "Você conta com suporte humano para não ficar sozinho quando travar." },
-    { icon: ShieldCheck, title: "“Tenho receio de investir”", text: "Você pode conhecer o curso por 7 dias. Se não gostar, recebe seu dinheiro de volta." },
+    { icon: Monitor, title: "“Tenho medo de não conseguir”", text: "Eu começo do zero com você. Você acompanha cada clique junto comigo, sem pressa." },
+    { icon: Clock3, title: "“Não tenho muito tempo”", text: "Eu fiz aulas curtas justamente para você. E o acesso é vitalício: aprenda no seu ritmo." },
+    { icon: Headphones, title: "“E se eu tiver dúvidas?”", text: "Pode me chamar. Você não fica sozinho: eu ajudo você quando travar." },
+    { icon: ShieldCheck, title: "“Tenho receio de investir”", text: "Conheça o curso por 7 dias, com calma. Se não gostar, devolvemos seu dinheiro." },
   ];
 
   return (
@@ -193,8 +193,8 @@ const SocialProof = () => (
           <span><strong className="block text-2xl text-primary md:text-3xl">4,9</strong><small className="font-bold text-muted-foreground">avaliação</small></span>
           <span><strong className="block text-2xl text-primary md:text-3xl">20 anos</strong><small className="font-bold text-muted-foreground">ensinando</small></span>
         </div>
-        <h2 className="mt-5 text-2xl font-black text-foreground md:text-4xl">Pessoas que também começaram com medo</h2>
-        <p className="mt-2 text-muted-foreground">Elas só precisavam de uma explicação simples e da oportunidade de tentar.</p>
+        <h2 className="mt-5 text-2xl font-black text-foreground md:text-4xl">Eu já ajudei pessoas que começaram com medo, igual você</h2>
+        <p className="mt-2 text-muted-foreground">Elas só precisavam de uma explicação simples e de alguém com paciência. É isso que eu faço.</p>
       </div>
       <div className="mx-auto mt-5 grid max-w-2xl grid-cols-2 gap-3">
         {[whatsappTestimonial1, whatsappTestimonial2].map((image, index) => (
@@ -203,7 +203,7 @@ const SocialProof = () => (
           </div>
         ))}
       </div>
-      <p className="mt-5 text-center text-xl font-black text-foreground md:text-2xl">Se eles conseguiram, <span className="text-success">você também pode conseguir.</span></p>
+      <p className="mt-5 text-center text-xl font-black text-foreground md:text-2xl">Se eles conseguiram comigo, <span className="text-success">você também consegue.</span></p>
     </div>
   </section>
 );
@@ -223,8 +223,8 @@ const CourseContent = () => {
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center">
           <span className="text-sm font-black uppercase text-primary">Tudo em um só curso</span>
-          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">O que você recebe ao se inscrever</h2>
-          <p className="mt-2 text-muted-foreground">Mais de 90 aulas práticas para usar o computador com confiança.</p>
+          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">O que eu preparei para você</h2>
+          <p className="mt-2 text-muted-foreground">Mais de 90 aulas práticas que eu gravei para você usar o computador com confiança.</p>
         </div>
         <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3">
           {lessons.map((lesson) => (
@@ -262,8 +262,8 @@ const TeacherAndLesson = () => {
           </div>
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-warning/15 px-3 py-1.5 text-xs font-black text-warning"><PlayCircle className="h-4 w-4" /> VEJA COMO ELA ENSINA</span>
-            <h2 className="mt-2 text-2xl font-black text-foreground md:text-3xl">Assista a uma aula real antes de decidir</h2>
-            <p className="mt-2 text-muted-foreground">Veja a explicação calma e passo a passo que você encontrará dentro do curso.</p>
+            <h2 className="mt-2 text-2xl font-black text-foreground md:text-3xl">Assista a uma aula minha antes de decidir</h2>
+            <p className="mt-2 text-muted-foreground">Veja como eu ensino: com calma, passo a passo e sem palavras difíceis.</p>
             <div className="mt-4 overflow-hidden rounded-xl border border-border shadow-card">
               {!isPlaying ? (
                 <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir aula real">
@@ -288,8 +288,8 @@ const Offer = () => (
     <div className="container mx-auto max-w-3xl px-4">
       <div className="text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-warning px-4 py-2 text-sm font-black text-warning-foreground"><Award className="h-5 w-5" /> CONDIÇÃO ESPECIAL DE HOJE</span>
-        <h2 className="mt-3 text-3xl font-black md:text-5xl">Comece com segurança e no seu ritmo</h2>
-        <p className="mt-2 text-primary-foreground/80">Curso completo, suporte e acesso vitalício.</p>
+        <h2 className="mt-3 text-3xl font-black md:text-5xl">Eu vou te acompanhar, no seu ritmo</h2>
+        <p className="mt-2 text-primary-foreground/80">Curso completo, meu suporte e acesso vitalício.</p>
       </div>
       <div className="mt-5 rounded-xl border-2 border-warning bg-background p-5 text-foreground shadow-card md:p-8">
         <div className="text-center">
@@ -318,11 +318,11 @@ const Offer = () => (
 const FAQ = () => {
   const [open, setOpen] = useState(0);
   const faqs = [
-    ["Nunca usei computador. Vou conseguir?", "Sim. As aulas começam do zero e mostram cada clique com linguagem simples."],
-    ["E se eu esquecer uma aula?", "O acesso é vitalício. Você pode assistir novamente quantas vezes precisar."],
-    ["Como recebo o acesso?", "Após a confirmação do pagamento, os dados de acesso chegam no seu e-mail."],
-    ["Vou ter ajuda quando surgir uma dúvida?", "Sim. Você conta com suporte humano durante seus estudos."],
-    ["Como funciona a garantia?", "Você tem 7 dias para conhecer o curso e pode pedir o reembolso se não gostar."],
+    ["Nunca usei computador. Vou conseguir?", "Sim. Eu começo do zero e mostro cada clique, com linguagem simples."],
+    ["E se eu esquecer uma aula?", "O acesso é vitalício. Você pode assistir minhas aulas quantas vezes quiser."],
+    ["Como recebo o acesso?", "Assim que o pagamento for confirmado, os dados de acesso chegam no seu e-mail."],
+    ["Vou ter ajuda quando surgir uma dúvida?", "Sim. Eu e minha equipe vamos te ajudar durante todo o curso."],
+    ["Como funciona a garantia?", "Você tem 7 dias para conhecer minhas aulas com calma. Se não gostar, devolvemos seu dinheiro."],
   ];
 
   return (
@@ -348,8 +348,8 @@ const FinalCTA = () => (
   <section className="bg-foreground py-7 text-background md:py-10">
     <div className="container mx-auto max-w-3xl px-4 text-center">
       <Monitor className="mx-auto h-12 w-12 text-primary" />
-      <h2 className="mt-3 text-3xl font-black md:text-5xl">Você não precisa continuar dependendo dos outros</h2>
-      <p className="mx-auto mt-3 max-w-2xl text-background/75 md:text-lg">Dê o primeiro passo hoje. A Profª Elisa vai acompanhar você com calma, desde o começo.</p>
+      <h2 className="mt-3 text-3xl font-black md:text-5xl">Eu quero te ver usando o computador sem depender de ninguém</h2>
+      <p className="mx-auto mt-3 max-w-2xl text-background/75 md:text-lg">Dê o primeiro passo hoje. Eu vou te acompanhar com calma, desde o começo.</p>
       <div className="mt-5"><CTA>Quero começar com a Profª Elisa</CTA></div>
       <p className="mt-3 text-xs font-semibold text-background/70">Pagamento seguro • 7 dias de garantia • acesso vitalício</p>
     </div>
