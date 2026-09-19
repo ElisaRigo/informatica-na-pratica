@@ -80,18 +80,18 @@ const Hero = () => {
   return (
     <section className="bg-background">
       <div className="bg-primary px-3 py-2.5 text-center font-black text-primary-foreground">
-        💻 Curso de Informática Online: 40% OFF + 4 bônus exclusivos
+        💻 Sua condição de 40% OFF + 4 bônus exclusivos ainda está disponível
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-black text-primary md:text-base">
-          <MousePointerClick className="h-5 w-5" /> Uma mensagem da Profª Elisa para você
+          <MousePointerClick className="h-5 w-5" /> Profª Elisa tem algo para te contar
           </span>
           <h1 className="mx-auto mt-3 max-w-4xl text-3xl font-black leading-tight text-foreground md:text-5xl">
-            Eu vou ensinar você a usar o computador <span className="text-primary">do zero, com calma e passo a passo.</span>
+            Ainda tem dúvida se vai conseguir? <span className="text-primary">Deixa comigo: eu te mostro cada passo.</span>
           </h1>
           <p className="mx-auto mt-3 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            No meu curso de informática online, você aprende Word, Excel, arquivos, internet e e-mail para usar o computador com confiança e sem depender de ninguém.
+            Eu vou te ensinar cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
           </p>
         </div>
 
