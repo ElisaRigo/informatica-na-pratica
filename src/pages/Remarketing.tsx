@@ -79,8 +79,18 @@ const Hero = () => {
 
   return (
     <section className="bg-background">
-      <div className="bg-primary px-3 py-2.5 text-center font-black text-primary-foreground">
-        💻 Sua condição de 40% OFF + 4 bônus exclusivos ainda está disponível
+      <div className="bg-primary px-3 py-3">
+        <div className="container mx-auto flex max-w-3xl items-center justify-center gap-3">
+          <img
+            src={elisa}
+            alt="Professora Elisa"
+            className="h-12 w-12 shrink-0 rounded-full border-2 border-white/70 object-cover object-[center_20%] md:h-14 md:w-14"
+          />
+          <div className="text-left text-primary-foreground">
+            <p className="text-sm font-black leading-tight md:text-lg">“Vou te ensinar a usar o computador de uma vez por todas!”</p>
+            <p className="text-xs font-semibold opacity-90 md:text-sm">— Profª Elisa</p>
+          </div>
+        </div>
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
         <div className="text-center">
@@ -93,6 +103,11 @@ const Hero = () => {
           <p className="mx-auto mt-3 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Eu vou te ensinar cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
           </p>
+          <div className="mt-4 flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-success/10 px-4 py-2 text-sm font-black text-success md:text-base">
+              <CheckCircle2 className="h-5 w-5 shrink-0" /> Sua condição de 40% OFF + 4 bônus exclusivos ainda está disponível
+            </span>
+          </div>
         </div>
 
         <div className="mt-5 grid items-center gap-5 lg:grid-cols-[1.35fr_.65fr]">
