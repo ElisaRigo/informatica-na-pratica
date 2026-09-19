@@ -121,15 +121,15 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
           <p className="mt-1 text-xs font-semibold text-muted-foreground md:text-sm">à vista ou em até 12x de R$ 30,72 no cartão</p>
         </div>
 
-        <div className="mt-4 rounded-lg border border-success/40 bg-success/10 px-3 py-3 text-center">
+        <div className="mt-3 rounded-lg border border-success/40 bg-success/10 px-3 py-2 text-center">
           <p className="flex items-center justify-center gap-2 text-sm font-black text-success">
-            <Award className="h-5 w-5" /> 7 dias de garantia incondicional
+            <Award className="h-4 w-4" /> 7 dias de garantia incondicional
           </p>
-          <p className="mt-1 text-xs font-bold text-success">Risco zero para você</p>
+          <p className="mt-0.5 text-xs font-bold text-success">Risco zero para você</p>
         </div>
 
-        <div className="mt-3 flex items-center justify-center gap-2 rounded-lg border border-border bg-panel px-3 py-3 text-center text-xs text-muted-foreground">
-          <Lock className="h-5 w-5 shrink-0 text-primary" />
+        <div className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-border bg-panel px-3 py-2 text-center text-xs text-muted-foreground">
+          <Lock className="h-4 w-4 shrink-0 text-primary" />
           <span>Pagamento processado com segurança pela plataforma <strong className="text-foreground">Hotmart</strong></span>
         </div>
 
@@ -137,7 +137,7 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
           type="button"
           size="lg"
           onClick={continueToCheckout}
-          className="mt-3 h-auto w-full rounded-xl bg-success px-4 py-4 text-base font-black text-success-foreground shadow-cta hover:bg-success/90 md:text-lg"
+          className="mt-2.5 h-auto w-full rounded-xl bg-success px-4 py-3.5 text-base font-black text-success-foreground shadow-cta hover:bg-success/90 md:text-lg"
         >
           <CheckCircle2 className="h-5 w-5" />
           Quero acessar o curso
