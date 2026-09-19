@@ -31,8 +31,7 @@ import {
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
-import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
-const elisaHeader = elisaHeaderAsset.url;
+import logo from "@/assets/logo-blue.png";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
@@ -104,10 +103,14 @@ import typingIcon from "@/assets/typing-icon.png";
 const Header = () => (
   <header className="bg-white border-b border-slate-200 py-3 md:py-5">
     <div className="container mx-auto px-4">
-      <div className="flex flex-row items-center justify-center gap-3 md:gap-5">
-        <img src={elisaHeader} alt="Professora Elisa" className="h-16 w-16 shrink-0 rounded-full border-2 border-sky-600 object-cover shadow-lg md:h-24 md:w-24" />
-        <p className="text-slate-900 text-xl md:text-3xl lg:text-4xl font-black leading-tight text-left">
-          Aprenda <span className="text-sky-600">Informática</span> do zero, passo a passo
+      <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
+        <div className="relative group shrink-0">
+          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
+            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
+          </div>
+        </div>
+        <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
+          Curso de <span className="text-sky-600">Informática Online</span> — Simples e para Todos.
         </p>
       </div>
     </div>
