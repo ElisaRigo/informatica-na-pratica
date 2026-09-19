@@ -79,16 +79,9 @@ const Hero = () => {
   return (
     <section className="bg-background">
       <div className="bg-primary px-3 py-3">
-        <div className="container mx-auto flex max-w-3xl items-center justify-center gap-3 md:gap-4">
-          <img
-            src={elisa}
-            alt="Professora Elisa"
-            className="h-16 w-16 shrink-0 rounded-full border-2 border-white/70 object-cover object-[center_20%] md:h-20 md:w-20"
-          />
-          <div className="text-left text-primary-foreground">
-            <p className="text-base font-black leading-tight md:text-2xl">“Vou te ensinar a usar o computador de uma vez por todas!”</p>
-            <p className="mt-0.5 text-sm font-semibold opacity-90 md:text-lg">— Profª Elisa</p>
-          </div>
+        <div className="container mx-auto max-w-3xl text-center text-primary-foreground">
+          <p className="text-base font-black leading-tight md:text-2xl">“Vou te ensinar a usar o computador de uma vez por todas!”</p>
+          <p className="mt-0.5 text-sm font-semibold opacity-90 md:text-lg">— Profª Elisa</p>
         </div>
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
