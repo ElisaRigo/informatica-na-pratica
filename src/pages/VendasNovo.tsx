@@ -31,8 +31,7 @@ import {
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
-import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
-const elisaHeader = elisaHeaderAsset.url;
+import logo from "@/assets/logo-blue.png";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
