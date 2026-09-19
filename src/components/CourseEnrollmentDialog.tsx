@@ -1,14 +1,11 @@
 import { useEffect } from "react";
 import {
   Award,
-  Barcode,
   CheckCircle2,
-  CreditCard,
   Headphones,
   Infinity,
   Lock,
   Monitor,
-  QrCode,
   ShieldCheck,
   Star,
   Zap,
@@ -30,11 +27,6 @@ const benefits = [
   { icon: Infinity, label: "Acesso vitalício" },
 ];
 
-const paymentMethods = [
-  { icon: QrCode, label: "PIX" },
-  { icon: CreditCard, label: "Cartão" },
-  { icon: Barcode, label: "Boleto" },
-];
 
 export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentDialogProps) => {
   useEffect(() => {
