@@ -134,6 +134,7 @@ const Hero = () => {
             <p className="font-bold text-muted-foreground">Curso completo + 4 bônus</p>
             <p className="mt-2 text-sm text-muted-foreground">De <span className="line-through">R$ 497</span> por</p>
             <p className="text-5xl font-black leading-none text-success">R$ 297</p>
+            <p className="mt-1 text-sm font-semibold text-foreground">ou em até <span className="font-black text-primary">12x de R$ 30,72</span> no cartão</p>
             <p className="mt-2 font-black text-warning">Hoje você leva 4 bônus exclusivos</p>
             <p className="mt-1 text-sm font-semibold text-foreground">Mais de 90 aulas • acesso vitalício</p>
             <div className="mt-4"><CTA>Sim, quero começar meu curso</CTA></div>
@@ -299,7 +300,8 @@ const Offer = () => (
         <div className="text-center">
           <p className="text-muted-foreground">De <span className="line-through">R$ 497,00</span> por apenas</p>
           <p className="mt-1 text-5xl font-black text-success md:text-6xl">R$ 297</p>
-          <p className="mt-1 text-muted-foreground">ou em até 12x de R$ 30,72 no cartão</p>
+          <p className="mt-2 text-base font-bold text-foreground md:text-lg">ou no cartão em até</p>
+          <p className="mt-1 text-2xl font-black text-primary md:text-3xl">12x de R$ 30,72</p>
           <p className="mt-3 font-black text-warning">Hoje você leva 4 bônus exclusivos</p>
         </div>
         <div className="mt-5 grid gap-2 sm:grid-cols-2">
