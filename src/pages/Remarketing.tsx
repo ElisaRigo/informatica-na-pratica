@@ -403,7 +403,7 @@ const Remarketing = () => {
       <Footer />
       <StickyCTA />
       <WhatsAppButton />
-      <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
+      <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} variant="remarketing" />
     </div>
   );
 };

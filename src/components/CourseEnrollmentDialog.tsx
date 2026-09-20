@@ -18,6 +18,7 @@ import { openHotmartCheckout } from "@/lib/checkoutTracking";
 interface CourseEnrollmentDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  variant?: "default" | "remarketing";
 }
 
 const benefits = [
@@ -27,8 +28,26 @@ const benefits = [
   { icon: Infinity, label: "Acesso vitalício" },
 ];
 
+const copy = {
+  default: {
+    title: "Falta pouco para você começar!",
+    socialProof: "+15.000 alunos já aprenderam comigo",
+    guaranteeHeadline: "7 dias de garantia incondicional",
+    guaranteeSub: "Risco zero para você",
+    cta: "Quero acessar o curso",
+  },
+  remarketing: {
+    title: "Que bom que você voltou! Falta só um passo para começar",
+    socialProof: "+15.000 alunos também achavam que não iam conseguir",
+    guaranteeHeadline: "Se não gostar em 7 dias, devolvemos 100% do seu dinheiro",
+    guaranteeSub: "Risco zero para você",
+    cta: "Sim, quero aprender com você, Profª Elisa",
+  },
+};
 
-export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentDialogProps) => {
+export const CourseEnrollmentDialog = ({ open, onOpenChange, variant = "default" }: CourseEnrollmentDialogProps) => {
+  const t = copy[variant];
+
   useEffect(() => {
     if (!open) return;
 
@@ -57,7 +76,7 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
 
         <DialogTitle className="mt-2.5 flex items-center justify-center gap-2 text-center text-lg font-black leading-tight text-foreground md:text-xl">
           <Monitor className="h-5 w-5 shrink-0 text-primary" />
-          Falta pouco para você começar!
+          {t.title}
         </DialogTitle>
 
         <div className="mt-2.5 text-center">
@@ -80,9 +99,16 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
                 <Star key={index} className="h-4 w-4 fill-warning text-warning" />
               ))}
             </div>
-            <span className="text-xs font-bold text-foreground md:text-sm">+15.000 alunos já aprenderam comigo</span>
+            <span className="text-xs font-bold text-foreground md:text-sm">{t.socialProof}</span>
           </div>
         </div>
+
+        {variant === "remarketing" && (
+          <div className="mt-3 flex items-center justify-center gap-2 rounded-lg border border-success/40 bg-success/10 px-3 py-2 text-center text-xs font-black text-success md:text-sm">
+            <CheckCircle2 className="h-4 w-4 shrink-0" />
+            Sua condição de 40% OFF + 4 bônus exclusivos continua ativa
+          </div>
+        )}
 
         <div className="mt-3 grid grid-cols-2 gap-1.5">
           {benefits.map(({ icon: Icon, label }) => (
@@ -107,9 +133,9 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
 
         <div className="mt-3 rounded-lg border border-success/40 bg-success/10 px-3 py-2 text-center">
           <p className="flex items-center justify-center gap-2 text-sm font-black text-success">
-            <Award className="h-4 w-4" /> 7 dias de garantia incondicional
+            <Award className="h-4 w-4 shrink-0" /> {t.guaranteeHeadline}
           </p>
-          <p className="mt-0.5 text-xs font-bold text-success">Risco zero para você</p>
+          <p className="mt-0.5 text-xs font-bold text-success">{t.guaranteeSub}</p>
         </div>
 
         <div className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-border bg-panel px-3 py-2 text-center text-xs text-muted-foreground">
@@ -121,10 +147,10 @@ export const CourseEnrollmentDialog = ({ open, onOpenChange }: CourseEnrollmentD
           type="button"
           size="lg"
           onClick={continueToCheckout}
-          className="mt-2.5 h-auto w-full rounded-xl bg-success px-4 py-3.5 text-base font-black text-success-foreground shadow-cta hover:bg-success/90 md:text-lg"
+          className="mt-2.5 h-auto w-full whitespace-normal rounded-xl bg-success px-4 py-3.5 text-base font-black text-success-foreground shadow-cta hover:bg-success/90 md:text-lg"
         >
-          <CheckCircle2 className="h-5 w-5" />
-          Quero acessar o curso
+          <CheckCircle2 className="h-5 w-5 shrink-0" />
+          {t.cta}
         </Button>
       </DialogContent>
     </Dialog>
