@@ -12,6 +12,7 @@ import {
   Mail,
   MessageCircleHeart,
   Monitor,
+  Play,
   PlayCircle,
   ShieldCheck,
   Star,
