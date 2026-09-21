@@ -10,6 +10,7 @@ import {
   Keyboard,
   Lock,
   Mail,
+  MessageCircleHeart,
   Monitor,
   PlayCircle,
   ShieldCheck,
