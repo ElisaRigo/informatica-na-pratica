@@ -142,7 +142,10 @@ const Hero = () => {
                   controls
                   autoPlay
                   playsInline
-                  preload="metadata"
+                  preload="auto"
+                  ref={(el) => {
+                    if (el) void el.play().catch(() => undefined);
+                  }}
                 />
               </div>
             )}
