@@ -92,17 +92,18 @@ const Hero = () => {
             <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
             Recado da Profª Elisa
           </span>
-          <p className="relative text-xl font-black leading-tight text-white md:text-3xl">
+          <p className="relative text-lg font-black leading-tight text-white md:text-2xl">
             <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
               &ldquo;
             </span>
-            Vou te ensinar a usar o{" "}
-            <span className="relative inline-block whitespace-nowrap">
-              <span className="relative z-10 bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador</span>
-              <span className="absolute inset-x-0 bottom-0 z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-1.5" />
+            Vou te ensinar a usar o
+            <span className="relative mt-1 block w-full leading-none">
+              <span className="relative z-10 whitespace-nowrap text-[12.5vw] font-black leading-none md:text-[8.5rem]">
+                <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador</span>
+              </span>
+              <span className="absolute inset-x-0 bottom-[0.04em] z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-2" />
             </span>
-            <br />
-            de uma vez por todas!
+            <span className="mt-1 block">de uma vez por todas!</span>
           </p>
           <div className="mx-auto mt-3 h-px w-24 rounded-full bg-gradient-to-r from-transparent via-primary/70 to-transparent md:mt-4 md:w-32" />
         </div>
