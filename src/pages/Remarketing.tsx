@@ -119,7 +119,7 @@ const Hero = () => {
                   width="560"
                   height="864"
                   decoding="async"
-                  fetchPriority="high"
+                  {...({ fetchpriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement>)}
                 />
                 <span className="absolute inset-0 flex items-center justify-center">
                   <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/80 shadow-card transition-transform group-hover:scale-105 md:h-20 md:w-20">
