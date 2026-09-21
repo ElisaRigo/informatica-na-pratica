@@ -24,7 +24,8 @@ import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
 const elisaHeader = elisaHeaderAsset.url;
-import homeVideoThumb from "@/assets/hero-video-cover-home.jpg";
+import presentationVideoAsset from "@/assets/informatica-apresentacao.mp4.asset.json";
+import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.webp.asset.json";
 import lessonVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -41,6 +42,8 @@ import internetIcon from "@/assets/internet-icon.png";
 import typingIcon from "@/assets/typing-icon.png";
 
 const studentAvatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
+const presentationVideo = presentationVideoAsset.url;
+const presentationCover = presentationCoverAsset.url;
 
 const CTA = ({ children, compact = false }: { children: React.ReactNode; compact?: boolean }) => (
   <Button
@@ -100,7 +103,7 @@ const Hero = () => {
         </div>
 
         <div className="mt-5 grid items-center gap-5 lg:grid-cols-[1.35fr_.65fr]">
-          <div className="overflow-hidden rounded-xl border border-border bg-panel shadow-card">
+          <div className="mx-auto w-full max-w-sm overflow-hidden rounded-xl border border-border bg-panel shadow-card">
             {!isPlaying ? (
               <Button
                 type="button"
@@ -109,7 +112,15 @@ const Hero = () => {
                 onClick={() => setIsPlaying(true)}
                 className="group relative block h-auto w-full rounded-none p-0"
               >
-                <img src={homeVideoThumb} alt="Professora Elisa apresentando o curso" className="aspect-video w-full object-cover" />
+                <img
+                  src={presentationCover}
+                  alt="Professora Elisa apresentando o curso"
+                  className="aspect-[35/54] w-full object-cover"
+                  width="560"
+                  height="864"
+                  decoding="async"
+                  {...({ fetchpriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement>)}
+                />
                 <span className="absolute inset-0 flex items-center justify-center">
                   <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/80 shadow-card transition-transform group-hover:scale-105 md:h-20 md:w-20">
                     <PlayCircle className="h-11 w-11 text-primary md:h-14 md:w-14" />
@@ -117,14 +128,16 @@ const Hero = () => {
                 </span>
               </Button>
             ) : (
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+              <div className="aspect-[35/54]">
+                <video
+                  src={presentationVideo}
+                  poster={presentationCover}
                   title="Apresentação do curso"
-                  className="h-full w-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
+                  className="h-full w-full object-contain"
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
                 />
               </div>
             )}
