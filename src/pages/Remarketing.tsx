@@ -98,7 +98,7 @@ const Hero = () => {
             </span>
             Vou te ensinar a usar o
             <span className="relative mt-1 block w-full leading-none">
-              <span className="relative z-10 whitespace-nowrap text-[14.5vw] font-black leading-none md:text-[8.5rem]">
+              <span className="relative z-10 whitespace-nowrap text-[12.5vw] font-black leading-none md:text-[8.5rem]">
                 <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador</span>
               </span>
               <span className="absolute inset-x-0 bottom-[0.04em] z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-2" />
