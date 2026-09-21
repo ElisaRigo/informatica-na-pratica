@@ -27,7 +27,7 @@ import elisa from "@/assets/elisa-photo.jpg";
 import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
 const elisaHeader = elisaHeaderAsset.url;
 import presentationVideoAsset from "@/assets/informatica-apresentacao.mp4.asset.json";
-import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.webp.asset.json";
+import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.jpg.asset.json";
 import lessonVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -142,7 +142,10 @@ const Hero = () => {
                   controls
                   autoPlay
                   playsInline
-                  preload="metadata"
+                  preload="auto"
+                  ref={(el) => {
+                    if (el) void el.play().catch(() => undefined);
+                  }}
                 />
               </div>
             )}
