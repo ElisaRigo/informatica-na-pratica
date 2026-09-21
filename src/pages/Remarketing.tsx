@@ -84,16 +84,16 @@ const Hero = () => {
 
   return (
     <section className="bg-background">
-      <div className="relative overflow-hidden bg-slate-900 px-4 py-8 md:py-10">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
-        <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-cyan-500/10 blur-2xl" />
+      <div className="relative overflow-hidden bg-slate-900 px-4 py-4 md:py-6">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-cyan-500/10 blur-2xl" />
         <div className="container relative mx-auto max-w-4xl text-center">
-          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-blue-200 backdrop-blur-sm md:text-xs">
-            <MessageCircleHeart className="h-4 w-4 text-primary" aria-hidden />
+          <span className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200 backdrop-blur-sm md:mb-3 md:px-4 md:py-1.5 md:text-xs">
+            <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
             Recado da Profª Elisa
           </span>
-          <p className="relative text-2xl font-black leading-snug text-white md:text-4xl">
-            <span className="pointer-events-none absolute -left-2 -top-6 select-none font-serif text-5xl italic leading-none text-primary/30 md:-left-10 md:-top-8 md:text-7xl" aria-hidden>
+          <p className="relative text-xl font-black leading-tight text-white md:text-3xl">
+            <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
               &ldquo;
             </span>
             Vou te ensinar a usar o{" "}
@@ -104,7 +104,7 @@ const Hero = () => {
             <br />
             de uma vez por todas!
           </p>
-          <div className="mx-auto mt-6 h-px w-24 rounded-full bg-gradient-to-r from-transparent via-primary/70 to-transparent md:w-32" />
+          <div className="mx-auto mt-3 h-px w-24 rounded-full bg-gradient-to-r from-transparent via-primary/70 to-transparent md:mt-4 md:w-32" />
         </div>
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
