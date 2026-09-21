@@ -84,9 +84,20 @@ const Hero = () => {
 
   return (
     <section className="bg-background">
-      <div className="bg-primary px-3 py-4">
-        <div className="container mx-auto max-w-3xl text-center text-primary-foreground">
-          <p className="text-xl font-black leading-tight md:text-3xl">Vou te ensinar a usar o computador<br />de uma vez por todas!</p>
+      <div className="relative overflow-hidden bg-primary px-3 py-6 md:py-8">
+        <div className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-primary-foreground/10 blur-2xl" />
+        <div className="pointer-events-none absolute -bottom-24 -right-10 h-64 w-64 rounded-full bg-primary-foreground/10 blur-2xl" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary via-blue-600 to-primary opacity-60" />
+        <div className="container relative mx-auto max-w-4xl text-center text-primary-foreground">
+          <p className="text-2xl font-black leading-snug md:text-4xl">
+            Vou te ensinar a usar o{" "}
+            <span className="relative inline-block whitespace-nowrap">
+              <span className="relative z-10">computador</span>
+              <span className="absolute inset-x-0 bottom-0 z-0 h-2.5 rounded-sm bg-primary-foreground/40 md:h-3.5" />
+            </span>
+            <br />
+            de uma vez por todas!
+          </p>
         </div>
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
