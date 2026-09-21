@@ -126,8 +126,8 @@ const Hero = () => {
                   <span className="flex items-center gap-1.5"><MessageCircleHeart className="h-4 w-4 shrink-0 text-warning" /> Recado da Profª Elisa</span>
                 </span>
                 <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/25 shadow-card ring-1 ring-white/40 backdrop-blur-md transition-transform group-hover:scale-105 md:h-16 md:w-16">
-                    <PlayCircle className="h-9 w-9 text-white drop-shadow-md md:h-11 md:w-11" />
+                  <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/30 shadow-card ring-2 ring-white/60 backdrop-blur-md transition-transform group-hover:scale-105 group-active:scale-95 md:h-24 md:w-24">
+                    <Play className="ml-1 h-10 w-10 text-white drop-shadow-lg md:h-12 md:w-12" fill="currentColor" />
                   </span>
                 </span>
               </Button>
