@@ -84,20 +84,27 @@ const Hero = () => {
 
   return (
     <section className="bg-background">
-      <div className="relative overflow-hidden bg-primary px-3 py-6 md:py-8">
-        <div className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-primary-foreground/10 blur-2xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-10 h-64 w-64 rounded-full bg-primary-foreground/10 blur-2xl" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary via-blue-600 to-primary opacity-60" />
-        <div className="container relative mx-auto max-w-4xl text-center text-primary-foreground">
-          <p className="text-2xl font-black leading-snug md:text-4xl">
+      <div className="relative overflow-hidden bg-slate-900 px-4 py-8 md:py-10">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-cyan-500/10 blur-2xl" />
+        <div className="container relative mx-auto max-w-4xl text-center">
+          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-blue-200 backdrop-blur-sm md:text-xs">
+            <MessageCircleHeart className="h-4 w-4 text-primary" aria-hidden />
+            Recado da Profª Elisa
+          </span>
+          <p className="relative text-2xl font-black leading-snug text-white md:text-4xl">
+            <span className="pointer-events-none absolute -left-2 -top-6 select-none font-serif text-5xl italic leading-none text-primary/30 md:-left-10 md:-top-8 md:text-7xl" aria-hidden>
+              &ldquo;
+            </span>
             Vou te ensinar a usar o{" "}
             <span className="relative inline-block whitespace-nowrap">
-              <span className="relative z-10">computador</span>
-              <span className="absolute inset-x-0 bottom-0 z-0 h-2.5 rounded-sm bg-primary-foreground/40 md:h-3.5" />
+              <span className="relative z-10 bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador</span>
+              <span className="absolute inset-x-0 bottom-0 z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-1.5" />
             </span>
             <br />
             de uma vez por todas!
           </p>
+          <div className="mx-auto mt-6 h-px w-24 rounded-full bg-gradient-to-r from-transparent via-primary/70 to-transparent md:w-32" />
         </div>
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
