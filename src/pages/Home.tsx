@@ -28,8 +28,6 @@ import {
   MousePointer,
   Rocket,
   Check,
-  CreditCard,
-  Barcode,
   Gift,
   Globe,
   HelpCircle,
@@ -37,22 +35,23 @@ import {
   Frown,
   RotateCcw,
   TrendingDown,
-  X,
-  Zap,
-  Shield,
 } from "lucide-react";
-import elisaModal from "@/assets/elisa-modal.jpg";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
-import homeVideoThumbAsset from "@/assets/capa-video-vendas-novo.jpg.asset.json";
+import homeVideoThumbAsset from "@/assets/capa-video-principal.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
-import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
+import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa-v2.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
-import aprendaComigoThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import aulaPratica2ThumbAsset from "@/assets/aula-pratica-2-thumb.jpg.asset.json";
+const aulaPratica2Thumb = aulaPratica2ThumbAsset.url;
+import environmentThumbAsset from "@/assets/capa-aula-simples-v2.jpg.asset.json";
+const environmentThumb = environmentThumbAsset.url;
+import aulaRealThumbAsset from "@/assets/capa-aula-real.jpg.asset.json";
+const aulaRealThumb = aulaRealThumbAsset.url;
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
@@ -75,22 +74,15 @@ import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
 
 const openCheckout = () => openHotmartCheckout();
 
-// Modal global da página: CTAs abrem o modal de confirmação (exceto WhatsApp)
-let requestOpenModal: () => void = () => openCheckout();
-
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to, onClick }: any) => {
+const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, to }: any) => {
   const handleClick = () => {
-    if (onClick) {
-      onClick();
-      return;
-    }
     if (to) {
       const el = document.getElementById(to);
       el?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
-    requestOpenModal();
+    openCheckout();
   };
   return (
     <button
@@ -219,14 +211,14 @@ const Hero = () => {
           </div>
 
           <h1 className="text-[2rem] md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] tracking-[-0.04em] mb-2 mx-0 px-4 md:mx-[-1rem] md:px-4 text-center">
-            <span className="block">Aprenda a usar o computador</span>
+            <span className="block">Você vai dominar o computador</span>
             <span className="block text-blue-600">
-              do zero, sem medo e sem depender de ninguém.
+              de forma simples, prática e sem depender de ninguém.
             </span>
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-slate-700 max-w-3xl mx-auto mb-3 leading-snug font-medium">
-            Aulas fáceis, curtas e passo a passo, feitas para quem está começando do zero.
+             Aulas fáceis, curtas e passo a passo, mesmo que você esteja começando do zero.
           </p>
 
 
@@ -278,7 +270,6 @@ Você vai criar documentos, planilhas, enviar e-mails e usar a internet com segu
 
 
 
-
         </div>
       </div>
     </section>
@@ -317,7 +308,7 @@ const PainIdentification = () => {
           ))}
         </div>
         <p className="text-center text-base md:text-lg font-black text-slate-900">
-          Se você se identificou, <span className="text-blue-600">esse curso é para você</span>
+          Se você se identificou com alguma dessas situações, <span className="text-blue-600">saiba que isso pode mudar.</span>
         </p>
       </div>
     </section>
@@ -486,15 +477,15 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
 
         {isFirst ? (
           <AulaVideo
-            videoId="_0OPLnEiMHk"
-            thumb={aulaGratisThumb}
+            videoId="g_F1-d7tdQ0"
+            thumb={aulaRealThumb}
             label="Aula 1"
             subtitle="Primeiros passos no computador"
           />
         ) : (
           <AulaVideo
             videoId="-sdVG1OtDks"
-            thumb={aprendaComigoThumb}
+            thumb={aulaPratica2Thumb}
             label="Aula 2"
             subtitle="Aprenda comigo, na prática"
           />
@@ -518,11 +509,70 @@ const AulasReais = ({ aula = 1 }: { aula?: 1 | 2 }) => {
   );
 };
 
+// ───────────────────────── Aula do Curso (segundo vídeo de /curso) ─────────────────────────
+const AulaCursoReal = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  return (
+    <section id="aula-curso" className="py-4 md:py-6 bg-gradient-to-b from-white via-blue-50/50 to-white border-y border-blue-100">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
+            <PlayCircle className="w-4 h-4" /> AULA REAL DO CURSO
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Você acha que aprender Informática é difícil? <span className="text-blue-600">Assista e mude de ideia!</span>
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Nada de teoria. Você vê a tela, ouve a explicação e já entende o que fazer — no seu tempo, quantas vezes precisar.
+          </p>
+        </div>
+
+
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
+          {!isPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+              <img src={aulaGratisThumb} alt="Aula real do curso" className="w-full h-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-blue-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                <PlayCircle className="w-4 h-4" /> Aula Real
+              </div>
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white/90 text-slate-900 text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                ▶ Assista agora
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&showinfo=0&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&autoplay=1"
+                title="Aula real do curso"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          )}
+        </div>
+
+
+        <p className="text-center text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          Se você acompanhou essa aula até o fim, <strong className="text-slate-900">você é capaz</strong> — e o curso inteiro segue exatamente esse ritmo.
+        </p>
+
+      </div>
+    </section>
+  );
+};
+
 // ───────────────────────── Aula 2 em destaque (reengajamento antes da oferta) ─────────────────────────
 const Aula2Destaque = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section id="aula-2" className="py-4 md:py-6 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
+    <section id="aula-2" className="py-6 md:py-10 bg-gradient-to-b from-blue-50 via-white to-white border-t border-blue-100">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5">
           <span className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-sm">
@@ -544,7 +594,7 @@ const Aula2Destaque = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20 border-2 border-blue-200">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                <img src={aprendaComigoThumb} alt="Aula 2 — Aprenda comigo na prática" className="w-full h-full object-cover" loading="lazy" />
+                <img src={aulaPratica2Thumb} alt="Aula 2 — Aprenda comigo na prática" className="w-full h-full object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/40">
@@ -587,46 +637,74 @@ const Aula2Destaque = () => {
 };
 
 
-// ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
-const MiniValueSection = () => {
-  return (
-    <section className="py-3 md:py-5 bg-blue-50">
-      <div className="container mx-auto px-4 max-w-xl text-center">
-        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
-        <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
-        <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-2 mb-3" />
-        <p className="text-slate-600 text-base md:text-lg">
-          de <span className="line-through text-lg md:text-2xl font-bold">R$ 497,00</span> por apenas
-        </p>
-        <p className="text-4xl md:text-6xl font-black text-green-600 leading-tight mt-1">
-          R$ 297,00
-        </p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
-          <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
-        </p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
-        </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-        </p>
-        <div className="mt-4">
-          <CTA>Quero Aprender Informática</CTA>
-        </div>
-        <div className="mt-3 rounded-xl border-2 border-green-200 bg-green-50 px-4 py-3 text-center shadow-sm">
-          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
-            <ShieldCheck className="w-5 h-5" />{" "}
-            <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
-          </p>
-          <p className="text-slate-700 text-sm md:text-base mt-1 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
-          </p>
-        </div>
+// ───────────────────────── Value Section (depois do 2º vídeo) ─────────────────────────
+const ValueSection = () => (
+  <section id="sessao-valor" className="py-5 md:py-8 bg-slate-100">
+    <div className="container mx-auto px-4 max-w-2xl text-center">
+      <span className="inline-block bg-blue-100 text-blue-700 text-[11px] md:text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full mb-2">
+        Oportunidade única
+      </span>
+
+      <h2 className="text-3xl md:text-5xl font-black text-slate-800 leading-tight">
+        Sua vez de <span className="text-blue-600">Dominar o computador!</span>
+      </h2>
+
+      <div className="flex items-center justify-center gap-2 mt-2 mb-3">
+        <span className="h-1.5 w-8 rounded-full bg-blue-600" />
+        <span className="h-1.5 w-14 rounded-full bg-blue-300" />
+        <span className="h-1.5 w-8 rounded-full bg-blue-600" />
       </div>
-    </section>
-  );
-};
+
+      <p className="text-slate-600 text-base md:text-lg">
+        de <span className="line-through text-lg md:text-2xl font-bold">R$ 497,00</span> por apenas
+      </p>
+      <p className="text-4xl md:text-6xl font-black text-green-600 leading-tight mt-1">
+        R$ 297,00
+      </p>
+      <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-2">
+        <Gift className="w-4 h-4" /> Hoje você leva 4 bônus exclusivos
+      </p>
+      <p className="text-slate-600 text-base md:text-lg mt-1">
+        ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
+      </p>
+      <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
+        <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+      </p>
+
+      <div className="mt-4 max-w-xl mx-auto">
+        <CTA>Quero Aprender Informática</CTA>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 mt-3 max-w-xl mx-auto">
+        {[
+          { icon: PlayCircle, label: "+90 Videoaulas" },
+          { icon: InfinityIcon, label: "Acesso Vitalício" },
+          { icon: Headphones, label: "Suporte Direto" },
+          { icon: Users, label: "+15.000 Alunos" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="flex items-center justify-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5"
+          >
+            <item.icon className="w-5 h-5 text-blue-600 shrink-0" />
+            <span className="text-sm font-semibold text-slate-700">{item.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-3 mt-3 max-w-xl mx-auto">
+        <p className="flex items-center justify-center gap-2 text-green-600 font-black text-sm md:text-base">
+          <ShieldCheck className="w-5 h-5" /> GARANTIA INCONDICIONAL DE 7 DIAS
+        </p>
+        <p className="text-slate-700 text-sm md:text-base mt-1">
+          <span className="text-amber-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvo{" "}
+          <span className="text-green-600 font-bold">100% do seu dinheiro.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
@@ -1489,156 +1567,13 @@ const Footer = () => (
 );
 
 
-// ───────────────────────── Modal de checkout (tema claro) ─────────────────────────
-const CHECKOUT_ITEMS = [
-  { icon: Zap, label: "Acesso imediato" },
-  { icon: ShieldCheck, label: "Garantia 7 dias" },
-  { icon: Headphones, label: "Suporte humanizado" },
-  { icon: InfinityIcon, label: "Acesso vitalício" },
-];
-
-const CheckoutModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
-  if (!open) return null;
-
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-    >
-      <div
-        className="relative w-full max-w-sm bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 md:p-5 animate-in fade-in zoom-in-95 duration-200"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-2 right-2 text-slate-400 hover:text-slate-900 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
-          aria-label="Fechar"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        <div className="bg-green-50 border border-green-300 rounded-xl px-3 py-1.5 mb-3 text-center flex items-center justify-center gap-2">
-          <Lock className="w-3.5 h-3.5 text-green-600 shrink-0" />
-          <span className="text-green-800 font-bold text-xs md:text-sm">Ambiente 100% Seguro</span>
-          <Shield className="w-3.5 h-3.5 text-green-600 shrink-0" />
-        </div>
-
-        <div className="text-center mb-3">
-          <h3 className="text-base md:text-lg font-black text-slate-900 leading-tight flex items-center justify-center gap-2">
-            <Monitor className="w-4 h-4 md:w-5 md:h-5 text-blue-600 shrink-0" />
-            Falta pouco para você começar!
-          </h3>
-        </div>
-
-        <div className="text-center mb-3">
-          <div className="relative inline-block mx-auto mb-2">
-            <img
-              src={elisaModal}
-              alt="Professora Elisa"
-              loading="eager"
-              fetchPriority="high"
-              className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover object-top border-4 border-blue-100 shadow-xl shadow-blue-900/10"
-            />
-            <div className="absolute -bottom-1 -right-1 bg-green-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full border-2 border-white">
-              PROFª ELISA
-            </div>
-          </div>
-          <p className="text-slate-700 text-sm md:text-base leading-snug max-w-xs mx-auto">
-            Eu vou estar com você passo a passo!
-          </p>
-          <div className="flex items-center justify-center gap-1 mt-2">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
-            ))}
-            <span className="text-slate-700 text-[11px] md:text-xs font-bold ml-1">
-              +15.000 alunos já aprenderam comigo
-            </span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-1.5 mb-3">
-          {CHECKOUT_ITEMS.map(({ icon: I, label }) => (
-            <div
-              key={label}
-              className="flex flex-col items-center justify-center text-center gap-1 bg-slate-50 border border-slate-200 rounded-xl px-2 py-2.5"
-            >
-              <I className="w-5 h-5 text-blue-600 shrink-0" />
-              <p className="text-slate-800 text-[11px] md:text-xs font-bold leading-tight">{label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mb-2 text-center">
-          <p className="text-slate-500 text-[11px] md:text-xs font-bold uppercase tracking-wide mb-1.5">
-            Escolha como pagar
-          </p>
-          <div className="flex items-center justify-center gap-2">
-            {[
-              { icon: Zap, label: "PIX" },
-              { icon: CreditCard, label: "Cartão" },
-              { icon: Barcode, label: "Boleto" },
-            ].map(({ icon: I, label }) => (
-              <div
-                key={label}
-                className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-full px-3 py-1.5"
-              >
-                <I className="w-4 h-4 text-blue-600 shrink-0" />
-                <span className="text-slate-800 text-xs md:text-sm font-bold">{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="text-center mb-2">
-          <p className="text-slate-600 text-xs md:text-sm">
-            De <span className="line-through font-bold text-base">R$ 497,00</span> por apenas
-          </p>
-          <p className="text-3xl md:text-4xl font-black text-green-600 leading-none tracking-tight my-1">R$ 297</p>
-          <p className="text-slate-600 font-semibold text-[11px] md:text-xs">à vista ou em até 12 x 30,72 no cartão</p>
-        </div>
-
-        <div className="bg-green-50 border border-green-300 rounded-xl p-2.5 mb-2 text-center">
-          <p className="text-green-900 font-bold text-xs md:text-sm leading-snug flex flex-col items-center justify-center gap-0.5">
-            <span className="flex items-center justify-center gap-1.5">
-              <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-green-600 shrink-0" />
-              7 dias de garantia incondicional
-            </span>
-            <span className="text-green-700 font-semibold text-[11px] md:text-xs">Risco zero para você</span>
-          </p>
-        </div>
-
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-2.5 mb-3 text-center">
-          <p className="text-slate-600 text-xs md:text-sm leading-snug flex flex-col items-center justify-center gap-0.5">
-            <span className="flex items-center justify-center gap-1.5 whitespace-nowrap">
-              <Lock className="w-4 h-4 text-blue-600 shrink-0" />
-              Pagamento processado com segurança
-            </span>
-            <span className="whitespace-nowrap">pela plataforma <span className="text-slate-900 font-bold text-sm md:text-base">Hotmart</span></span>
-          </p>
-        </div>
-
-        <CTA onClick={openCheckout}>QUERO ACESSAR O CURSO</CTA>
-      </div>
-    </div>
-  );
-};
-
 // ───────────────────────── Sticky CTA (fixo no rodapé) ─────────────────────────
 const StickyCTA = () => {
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 px-3 pb-3 md:pb-4 pointer-events-none">
       <div className="max-w-2xl mx-auto pointer-events-auto">
         <button
-          onClick={() => requestOpenModal()}
+          onClick={() => openCheckout()}
           className="group flex w-full items-center justify-center gap-2 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-2xl shadow-green-600/30 transition-all whitespace-nowrap text-lg md:text-xl px-5 py-4"
         >
           <Monitor className="w-5 h-5 shrink-0" />
@@ -1651,48 +1586,43 @@ const StickyCTA = () => {
 };
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+const Home = () => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
-    requestOpenModal = () => setModalOpen(true);
-    // Pré-carrega a foto do modal para abrir instantaneamente
-    const img = new Image();
-    img.src = elisaModal;
-    return () => {
-      requestOpenModal = () => openCheckout();
-    };
   }, []);
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
-      {/* 1. Prova viva imediata: aula real 1 */}
-      <AulasReais aula={1} />
-      {/* 2. Identificação imediata de dores (o aluno se reconhece) */}
+      {/* 1. Identificação imediata de dores (o aluno se reconhece) */}
       <PainIdentification />
+      {/* 2. Prova viva imediata: aula real do curso antes da identificação */}
+      <AulaCursoReal />
+      {/* 2b. Sonhos realizados como aquecimento antes da oferta de valor */}
+      <DreamRealization />
+      {/* 2c. Sessão de valor logo após a prova viva do primeiro vídeo */}
+      <ValueSection />
       {/* 3. Prova social profunda */}
       <SocialProof />
-      {/* 4. Problema / agitação da dor + contraste de futuro (bloco único) */}
+      {/* 4. Aula real passo a passo antes da agitação da dor */}
+      <AulasReais aula={1} />
+      {/* 5. Problema / agitação da dor + contraste de futuro (bloco único) */}
       <AgitateSection />
-      {/* 5. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
+      {/* 6. Autoridade: quem vai te ensinar (antídoto emocional da dor) */}
       <Instructor />
-      {/* 6. Solução: a transformação (plano claro, prova da promessa da professora) */}
+      {/* 7. Solução: a transformação (plano claro, prova da promessa da professora) */}
       <Method />
-      {/* 7. Micro-compromisso: quiz interativo */}
+      {/* 8. Micro-compromisso: quiz interativo */}
       <QuizIdentificacao />
-      {/* 8. Conteúdo/entregável */}
+      {/* 9. Conteúdo/entregável */}
       <Modules />
-      {/* 9. Visão emocional (desejo antes do preço) */}
+      {/* 10. Visão emocional (desejo antes do preço) */}
       <EmotionalVision />
       {/* 10b. Reengajamento antes da oferta: aula real 2 em destaque */}
       <Aula2Destaque />
 
-      {/* 10c. Sonhos realizados como aquecimento antes do value stack */}
-      <DreamRealization />
-
       {/* 11. Value stack: bônus antes da oferta */}
-      <section id="sessao-valor" className="py-4 md:py-6 bg-slate-50">
+      <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
@@ -1712,9 +1642,8 @@ const VendasNovo = () => {
       <Footer />
       <WhatsAppButton />
       <StickyCTA />
-      <CheckoutModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
 
-export default VendasNovo;
+export default Home;

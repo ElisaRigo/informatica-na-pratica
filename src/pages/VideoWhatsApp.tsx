@@ -43,7 +43,7 @@ const VideoWhatsApp = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&showinfo=0&playsinline=1&cc_load_policy=0&autoplay=1"
                 title="Veja como é fácil aprender"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

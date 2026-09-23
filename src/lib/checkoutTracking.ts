@@ -4,7 +4,7 @@
 // no Meta quando o navegador mata a request ao abrir _blank.
 
 const CHECKOUT_URL =
-  "https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card";
+  "https://pay.hotmart.com/L103057645P?bid=1751676498498";
 
 const PIXEL_FLUSH_MS = 400; // tempo seguro para fbq enviar via XHR
 
