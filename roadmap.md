@@ -9,3 +9,4 @@
 - [x] Subir a aula demonstrativa da home para o início da página.
 - [x] Adicionar comentários da home na seção de depoimentos.
 - [x] Verificar a nova ordem no celular e no computador.
+- [x] Remover o bloco de preço (selo 40% OFF + cartão R$ 297) do topo da /informatica.

@@ -175,23 +175,7 @@ const Hero = () => {
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             O computador deixa de ser medo e vira parte do seu dia: trabalho, recados da família, contas e tudo mais.
           </p>
-          <div className="mt-4 flex justify-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-success/10 px-4 py-2 text-sm font-black text-success md:text-base">
-              <CheckCircle2 className="h-5 w-5 shrink-0" /> Curso completo com 40% OFF + 4 bônus exclusivos
-            </span>
-          </div>
         </div>
-
-        <div className="mx-auto mt-5 w-full max-w-md rounded-xl border-2 border-primary/20 bg-panel p-4 text-center shadow-card md:p-5">
-            <p className="font-bold text-muted-foreground">Curso completo + 4 bônus</p>
-            <p className="mt-2 text-sm text-muted-foreground">De <span className="line-through">R$ 497</span> por</p>
-            <p className="text-5xl font-black leading-none text-success">R$ 297</p>
-            <p className="mt-1 text-sm font-semibold text-foreground">ou em até <span className="font-black text-primary">12x de R$ 30,72</span> no cartão</p>
-            <p className="mt-2 font-black text-warning">Hoje você leva 4 bônus exclusivos</p>
-            <p className="mt-1 text-sm font-semibold text-foreground">Mais de 90 aulas • acesso vitalício</p>
-            <div className="mt-4"><CTA>Sim, quero começar meu curso</CTA></div>
-            <TrustRow />
-          </div>
 
         <div className="mt-5 flex items-center justify-center gap-3">
           <div className="flex -space-x-2">
