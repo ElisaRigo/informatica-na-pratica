@@ -31,6 +31,7 @@ import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
 const elisaHeader = elisaHeaderAsset.url;
 import presentationVideoAsset from "@/assets/informatica-apresentacao.mp4.asset.json";
 import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.jpg.asset.json";
+import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
 import lessonVideoThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -54,6 +55,7 @@ import certificateImage from "@/assets/certificado-exemplo.png";
 const studentAvatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
 const presentationVideo = presentationVideoAsset.url;
 const presentationCover = presentationCoverAsset.url;
+const homeVideoThumb = homeVideoThumbAsset.url;
 const lessonVideoThumb = lessonVideoThumbAsset.url;
 
 const CTA = ({ children, compact = false }: { children: React.ReactNode; compact?: boolean }) => (
@@ -204,6 +206,37 @@ const Hero = () => {
             <p className="text-xs font-bold text-muted-foreground">+15.000 alunos já aprenderam</p>
           </div>
         </div>
+      </div>
+    </section>
+  );
+};
+
+const HomeIntroductionVideo = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <section className="bg-muted py-6 md:py-9">
+      <div className="container mx-auto max-w-4xl px-4 text-center">
+        <span className="text-sm font-black uppercase text-primary">Veja antes de decidir</span>
+        <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">Conheça o curso e veja como você também pode aprender</h2>
+        <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">Assista a esta apresentação rápida e descubra como funciona o meu jeito de ensinar.</p>
+        <div className="mx-auto mt-5 overflow-hidden rounded-xl border border-border bg-panel shadow-card">
+          {!isPlaying ? (
+            <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir apresentação do curso">
+              <img src={homeVideoThumb} alt="Apresentação do curso de informática" className="aspect-video w-full object-cover" loading="eager" />
+              <span className="absolute inset-0 flex items-center justify-center">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/80 shadow-card ring-2 ring-primary/30 transition-transform group-hover:scale-105 md:h-20 md:w-20">
+                  <Play className="ml-1 h-8 w-8 text-primary md:h-10 md:w-10" fill="currentColor" />
+                </span>
+              </span>
+            </Button>
+          ) : (
+            <div className="aspect-video">
+              <iframe src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1" title="Apresentação do curso de informática" className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+            </div>
+          )}
+        </div>
+        <div className="mx-auto mt-5 max-w-xl"><CTA compact>Quero começar a aprender</CTA></div>
       </div>
     </section>
   );
@@ -582,6 +615,7 @@ const Remarketing = () => {
     <div className="min-h-screen bg-background pb-20 text-foreground md:pb-0">
       <Header />
       <Hero />
+      <HomeIntroductionVideo />
       <HomeDemoLesson />
       <SocialProof />
       <WhoItIsFor />
