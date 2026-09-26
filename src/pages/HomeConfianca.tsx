@@ -96,7 +96,7 @@ const Hero = () => {
         <div className="mx-auto mt-5 w-full max-w-[340px] overflow-hidden rounded-xl border-4 border-primary/10 bg-foreground shadow-card">
           {!isPlaying ? (
             <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir ao recado da Professora Elisa">
-              <img src={presentationCover} alt="Professora Elisa apresentando o curso" className="aspect-[35/54] w-full object-cover" width="560" height="864" decoding="async" fetchPriority="high" />
+              <img src={presentationCover} alt="Professora Elisa apresentando o curso" className="aspect-[35/54] w-full object-cover" width="560" height="864" decoding="async" />
               <span className="absolute inset-0 flex flex-col items-center justify-center bg-foreground/10 px-5">
                 <span className="flex h-20 w-20 items-center justify-center rounded-full bg-background/90 shadow-card ring-4 ring-primary/20 transition-transform group-hover:scale-105">
                   <Play className="ml-1 h-10 w-10 text-primary" fill="currentColor" />
