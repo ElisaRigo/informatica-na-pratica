@@ -4,8 +4,11 @@ import {
   CheckCircle2,
   ChevronDown,
   Clock3,
+  BookOpen,
   FileText,
+  GraduationCap,
   Headphones,
+  HeartHandshake,
   Infinity as InfinityIcon,
   Keyboard,
   Lock,
@@ -42,6 +45,7 @@ import excelIcon from "@/assets/excel-icon.png";
 import powerpointIcon from "@/assets/powerpoint-icon.png";
 import internetIcon from "@/assets/internet-icon.png";
 import typingIcon from "@/assets/typing-icon.png";
+import certificateImage from "@/assets/certificado-exemplo.png";
 
 const studentAvatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
 const presentationVideo = presentationVideoAsset.url;
@@ -166,7 +170,7 @@ const Hero = () => {
           </p>
           <div className="mt-4 flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-success/10 px-4 py-2 text-sm font-black text-success md:text-base">
-              <CheckCircle2 className="h-5 w-5 shrink-0" /> Sua condição de 40% OFF + 4 bônus exclusivos ainda está disponível
+              <CheckCircle2 className="h-5 w-5 shrink-0" /> Curso completo com 40% OFF + 4 bônus exclusivos
             </span>
           </div>
         </div>
@@ -212,8 +216,8 @@ const Objections = () => {
     <section className="bg-muted py-6 md:py-9">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center">
-          <span className="text-sm font-black uppercase text-primary">Talvez seja isso que faltava saber</span>
-          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">O que está impedindo você de começar?</h2>
+          <span className="text-sm font-black uppercase text-primary">Comece com tranquilidade</span>
+          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">Suas dúvidas têm respostas simples</h2>
         </div>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {items.map(({ icon: Icon, title, text }) => (
@@ -224,6 +228,35 @@ const Objections = () => {
           ))}
         </div>
         <div className="mx-auto mt-5 max-w-xl"><CTA compact>Agora eu quero começar</CTA></div>
+      </div>
+    </section>
+  );
+};
+
+const WhoItIsFor = () => {
+  const profiles = [
+    { icon: Monitor, title: "Você está começando do zero", text: "Eu ensino desde os primeiros passos, sem presumir que você já saiba alguma coisa." },
+    { icon: FileText, title: "Você quer fazer tudo sozinho", text: "Aprenda a criar documentos, organizar arquivos, usar planilhas e enviar e-mails." },
+    { icon: HeartHandshake, title: "Você precisa de calma e apoio", text: "As explicações são simples, e você pode rever cada aula quantas vezes precisar." },
+    { icon: Award, title: "Você busca novas oportunidades", text: "Ganhe confiança para usar o computador no trabalho e em tarefas importantes do dia a dia." },
+  ];
+
+  return (
+    <section className="bg-background py-6 md:py-9">
+      <div className="container mx-auto max-w-5xl px-4">
+        <div className="text-center">
+          <span className="text-sm font-black uppercase text-primary">Feito para você</span>
+          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">Este curso é para quem quer aprender sem medo</h2>
+          <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">Não importa se você sabe pouco ou nunca fez um curso. Eu começo do começo.</p>
+        </div>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {profiles.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="flex gap-3 rounded-lg border border-border bg-panel p-4 shadow-card">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10"><Icon className="h-5 w-5 text-primary" /></span>
+              <div><h3 className="font-black text-foreground">{title}</h3><p className="mt-1 text-sm leading-relaxed text-muted-foreground md:text-base">{text}</p></div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -292,6 +325,36 @@ const CourseContent = () => {
   );
 };
 
+const HowItWorks = () => {
+  const steps = [
+    { number: "1", icon: PlayCircle, title: "Assista à aula curta", text: "Eu mostro uma tarefa por vez, com uma explicação fácil de acompanhar." },
+    { number: "2", icon: Monitor, title: "Faça junto comigo", text: "Abra o computador e repita cada passo no seu ritmo, sem pular nenhuma etapa." },
+    { number: "3", icon: BookOpen, title: "Pratique no seu dia", text: "Use o que aprendeu em documentos, planilhas, e-mails e outras tarefas reais." },
+  ];
+
+  return (
+    <section className="bg-primary py-7 text-primary-foreground md:py-10">
+      <div className="container mx-auto max-w-5xl px-4">
+        <div className="text-center">
+          <span className="text-sm font-black uppercase text-primary-foreground/75">Um caminho simples</span>
+          <h2 className="mt-2 text-2xl font-black md:text-4xl">Como você vai aprender</h2>
+          <p className="mx-auto mt-2 max-w-2xl text-primary-foreground/80">Sem palavras difíceis: você vê, faz junto e pratica.</p>
+        </div>
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
+          {steps.map(({ number, icon: Icon, title, text }) => (
+            <div key={number} className="rounded-lg border border-primary-foreground/20 bg-primary-foreground/10 p-4">
+              <div className="flex items-center gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-background text-lg font-black text-primary">{number}</span><Icon className="h-6 w-6 text-warning" /></div>
+              <h3 className="mt-3 text-lg font-black">{title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-primary-foreground/80 md:text-base">{text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mx-auto mt-5 max-w-xl"><CTA compact>Quero aprender passo a passo</CTA></div>
+      </div>
+    </section>
+  );
+};
+
 const TeacherAndLesson = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -327,6 +390,55 @@ const TeacherAndLesson = () => {
     </section>
   );
 };
+
+const StudentVoices = () => {
+  const audios = [
+    { name: "Antonio", label: "Conta como foi aprender com as aulas", src: "/audio/antonio-1.ogg" },
+    { name: "Antonio", label: "Continuação do depoimento", src: "/audio/antonio-2.ogg" },
+    { name: "Vanderlei", label: "Fala sobre sua experiência no curso", src: "/audio/vanderlei.ogg" },
+  ];
+
+  return (
+    <section className="bg-background py-6 md:py-9">
+      <div className="container mx-auto max-w-5xl px-4">
+        <div className="text-center">
+          <span className="text-sm font-black uppercase text-primary">Ouça quem já começou</span>
+          <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">Alunos contando com a própria voz</h2>
+          <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">Depoimentos enviados por pessoas que conheceram o meu jeito de ensinar.</p>
+        </div>
+        <div className="mx-auto mt-5 grid max-w-3xl gap-3 md:grid-cols-3">
+          {audios.map((audio) => (
+            <div key={`${audio.name}-${audio.src}`} className="rounded-lg border border-border bg-panel p-4 shadow-card">
+              <div className="flex items-center gap-2"><Headphones className="h-6 w-6 text-primary" /><h3 className="font-black text-foreground">{audio.name}</h3></div>
+              <p className="mt-2 min-h-10 text-sm leading-relaxed text-muted-foreground">{audio.label}</p>
+              <audio className="mt-3 h-10 w-full" controls preload="none" src={audio.src}>Seu navegador não consegue tocar este áudio.</audio>
+            </div>
+          ))}
+        </div>
+        <p className="mt-5 text-center text-xl font-black text-foreground md:text-2xl">Cada aluno começou de um jeito. <span className="text-success">Todos deram o primeiro passo.</span></p>
+      </div>
+    </section>
+  );
+};
+
+const Certificate = () => (
+  <section className="bg-muted py-6 md:py-9">
+    <div className="container mx-auto grid max-w-5xl items-center gap-5 px-4 md:grid-cols-2 md:gap-8">
+      <img src={certificateImage} alt="Exemplo do certificado de conclusão" className="w-full rounded-xl border border-border shadow-card" loading="lazy" />
+      <div className="text-center md:text-left">
+        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-black text-primary"><GraduationCap className="h-4 w-4" /> SUA CONQUISTA</span>
+        <h2 className="mt-3 text-2xl font-black text-foreground md:text-4xl">Conclua o curso e receba seu certificado</h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground md:text-lg">Uma forma de reconhecer seu aprendizado e mostrar que você se dedicou a dominar o computador.</p>
+        <div className="mt-4 space-y-2 text-left">
+          {["Certificado digital de conclusão", "Pronto para incluir no currículo", "Um registro da sua realização"].map((item) => (
+            <p key={item} className="flex items-center gap-2 font-bold text-foreground"><CheckCircle2 className="h-5 w-5 shrink-0 text-success" />{item}</p>
+          ))}
+        </div>
+        <div className="mt-5"><CTA compact>Quero conquistar meu certificado</CTA></div>
+      </div>
+    </div>
+  </section>
+);
 
 const Offer = () => (
   <section id="oferta" className="bg-primary py-7 text-primary-foreground md:py-10">
@@ -422,7 +534,7 @@ const Remarketing = () => {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "Sua Condição Especial • Curso de Informática Online";
+    document.title = "Curso de Informática Online • Informática na Prática";
     const openDialog = () => setCheckoutOpen(true);
     window.addEventListener(CHECKOUT_MODAL_EVENT, openDialog);
     return () => window.removeEventListener(CHECKOUT_MODAL_EVENT, openDialog);
@@ -432,18 +544,22 @@ const Remarketing = () => {
     <div className="min-h-screen bg-background pb-20 text-foreground md:pb-0">
       <Header />
       <Hero />
+      <WhoItIsFor />
       <Objections />
       <SocialProof />
       <CourseContent />
+      <HowItWorks />
       <TeacherAndLesson />
       <section className="bg-muted px-4 py-6 md:py-9"><HeroBonuses variant="light" /></section>
+      <StudentVoices />
+      <Certificate />
       <Offer />
       <FAQ />
       <FinalCTA />
       <Footer />
       <StickyCTA />
       <WhatsAppButton />
-      <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} variant="remarketing" />
+      <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
     </div>
   );
 };
