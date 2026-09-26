@@ -97,6 +97,32 @@ All colors MUST be HSL.
 }
 
 @layer base {
+  .confidence-home {
+    --background: 0 0% 100%;
+    --foreground: 211 69% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 211 69% 9%;
+    --panel: 210 40% 98%;
+    --line: 214 32% 91%;
+    --primary: 198 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 211 69% 9%;
+    --muted: 214 32% 96%;
+    --muted-foreground: 211 25% 38%;
+    --accent: 142 70% 49%;
+    --accent-foreground: 0 0% 100%;
+    --success: 142 70% 49%;
+    --success-foreground: 211 69% 9%;
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 198 89% 48%;
+    --shadow-card: 0 14px 36px hsl(211 69% 9% / 0.1);
+    --shadow-cta: 0 12px 30px hsl(142 70% 49% / 0.28);
+  }
+}
+
+@layer base {
   * {
     @apply border-border;
   }
