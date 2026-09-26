@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   CheckCircle2,
   ChevronDown,
@@ -10,11 +10,13 @@ import {
   Mail,
   MessageCircleHeart,
   Monitor,
+  Pause,
   Play,
   PlayCircle,
   ShieldCheck,
   Star,
   Users,
+  Volume2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CourseEnrollmentDialog } from "@/components/CourseEnrollmentDialog";
@@ -33,6 +35,7 @@ import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
 import avatar4 from "@/assets/testimonial-new-4.jpg";
 import avatar5 from "@/assets/testimonial-new-5.jpg";
+import avatar6 from "@/assets/testimonial-new-6.jpg";
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
 import excelIcon from "@/assets/excel-icon.png";
@@ -161,8 +164,37 @@ const Possibilities = () => {
   );
 };
 
+const CourseIntroduction = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <section className="bg-background px-4 py-7 md:py-10">
+      <div className="container mx-auto max-w-4xl px-0 text-center">
+        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-black uppercase text-primary"><PlayCircle className="h-4 w-4" /> Conheça o curso</span>
+        <h2 className="mt-3 font-heading text-2xl font-bold text-foreground md:text-4xl">Veja como eu preparei tudo para você</h2>
+        <p className="mx-auto mt-2 max-w-2xl text-muted-foreground md:text-lg">Neste vídeo eu mostro o curso por dentro e explico como você vai aprender.</p>
+        <div className="mx-auto mt-5 max-w-3xl overflow-hidden rounded-xl border border-border bg-panel shadow-card">
+          {!isPlaying ? (
+            <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir Conheça o curso">
+              <img src={courseCover} alt="Conheça o curso de Informática na Prática" className="aspect-video w-full object-cover" loading="lazy" />
+              <span className="absolute inset-0 flex flex-col items-center justify-center bg-foreground/15 px-4">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/90 shadow-card"><Play className="ml-1 h-8 w-8 text-primary" fill="currentColor" /></span>
+                <span className="mt-3 rounded-full bg-foreground/80 px-4 py-2 text-sm font-black text-background">Assistir agora</span>
+              </span>
+            </Button>
+          ) : (
+            <div className="aspect-video">
+              <iframe src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1" title="Conheça o curso" className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+            </div>
+          )}
+        </div>
+        <div className="mx-auto mt-5 max-w-xl"><CTA compact>Quero aprender com a Profª Elisa</CTA></div>
+      </div>
+    </section>
+  );
+};
+
 const videoChoices = [
-  { id: "curso", label: "Conheça o curso", title: "Veja como o curso funciona", text: "Conheça a forma simples e acolhedora que preparei para você.", cover: courseCover, videoId: "0kFjFZX5c9I" },
   { id: "aula", label: "Aula demonstrativa", title: "Assista a uma aula completa", text: "Veja cada clique sendo explicado sem pressa e sem palavras difíceis.", cover: classCover, videoId: "_0OPLnEiMHk" },
   { id: "passo", label: "Passo a passo", title: "Aprenda comigo na prática", text: "Uma aula real para você sentir como é aprender ao meu lado.", cover: lessonCover, videoId: "-sdVG1OtDks" },
 ];
@@ -180,7 +212,7 @@ const VideoLibrary = () => {
           <h2 className="mt-3 font-heading text-2xl font-bold text-foreground md:text-4xl">Eu prefiro mostrar como ensino</h2>
           <p className="mx-auto mt-2 max-w-2xl text-muted-foreground md:text-lg">Escolha um vídeo e veja com seus próprios olhos. Todos carregam somente quando você aperta o play.</p>
         </div>
-        <div className="mt-5 grid grid-cols-3 gap-2" role="tablist" aria-label="Vídeos do curso">
+        <div className="mt-5 grid grid-cols-2 gap-2" role="tablist" aria-label="Aulas para assistir">
           {videoChoices.map((video) => (
             <Button key={video.id} type="button" variant={selectedId === video.id ? "default" : "outline"} onClick={() => { setSelectedId(video.id); setIsPlaying(false); }} className="h-auto min-h-14 whitespace-normal rounded-lg px-2 py-2 text-xs font-black md:text-sm">
               {video.label}
@@ -208,15 +240,63 @@ const VideoLibrary = () => {
   );
 };
 
+const audioTestimonials = [
+  { name: "Amanda", description: "Como o curso ajudou na sua rotina", audioSrc: "/audio/amanda.mp4" },
+  { name: "Vanderlei", description: "Como superou as dificuldades", audioSrc: "/audio/vanderlei.ogg" },
+  { name: "Bruna", description: "Uma mensagem de gratidão", audioSrc: "/audio/bruna.aac" },
+];
+
+const AudioTestimonial = ({ testimonial }: { testimonial: (typeof audioTestimonials)[number] }) => {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggle = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) audio.pause();
+    else void audio.play().catch(() => setIsPlaying(false));
+    setIsPlaying(!isPlaying);
+  };
+
+  return (
+    <div className="flex items-center gap-3 rounded-lg border border-border bg-background p-3 text-left shadow-card">
+      <audio ref={audioRef} src={testimonial.audioSrc} preload="none" onEnded={() => setIsPlaying(false)} />
+      <Button type="button" size="icon" onClick={toggle} className="h-11 w-11 shrink-0 rounded-full" aria-label={`${isPlaying ? "Pausar" : "Ouvir"} depoimento de ${testimonial.name}`}>
+        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="ml-0.5 h-5 w-5" fill="currentColor" />}
+      </Button>
+      <div className="min-w-0"><p className="font-black text-foreground">{testimonial.name}</p><p className="text-xs text-muted-foreground">{testimonial.description}</p></div>
+      <Volume2 className="ml-auto h-5 w-5 shrink-0 text-primary" />
+    </div>
+  );
+};
+
+const studentStories = [
+  { name: "Luciana M.", text: "Aprendi em uma semana o que não consegui em meses.", avatar: avatar1 },
+  { name: "Tereza S.", text: "Estou conseguindo usar o computador sozinha. Muito obrigada!", avatar: avatar2 },
+  { name: "Carlos A.", text: "Melhor investimento que fiz. Já indiquei para toda a família.", avatar: avatar3 },
+  { name: "Maria G.", text: "Com 68 anos aprendi a mexer no computador.", avatar: avatar6 },
+];
+
 const SocialProof = () => (
   <section className="bg-muted px-4 py-7 md:py-10">
-    <div className="container mx-auto max-w-4xl px-0 text-center">
+    <div className="container mx-auto max-w-5xl px-0 text-center">
       <Users className="mx-auto h-9 w-9 text-primary" />
-      <h2 className="mt-2 font-heading text-2xl font-bold text-foreground md:text-4xl">Eles também começaram com medo</h2>
-      <p className="mx-auto mt-2 max-w-2xl text-muted-foreground md:text-lg">Com explicações simples e paciência, ganharam confiança para fazer sozinhos.</p>
-      <div className="mx-auto mt-5 grid max-w-2xl grid-cols-2 gap-3">
+      <h2 className="mt-2 font-heading text-2xl font-bold text-foreground md:text-4xl">Mais alunos contam como foi aprender</h2>
+      <p className="mx-auto mt-2 max-w-2xl text-muted-foreground md:text-lg">Pessoas reais que começaram com medo e hoje usam o computador com mais confiança.</p>
+      <div className="mx-auto mt-5 grid max-w-4xl grid-cols-2 gap-3">
         {[whatsappTestimonial1, whatsappTestimonial2].map((image, index) => (
           <div key={image} className="overflow-hidden rounded-lg border border-border bg-background p-1.5 shadow-card"><img src={image} alt={`Mensagem de aluno ${index + 1}`} className="w-full rounded-md" loading="lazy" /></div>
+        ))}
+      </div>
+      <div className="mx-auto mt-5 grid max-w-4xl gap-3 md:grid-cols-3">
+        {audioTestimonials.map((testimonial) => <AudioTestimonial key={testimonial.name} testimonial={testimonial} />)}
+      </div>
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {studentStories.map((story) => (
+          <div key={story.name} className="rounded-lg border border-border bg-background p-4 text-left shadow-card">
+            <div className="flex items-center gap-2"><img src={story.avatar} alt="" className="h-10 w-10 rounded-full object-cover" loading="lazy" /><div><p className="text-sm font-black text-foreground">{story.name}</p><div className="flex">{Array.from({ length: 5 }).map((_, index) => <Star key={index} className="h-3.5 w-3.5 fill-warning text-warning" />)}</div></div></div>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">“{story.text}”</p>
+          </div>
         ))}
       </div>
       <p className="mt-5 text-xl font-black text-foreground md:text-2xl">Se eles conseguiram, <span className="text-success">você também consegue.</span></p>
@@ -339,6 +419,7 @@ const HomeConfianca = () => {
       <main>
         <Hero />
         <Possibilities />
+        <CourseIntroduction />
         <VideoLibrary />
         <SocialProof />
         <CourseSummary />
