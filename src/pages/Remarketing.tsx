@@ -81,15 +81,15 @@ const TrustRow = () => (
 );
 
 const Header = () => (
-  <header className="border-b border-border bg-background py-3">
-    <div className="container mx-auto flex items-center justify-center gap-3 px-4 md:gap-4">
-      <img src={elisaHeader} alt="Professora Elisa" className="h-16 w-16 shrink-0 rounded-full border-2 border-primary object-cover shadow-card md:h-20 md:w-20" />
+    <header className="border-b border-border bg-background py-3">
+    <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
+      <img src={elisaHeader} alt="Professora Elisa" className="h-14 w-14 shrink-0 rounded-full border-2 border-primary object-cover shadow-card md:h-24 md:w-24" />
       <p className="leading-none">
-        <span className="block whitespace-nowrap text-[6.2vw] font-black tracking-tight text-foreground sm:text-2xl md:text-4xl">
+        <span className="block whitespace-nowrap text-[7vw] font-black tracking-tight text-foreground sm:text-3xl md:text-5xl">
           Aprenda{" "}
           <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">Informática</span>
         </span>
-        <span className="mt-1.5 block text-[3.1vw] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs md:text-sm">
+        <span className="mt-1.5 block text-[3.4vw] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs md:text-sm">
           do zero, passo a passo
         </span>
       </p>
