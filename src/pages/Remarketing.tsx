@@ -33,6 +33,7 @@ import presentationVideoAsset from "@/assets/informatica-apresentacao.mp4.asset.
 import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.jpg.asset.json";
 import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
 import lessonVideoThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
+import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
@@ -252,6 +253,37 @@ const HomeDemoLesson = () => {
           )}
         </div>
         <p className="mx-auto mt-4 max-w-2xl font-bold text-foreground">Essa é a mesma explicação simples que você encontra em todo o curso.</p>
+      </div>
+    </section>
+  );
+};
+
+const FreeClassVideo = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <section className="bg-background py-6 md:py-9">
+      <div className="container mx-auto max-w-4xl px-4 text-center">
+        <span className="inline-flex items-center gap-2 rounded-full bg-warning/15 px-3 py-1.5 text-xs font-black text-warning"><PlayCircle className="h-4 w-4" /> MAIS UMA AULA</span>
+        <h2 className="mt-3 text-2xl font-black text-foreground md:text-4xl">Aprender computador é mais fácil do que você imagina</h2>
+        <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">Veja mais um pedacinho da aula. Eu explico tudo com calma, sem palavras difíceis.</p>
+        <div className="mx-auto mt-5 overflow-hidden rounded-xl border border-border bg-panel shadow-card">
+          {!isPlaying ? (
+            <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir mais uma aula da Professora Elisa">
+              <img src={freeClassThumb} alt="Mais uma aula da Professora Elisa" className="aspect-video w-full object-cover" loading="lazy" />
+              <span className="absolute inset-0 flex items-center justify-center">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/80 shadow-card ring-2 ring-primary/30 transition-transform group-hover:scale-105 md:h-20 md:w-20">
+                  <Play className="ml-1 h-8 w-8 text-primary md:h-10 md:w-10" fill="currentColor" />
+                </span>
+              </span>
+            </Button>
+          ) : (
+            <div className="aspect-video">
+              <iframe src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1" title="Mais uma aula da Professora Elisa" className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+            </div>
+          )}
+        </div>
+        <p className="mx-auto mt-4 max-w-2xl font-bold text-foreground">É assim que você vai aprender: uma aula simples de cada vez, no seu ritmo.</p>
       </div>
     </section>
   );
@@ -603,6 +635,7 @@ const Remarketing = () => {
       <HomeDemoLesson />
       <SocialProof />
       <WhoItIsFor />
+      <FreeClassVideo />
       <Objections />
       <CourseContent />
       <HowItWorks />
