@@ -111,8 +111,11 @@ const Hero = () => {
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
         <div className="text-center">
           <h1 className="mx-auto max-w-4xl text-3xl font-black leading-tight text-foreground md:text-5xl">
-            Ainda tem dúvida se vai conseguir? <span className="text-primary">Deixa comigo: eu te mostro cada passo.</span>
+            Imagine fazer seus documentos, planilhas e e-mails <span className="text-primary">sem depender de ninguém.</span>
           </h1>
+          <p className="mx-auto mt-3 max-w-2xl text-lg font-bold text-foreground md:mt-4 md:text-2xl">
+            Eu vou te ensinar cada passo, com calma, até você conseguir.
+          </p>
           <div className="mx-auto mt-5 w-full max-w-sm overflow-hidden rounded-xl border border-border bg-panel shadow-card">
             {!isPlaying ? (
               <Button
@@ -159,7 +162,7 @@ const Hero = () => {
             )}
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Eu vou te ensinar cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
+            O computador deixa de ser medo e vira parte do seu dia: trabalho, recados da família, contas e tudo mais.
           </p>
           <div className="mt-4 flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-success/10 px-4 py-2 text-sm font-black text-success md:text-base">
