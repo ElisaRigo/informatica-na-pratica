@@ -382,7 +382,6 @@ const SocialProof = () => (
                 {Array.from({ length: 5 }).map((_, starIndex) => <Star key={starIndex} className="h-3.5 w-3.5 fill-warning text-warning" />)}
               </div>
               <p className="mt-2 text-sm font-semibold leading-relaxed text-foreground md:text-base">“{comment.text}”</p>
-              <p className="mt-1 text-xs font-bold text-muted-foreground">Comentário de aluna {index + 1}</p>
             </div>
           </article>
         ))}
