@@ -1,5 +1,5 @@
-import VendasNovo from "./VendasNovo";
+import Remarketing from "./Remarketing";
 
-const Index = () => <VendasNovo />;
+const Index = () => <Remarketing />;
 
 export default Index;
