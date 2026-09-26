@@ -175,6 +175,7 @@ const Hero = () => {
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             O computador deixa de ser medo e vira parte do seu dia: trabalho, recados da família, contas e tudo mais.
           </p>
+        </div>
 
         <div className="mt-5 flex items-center justify-center gap-3">
           <div className="flex -space-x-2">
