@@ -162,7 +162,7 @@ const Hero = () => {
             )}
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Eu vou te ensinar cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
+            O computador deixa de ser medo e vira parte do seu dia: trabalho, recados da família, contas e tudo mais.
           </p>
           <div className="mt-4 flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-success/10 px-4 py-2 text-sm font-black text-success md:text-base">
