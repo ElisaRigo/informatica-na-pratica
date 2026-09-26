@@ -113,18 +113,7 @@ const Hero = () => {
           <h1 className="mx-auto max-w-4xl text-3xl font-black leading-tight text-foreground md:text-5xl">
             Ainda tem dúvida se vai conseguir? <span className="text-primary">Deixa comigo: eu te mostro cada passo.</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Eu vou te ensinar cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
-          </p>
-          <div className="mt-4 flex justify-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-success/10 px-4 py-2 text-sm font-black text-success md:text-base">
-              <CheckCircle2 className="h-5 w-5 shrink-0" /> Sua condição de 40% OFF + 4 bônus exclusivos ainda está disponível
-            </span>
-          </div>
-        </div>
-
-        <div className="mt-5 grid items-center gap-5 lg:grid-cols-[1.35fr_.65fr]">
-          <div className="mx-auto w-full max-w-sm overflow-hidden rounded-xl border border-border bg-panel shadow-card">
+          <div className="mx-auto mt-5 w-full max-w-sm overflow-hidden rounded-xl border border-border bg-panel shadow-card">
             {!isPlaying ? (
               <Button
                 type="button"
@@ -169,8 +158,17 @@ const Hero = () => {
               </div>
             )}
           </div>
+          <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Eu vou te ensinar cada clique com calma. Você aprende Word, Excel, arquivos, internet e e-mail sem depender de ninguém.
+          </p>
+          <div className="mt-4 flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-success/10 px-4 py-2 text-sm font-black text-success md:text-base">
+              <CheckCircle2 className="h-5 w-5 shrink-0" /> Sua condição de 40% OFF + 4 bônus exclusivos ainda está disponível
+            </span>
+          </div>
+        </div>
 
-          <div className="rounded-xl border-2 border-primary/20 bg-panel p-4 text-center shadow-card md:p-5">
+        <div className="mx-auto mt-5 w-full max-w-md rounded-xl border-2 border-primary/20 bg-panel p-4 text-center shadow-card md:p-5">
             <p className="font-bold text-muted-foreground">Curso completo + 4 bônus</p>
             <p className="mt-2 text-sm text-muted-foreground">De <span className="line-through">R$ 497</span> por</p>
             <p className="text-5xl font-black leading-none text-success">R$ 297</p>
@@ -180,7 +178,6 @@ const Hero = () => {
             <div className="mt-4"><CTA>Sim, quero começar meu curso</CTA></div>
             <TrustRow />
           </div>
-        </div>
 
         <div className="mt-5 flex items-center justify-center gap-3">
           <div className="flex -space-x-2">
