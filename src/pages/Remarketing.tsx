@@ -391,6 +391,26 @@ const SocialProof = () => (
   </section>
 );
 
+const GuaranteeReminder = () => (
+  <section className="bg-background py-6 md:py-9">
+    <div className="container mx-auto max-w-2xl px-4">
+      <div className="rounded-xl border border-success/30 bg-panel p-5 text-center shadow-card md:p-7">
+        <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-success/15">
+          <ShieldCheck className="h-7 w-7 text-success" />
+        </span>
+        <h2 className="mt-3 text-2xl font-black text-foreground md:text-3xl">Você não corre risco nenhum</h2>
+        <p className="mx-auto mt-2 max-w-md leading-relaxed text-muted-foreground">
+          Entre, veja as aulas com calma. Se em 7 dias não for para você, devolvemos todo o seu dinheiro.
+        </p>
+        <div className="mx-auto mt-4 max-w-sm">
+          <CTA compact>Quero começar sem risco</CTA>
+        </div>
+        <TrustRow />
+      </div>
+    </div>
+  </section>
+);
+
 const CourseContent = () => {
   const lessons = [
     { image: windowsIcon, title: "Windows e arquivos", text: "Organize pastas e use o computador com segurança." },
@@ -480,7 +500,7 @@ const Teacher = () => {
 const StudentVoices = () => {
   const audios = [
     { name: "Antonio", label: "Conta como foi aprender com as aulas", src: "/audio/antonio-1.ogg" },
-    { name: "Antonio", label: "Continuação do depoimento", src: "/audio/antonio-2.ogg" },
+    { name: "Antonio", label: "Continua o recado dele — vale ouvir até o fim", src: "/audio/antonio-2.ogg" },
     { name: "Vanderlei", label: "Fala sobre sua experiência no curso", src: "/audio/vanderlei.ogg" },
   ];
 
@@ -633,6 +653,7 @@ const Remarketing = () => {
       <HomeIntroductionVideo />
       <HomeDemoLesson />
       <SocialProof />
+      <GuaranteeReminder />
       <WhoItIsFor />
       <FreeClassVideo />
       <Objections />
