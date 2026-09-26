@@ -10,9 +10,7 @@ import {
   Keyboard,
   Lock,
   Mail,
-  MessageCircleHeart,
   Monitor,
-  Play,
   PlayCircle,
   ShieldCheck,
   Star,
@@ -27,7 +25,7 @@ import elisa from "@/assets/elisa-photo.jpg";
 import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
 const elisaHeader = elisaHeaderAsset.url;
 import presentationVideoAsset from "@/assets/informatica-apresentacao.mp4.asset.json";
-import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.jpg.asset.json";
+import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.webp.asset.json";
 import lessonVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -84,28 +82,9 @@ const Hero = () => {
 
   return (
     <section className="bg-background">
-      <div className="relative overflow-hidden bg-slate-900 px-4 py-4 md:py-6">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
-        <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-cyan-500/10 blur-2xl" />
-        <div className="container relative mx-auto max-w-4xl text-center">
-          <span className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200 backdrop-blur-sm md:mb-3 md:px-4 md:py-1.5 md:text-xs">
-            <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
-            Recado da Profª Elisa
-          </span>
-          <p className="relative text-lg font-black leading-tight text-white md:text-2xl">
-            <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
-              &ldquo;
-            </span>
-            Vou te ensinar a usar o
-            <span className="relative mt-1 block w-full leading-none">
-              <span className="relative z-10 whitespace-nowrap text-[12.5vw] font-black leading-none md:text-[8.5rem]">
-                <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador</span>
-              </span>
-              <span className="absolute inset-x-0 bottom-[0.04em] z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-2" />
-            </span>
-            <span className="mt-1 block">de uma vez por todas!</span>
-          </p>
-          <div className="mx-auto mt-3 h-px w-24 rounded-full bg-gradient-to-r from-transparent via-primary/70 to-transparent md:mt-4 md:w-32" />
+      <div className="bg-primary px-3 py-4">
+        <div className="container mx-auto max-w-3xl text-center text-primary-foreground">
+          <p className="text-xl font-black leading-tight md:text-3xl">Vou te ensinar a usar o computador<br />de uma vez por todas!</p>
         </div>
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-5 md:py-8">
@@ -142,12 +121,9 @@ const Hero = () => {
                   decoding="async"
                   {...({ fetchpriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement>)}
                 />
-                <span className="absolute left-1/2 top-3 w-max -translate-x-1/2 rounded-full bg-slate-900/60 px-4 py-1.5 text-xs font-black uppercase tracking-wide text-white shadow-card backdrop-blur-sm md:text-sm">
-                  <span className="flex items-center gap-1.5"><MessageCircleHeart className="h-4 w-4 shrink-0 text-warning" /> Recado da Profª Elisa</span>
-                </span>
                 <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/80 shadow-card ring-2 ring-primary/30 transition-transform group-hover:scale-105 group-active:scale-95 md:h-24 md:w-24">
-                    <Play className="ml-1 h-10 w-10 text-primary drop-shadow-sm md:h-12 md:w-12" fill="currentColor" />
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/80 shadow-card transition-transform group-hover:scale-105 md:h-20 md:w-20">
+                    <PlayCircle className="h-11 w-11 text-primary md:h-14 md:w-14" />
                   </span>
                 </span>
               </Button>
@@ -161,10 +137,7 @@ const Hero = () => {
                   controls
                   autoPlay
                   playsInline
-                  preload="auto"
-                  ref={(el) => {
-                    if (el) void el.play().catch(() => undefined);
-                  }}
+                  preload="metadata"
                 />
               </div>
             )}
