@@ -31,7 +31,8 @@ import elisaHeaderAsset from "@/assets/elisa-header.jpg.asset.json";
 const elisaHeader = elisaHeaderAsset.url;
 import presentationVideoAsset from "@/assets/informatica-apresentacao.mp4.asset.json";
 import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.jpg.asset.json";
-import lessonVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
+import lessonVideoThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
 import avatar1 from "@/assets/testimonial-new-1.jpg";
@@ -39,6 +40,10 @@ import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
 import avatar4 from "@/assets/testimonial-new-4.jpg";
 import avatar5 from "@/assets/testimonial-new-5.jpg";
+import fbAvatar2 from "@/assets/avatar-2.jpg";
+import fbAvatar3 from "@/assets/avatar-3.jpg";
+import fbAvatar5 from "@/assets/avatar-5.jpg";
+import fbAvatar8 from "@/assets/avatar-8.jpg";
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
 import excelIcon from "@/assets/excel-icon.png";
@@ -50,6 +55,8 @@ import certificateImage from "@/assets/certificado-exemplo.png";
 const studentAvatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
 const presentationVideo = presentationVideoAsset.url;
 const presentationCover = presentationCoverAsset.url;
+const homeVideoThumb = homeVideoThumbAsset.url;
+const lessonVideoThumb = lessonVideoThumbAsset.url;
 
 const CTA = ({ children, compact = false }: { children: React.ReactNode; compact?: boolean }) => (
   <Button
@@ -204,6 +211,68 @@ const Hero = () => {
   );
 };
 
+const HomeIntroductionVideo = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <section className="bg-muted py-6 md:py-9">
+      <div className="container mx-auto max-w-4xl px-4 text-center">
+        <span className="text-sm font-black uppercase text-primary">Veja antes de decidir</span>
+        <h2 className="mt-2 text-2xl font-black text-foreground md:text-4xl">Conheça o curso e veja como você também pode aprender</h2>
+        <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">Assista a esta apresentação rápida e descubra como funciona o meu jeito de ensinar.</p>
+        <div className="mx-auto mt-5 overflow-hidden rounded-xl border border-border bg-panel shadow-card">
+          {!isPlaying ? (
+            <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir apresentação do curso">
+              <img src={homeVideoThumb} alt="Apresentação do curso de informática" className="aspect-video w-full object-cover" loading="eager" />
+              <span className="absolute inset-0 flex items-center justify-center">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/80 shadow-card ring-2 ring-primary/30 transition-transform group-hover:scale-105 md:h-20 md:w-20">
+                  <Play className="ml-1 h-8 w-8 text-primary md:h-10 md:w-10" fill="currentColor" />
+                </span>
+              </span>
+            </Button>
+          ) : (
+            <div className="aspect-video">
+              <iframe src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1" title="Apresentação do curso de informática" className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+            </div>
+          )}
+        </div>
+        <div className="mx-auto mt-5 max-w-xl"><CTA compact>Quero começar a aprender</CTA></div>
+      </div>
+    </section>
+  );
+};
+
+const HomeDemoLesson = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <section className="bg-background py-6 md:py-9">
+      <div className="container mx-auto max-w-4xl px-4 text-center">
+        <span className="inline-flex items-center gap-2 rounded-full bg-warning/15 px-3 py-1.5 text-xs font-black text-warning"><PlayCircle className="h-4 w-4" /> AULA REAL</span>
+        <h2 className="mt-3 text-2xl font-black text-foreground md:text-4xl">Veja como é uma aula passo a passo</h2>
+        <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">Sem palavras difíceis e sem pressa. Eu mostro cada clique como se estivesse ao seu lado.</p>
+        <div className="mx-auto mt-5 overflow-hidden rounded-xl border border-border bg-panel shadow-card">
+          {!isPlaying ? (
+            <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir aula demonstrativa">
+              <img src={lessonVideoThumb} alt="Aula demonstrativa da Professora Elisa" className="aspect-video w-full object-cover" loading="lazy" />
+              <span className="absolute inset-0 flex items-center justify-center">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-background/80 shadow-card ring-2 ring-primary/30 transition-transform group-hover:scale-105 md:h-20 md:w-20">
+                  <Play className="ml-1 h-8 w-8 text-primary md:h-10 md:w-10" fill="currentColor" />
+                </span>
+              </span>
+            </Button>
+          ) : (
+            <div className="aspect-video">
+              <iframe src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1" title="Aula demonstrativa da Professora Elisa" className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+            </div>
+          )}
+        </div>
+        <p className="mx-auto mt-4 max-w-2xl font-bold text-foreground">Essa é a mesma explicação simples que você encontra em todo o curso.</p>
+      </div>
+    </section>
+  );
+};
+
 const Objections = () => {
   const items = [
     { icon: Monitor, title: "“Tenho medo de não conseguir”", text: "Eu começo do zero com você. Você acompanha cada clique junto comigo, sem pressa." },
@@ -262,8 +331,15 @@ const WhoItIsFor = () => {
   );
 };
 
+const studentComments = [
+  { avatar: fbAvatar2, text: "Tô conseguindo usar o computador sozinha, muito obrigada!" },
+  { avatar: fbAvatar3, text: "Melhor investimento que fiz! Já indiquei pra toda família." },
+  { avatar: fbAvatar5, text: "Achei que era difícil, mas a didática é perfeita. Parabéns!" },
+  { avatar: fbAvatar8, text: "Com 68 anos aprendi a mexer no computador. Deus abençoe!" },
+];
+
 const SocialProof = () => (
-  <section className="bg-background py-6 md:py-9">
+  <section className="bg-muted py-6 md:py-9">
     <div className="container mx-auto max-w-5xl px-4">
       <div className="text-center">
         <div className="flex items-center justify-center gap-5">
@@ -279,6 +355,20 @@ const SocialProof = () => (
           <div key={image} className="overflow-hidden rounded-lg border border-border bg-panel p-1.5 shadow-card">
             <img src={image} alt={`Mensagem de aluno ${index + 1}`} className="w-full rounded-md" loading="lazy" />
           </div>
+        ))}
+      </div>
+      <div className="mx-auto mt-5 grid max-w-4xl gap-3 sm:grid-cols-2">
+        {studentComments.map((comment, index) => (
+          <article key={comment.text} className="flex gap-3 rounded-lg border border-border bg-background p-4 shadow-card">
+            <img src={comment.avatar} alt="" className="h-10 w-10 shrink-0 rounded-full object-cover blur-[3px]" loading="lazy" />
+            <div>
+              <div className="flex gap-0.5" aria-label="Avaliação de cinco estrelas">
+                {Array.from({ length: 5 }).map((_, starIndex) => <Star key={starIndex} className="h-3.5 w-3.5 fill-warning text-warning" />)}
+              </div>
+              <p className="mt-2 text-sm font-semibold leading-relaxed text-foreground md:text-base">“{comment.text}”</p>
+              <p className="mt-1 text-xs font-bold text-muted-foreground">Comentário de aluna {index + 1}</p>
+            </div>
+          </article>
         ))}
       </div>
       <p className="mt-5 text-center text-xl font-black text-foreground md:text-2xl">Se eles conseguiram comigo, <span className="text-success">você também consegue.</span></p>
@@ -355,35 +445,16 @@ const HowItWorks = () => {
   );
 };
 
-const TeacherAndLesson = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
+const Teacher = () => {
   return (
     <section className="bg-background py-6 md:py-9">
       <div className="container mx-auto max-w-5xl px-4">
-        <div className="grid items-center gap-5 md:grid-cols-[.75fr_1.25fr]">
+        <div className="mx-auto max-w-3xl text-center">
           <div className="text-center md:text-left">
             <img src={elisa} alt="Professora Elisa" className="mx-auto aspect-[4/5] max-h-72 rounded-xl object-cover object-top shadow-card md:mx-0" />
             <h2 className="mt-3 text-2xl font-black text-foreground">Professora Elisa</h2>
             <p className="mt-1 font-bold text-primary">Há mais de 20 anos ensinando informática</p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">“Eu vou explicar com calma, sem palavras difíceis e sem julgamento. Você não estará sozinho.”</p>
-          </div>
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-warning/15 px-3 py-1.5 text-xs font-black text-warning"><PlayCircle className="h-4 w-4" /> VEJA COMO ELA ENSINA</span>
-            <h2 className="mt-2 text-2xl font-black text-foreground md:text-3xl">Assista a uma aula minha antes de decidir</h2>
-            <p className="mt-2 text-muted-foreground">Veja como eu ensino: com calma, passo a passo e sem palavras difíceis.</p>
-            <div className="mt-4 overflow-hidden rounded-xl border border-border shadow-card">
-              {!isPlaying ? (
-                <Button type="button" variant="ghost" onClick={() => setIsPlaying(true)} className="group relative block h-auto w-full rounded-none p-0" aria-label="Assistir aula real">
-                  <img src={lessonVideoThumb} alt="Aula real com a Professora Elisa" className="aspect-video w-full object-cover" loading="lazy" />
-                  <span className="absolute inset-0 flex items-center justify-center"><PlayCircle className="h-16 w-16 text-primary transition-transform group-hover:scale-105" /></span>
-                </Button>
-              ) : (
-                <div className="aspect-video">
-                  <iframe src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1" title="Aula real da Professora Elisa" className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </div>
@@ -544,12 +615,14 @@ const Remarketing = () => {
     <div className="min-h-screen bg-background pb-20 text-foreground md:pb-0">
       <Header />
       <Hero />
+      <HomeIntroductionVideo />
+      <HomeDemoLesson />
+      <SocialProof />
       <WhoItIsFor />
       <Objections />
-      <SocialProof />
       <CourseContent />
       <HowItWorks />
-      <TeacherAndLesson />
+      <Teacher />
       <section className="bg-muted px-4 py-6 md:py-9"><HeroBonuses variant="light" /></section>
       <StudentVoices />
       <Certificate />
