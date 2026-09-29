@@ -1,5 +1,5 @@
 import { Header, TopBanner } from "./Remarketing";
-import VendasNovo from "./pages/VendasNovo";
+import VendasNovo from "./VendasNovo";
 
 const Index = () => (
   <>
