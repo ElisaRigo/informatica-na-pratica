@@ -792,7 +792,7 @@ const SocialProof = () => {
                   ★
                 </span>
               ))}
-              <span className="text-slate-900 text-sm font-semibold ml-1">4.9/5</span>
+              <span className="text-slate-900 text-sm font-semibold ml-1">{"\n"}</span>
             </div>
           </div>
 
