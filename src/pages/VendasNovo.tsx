@@ -163,16 +163,22 @@ const Hero = () => {
           </p>
 
 
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
-            <span className="flex items-center gap-1.5">
-              <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-green-600" /> Acesso imediato
-            </span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5 mb-2 max-w-3xl mx-auto">
+            {[
+              { icon: Lock, label: "Pagamento seguro" },
+              { icon: ShieldCheck, label: "7 dias de garantia" },
+              { icon: CheckCircle2, label: "Acesso imediato" },
+            ].map(({ icon: Icon, label }) => (
+              <div
+                key={label}
+                className="flex items-center justify-center gap-2.5 bg-white border border-slate-200 rounded-xl px-4 py-3.5 shadow-sm shadow-blue-900/5"
+              >
+                <span className="flex items-center justify-center w-9 h-9 rounded-full bg-green-50 shrink-0">
+                  <Icon className="w-5 h-5 text-green-600" />
+                </span>
+                <span className="text-sm md:text-base font-semibold text-slate-800">{label}</span>
+              </div>
+            ))}
           </div>
 
         </div>
