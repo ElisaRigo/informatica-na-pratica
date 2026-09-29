@@ -110,7 +110,7 @@ const Header = () => (
           </div>
         </div>
         <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
-          Curso de <span className="text-sky-600">Informática Online</span> — Simples e para Todos.
+          {"\n"}
         </p>
       </div>
     </div>
@@ -125,8 +125,7 @@ const Hero = () => {
       {/* Top urgency strip */}
       <div className="bg-blue-600 text-center py-2.5 px-4">
         <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
-          <span className="text-xl md:text-2xl">💻</span>
-          Você sente Dificuldade com o Computador?
+          {""}
         </span>
       </div>
 
@@ -137,13 +136,13 @@ const Hero = () => {
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            Aprenda a usar o computador
+            {"\n"}
             <br className="hidden md:block" />
-            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
+            <span className="text-blue-600">{""}</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+            {"\n"}
           </p>
 
           {/* Video */}
