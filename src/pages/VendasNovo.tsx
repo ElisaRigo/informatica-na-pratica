@@ -1065,7 +1065,7 @@ const StickyMobile = () => (
 );
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = () => {
+const VendasNovo = ({ hideTop = false }: { hideTop?: boolean }) => {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   useEffect(() => {
@@ -1080,8 +1080,12 @@ const VendasNovo = () => {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
-      <Header />
-      <Hero />
+      {!hideTop && (
+        <>
+          <Header />
+          <Hero />
+        </>
+      )}
       <AulaDemonstrativa />
       <MiniValueSection />
       <QuizIdentificacao />
