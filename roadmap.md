@@ -15,3 +15,5 @@
 - [x] Transformar a seção de aula real da home em uma vitrine com duas aulas e convite de matrícula.
 - [x] Adicionar a primeira aula de `/curso` antes dos vídeos da seção de aulas da home.
 - [x] Remover do site as palavras “grátis”, “gratis”, “gratuito” e suas variações.
+- [x] Colocar a home na voz da Profª Elisa, falando diretamente com o aluno.
+- [x] Trocar “Comece por esta aula” por uma chamada mais acolhedora.

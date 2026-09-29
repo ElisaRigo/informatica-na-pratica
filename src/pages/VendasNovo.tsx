@@ -130,7 +130,7 @@ const Hero = () => {
             <div className="flex justify-center mb-3">
               <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/30 ring-2 ring-white whitespace-nowrap">
                 <Play className="w-3.5 h-3.5 md:w-4 md:h-4 fill-white shrink-0" />
-                Assista e conheça a Profª Elisa
+                Assista e venha aprender comigo
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200">
@@ -250,7 +250,7 @@ const AulaDemonstrativa = () => {
             Assista agora e veja: <span className="text-blue-600">você também consegue aprender</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Escolha uma aula e conheça a explicação simples e paciente da Profª Elisa. Ela mostra cada clique, sem termos difíceis e sem pressa.
+            Escolha uma aula e aprenda comigo. Eu mostro cada clique com calma, sem termos difíceis e sem pressa.
           </p>
         </div>
 
@@ -259,8 +259,8 @@ const AulaDemonstrativa = () => {
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">1</span>
               <div className="text-left">
-                <h3 className="font-black text-slate-900">Comece por esta aula</h3>
-                <p className="text-xs text-slate-500">A primeira aula da página do curso</p>
+                <h3 className="font-black text-slate-900">Venha aprender comigo</h3>
+                <p className="text-xs text-slate-500">Eu explico tudo com calma e simplicidade</p>
               </div>
             </div>
             {!isCourseLessonPlaying ? (
@@ -298,8 +298,8 @@ const AulaDemonstrativa = () => {
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">2</span>
               <div className="text-left">
-                <h3 className="font-black text-slate-900">Conheça a didática da Profª Elisa</h3>
-                <p className="text-xs text-slate-500">Explicação clara, clique por clique</p>
+                <h3 className="font-black text-slate-900">Eu mostro cada clique</h3>
+                <p className="text-xs text-slate-500">Acompanhe minha explicação passo a passo</p>
               </div>
             </div>
             {!isPlaying ? (
@@ -390,7 +390,7 @@ const AulaDemonstrativa = () => {
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Se você entendeu essas aulas, imagine o que vai conseguir com o curso completo: são <strong className="text-slate-900">+90 aulas simples</strong> para usar o computador com confiança e sem depender de ninguém.
           </p>
-          <CTA>Quero aprender com a Profª Elisa</CTA>
+          <CTA>Quero aprender com você, Elisa</CTA>
           <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
           </p>
@@ -430,7 +430,7 @@ const MiniValueSection = () => {
             <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
           </p>
           <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
+            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, eu devolvo{" "}
             <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
           </p>
         </div>
@@ -456,7 +456,7 @@ const Instructor = () => (
         </div>
         <div>
           <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-            <Sparkles className="w-4 h-4" /> Quem vai te ensinar
+            <Sparkles className="w-4 h-4" /> Eu vou te ensinar
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">
             Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
@@ -983,7 +983,7 @@ const Pricing = () => (
             "+90 videoaulas passo a passo",
             "Acesso vitalício — assiste quantas vezes quiser",
             "Certificado de conclusão",
-            "Suporte direto com a professora",
+            "Suporte direto comigo",
             "Atualizações inclusas pra sempre",
             "Acesso pelo celular, tablet ou computador",
           ].map((x) => (
@@ -1020,8 +1020,8 @@ const GuaranteeBlock = () => (
         <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Garantia incondicional de 7 dias</h2>
         <p className="text-slate-700 text-base md:text-lg leading-relaxed">
           Faça sua matrícula hoje, assista as aulas, teste o método. Se em <strong>7 dias</strong> você achar que o
-          curso não é pra você — por qualquer motivo — <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas,
-          sem burocracia. <strong>O risco é todo nosso.</strong>
+          curso não é pra você — por qualquer motivo — <strong>eu devolvo 100% do seu dinheiro</strong>. Sem perguntas,
+          sem burocracia. <strong>O risco fica comigo.</strong>
         </p>
       </div>
     </div>
@@ -1034,7 +1034,7 @@ const FAQ = () => {
   const faqs = [
     {
       q: "Eu nunca mexi num computador. Vou conseguir mesmo?",
-      a: "Sim! O curso foi feito justamente pra quem está começando do zero. A professora explica passo a passo, com linguagem simples, sem termos técnicos. +15.000 alunos já provaram que funciona.",
+      a: "Sim! Eu fiz este curso justamente pra quem está começando do zero. Explico passo a passo, com linguagem simples e sem termos técnicos. +15.000 alunos já provaram que funciona.",
     },
     {
       q: "Quanto tempo leva pra concluir?",
@@ -1050,7 +1050,7 @@ const FAQ = () => {
     },
     {
       q: "Como funciona a garantia?",
-      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e devolvemos 100% do valor. Sem perguntas.",
+      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e eu devolvo 100% do valor. Sem perguntas.",
     },
     {
       q: "O certificado é válido?",
@@ -1058,7 +1058,7 @@ const FAQ = () => {
     },
     {
       q: "E se eu travar numa aula? Tem suporte?",
-      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
+      a: "Tem sim. Você pode tirar suas dúvidas diretamente comigo pelo WhatsApp e pela área do aluno.",
     },
   ];
   return (
