@@ -337,7 +337,7 @@ const AulaDemonstrativa = () => {
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">3</span>
               <div className="text-left">
-                <h3 className="font-black text-slate-900">Aprenda Excel do zero</h3>
+                <h3 className="font-black text-slate-900">Aulas reais do dia a dia</h3>
                 <p className="text-xs text-slate-500">Mais uma aula completa do curso</p>
               </div>
             </div>
