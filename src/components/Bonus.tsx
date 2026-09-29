@@ -121,9 +121,9 @@ export const Bonus = () => {
                   {bonus.value}
                 </div>
                 
-                {/* Selo "GRÁTIS" chamativo */}
+                {/* Selo de inclusão dos bônus */}
                 <div className="absolute -left-8 top-8 bg-gradient-to-r from-destructive to-destructive/80 text-white px-12 py-1 -rotate-45 text-xs font-black shadow-xl z-[5]">
-                  GRÁTIS
+                  INCLUÍDO
                 </div>
                 
                 <div className="mb-4 pt-8">
