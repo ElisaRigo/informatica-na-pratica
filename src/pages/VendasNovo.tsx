@@ -461,7 +461,7 @@ const Instructor = () => (
         </div>
         <div>
           <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-            <Sparkles className="w-4 h-4" /> Eu vou te ensinar
+            <GraduationCap className="w-4 h-4" /> Eu vou te ensinar
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">
             Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
