@@ -105,18 +105,8 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            {"\n"}
-            <br className="hidden md:block" />
-            <span className="text-blue-600">{""}</span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            {"\n"}
-          </p>
-
           {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mb-5">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <div className="flex -space-x-2">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
@@ -173,16 +163,22 @@ const Hero = () => {
           </p>
 
 
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
-            <span className="flex items-center gap-1.5">
-              <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-green-600" /> Acesso imediato
-            </span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5 mb-2 max-w-3xl mx-auto">
+            {[
+              { icon: Lock, label: "Pagamento seguro" },
+              { icon: ShieldCheck, label: "7 dias de garantia" },
+              { icon: CheckCircle2, label: "Acesso imediato" },
+            ].map(({ icon: Icon, label }) => (
+              <div
+                key={label}
+                className="flex items-center justify-center gap-2.5 bg-white border border-slate-200 rounded-xl px-4 py-3.5 shadow-sm shadow-blue-900/5"
+              >
+                <span className="flex items-center justify-center w-9 h-9 rounded-full bg-green-50 shrink-0">
+                  <Icon className="w-5 h-5 text-green-600" />
+                </span>
+                <span className="text-sm md:text-base font-semibold text-slate-800">{label}</span>
+              </div>
+            ))}
           </div>
 
         </div>
