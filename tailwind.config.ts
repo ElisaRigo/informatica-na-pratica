@@ -67,6 +67,14 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "logo-glow": {
+          "0%, 100%": {
+            boxShadow: "0 8px 24px -8px hsl(var(--primary) / 0.35)",
+          },
+          "50%": {
+            boxShadow: "0 10px 34px -6px hsl(var(--primary) / 0.6)",
+          },
+        },
         "accordion-down": {
           from: {
             height: "0",
