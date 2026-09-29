@@ -392,7 +392,7 @@ const Instructor = () => (
           </p>
           <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6">
             Por isso criei um método simples, devagar e com linguagem do dia a dia. Sem palavras difíceis, sem pressa.
-            Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
+            Você assiste, faz junto comigo e avança no seu ritmo até usar o computador sozinho(a).
           </p>
           <div className="grid grid-cols-3 gap-3 mb-6">
             <div className="text-center bg-slate-50 rounded-xl p-3">
