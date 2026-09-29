@@ -27,7 +27,6 @@ import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { CourseEnrollmentDialog } from "@/components/CourseEnrollmentDialog";
 import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 import elisa from "@/assets/elisa-photo.jpg";
-import logoBlue from "@/assets/logo-blue.png";
 import presentationVideoAsset from "@/assets/informatica-apresentacao.mp4.asset.json";
 import presentationCoverAsset from "@/assets/informatica-apresentacao-capa.jpg.asset.json";
 import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
@@ -81,10 +80,7 @@ const TrustRow = () => (
 
 export const Header = () => (
     <header className="border-b border-border bg-background py-3">
-    <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
-      <div className="animate-logo-glow relative shrink-0 rounded-2xl bg-background p-2 shadow-lg shadow-primary/25 ring-1 ring-primary/10 md:rounded-3xl md:p-3">
-        <img src={logoBlue} alt="Informática na Prática" className="h-12 w-auto md:h-20" />
-      </div>
+    <div className="container mx-auto flex items-center justify-center px-3 md:px-4">
       <p className="leading-none">
         <span className="block whitespace-nowrap text-[7vw] font-black tracking-tight text-foreground sm:text-3xl md:text-5xl">
           Aprenda{" "}
