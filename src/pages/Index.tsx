@@ -5,7 +5,7 @@ const Index = () => (
   <>
     <Header />
     <TopBanner />
-    <VendasNovo hideTop />
+    <VendasNovo />
   </>
 );
 
