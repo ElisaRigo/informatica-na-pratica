@@ -14,7 +14,7 @@ import {
   Globe,
   Presentation,
   Keyboard,
-  Sparkles,
+  GraduationCap,
   HeartHandshake,
   Infinity as InfinityIcon,
   ChevronDown,
