@@ -13,3 +13,5 @@
 - [x] Trocar o texto "Continuação do depoimento" no card de áudio do Antonio.
 - [x] Adicionar bloco de garantia de 7 dias com botão depois dos depoimentos escritos.
 - [x] Transformar a seção de aula real da home em uma vitrine com duas aulas e convite de matrícula.
+- [x] Adicionar a primeira aula de `/curso` antes dos vídeos da seção de aulas da home.
+- [x] Remover do site as palavras “grátis”, “gratis”, “gratuito” e suas variações.

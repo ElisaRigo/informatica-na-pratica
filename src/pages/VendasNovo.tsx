@@ -33,11 +33,12 @@ import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
 import environmentThumb from "@/assets/environment-thumb.jpg";
+import courseFirstLessonThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import homeVideoThumbAsset from "@/assets/capa-primeiro-video.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
-import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
-const aulaGratisThumb = aulaGratisThumbAsset.url;
+import lessonThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
+const lessonThumb = lessonThumbAsset.url;
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
@@ -137,7 +138,7 @@ const Hero = () => {
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
                   src={homeVideoThumb}
-                  alt="Aula demonstrativa gratuita"
+                  alt="Aula demonstrativa"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
@@ -151,7 +152,7 @@ const Hero = () => {
               <div className="aspect-video relative">
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                  title="Aula gratuita"
+                  title="Aula demonstrativa"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
@@ -235,6 +236,7 @@ const Identification = () => {
 
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
+  const [isCourseLessonPlaying, setIsCourseLessonPlaying] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isSecondPlaying, setIsSecondPlaying] = useState(false);
   return (
@@ -242,7 +244,7 @@ const AulaDemonstrativa = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> 2 AULAS REAIS — ASSISTA GRÁTIS
+            <PlayCircle className="w-4 h-4" /> 3 AULAS REAIS — ASSISTA AGORA
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Assista agora e veja: <span className="text-blue-600">você também consegue aprender</span>
@@ -252,26 +254,26 @@ const AulaDemonstrativa = () => {
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 mb-6">
+        <div className="grid gap-5 md:grid-cols-3 mb-6">
           <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">1</span>
               <div className="text-left">
-                <h3 className="font-black text-slate-900">Conheça a didática da Profª Elisa</h3>
-                <p className="text-xs text-slate-500">Explicação clara, clique por clique</p>
+                <h3 className="font-black text-slate-900">Comece por esta aula</h3>
+                <p className="text-xs text-slate-500">A primeira aula da página do curso</p>
               </div>
             </div>
-            {!isPlaying ? (
-              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsPlaying(true)} aria-label="Assistir à primeira aula real">
+            {!isCourseLessonPlaying ? (
+              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsCourseLessonPlaying(true)} aria-label="Assistir à primeira aula do curso">
                 <img
-                  src={aulaGratisThumb}
-                  alt="Primeira aula real com a Professora Elisa"
+                  src={courseFirstLessonThumb}
+                  alt="Primeira aula do curso com a Professora Elisa"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
                 <span className="absolute inset-0 flex items-center justify-center">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
-                    <PlayCircle className="h-10 w-10 text-blue-600 md:h-12 md:w-12" strokeWidth={1.5} />
+                    <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
                   </span>
                 </span>
                 <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
@@ -279,10 +281,10 @@ const AulaDemonstrativa = () => {
                 </span>
               </button>
             ) : (
-              <div className="aspect-video relative">
+              <div className="aspect-video">
                 <iframe
-                  src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                  title="Primeira aula real com a Professora Elisa"
+                  src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  title="Primeira aula do curso com a Professora Elisa"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
@@ -295,6 +297,45 @@ const AulaDemonstrativa = () => {
           <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">2</span>
+              <div className="text-left">
+                <h3 className="font-black text-slate-900">Conheça a didática da Profª Elisa</h3>
+                <p className="text-xs text-slate-500">Explicação clara, clique por clique</p>
+              </div>
+            </div>
+            {!isPlaying ? (
+              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsPlaying(true)} aria-label="Assistir à primeira aula real">
+                <img
+                  src={lessonThumb}
+                  alt="Segunda aula real com a Professora Elisa"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
+                    <PlayCircle className="h-10 w-10 text-blue-600 md:h-12 md:w-12" strokeWidth={1.5} />
+                  </span>
+                </span>
+                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
+                  Assistir aula 2
+                </span>
+              </button>
+            ) : (
+              <div className="aspect-video relative">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                  title="Segunda aula real com a Professora Elisa"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </article>
+
+          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
+            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">3</span>
               <div className="text-left">
                 <h3 className="font-black text-slate-900">Aprenda Excel do zero</h3>
                 <p className="text-xs text-slate-500">Mais uma aula completa do curso</p>
@@ -314,7 +355,7 @@ const AulaDemonstrativa = () => {
                   </span>
                 </span>
                 <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
-                  Assistir aula 2
+                  Assistir aula 3
                 </span>
               </button>
             ) : (
@@ -943,7 +984,7 @@ const Pricing = () => (
             "Acesso vitalício — assiste quantas vezes quiser",
             "Certificado de conclusão",
             "Suporte direto com a professora",
-            "Atualizações gratuitas pra sempre",
+            "Atualizações inclusas pra sempre",
             "Acesso pelo celular, tablet ou computador",
           ].map((x) => (
             <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">

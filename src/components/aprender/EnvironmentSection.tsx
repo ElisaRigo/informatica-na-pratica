@@ -56,7 +56,7 @@ export const EnvironmentSection = () => {
                 >
                   <img 
                     src={environmentThumb}
-                    alt="Aula gratuita de Excel - Aprenda do zero"
+                    alt="Aula demonstrativa de Excel - Aprenda do zero"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />

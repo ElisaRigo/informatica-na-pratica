@@ -164,7 +164,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
 
         {problemSection}
 
-        {/* Seção Aula Gratuita - Acima da faixa azul */}
+        {/* Seção de aula demonstrativa - Acima da faixa azul */}
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
           <div className="text-center mb-4">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
@@ -172,7 +172,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
             </h3>
           </div>
 
-          {/* Video da aula gratuita */}
+          {/* Vídeo da aula demonstrativa */}
           {shouldLoadFreeClass && (
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
               {!isFreeClassPlaying ? (
@@ -182,7 +182,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
                 >
                   <img 
                     src={freeClassThumb}
-                    alt="Aula demonstrativa gratuita"
+                    alt="Aula demonstrativa"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -199,7 +199,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
                 <div className="aspect-video">
                   <iframe
                     src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                    title="Aula gratuita"
+                    title="Aula demonstrativa"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
