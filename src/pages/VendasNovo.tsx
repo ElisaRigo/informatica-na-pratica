@@ -26,12 +26,15 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  MousePointerClick,
+  FolderOpen,
+  TrendingUp,
+  BookOpenCheck,
+  LifeBuoy,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
-import elisaTeaching from "@/assets/elisa-teaching.jpg";
-import heroCover from "@/assets/hero-video-cover-home.jpg";
+import environmentThumb from "@/assets/environment-thumb.jpg";
 import homeVideoThumbAsset from "@/assets/capa-primeiro-video.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
@@ -54,7 +57,6 @@ import fbAvatar7 from "@/assets/avatar-7.jpg";
 import fbAvatar8 from "@/assets/avatar-8.jpg";
 
 import { HeroBonuses } from "@/components/aprender/HeroBonuses";
-import { QuizIdentificacao } from "@/components/aprender/QuizIdentificacao";
 import { CourseEnrollmentDialog } from "@/components/CourseEnrollmentDialog";
 import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 
@@ -71,24 +73,6 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
     <ArrowRight className="hidden sm:inline-block w-5 h-5 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
   </button>
 );
-
-// ───────────────────────── Countdown ─────────────────────────
-const useCountdown = () => {
-  const [t, setT] = useState({ h: 23, m: 47, s: 12 });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setT(({ h, m, s }) => {
-        if (s > 0) return { h, m, s: s - 1 };
-        if (m > 0) return { h, m: m - 1, s: 59 };
-        if (h > 0) return { h: h - 1, m: 59, s: 59 };
-        return { h: 23, m: 59, s: 59 };
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
-};
 
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
@@ -199,20 +183,18 @@ const Hero = () => {
 // ───────────────────────── Identification ─────────────────────────
 const Identification = () => {
   const items = [
-    "Sente vergonha de pedir ajuda toda hora pro filho ou neto",
-    "Tem medo de clicar em algo e estragar o computador",
-    "Não sabe anexar um arquivo, enviar um e-mail ou salvar uma foto",
-    "Já tentou aprender sozinho(a) no YouTube e se perdeu",
-    "Precisa do computador pra trabalhar, estudar ou resolver coisas do dia a dia",
-    "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
+    "Você depende de alguém até para tarefas simples",
+    "Tem medo de clicar errado e estragar o computador",
+    "Se confunde para salvar e encontrar arquivos",
+    "Tem dificuldade para criar documentos e planilhas",
+    "Não consegue enviar um e-mail com anexo",
+    "Quer aprender no seu ritmo, sem pressa e sem julgamento",
   ];
   return (
     <section className="py-4 md:py-6 bg-slate-50">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
-        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
-          Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
-        </p>
+        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">Se uma dessas situações faz parte da sua rotina, você está no lugar certo.</p>
         <div className="grid md:grid-cols-2 gap-3 md:gap-4">
           {items.map((t) => (
             <div
@@ -224,8 +206,85 @@ const Identification = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-5">
-          <CTA>Quero aprender do zero!</CTA>
+        <div className="mt-5 bg-blue-600 text-white rounded-2xl p-5 text-center">
+          <p className="text-lg md:text-xl font-black">Você não precisa saber nada para começar.</p>
+          <p className="text-blue-100 mt-1">A Profª Elisa mostra cada clique, com calma, desde o primeiro passo.</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Outra aula real ─────────────────────────
+const RealClass = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <section className="py-6 md:py-10 bg-slate-900 text-white">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-5">
+          <span className="inline-flex items-center gap-2 text-primary font-bold text-sm mb-2">
+            <MousePointerClick className="w-4 h-4" /> VEJA A DIDÁTICA NA PRÁTICA
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black">Assista a mais uma aula real do curso</h2>
+          <p className="text-slate-300 mt-2">Veja como a explicação é simples, devagar e sem pular etapas.</p>
+        </div>
+        <div className="overflow-hidden rounded-2xl border border-slate-700 shadow-2xl">
+          {!isPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+              <img src={environmentThumb} alt="Prévia de uma aula real do curso" className="w-full h-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/80 flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
+                  <Play className="w-8 h-8 md:w-10 md:h-10 text-blue-600 fill-blue-600 ml-1" />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                title="Aula real do curso de informática"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          )}
+        </div>
+        <div className="grid grid-cols-3 gap-2 mt-4">
+          {["Linguagem simples", "Cada clique explicado", "Prática no computador"].map((item) => (
+            <div key={item} className="border border-slate-700 bg-slate-800 rounded-lg p-2.5 text-center text-xs md:text-sm font-bold">{item}</div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Transformation = () => {
+  const changes = [
+    { before: "Medo de errar", after: "Segurança para clicar" },
+    { before: "Depender dos outros", after: "Fazer sozinho(a)" },
+    { before: "Evitar o computador", after: "Usar com confiança" },
+    { before: "Perder oportunidades", after: "Estar mais preparado(a)" },
+  ];
+
+  return (
+    <section className="py-6 md:py-10 bg-blue-600 text-white">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-5">
+          <h2 className="text-2xl md:text-4xl font-black">Imagine o que muda quando você aprende</h2>
+          <p className="text-blue-100 mt-2">No seu ritmo, a insegurança dá lugar à autonomia.</p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-3">
+          {changes.map((item) => (
+            <div key={item.before} className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 bg-white/10 border border-white/20 rounded-xl p-4">
+              <span className="text-blue-100 text-sm line-through text-right">{item.before}</span>
+              <ArrowRight className="w-5 h-5 text-green-300" />
+              <strong className="text-sm md:text-base">{item.after}</strong>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -305,45 +364,6 @@ const AulaDemonstrativa = () => {
   );
 };
 
-// ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
-const MiniValueSection = () => {
-  return (
-    <section className="py-4 md:py-6 bg-blue-50">
-      <div className="container mx-auto px-4 max-w-xl text-center">
-        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
-        <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
-        <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
-        <p className="text-slate-500 text-sm md:text-base">
-          de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
-        </p>
-        <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-          <span>🎁</span> Hoje você leva 4 bônus exclusivos
-        </p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
-        </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-        </p>
-        <div className="mt-5">
-          <CTA>Quero perder o medo do computador</CTA>
-        </div>
-        <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
-          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
-            <ShieldCheck className="w-5 h-5" />{" "}
-            <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
-          </p>
-          <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
   <section className="py-4 md:py-6 bg-white">
@@ -414,7 +434,7 @@ const Method = () => {
     {
       n: "1",
       t: "Assiste a aula curta",
-      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no celular, computador ou tablet, quando quiser.",
+      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no computador quando quiser.",
     },
     {
       n: "2",
