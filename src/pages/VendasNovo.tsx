@@ -1151,10 +1151,10 @@ const VendasNovo = () => {
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Hero />
       <AulaDemonstrativa />
+      <SocialProof />
       <MiniValueSection />
       <QuizIdentificacao />
       <Instructor />
-      <SocialProof />
       <Method />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
