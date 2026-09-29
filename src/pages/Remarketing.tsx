@@ -82,7 +82,7 @@ const TrustRow = () => (
 export const Header = () => (
     <header className="border-b border-border bg-background py-3">
     <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
-      <img src={elisaHeader} alt="Professora Elisa" className="h-14 w-14 shrink-0 rounded-full border-2 border-primary object-cover shadow-card md:h-24 md:w-24" />
+      <img src={logoBlue} alt="Informática na Prática" className="h-14 w-auto shrink-0 md:h-24" />
       <p className="leading-none">
         <span className="block whitespace-nowrap text-[7vw] font-black tracking-tight text-foreground sm:text-3xl md:text-5xl">
           Aprenda{" "}
