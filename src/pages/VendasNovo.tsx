@@ -163,7 +163,7 @@ const Hero = () => {
           </p>
 
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5 mb-2 max-w-3xl mx-auto">
+          <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mt-5 mb-2 max-w-3xl mx-auto">
             {[
               { icon: Lock, label: "Pagamento seguro" },
               { icon: ShieldCheck, label: "7 dias de garantia" },
@@ -171,12 +171,12 @@ const Hero = () => {
             ].map(({ icon: Icon, label }) => (
               <div
                 key={label}
-                className="flex items-center justify-center gap-2.5 bg-white border border-slate-200 rounded-xl px-4 py-3.5 shadow-sm shadow-blue-900/5"
+                className="flex flex-col items-center justify-center gap-1.5 bg-white border border-slate-200 rounded-xl px-1.5 sm:px-4 py-2.5 sm:py-3.5 shadow-sm shadow-blue-900/5 text-center"
               >
-                <span className="flex items-center justify-center w-9 h-9 rounded-full bg-green-50 shrink-0">
-                  <Icon className="w-5 h-5 text-green-600" />
+                <span className="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-green-50 shrink-0">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
                 </span>
-                <span className="text-sm md:text-base font-semibold text-slate-800">{label}</span>
+                <span className="text-[10px] sm:text-base font-semibold text-slate-800 leading-tight">{label}</span>
               </div>
             ))}
           </div>
