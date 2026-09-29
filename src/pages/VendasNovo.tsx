@@ -105,18 +105,8 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            {"\n"}
-            <br className="hidden md:block" />
-            <span className="text-blue-600">{""}</span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            {"\n"}
-          </p>
-
           {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mb-5">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <div className="flex -space-x-2">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
