@@ -123,7 +123,7 @@ const Hero = () => {
           </div>
 
           {/* Video */}
-          <div className="relative max-w-5xl mx-auto mb-5">
+          <div className="relative max-w-5xl mx-auto mt-3 mb-5">
             {/* Badge fora da moldura — não cobre a capa */}
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
               <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/30 ring-2 ring-white whitespace-nowrap">
