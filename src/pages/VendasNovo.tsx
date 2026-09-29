@@ -56,7 +56,6 @@ import fbAvatar6 from "@/assets/avatar-6.jpg";
 import fbAvatar7 from "@/assets/avatar-7.jpg";
 import fbAvatar8 from "@/assets/avatar-8.jpg";
 
-import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 import { CourseEnrollmentDialog } from "@/components/CourseEnrollmentDialog";
 import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/lib/requestCheckout";
 
@@ -550,7 +549,7 @@ const Modules = () => {
 // ───────────────────────── Social Proof (WhatsApp + Facebook) ─────────────────────────
 const audioTestimonials = [
   { name: "Antonio", description: "Depoimento sobre sua experiência com o curso", audioSrc: "/audio/antonio-1.ogg" },
-  { name: "Antonio", description: "Continuação do depoimento", audioSrc: "/audio/antonio-2.ogg" },
+  { name: "Antonio", description: "Continua o recado dele — vale ouvir até o fim", audioSrc: "/audio/antonio-2.ogg" },
   { name: "Amanda", description: "Como o curso transformou sua rotina", audioSrc: "/audio/amanda.mp4" },
   { name: "Vanderlei", description: "Superou as dificuldades com tecnologia", audioSrc: "/audio/vanderlei.ogg" },
   { name: "Bruna", description: "Gratidão pelo aprendizado", audioSrc: "/audio/bruna.aac" },
@@ -874,28 +873,93 @@ const Certificate = () => (
   </section>
 );
 
+const ValueStack = () => {
+  const included = [
+    { icon: BookOpenCheck, title: "+90 videoaulas", detail: "Do básico às ferramentas mais usadas" },
+    { icon: FolderOpen, title: "6 módulos completos", detail: "Windows, Word, Excel, PowerPoint, internet e digitação" },
+    { icon: LifeBuoy, title: "Suporte direto", detail: "Ajuda para não ficar travado(a)" },
+    { icon: Award, title: "Certificado", detail: "Comprovação da sua conclusão" },
+    { icon: InfinityIcon, title: "Acesso vitalício", detail: "Reveja as aulas quantas vezes precisar" },
+    { icon: FileText, title: "Material de apoio", detail: "Conteúdo para acompanhar seus estudos" },
+  ];
+  const bonuses = [
+    { title: "Mercado de Trabalho", value: "R$ 127" },
+    { title: "E-mail Profissional", value: "R$ 97" },
+    { title: "Currículo Profissional", value: "R$ 97" },
+    { title: "Atalhos Essenciais", value: "R$ 47" },
+  ];
+
+  return (
+    <section className="py-7 md:py-12 bg-slate-50">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-6">
+          <span className="inline-flex items-center gap-2 text-blue-700 font-bold text-sm mb-2">
+            <TrendingUp className="w-4 h-4" /> VEJA TUDO O QUE VOCÊ RECEBE
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900">Não é apenas um curso. É apoio para você conseguir.</h2>
+          <p className="text-slate-600 mt-2 max-w-2xl mx-auto">Você aprende, pratica e pode rever cada passo sempre que precisar.</p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+          {included.map(({ icon: Icon, title, detail }) => (
+            <div key={title} className="flex gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+              <span className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+                <Icon className="w-5 h-5 text-blue-600" />
+              </span>
+              <div>
+                <h3 className="font-black text-slate-900">{title}</h3>
+                <p className="text-sm text-slate-600 leading-snug mt-0.5">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-slate-900 text-white rounded-2xl p-5 md:p-7">
+          <div className="text-center mb-4">
+            <span className="inline-flex items-center gap-2 text-amber-300 font-bold text-sm"><Sparkles className="w-4 h-4" /> 4 MÓDULOS EXTRAS INCLUSOS</span>
+            <h3 className="text-xl md:text-3xl font-black mt-2">Mais ferramentas para o trabalho e o dia a dia</h3>
+          </div>
+          <div className="grid grid-cols-2 gap-2 md:gap-3">
+            {bonuses.map((bonus) => (
+              <div key={bonus.title} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 bg-slate-800 border border-slate-700 rounded-lg p-3">
+                <span className="font-bold text-xs sm:text-sm">{bonus.title}</span>
+                <span className="text-amber-300 font-black text-xs sm:text-sm line-through">{bonus.value}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 pt-4 border-t border-slate-700 text-center">
+            <p className="text-slate-300 text-sm">Só os módulos extras somam</p>
+            <p className="text-2xl md:text-3xl font-black text-amber-300">R$ 368 em conteúdo adicional</p>
+            <p className="text-green-300 font-bold mt-1">Você recebe os quatro junto com o curso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
   <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-8">
-        <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-          🔥 Oferta especial • 40% OFF
+        <span className="inline-flex items-center gap-2 bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+          <Award className="w-4 h-4" /> Condição especial • 40% de desconto
         </span>
-        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
-        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
+        <h2 className="text-3xl md:text-5xl font-black mb-3">Comece a aprender com tudo incluído</h2>
+        <p className="text-blue-100 text-base md:text-lg">Curso completo + 4 módulos extras + suporte + certificado</p>
       </div>
 
       <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
         <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
-        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • 4 extras • Acesso vitalício</p>
 
         <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
           <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
           <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
           <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
           <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-            <span>🎁</span> Hoje você leva 4 bônus exclusivos
+            <Sparkles className="w-4 h-4" /> 4 módulos extras incluídos
           </p>
           <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
           <p className="text-base text-slate-600 mt-1">
@@ -910,7 +974,7 @@ const Pricing = () => (
             "Certificado de conclusão",
             "Suporte direto com a professora",
             "Atualizações gratuitas pra sempre",
-            "Acesso pelo celular, tablet ou computador",
+            "Material de apoio para acompanhar as aulas",
           ].map((x) => (
             <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
               <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
@@ -919,7 +983,7 @@ const Pricing = () => (
           ))}
         </ul>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
+        <CTA>Quero começar meu curso!</CTA>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
@@ -970,8 +1034,8 @@ const FAQ = () => {
       a: "Na hora. Logo após o pagamento aprovado você recebe os dados de acesso no seu e-mail.",
     },
     {
-      q: "Funciona no celular?",
-      a: "Sim. Você pode assistir no celular, tablet ou computador. Mas pra praticar é importante ter acesso a um computador.",
+      q: "Preciso ter um computador avançado?",
+      a: "Não. Você pode acompanhar e praticar em um computador comum com acesso à internet.",
     },
     {
       q: "Como funciona a garantia?",
@@ -1018,11 +1082,11 @@ const FinalCTA = () => (
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
       <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-        Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
-        mais independente. <strong className="text-white">Hoje é o dia.</strong>
+        Aprenda no seu ritmo, reveja cada aula sempre que precisar e conte com apoio durante o caminho.
+        <strong className="text-white"> Você também pode conseguir.</strong>
       </p>
       <CTA>Quero começar agora!</CTA>
-      <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
+      <p className="text-xs text-slate-400 mt-4 flex items-center justify-center gap-1.5"><Lock className="w-3.5 h-3.5" /> Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
   </section>
 );
@@ -1075,19 +1139,16 @@ const VendasNovo = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Hero />
+      <Identification />
       <AulaDemonstrativa />
-      <MiniValueSection />
-      <QuizIdentificacao />
+      <RealClass />
+      <Transformation />
       <Instructor />
       <SocialProof />
       <Method />
       <Modules />
-      <section className="py-4 md:py-6 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <HeroBonuses variant="light" />
-        </div>
-      </section>
       <Certificate />
+      <ValueStack />
       <Pricing />
       <GuaranteeBlock />
       <FAQ />
