@@ -108,13 +108,13 @@ const Hero = () => {
         <div className="container relative mx-auto max-w-4xl text-center">
           <span className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200 backdrop-blur-sm md:mb-3 md:px-4 md:py-1.5 md:text-xs">
             <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
-            Recado da Profª Elisa
+            AGORA É SUA VEZ!
           </span>
           <p className="relative text-lg font-black leading-tight text-white md:text-2xl">
             <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
               &ldquo;
             </span>
-            <span className="block whitespace-nowrap text-[6.4vw] leading-tight md:text-[4.4rem]">Vou te ensinar a usar o</span>
+            <span className="block whitespace-nowrap text-[6.4vw] leading-tight md:text-[4.4rem]">Aprenda a usar o</span>
             <span className="relative mt-1 block w-full leading-none">
               <span className="relative z-10 whitespace-nowrap text-[12.5vw] font-black leading-none md:text-[8.5rem]">
                 <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador</span>
