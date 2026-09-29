@@ -32,6 +32,7 @@ import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
+import environmentThumb from "@/assets/environment-thumb.jpg";
 import homeVideoThumbAsset from "@/assets/capa-primeiro-video.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
@@ -235,67 +236,120 @@ const Identification = () => {
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isSecondPlaying, setIsSecondPlaying] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white border-t border-slate-200">
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> AULA REAL — ASSISTA AGORA
+            <PlayCircle className="w-4 h-4" /> 2 AULAS REAIS — ASSISTA GRÁTIS
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Veja como é uma aula <span className="text-blue-600">passo a passo</span> — do jeito que você vai aprender
+            Assista agora e veja: <span className="text-blue-600">você também consegue aprender</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.
+            Escolha uma aula e conheça a explicação simples e paciente da Profª Elisa. Ela mostra cada clique, sem termos difíceis e sem pressa.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
-          {!isPlaying ? (
-            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-              <img
-                src={aulaGratisThumb}
-                alt="Aula demonstrativa gratuita"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
-                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
-                </div>
-              </div>
-              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/40 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-                Aula — Assista agora
+        <div className="grid gap-5 md:grid-cols-2 mb-6">
+          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
+            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">1</span>
+              <div className="text-left">
+                <h3 className="font-black text-slate-900">Conheça a didática da Profª Elisa</h3>
+                <p className="text-xs text-slate-500">Explicação clara, clique por clique</p>
               </div>
             </div>
-          ) : (
-            <div className="aspect-video relative">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                title="Aula demonstrativa gratuita"
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-              <a
-                href="https://www.youtube.com/watch?v=_0OPLnEiMHk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-              >
-                Ver no YouTube
-              </a>
+            {!isPlaying ? (
+              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsPlaying(true)} aria-label="Assistir à primeira aula real">
+                <img
+                  src={aulaGratisThumb}
+                  alt="Primeira aula real com a Professora Elisa"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
+                    <PlayCircle className="h-10 w-10 text-blue-600 md:h-12 md:w-12" strokeWidth={1.5} />
+                  </span>
+                </span>
+                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
+                  Assistir aula 1
+                </span>
+              </button>
+            ) : (
+              <div className="aspect-video relative">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                  title="Primeira aula real com a Professora Elisa"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </article>
+
+          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
+            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">2</span>
+              <div className="text-left">
+                <h3 className="font-black text-slate-900">Aprenda Excel do zero</h3>
+                <p className="text-xs text-slate-500">Mais uma aula completa do curso</p>
+              </div>
             </div>
-          )}
+            {!isSecondPlaying ? (
+              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsSecondPlaying(true)} aria-label="Assistir à segunda aula real de Excel">
+                <img
+                  src={environmentThumb}
+                  alt="Segunda aula real de Excel com a Professora Elisa"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
+                    <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
+                  </span>
+                </span>
+                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
+                  Assistir aula 2
+                </span>
+              </button>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  title="Segunda aula real de Excel com a Professora Elisa"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </article>
+        </div>
+
+        <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 md:gap-3">
+          {[
+            "Você acompanha no seu ritmo",
+            "Pode assistir quantas vezes quiser",
+            "Suporte quando tiver dúvida",
+          ].map((benefit) => (
+            <div key={benefit} className="flex flex-col items-center gap-1.5 rounded-xl border border-green-200 bg-green-50 p-2 text-center md:flex-row md:justify-center md:p-3">
+              <CheckCircle2 className="h-5 w-5 shrink-0 text-green-600" />
+              <span className="text-[11px] font-bold leading-tight text-slate-700 md:text-sm">{benefit}</span>
+            </div>
+          ))}
         </div>
 
         <div className="text-center space-y-4">
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
-            zero e usarem o computador com confiança.
+            Se você entendeu essas aulas, imagine o que vai conseguir com o curso completo: são <strong className="text-slate-900">+90 aulas simples</strong> para usar o computador com confiança e sem depender de ninguém.
           </p>
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA>Quero aprender com a Profª Elisa</CTA>
           <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
           </p>

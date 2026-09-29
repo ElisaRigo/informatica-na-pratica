@@ -12,3 +12,4 @@
 - [x] Remover o bloco de preço (selo 40% OFF + cartão R$ 297) do topo da /informatica.
 - [x] Trocar o texto "Continuação do depoimento" no card de áudio do Antonio.
 - [x] Adicionar bloco de garantia de 7 dias com botão depois dos depoimentos escritos.
+- [x] Transformar a seção de aula real da home em uma vitrine com duas aulas e convite de matrícula.
