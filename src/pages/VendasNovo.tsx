@@ -123,7 +123,15 @@ const Hero = () => {
           </div>
 
           {/* Video */}
-          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
+          <div className="relative max-w-5xl mx-auto mt-1 mb-5">
+            {/* Selo acima da moldura — centrado, sem cobrir a capa */}
+            <div className="flex justify-center mb-3">
+              <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/30 ring-2 ring-white whitespace-nowrap">
+                <Play className="w-3.5 h-3.5 md:w-4 md:h-4 fill-white shrink-0" />
+                Assista e conheça a Profª Elisa
+              </div>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
@@ -156,6 +164,7 @@ const Hero = () => {
                 ></a>
               </div>
             )}
+            </div>
           </div>
 
           <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
