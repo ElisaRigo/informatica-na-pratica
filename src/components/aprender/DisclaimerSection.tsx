@@ -12,7 +12,7 @@ export const DisclaimerSection = () => {
               Informação Importante
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
-              Sobre o Prazo de 30 Dias
+              Sobre o Prazo de poucos Dias
             </h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
               Transparência é fundamental. Entenda como funciona minha estimativa de aprendizado.
@@ -27,13 +27,13 @@ export const DisclaimerSection = () => {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-800 mb-2">
-                  O prazo de "30 dias" é uma estimativa
+                  O prazo de "poucos dias" é uma estimativa
                 </h3>
                 <p className="text-slate-600 leading-relaxed mb-3">
                   <em className="text-amber-700 font-medium">*Resultados variam conforme dedicação. Estimativa baseada em 1h/dia de estudo.</em>
                 </p>
                 <p className="text-slate-600 leading-relaxed">
-                  O período de 30 dias mencionado nos meus materiais de divulgação é uma <strong>estimativa baseada 
+                  O período de poucos dias mencionado nos meus materiais de divulgação é uma <strong>estimativa baseada 
                   em estudos de aproximadamente 1 hora por dia</strong>. Este prazo foi calculado considerando o 
                   progresso médio dos meus alunos que seguem o cronograma sugerido.
                 </p>
@@ -84,7 +84,7 @@ export const DisclaimerSection = () => {
               <div className="text-sm text-amber-800">
                 <p className="font-semibold mb-2">Aviso Legal:</p>
                 <ul className="space-y-1 text-amber-700">
-                  <li>• O prazo de 30 dias <strong>não é uma garantia</strong> de domínio completo do conteúdo.</li>
+                  <li>• O prazo de poucos dias <strong>não é uma garantia</strong> de domínio completo do conteúdo.</li>
                   <li>• Resultados variam conforme a dedicação, disponibilidade e ritmo de aprendizado de cada aluno.</li>
                   <li>• O curso oferece todo o conteúdo necessário, mas o progresso depende do esforço individual.</li>
                   <li>• Ofereço <strong>garantia de 7 dias</strong> para reembolso integral caso não esteja satisfeito.</li>
