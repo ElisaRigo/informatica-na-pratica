@@ -7,7 +7,7 @@ const included = [
   { icon: Check, text: "Certificado de conclusão" },
   { icon: Check, text: "Suporte direto com a professora" },
   { icon: Check, text: "Acesso Vitalício" },
-  { icon: Check, text: "Atualizações inclusas" },
+  { icon: Check, text: "Atualizações gratuitas" },
   { icon: Check, text: "Material de apoio em PDF" },
 ];
 

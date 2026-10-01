@@ -31,7 +31,7 @@ export const FreeLessonExcel = () => {
         <div className="max-w-5xl mx-auto">
           {/* Título da Seção */}
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center text-foreground mb-4 md:mb-6">
-            🎁 <span className="text-primary">Aula demonstrativa: veja como é fácil aprender!</span>
+            🎁 <span className="text-primary">Aula gratuita: veja como é fácil aprender!</span>
           </h2>
 
           {/* Container do Vídeo */}
@@ -51,7 +51,7 @@ export const FreeLessonExcel = () => {
                 >
                   <img
                     src={excelThumb}
-                    alt="Aula demonstrativa de Excel - Aprenda do zero"
+                    alt="Aula gratuita de Excel - Aprenda do zero"
                     className="w-full h-full object-cover"
                     loading="lazy"
                     decoding="async"
@@ -71,7 +71,7 @@ export const FreeLessonExcel = () => {
                   width="960"
                   height="540"
                   src="https://www.youtube-nocookie.com/embed/V6GW8bsOhpU?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                  title="Aula demonstrativa de Excel"
+                  title="Aula Gratuita de Excel"
                   frameBorder="0"
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

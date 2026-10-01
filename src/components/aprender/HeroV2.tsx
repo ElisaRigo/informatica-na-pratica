@@ -164,7 +164,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
 
         {problemSection}
 
-        {/* Seção de aula demonstrativa - Acima da faixa azul */}
+        {/* Seção Aula Gratuita - Acima da faixa azul */}
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
           <div className="text-center mb-4">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
@@ -172,7 +172,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
             </h3>
           </div>
 
-          {/* Vídeo da aula demonstrativa */}
+          {/* Video da aula gratuita */}
           {shouldLoadFreeClass && (
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
               {!isFreeClassPlaying ? (
@@ -182,7 +182,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
                 >
                   <img 
                     src={freeClassThumb}
-                    alt="Aula demonstrativa"
+                    alt="Aula demonstrativa gratuita"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -199,7 +199,7 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
                 <div className="aspect-video">
                   <iframe
                     src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                    title="Aula demonstrativa"
+                    title="Aula gratuita"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -237,22 +237,22 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
           <div className="bg-gradient-to-r from-primary via-primary/90 to-primary overflow-hidden border-y border-primary/60">
           <div className="animate-marquee whitespace-nowrap py-3">
               <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                🎓 Você é capaz de aprender — Venha comigo!
+                ✨ Você é capaz de aprender — Venha comigo!
               </span>
               <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                🎓 Você é capaz de aprender — Venha comigo!
+                ✨ Você é capaz de aprender — Venha comigo!
               </span>
               <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                🎓 Você é capaz de aprender — Venha comigo!
+                ✨ Você é capaz de aprender — Venha comigo!
               </span>
               <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                🎓 Você é capaz de aprender — Venha comigo!
+                ✨ Você é capaz de aprender — Venha comigo!
               </span>
               <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                🎓 Você é capaz de aprender — Venha comigo!
+                ✨ Você é capaz de aprender — Venha comigo!
               </span>
               <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                🎓 Você é capaz de aprender — Venha comigo!
+                ✨ Você é capaz de aprender — Venha comigo!
               </span>
             </div>
           </div>

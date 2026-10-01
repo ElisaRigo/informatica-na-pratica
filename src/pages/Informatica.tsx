@@ -122,7 +122,7 @@ const included = [
   { text: "Certificado de conclusão" },
   { text: "Suporte direto com a professora" },
   { text: "Acesso Vitalício" },
-  { text: "Atualizações inclusas" },
+  { text: "Atualizações gratuitas" },
   { text: "Material de apoio em PDF" },
 ];
 

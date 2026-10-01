@@ -14,6 +14,7 @@ import {
   Globe,
   Presentation,
   Keyboard,
+  Sparkles,
   GraduationCap,
   HeartHandshake,
   Infinity as InfinityIcon,
@@ -32,13 +33,11 @@ import logoBlue from "@/assets/logo-blue.png";
 import elisa from "@/assets/elisa-photo.jpg";
 import elisaTeaching from "@/assets/elisa-teaching.jpg";
 import heroCover from "@/assets/hero-video-cover-home.jpg";
-import environmentThumb from "@/assets/environment-thumb.jpg";
-import courseFirstLessonThumb from "@/assets/aprenda-comigo-thumb.jpg";
-import homeVideoThumbAsset from "@/assets/capa-primeiro-video.png.asset.json";
+import homeVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/assets/certificado-exemplo.png";
-import lessonThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
-const lessonThumb = lessonThumbAsset.url;
+import aulaGratisThumbAsset from "@/assets/capa-aula-demonstrativa.jpg.asset.json";
+const aulaGratisThumb = aulaGratisThumbAsset.url;
 import avatar1 from "@/assets/testimonial-new-1.jpg";
 import avatar2 from "@/assets/testimonial-new-2.jpg";
 import avatar3 from "@/assets/testimonial-new-3.jpg";
@@ -92,6 +91,7 @@ const useCountdown = () => {
   return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
 };
 
+import logo from "@/assets/logo-blue.png";
 import windowsIcon from "@/assets/windows-icon.png";
 import wordIcon from "@/assets/word-icon.png";
 import excelIcon from "@/assets/excel-icon.png";
@@ -99,16 +99,109 @@ import powerpointIcon from "@/assets/powerpoint-icon.png";
 import internetIcon from "@/assets/internet-icon.png";
 import typingIcon from "@/assets/typing-icon.png";
 
+// ───────────────────────── Header ─────────────────────────
+const Header = () => (
+  <header className="bg-white border-b border-slate-200 py-3 md:py-5">
+    <div className="container mx-auto px-4">
+      <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
+        <div className="relative group shrink-0">
+          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
+            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
+          </div>
+        </div>
+        <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
+          Curso de <span className="text-sky-600">Informática Online</span> — Simples e para Todos.
+        </p>
+      </div>
+    </div>
+  </header>
+);
+
 // ───────────────────────── Hero ─────────────────────────
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
+      {/* Top urgency strip */}
+      <div className="bg-blue-600 text-center py-2.5 px-4">
+        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
+          <span className="text-xl md:text-2xl">💻</span>
+          Você sente Dificuldade com o Computador?
+        </span>
+      </div>
+
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
+          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
+          </span>
+
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
+            Aprenda a usar o computador
+            <br className="hidden md:block" />
+            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
+            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+          </p>
+
+          {/* Video */}
+          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
+            {!isPlaying ? (
+              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+                <img
+                  src={homeVideoThumb}
+                  alt="Aula demonstrativa gratuita"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="aspect-video relative">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                  title="Aula gratuita"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+                <a
+                  href="https://www.youtube.com/watch?v=0kFjFZX5c9I"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
+                ></a>
+              </div>
+            )}
+          </div>
+
+          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
+            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+          </p>
+
+          <CTA>Quero começar agora!</CTA>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
+            <span className="flex items-center gap-1.5">
+              <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro
+            </span>
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-green-600" /> Acesso imediato
+            </span>
+          </div>
 
           {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex items-center justify-center gap-3 mt-5">
             <div className="flex -space-x-2">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
@@ -123,75 +216,6 @@ const Hero = () => {
               <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
             </div>
           </div>
-
-          {/* Video */}
-          <div className="relative max-w-5xl mx-auto mt-1 mb-5">
-            {/* Selo acima da moldura — centrado, sem cobrir a capa */}
-            <div className="flex justify-center mb-3">
-              <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/30 ring-2 ring-white whitespace-nowrap">
-                <Play className="w-3.5 h-3.5 md:w-4 md:h-4 fill-white shrink-0" />
-                Assista e venha aprender comigo
-              </div>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200">
-            {!isPlaying ? (
-              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                <img
-                  src={homeVideoThumb}
-                  alt="Aula demonstrativa"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="aspect-video relative">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                  title="Aula demonstrativa"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-                <a
-                  href="https://www.youtube.com/watch?v=0kFjFZX5c9I"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-                ></a>
-              </div>
-            )}
-            </div>
-          </div>
-
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
-            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
-          </p>
-
-
-          <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mt-5 mb-2 max-w-3xl mx-auto">
-            {[
-              { icon: Lock, label: "Pagamento seguro" },
-              { icon: ShieldCheck, label: "7 dias de garantia" },
-              { icon: CheckCircle2, label: "Acesso imediato" },
-            ].map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="flex flex-col items-center justify-center gap-1.5 bg-white border border-slate-200 rounded-xl px-1.5 sm:px-4 py-2.5 sm:py-3.5 shadow-sm shadow-blue-900/5 text-center"
-              >
-                <span className="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-green-50 shrink-0">
-                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
-                </span>
-                <span className="text-[10px] sm:text-base font-semibold text-slate-800 leading-tight">{label}</span>
-              </div>
-            ))}
-          </div>
-
         </div>
       </div>
     </section>
@@ -236,161 +260,68 @@ const Identification = () => {
 
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
-  const [isCourseLessonPlaying, setIsCourseLessonPlaying] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isSecondPlaying, setIsSecondPlaying] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white border-t border-slate-200">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> 3 AULAS REAIS — ASSISTA AGORA
+            <PlayCircle className="w-4 h-4" /> AULA REAL — ASSISTA AGORA
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Assista agora e veja: <span className="text-blue-600">você também consegue aprender</span>
+            Veja como é uma aula <span className="text-blue-600">passo a passo</span> — do jeito que você vai aprender
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Escolha uma aula e aprenda comigo. Eu mostro cada clique com calma, sem termos difíceis e sem pressa.
+            Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3 mb-6">
-          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
-            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">1</span>
-              <div className="text-left">
-                <h3 className="font-black text-slate-900">Venha aprender comigo</h3>
-                <p className="text-xs text-slate-500">Eu explico tudo com calma e simplicidade</p>
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
+          {!isPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+              <img
+                src={aulaGratisThumb}
+                alt="Aula demonstrativa gratuita"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/40 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                Aula — Assista agora
               </div>
             </div>
-            {!isCourseLessonPlaying ? (
-              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsCourseLessonPlaying(true)} aria-label="Assistir à primeira aula do curso">
-                <img
-                  src={courseFirstLessonThumb}
-                  alt="Primeira aula do curso com a Professora Elisa"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
-                    <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
-                  </span>
-                </span>
-                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
-                  Assistir aula 1
-                </span>
-              </button>
-            ) : (
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                  title="Primeira aula do curso com a Professora Elisa"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </article>
-
-          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
-            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">2</span>
-              <div className="text-left">
-                <h3 className="font-black text-slate-900">Eu mostro cada clique</h3>
-                <p className="text-xs text-slate-500">Acompanhe minha explicação passo a passo</p>
-              </div>
+          ) : (
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                title="Aula demonstrativa gratuita"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              <a
+                href="https://www.youtube.com/watch?v=_0OPLnEiMHk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
+              >
+                Ver no YouTube
+              </a>
             </div>
-            {!isPlaying ? (
-              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsPlaying(true)} aria-label="Assistir à primeira aula real">
-                <img
-                  src={lessonThumb}
-                  alt="Segunda aula real com a Professora Elisa"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
-                    <PlayCircle className="h-10 w-10 text-blue-600 md:h-12 md:w-12" strokeWidth={1.5} />
-                  </span>
-                </span>
-                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
-                  Assistir aula 2
-                </span>
-              </button>
-            ) : (
-              <div className="aspect-video relative">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                  title="Segunda aula real com a Professora Elisa"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </article>
-
-          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
-            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">3</span>
-              <div className="text-left">
-                <h3 className="font-black text-slate-900">Aulas reais do dia a dia</h3>
-                <p className="text-xs text-slate-500">Mais uma aula completa do curso</p>
-              </div>
-            </div>
-            {!isSecondPlaying ? (
-              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsSecondPlaying(true)} aria-label="Assistir à segunda aula real de Excel">
-                <img
-                  src={environmentThumb}
-                  alt="Segunda aula real de Excel com a Professora Elisa"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
-                    <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
-                  </span>
-                </span>
-                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
-                  Assistir aula 3
-                </span>
-              </button>
-            ) : (
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                  title="Segunda aula real de Excel com a Professora Elisa"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </article>
-        </div>
-
-        <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 md:gap-3">
-          {[
-            "Você acompanha no seu ritmo",
-            "Pode assistir quantas vezes quiser",
-            "Suporte quando tiver dúvida",
-          ].map((benefit) => (
-            <div key={benefit} className="flex flex-col items-center gap-1.5 rounded-xl border border-green-200 bg-green-50 p-2 text-center md:flex-row md:justify-center md:p-3">
-              <CheckCircle2 className="h-5 w-5 shrink-0 text-green-600" />
-              <span className="text-[11px] font-bold leading-tight text-slate-700 md:text-sm">{benefit}</span>
-            </div>
-          ))}
+          )}
         </div>
 
         <div className="text-center space-y-4">
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Se você entendeu essas aulas, imagine o que vai conseguir com o curso completo: são <strong className="text-slate-900">+90 aulas simples</strong> para usar o computador com confiança e sem depender de ninguém.
+            Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
+            zero e usarem o computador com confiança.
           </p>
-          <CTA>Quero aprender com você, Elisa</CTA>
+          <CTA>Quero aprender do zero!</CTA>
           <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
           </p>
@@ -405,13 +336,8 @@ const MiniValueSection = () => {
   return (
     <section className="py-4 md:py-6 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
-        <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
-          <Award className="w-4 h-4" /> Condição especial de hoje
-        </span>
-        <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-          Eu vou te acompanhar, <span className="whitespace-nowrap">no seu ritmo</span>
-        </h2>
-        <p className="text-slate-500 text-base md:text-lg mt-2">Curso completo, meu suporte e acesso vitalício.</p>
+        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
+        <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
         <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
         <p className="text-slate-500 text-sm md:text-base">
           de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
@@ -435,7 +361,7 @@ const MiniValueSection = () => {
             <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
           </p>
           <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, eu devolvo{" "}
+            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
             <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
           </p>
         </div>
@@ -461,7 +387,7 @@ const Instructor = () => (
         </div>
         <div>
           <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-            <GraduationCap className="w-4 h-4" /> Eu vou te ensinar
+            <Sparkles className="w-4 h-4" /> Quem vai te ensinar
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">
             Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
@@ -792,7 +718,7 @@ const SocialProof = () => {
                   ★
                 </span>
               ))}
-              <span className="text-slate-900 text-sm font-semibold ml-1">{"\n"}</span>
+              <span className="text-slate-900 text-sm font-semibold ml-1">4.9/5</span>
             </div>
           </div>
 
@@ -988,8 +914,8 @@ const Pricing = () => (
             "+90 videoaulas passo a passo",
             "Acesso vitalício — assiste quantas vezes quiser",
             "Certificado de conclusão",
-            "Suporte direto comigo",
-            "Atualizações inclusas pra sempre",
+            "Suporte direto com a professora",
+            "Atualizações gratuitas pra sempre",
             "Acesso pelo celular, tablet ou computador",
           ].map((x) => (
             <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
@@ -1025,8 +951,8 @@ const GuaranteeBlock = () => (
         <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Garantia incondicional de 7 dias</h2>
         <p className="text-slate-700 text-base md:text-lg leading-relaxed">
           Faça sua matrícula hoje, assista as aulas, teste o método. Se em <strong>7 dias</strong> você achar que o
-          curso não é pra você — por qualquer motivo — <strong>eu devolvo 100% do seu dinheiro</strong>. Sem perguntas,
-          sem burocracia. <strong>O risco fica comigo.</strong>
+          curso não é pra você — por qualquer motivo — <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas,
+          sem burocracia. <strong>O risco é todo nosso.</strong>
         </p>
       </div>
     </div>
@@ -1039,7 +965,7 @@ const FAQ = () => {
   const faqs = [
     {
       q: "Eu nunca mexi num computador. Vou conseguir mesmo?",
-      a: "Sim! Eu fiz este curso justamente pra quem está começando do zero. Explico passo a passo, com linguagem simples e sem termos técnicos. +15.000 alunos já provaram que funciona.",
+      a: "Sim! O curso foi feito justamente pra quem está começando do zero. A professora explica passo a passo, com linguagem simples, sem termos técnicos. +15.000 alunos já provaram que funciona.",
     },
     {
       q: "Quanto tempo leva pra concluir?",
@@ -1055,7 +981,7 @@ const FAQ = () => {
     },
     {
       q: "Como funciona a garantia?",
-      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e eu devolvo 100% do valor. Sem perguntas.",
+      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e devolvemos 100% do valor. Sem perguntas.",
     },
     {
       q: "O certificado é válido?",
@@ -1063,7 +989,7 @@ const FAQ = () => {
     },
     {
       q: "E se eu travar numa aula? Tem suporte?",
-      a: "Tem sim. Você pode tirar suas dúvidas diretamente comigo pelo WhatsApp e pela área do aluno.",
+      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
     },
   ];
   return (
@@ -1154,12 +1080,13 @@ const VendasNovo = () => {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
+      <Header />
       <Hero />
       <AulaDemonstrativa />
-      <SocialProof />
       <MiniValueSection />
       <QuizIdentificacao />
       <Instructor />
+      <SocialProof />
       <Method />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">

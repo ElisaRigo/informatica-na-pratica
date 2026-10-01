@@ -90,7 +90,7 @@ export const CapableSection = () => {
             <div className="animate-marquee whitespace-nowrap py-3">
               {Array.from({ length: 6 }).map((_, i) => (
                 <span key={i} className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
-                  🎓 Você é capaz de aprender — Venha comigo!
+                  ✨ Você é capaz de aprender — Venha comigo!
                 </span>
               ))}
             </div>

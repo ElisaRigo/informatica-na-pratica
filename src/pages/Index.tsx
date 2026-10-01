@@ -1,12 +1,5 @@
-import { Header, TopBanner } from "./Remarketing";
 import VendasNovo from "./VendasNovo";
 
-const Index = () => (
-  <>
-    <Header />
-    <TopBanner />
-    <VendasNovo />
-  </>
-);
+const Index = () => <VendasNovo />;
 
 export default Index;
