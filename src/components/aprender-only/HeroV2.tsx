@@ -1,12 +1,8 @@
-import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity, BookOpen, Gift } from "lucide-react";
-import { CapableSection } from "./CapableSection";
+import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
-import informaticaOnlineThumb from "@/assets/informatica-online.jpg.asset.json";
-import heroVideoThumbAsset from "@/assets/aprender-hero-cover-v3.jpg.asset.json";
-const heroVideoThumb = heroVideoThumbAsset.url;
-import freeClassThumbAsset from "@/assets/aprender-hero-cover-v2.jpg.asset.json";
-const freeClassThumb = freeClassThumbAsset.url;
+import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
+import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
 
@@ -42,41 +38,27 @@ export const HeroV2 = () => {
 
       <div className="container mx-auto px-4 py-4 md:py-8 relative z-10">
         {/* Logo */}
-        <div className="flex flex-col items-center justify-center gap-3 md:gap-4 mb-3 md:mb-6">
+        <div className="flex items-center justify-center gap-3 md:flex-col md:gap-4 mb-3 md:mb-6">
           <div className="relative group shrink-0">
+            <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
             <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-4 border border-white/20 shadow-lg">
-              <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
+              <img src={logo} alt="Informática na Prática" className="h-12 md:h-20 lg:h-24 drop-shadow-lg" />
             </div>
           </div>
-          <p className="text-white text-lg md:text-2xl lg:text-3xl font-bold text-center leading-tight">
-            <span className="block">Curso de <span className="text-sky-300">Informática Online</span></span>
+          <p className="text-white text-lg md:text-2xl lg:text-3xl font-bold text-left md:text-center leading-tight">
+            <span className="block md:inline">Curso de <span className="text-primary">Informática Online</span></span>
             <span className="hidden md:inline"> — </span>
             <span className="block md:inline">Simples e para Todos.</span>
           </p>
         </div>
 
-
-        {/* Selos de acesso vitalício e curso online */}
-        <div className="flex items-center justify-center gap-3 mt-2 mb-3">
-          <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-primary/40 px-4 py-2 rounded-full shadow-lg">
-            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            <span className="font-bold text-[10px] md:text-xs text-white tracking-wide whitespace-nowrap">ACESSO VITALÍCIO</span>
-          </div>
-          <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-[#25D366]/40 px-4 py-2 rounded-full shadow-lg">
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-[#25D366]" />
-            <span className="font-bold text-[10px] md:text-xs text-white tracking-wide whitespace-nowrap">CURSO ONLINE</span>
-          </div>
-        </div>
-
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-            Você sente <span className="text-[#fae614]">medo</span> ou <span className="text-[#fae614]">insegurança</span> ao usar o computador?
+            Domine o <span className="text-primary">computador</span> em{" "}
+            <span className="text-primary">poucas semanas</span>, mesmo sem saber nada
           </h1>
         </div>
-
-
-
 
         {/* Video Container com selos sobrepostos na borda inferior */}
         <div className="max-w-4xl mx-auto mb-6 md:mb-8 relative pb-5 md:pb-7">
@@ -86,12 +68,12 @@ export const HeroV2 = () => {
                 className="relative aspect-video cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
-                  <img 
-                    src={heroVideoThumb}
-                    alt="Aula demonstrativa gratuita"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
+                <img 
+                  src={heroVideoThumb}
+                  alt="Prévia do curso de informática"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
                     <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
@@ -100,14 +82,14 @@ export const HeroV2 = () => {
               </div>
             ) : (
               <div className="aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
-                    title="Aula gratuita"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
+                <iframe
+                  src="https://www.youtube.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&autoplay=1&vq=hd1080&hd=1"
+                  title="Veja como é fácil aprender"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </div>
             )}
           </div>
@@ -125,73 +107,125 @@ export const HeroV2 = () => {
           </div>
         </div>
 
-        {/* Frase abaixo do vídeo */}
-        <p className="text-center text-2xl md:text-5xl lg:text-6xl text-white font-black max-w-4xl mx-auto px-4 mt-5 mb-5 md:mb-7 leading-tight">
-          Aprenda a usar Word, Excel, internet e muito mais com aulas <span className="text-[#fae614]">simples</span> e <span className="text-[#fae614]">fáceis</span>.
+        {/* Frase de impacto */}
+        <p className="text-center text-base md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto px-4 mb-4 md:mb-6">
+          Use o <span className="text-primary font-bold">computador</span> com <span className="text-primary font-bold">confiança</span> no seu dia a dia <strong className="text-white">— sem depender de outras pessoas</strong>
         </p>
 
+        {/* Trust Badges */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
+          {[
+            { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
+            { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
+            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
+            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+              <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+              <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+              <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
+            </div>
+          ))}
+        </div>
 
+        {/* Seção Aula Gratuita - Acima da faixa azul */}
+        <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
+          <div className="text-center mb-4">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
+              Sim, você também consegue <span className="text-primary">aprender!</span>
+            </h3>
+          </div>
 
+          {/* Video da aula gratuita */}
+          {shouldLoadFreeClass && (
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-white/10 mb-3">
+              {!isFreeClassPlaying ? (
+                <div 
+                  className="relative aspect-video cursor-pointer group"
+                  onClick={() => setIsFreeClassPlaying(true)}
+                >
+                  <img 
+                    src={freeClassThumb}
+                    alt="Aula demonstrativa gratuita"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/50 shadow-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70 group-hover:shadow-2xl cursor-pointer">
+                      <Play className="w-6 h-6 md:w-9 md:h-9 text-primary fill-primary ml-1" />
+                    </div>
+                  </div>
 
+                </div>
+              ) : (
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                    title="Aula gratuita"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+            </div>
+          )}
 
-        {/* Faixa neon acima da sessão de valor */}
-        <TopFearBanner />
-
-        {/* Mini sessão de valor - sem container */}
-        <div className="max-w-xl mx-auto mb-5 md:mb-7 px-2 text-center">
-
-          <p className="text-white/90 text-base md:text-lg mt-4">
-            de <span className="line-through text-lg md:text-2xl">R$ 497,00</span> por apenas
+          {/* Frase de autoridade */}
+          <p className="text-center text-base md:text-xl text-slate-300 max-w-2xl mx-auto mb-3 md:mb-4 leading-relaxed px-2">
+            Aprenda com quem já ensinou mais de <strong className="text-white">15.000 alunos</strong> e tem mais de <strong className="text-white">20 anos de experiência</strong>. Agora é a <strong className="text-primary">sua vez</strong> de dominar o computador.
           </p>
-          <p className="text-[#25D366] font-black text-3xl md:text-4xl leading-tight mt-1">
-            Só 12x de R$ 30,72
-          </p>
-          <p className="text-white/90 text-base md:text-lg mt-1">
-            ou <span className="font-bold text-lg md:text-2xl">R$ 297,00</span> à vista
-          </p>
-          <p className="text-amber-400 font-bold text-xs md:text-sm mt-2 flex items-center justify-center gap-1.5">
-            <Gift className="w-3.5 h-3.5" /> Hoje você leva 4 bônus exclusivos
-          </p>
-          <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
-            <Shield className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-          </p>
-          <a
-            href="#oferta"
-            className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#1a9e4c] hover:bg-[#157a3a] transition-colors text-white font-black text-base md:text-lg py-3.5 md:py-4 rounded-xl"
-          >
-            <Rocket className="w-5 h-5" /> Quero perder o medo do computador
-          </a>
 
-          {/* Selos de benefícios - 2 colunas */}
-          <div className="grid grid-cols-2 gap-3 mt-4">
+          {/* Selos de benefícios - mesmo formato dos selos de confiança */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
             {[
-              { icon: Play, label: "+90 Videoaulas" },
-              { icon: Infinity, label: "Acesso Vitalício" },
-              { icon: Headphones, label: "Suporte Direto" },
-              { icon: Users, label: "+15.000 Alunos" },
+              { icon: MessageCircle, label: "Linguagem Simples", sublabel: "Fácil de entender" },
+              { icon: Footprints, label: "Passo a Passo", sublabel: "Sem pular etapas" },
+              { icon: Smile, label: "Sem Complicação", sublabel: "Direto ao ponto" },
+              { icon: Rocket, label: "Do Zero ao Mercado", sublabel: "Preparação completa" },
             ].map((item, i) => (
-              <div key={i} className="flex items-center justify-center gap-2 bg-slate-900/60 border border-white/10 rounded-full px-3 py-2.5 md:px-4 md:py-3">
-                <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
-                <span className="text-white font-semibold text-xs md:text-sm whitespace-nowrap">{item.label}</span>
+              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Garantia 7 dias */}
-          <div className="mt-4 rounded-xl border-2 border-[#25D366]/50 bg-[#25D366]/15 px-5 py-4 text-center shadow-lg shadow-[#25D366]/10">
-            <p className="flex flex-row items-center justify-center gap-1.5 text-[#25D366] font-black text-sm md:text-lg">
-              <Shield className="w-5 h-5" /> <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
-            </p>
-            <p className="text-white text-sm md:text-base mt-1.5 leading-snug">
-              <span className="text-[#fae614] font-bold">RISCO ZERO!</span> Se não gostar, devolvo <span className="text-[#25D366] font-bold whitespace-nowrap">100% do seu dinheiro.</span>
-            </p>
+        {/* Faixa acolhedora acima do preço - Full width */}
+        <div className="absolute left-0 right-0 -mx-4 md:-mx-8 lg:-mx-16">
+          <div className="bg-gradient-to-r from-primary via-primary/90 to-primary overflow-hidden border-y border-primary/60">
+          <div className="animate-marquee whitespace-nowrap py-3">
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+              <span className="inline-flex items-center gap-2 text-white text-base md:text-lg font-bold mx-6">
+                ✨ Você é capaz de aprender — Venha comigo!
+              </span>
+            </div>
           </div>
         </div>
 
+        <div className="h-16 md:h-20"></div>
 
-
-        <CapableSection />
-
+        {/* Preço na Hero */}
+        <HeroPricing />
 
 
       </div>

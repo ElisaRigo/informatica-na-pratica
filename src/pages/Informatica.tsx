@@ -1,7 +1,6 @@
 import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
@@ -38,9 +37,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-
+import { EasyToLearn } from "@/components/EasyToLearn";
 import { HeroV2 } from "@/components/aprender/HeroV2";
-import { HeroBonuses } from "@/components/aprender/HeroBonuses";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
@@ -236,45 +234,28 @@ const Informatica = () => {
     return () => observer.disconnect();
   }, []);
 
-  (window as any).openCheckout = () => openHotmartCheckout();
+  (window as any).openCheckout = () => {
+    if ((window as any).gtag) {
+      (window as any).gtag('event', 'begin_checkout', {
+        currency: 'BRL', value: 297.00,
+        items: [{ item_id: 'curso-informatica', item_name: 'Curso Informática na Prática', price: 297.00, quantity: 1 }]
+      });
+    }
+    if ((window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        value: 297.00, currency: 'BRL', content_name: 'Curso Informática na Prática', content_ids: ['curso-informatica'], num_items: 1
+      });
+    }
+    window.open('https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card', '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-slate-900">
       {/* ─── HERO (mesmo da home /aprender) ─── */}
-      <HeroV2
-        problemSection={
-          <section className="py-6 md:py-8 bg-slate-900 relative overflow-hidden border-t border-slate-800">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-destructive/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="text-center mb-4">
-                <div className="inline-flex items-center gap-2 bg-destructive/15 text-destructive px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                  <AlertCircle className="w-4 h-4" />
-                  Você se identifica?
-                </div>
-                <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
-                  Chega de se sentir <span className="text-destructive">travado(a)</span><br />por não saber usar o computador
-                </h2>
-              </div>
-              <div className="max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-3">
-                  {problems.map((p, i) => (
-                    <div key={i} className="flex items-start gap-4 p-4 bg-slate-800/70 rounded-xl shadow-md border-l-4 border-destructive/60 hover:border-destructive hover:shadow-lg transition-all">
-                      <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                      <p className="text-white font-medium text-sm">{p}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="text-center mt-4">
-                  <div className="inline-block bg-primary/10 border-2 border-primary/30 rounded-2xl p-6">
-                    <p className="text-lg md:text-xl font-bold text-white mb-1">Se você marcou pelo menos 1 item acima...</p>
-                    <p className="text-slate-300">Este curso foi feito <strong className="text-primary">especialmente para você</strong>.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        }
-      />
+      <HeroV2 />
+
+      {/* ─── EASY TO LEARN ─── */}
+      <EasyToLearn />
 
       {/* ─── AUDIO TESTIMONIALS HEADER ─── */}
       <section className="py-4 md:py-6 bg-slate-900 border-t border-slate-800">
@@ -323,20 +304,6 @@ const Informatica = () => {
                 </div>
               ))}
             </div>
-          </div>
-
-
-          {/* ─── CTA: Tire suas dúvidas com a Professora ─── */}
-          <div className="text-center mb-4 max-w-2xl mx-auto">
-            <a
-              href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1%20Professora!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#1a9e4c] hover:bg-[#157a3a] text-white font-bold text-base md:text-lg px-6 md:px-8 py-3.5 md:py-4 rounded-xl shadow-lg shadow-[#1a9e4c]/30 hover:scale-105 transition-all"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Tire suas dúvidas com a Professora!
-            </a>
           </div>
 
           {/* Highlight phrase */}
@@ -410,13 +377,6 @@ const Informatica = () => {
         </div>
       </section>
 
-      {/* ─── BÔNUS SECTION ─── */}
-      <section className="py-6 md:py-8 bg-slate-900 border-t border-slate-800">
-        <div className="container mx-auto px-4">
-          <HeroBonuses />
-        </div>
-      </section>
-
       {/* ─── CERTIFICATE SECTION ─── */}
       <section className="py-6 md:py-8 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden border-t border-slate-800">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -486,6 +446,37 @@ const Informatica = () => {
         </div>
       </div>
 
+      {/* ─── PROBLEM SECTION ─── */}
+      <section className="py-6 md:py-8 bg-slate-900 relative overflow-hidden border-t border-slate-800">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-destructive/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-4">
+            <div className="inline-flex items-center gap-2 bg-destructive/15 text-destructive px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <AlertCircle className="w-4 h-4" />
+              Você se identifica?
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
+              Chega de se sentir <span className="text-destructive">travado(a)</span><br />por não saber usar o computador
+            </h2>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-3">
+              {problems.map((p, i) => (
+                <div key={i} className="flex items-start gap-4 p-4 bg-slate-800/70 rounded-xl shadow-md border-l-4 border-destructive/60 hover:border-destructive hover:shadow-lg transition-all">
+                  <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+                  <p className="text-white font-medium text-sm">{p}</p>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-4">
+              <div className="inline-block bg-primary/10 border-2 border-primary/30 rounded-2xl p-6">
+                <p className="text-lg md:text-xl font-bold text-white mb-1">Se você marcou pelo menos 1 item acima...</p>
+                <p className="text-slate-300">Este curso foi feito <strong className="text-primary">especialmente para você</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ─── COMMENTS 3-4 ─── */}
       <FacebookCommentPair indices={[2, 3]} />
@@ -662,7 +653,7 @@ const Informatica = () => {
           </div>
           <div className="text-center mt-4">
             <p className="text-slate-300 mb-3">Não encontrou sua dúvida? Fale diretamente com a professora:</p>
-            <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#1a9e4c] hover:bg-[#157a3a] text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
+            <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
               <MessageCircle className="w-5 h-5" />
               Falar com a Professora Elisa
             </a>

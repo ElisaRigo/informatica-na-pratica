@@ -2,7 +2,6 @@ import { lazy, Suspense, memo, useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckoutDialog } from "@/components/CheckoutDialog";
 import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
-import { openHotmartCheckout } from "@/lib/checkoutTracking";
 import { 
   Shield, Award, Zap, CheckCircle, Star, Clock, Users, 
   ArrowRight, Play, Gift, Lock, Flame, ChevronRight,
@@ -117,7 +116,7 @@ const VendaConversao = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
-  const openCheckout = () => openHotmartCheckout();
+  const openCheckout = () => window.open('https://pay.hotmart.com/L103057645P?bid=1751676498498&paymentMethod=credit_card', '_blank');
   (window as any).openCheckout = openCheckout;
 
   useEffect(() => {
@@ -439,12 +438,12 @@ const VendaConversao = () => {
                 Elisa Rodrigues
               </h2>
               <p className="text-gray-400 text-lg mb-6">
-                Há <span className="text-white font-bold">mais de 20 anos</span> ensinando informática para pessoas que nunca tocaram em um computador. 
+                Há <span className="text-white font-bold">15 anos</span> ensinando informática para pessoas que nunca tocaram em um computador. 
                 Minha missão é provar que <span className={`${styles.gradientText} font-bold`}>nunca é tarde para aprender</span>.
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 {[
-                  { v: "+20 anos", l: "experiência" },
+                  { v: "+15 anos", l: "experiência" },
                   { v: "+2.500", l: "alunos" },
                   { v: "4.9/5", l: "avaliação" },
                 ].map((s, i) => (
@@ -555,14 +554,13 @@ const VendaConversao = () => {
       {/* Footer */}
       <footer className={`py-8 ${styles.bg} text-center text-gray-600 text-sm border-t ${styles.border}`}>
         <p>© 2024 Informática na Prática — Todos os direitos reservados</p>
-        <p className="mt-2">CNPJ: 32.373.460/0001-51</p>
       </footer>
 
       {/* Floating bottom bar */}
       <div className={`fixed bottom-0 left-0 right-0 z-50 ${styles.gradient} p-3 md:p-4 shadow-2xl border-t border-[#ff8533]`}>
         <div className="container mx-auto flex items-center justify-between gap-4">
           <div className="hidden md:block text-white">
-            <p className="font-bold text-sm">🔥 Oferta especial: 40% OFF + 4 bônus exclusivos por tempo limitado</p>
+            <p className="font-bold text-sm">🔥 Oferta especial por tempo limitado</p>
             <p className="text-xs opacity-80">De R$ 497 por R$ 297</p>
           </div>
           <button

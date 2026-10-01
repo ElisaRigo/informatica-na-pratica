@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, GraduationCap, Clock, Zap, Shield, Award, ArrowRight } from "lucide-react";
-import environmentThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import environmentThumb from "@/assets/environment-thumb.jpg";
 
 export const EnvironmentSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -78,7 +78,7 @@ export const EnvironmentSection = () => {
               ) : (
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&autoplay=1"
+                    src="https://www.youtube.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&autoplay=1"
                     title="Aula de Excel - CNT Informática"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -110,7 +110,7 @@ export const EnvironmentSection = () => {
           <div className="text-center">
             <button
               onClick={() => (window as any).openCheckout?.()}
-              className="group relative w-full max-w-xl mx-auto flex items-center justify-center gap-2 bg-gradient-to-r from-primary/25 to-primary/15 backdrop-blur-sm text-white font-bold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-xl border border-primary/40 hover:border-primary/60 hover:from-primary/35 hover:to-primary/25 transition-all duration-300"
+              className="group relative w-full max-w-xl mx-auto flex items-center justify-center gap-2 bg-gradient-to-r from-primary/25 to-primary/15 backdrop-blur-sm text-white font-bold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-xl border border-primary/40 hover:border-primary/60 hover:from-primary/35 hover:to-primary/25 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]"
             >
               <span className="text-lg animate-pulse">💚</span>
               <span>

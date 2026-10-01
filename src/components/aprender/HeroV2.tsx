@@ -1,17 +1,12 @@
 import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
-import { useState, useRef, useEffect, type ReactNode } from "react";
+import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/aprender-hero-cover.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 import { TopFearBanner } from "./TopFearBanner";
-import { HeroBonuses } from "./HeroBonuses";
 
-interface HeroV2Props {
-  problemSection?: ReactNode;
-}
-
-export const HeroV2 = ({ problemSection }: HeroV2Props) => {
+export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   const [shouldLoadFreeClass, setShouldLoadFreeClass] = useState(false);
@@ -161,8 +156,6 @@ export const HeroV2 = ({ problemSection }: HeroV2Props) => {
             assim como você, tinham medo de errar e vergonha de pedir ajuda.
           </p>
         </div>
-
-        {problemSection}
 
         {/* Seção Aula Gratuita - Acima da faixa azul */}
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
