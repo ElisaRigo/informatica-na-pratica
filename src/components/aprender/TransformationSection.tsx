@@ -26,7 +26,7 @@ export const TransformationSection = () => {
           </div>
           
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-            Imagine você daqui a 30 dias...
+             Imagine você em poucos dias...
           </h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Usando o computador com total confiança, sem medo de errar, 
