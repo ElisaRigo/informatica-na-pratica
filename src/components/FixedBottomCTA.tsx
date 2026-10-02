@@ -41,7 +41,7 @@ export const FixedBottomCTA = () => {
 
         {/* Barra flutuante em vidro — largura total */}
         <div className="relative w-full bg-slate-900/90 backdrop-blur-xl border-t border-x border-white/10 rounded-t-2xl shadow-2xl">
-          <div className="flex flex-col gap-3 px-4 pr-[84px] sm:pr-4 pt-3.5 pb-3.5">
+          <div className="flex flex-col gap-3 px-4 pr-[84px] sm:pr-[13rem] pt-3.5 pb-3.5">
               {/* Selos de valor */}
               <div className="flex items-center justify-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-success/15 border border-success/40 flex items-center justify-center flex-shrink-0">
