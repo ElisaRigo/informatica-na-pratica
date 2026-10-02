@@ -35,14 +35,13 @@ export const FixedBottomCTA = () => {
         visible ? "translate-y-0" : "translate-y-full pointer-events-none"
       }`}
     >
-      <div className="container mx-auto px-4 pr-[84px] sm:pr-4 pb-4">
-        <div className="relative w-full">
-          {/* Brilho ao redor da barra */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-success/40 to-success/10 rounded-3xl blur-xl pointer-events-none" />
+      <div className="relative w-full">
+        {/* Brilho ao redor da barra */}
+        <div className="absolute inset-x-0 -top-2 bottom-0 bg-gradient-to-r from-success/40 to-success/10 blur-xl pointer-events-none" />
 
-          {/* Barra flutuante em vidro */}
-          <div className="relative bg-slate-900/90 backdrop-blur-xl border border-white/10 rounded-2xl p-3.5 shadow-2xl">
-            <div className="flex flex-col gap-3">
+        {/* Barra flutuante em vidro — largura total */}
+        <div className="relative w-full bg-slate-900/90 backdrop-blur-xl border-t border-x border-white/10 rounded-t-2xl shadow-2xl">
+          <div className="flex flex-col gap-3 px-4 pr-[84px] sm:pr-[13rem] pt-3.5 pb-3.5">
               {/* Selos de valor */}
               <div className="flex items-center justify-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-success/15 border border-success/40 flex items-center justify-center flex-shrink-0">
@@ -61,7 +60,6 @@ export const FixedBottomCTA = () => {
                 Quero Acessar o Curso
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
               </button>
-            </div>
           </div>
         </div>
       </div>
