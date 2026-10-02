@@ -1,4 +1,5 @@
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { FixedBottomCTA } from "@/components/FixedBottomCTA";
 import { useState } from "react";
 import { HomeCheckoutDialog } from "@/components/HomeCheckoutDialog";
 
@@ -87,6 +88,7 @@ const Index = () => {
       <FinalCTA />
       <DisclaimerSection />
       <FooterV2 />
+      <FixedBottomCTA />
       <WhatsAppButton />
       <HomeCheckoutDialog
         open={checkoutOpen}
