@@ -36,7 +36,7 @@ export const FixedBottomCTA = () => {
       }`}
     >
       <div className="container mx-auto px-4 pr-[84px] sm:pr-4 pb-4">
-        <div className="relative max-w-md mx-auto">
+        <div className="relative w-full">
           {/* Brilho ao redor da barra */}
           <div className="absolute -inset-1 bg-gradient-to-r from-success/40 to-success/10 rounded-3xl blur-xl pointer-events-none" />
 
@@ -58,7 +58,7 @@ export const FixedBottomCTA = () => {
                 onClick={() => (window as any).openCheckout?.()}
                 className="group relative overflow-hidden w-full bg-success hover:bg-success/90 text-white font-extrabold text-lg py-4 px-6 rounded-xl transition-all duration-300 active:scale-[0.97] shadow-[0_0_25px_rgba(37,211,102,0.35)] hover:shadow-[0_0_35px_rgba(37,211,102,0.5)]"
               >
-                Quero Começar Agora
+                Quero Acessar o Curso
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
               </button>
             </div>
