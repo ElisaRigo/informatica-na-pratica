@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 /**
  * Barra de CTA fixa no rodapé da home.
- * Aparece assim que o usuário chega ao início da sessão de valor
- * (seção marcada com id="primeira-sessao-valor" — Depoimentos em Áudio):
- * o topo da seção cruza o topo da tela.
+ * Aparece logo após a primeira sessão de valor, bem acima da seção de
+ * depoimentos (id="primeira-sessao-valor"): dispara quando o topo da seção
+ * ainda está entrando pela parte de baixo da tela.
  * Abre o modal de checkout da home via window.openCheckout (owned por Index).
  */
 export const FixedBottomCTA = () => {
@@ -15,7 +15,7 @@ export const FixedBottomCTA = () => {
     if (!target) return;
 
     const check = () => {
-      setVisible(target.getBoundingClientRect().top <= 0);
+      setVisible(target.getBoundingClientRect().top <= window.innerHeight);
     };
 
     check();
