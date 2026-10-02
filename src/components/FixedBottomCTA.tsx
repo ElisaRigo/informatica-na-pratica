@@ -48,7 +48,7 @@ export const FixedBottomCTA = () => {
                 <span className="w-5 h-5 rounded-full bg-success/15 border border-success/40 flex items-center justify-center flex-shrink-0">
                   <Check className="w-3 h-3 text-success" strokeWidth={3} />
                 </span>
-                <p className="text-[11px] font-semibold text-slate-300 uppercase tracking-widest text-center">
+                <p className="text-[10px] font-semibold text-slate-300 uppercase tracking-wider text-center whitespace-nowrap">
                   Acesso vitalício <span className="mx-1 text-slate-600">•</span> Garantia de 7 dias
                 </p>
               </div>
