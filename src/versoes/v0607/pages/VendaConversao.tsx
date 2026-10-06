@@ -9,7 +9,8 @@ import {
   Sparkles, Trophy, Heart, Eye
 } from "lucide-react";
 import videoPoster from "@/versoes/v0607/assets/hero-poster-free-lesson.png";
-import heroVideo from "@/versoes/v0607/assets/hero-video-free-lesson.mp4";
+import heroVideoAsset from "@/versoes/v0607/assets/hero-video-free-lesson.mp4.asset.json";
+const heroVideo = heroVideoAsset.url;
 import elisaPhoto from "@/versoes/v0607/assets/elisa-photo.jpg";
 import alinePhoto from "@/versoes/v0607/assets/testimonial-new-1.jpg";
 import joaoPhoto from "@/versoes/v0607/assets/testimonial-new-3.jpg";
