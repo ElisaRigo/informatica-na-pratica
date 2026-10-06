@@ -38,6 +38,7 @@ const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/versoes/v0607/assets/certificado-exemplo.png";
 import aulaGratisThumbAsset from "@/versoes/v0607/assets/capa-aula-demonstrativa.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
+import freeClassThumb from "@/versoes/v0607/assets/aprenda-comigo-thumb.jpg";
 import avatar1 from "@/versoes/v0607/assets/testimonial-new-1.jpg";
 import avatar2 from "@/versoes/v0607/assets/testimonial-new-2.jpg";
 import avatar3 from "@/versoes/v0607/assets/testimonial-new-3.jpg";
@@ -262,6 +263,7 @@ const Identification = () => {
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -307,6 +309,55 @@ const AulaDemonstrativa = () => {
               />
               <a
                 href="https://www.youtube.com/watch?v=_0OPLnEiMHk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
+              >
+                Ver no YouTube
+              </a>
+            </div>
+          )}
+        </div>
+
+        <div className="text-center mb-4 md:mb-5">
+          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full">
+            <PlayCircle className="w-4 h-4" /> PRIMEIRA AULA JÁ LIBERADA
+          </span>
+          <h3 className="text-xl md:text-3xl font-black text-slate-900 mt-3 leading-tight">
+            Comece agora pela <span className="text-blue-600">primeira aula</span>
+          </h3>
+          <p className="text-slate-600 text-base md:text-lg mt-2 max-w-2xl mx-auto">
+            É de graça e você assiste aqui, sem cadastro. Veja se o jeito que a Elisa explica funciona pra você.
+          </p>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
+          {!isFreeClassPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
+              <img
+                src={freeClassThumb}
+                alt="Primeira aula gratuita"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                title="Primeira aula gratuita"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              <a
+                href="https://www.youtube.com/watch?v=-sdVG1OtDks"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
