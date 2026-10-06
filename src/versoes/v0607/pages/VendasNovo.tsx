@@ -36,7 +36,8 @@ import heroCover from "@/versoes/v0607/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/versoes/v0607/assets/aprender-hero-cover-v3.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/versoes/v0607/assets/certificado-exemplo.png";
-import aulaGratisThumb from "@/versoes/v0607/assets/aula-completa-cover.jpg";
+import aulaGratisThumbAsset from "@/versoes/v0607/assets/capa-segunda-aula.jpg.asset.json";
+const aulaGratisThumb = aulaGratisThumbAsset.url;
 import freeClassThumb from "@/versoes/v0607/assets/aprenda-comigo-thumb.jpg";
 import avatar1 from "@/versoes/v0607/assets/testimonial-new-1.jpg";
 import avatar2 from "@/versoes/v0607/assets/testimonial-new-2.jpg";
@@ -339,7 +340,7 @@ const AulaDemonstrativa = () => {
                 loading="lazy"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6 md:-translate-x-[88px]">
                   <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
                 </div>
               </div>
