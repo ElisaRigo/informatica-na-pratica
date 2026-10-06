@@ -265,34 +265,21 @@ const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   return (
-    <section className="py-4 md:py-6 bg-white border-t border-slate-200">
+    <section className="py-6 md:py-8 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-6 md:mb-8">
-          <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> AULA REAL — ASSISTA AGORA
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Veja como é uma aula <span className="text-blue-600">passo a passo</span> — do jeito que você vai aprender
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.
-          </p>
-        </div>
-
-
-        <div className="text-center mb-4 md:mb-5">
-          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full">
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
             <PlayCircle className="w-4 h-4" /> PRIMEIRA AULA JÁ LIBERADA
           </span>
-          <h3 className="text-xl md:text-3xl font-black text-slate-900 mt-3 leading-tight">
-            Comece agora pela <span className="text-blue-600">primeira aula</span>
-          </h3>
-          <p className="text-slate-600 text-base md:text-lg mt-2 max-w-2xl mx-auto">
-            É de graça e você assiste aqui, sem cadastro. Veja se o jeito que a Elisa explica funciona pra você.
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
+            Veja como é uma aula <span className="text-blue-600">passo a passo</span>
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Comece agora pela primeira aula. É de graça, sem cadastro, e você assiste aqui mesmo.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-2 border-green-200">
           {!isFreeClassPlaying ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
               <img
@@ -305,6 +292,9 @@ const AulaDemonstrativa = () => {
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
                   <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
                 </div>
+              </div>
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-green-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                Primeira aula — clique para assistir
               </div>
             </div>
           ) : (
@@ -328,7 +318,19 @@ const AulaDemonstrativa = () => {
             </div>
           )}
         </div>
-        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
+
+        <p className="text-center text-slate-600 text-sm md:text-base mt-3 mb-8 md:mb-10 leading-relaxed flex items-start justify-center gap-2 max-w-2xl mx-auto">
+          <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0 mt-1" />
+          Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.
+        </p>
+
+        <div className="text-center mb-3 md:mb-4">
+          <h3 className="text-lg md:text-2xl font-black text-slate-900 leading-tight">
+            E assista a uma <span className="text-blue-600">aula completa</span> de verdade
+          </h3>
+        </div>
+
+        <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl shadow-blue-900/10 border border-slate-200">
           {!isPlaying ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
               <img
@@ -338,12 +340,12 @@ const AulaDemonstrativa = () => {
                 loading="lazy"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
-                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
+                  <PlayCircle className="w-8 h-8 md:w-10 md:h-10 text-blue-600" strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/40 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-                Aula — Assista agora
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/60 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                Aula completa — assista agora
               </div>
             </div>
           ) : (
@@ -368,7 +370,7 @@ const AulaDemonstrativa = () => {
           )}
         </div>
 
-        <div className="text-center space-y-4">
+        <div className="text-center space-y-4 mt-8 md:mt-10">
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
             zero e usarem o computador com confiança.
