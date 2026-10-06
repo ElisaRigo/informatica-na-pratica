@@ -38,6 +38,7 @@ const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/versoes/v0607/assets/certificado-exemplo.png";
 import aulaGratisThumbAsset from "@/versoes/v0607/assets/capa-aula-demonstrativa.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
+import freeClassThumb from "@/versoes/v0607/assets/aprenda-comigo-thumb.jpg";
 import avatar1 from "@/versoes/v0607/assets/testimonial-new-1.jpg";
 import avatar2 from "@/versoes/v0607/assets/testimonial-new-2.jpg";
 import avatar3 from "@/versoes/v0607/assets/testimonial-new-3.jpg";
@@ -262,6 +263,7 @@ const Identification = () => {
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
