@@ -274,7 +274,7 @@ const AulaDemonstrativa = () => {
             Veja como você vai aprender, <span className="text-blue-600">clique por clique</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Assista agora à primeira aula e veja o computador deixar de ser um mistério. Sem cadastro, sem complicação.
+            Assista agora uma aula e veja o computador deixar de ser um mistério. Sem cadastro, sem complicação.
           </p>
         </div>
 
