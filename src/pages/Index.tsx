@@ -45,6 +45,7 @@ const Index = () => {
       <DisclaimerSection />
       <FooterV2 />
       <WhatsAppButton />
+      <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
     </div>
   );
 };
