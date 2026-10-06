@@ -294,7 +294,7 @@ const AulaDemonstrativa = () => {
                 </div>
               </div>
               <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-green-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-                Comece por aqui — clique para assistir
+                Conheça — clique para assistir
               </div>
             </div>
           ) : (
