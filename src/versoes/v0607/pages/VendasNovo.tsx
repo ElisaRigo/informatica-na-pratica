@@ -268,7 +268,7 @@ const AulaDemonstrativa = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> PRIMEIRA AULA JÁ LIBERADA
+            <PlayCircle className="w-4 h-4" /> AULA JÁ LIBERADA
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Veja como é uma aula <span className="text-blue-600">passo a passo</span>
@@ -325,7 +325,7 @@ const AulaDemonstrativa = () => {
 
         <div className="text-center mb-3 md:mb-4">
           <h3 className="text-lg md:text-2xl font-black text-slate-900 leading-tight">
-            E assista a uma <span className="text-blue-600">aula completa</span> de verdade
+            Aprender Informática é mais fácil do que você imagina
           </h3>
         </div>
 
