@@ -1,4 +1,6 @@
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { LeadCaptureDialog } from "@/components/LeadCaptureDialog";
+import { useLeadCaptureDialog } from "@/hooks/useLeadCaptureDialog";
 
 // Componentes EXCLUSIVOS da página /aprender (independentes da home)
 import { HeroV2 } from "@/components/aprender-only/HeroV2";

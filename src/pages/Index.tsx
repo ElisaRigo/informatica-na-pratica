@@ -1,4 +1,6 @@
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { LeadCaptureDialog } from "@/components/LeadCaptureDialog";
+import { useLeadCaptureDialog } from "@/hooks/useLeadCaptureDialog";
 
 import { HeroV2 } from "@/components/aprender/HeroV2";
 import { ProblemSection } from "@/components/aprender/ProblemSection";
