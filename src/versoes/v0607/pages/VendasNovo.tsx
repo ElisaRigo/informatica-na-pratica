@@ -36,7 +36,7 @@ import heroCover from "@/versoes/v0607/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/versoes/v0607/assets/aprender-hero-cover-v3.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/versoes/v0607/assets/certificado-exemplo.png";
-const aulaGratisThumb = "https://img.youtube.com/vi/_0OPLnEiMHk/maxresdefault.jpg";
+import aulaGratisThumb from "@/versoes/v0607/assets/aula-completa-cover.jpg";
 import freeClassThumb from "@/versoes/v0607/assets/aprenda-comigo-thumb.jpg";
 import avatar1 from "@/versoes/v0607/assets/testimonial-new-1.jpg";
 import avatar2 from "@/versoes/v0607/assets/testimonial-new-2.jpg";
@@ -271,10 +271,10 @@ const AulaDemonstrativa = () => {
             <PlayCircle className="w-4 h-4" /> AULA JÁ LIBERADA
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Veja como é uma aula <span className="text-blue-600">passo a passo</span>
+            Veja como você vai aprender, <span className="text-blue-600">clique por clique</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Comece agora pela primeira aula. É de graça, sem cadastro, e você assiste aqui mesmo.
+            Assista agora à primeira aula e veja o computador deixar de ser um mistério. Sem cadastro, sem complicação.
           </p>
         </div>
 
@@ -283,7 +283,7 @@ const AulaDemonstrativa = () => {
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
               <img
                 src={freeClassThumb}
-                alt="Primeira aula gratuita"
+                alt="Primeira aula do curso"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -293,14 +293,14 @@ const AulaDemonstrativa = () => {
                 </div>
               </div>
               <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-green-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-                Primeira aula — clique para assistir
+                Comece por aqui — clique para assistir
               </div>
             </div>
           ) : (
             <div className="aspect-video relative">
               <iframe
                 src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                title="Primeira aula gratuita"
+                title="Primeira aula do curso"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -334,7 +334,7 @@ const AulaDemonstrativa = () => {
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
               <img
                 src={aulaGratisThumb}
-                alt="Aula demonstrativa gratuita"
+                alt="Aula completa do curso"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -344,14 +344,14 @@ const AulaDemonstrativa = () => {
                 </div>
               </div>
               <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/60 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
-                Aula completa — assista agora
+                Veja uma aula inteira de verdade
               </div>
             </div>
           ) : (
             <div className="aspect-video relative">
               <iframe
                 src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                title="Aula demonstrativa gratuita"
+                title="Aula completa do curso"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
