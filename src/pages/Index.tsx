@@ -1,49 +1,14 @@
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { LeadCaptureDialog } from "@/components/LeadCaptureDialog";
 import { useLeadCaptureDialog } from "@/hooks/useLeadCaptureDialog";
-
-import { HeroV2 } from "@/components/aprender/HeroV2";
-import { ProblemSection } from "@/components/aprender/ProblemSection";
-import { AudioTestimonialsV2 } from "@/components/aprender/AudioTestimonialsV2";
-import { SupportBannerV2 } from "@/components/aprender/SupportBannerV2";
-import { TransformationSection } from "@/components/aprender/TransformationSection";
-import { ContentSectionV2 } from "@/components/aprender/ContentSectionV2";
-import { InstructorSection } from "@/components/aprender/InstructorSection";
-import { StrategicCTAV2 } from "@/components/aprender/StrategicCTAV2";
-import { EnvironmentSection } from "@/components/aprender/EnvironmentSection";
-import { CertificateSection } from "@/components/aprender/CertificateSection";
-import { TestimonialsV2 } from "@/components/aprender/TestimonialsV2";
-import { PricingV2 } from "@/components/aprender/PricingV2";
-import { FAQV2 } from "@/components/aprender/FAQV2";
-import { FinalCTA } from "@/components/aprender/FinalCTA";
-import { FooterV2 } from "@/components/aprender/FooterV2";
-import { DisclaimerSection } from "@/components/aprender/DisclaimerSection";
+import VendasNovo from "@/versoes/v0607/pages/VendasNovo";
 
 const Index = () => {
   const { isOpen, closeDialog } = useLeadCaptureDialog();
 
   return (
     <div className="min-h-screen">
-      <HeroV2 />
-      <AudioTestimonialsV2 />
-      <ProblemSection />
-      <CertificateSection />
-      <InstructorSection />
-      <StrategicCTAV2
-        headline="Quero aprender com a Elisa!"
-        buttonText="Sim, Quero Ser Aluno(a)"
-        variant="light"
-      />
-      <EnvironmentSection />
-      <SupportBannerV2 />
-      <TransformationSection />
-      <ContentSectionV2 />
-      <TestimonialsV2 />
-      <PricingV2 />
-      <FAQV2 />
-      <FinalCTA />
-      <DisclaimerSection />
-      <FooterV2 />
+      <VendasNovo />
       <WhatsAppButton />
       <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
     </div>
