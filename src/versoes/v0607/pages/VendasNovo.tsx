@@ -292,7 +292,7 @@ const AulaDemonstrativa = () => {
                   <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-green-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-green-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
                 Primeira aula — clique para assistir
               </div>
             </div>
