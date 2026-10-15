@@ -1211,6 +1211,7 @@ const VendasNovo = () => {
       <Certificate />
       <Pricing />
       <GuaranteeBlock />
+      <SuporteProfessora />
       <FAQ />
       <FinalCTA />
       <Footer />
