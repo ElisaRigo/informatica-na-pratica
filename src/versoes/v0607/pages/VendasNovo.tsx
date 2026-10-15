@@ -1104,10 +1104,10 @@ const SuporteProfessora = () => {
   };
 
   return (
-    <section className="py-10 md:py-14 bg-slate-900">
+    <section className="py-8 md:py-10 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center mb-5">
+          <div className="inline-flex items-center justify-center mb-4">
             <div className="relative">
               <div className="absolute inset-0 bg-green-500/30 rounded-full blur-2xl scale-150" />
               <img
@@ -1119,23 +1119,19 @@ const SuporteProfessora = () => {
             </div>
           </div>
 
-          <h2 className="text-2xl md:text-4xl font-black text-white mb-4 leading-tight">
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-3 leading-tight">
             Ainda ficou com alguma dúvida?{" "}
             <span className="text-green-400">Fale comigo antes de decidir.</span>
           </h2>
 
-          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-4">
-            Eu sei que investir <strong className="text-white">R$ 297</strong> em um curso{" "}
-            <strong className="text-white">online</strong> pode dar aquele friozinho na barriga.
-            Será que é pra mim? Será que eu vou conseguir acompanhar? É seguro?
-          </p>
-          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-8">
-            Essas dúvidas são <strong className="text-white">normais</strong> — e você não precisa
-            decidir sozinho(a). Me chama no WhatsApp e eu respondo pessoalmente, com calma, tudo o
-            que você quiser saber. <strong className="text-white">Sem compromisso.</strong>
+          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-7">
+            Investir <strong className="text-white">R$ 297</strong> em um curso{" "}
+            <strong className="text-white">online</strong> levanta dúvidas — e é{" "}
+            <strong className="text-white">normal</strong>. Me chama no WhatsApp que eu respondo,{" "}
+            <strong className="text-white">sem compromisso.</strong>
           </p>
 
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-5">
             <a
               href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1%2C%20Elisa!%20Li%20sobre%20o%20curso%20e%20fiquei%20com%20algumas%20d%C3%BAvidas.%20Pode%20me%20ajudar%3F"
               target="_blank"
