@@ -1134,18 +1134,14 @@ const SuporteProfessora = () => {
             que você quiser saber. <strong className="text-white">Sem compromisso.</strong>
           </p>
 
-          <div className="relative mx-auto mb-6 w-full max-w-2xl">
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 -m-3 rounded-2xl bg-[#25D366]/25 blur-2xl animate-pulse"
-            />
+          <div className="mx-auto mb-6 w-full max-w-2xl">
             <a
               href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1%2C%20Elisa!%20Li%20sobre%20o%20curso%20e%20fiquei%20com%20algumas%20d%C3%BAvidas.%20Pode%20me%20ajudar%3F"
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleClick}
               aria-label="Quero tirar minhas dúvidas com a professora Elisa"
-              className="group relative flex w-full items-center justify-center gap-3 md:gap-6 bg-[#25D366] hover:bg-[#20BA5A] text-white font-extrabold px-4 md:px-12 py-5 md:py-7 rounded-xl shadow-[0_18px_50px_-10px_rgba(37,211,102,0.9)] ring-1 ring-white/25 transition-all hover:scale-[1.02] active:scale-[0.99]"
+              className="group relative flex w-full items-center justify-center gap-3 md:gap-6 bg-[#25D366] hover:bg-[#20BA5A] text-white font-extrabold px-4 md:px-12 py-5 md:py-7 rounded-xl shadow-2xl transition-all hover:scale-[1.02] active:scale-[0.99]"
             >
               <span className="flex h-11 w-11 md:h-16 md:w-16 shrink-0 items-center justify-center rounded-full bg-white/20 transition-colors group-hover:bg-white/30">
                 <svg
