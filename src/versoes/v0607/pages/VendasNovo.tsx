@@ -1141,10 +1141,10 @@ const SuporteProfessora = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleClick}
-              className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-6 md:px-8 py-4 md:py-5 rounded-xl shadow-lg transition-all hover:scale-105 text-base md:text-lg"
+              className="w-full max-w-sm sm:max-w-none sm:w-auto inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-6 md:px-8 py-4 md:py-5 rounded-xl shadow-lg transition-all hover:scale-105 text-base md:text-lg text-center"
             >
-              <MessageCircleHeart className="w-6 h-6 md:w-7 md:h-7" />
-              <span>Quero tirar minhas dúvidas com a Elisa</span>
+              <MessageCircleHeart className="w-7 h-7 md:w-7 md:h-7" />
+              <span className="leading-snug">Quero tirar minhas dúvidas com a Elisa</span>
             </a>
           </div>
 
