@@ -1124,15 +1124,11 @@ const SuporteProfessora = () => {
             <span className="text-green-400">Fale comigo antes de decidir.</span>
           </h2>
 
-          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-4">
-            Eu sei que investir <strong className="text-white">R$ 297</strong> em um curso{" "}
-            <strong className="text-white">online</strong> pode dar aquele friozinho na barriga.
-            Será que é pra mim? Será que eu vou conseguir acompanhar? É seguro?
-          </p>
-          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-8">
-            Essas dúvidas são <strong className="text-white">normais</strong> — e você não precisa
-            decidir sozinho(a). Me chama no WhatsApp e eu respondo pessoalmente, com calma, tudo o
-            que você quiser saber. <strong className="text-white">Sem compromisso.</strong>
+          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-7">
+            Investir <strong className="text-white">R$ 297</strong> em um curso{" "}
+            <strong className="text-white">online</strong> levanta dúvidas — e é{" "}
+            <strong className="text-white">normal</strong>. Me chama no WhatsApp que eu respondo,{" "}
+            <strong className="text-white">sem compromisso.</strong>
           </p>
 
           <div className="flex justify-center mb-6">
