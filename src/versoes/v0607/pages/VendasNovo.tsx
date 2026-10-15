@@ -1159,7 +1159,7 @@ const SuporteProfessora = () => {
               </span>
               <span className="text-left leading-tight text-sm md:text-xl">
                 Quero tirar minhas dúvidas
-                <br className="hidden sm:block" /> com a professora Elisa
+                <br /> com a professora Elisa
               </span>
             </a>
           </div>
