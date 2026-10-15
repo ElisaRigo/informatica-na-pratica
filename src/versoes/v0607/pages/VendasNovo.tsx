@@ -1087,6 +1087,75 @@ const FinalCTA = () => (
   </section>
 );
 
+// ───────────────────────── Suporte com a Professora ─────────────────────────
+const SuporteProfessora = () => {
+  const handleClick = () => {
+    const isProduction =
+      window.location.hostname === "informaticanapratica.com.br" ||
+      window.location.hostname === "www.informaticanapratica.com.br";
+    if (isProduction && typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
+        value: 20.0,
+        currency: "BRL",
+      });
+    }
+  };
+
+  return (
+    <section className="py-10 md:py-14 bg-slate-900">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center mb-5">
+            <div className="relative">
+              <div className="absolute inset-0 bg-green-500/30 rounded-full blur-2xl scale-150" />
+              <img
+                src={elisa}
+                alt="Professora Elisa"
+                className="relative w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-green-500/60 shadow-2xl"
+              />
+            </div>
+          </div>
+
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-4 leading-tight">
+            Ainda ficou com alguma dúvida?{" "}
+            <span className="text-green-400">Fale comigo antes de decidir.</span>
+          </h2>
+
+          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-4">
+            Eu sei que investir <strong className="text-white">R$ 297</strong> em um curso{" "}
+            <strong className="text-white">online</strong> pode dar aquele friozinho na barriga.
+            Será que é pra mim? Será que eu vou conseguir acompanhar? É seguro?
+          </p>
+          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-8">
+            Essas dúvidas são <strong className="text-white">normais</strong> — e você não precisa
+            decidir sozinho(a). Me chama no WhatsApp e eu respondo pessoalmente, com calma, tudo o
+            que você quiser saber. <strong className="text-white">Sem compromisso.</strong>
+          </p>
+
+          <div className="flex justify-center mb-6">
+            <a
+              href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1%2C%20Elisa!%20Li%20sobre%20o%20curso%20e%20fiquei%20com%20algumas%20d%C3%BAvidas.%20Pode%20me%20ajudar%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleClick}
+              className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-6 md:px-8 py-4 md:py-5 rounded-xl shadow-lg transition-all hover:scale-105 text-base md:text-lg"
+            >
+              <MessageCircleHeart className="w-6 h-6 md:w-7 md:h-7" />
+              <span>Quero tirar minhas dúvidas com a Elisa</span>
+            </a>
+          </div>
+
+          <p className="text-sm text-slate-400 flex items-center justify-center gap-2">
+            <HeartHandshake className="w-4 h-4 text-green-400" />
+            Resposta de uma pessoa de verdade — nada de robô.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ───────────────────────── Footer ─────────────────────────
 const Footer = () => (
   <footer className="bg-slate-950 text-slate-400 py-10 text-center text-xs">
