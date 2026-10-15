@@ -1216,7 +1216,6 @@ const VendasNovo = () => {
       <FinalCTA />
       <Footer />
       <StickyMobile />
-      <WhatsAppButton />
     </div>
   );
 };
