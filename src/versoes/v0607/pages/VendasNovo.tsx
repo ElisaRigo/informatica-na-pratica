@@ -27,8 +27,8 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  MessageCircleHeart,
 } from "lucide-react";
-import { WhatsAppButton } from "@/versoes/v0607/components/WhatsAppButton";
 import logoBlue from "@/versoes/v0607/assets/logo-blue.png";
 import elisa from "@/versoes/v0607/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/v0607/assets/elisa-teaching.jpg";
