@@ -32,6 +32,7 @@ import {
 import logoBlue from "@/versoes/v0607/assets/logo-blue.png";
 import elisa from "@/versoes/v0607/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/v0607/assets/elisa-teaching.jpg";
+import elisaWhatsapp from "@/versoes/v0607/assets/elisa-whatsapp.jpg.asset.json";
 import heroCover from "@/versoes/v0607/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/versoes/v0607/assets/aprender-hero-cover-v3.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
@@ -1110,9 +1111,10 @@ const SuporteProfessora = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-green-500/30 rounded-full blur-2xl scale-150" />
               <img
-                src={elisa}
+                src={elisaWhatsapp.url}
                 alt="Professora Elisa"
-                className="relative w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-green-500/60 shadow-2xl"
+                style={{ objectPosition: "47% 16%" }}
+                className="relative w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-4 border-green-500/60 shadow-2xl"
               />
             </div>
           </div>
