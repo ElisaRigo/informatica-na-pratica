@@ -1263,7 +1263,7 @@ const WhatsAposAulas = () => (
         />
         <p className="flex-1 text-center sm:text-left text-sm md:text-base font-bold text-slate-900 leading-snug">
           Ficou com alguma dúvida?{" "}
-          <span className="text-green-700">Me chama no WhatsApp, eu te ajudo.</span>
+          <span className="text-green-700">{"\nMe chama no WhatsApp, eu te ajudo."}</span>
         </p>
         <a
           href={WHATS_LINK}
@@ -1273,7 +1273,7 @@ const WhatsAposAulas = () => (
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-5 py-2.5 rounded-lg shrink-0"
         >
           <WhatsIcon className="w-4 h-4" />
-          <span className="text-sm md:text-base">Falar com a Elisa</span>
+          <span className="text-sm md:text-base">Quero falar com a Profª Elisa</span>
         </a>
       </div>
     </div>
