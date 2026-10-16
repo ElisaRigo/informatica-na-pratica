@@ -245,13 +245,13 @@ const AulaDemonstrativa = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> 3 AULAS REAIS — ASSISTA AGORA
+            <PlayCircle className="w-4 h-4" /> ASSISTA AGORA E COMECE A APRENDER
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Assista agora e veja: <span className="text-blue-600">você também consegue aprender</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Escolha uma aula e aprenda comigo. Eu mostro cada clique com calma, sem termos difíceis e sem pressa.
+            Cada clique com calma, sem termos difíceis e sem pressa.
           </p>
         </div>
 
