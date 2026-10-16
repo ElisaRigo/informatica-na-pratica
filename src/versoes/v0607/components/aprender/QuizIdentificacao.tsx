@@ -75,6 +75,13 @@ export const QuizIdentificacao = () => {
   const done = step >= QUESTIONS.length;
 
   const handleAnswer = (profile: Profile) => {
+    const w = window as any;
+    const ev = step === 0 ? "quiz_iniciado" : step + 1 >= QUESTIONS.length ? "quiz_concluido" : "quiz_pergunta_respondida";
+    try {
+      w.gtag?.("event", ev, { pergunta: step + 1 });
+      w.clarity?.("event", ev);
+      if (ev === "quiz_concluido") w.gtag?.("event", "quiz_pergunta_respondida", { pergunta: step + 1 });
+    } catch {}
     setAnswers((prev) => [...prev, profile]);
     setStep((s) => s + 1);
   };

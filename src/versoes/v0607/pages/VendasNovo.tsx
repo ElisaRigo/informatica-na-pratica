@@ -1223,19 +1223,33 @@ const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   </svg>
 );
 
-const WhatsFloat = () => (
-  <a
-    href={WHATS_LINK}
-    target="_blank"
-    rel="noopener noreferrer"
-    onClick={trackWhats}
-    aria-label="Tire suas dúvidas no WhatsApp"
-    className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
-  >
-    <WhatsIcon className="w-6 h-6" />
-    <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
-  </a>
-);
+const WhatsFloat = () => {
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    const check = () => {
+      const el = document.getElementById("oferta");
+      if (!el) return;
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.5) setShow(true);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, []);
+  if (!show) return null;
+  return (
+    <a
+      href={WHATS_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={trackWhats}
+      aria-label="Tire suas dúvidas no WhatsApp"
+      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
+    >
+      <WhatsIcon className="w-6 h-6" />
+      <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
+    </a>
+  );
+};
 
 const WhatsAposAulas = () => (
   <section className="py-6 md:py-8 bg-white">
@@ -1278,7 +1292,6 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <WhatsAposAulas />
       <MiniValueSection />
       <QuizIdentificacao />
       <Instructor />
