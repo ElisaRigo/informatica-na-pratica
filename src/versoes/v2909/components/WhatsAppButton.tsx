@@ -5,8 +5,7 @@ const WHATS_LINK =
   encodeURIComponent("Olá, professora Elisa! Vi no site as informações do curso, mas ainda tenho dúvidas. Pode me ajudar?");
 
 export const WhatsAppButton = () => {
-  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const handleWhatsAppClick = () => {
     const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
                          window.location.hostname === 'www.informaticanapratica.com.br';
     
@@ -17,7 +16,6 @@ export const WhatsAppButton = () => {
         'currency': 'BRL'
       });
     }
-    window.open(WHATS_LINK, "_blank", "noopener,noreferrer");
   };
 
   return (
