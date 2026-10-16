@@ -1124,13 +1124,11 @@ const SuporteProfessora = () => {
           </h2>
 
           <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-4">
-            Eu sei que investir <strong className="text-white">R$ 297</strong> em um curso{" "}
-            <strong className="text-white">online</strong> pode dar aquele friozinho na barriga.
             Será que é pra mim? Será que eu vou conseguir acompanhar? É seguro?
           </p>
           <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-8">
             Essas dúvidas são <strong className="text-white">normais</strong> — e você não precisa
-            decidir sozinho(a). Me chama no WhatsApp e eu respondo pessoalmente, com calma, tudo o
+            decidir sozinho(a). Me chama no WhatsApp e eu respondo com calma, tudo o
             que você quiser saber. <strong className="text-white">Sem compromisso.</strong>
           </p>
 
