@@ -1267,7 +1267,6 @@ const WhatsAposAulas = () => (
             <span className="text-green-700">{"\n"}Fale comigo antes de decidir.</span>
           </p>
           <p className="text-slate-700 mb-2">
-            Eu sei que investir <strong className="text-green-700">R$ 297</strong> (ou em até 12x) em
             {"\n"}
           </p>
           <p className="text-slate-700 mb-4">
@@ -1285,7 +1284,7 @@ const WhatsAposAulas = () => (
           </a>
           <p className="mt-3 text-xs text-slate-600 flex items-center justify-center md:justify-start gap-2">
             <HeartHandshake className="w-4 h-4 text-green-700" />
-            Resposta de uma pessoa de verdade — nada de robô.
+            {"\n"}
           </p>
 
         </div>
