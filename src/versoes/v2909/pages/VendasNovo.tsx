@@ -59,8 +59,7 @@ import fbAvatar8 from "@/versoes/v2909/assets/avatar-8.jpg";
 
 import { HeroBonuses } from "@/versoes/v2909/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/versoes/v2909/components/aprender/QuizIdentificacao";
-import { CourseEnrollmentDialog } from "@/versoes/v2909/components/CourseEnrollmentDialog";
-import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/versoes/v2909/lib/requestCheckout";
+import { requestCheckout } from "@/versoes/v2909/lib/requestCheckout";
 
 // ───────────────────────── CTA Button ─────────────────────────
 const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
@@ -1330,16 +1329,8 @@ const SuporteProfessora = () => {
 // ───────────────────────── Footer ─────────────────────────
 
 const VendasNovo = () => {
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
-
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
-  }, []);
-
-  useEffect(() => {
-    const openDialog = () => setCheckoutOpen(true);
-    window.addEventListener(CHECKOUT_MODAL_EVENT, openDialog);
-    return () => window.removeEventListener(CHECKOUT_MODAL_EVENT, openDialog);
   }, []);
 
   return (
@@ -1367,7 +1358,6 @@ const VendasNovo = () => {
       <Footer />
       <StickyMobile />
       <WhatsFloat />
-      <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
     </div>
   );
 };
