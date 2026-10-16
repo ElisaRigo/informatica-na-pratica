@@ -1264,15 +1264,15 @@ const WhatsAposAulas = () => (
         <div className="flex-1">
           <p className="text-lg md:text-xl font-black text-slate-900 mb-2">
             Ficou com alguma dúvida?{" "}
-            <span className="text-green-700">Fale comigo antes de decidir.</span>
+            <span className="text-green-700">{"\n"}Fale comigo antes de decidir.</span>
           </p>
           <p className="text-slate-700 mb-2">
             Eu sei que investir <strong className="text-green-700">R$ 297</strong> (ou em até 12x) em
-            um curso online pode dar aquele friozinho na barriga. É normal.
+            {"\n"}
           </p>
           <p className="text-slate-700 mb-4">
             Me chama no WhatsApp que eu respondo pessoalmente, com calma, tudo o que você quiser
-            saber. <strong className="text-slate-900">Sem compromisso.</strong>
+            saber.&nbsp;
           </p>
           <a
             href={WHATS_LINK}
