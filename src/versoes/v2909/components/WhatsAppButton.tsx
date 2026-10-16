@@ -1,7 +1,12 @@
 import { MessageCircle } from "lucide-react";
 
+const WHATS_LINK =
+  "https://api.whatsapp.com/send?phone=5545988287082&text=" +
+  encodeURIComponent("Olá, professora Elisa! Vi no site as informações do curso, mas ainda tenho dúvidas. Pode me ajudar?");
+
 export const WhatsAppButton = () => {
-  const handleWhatsAppClick = () => {
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
                          window.location.hostname === 'www.informaticanapratica.com.br';
     
@@ -12,11 +17,12 @@ export const WhatsAppButton = () => {
         'currency': 'BRL'
       });
     }
+    window.open(WHATS_LINK, "_blank", "noopener,noreferrer");
   };
 
   return (
     <a
-      href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Inform%C3%A1tica%20na%20Pr%C3%A1tica"
+      href={WHATS_LINK}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleWhatsAppClick}
