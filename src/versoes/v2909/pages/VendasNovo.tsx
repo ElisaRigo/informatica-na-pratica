@@ -774,6 +774,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
 };
 
 const SocialProof = () => {
+  const [showAllComments, setShowAllComments] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -860,7 +861,7 @@ const SocialProof = () => {
 
         {/* Facebook-style comments */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
-          {facebookComments.map((comment, index) => (
+          {(showAllComments ? facebookComments : facebookComments.slice(0, 3)).map((comment, index) => (
             <div key={index} className="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
                 <img
@@ -904,6 +905,17 @@ const SocialProof = () => {
             </div>
           ))}
         </div>
+        {facebookComments.length > 3 && (
+          <div className="text-center mb-6">
+            <button
+              type="button"
+              onClick={() => setShowAllComments((v) => !v)}
+              className="inline-flex items-center gap-1 text-primary font-bold text-sm md:text-base underline underline-offset-4"
+            >
+              {showAllComments ? "Mostrar menos comentários" : `Ver mais ${facebookComments.length - 3} comentários`}
+            </button>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="text-center space-y-4">
