@@ -1252,42 +1252,29 @@ const WhatsFloat = () => {
 };
 
 const WhatsAposAulas = () => (
-  <section className="py-6 md:py-8 bg-white">
+  <section className="py-4 md:py-5 bg-white">
     <div className="container mx-auto px-4 max-w-2xl">
-      <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-5 md:p-6 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+      <div className="bg-green-50 border border-green-200 rounded-xl px-4 py-3 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
         <img
           src={elisaWhatsapp.url}
           alt="Professora Elisa"
           style={{ objectPosition: "47% 16%" }}
-          className="w-20 h-20 rounded-full object-cover border-4 border-green-500 shrink-0"
+          className="w-11 h-11 rounded-full object-cover border-2 border-green-500 shrink-0"
         />
-        <div className="flex-1">
-          <p className="text-lg md:text-xl font-black text-slate-900 mb-2">
-            Ficou com alguma dúvida?{" "}
-            <span className="text-green-700">{"\n"}Fale comigo antes de decidir.</span>
-          </p>
-          <p className="text-slate-700 mb-2">
-            {"\n"}
-          </p>
-          <p className="text-slate-700 mb-4">
-            Me chama no WhatsApp que eu respondo pessoalmente, com calma, tudo o que você quiser
-            saber.&nbsp;
-          </p>
-          <a
-            href={WHATS_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackWhats}
-            className="inline-flex items-center justify-center gap-2 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-5 py-3 rounded-xl"
-          >
-            <WhatsIcon className="w-5 h-5" /> Falar com a professora Elisa
-          </a>
-          <p className="mt-3 text-xs text-slate-600 flex items-center justify-center md:justify-start gap-2">
-            <HeartHandshake className="w-4 h-4 text-green-700" />
-            {"\n"}
-          </p>
-
-        </div>
+        <p className="flex-1 text-center sm:text-left text-sm md:text-base font-bold text-slate-900 leading-snug">
+          Ficou com alguma dúvida?{" "}
+          <span className="text-green-700">Me chama no WhatsApp, eu te ajudo.</span>
+        </p>
+        <a
+          href={WHATS_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={trackWhats}
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-5 py-2.5 rounded-lg shrink-0"
+        >
+          <WhatsIcon className="w-4 h-4" />
+          <span className="text-sm md:text-base">Falar com a Elisa</span>
+        </a>
       </div>
     </div>
   </section>
