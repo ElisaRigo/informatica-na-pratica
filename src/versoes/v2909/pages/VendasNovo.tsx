@@ -27,7 +27,6 @@ import {
   Heart,
   Headphones,
 } from "lucide-react";
-import { WhatsAppButton } from "@/versoes/v2909/components/WhatsAppButton";
 import logoBlue from "@/versoes/v2909/assets/logo-blue.png";
 import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
 import elisaWhatsapp from "@/versoes/v2909/assets/elisa-whatsapp.jpg.asset.json";
@@ -405,7 +404,7 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
-    <section className="py-4 md:py-6 bg-blue-50">
+    <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
           <Award className="w-4 h-4" /> Condição especial de hoje
@@ -1174,6 +1173,34 @@ const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   </svg>
 );
 
+const WhatsFloat = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      const el = document.getElementById("primeiro-valor");
+      if (!el) return;
+      if (el.getBoundingClientRect().bottom < window.innerHeight) setShow(true);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, []);
+  if (!show) return null;
+  return (
+    <a
+      href={WHATS_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={trackWhats}
+      aria-label="Tire suas dúvidas no WhatsApp"
+      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
+    >
+      <WhatsIcon className="w-6 h-6" />
+      <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
+    </a>
+  );
+};
+
 const WhatsAposAulas = ({ bg = "bg-white" }: { bg?: string }) => (
   <section className={`py-6 md:py-8 ${bg}`}>
     <div className="container mx-auto px-4 max-w-3xl">
@@ -1335,7 +1362,7 @@ const VendasNovo = () => {
       <FinalCTA />
       <Footer />
       <StickyMobile />
-      <WhatsAppButton />
+      <WhatsFloat />
       <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
     </div>
   );
