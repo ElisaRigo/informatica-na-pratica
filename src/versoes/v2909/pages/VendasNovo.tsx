@@ -1189,18 +1189,6 @@ const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
 );
 
 const WhatsFloat = () => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const check = () => {
-      const el = document.getElementById("primeiro-valor");
-      if (!el) return;
-      if (el.getBoundingClientRect().bottom < window.innerHeight) setShow(true);
-    };
-    check();
-    window.addEventListener("scroll", check, { passive: true });
-    return () => window.removeEventListener("scroll", check);
-  }, []);
-  if (!show) return null;
   return (
     <a
       href={WHATS_LINK}
