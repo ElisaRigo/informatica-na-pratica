@@ -1263,7 +1263,7 @@ const WhatsAposAulas = () => (
         />
         <p className="flex-1 text-center sm:text-left text-sm md:text-base font-bold text-slate-900 leading-snug">
           Ficou com alguma dúvida?{" "}
-          <span className="text-green-700">{"\nMe chama no WhatsApp, eu te ajudo."}</span>
+          <span className="text-green-700">{"\n Me chama no WhatsApp, eu te ajudo."}</span>
         </p>
         <a
           href={WHATS_LINK}
