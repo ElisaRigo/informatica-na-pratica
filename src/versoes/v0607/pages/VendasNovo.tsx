@@ -1268,8 +1268,7 @@ const WhatsAposAulas = () => (
                 Ficou com alguma dúvida?
               </p>
               <p className="mt-0.5 text-xs md:text-sm text-slate-600 leading-snug">
-                Viu o curso e o valor promocional de R$ 297 em até 12x, mas ainda tem
-                dúvida?{" "}
+                Gostou do curso, mas ainda tem alguma dúvida?{"\u00a0"}
                 <span className="font-semibold text-green-700">
                   Estou aqui para te ajudar.
                 </span>
