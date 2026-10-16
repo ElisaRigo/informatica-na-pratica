@@ -1,16 +1,9 @@
-import { LeadCaptureDialog } from "@/components/LeadCaptureDialog";
-import { useLeadCaptureDialog } from "@/hooks/useLeadCaptureDialog";
-import VendasNovo from "@/versoes/v0607/pages/VendasNovo";
+import Versao2909 from "@/versoes/v2909/pages/Index";
 
-const Index = () => {
-  const { isOpen, closeDialog } = useLeadCaptureDialog();
-
-  return (
-    <div className="min-h-screen">
-      <VendasNovo />
-      <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
-    </div>
-  );
-};
+const Index = () => (
+  <div className="min-h-screen">
+    <Versao2909 />
+  </div>
+);
 
 export default Index;
