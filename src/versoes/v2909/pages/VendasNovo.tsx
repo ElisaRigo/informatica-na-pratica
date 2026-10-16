@@ -392,9 +392,9 @@ const AulaDemonstrativa = () => {
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Se você entendeu essas aulas, imagine o que vai conseguir com o curso completo: são <strong className="text-slate-900">+90 aulas simples</strong> para usar o computador com confiança e sem depender de ninguém.
           </p>
-          <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl border border-green-200 bg-green-50 px-3 py-3 text-center">
-            <Trophy className="h-4 w-4 shrink-0 text-green-600 md:h-5 md:w-5" />
-            <p className="whitespace-nowrap text-[13px] font-black leading-tight text-green-700 md:text-xl">Você vai se surpreender com os resultados!</p>
+          <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#15803d] via-green-600 to-emerald-500 px-3 py-3.5 text-center shadow-lg shadow-green-600/30 ring-1 ring-inset ring-white/15">
+            <Trophy className="h-5 w-5 shrink-0 text-amber-300 md:h-6 md:w-6" />
+            <p className="whitespace-nowrap text-[13px] font-black uppercase leading-tight tracking-tight text-white md:text-lg">Você é capaz de muito mais do que imagina!</p>
           </div>
         </div>
       </div>
