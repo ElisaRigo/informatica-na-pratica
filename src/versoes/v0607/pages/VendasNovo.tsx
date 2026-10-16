@@ -388,7 +388,7 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
-    <section className="py-4 md:py-6 bg-blue-50">
+    <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
         <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
@@ -1227,9 +1227,9 @@ const WhatsFloat = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const check = () => {
-      const el = document.getElementById("oferta");
+      const el = document.getElementById("primeiro-valor");
       if (!el) return;
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.5) setShow(true);
+      if (el.getBoundingClientRect().bottom < window.innerHeight) setShow(true);
     };
     check();
     window.addEventListener("scroll", check, { passive: true });
@@ -1263,9 +1263,11 @@ const WhatsAposAulas = () => (
         />
         <div className="flex-1">
           <p className="text-lg md:text-xl font-black text-slate-900 mb-1">
-            Assistiu à aula e quer saber se você também consegue acompanhar?
+            Viu que o curso é pra você, mas ainda tem dúvidas?
           </p>
-          <p className="text-slate-700 mb-3">Fale comigo no WhatsApp antes de decidir.</p>
+          <p className="text-slate-700 mb-3">
+            Curso completo por <strong className="text-green-700">R$ 297</strong> (ou em até 12x), com acesso vitalício e garantia de 7 dias. Fale comigo no WhatsApp antes de decidir.
+          </p>
           <a
             href={WHATS_LINK}
             target="_blank"
@@ -1294,6 +1296,7 @@ const VendasNovo = () => {
       <AulaDemonstrativa />
       <MiniValueSection />
       <QuizIdentificacao />
+      <WhatsAposAulas />
       <Instructor />
       <SocialProof />
       <Method />
