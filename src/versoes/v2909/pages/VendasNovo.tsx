@@ -295,7 +295,7 @@ const AulaDemonstrativa = () => {
             )}
           </article>
 
-          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
+          <article id="aula-2" className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">2</span>
               <div className="text-left">
@@ -1140,7 +1140,21 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = () => (
+const StickyMobile = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      const el = document.getElementById("aula-2");
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (r.top + r.height / 2 < window.innerHeight) setShow(true);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, []);
+  if (!show) return null;
+  return (
   <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
     <button
       onClick={requestCheckout}
@@ -1149,7 +1163,8 @@ const StickyMobile = () => (
       <Monitor className="w-5 h-5" /> Quero começar agora!
     </button>
   </div>
-);
+  );
+};
 
 // ───────────────────────── Page ─────────────────────────
 const WHATS_LINK =
