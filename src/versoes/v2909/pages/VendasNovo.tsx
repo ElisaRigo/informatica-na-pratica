@@ -143,11 +143,11 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <PlayCircle className="w-14 h-14 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
+                      <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
+                    </div>
                   </div>
-                </div>
               </div>
             ) : (
               <div className="aspect-video relative">
