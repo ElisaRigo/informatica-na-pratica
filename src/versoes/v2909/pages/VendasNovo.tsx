@@ -26,6 +26,7 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  Sparkles,
 } from "lucide-react";
 import logoBlue from "@/versoes/v2909/assets/logo-blue.png";
 import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
@@ -391,10 +392,10 @@ const AulaDemonstrativa = () => {
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Se você entendeu essas aulas, imagine o que vai conseguir com o curso completo: são <strong className="text-slate-900">+90 aulas simples</strong> para usar o computador com confiança e sem depender de ninguém.
           </p>
-          <CTA>Quero começar o curso</CTA>
-          <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
-          </p>
+          <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl border border-green-200 bg-green-50 px-3 py-3 text-center">
+            <Sparkles className="h-4 w-4 shrink-0 text-green-600 md:h-5 md:w-5" />
+            <p className="whitespace-nowrap text-[13px] font-black leading-tight text-green-700 md:text-xl">Você vai se surpreender com os resultados!</p>
+          </div>
         </div>
       </div>
     </section>
