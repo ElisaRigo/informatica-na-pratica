@@ -1162,7 +1162,7 @@ const SuporteProfessora = () => {
 
           <p className="text-sm text-slate-400 flex items-center justify-center gap-2">
             <HeartHandshake className="w-4 h-4 text-green-400" />
-            Resposta de uma pessoa de verdade — nada de robô.
+            {"\n"}
           </p>
         </div>
       </div>
