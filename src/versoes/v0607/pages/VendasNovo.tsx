@@ -1262,11 +1262,17 @@ const WhatsAposAulas = () => (
           className="w-20 h-20 rounded-full object-cover border-4 border-green-500 shrink-0"
         />
         <div className="flex-1">
-          <p className="text-lg md:text-xl font-black text-slate-900 mb-1">
-            Viu que o curso é pra você, mas ainda tem dúvidas?
+          <p className="text-lg md:text-xl font-black text-slate-900 mb-2">
+            Ficou com alguma dúvida?{" "}
+            <span className="text-green-700">Fale comigo antes de decidir.</span>
           </p>
-          <p className="text-slate-700 mb-3">
-            Curso completo por <strong className="text-green-700">R$ 297</strong> (ou em até 12x), com acesso vitalício e garantia de 7 dias. Fale comigo no WhatsApp antes de decidir.
+          <p className="text-slate-700 mb-2">
+            Eu sei que investir <strong className="text-green-700">R$ 297</strong> (ou em até 12x) em
+            um curso online pode dar aquele friozinho na barriga. É normal.
+          </p>
+          <p className="text-slate-700 mb-4">
+            Me chama no WhatsApp que eu respondo pessoalmente, com calma, tudo o que você quiser
+            saber. <strong className="text-slate-900">Sem compromisso.</strong>
           </p>
           <a
             href={WHATS_LINK}
@@ -1277,6 +1283,11 @@ const WhatsAposAulas = () => (
           >
             <WhatsIcon className="w-5 h-5" /> Falar com a professora Elisa
           </a>
+          <p className="mt-3 text-xs text-slate-600 flex items-center justify-center md:justify-start gap-2">
+            <HeartHandshake className="w-4 h-4 text-green-700" />
+            Resposta de uma pessoa de verdade — nada de robô.
+          </p>
+
         </div>
       </div>
     </div>
