@@ -859,7 +859,7 @@ const SocialProof = () => {
         </div>
 
         {/* Facebook-style comments */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
+        <div id="comentarios" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
           {(showAllComments ? facebookComments : facebookComments.slice(0, 3)).map((comment, index) => (
             <div key={index} className="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
@@ -1144,7 +1144,7 @@ const StickyMobile = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const check = () => {
-      const el = document.getElementById("aula-2");
+      const el = document.getElementById("comentarios");
       if (!el) return;
       const r = el.getBoundingClientRect();
       if (r.top + r.height / 2 < window.innerHeight) setShow(true);
