@@ -51,6 +51,17 @@ export const HeroV2 = () => {
           </p>
         </div>
 
+        {/* Selos: Acesso Vitalício e Curso Online */}
+        <div className="flex flex-wrap justify-center gap-2 mb-3 md:mb-4">
+          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+            <Infinity className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+            <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
+          </div>
+          <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+            <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
+          </div>
+        </div>
 
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
