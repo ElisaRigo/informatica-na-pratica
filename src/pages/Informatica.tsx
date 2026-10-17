@@ -37,7 +37,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { EasyToLearn } from "@/components/EasyToLearn";
+import { SevenDayChallenge } from "@/components/SevenDayChallenge";
 import { HeroV2 } from "@/components/aprender/HeroV2";
 
 // ─── Data ───────────────────────────────────────────────────────────
@@ -254,8 +254,8 @@ const Informatica = () => {
       {/* ─── HERO (mesmo da home /aprender) ─── */}
       <HeroV2 />
 
-      {/* ─── EASY TO LEARN ─── */}
-      <EasyToLearn />
+      {/* ─── DESAFIO DE 7 DIAS ─── */}
+      <SevenDayChallenge />
 
       {/* ─── AUDIO TESTIMONIALS HEADER ─── */}
       <section className="py-4 md:py-6 bg-slate-900 border-t border-slate-800">
