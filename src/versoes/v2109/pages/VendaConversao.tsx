@@ -246,7 +246,7 @@ const VendaConversao = () => {
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                   >
-                    <source src={heroVideo} type="video/mp4" />
+                    <source src={heroVideo.url} type="video/mp4" />
                   </video>
                 ) : (
                   <div 
