@@ -4,7 +4,6 @@ import logo from "@/assets/logo-blue.png";
 const heroVideoThumb = "/images/capa-primeiro-video.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
-import { TopFearBanner } from "./TopFearBanner";
 
 export const HeroV2 = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -52,8 +51,6 @@ export const HeroV2 = () => {
           </p>
         </div>
 
-        {/* Banner: Você tem medo do computador? — entre logo/título e headline */}
-        <TopFearBanner />
 
         {/* Headline principal */}
         <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
