@@ -59,7 +59,7 @@ export const HeroV2 = () => {
           </div>
           <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
             <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-            <span className="font-bold text-xs md:text-sm text-accent">CURSO ONLINE</span>
+            <span className="font-bold text-xs md:text-sm text-accent">CURSO COMPLETO</span>
           </div>
         </div>
 
