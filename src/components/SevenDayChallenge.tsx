@@ -91,7 +91,7 @@ export const SevenDayChallenge = () => {
 
             {/* Frase de segurança */}
             <p className="text-center text-slate-300 text-base md:text-lg mt-6 max-w-xl mx-auto leading-relaxed">
-              Se você achar que não é para você, é só me mandar uma mensagem.{" "}
+              Se você achar que não é para você, é só cancelar.{" "}
               <strong className="text-white">Devolvo cada centavo.</strong>
             </p>
 
