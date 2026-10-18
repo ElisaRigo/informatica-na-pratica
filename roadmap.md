@@ -6,4 +6,4 @@
 # Contato e esclarecimento em /informatica
 - [x] Manter o WhatsApp fixo desde o início com a mensagem da home.
 - [x] Acrescentar esclarecimento curto de que aprender em poucos dias é uma estimativa, não uma garantia.
-- [ ] Verificar botão no início e no fim, mensagem e seção final.
+- [x] Verificar botão no início e no fim, mensagem e seção final.
