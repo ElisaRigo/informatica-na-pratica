@@ -681,6 +681,22 @@ const Informatica = () => {
 
 
       {/* ─── FOOTER ─── */}
+      <section aria-labelledby="prazo-aprendizagem" className="border-t border-border bg-background py-6 md:py-8">
+        <div className="container mx-auto max-w-3xl px-4">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <Shield className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+            <h2 id="prazo-aprendizagem" className="text-lg md:text-xl font-bold text-foreground">
+              Cada pessoa aprende no seu tempo
+            </h2>
+          </div>
+          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
+            Aprender em poucos dias ou em 30 dias é uma estimativa, não uma promessa de resultado.
+            Seu progresso depende da prática, da dedicação e do seu ponto de partida.
+            Você tem acesso vitalício para assistir e repetir as aulas no seu ritmo, sem pressa.
+          </p>
+        </div>
+      </section>
+
       <footer className="bg-slate-950 border-t border-slate-800 py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
