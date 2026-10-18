@@ -42,7 +42,7 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
-            <Route path="/" element={<HomeBackup />} />
+            <Route path="/" element={<Informatica />} />
             <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
@@ -58,7 +58,7 @@ const App = () => (
             <Route path="/video-whatsapp" element={<VideoWhatsApp />} />
             <Route path="/aula" element={<Aula />} />
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
-            <Route path="/informatica" element={<Informatica />} />
+            <Route path="/informatica" element={<HomeBackup />} />
             <Route path="/nova-versao" element={<NovaVersao />} />
             <Route path="/aprender" element={<Aprender />} />
             <Route path="/versao-06-07" element={<Versao0607 />} />
