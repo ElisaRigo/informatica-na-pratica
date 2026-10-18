@@ -4,7 +4,7 @@ const steps = [
   {
     icon: Play,
     title: "Comece hoje",
-    text: "Assista às primeiras aulas.",
+    text: "Assista às primeiras aulas no seu ritmo.",
   },
   {
     icon: MessageCircle,
