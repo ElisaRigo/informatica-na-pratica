@@ -68,6 +68,10 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      boxShadow: {
+        challenge: "0 28px 80px -28px hsl(var(--primary) / 0.55)",
+        "challenge-sm": "0 10px 30px -12px hsl(var(--primary) / 0.5)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

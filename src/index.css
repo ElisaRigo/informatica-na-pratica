@@ -322,3 +322,42 @@ video::-webkit-media-controls-panel {
   --whatsapp-strong-hover: 143 76% 30%;
   --whatsapp-foreground: 0 0% 100%;
 }
+
+/* Warm, high-attention palette scoped to the 7-day challenge block only. */
+.challenge-theme {
+  --background: 20 45% 7%;
+  --foreground: 32 90% 97%;
+  --card: 20 38% 12%;
+  --card-foreground: 32 90% 97%;
+  --muted: 20 32% 16%;
+  --muted-foreground: 28 40% 82%;
+  --primary: 28 96% 55%;
+  --primary-foreground: 20 65% 8%;
+  --accent: 42 96% 56%;
+  --accent-foreground: 20 65% 8%;
+  --border: 28 62% 36%;
+  --input: 28 62% 36%;
+  --ring: 28 96% 55%;
+}
+
+@keyframes challenge-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+.challenge-pulse {
+  animation: challenge-pulse 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .challenge-pulse {
+    animation: none !important;
+  }
+}
