@@ -313,3 +313,12 @@ video::-webkit-media-controls-panel {
     animation: none !important;
   }
 }
+
+/* WhatsApp brand greens (same shades used across the funnel CTAs). */
+:root {
+  --whatsapp: 142 70% 49%;
+  --whatsapp-hover: 143 66% 43%;
+  --whatsapp-strong: 142 76% 36%;
+  --whatsapp-strong-hover: 143 76% 30%;
+  --whatsapp-foreground: 0 0% 100%;
+}

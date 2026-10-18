@@ -1,4 +1,4 @@
-import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
+import { Play, Shield, Zap, Award, Lock, Star, Quote, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
@@ -36,7 +36,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import {
+  WHATS_LINK,
+  trackWhats,
+  WhatsIcon,
+  WhatsFloat,
+  WhatsCard,
+  WhatsAskSection,
+} from "@/components/WhatsAppTouchpoints";
 import { SevenDayChallenge } from "@/components/SevenDayChallenge";
 import { WelcomeBanner } from "@/components/WelcomeBanner";
 import { HeroV2 } from "@/components/aprender/HeroV2";
@@ -320,7 +327,7 @@ const Informatica = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-4 space-y-3">
+          <div id="primeiro-valor" className="text-center mt-4 space-y-3">
             <button onClick={() => (window as any).openCheckout?.()} className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-white font-bold text-lg md:text-xl px-8 py-4 rounded-xl shadow-lg shadow-success/30 hover:shadow-success/50 transition-all hover:scale-105">
               Quero Aprender Informática sem Medo →
             </button>
@@ -380,6 +387,9 @@ const Informatica = () => {
           </div>
         </div>
       </section>
+
+      {/* ─── FALE COM A PROFª ELISA ─── */}
+      <WhatsCard />
 
       {/* ─── CERTIFICATE SECTION ─── */}
       <section className="py-6 md:py-8 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden border-t border-slate-800">
@@ -630,6 +640,9 @@ const Informatica = () => {
 
 
 
+      {/* ─── FALE COM A PROFESSORA ─── */}
+      <WhatsAskSection />
+
       {/* ─── COMMENTS 7-8 ─── */}
       <FacebookCommentPair indices={[6, 7]} />
 
@@ -657,8 +670,8 @@ const Informatica = () => {
           </div>
           <div className="text-center mt-4">
             <p className="text-slate-300 mb-3">Não encontrou sua dúvida? Fale diretamente com a professora:</p>
-            <a href="https://api.whatsapp.com/send?phone=5545988287082&text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
-              <MessageCircle className="w-5 h-5" />
+            <a href={WHATS_LINK} target="_blank" rel="noopener noreferrer" onClick={trackWhats} className="inline-flex items-center gap-3 bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all">
+              <WhatsIcon className="w-5 h-5" />
               Falar com a Professora Elisa
             </a>
           </div>
@@ -678,8 +691,8 @@ const Informatica = () => {
               <a href="https://www.facebook.com/informaticanapratica.oficial" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-300 hover:text-primary transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" /><span className="hidden sm:inline">Facebook</span>
               </a>
-              <a href="https://api.whatsapp.com/send?phone=5545988287082" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-300 hover:text-primary transition-colors" aria-label="WhatsApp">
-                <MessageCircle className="w-5 h-5" /><span className="hidden sm:inline">WhatsApp</span>
+              <a href={WHATS_LINK} target="_blank" rel="noopener noreferrer" onClick={trackWhats} className="flex items-center gap-2 text-slate-300 hover:text-primary transition-colors" aria-label="WhatsApp">
+                <WhatsIcon className="w-5 h-5" /><span className="hidden sm:inline">WhatsApp</span>
               </a>
             </div>
             <div className="flex gap-6 mb-4 text-sm">
@@ -697,7 +710,7 @@ const Informatica = () => {
       </footer>
 
       {/* FLOATING WHATSAPP */}
-      <WhatsAppButton />
+      <WhatsFloat />
     </div>
   );
 };

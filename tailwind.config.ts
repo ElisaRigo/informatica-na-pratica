@@ -48,6 +48,13 @@ export default {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
         },
+        whatsapp: {
+          DEFAULT: "hsl(var(--whatsapp))",
+          hover: "hsl(var(--whatsapp-hover))",
+          strong: "hsl(var(--whatsapp-strong))",
+          "strong-hover": "hsl(var(--whatsapp-strong-hover))",
+          foreground: "hsl(var(--whatsapp-foreground))",
+        },
         warning: {
           DEFAULT: "hsl(var(--warning))",
           foreground: "hsl(var(--warning-foreground))",
