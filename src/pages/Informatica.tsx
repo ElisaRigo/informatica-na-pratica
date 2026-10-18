@@ -254,6 +254,9 @@ const Informatica = () => {
       {/* ─── HERO (mesmo da home /aprender) ─── */}
       <HeroV2 />
 
+      {/* ─── ACOLHIMENTO ─── */}
+      <WelcomeBanner />
+
       {/* ─── DESAFIO DE 7 DIAS ─── */}
       <SevenDayChallenge />
 
