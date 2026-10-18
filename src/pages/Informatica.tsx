@@ -38,6 +38,7 @@ import {
 } from "@/components/ui/accordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SevenDayChallenge } from "@/components/SevenDayChallenge";
+import { WelcomeBanner } from "@/components/WelcomeBanner";
 import { HeroV2 } from "@/components/aprender/HeroV2";
 
 // ─── Data ───────────────────────────────────────────────────────────
@@ -253,6 +254,9 @@ const Informatica = () => {
     <div className="min-h-screen bg-slate-900">
       {/* ─── HERO (mesmo da home /aprender) ─── */}
       <HeroV2 />
+
+      {/* ─── ACOLHIMENTO ─── */}
+      <WelcomeBanner />
 
       {/* ─── DESAFIO DE 7 DIAS ─── */}
       <SevenDayChallenge />
