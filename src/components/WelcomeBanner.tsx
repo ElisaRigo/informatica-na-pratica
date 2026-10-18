@@ -85,7 +85,7 @@ export const WelcomeBanner = () => {
                   />
                 </span>
                 <span className="text-primary text-xs md:text-sm font-bold uppercase tracking-wide">
-                  Professora Elisa está com você
+                  NÃO SE PREOCUPE... EU ESTAREI COM VOCÊ!
                 </span>
               </div>
 
