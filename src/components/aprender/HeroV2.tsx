@@ -84,12 +84,10 @@ export const HeroV2 = () => {
 
 
         {/* Trust Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6">
+        <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-2xl mx-auto mb-4 md:mb-6">
           {[
             { icon: Headphones, label: "Suporte nas Aulas", sublabel: "Aprenda com orientação" },
             { icon: Shield, label: "Garantia 7 Dias", sublabel: "Risco zero para você" },
-            { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
-            { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
               <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
@@ -156,6 +154,20 @@ export const HeroV2 = () => {
 
         {/* Seção Aula Gratuita - Acima da faixa azul */}
         <div ref={freeClassRef} className="max-w-4xl mx-auto mb-4">
+          {/* Selos: Certificado e +15.000 Alunos */}
+          <div className="grid grid-cols-2 gap-2 md:gap-4 max-w-2xl mx-auto mb-3 md:mb-4">
+            {[
+              { icon: Award, label: "Certificado", sublabel: "Reconhecido no mercado" },
+              { icon: Users, label: "+15.000 Alunos", sublabel: "+20 anos ensinando" },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center text-center p-2 md:p-4 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10">
+                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mb-1 md:mb-2" />
+                <span className="text-white font-bold text-xs md:text-sm">{item.label}</span>
+                <span className="text-slate-400 text-[10px] md:text-xs">{item.sublabel}</span>
+              </div>
+            ))}
+          </div>
+
           <div className="text-center mb-4">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3">
               Sim, você também consegue <span className="text-primary">aprender!</span>
