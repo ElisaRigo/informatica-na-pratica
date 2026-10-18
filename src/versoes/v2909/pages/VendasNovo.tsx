@@ -30,7 +30,6 @@ import {
 } from "lucide-react";
 import logoBlue from "@/versoes/v2909/assets/logo-blue.png";
 import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
-import elisaWhatsapp from "@/versoes/v2909/assets/elisa-whatsapp.jpg.asset.json";
 import { HeartHandshake as HeartHandshakeIcon } from "lucide-react";
 import elisaTeaching from "@/versoes/v2909/assets/elisa-teaching.jpg";
 import heroCover from "@/versoes/v2909/assets/hero-video-cover-home.jpg";

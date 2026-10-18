@@ -31,7 +31,6 @@ import {
 import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/homebackup/assets/elisa-teaching.jpg";
-import elisaWhatsapp from "@/versoes/homebackup/assets/elisa-whatsapp.jpg.asset.json";
 import heroCover from "@/versoes/homebackup/assets/hero-video-cover-home.jpg";
 import homeVideoThumbAsset from "@/versoes/homebackup/assets/aprender-hero-cover-v3.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
