@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 // Same link and message used by the home page, so every WhatsApp contact
 // point opens the conversation with the teacher the same way.
 export const WHATS_LINK =
@@ -31,23 +29,8 @@ export const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => 
 
 const whatsTarget = { target: "_blank", rel: "noopener noreferrer" } as const;
 
-/** Floating button. Only shows once the visitor reaches the first offer. */
+/** Floating contact stays available throughout the Informatica page. */
 export const WhatsFloat = () => {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    const check = () => {
-      const el = document.getElementById("primeiro-valor");
-      if (!el) return;
-      if (el.getBoundingClientRect().bottom < window.innerHeight) setShow(true);
-    };
-    check();
-    window.addEventListener("scroll", check, { passive: true });
-    return () => window.removeEventListener("scroll", check);
-  }, []);
-
-  if (!show) return null;
-
   return (
     <a
       href={WHATS_LINK}
