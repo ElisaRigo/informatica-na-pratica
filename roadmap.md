@@ -7,3 +7,6 @@
 - [x] Manter o WhatsApp fixo desde o início com a mensagem da home.
 - [x] Acrescentar esclarecimento curto de que aprender em poucos dias é uma estimativa, não uma garantia.
 - [x] Verificar botão no início e no fim, mensagem e seção final.
+# Desafio de 7 dias mais compacto
+- [x] Reduzir título, textos, ícones e espaços do bloco do desafio.
+- [x] Conferir enquadramento no celular e no computador, sem corte nem sobreposição.
