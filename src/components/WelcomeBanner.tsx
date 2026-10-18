@@ -4,7 +4,7 @@ import elisaPhoto from "@/assets/elisa-photo.jpg";
 
 const chips = [
   { icon: MessageCircle, label: "Dúvidas no WhatsApp" },
-  { icon: Clock, label: "No seu ritmo" },
+  { icon: Clock, label: "Do Zero" },
   { icon: HeartHandshake, label: "Gente de verdade te atendendo" },
 ];
 
