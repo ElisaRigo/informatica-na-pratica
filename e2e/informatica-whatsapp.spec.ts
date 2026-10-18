@@ -1,4 +1,4 @@
-import { test, expect } from "../playwright-fixture";
+import { test, expect } from "@playwright/test";
 
 test("WhatsApp is available before scrolling and remains available at the end", async ({ page }) => {
   await page.goto("http://localhost:8080/informatica");
