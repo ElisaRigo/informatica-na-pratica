@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import elisaWhatsapp from "@/assets/elisa-whatsapp.jpg.asset.json";
 
 // Same link and message used by the home page, so every WhatsApp contact
 // point opens the conversation with the teacher the same way.
@@ -71,7 +70,7 @@ export const WhatsCard = () => (
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
           <div className="flex items-center gap-4 flex-1 min-w-0">
             <img
-              src={elisaWhatsapp.url}
+              src="/images/elisa-whatsapp.jpg"
               alt="Professora Elisa"
               style={{ objectPosition: "47% 16%" }}
               loading="lazy"
@@ -110,7 +109,7 @@ export const WhatsAskSection = () => (
     <div className="container mx-auto px-4">
       <div className="max-w-3xl mx-auto text-center">
         <img
-          src={elisaWhatsapp.url}
+          src="/images/elisa-whatsapp.jpg"
           alt="Professora Elisa"
           style={{ objectPosition: "47% 16%" }}
           loading="lazy"
