@@ -517,7 +517,7 @@ const Informatica = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img src={elisaPhoto} alt="Professora Elisa" className="w-full aspect-[4/5] object-cover" />
+                  <img src={elisaPhoto} alt="Professora Elisa" className="w-full aspect-[4/5] object-cover" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
