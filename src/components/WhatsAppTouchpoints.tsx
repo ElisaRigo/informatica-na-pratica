@@ -55,7 +55,7 @@ export const WhatsFloat = () => {
       {...whatsTarget}
       onClick={trackWhats}
       aria-label="Tire suas dúvidas no WhatsApp"
-      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
+      className="fixed right-4 bottom-6 z-40 bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
     >
       <WhatsIcon className="w-6 h-6" />
       <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
