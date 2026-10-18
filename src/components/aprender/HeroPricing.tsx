@@ -24,7 +24,7 @@ export const HeroPricing = () => {
         {/* Urgency banner */}
         <div className="bg-gradient-to-r from-destructive to-destructive/80 py-4 px-4">
           <p className="text-white font-black text-center text-lg md:text-2xl tracking-wide animate-pulse">
-            🔥 ÚLTIMAS VAGAS COM 40% OFF!
+            🔥 CONDIÇÃO ESPECIAL POR TEMPO LIMITADO - 40% OFF!
           </p>
         </div>
 
