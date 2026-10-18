@@ -1110,7 +1110,7 @@ const SuporteProfessora = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-green-500/30 rounded-full blur-2xl scale-150" />
               <img
-                src={elisaWhatsapp.url}
+                src="/images/elisa-whatsapp.jpg"
                 alt="Professora Elisa"
                 style={{ objectPosition: "47% 16%" }}
                 className="relative w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-4 border-green-500/60 shadow-2xl"
@@ -1256,7 +1256,7 @@ const WhatsAposAulas = ({ bg = "bg-white" }: { bg?: string }) => (
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
           <div className="flex items-center gap-4 flex-1 min-w-0">
             <img
-              src={elisaWhatsapp.url}
+              src="/images/elisa-whatsapp.jpg"
               alt="Professora Elisa"
               style={{ objectPosition: "47% 16%" }}
               className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-green-500 shrink-0"
