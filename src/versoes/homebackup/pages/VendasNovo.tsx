@@ -261,7 +261,7 @@ const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   return (
-    <section className="py-6 md:py-8 bg-white border-t border-slate-200">
+    <section className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -1057,7 +1057,7 @@ const SuporteProfessora = () => {
   };
 
   return (
-    <section className="py-6 md:py-10 bg-slate-900">
+    <section className="py-4 md:py-6 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center justify-center mb-5">
