@@ -10,3 +10,8 @@
 # Desafio de 7 dias mais compacto
 - [x] Reduzir título, textos, ícones e espaços do bloco do desafio.
 - [x] Conferir enquadramento no celular e no computador, sem corte nem sobreposição.
+
+# Quiz com segurança do teste de 7 dias
+- [x] Dar título e subtítulo à seção do quiz em /informatica, ligando "Teste Grátis por 7 dias" à devolução do dinheiro.
+- [x] Acrescentar três selos curtos (comece hoje, 7 dias para testar, risco zero) e reforço de garantia acima do botão final.
+- [x] Conferir celular e computador, sem corte nem sobreposição, e confirmar que o quiz segue funcionando.
