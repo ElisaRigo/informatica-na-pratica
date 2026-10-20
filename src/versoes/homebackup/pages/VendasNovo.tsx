@@ -56,7 +56,7 @@ import fbAvatar8 from "@/versoes/homebackup/assets/avatar-8.jpg";
 
 import { openHotmartCheckout } from "@/versoes/homebackup/lib/checkoutTracking";
 import { HeroBonuses } from "@/versoes/homebackup/components/aprender/HeroBonuses";
-import { SevenDayChallengeSimple } from "@/versoes/homebackup/components/aprender/SevenDayChallengeSimple";
+import { QuizIdentificacao } from "@/versoes/homebackup/components/aprender/QuizIdentificacao";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -1300,7 +1300,7 @@ const VendasNovo = () => {
       <Hero />
       <AulaDemonstrativa />
       <MiniValueSection />
-      <SevenDayChallengeSimple />
+      <QuizIdentificacao />
       <WhatsAposAulas />
       <Instructor />
       <SocialProof />
