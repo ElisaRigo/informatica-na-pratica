@@ -13,17 +13,17 @@ export const ComeceGratis = () => {
   return (
     <section id="valor" className="py-4 md:py-6">
       <div className="container mx-auto px-4 max-w-3xl">
-        <div className="bg-gradient-to-br from-primary to-blue-700 rounded-3xl p-4 md:p-8 shadow-xl">
+        <div className="bg-gradient-to-br from-primary to-blue-700 rounded-3xl p-3 md:p-5 shadow-xl">
           {/* Faixa branca de proteção */}
-          <div className="bg-white rounded-full px-6 py-3 text-center shadow-md">
+          <div className="bg-white rounded-full px-4 py-2 md:py-2.5 text-center shadow-md">
             <span className="flex items-center justify-center gap-2 text-primary font-bold text-sm md:text-xl whitespace-nowrap md:whitespace-normal">
               <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               Sua compra protegida por 7 dias
             </span>
           </div>
 
-          <div className="text-center mt-5 md:mt-7 px-2">
-            <h2 className="text-2xl md:text-4xl font-black text-white mb-2 md:mb-3 leading-tight">
+          <div className="text-center mt-3 md:mt-4 px-2">
+            <h2 className="text-2xl md:text-4xl font-black text-white mb-1 md:mb-2 leading-tight">
               Comece hoje mesmo.<br />Experimente por 7 dias.
             </h2>
             <p className="text-white/90 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed">
@@ -31,11 +31,11 @@ export const ComeceGratis = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 md:gap-4 mt-5 md:mt-7">
+          <div className="grid grid-cols-3 gap-2 md:gap-3 mt-3 md:mt-4">
             {TRUST.map(({ icon: Icon, title, text }) => (
               <div
                 key={title}
-                className="bg-white/10 border border-white/20 rounded-xl px-2 py-3 md:px-4 md:py-4 text-center"
+                className="bg-white/10 border border-white/20 rounded-xl px-2 py-2 md:px-3 md:py-3 text-center"
               >
                 <Icon className="w-5 h-5 md:w-7 md:h-7 text-white mx-auto mb-1.5" />
                 <div className="text-white font-bold text-xs md:text-base leading-tight">{title}</div>
@@ -44,11 +44,11 @@ export const ComeceGratis = () => {
             ))}
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 mt-4 md:mt-6">
+          <div className="bg-white rounded-2xl shadow-lg p-3 md:p-5 mt-3 md:mt-4">
             <p className="text-center text-slate-700 font-bold text-sm md:text-lg">
               Você não precisa ter experiência para começar.
             </p>
-            <div id="primeiro-valor" className="text-center mt-3 mb-4">
+            <div id="primeiro-valor" className="text-center mt-2 mb-3">
               <p className="text-slate-500 text-sm md:text-base">
                 de <span className="line-through font-semibold">R$ 497,00</span> por apenas
               </p>
@@ -59,11 +59,11 @@ export const ComeceGratis = () => {
             </div>
             <button
               onClick={() => openHotmartCheckout()}
-              className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-black text-lg md:text-xl py-4 md:py-5 rounded-xl shadow-lg transition-all hover:shadow-xl active:scale-[0.99]"
+              className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-black text-lg md:text-xl py-3.5 md:py-4 rounded-xl shadow-lg transition-all hover:shadow-xl active:scale-[0.99]"
             >
               Quero Acessar as Aulas
             </button>
-            <p className="text-center text-slate-500 text-xs md:text-sm mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            <p className="text-center text-slate-500 text-xs md:text-sm mt-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
               <span className="flex items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5" /> Compra segura
               </span>
@@ -79,7 +79,7 @@ export const ComeceGratis = () => {
           </div>
 
           {/* Banner de garantia — dentro do cartão azul */}
-          <div className="bg-green-50 border-2 border-green-200 rounded-2xl px-4 py-3.5 md:px-6 md:py-4 mt-4 md:mt-6 text-center">
+          <div className="bg-green-50 border-2 border-green-200 rounded-2xl px-4 py-3 md:px-5 md:py-3.5 mt-3 md:mt-4 text-center">
             <p className="flex items-center justify-center gap-2 text-green-700 font-black text-sm md:text-lg uppercase tracking-wide">
               <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               Garantia incondicional de 7 dias
