@@ -11,7 +11,7 @@ const TRUST = [
 
 export const ComeceGratis = () => {
   return (
-    <section id="valor" className="py-6 md:py-10">
+    <section id="valor" className="py-4 md:py-6">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="bg-gradient-to-br from-primary to-blue-700 rounded-3xl p-4 md:p-8 shadow-xl">
           {/* Faixa branca de proteção */}

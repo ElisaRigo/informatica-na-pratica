@@ -127,17 +127,6 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
-      {/* Selos: Acesso Vitalício e Curso Completo */}
-      <div className="flex flex-wrap justify-center gap-2 px-4 pt-3 md:pt-4">
-        <div className="inline-flex items-center gap-1.5 md:gap-2 bg-blue-100 border border-blue-200 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-          <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-blue-700" />
-          <span className="font-bold text-xs md:text-sm text-blue-700">ACESSO VITALÍCIO</span>
-        </div>
-        <div className="inline-flex items-center gap-1.5 md:gap-2 bg-amber-100 border border-amber-200 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-          <Monitor className="w-4 h-4 md:w-5 md:h-5 text-amber-700" />
-          <span className="font-bold text-xs md:text-sm text-amber-700">CURSO COMPLETO</span>
-        </div>
-      </div>
 
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
