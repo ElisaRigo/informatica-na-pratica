@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   Briefcase, Home, CheckCircle2, ArrowRight, RotateCcw,
-  NotebookPen, ShieldCheck, Target, Heart,
+  NotebookPen, ShieldCheck, Target, Heart, PlayCircle, Clock,
 } from "lucide-react";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
 import { openHotmartCheckout } from "@/versoes/homebackup/lib/checkoutTracking";
@@ -40,6 +40,12 @@ const QUESTIONS: Question[] = [
       { label: "Fazer tudo sozinho(a), com autonomia e confiança", icon: Home, profile: "pessoal" },
     ],
   },
+];
+
+const TRUST = [
+  { icon: PlayCircle, title: "Comece hoje", text: "Acesso imediato às aulas" },
+  { icon: Clock, title: "7 dias para testar", text: "Assista tudo antes de decidir" },
+  { icon: ShieldCheck, title: "Risco zero", text: "Não gostou? Devolvo cada centavo" },
 ];
 
 const RESULTS: Record<Profile, { title: string; badge: string; message: string; bullets: string[]; cta: string }> = {
@@ -107,17 +113,39 @@ export const QuizIdentificacao = () => {
           <span className="flex items-center justify-center gap-3 bg-white text-primary text-xl md:text-3xl font-black px-6 md:px-8 py-3 md:py-4 rounded-full mb-4 shadow-lg w-full">
             <NotebookPen className="w-7 h-7 md:w-9 md:h-9 shrink-0" /> Teste Grátis por 7 dias
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-white mb-2">
-            {"\n"}
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-3 leading-tight">
+            Teste por 7 dias. Só decida depois.
           </h2>
-          <p className="text-white/90 max-w-xl mx-auto text-sm md:text-base">
-            Responda 4 perguntas rápidas e receba uma orientação personalizada da Professora Elisa.
+          <p className="text-white/90 max-w-xl mx-auto text-base md:text-lg leading-relaxed mb-6">
+            Você entra, assiste às aulas com calma e vê se é pra você. Se não gostar, é só me avisar — devolvo cada centavo.
           </p>
+
+          <div className="grid gap-3 sm:grid-cols-3 text-left">
+            {TRUST.map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="flex items-center gap-3 bg-white/10 border border-white/20 rounded-xl px-4 py-3"
+              >
+                <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 text-white" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-white font-bold text-sm leading-tight">{title}</div>
+                  <div className="text-white/80 text-xs leading-snug mt-0.5">{text}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="bg-white border border-slate-200 rounded-2xl shadow-lg p-5 md:p-8">
           {!done && (
             <>
+              <div className="flex items-center justify-center gap-2 text-slate-500 font-bold text-xs md:text-sm mb-5">
+                <Clock className="w-4 h-4 shrink-0" />
+                <span>Responda 4 perguntas rápidas. Leva menos de 1 minuto.</span>
+              </div>
+
               {/* Progress */}
               <div className="mb-6">
                 <div className="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
@@ -184,7 +212,7 @@ export const QuizIdentificacao = () => {
                 {result.message}
               </p>
 
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 md:p-5 mb-6">
+              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 md:p-5 mb-5">
                 <div className="text-xs font-black text-blue-700 uppercase tracking-wide mb-3">
                   O que você vai conquistar:
                 </div>
@@ -196,6 +224,13 @@ export const QuizIdentificacao = () => {
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="flex items-center justify-center gap-2 bg-green-50 border border-green-200 rounded-xl px-4 py-3 mb-3">
+                <ShieldCheck className="w-5 h-5 text-green-600 shrink-0" />
+                <span className="text-green-800 text-sm font-bold">
+                  Você testa por 7 dias. Se não gostar, devolvo cada centavo.
+                </span>
               </div>
 
               <button
