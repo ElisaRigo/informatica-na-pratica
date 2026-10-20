@@ -35,3 +35,9 @@
 - [x] Botões abaixo da seção de valor abrem o pagamento direto.
 - [x] Barra fixa do celular leva ao valor antes do preço e abre o pagamento depois dele.
 - [x] Conferir no celular e no computador, sem erros.
+
+# Só a barra fixa antes do valor
+- [x] Remover os botões de compra do topo e da aula demonstrativa em /informatica.
+- [x] Manter apenas a barra fixa, que desce até o valor antes do preço e abre o pagamento depois dele.
+- [x] Conferir no celular e no computador, sem erros.
+
