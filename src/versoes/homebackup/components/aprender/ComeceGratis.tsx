@@ -75,6 +75,7 @@ export const ComeceGratis = () => {
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5" /> Garantia de 7 dias
               </span>
+            </p>
           </div>
 
           {/* Banner de garantia — dentro do cartão azul */}
