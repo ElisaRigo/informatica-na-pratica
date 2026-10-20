@@ -59,10 +59,15 @@ import { ComeceGratis } from "@/versoes/homebackup/components/aprender/ComeceGra
 
 const openCheckout = () => openHotmartCheckout();
 
+const scrollToValue = () => {
+  const el = document.getElementById("valor");
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
+const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, action = "checkout" }: any) => (
   <button
-    onClick={openCheckout}
+    onClick={action === "value" ? scrollToValue : openCheckout}
     className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
       size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
     } ${subtle ? "bg-green-600/95" : ""}`}
@@ -186,7 +191,7 @@ const Hero = () => {
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
-          <CTA>Quero começar agora!</CTA>
+          <CTA action="value">Quero começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
@@ -251,7 +256,7 @@ const Identification = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA action="value">Quero aprender do zero!</CTA>
         </div>
       </div>
     </section>
@@ -373,7 +378,7 @@ const AulaDemonstrativa = () => {
             Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
             zero e usarem o computador com confiança.
           </p>
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA action="value">Quero aprender do zero!</CTA>
           <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
           </p>
@@ -1148,16 +1153,29 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = () => (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
-    <button
-      onClick={openCheckout}
-      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
-    >
-      <Monitor className="w-5 h-5" /> Quero começar agora!
-    </button>
-  </div>
-);
+const StickyMobile = () => {
+  const [pastValue, setPastValue] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      const el = document.getElementById("primeiro-valor");
+      if (!el) return;
+      setPastValue(el.getBoundingClientRect().top < window.innerHeight);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, []);
+  return (
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
+      <button
+        onClick={pastValue ? openCheckout : scrollToValue}
+        className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
+      >
+        <Monitor className="w-5 h-5" /> Quero começar agora!
+      </button>
+    </div>
+  );
+};
 
 // ───────────────────────── WhatsApp extra ─────────────────────────
 const WHATS_LINK =

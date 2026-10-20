@@ -29,3 +29,9 @@
 # Uma única seção de preço em /informatica
 - [x] Remover a primeira seção de preço, mantendo apenas a seção azul com o teste de 7 dias.
 - [x] Conferir que nada aponta para a seção removida e que a página segue abrindo o pagamento.
+
+# Ação dos botões de compra em /informatica
+- [x] Botões acima da seção de valor levam o visitante até a seção de valor.
+- [x] Botões abaixo da seção de valor abrem o pagamento direto.
+- [x] Barra fixa do celular leva ao valor antes do preço e abre o pagamento depois dele.
+- [x] Conferir no celular e no computador, sem erros.
