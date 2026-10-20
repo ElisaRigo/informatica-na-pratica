@@ -11,7 +11,7 @@ const TRUST = [
 
 export const ComeceGratis = () => {
   return (
-    <section id="primeiro-valor" className="py-12 md:py-20">
+    <section className="py-12 md:py-20">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="bg-gradient-to-br from-primary to-blue-700 rounded-3xl p-4 md:p-8 shadow-xl">
           {/* Faixa branca de proteção */}
@@ -48,7 +48,7 @@ export const ComeceGratis = () => {
             <p className="text-center text-slate-700 font-bold text-sm md:text-lg">
               Você não precisa ter experiência para começar.
             </p>
-            <div className="text-center mt-3 mb-4">
+            <div id="primeiro-valor" className="text-center mt-3 mb-4">
               <p className="text-slate-500 text-sm md:text-base">
                 de <span className="line-through font-semibold">R$ 497,00</span> por apenas
               </p>
