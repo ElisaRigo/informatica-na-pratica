@@ -28,7 +28,6 @@ const Versao0607 = lazy(() => import("./versoes/v0607/pages/Index"));
 const Versao2707 = lazy(() => import("./versoes/v2707/pages/Index"));
 const Versao2909 = lazy(() => import("./versoes/v2909/pages/Index"));
 const Versao2109 = lazy(() => import("./versoes/v2109/pages/Index"));
-const HomeBackup = lazy(() => import("./pages/HomeBackup"));
 const NovaVersao = lazy(() => import("./pages/NovaVersao"));
 
 
