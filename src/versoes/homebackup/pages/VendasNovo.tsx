@@ -380,7 +380,7 @@ const AulaDemonstrativa = () => {
           </p>
           <CTA action="value">Quero aprender do zero!</CTA>
           <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
+            <Lock className="w-4 h-4 text-green-600" />
           </p>
         </div>
       </div>

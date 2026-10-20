@@ -61,7 +61,7 @@ export const ComeceGratis = () => {
               onClick={() => openHotmartCheckout()}
               className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-black text-lg md:text-xl py-4 md:py-5 rounded-xl shadow-lg transition-all hover:shadow-xl active:scale-[0.99]"
             >
-              Quero começar agora
+              Quero Acessar as Aulas
             </button>
             <p className="text-center text-slate-500 text-xs md:text-sm mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
               <span className="flex items-center gap-1.5">
