@@ -117,7 +117,7 @@ const Header = () => (
           <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">Informática</span>
         </span>
         <span className="mt-1.5 block text-[3.4vw] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs md:text-sm">
-          {"\u00a0 \u00a0DO ZERO - SIMPLES E FÁCIL"}
+          {"\u00a0 DO ZERO - SIMPLES E FÁCIL"}
         </span>
       </p>
     </div>
