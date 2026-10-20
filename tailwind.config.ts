@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Montserrat', 'system-ui', 'sans-serif'],
+        hero: ['"Arial Black"', '"Archivo Black"', '"Arial Bold"', 'Gadget', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

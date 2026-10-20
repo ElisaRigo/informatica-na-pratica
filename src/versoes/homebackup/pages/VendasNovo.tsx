@@ -136,7 +136,7 @@ const Hero = () => {
             <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
           </span>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-slate-900 leading-[1.1] tracking-tight mb-3">
             Aprenda a usar o computador
             <br className="hidden md:block" />
             <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
