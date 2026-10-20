@@ -16,7 +16,7 @@ export const ComeceGratis = () => {
         <div className="bg-gradient-to-br from-primary to-blue-700 rounded-3xl p-4 md:p-8 shadow-xl">
           {/* Faixa branca de proteção */}
           <div className="bg-white rounded-full px-6 py-3 text-center shadow-md">
-            <span className="flex items-center justify-center gap-2 text-primary font-bold text-base md:text-xl">
+            <span className="flex items-center justify-center gap-2 text-primary font-bold text-sm md:text-xl whitespace-nowrap md:whitespace-normal">
               <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               Sua compra protegida por 7 dias
             </span>
@@ -24,7 +24,7 @@ export const ComeceGratis = () => {
 
           <div className="text-center mt-5 md:mt-7 px-2">
             <h2 className="text-2xl md:text-4xl font-black text-white mb-2 md:mb-3 leading-tight">
-              Compre hoje. Experimente por 7 dias.
+              Compre hoje.<br />Experimente por 7 dias.
             </h2>
             <p className="text-white/90 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed">
               Comece do zero, assista às aulas com calma e descubra como é fácil aprender informática no seu ritmo.
