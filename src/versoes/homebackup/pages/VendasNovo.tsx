@@ -323,9 +323,10 @@ const AulaDemonstrativa = () => {
         </p>
 
         <div className="text-center mb-3 md:mb-4">
-          <h3 className="text-lg md:text-2xl font-hero text-slate-900 leading-tight">
-            Aprender Informática é mais fácil do que você imagina
-          </h3>
+          <h2 className="text-2xl md:text-4xl font-hero text-slate-900 leading-tight text-balance">
+            Aprender Informática{" "}
+            <span className="text-blue-600">é mais fácil do que você imagina</span>
+          </h2>
         </div>
 
         <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl shadow-blue-900/10 border border-slate-200">
