@@ -25,3 +25,7 @@
 - [x] Trocar a capa do primeiro vídeo pela arte enviada, mantendo o restante do site igual.
 - [x] Reposicionar e reduzir o botão de play no celular para não cobrir rosto nem texto.
 - [x] Conferir celular e computador, sem corte nem sobreposição, e confirmar a abertura da aula.
+
+# Uma única seção de preço em /informatica
+- [x] Remover a primeira seção de preço, mantendo apenas a seção azul com o teste de 7 dias.
+- [x] Conferir que nada aponta para a seção removida e que a página segue abrindo o pagamento.
