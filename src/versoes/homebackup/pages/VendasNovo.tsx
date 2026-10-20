@@ -117,7 +117,7 @@ const Header = () => (
           <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">Informática</span>
         </span>
         <span className="mt-1.5 block text-[3.4vw] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs md:text-sm">
-          do zero, passo a passo
+          DO ZERO - SIMPLES E FÁCIL
         </span>
       </p>
     </div>
@@ -133,7 +133,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
           <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Simples eFácil
+            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
           </span>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
