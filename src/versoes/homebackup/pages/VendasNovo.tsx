@@ -378,10 +378,6 @@ const AulaDemonstrativa = () => {
             Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
             zero e usarem o computador com confiança.
           </p>
-
-          <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-green-600" />
-          </p>
         </div>
       </div>
     </section>
