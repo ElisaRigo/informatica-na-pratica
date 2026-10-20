@@ -24,7 +24,7 @@ export const ComeceGratis = () => {
 
           <div className="text-center mt-5 md:mt-7 px-2">
             <h2 className="text-2xl md:text-4xl font-black text-white mb-2 md:mb-3 leading-tight">
-              Compre hoje.<br />Experimente por 7 dias.
+              Comece hoje mesmo.<br />Experimente por 7 dias.
             </h2>
             <p className="text-white/90 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed">
               Comece do zero, assista às aulas com calma e descubra como é fácil aprender informática no seu ritmo.
