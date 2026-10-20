@@ -4,7 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import Informatica from "./pages/Informatica";
+import HomeBackup from "./pages/HomeBackup";
+const Informatica = lazy(() => import("./pages/Informatica"));
 const Index = lazy(() => import("./pages/Index"));
 
 // Lazy load rotas secundárias
@@ -28,7 +29,6 @@ const Versao0607 = lazy(() => import("./versoes/v0607/pages/Index"));
 const Versao2707 = lazy(() => import("./versoes/v2707/pages/Index"));
 const Versao2909 = lazy(() => import("./versoes/v2909/pages/Index"));
 const Versao2109 = lazy(() => import("./versoes/v2109/pages/Index"));
-const HomeBackup = lazy(() => import("./pages/HomeBackup"));
 const NovaVersao = lazy(() => import("./pages/NovaVersao"));
 
 
@@ -42,7 +42,7 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
-            <Route path="/" element={<Informatica />} />
+            <Route path="/" element={<HomeBackup />} />
             <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
@@ -58,7 +58,7 @@ const App = () => (
             <Route path="/video-whatsapp" element={<VideoWhatsApp />} />
             <Route path="/aula" element={<Aula />} />
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
-            <Route path="/informatica" element={<HomeBackup />} />
+            <Route path="/informatica" element={<Informatica />} />
             <Route path="/nova-versao" element={<NovaVersao />} />
             <Route path="/aprender" element={<Aprender />} />
             <Route path="/versao-06-07" element={<Versao0607 />} />
