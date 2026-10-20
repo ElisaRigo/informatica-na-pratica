@@ -48,7 +48,7 @@ export const ComeceGratis = () => {
             <p className="text-center text-slate-700 font-bold text-sm md:text-lg">
               Você não precisa ter experiência para começar.
             </p>
-            <div className="text-center mt-3 mb-4">
+            <div id="primeiro-valor" className="text-center mt-3 mb-4">
               <p className="text-slate-500 text-sm md:text-base">
                 de <span className="line-through font-semibold">R$ 497,00</span> por apenas
               </p>

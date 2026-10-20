@@ -383,44 +383,6 @@ const AulaDemonstrativa = () => {
   );
 };
 
-// ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
-const MiniValueSection = () => {
-  return (
-    <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
-      <div className="container mx-auto px-4 max-w-xl text-center">
-        <h2 className="text-slate-900 font-black text-xl md:text-2xl leading-tight">Curso Completo de Informática</h2>
-        <p className="text-slate-500 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
-        <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
-        <p className="text-slate-500 text-sm md:text-base">
-          de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
-        </p>
-        <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-          <span>🎁</span> Hoje você leva 4 bônus exclusivos
-        </p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
-        </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-        </p>
-        <div className="mt-5">
-          <CTA>Quero perder o medo do computador</CTA>
-        </div>
-        <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
-          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
-            <ShieldCheck className="w-5 h-5" />{" "}
-            <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
-          </p>
-          <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
@@ -1298,7 +1260,6 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <MiniValueSection />
       <ComeceGratis />
       <WhatsAposAulas />
       <Instructor />
