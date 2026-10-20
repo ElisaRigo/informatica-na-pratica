@@ -106,18 +106,20 @@ import typingIcon from "@/versoes/homebackup/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-white border-b border-slate-200 py-3 md:py-5">
-    <div className="container mx-auto px-4">
-      <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
-        <div className="relative group shrink-0">
-          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
-            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
-          </div>
-        </div>
-        <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
-          Curso de <span className="text-sky-600">Informática Online</span> — Simples e para Todos.
-        </p>
+  <header className="border-b border-border bg-background py-3">
+    <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
+      <div className="animate-logo-glow relative shrink-0 rounded-2xl bg-background p-2 shadow-lg shadow-primary/25 ring-1 ring-primary/10 md:rounded-3xl md:p-3">
+        <img src={logo} alt="Informática na Prática" className="h-12 w-auto md:h-20" />
       </div>
+      <p className="leading-none">
+        <span className="block whitespace-nowrap text-[7vw] font-black tracking-tight text-foreground sm:text-3xl md:text-5xl">
+          Aprenda{" "}
+          <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">Informática</span>
+        </span>
+        <span className="mt-1.5 block text-[3.4vw] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs md:text-sm">
+          do zero, passo a passo
+        </span>
+      </p>
     </div>
   </header>
 );
