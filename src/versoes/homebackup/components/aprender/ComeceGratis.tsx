@@ -75,8 +75,20 @@ export const ComeceGratis = () => {
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5" /> Garantia de 7 dias
               </span>
-            </p>
+          </p>
           </div>
+        </div>
+
+        {/* Banner de garantia */}
+        <div className="bg-green-50 border-2 border-green-200 rounded-2xl px-4 py-4 md:px-6 md:py-5 mt-4 md:mt-6 text-center">
+          <p className="flex items-center justify-center gap-2 text-green-700 font-black text-sm md:text-lg uppercase tracking-wide">
+            <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+            Garantia incondicional de 7 dias
+          </p>
+          <p className="text-slate-700 text-sm md:text-base leading-relaxed mt-1.5">
+            <strong className="text-green-700">RISCO ZERO!</strong> Se não gostar, devolvemos{" "}
+            <strong>100% do seu dinheiro.</strong>
+          </p>
         </div>
       </div>
     </section>
