@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import HomeBackup from "./pages/HomeBackup";
 const Informatica = lazy(() => import("./pages/Informatica"));
+const Index = lazy(() => import("./pages/Index"));
 
 // Lazy load rotas secundárias
 const Admin = lazy(() => import("./pages/Admin"));
