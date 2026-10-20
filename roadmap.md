@@ -20,3 +20,8 @@
 - [x] Retirar as perguntas do teste e deixar uma seção só de convite, com um único botão.
 - [x] Manter os três selos de segurança e a promessa de devolução em 7 dias junto do botão.
 - [x] Conferir celular e computador e confirmar que o botão abre o pagamento.
+
+# Capa do primeiro vídeo em /informatica
+- [x] Trocar a capa do primeiro vídeo pela arte enviada, mantendo o restante do site igual.
+- [x] Reposicionar e reduzir o botão de play no celular para não cobrir rosto nem texto.
+- [x] Conferir celular e computador, sem corte nem sobreposição, e confirmar a abertura da aula.
