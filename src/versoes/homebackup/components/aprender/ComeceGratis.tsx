@@ -45,9 +45,18 @@ export const ComeceGratis = () => {
           </div>
 
           <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 mt-4 md:mt-6">
-            <p className="text-center text-slate-700 font-bold text-sm md:text-lg mb-4">
+            <p className="text-center text-slate-700 font-bold text-sm md:text-lg">
               Você não precisa ter experiência para começar.
             </p>
+            <div className="text-center mt-3 mb-4">
+              <p className="text-slate-500 text-sm md:text-base">
+                de <span className="line-through font-semibold">R$ 497,00</span> por apenas
+              </p>
+              <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight">R$ 297,00</p>
+              <p className="text-slate-600 text-sm md:text-base mt-1">
+                ou <strong className="text-slate-800">12x de R$ 30,72</strong> no cartão
+              </p>
+            </div>
             <button
               onClick={() => openHotmartCheckout()}
               className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-black text-lg md:text-xl py-4 md:py-5 rounded-xl shadow-lg transition-all hover:shadow-xl active:scale-[0.99]"
