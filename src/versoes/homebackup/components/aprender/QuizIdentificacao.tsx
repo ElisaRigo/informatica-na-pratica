@@ -105,7 +105,7 @@ export const QuizIdentificacao = () => {
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="flex items-center justify-center gap-3 bg-white text-primary text-xl md:text-3xl font-black px-6 md:px-8 py-3 md:py-4 rounded-full mb-4 shadow-lg w-full">
-            <NotebookPen className="w-7 h-7 md:w-9 md:h-9 shrink-0" /> Teste rápido de 30 segundos
+            <NotebookPen className="w-7 h-7 md:w-9 md:h-9 shrink-0" /> Teste Grátis por 7 dias
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-white mb-2">
             {"\n"}
