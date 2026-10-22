@@ -1,6 +1,5 @@
+import { useEffect } from "react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { LeadCaptureDialog } from "@/components/LeadCaptureDialog";
-import { useLeadCaptureDialog } from "@/hooks/useLeadCaptureDialog";
 
 // Componentes EXCLUSIVOS da página /aprender (independentes da home)
 import { HeroV2 } from "@/components/aprender-only/HeroV2";
@@ -20,8 +19,16 @@ import { FinalCTA } from "@/components/aprender-only/FinalCTA";
 import { FooterV2 } from "@/components/aprender-only/FooterV2";
 import { DisclaimerSection } from "@/components/aprender-only/DisclaimerSection";
 
+// Mesmo helper da home: dispara os pixels e abre o link da Hotmart direto, sem modal
+import { openHotmartCheckout } from "@/versoes/homebackup/lib/checkoutTracking";
+
 const Aprender = () => {
-  const { isOpen, closeDialog } = useLeadCaptureDialog();
+  useEffect(() => {
+    (window as any).openCheckout = () => openHotmartCheckout();
+    return () => {
+      delete (window as any).openCheckout;
+    };
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -46,7 +53,6 @@ const Aprender = () => {
       <DisclaimerSection />
       <FooterV2 />
       <WhatsAppButton />
-      <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
     </div>
   );
 };
