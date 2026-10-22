@@ -29,6 +29,7 @@ const HomeBackup = lazy(() => import("./pages/HomeBackup"));
 const Versao2707 = lazy(() => import("./versoes/v2707/pages/Index"));
 const Versao2909 = lazy(() => import("./versoes/v2909/pages/Index"));
 const Versao2109 = lazy(() => import("./versoes/v2109/pages/Index"));
+const Versao1305 = lazy(() => import("./versoes/v1305/pages/Index"));
 const NovaVersao = lazy(() => import("./pages/NovaVersao"));
 
 
@@ -65,6 +66,7 @@ const App = () => (
             <Route path="/versao-27-07" element={<Versao2707 />} />
             <Route path="/versao-29-09" element={<Versao2909 />} />
             <Route path="/versao-21-09" element={<Versao2109 />} />
+            <Route path="/versao-13-05" element={<Versao1305 />} />
             <Route path="/home-anterior" element={<Index />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
