@@ -787,7 +787,7 @@ const SocialProof = () => {
           <p className="text-xl md:text-2xl font-black text-white leading-snug">
             Se essas pessoas conseguiram, <span className="text-green-400">você também consegue.</span>
             <br />
-            <span className="text-slate-400 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+            <span className="text-slate-300 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
           </p>
         </div>
 
@@ -802,7 +802,7 @@ const SocialProof = () => {
                   className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]"
                 />
                 <div className="flex-1 min-w-0">
-                  <div className="bg-slate-100 rounded-2xl px-3 py-2">
+                  <div className="bg-white/10 rounded-2xl px-3 py-2">
                     <p className="text-white text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
                       {comment.name}
                     </p>
