@@ -1280,7 +1280,7 @@ const VendasNovo = () => {
       <WhatsAposAulas />
       <section className="py-4 md:py-6 bg-white/5">
         <div className="container mx-auto px-4">
-          <HeroBonuses variant="light" />
+          <HeroBonuses variant="dark" />
         </div>
       </section>
       <Certificate />

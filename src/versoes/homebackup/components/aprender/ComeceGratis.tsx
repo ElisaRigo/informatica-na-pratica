@@ -44,17 +44,17 @@ export const ComeceGratis = () => {
             ))}
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-3 md:p-5 mt-3 md:mt-4">
-            <p className="text-center text-slate-700 font-bold text-sm md:text-lg">
+          <div className="bg-white/5 border border-white/10 rounded-2xl shadow-lg p-3 md:p-5 mt-3 md:mt-4">
+            <p className="text-center text-slate-200 font-bold text-sm md:text-lg">
               Você não precisa ter experiência para começar.
             </p>
             <div id="primeiro-valor" className="text-center mt-2 mb-3">
-              <p className="text-slate-500 text-sm md:text-base">
+              <p className="text-slate-400 text-sm md:text-base">
                 de <span className="line-through font-semibold">R$ 497,00</span> por apenas
               </p>
-              <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight">R$ 297,00</p>
-              <p className="text-slate-600 text-sm md:text-base mt-1">
-                ou <strong className="text-slate-800">12x de R$ 30,72</strong> no cartão
+              <p className="text-green-400 font-black text-4xl md:text-5xl leading-tight">R$ 297,00</p>
+              <p className="text-slate-300 text-sm md:text-base mt-1">
+                ou <strong className="text-white">12x de R$ 30,72</strong> no cartão
               </p>
             </div>
             <button
@@ -63,7 +63,7 @@ export const ComeceGratis = () => {
             >
               Quero Acessar as Aulas
             </button>
-            <p className="text-center text-slate-500 text-xs md:text-sm mt-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            <p className="text-center text-slate-400 text-xs md:text-sm mt-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
               <span className="flex items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5" /> Compra segura
               </span>
@@ -79,13 +79,13 @@ export const ComeceGratis = () => {
           </div>
 
           {/* Banner de garantia — dentro do cartão azul */}
-          <div className="bg-green-50 border-2 border-green-200 rounded-2xl px-4 py-3 md:px-5 md:py-3.5 mt-3 md:mt-4 text-center">
-            <p className="flex items-center justify-center gap-2 text-green-700 font-black text-sm md:text-lg uppercase tracking-wide">
+          <div className="bg-green-500/10 border-2 border-green-500/40 rounded-2xl px-4 py-3 md:px-5 md:py-3.5 mt-3 md:mt-4 text-center">
+            <p className="flex items-center justify-center gap-2 text-green-300 font-black text-sm md:text-lg uppercase tracking-wide">
               <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
               Garantia incondicional de 7 dias
             </p>
-            <p className="text-slate-700 text-sm md:text-base leading-relaxed mt-1">
-              <strong className="text-green-700">RISCO ZERO!</strong> Se não gostar, devolvemos{" "}
+            <p className="text-slate-200 text-sm md:text-base leading-relaxed mt-1">
+              <strong className="text-green-300">RISCO ZERO!</strong> Se não gostar, devolvemos{" "}
               <strong>100% do seu dinheiro.</strong>
             </p>
           </div>
