@@ -1224,7 +1224,7 @@ const WhatsFloat = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const check = () => {
-      const el = document.getElementById("primeiro-valor");
+      const el = document.getElementById("oferta");
       if (!el) return;
       if (el.getBoundingClientRect().bottom < window.innerHeight) setShow(true);
     };
