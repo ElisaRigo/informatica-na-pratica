@@ -101,14 +101,14 @@ import typingIcon from "@/versoes/homebackup/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-3">
+  <header className="border-b border-slate-200 bg-white py-3">
     <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
       <p className="leading-none text-center">
-        <span className="block whitespace-nowrap text-[8.8vw] font-black tracking-tight text-white sm:text-3xl md:text-5xl">
+        <span className="block whitespace-nowrap text-[8.8vw] font-black tracking-tight text-slate-900 sm:text-3xl md:text-5xl">
           Curso de{"\u00a0"}
-          <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-sky-400 bg-clip-text text-transparent">Informática</span>
+          <span className="text-blue-700">Informática</span>
         </span>
-        <span className="mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] text-slate-400 sm:text-xs md:text-sm">
+        <span className="mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] text-slate-500 sm:text-xs md:text-sm">
           {"\u00a0 100% ONLINE - DO ZERO - SIMPLES E FÁCIL"}
         </span>
       </p>
