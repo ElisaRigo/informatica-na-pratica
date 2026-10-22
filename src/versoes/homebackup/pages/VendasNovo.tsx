@@ -887,8 +887,8 @@ const Certificate = () => (
 
 // ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
 const MiniValueSection = () => (
-  <section id="primeiro-valor" className="py-4 md:py-6 bg-white/5">
-    <div className="container mx-auto px-4 max-w-xl text-center">
+  <section id="primeiro-valor" className="py-4 md:py-6">
+    <div className="container mx-auto px-4 max-w-xl text-center rounded-3xl border border-sky-400/25 bg-gradient-to-b from-sky-500/20 via-sky-500/10 to-transparent px-4 py-6 md:py-8 shadow-lg shadow-sky-500/10">
       <h2 className="font-black text-xl md:text-2xl leading-tight text-white">Curso Completo de Informática</h2>
       <p className="text-slate-400 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
       <div className="w-16 h-1 bg-sky-400 rounded-full mx-auto mt-3 mb-5" />
