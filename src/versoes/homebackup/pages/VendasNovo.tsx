@@ -178,13 +178,7 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
-            {""}
-          </p>
-
-
-
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 md:gap-x-5">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 md:gap-x-5">
             {[
               { src: "/images/selos/selo-pagamento-seguro.png", alt: "Selo: pagamento seguro" },
               { src: "/images/selos/selo-garantia-7-dias.png", alt: "Selo: garantia de 7 dias" },
@@ -197,9 +191,12 @@ const Hero = () => {
                 src={selo.src}
                 alt={selo.alt}
                 loading="lazy"
-                width={816}
-                height={816}
-                className="h-[100px] w-[100px] object-contain md:h-[132px] md:w-[132px]"
+                width={320}
+                height={320}
+                className="h-[62px] w-[62px] object-contain md:h-[132px] md:w-[132px]"
+              />
+            ))}
+          </div>
               />
             ))}
           </div>
