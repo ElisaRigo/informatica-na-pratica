@@ -26,7 +26,6 @@ const VideoWhatsApp = lazy(() => import("./pages/VideoWhatsApp"));
 const Aula = lazy(() => import("./pages/Aula"));
 const ImagemWhatsApp = lazy(() => import("./pages/ImagemWhatsApp"));
 const HomeBackup = lazy(() => import("./pages/HomeBackup"));
-const Versao0607 = lazy(() => import("./versoes/v0607/pages/Index"));
 const Versao2707 = lazy(() => import("./versoes/v2707/pages/Index"));
 const Versao2909 = lazy(() => import("./versoes/v2909/pages/Index"));
 const Versao2109 = lazy(() => import("./versoes/v2109/pages/Index"));
