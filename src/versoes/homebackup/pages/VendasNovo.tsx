@@ -34,8 +34,7 @@ import elisaTeaching from "@/versoes/homebackup/assets/elisa-teaching.jpg";
 import heroCover from "@/versoes/homebackup/assets/hero-video-cover-home.jpg";
 const homeVideoThumb = "/images/capa-primeiro-video-aprender.jpg";
 import certificado from "@/versoes/homebackup/assets/certificado-exemplo.png";
-import aulaGratisThumbAsset from "@/versoes/homebackup/assets/capa-segunda-aula.jpg.asset.json";
-const aulaGratisThumb = aulaGratisThumbAsset.url;
+const aulaGratisThumb = "/images/capa-segunda-aula.jpg";
 import freeClassThumb from "@/versoes/homebackup/assets/aprenda-comigo-thumb.jpg";
 import avatar1 from "@/versoes/homebackup/assets/testimonial-new-1.jpg";
 import avatar2 from "@/versoes/homebackup/assets/testimonial-new-2.jpg";
@@ -105,14 +104,14 @@ import typingIcon from "@/versoes/homebackup/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="border-b border-border bg-background/90 backdrop-blur-md py-3">
+  <header className="border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-3">
     <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
       <p className="leading-none text-center">
-        <span className="block whitespace-nowrap text-[8.8vw] font-black tracking-tight text-foreground sm:text-3xl md:text-5xl">
+        <span className="block whitespace-nowrap text-[8.8vw] font-black tracking-tight text-white sm:text-3xl md:text-5xl">
           Curso de{"\u00a0"}
-          <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">Informática</span>
+          <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-sky-400 bg-clip-text text-transparent">Informática</span>
         </span>
-        <span className="mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs md:text-sm">
+        <span className="mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] text-slate-400 sm:text-xs md:text-sm">
           {"\u00a0 100% ONLINE - DO ZERO - SIMPLES E FÁCIL"}
         </span>
       </p>
@@ -124,21 +123,21 @@ const Header = () => (
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section className="relative bg-gradient-to-b from-blue-300 via-blue-200 to-transparent">
+    <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
 
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
+          <span className="inline-flex items-center justify-center gap-2 bg-sky-400/10 text-sky-300 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
             <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Saber informática vai transformar você!
           </span>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-slate-900 leading-[1.1] tracking-tight mb-3">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-3">
             Aprenda a usar o computador
             <br className="hidden md:block" />
-            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
+            <span className="text-sky-300"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
+          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-5">
             Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
           </p>
 
@@ -155,12 +154,12 @@ const Hero = () => {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
+              <p className="text-xs text-slate-300 font-medium">+15.000 alunos já aprenderam</p>
             </div>
           </div>
 
           {/* Video */}
-          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
+          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/10 mb-5">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
@@ -171,7 +170,7 @@ const Hero = () => {
                 />
                 <div className="absolute inset-0">
                   <div className="absolute left-[74%] top-[45%] md:left-[66%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <PlayCircle className="w-8 h-8 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+                    <PlayCircle className="w-8 h-8 md:w-16 md:h-16 text-sky-300" strokeWidth={1.5} />
                   </div>
                 </div>
               </div>
@@ -231,20 +230,20 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-4 md:py-6 bg-white/60">
+    <section className="py-4 md:py-6 bg-white/5">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
-        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-black text-center text-white mb-3">Esse curso é pra você se…</h2>
+        <p className="text-center text-slate-300 mb-5 max-w-2xl mx-auto">
           Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
         </p>
         <div className="grid md:grid-cols-2 gap-3 md:gap-4">
           {items.map((t) => (
             <div
               key={t}
-              className="flex items-start gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-300 transition-colors"
+              className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4 shadow-sm hover:border-sky-400/40 transition-colors"
             >
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
-              <span className="text-slate-700 font-medium">{t}</span>
+              <CheckCircle2 className="w-6 h-6 text-green-400 shrink-0 mt-0.5" />
+              <span className="text-slate-200 font-medium">{t}</span>
             </div>
           ))}
         </div>
@@ -261,21 +260,21 @@ const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   return (
-    <section className="py-4 md:py-6 bg-white/60 border-t border-slate-200">
+    <section className="py-4 md:py-6 bg-white/5 border-t border-white/10">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5 md:mb-6">
-          <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-flex items-center gap-2 bg-green-500/100/10 text-green-300 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
             <PlayCircle className="w-4 h-4" /> AULA JÁ LIBERADA
           </span>
-          <h2 className="text-2xl md:text-4xl font-hero text-slate-900 leading-tight">
-            Veja como você vai aprender, <span className="text-blue-600">clique por clique</span>
+          <h2 className="text-2xl md:text-4xl font-hero text-white leading-tight">
+            Veja como você vai aprender, <span className="text-sky-300">clique por clique</span>
           </h2>
-          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+          <p className="text-slate-300 text-base md:text-lg mt-3 max-w-2xl mx-auto">
             Assista agora uma aula e veja o computador deixar de ser um mistério. Sem cadastro, sem complicação.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-2 border-green-200">
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-2 border-green-500/30">
           {!isFreeClassPlaying ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
               <img
@@ -286,7 +285,7 @@ const AulaDemonstrativa = () => {
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
-                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-sky-300" strokeWidth={1.5} />
                 </div>
               </div>
               <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-green-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
@@ -315,19 +314,19 @@ const AulaDemonstrativa = () => {
           )}
         </div>
 
-        <p className="text-center text-slate-600 text-sm md:text-base mt-3 mb-8 md:mb-10 leading-relaxed flex items-start justify-center gap-2 max-w-2xl mx-auto">
-          <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0 mt-1" />
+        <p className="text-center text-slate-300 text-sm md:text-base mt-3 mb-8 md:mb-10 leading-relaxed flex items-start justify-center gap-2 max-w-2xl mx-auto">
+          <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-1" />
           Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.
         </p>
 
         <div className="text-center mb-3 md:mb-4">
-          <h2 className="text-2xl md:text-4xl font-hero text-slate-900 leading-tight text-balance">
+          <h2 className="text-2xl md:text-4xl font-hero text-white leading-tight text-balance">
             Aprender Informática{" "}
-            <span className="text-blue-600">é mais fácil do que você imagina</span>
+            <span className="text-sky-300">é mais fácil do que você imagina</span>
           </h2>
         </div>
 
-        <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl shadow-blue-900/10 border border-slate-200">
+        <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl shadow-blue-900/10 border border-white/10">
           {!isPlaying ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
               <img
@@ -338,7 +337,7 @@ const AulaDemonstrativa = () => {
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6 md:-translate-x-[88px]">
-                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-blue-600" strokeWidth={1.5} />
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-sky-300" strokeWidth={1.5} />
                 </div>
               </div>
               <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/60 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
@@ -368,8 +367,8 @@ const AulaDemonstrativa = () => {
         </div>
 
         <div className="text-center space-y-4 mt-8 md:mt-10">
-          <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
+          <p className="text-slate-200 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Essa é a mesma didática que já fez <strong className="text-white">+15.000 pessoas</strong> saírem do
             zero e usarem o computador com confiança.
           </p>
         </div>
@@ -386,50 +385,50 @@ const Instructor = () => (
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
           <img src={elisa} alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
-          <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl border border-slate-200 px-4 py-3 flex items-center gap-2">
-            <Users className="w-5 h-5 text-blue-600" />
+          <div className="absolute -bottom-4 -right-4 bg-slate-800 rounded-2xl shadow-xl border border-white/10 px-4 py-3 flex items-center gap-2">
+            <Users className="w-5 h-5 text-sky-300" />
             <div>
-              <div className="text-lg font-black text-slate-900 leading-none">+15.000</div>
-              <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wide">Alunos formados</div>
+              <div className="text-lg font-black text-white leading-none">+15.000</div>
+              <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wide">Alunos formados</div>
             </div>
           </div>
         </div>
         <div>
-          <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
             <Sparkles className="w-4 h-4" /> Quem vai te ensinar
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">
-            Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-4">
+            Oi, eu sou a <span className="text-sky-300">Professora Elisa</span>
           </h2>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
+          <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-4">
             Há mais de <strong>20 anos</strong> eu ensino informática pra adultos que nunca tinham tocado num
             computador. E descobri uma coisa:{" "}
             <strong>o problema nunca foi a pessoa — era o jeito que ensinavam.</strong>
           </p>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6">
+          <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
             Por isso criei um método simples, devagar e com linguagem do dia a dia. Sem palavras difíceis, sem pressa.
             Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
           </p>
           <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
+            <div className="text-center bg-white/10 rounded-xl p-3">
+              <Clock className="w-5 h-5 text-sky-300 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-200">
                 +20 anos
                 <br />
                 de experiência
               </div>
             </div>
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <Award className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
+            <div className="text-center bg-white/10 rounded-xl p-3">
+              <Award className="w-5 h-5 text-sky-300 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-200">
                 Método
                 <br />
                 próprio
               </div>
             </div>
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <HeartHandshake className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
+            <div className="text-center bg-white/10 rounded-xl p-3">
+              <HeartHandshake className="w-5 h-5 text-sky-300 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-200">
                 Suporte
                 <br />
                 humano
@@ -474,7 +473,7 @@ const Method = () => {
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((s) => (
             <div key={s.n} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-6">
-              <div className="w-12 h-12 rounded-full bg-white text-blue-600 font-black text-xl flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-full bg-white text-sky-300 font-black text-xl flex items-center justify-center mb-4">
                 {s.n}
               </div>
               <h3 className="text-xl font-bold mb-2">{s.t}</h3>
@@ -528,14 +527,14 @@ const Modules = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-white/60">
+    <section className="py-4 md:py-6 bg-white/5">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-5">
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
             CONTEÚDO COMPLETO
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-3">Tudo o que você vai aprender</h2>
+          <p className="text-slate-300 max-w-2xl mx-auto">
             +90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.
           </p>
         </div>
@@ -543,14 +542,14 @@ const Modules = () => {
           {mods.map((m) => (
             <div
               key={m.t}
-              className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-sky-400/10 flex items-center justify-center mb-4">
                 <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
-              <p className="text-slate-600 text-sm mb-3">{m.d}</p>
-              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{m.lessons}</span>
+              <h3 className="text-lg font-bold text-white mb-2">{m.t}</h3>
+              <p className="text-slate-300 text-sm mb-3">{m.d}</p>
+              <span className="text-xs font-bold text-sky-300 bg-sky-400/10 px-2 py-1 rounded">{m.lessons}</span>
             </div>
           ))}
         </div>
@@ -673,7 +672,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
 
   return (
     <div
-      className={`bg-white border rounded-xl p-4 transition-all ${hasError ? "border-red-300 opacity-50" : "border-slate-200 hover:border-blue-300 shadow-sm"}`}
+      className={`bg-white/5 border border-white/10 rounded-xl p-4 transition-all ${hasError ? "border-red-300 opacity-50" : "border-white/10 hover:border-sky-400/40 shadow-sm"}`}
     >
       <audio
         ref={audioRef}
@@ -693,12 +692,12 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
         </button>
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-slate-900 font-semibold text-sm">{testimonial.name}</span>
-            <Volume2 className="w-3 h-3 text-blue-600" />
+            <span className="text-white font-semibold text-sm">{testimonial.name}</span>
+            <Volume2 className="w-3 h-3 text-sky-300" />
           </div>
-          <p className="text-slate-500 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
-          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
-            <div className="h-full bg-blue-500 transition-all duration-100" style={{ width: `${progress}%` }} />
+          <p className="text-slate-400 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
+          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-full bg-sky-400/100 transition-all duration-100" style={{ width: `${progress}%` }} />
           </div>
         </div>
       </div>
@@ -712,14 +711,14 @@ const SocialProof = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-5">
-          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-slate-200 rounded-full px-5 py-2 bg-slate-50">
+          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-white/10 rounded-full px-5 py-2 bg-white/10">
             <div className="flex items-center gap-1.5">
               <div className="flex -space-x-2">
                 {fbAvatars.slice(0, 5).map((av, i) => (
                   <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
                 ))}
               </div>
-              <span className="text-slate-900 text-sm font-bold ml-1">+15.000 alunos</span>
+              <span className="text-white text-sm font-bold ml-1">+15.000 alunos</span>
             </div>
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
@@ -727,16 +726,16 @@ const SocialProof = () => {
                   ★
                 </span>
               ))}
-              <span className="text-slate-900 text-sm font-semibold ml-1">4.9/5</span>
+              <span className="text-white text-sm font-semibold ml-1">4.9/5</span>
             </div>
           </div>
 
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3 leading-tight">
-            Veja o que dizem os alunos que <span className="text-blue-600">saíram do zero</span>
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-3 leading-tight">
+            Veja o que dizem os alunos que <span className="text-sky-300">saíram do zero</span>
           </h2>
-          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-medium">
+          <p className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto font-medium">
             Histórias reais de pessoas que{" "}
-            <span className="text-slate-900 font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
+            <span className="text-white font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
             confiança
           </p>
         </div>
@@ -746,12 +745,12 @@ const SocialProof = () => {
           {/* WhatsApp Screenshots */}
           <div className="order-1 lg:order-2">
             <div className="flex items-center gap-2 mb-4">
-              <Smartphone className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Prints de Conversas</h3>
+              <Smartphone className="w-5 h-5 text-sky-300" />
+              <h3 className="text-lg font-bold text-white">Prints de Conversas</h3>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {whatsappScreenshots.map((screenshot, index) => (
-                <div key={index} className="bg-slate-100 rounded-xl p-1.5 shadow-lg border border-slate-200">
+                <div key={index} className="bg-slate-100 rounded-xl p-1.5 shadow-lg border border-white/10">
                   <div className="bg-slate-200 rounded-t-lg pt-1.5 pb-0.5 px-3">
                     <div className="flex items-center justify-center">
                       <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
@@ -771,8 +770,8 @@ const SocialProof = () => {
           {/* Audio Players */}
           <div className="order-2 lg:order-1">
             <div className="flex items-center gap-2 mb-4">
-              <Volume2 className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Áudios de Alunos</h3>
+              <Volume2 className="w-5 h-5 text-sky-300" />
+              <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
             </div>
             <div className="space-y-3">
               {audioTestimonials.map((testimonial, index) => (
@@ -784,17 +783,17 @@ const SocialProof = () => {
 
         {/* Highlight phrase */}
         <div className="text-center my-4 max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-            Se essas pessoas conseguiram, <span className="text-green-600">você também consegue.</span>
+          <p className="text-xl md:text-2xl font-black text-white leading-snug">
+            Se essas pessoas conseguiram, <span className="text-green-400">você também consegue.</span>
             <br />
-            <span className="text-slate-500 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+            <span className="text-slate-300 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
           </p>
         </div>
 
         {/* Facebook-style comments */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
           {facebookComments.map((comment, index) => (
-            <div key={index} className="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+            <div key={index} className="bg-white/5 border border-white/10 rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
                 <img
                   src={fbAvatars[index % fbAvatars.length]}
@@ -802,24 +801,24 @@ const SocialProof = () => {
                   className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]"
                 />
                 <div className="flex-1 min-w-0">
-                  <div className="bg-slate-100 rounded-2xl px-3 py-2">
-                    <p className="text-slate-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
+                  <div className="bg-white/10 rounded-2xl px-3 py-2">
+                    <p className="text-white text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
                       {comment.name}
                     </p>
-                    <p className="text-slate-700 text-xs leading-relaxed">{comment.text}</p>
+                    <p className="text-slate-200 text-xs leading-relaxed">{comment.text}</p>
                   </div>
                   <div className="flex items-center gap-3 mt-1 px-2">
                     <span className="text-[11px] text-slate-400">{comment.time}</span>
-                    <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
+                    <span className="text-[11px] text-slate-400 font-medium cursor-pointer hover:underline">
                       Curtir
                     </span>
-                    <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
+                    <span className="text-[11px] text-slate-400 font-medium cursor-pointer hover:underline">
                       Responder
                     </span>
                     {comment.likes > 0 && (
                       <span className="ml-auto text-[11px] text-slate-400 flex items-center gap-0.5">
                         <span className="flex items-center -space-x-1">
-                          <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
+                          <span className="w-4 h-4 rounded-full bg-sky-400/100 flex items-center justify-center z-10">
                             <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
                           </span>
                           {comment.hasHeart && (
@@ -840,10 +839,10 @@ const SocialProof = () => {
 
         {/* CTA */}
         <div className="text-center space-y-4">
-          <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
+          <h3 className="text-2xl md:text-3xl font-black text-white">Eu também quero aprender!</h3>
           <CTA>Quero aprender sem medo!</CTA>
-          <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
+          <p className="text-slate-400 text-sm flex items-center justify-center gap-2">
+            <Lock className="w-4 h-4 text-green-400" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
           </p>
         </div>
       </div>
@@ -853,20 +852,20 @@ const SocialProof = () => {
 
 // ───────────────────────── Certificate ─────────────────────────
 const Certificate = () => (
-  <section className="py-4 md:py-6 bg-white/60">
+  <section className="py-4 md:py-6 bg-white/5">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <img
           src={certificado}
           alt="Certificado de conclusão"
-          className="rounded-2xl shadow-xl border border-slate-200"
+          className="rounded-2xl shadow-xl border border-white/10"
         />
         <div>
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
             BÔNUS
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">Você sai com certificado de conclusão</h2>
-          <p className="text-slate-700 text-base md:text-lg mb-6">
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-4">Você sai com certificado de conclusão</h2>
+          <p className="text-slate-200 text-base md:text-lg mb-6">
             Ao terminar o curso, você recebe um certificado digital pra anexar no currículo, no LinkedIn ou pra mostrar
             pra família que <strong>você conseguiu</strong>.
           </p>
@@ -876,8 +875,8 @@ const Certificate = () => (
               "Pronto pra anexar no currículo",
               "Modelo profissional e elegante",
             ].map((x) => (
-              <li key={x} className="flex items-center gap-2 text-slate-700">
-                <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
+              <li key={x} className="flex items-center gap-2 text-slate-200">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
                 {x}
               </li>
             ))}
@@ -902,7 +901,7 @@ const Pricing = () => (
       </div>
 
       <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
-        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
+        <h3 className="text-xl md:text-2xl font-black text-slate-900 text-center mb-2">Curso Completo de Informática</h3>
         <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
 
         <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
@@ -925,10 +924,10 @@ const Pricing = () => (
             "Certificado de conclusão",
             "Suporte direto com a professora",
             "Atualizações gratuitas pra sempre",
-            "Acesso pelo celular, tablet ou computador",
+            "Acesso pelo computador",
           ].map((x) => (
             <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-6 h-6 text-green-400 shrink-0 mt-0.5" />
               {x}
             </li>
           ))}
@@ -938,10 +937,10 @@ const Pricing = () => (
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
+            <Lock className="w-4 h-4 text-green-400" /> Pagamento 100% seguro
           </span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
+            <ShieldCheck className="w-4 h-4 text-green-400" /> 7 dias de garantia
           </span>
         </div>
       </div>
@@ -953,12 +952,12 @@ const Pricing = () => (
 const GuaranteeBlock = () => (
   <section className="py-4 md:py-6 bg-transparent">
     <div className="container mx-auto px-4 max-w-3xl">
-      <div className="bg-green-50 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
+      <div className="bg-green-500/10 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-600 mb-5">
           <ShieldCheck className="w-12 h-12 text-white" />
         </div>
-        <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Garantia incondicional de 7 dias</h2>
-        <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+        <h2 className="text-2xl md:text-4xl font-black text-white mb-3">Garantia incondicional de 7 dias</h2>
+        <p className="text-slate-200 text-base md:text-lg leading-relaxed">
           Faça sua matrícula hoje, assista as aulas, teste o método. Se em <strong>7 dias</strong> você achar que o
           curso não é pra você — por qualquer motivo — <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas,
           sem burocracia. <strong>O risco é todo nosso.</strong>
@@ -1002,22 +1001,22 @@ const FAQ = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-white/60">
+    <section className="py-4 md:py-6 bg-white/5">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-5">Perguntas frequentes</h2>
+        <h2 className="text-2xl md:text-4xl font-black text-center text-white mb-5">Perguntas frequentes</h2>
         <div className="space-y-3">
           {faqs.map((f, i) => (
-            <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div key={i} className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between gap-3 p-5 text-left"
               >
-                <span className="font-bold text-slate-900">{f.q}</span>
+                <span className="font-bold text-white">{f.q}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-slate-500 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
+                  className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
                 />
               </button>
-              {open === i && <div className="px-5 pb-5 text-slate-700 leading-relaxed">{f.a}</div>}
+              {open === i && <div className="px-5 pb-5 text-slate-200 leading-relaxed">{f.a}</div>}
             </div>
           ))}
         </div>
@@ -1063,7 +1062,7 @@ const SuporteProfessora = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center justify-center mb-5">
             <div className="relative">
-              <div className="absolute inset-0 bg-green-500/30 rounded-full blur-2xl scale-150" />
+              <div className="absolute inset-0 bg-green-500/100/30 rounded-full blur-2xl scale-150" />
               <img
                 src="/images/elisa-whatsapp.jpg"
                 alt="Professora Elisa"
@@ -1129,7 +1128,7 @@ const Footer = () => (
     <div className="container mx-auto px-4">
       <p className="font-bold text-slate-300 mb-2">Informática na Prática LTDA</p>
       <p className="mb-1">© 2026 — Todos os direitos reservados</p>
-      <p className="mb-3 text-slate-500">CNPJ: 32.373.460/0001-51</p>
+      <p className="mb-3 text-slate-400">CNPJ: 32.373.460/0001-51</p>
       <div className="flex justify-center gap-4">
         <a href="/termos-de-uso" className="hover:text-white">
           Termos de Uso
@@ -1156,7 +1155,7 @@ const StickyMobile = () => {
     return () => window.removeEventListener("scroll", check);
   }, []);
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-border/70 bg-background/85 px-3 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-3 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
       <button
         onClick={pastValue ? openCheckout : scrollToValue}
         className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 text-base font-extrabold tracking-tight text-whatsapp-foreground active:brightness-95"
@@ -1220,7 +1219,7 @@ const WhatsFloat = () => {
 const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
   <section className={`py-4 md:py-6 ${bg}`}>
     <div className="container mx-auto px-4 max-w-3xl">
-      <div className="bg-green-50 border-2 border-green-500 rounded-2xl px-4 py-4 md:px-6 md:py-5 shadow-lg">
+      <div className="bg-green-500/10 border-2 border-green-500 rounded-2xl px-4 py-4 md:px-6 md:py-5 shadow-lg">
         <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5">
           <div className="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
             <img
@@ -1232,12 +1231,12 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
               className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 border-green-500 shrink-0"
             />
             <div className="min-w-0">
-              <p className="text-xl md:text-2xl font-extrabold text-slate-900 leading-tight">
+              <p className="text-xl md:text-2xl font-extrabold text-white leading-tight">
                 Ficou com alguma dúvida?
               </p>
-              <p className="mt-0.5 text-sm md:text-base text-slate-700 leading-snug">
+              <p className="mt-0.5 text-sm md:text-base text-slate-200 leading-snug">
                 Gostou do curso, mas ainda tem alguma dúvida?{"\u00a0"}
-                <span className="font-bold text-green-700">
+                <span className="font-bold text-green-300">
                   Estou aqui para te ajudar.
                 </span>
               </p>
@@ -1266,7 +1265,7 @@ const VendasNovo = () => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-200 via-sky-100 to-blue-200 text-slate-900 pb-20 md:pb-0">
+    <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header />
       <Hero />
       <AulaDemonstrativa />
@@ -1274,13 +1273,13 @@ const VendasNovo = () => {
       <WhatsAposAulas />
       <Instructor />
       <SocialProof />
-      <WhatsAposAulas bg="bg-white/60" />
+      <WhatsAposAulas bg="bg-white/5" />
       <Method />
       <Modules />
       <WhatsAposAulas />
-      <section className="py-4 md:py-6 bg-white/60">
+      <section className="py-4 md:py-6 bg-white/5">
         <div className="container mx-auto px-4">
-          <HeroBonuses variant="light" />
+          <HeroBonuses variant="dark" />
         </div>
       </section>
       <Certificate />
