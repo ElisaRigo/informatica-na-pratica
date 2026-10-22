@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import Versao0607 from "./versoes/v0607/pages/Index";
 const Aprender = lazy(() => import("./pages/Aprender"));
 const Informatica = lazy(() => import("./pages/Informatica"));
 const Index = lazy(() => import("./pages/Index"));
@@ -43,7 +42,7 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
-            <Route path="/" element={<Versao0607 />} />
+            <Route path="/" element={<HomeBackup />} />
             <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
