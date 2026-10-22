@@ -159,6 +159,11 @@ const Hero = () => {
           <div className="relative max-w-5xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-5">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+                <div className="absolute top-3 left-3 md:top-4 md:left-4 z-10 inline-flex items-center gap-1.5 md:gap-2 bg-sky-400 text-slate-900 text-[11px] md:text-sm font-extrabold px-2.5 py-1 md:px-4 md:py-2 rounded-full shadow-lg pointer-events-none">
+                  <PlayCircle className="w-3.5 h-3.5 md:w-5 md:h-5" strokeWidth={2.5} />
+                  <span>Assista o recado da prof</span>
+                </div>
+
                 <img
                   src={homeVideoThumb}
                   alt="Aula demonstrativa gratuita"
@@ -271,7 +276,7 @@ const AulaDemonstrativa = () => {
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-2 border-green-500/30">
+        <div className="relative max-w-4xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-2 border-green-500/30">
           {!isFreeClassPlaying ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
               <img
@@ -323,7 +328,7 @@ const AulaDemonstrativa = () => {
           </h2>
         </div>
 
-        <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl shadow-blue-900/10 border border-white/10">
+        <div className="relative max-w-3xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-xl shadow-blue-900/10 border-0 md:border border-white/10">
           {!isPlaying ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
               <img
