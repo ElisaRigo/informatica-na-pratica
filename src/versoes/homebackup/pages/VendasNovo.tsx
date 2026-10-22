@@ -32,7 +32,7 @@ import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/homebackup/assets/elisa-teaching.jpg";
 import heroCover from "@/versoes/homebackup/assets/hero-video-cover-home.jpg";
-const homeVideoThumb = "/images/capa-primeiro-video-informatica.jpg";
+const homeVideoThumb = "/images/capa-primeiro-video-aprender.jpg";
 import certificado from "@/versoes/homebackup/assets/certificado-exemplo.png";
 import aulaGratisThumbAsset from "@/versoes/homebackup/assets/capa-segunda-aula.jpg.asset.json";
 const aulaGratisThumb = aulaGratisThumbAsset.url;
