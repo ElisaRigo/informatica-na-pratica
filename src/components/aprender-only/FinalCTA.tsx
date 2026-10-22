@@ -18,7 +18,7 @@ export const FinalCTA = () => {
           </div>
 
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-            Daqui a 30 dias você vai{" "}
+            Em alguns dias você vai{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
               agradecer
             </span>{" "}
