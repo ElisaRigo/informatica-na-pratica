@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import HomeBackup from "./pages/HomeBackup";
+import Aprender from "./pages/Aprender";
 const Informatica = lazy(() => import("./pages/Informatica"));
 const Index = lazy(() => import("./pages/Index"));
 
@@ -24,7 +24,7 @@ const AudioWhatsApp = lazy(() => import("./pages/AudioWhatsApp"));
 const VideoWhatsApp = lazy(() => import("./pages/VideoWhatsApp"));
 const Aula = lazy(() => import("./pages/Aula"));
 const ImagemWhatsApp = lazy(() => import("./pages/ImagemWhatsApp"));
-const Aprender = lazy(() => import("./pages/Aprender"));
+const HomeBackup = lazy(() => import("./pages/HomeBackup"));
 const Versao0607 = lazy(() => import("./versoes/v0607/pages/Index"));
 const Versao2707 = lazy(() => import("./versoes/v2707/pages/Index"));
 const Versao2909 = lazy(() => import("./versoes/v2909/pages/Index"));
@@ -42,7 +42,7 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
-            <Route path="/" element={<HomeBackup />} />
+            <Route path="/" element={<Aprender />} />
             <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
@@ -60,7 +60,7 @@ const App = () => (
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
             <Route path="/informatica" element={<Informatica />} />
             <Route path="/nova-versao" element={<NovaVersao />} />
-            <Route path="/aprender" element={<Aprender />} />
+            <Route path="/aprender" element={<HomeBackup />} />
             <Route path="/versao-06-07" element={<Versao0607 />} />
             <Route path="/versao-27-07" element={<Versao2707 />} />
             <Route path="/versao-29-09" element={<Versao2909 />} />
