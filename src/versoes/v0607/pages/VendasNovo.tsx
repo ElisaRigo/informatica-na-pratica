@@ -1299,23 +1299,20 @@ const VendasNovo = () => {
       <Header />
       <Hero />
       <AulaDemonstrativa />
-      <MiniValueSection />
       <QuizIdentificacao />
-      <WhatsAposAulas />
       <Instructor />
       <SocialProof />
-      <WhatsAposAulas bg="bg-slate-50" />
-      <Method />
-      <Modules />
-      <WhatsAposAulas />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
       </section>
-      <Certificate />
       <Pricing />
       <GuaranteeBlock />
+      <WhatsAposAulas />
+      <Method />
+      <Modules />
+      <Certificate />
       <SuporteProfessora />
       <FAQ />
       <FinalCTA />
