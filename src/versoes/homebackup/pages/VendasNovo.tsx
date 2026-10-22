@@ -980,7 +980,7 @@ const FAQ = () => {
     },
     {
       q: "Quanto tempo leva pra concluir?",
-      a: "Você aprende no seu ritmo, com só 20 minutinhos por dia. Em pouco tempo você já sente a diferença. E como o acesso é vitalício, você tem o tempo que precisar.",
+      a: "Você aprende no seu ritmo. Em média os alunos terminam em 30 a 60 dias dedicando 20-30 min por dia. Mas como o acesso é vitalício, você tem o tempo que precisar.",
     },
     {
       q: "Em quanto tempo recebo o acesso?",
