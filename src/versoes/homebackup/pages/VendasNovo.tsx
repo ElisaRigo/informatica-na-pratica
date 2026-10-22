@@ -184,16 +184,24 @@ const Hero = () => {
 
 
 
-          <div className="flex flex-wrap items-center justify-center gap-1.5 md:gap-3 mt-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-2 text-sm md:gap-2.5 md:px-5 md:py-3 md:text-lg font-bold text-emerald-800 ring-1 ring-emerald-300 shadow-sm">
-              <Lock className="w-4 h-4 md:w-6 md:h-6 text-emerald-600" /> Pagamento seguro
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-2 text-sm md:gap-2.5 md:px-5 md:py-3 md:text-lg font-bold text-blue-800 ring-1 ring-blue-300 shadow-sm">
-              <ShieldCheck className="w-4 h-4 md:w-6 md:h-6 text-blue-600" /> 7 dias de garantia
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-2 text-sm md:gap-2.5 md:px-5 md:py-3 md:text-lg font-bold text-amber-800 ring-1 ring-amber-300 shadow-sm">
-              <CheckCircle2 className="w-4 h-4 md:w-6 md:h-6 text-amber-600" /> Acesso imediato
-            </span>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 md:gap-x-5">
+            {[
+              { src: "/images/selos/selo-pagamento-seguro.png", alt: "Selo: pagamento seguro" },
+              { src: "/images/selos/selo-garantia-7-dias.png", alt: "Selo: garantia de 7 dias" },
+              { src: "/images/selos/selo-acesso-imediato.png", alt: "Selo: acesso imediato e vitalício" },
+              { src: "/images/selos/selo-certificado.png", alt: "Selo: certificado incluso" },
+              { src: "/images/selos/selo-suporte.png", alt: "Selo: suporte ao aluno" },
+            ].map((selo) => (
+              <img
+                key={selo.src}
+                src={selo.src}
+                alt={selo.alt}
+                loading="lazy"
+                width={816}
+                height={816}
+                className="h-[100px] w-[100px] object-contain md:h-[132px] md:w-[132px]"
+              />
+            ))}
           </div>
 
           {/* Social proof inline */}
