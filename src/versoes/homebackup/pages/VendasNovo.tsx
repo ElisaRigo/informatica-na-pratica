@@ -1156,10 +1156,10 @@ const StickyMobile = () => {
     return () => window.removeEventListener("scroll", check);
   }, []);
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-border/70 bg-background/85 px-3 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
       <button
         onClick={pastValue ? openCheckout : scrollToValue}
-        className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
+        className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 text-base font-extrabold tracking-tight text-whatsapp-foreground active:brightness-95"
       >
         <Monitor className="w-5 h-5" /> Quero começar agora!
       </button>
