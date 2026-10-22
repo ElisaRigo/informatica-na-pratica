@@ -901,20 +901,20 @@ const Pricing = () => (
         <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
       </div>
 
-      <div className="bg-white text-white rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
-        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
-        <p className="text-center text-slate-400 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
+        <h3 className="text-xl md:text-2xl font-black text-slate-900 text-center mb-2">Curso Completo de Informática</h3>
+        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
 
-        <div className="bg-white/10 rounded-2xl p-6 text-center mb-6">
-          <p className="text-slate-400 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
-          <p className="text-sm text-slate-300 font-semibold mb-1">por apenas</p>
-          <p className="text-5xl md:text-7xl font-black text-green-400 leading-none">R$ 297</p>
+        <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
+          <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
+          <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
+          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
           <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
             <span>🎁</span> Hoje você leva 4 bônus exclusivos
           </p>
-          <p className="text-lg text-slate-200 mt-2">à vista no PIX</p>
-          <p className="text-base text-slate-300 mt-1">
-            ou <strong className="text-white">12x de R$ 30,72</strong> no cartão
+          <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
+          <p className="text-base text-slate-600 mt-1">
+            ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
           </p>
         </div>
 
@@ -925,7 +925,7 @@ const Pricing = () => (
             "Certificado de conclusão",
             "Suporte direto com a professora",
             "Atualizações gratuitas pra sempre",
-            "Acesso pelo celular, tablet ou computador",
+            "Acesso pelo computador",
           ].map((x) => (
             <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
               <CheckCircle2 className="w-6 h-6 text-green-400 shrink-0 mt-0.5" />
@@ -936,7 +936,7 @@ const Pricing = () => (
 
         <CTA>Quero aproveitar o desconto!</CTA>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-400">
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
             <Lock className="w-4 h-4 text-green-400" /> Pagamento 100% seguro
           </span>
