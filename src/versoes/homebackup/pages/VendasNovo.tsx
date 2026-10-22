@@ -105,7 +105,7 @@ import typingIcon from "@/versoes/homebackup/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="border-b border-border bg-background py-3">
+  <header className="border-b border-border bg-background/90 backdrop-blur-md py-3">
     <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
       <p className="leading-none text-center">
         <span className="block whitespace-nowrap text-[8.8vw] font-black tracking-tight text-foreground sm:text-3xl md:text-5xl">
@@ -124,7 +124,7 @@ const Header = () => (
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
+    <section className="relative bg-gradient-to-b from-blue-300 via-blue-200 to-transparent">
 
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
@@ -231,7 +231,7 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-4 md:py-6 bg-white/60">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
         <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
@@ -261,7 +261,7 @@ const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   return (
-    <section className="py-4 md:py-6 bg-white border-t border-slate-200">
+    <section className="py-4 md:py-6 bg-white/60 border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
@@ -381,7 +381,7 @@ const AulaDemonstrativa = () => {
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
-  <section className="py-4 md:py-6 bg-white">
+  <section className="py-4 md:py-6 bg-transparent">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
@@ -528,7 +528,7 @@ const Modules = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-4 md:py-6 bg-white/60">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-5">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
@@ -708,7 +708,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
 
 const SocialProof = () => {
   return (
-    <section className="py-4 md:py-6 bg-white">
+    <section className="py-4 md:py-6 bg-transparent">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-5">
@@ -853,7 +853,7 @@ const SocialProof = () => {
 
 // ───────────────────────── Certificate ─────────────────────────
 const Certificate = () => (
-  <section className="py-4 md:py-6 bg-slate-50">
+  <section className="py-4 md:py-6 bg-white/60">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <img
@@ -951,7 +951,7 @@ const Pricing = () => (
 
 // ───────────────────────── Guarantee ─────────────────────────
 const GuaranteeBlock = () => (
-  <section className="py-4 md:py-6 bg-white">
+  <section className="py-4 md:py-6 bg-transparent">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="bg-green-50 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-600 mb-5">
@@ -1002,7 +1002,7 @@ const FAQ = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-4 md:py-6 bg-white/60">
       <div className="container mx-auto px-4 max-w-3xl">
         <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-5">Perguntas frequentes</h2>
         <div className="space-y-3">
@@ -1217,7 +1217,7 @@ const WhatsFloat = () => {
   );
 };
 
-const WhatsAposAulas = ({ bg = "bg-white" }: { bg?: string }) => (
+const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
   <section className={`py-4 md:py-6 ${bg}`}>
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="bg-green-50 border-2 border-green-500 rounded-2xl px-4 py-4 md:px-6 md:py-5 shadow-lg">
@@ -1266,7 +1266,7 @@ const VendasNovo = () => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
-    <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
+    <div className="min-h-screen bg-gradient-to-b from-blue-200 via-sky-100 to-blue-200 text-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
       <AulaDemonstrativa />
@@ -1274,11 +1274,11 @@ const VendasNovo = () => {
       <WhatsAposAulas />
       <Instructor />
       <SocialProof />
-      <WhatsAposAulas bg="bg-slate-50" />
+      <WhatsAposAulas bg="bg-white/60" />
       <Method />
       <Modules />
       <WhatsAposAulas />
-      <section className="py-4 md:py-6 bg-slate-50">
+      <section className="py-4 md:py-6 bg-white/60">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
         </div>
