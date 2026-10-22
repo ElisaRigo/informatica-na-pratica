@@ -184,15 +184,15 @@ const Hero = () => {
 
 
 
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-4">
-            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2.5 text-sm md:text-lg font-bold text-emerald-800 ring-1 ring-emerald-300 shadow-sm">
-              <Lock className="w-5 h-5 md:w-6 md:h-6 text-emerald-600" /> Pagamento seguro
+          <div className="flex flex-wrap items-center justify-center gap-1.5 md:gap-3 mt-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-2 text-sm md:gap-2.5 md:px-5 md:py-3 md:text-lg font-bold text-emerald-800 ring-1 ring-emerald-300 shadow-sm">
+              <Lock className="w-4 h-4 md:w-6 md:h-6 text-emerald-600" /> Pagamento seguro
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2.5 text-sm md:text-lg font-bold text-blue-800 ring-1 ring-blue-300 shadow-sm">
-              <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-blue-600" /> 7 dias de garantia
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-2 text-sm md:gap-2.5 md:px-5 md:py-3 md:text-lg font-bold text-blue-800 ring-1 ring-blue-300 shadow-sm">
+              <ShieldCheck className="w-4 h-4 md:w-6 md:h-6 text-blue-600" /> 7 dias de garantia
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-4 py-2.5 text-sm md:text-lg font-bold text-amber-800 ring-1 ring-amber-300 shadow-sm">
-              <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-amber-600" /> Acesso imediato
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-2 text-sm md:gap-2.5 md:px-5 md:py-3 md:text-lg font-bold text-amber-800 ring-1 ring-amber-300 shadow-sm">
+              <CheckCircle2 className="w-4 h-4 md:w-6 md:h-6 text-amber-600" /> Acesso imediato
             </span>
           </div>
 
