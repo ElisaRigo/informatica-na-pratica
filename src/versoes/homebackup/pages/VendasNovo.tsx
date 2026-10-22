@@ -142,6 +142,23 @@ const Hero = () => {
             Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
           </p>
 
+          {/* Social proof inline */}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="flex -space-x-2">
+              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
+                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
+              ))}
+            </div>
+            <div className="text-left">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
+            </div>
+          </div>
+
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
             {!isPlaying ? (
@@ -183,7 +200,6 @@ const Hero = () => {
               { src: "/images/selos/selo-pagamento-seguro.png", alt: "Selo: pagamento seguro" },
               { src: "/images/selos/selo-garantia-7-dias.png", alt: "Selo: garantia de 7 dias" },
               { src: "/images/selos/selo-acesso-imediato.png", alt: "Selo: acesso imediato e vitalício" },
-              { src: "/images/selos/selo-certificado.png", alt: "Selo: certificado incluso" },
               { src: "/images/selos/selo-suporte.png", alt: "Selo: suporte ao aluno" },
             ].map((selo) => (
               <img
@@ -198,22 +214,6 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mt-5">
-            <div className="flex -space-x-2">
-              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
-                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
-              ))}
-            </div>
-            <div className="text-left">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
