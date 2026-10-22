@@ -143,7 +143,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+            Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
           </p>
 
           {/* Video */}
@@ -183,7 +183,7 @@ const Hero = () => {
           </div>
 
           <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
-            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+            {""}
           </p>
 
 
