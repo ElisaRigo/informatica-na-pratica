@@ -24,7 +24,7 @@ export default function SeloOficial({
   return (
     <div className="relative inline-flex items-center">
       {/* Barra escura com o texto */}
-      <div className="flex h-10 items-center rounded-full bg-slate-900 pl-12 pr-2.5 ring-2 ring-white/80 md:h-14 md:pl-16 md:pr-4">
+      <div className="flex h-10 items-center rounded-full border-2 border-white/85 bg-slate-900 pl-12 pr-2.5 ring-2 ring-slate-950 md:h-14 md:pl-16 md:pr-4">
         <div className="flex flex-col items-center leading-[1.12]">
           {lines.map((line) => (
             <span
