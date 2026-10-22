@@ -19,7 +19,6 @@ import {
   HeartHandshake,
   Infinity as InfinityIcon,
   ChevronDown,
-  ArrowRight,
   Play,
   Pause,
   Volume2,
@@ -72,7 +71,6 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
   >
     <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
     <span>{children}</span>
-    <ArrowRight className="hidden sm:inline-block w-5 h-5 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
   </button>
 );
 
