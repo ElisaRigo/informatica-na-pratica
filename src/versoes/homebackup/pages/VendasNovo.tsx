@@ -28,7 +28,7 @@ import {
   Heart,
   Headphones,
 } from "lucide-react";
-import SeloCarimbo from "@/components/SeloCarimbo";
+import SeloOficial from "@/components/SeloOficial";
 import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/homebackup/assets/elisa-teaching.jpg";
@@ -185,10 +185,10 @@ const Hero = () => {
 
 
 
-          <div className="flex items-center justify-center gap-2 md:gap-6 mt-4">
-            <SeloCarimbo icon={Lock} tone="emerald" lines={["Pagamento", "seguro"]} tilt="-3deg" />
-            <SeloCarimbo icon={ShieldCheck} tone="blue" lines={["Garantia", "7 dias"]} tilt="2deg" />
-            <SeloCarimbo icon={CheckCircle2} tone="amber" lines={["Acesso", "imediato"]} tilt="-1deg" />
+          <div className="flex items-center justify-center gap-1.5 md:gap-5 mt-4">
+            <SeloOficial icon={Lock} tone="green" lines={["Pagamento", "seguro"]} />
+            <SeloOficial icon={ShieldCheck} tone="blue" lines={["Garantia", "7 dias"]} />
+            <SeloOficial icon={CheckCircle2} tone="amber" lines={["Acesso", "imediato"]} />
           </div>
 
           {/* Social proof inline */}
