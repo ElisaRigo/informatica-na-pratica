@@ -96,6 +96,35 @@ All colors MUST be HSL.
   }
 }
 
+/* Highlighted words on dark surfaces need a lighter blue to stay readable.
+   Unlayered theme scopes (.confidence-page, .challenge-theme) keep priority. */
+@layer components {
+  [class~="bg-slate-900"],
+  [class~="bg-slate-800"],
+  [class~="bg-slate-950"],
+  [class~="from-slate-900"],
+  [class~="from-slate-800"],
+  [class~="via-slate-900"],
+  [class~="via-slate-800"],
+  [class~="to-slate-900"],
+  [class~="to-slate-800"] {
+    --primary: 195 100% 62%;
+    --ring: 195 100% 62%;
+  }
+
+  /* Light cards and solid blue fills sitting inside a dark section keep the
+     darker brand blue, so white text on them stays readable. */
+  [class~="bg-white"],
+  [class~="bg-slate-50"],
+  [class~="bg-slate-100"],
+  [class~="bg-slate-200"],
+  [class~="bg-primary"] {
+    --primary: 195 100% 35%;
+    --primary-foreground: 0 0% 100%;
+    --ring: 195 100% 35%;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
