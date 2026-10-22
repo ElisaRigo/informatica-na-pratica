@@ -1,14 +1,14 @@
 import { useState, useRef, useEffect } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
+import { Dialog, DialogContent } from "@/versoes/v1305/components/ui/dialog";
+import { Input } from "@/versoes/v1305/components/ui/input";
+import { Label } from "@/versoes/v1305/components/ui/label";
+import { Button } from "@/versoes/v1305/components/ui/button";
+import { useToast } from "@/versoes/v1305/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2, ShieldCheck, Lock, CheckCircle2, Smartphone, CreditCard, Receipt, Copy, ArrowLeft, Star } from "lucide-react";
-import { CardPaymentBrick } from "@/components/CardPaymentBrick";
-import { useCheckoutFormLogic } from "@/hooks/useCheckoutFormLogic";
-import logoImage from "@/assets/logo-checkout.png";
+import { CardPaymentBrick } from "@/versoes/v1305/components/CardPaymentBrick";
+import { useCheckoutFormLogic } from "@/versoes/v1305/hooks/useCheckoutFormLogic";
+import logoImage from "@/versoes/v1305/assets/logo-checkout.png";
 
 interface CursoCheckoutDialogProps {
   open: boolean;

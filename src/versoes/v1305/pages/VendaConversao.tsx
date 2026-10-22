@@ -1,18 +1,19 @@
 import { lazy, Suspense, memo, useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { CheckoutDialog } from "@/components/CheckoutDialog";
-import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
+import { Button } from "@/versoes/v1305/components/ui/button";
+import { CheckoutDialog } from "@/versoes/v1305/components/CheckoutDialog";
+import { useCheckoutDialog } from "@/versoes/v1305/hooks/useCheckoutDialog";
 import { 
   Shield, Award, Zap, CheckCircle, Star, Clock, Users, 
   ArrowRight, Play, Gift, Lock, Flame, ChevronRight,
   Sparkles, Trophy, Heart, Eye
 } from "lucide-react";
-import videoPoster from "@/assets/hero-poster-free-lesson.png";
-import heroVideo from "@/assets/hero-video-free-lesson.mp4";
-import elisaPhoto from "@/assets/elisa-photo.jpg";
-import alinePhoto from "@/assets/testimonial-new-1.jpg";
-import joaoPhoto from "@/assets/testimonial-new-3.jpg";
-import carlaPhoto from "@/assets/testimonial-new-2.jpg";
+import videoPoster from "@/versoes/v1305/assets/hero-poster-free-lesson.png";
+import heroVideoAsset from "@/versoes/v1305/assets/hero-video-free-lesson.mp4.asset.json";
+const heroVideo = heroVideoAsset.url;
+import elisaPhoto from "@/versoes/v1305/assets/elisa-photo.jpg";
+import alinePhoto from "@/versoes/v1305/assets/testimonial-new-1.jpg";
+import joaoPhoto from "@/versoes/v1305/assets/testimonial-new-3.jpg";
+import carlaPhoto from "@/versoes/v1305/assets/testimonial-new-2.jpg";
 
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton").then(m => ({ default: m.WhatsAppButton })));
 const LoadingFallback = memo(() => <div className="h-8" />);

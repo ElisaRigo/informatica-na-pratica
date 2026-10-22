@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Play, Shield, Award, Headphones, Users, ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet";
-import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo-blue.png";
+import { Button } from "@/versoes/v1305/components/ui/button";
+import logo from "@/versoes/v1305/assets/logo-blue.png";
 
-import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
-import environmentThumb from "@/assets/environment-thumb.jpg";
+import freeClassThumb from "@/versoes/v1305/assets/aprenda-comigo-thumb.jpg";
+import environmentThumb from "@/versoes/v1305/assets/environment-thumb.jpg";
 
 const videos = [
   {

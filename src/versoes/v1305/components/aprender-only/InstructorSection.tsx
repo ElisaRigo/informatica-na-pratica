@@ -1,5 +1,5 @@
 import { Award, Heart, Users, GraduationCap } from "lucide-react";
-import elisaPhoto from "@/assets/elisa-photo.jpg";
+import elisaPhoto from "@/versoes/v1305/assets/elisa-photo.jpg";
 
 export const InstructorSection = () => {
   return (

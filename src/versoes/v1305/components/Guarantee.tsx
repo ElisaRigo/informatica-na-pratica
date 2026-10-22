@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/versoes/v1305/components/ui/button";
 import { ShieldCheck } from "lucide-react";
 
 export const Guarantee = () => {

@@ -1,25 +1,25 @@
-import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
-import { CursoCheckoutDialog } from "@/components/curso/CursoCheckoutDialog";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { useCheckoutDialog } from "@/versoes/v1305/hooks/useCheckoutDialog";
+import { CursoCheckoutDialog } from "@/versoes/v1305/components/curso/CursoCheckoutDialog";
+import { WhatsAppButton } from "@/versoes/v1305/components/WhatsAppButton";
 
 // Componentes da nova página
-import { HeroV2 } from "@/components/curso/HeroV2";
-import { ProblemSection } from "@/components/curso/ProblemSection";
-import { AudioTestimonialsV2 } from "@/components/curso/AudioTestimonialsV2";
-import { SupportBannerV2 } from "@/components/curso/SupportBannerV2";
-import { TransformationSection } from "@/components/curso/TransformationSection";
-import { ContentSectionV2 } from "@/components/curso/ContentSectionV2";
-import { InstructorSection } from "@/components/curso/InstructorSection";
-import { StrategicCTAV2 } from "@/components/curso/StrategicCTAV2";
-import { EnvironmentSection } from "@/components/curso/EnvironmentSection";
-import { CertificateSection } from "@/components/curso/CertificateSection";
+import { HeroV2 } from "@/versoes/v1305/components/curso/HeroV2";
+import { ProblemSection } from "@/versoes/v1305/components/curso/ProblemSection";
+import { AudioTestimonialsV2 } from "@/versoes/v1305/components/curso/AudioTestimonialsV2";
+import { SupportBannerV2 } from "@/versoes/v1305/components/curso/SupportBannerV2";
+import { TransformationSection } from "@/versoes/v1305/components/curso/TransformationSection";
+import { ContentSectionV2 } from "@/versoes/v1305/components/curso/ContentSectionV2";
+import { InstructorSection } from "@/versoes/v1305/components/curso/InstructorSection";
+import { StrategicCTAV2 } from "@/versoes/v1305/components/curso/StrategicCTAV2";
+import { EnvironmentSection } from "@/versoes/v1305/components/curso/EnvironmentSection";
+import { CertificateSection } from "@/versoes/v1305/components/curso/CertificateSection";
 
-import { TestimonialsV2 } from "@/components/curso/TestimonialsV2";
-import { PricingV2 } from "@/components/curso/PricingV2";
-import { FAQV2 } from "@/components/curso/FAQV2";
-import { FinalCTA } from "@/components/curso/FinalCTA";
-import { FooterV2 } from "@/components/curso/FooterV2";
-import { DisclaimerSection } from "@/components/curso/DisclaimerSection";
+import { TestimonialsV2 } from "@/versoes/v1305/components/curso/TestimonialsV2";
+import { PricingV2 } from "@/versoes/v1305/components/curso/PricingV2";
+import { FAQV2 } from "@/versoes/v1305/components/curso/FAQV2";
+import { FinalCTA } from "@/versoes/v1305/components/curso/FinalCTA";
+import { FooterV2 } from "@/versoes/v1305/components/curso/FooterV2";
+import { DisclaimerSection } from "@/versoes/v1305/components/curso/DisclaimerSection";
 
 const Curso = () => {
   // Redirect all checkout buttons to Hotmart with tracking

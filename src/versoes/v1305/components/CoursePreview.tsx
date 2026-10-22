@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import courseThumb from "@/assets/hero-video-thumb.jpg";
+import courseThumb from "@/versoes/v1305/assets/hero-video-thumb.jpg";
 import { Play } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/versoes/v1305/components/ui/button";
 
 export const CoursePreview = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);

@@ -1,5 +1,5 @@
 import { Check, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/versoes/v1305/components/ui/button";
 
 export const Comparison = () => {
   const withCourse = [

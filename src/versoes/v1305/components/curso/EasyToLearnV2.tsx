@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import heroVideoThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import heroVideoThumb from "@/versoes/v1305/assets/aprenda-comigo-thumb.jpg";
 import { Play, CheckCircle2, ArrowRight } from "lucide-react";
 
 export const EasyToLearnV2 = () => {

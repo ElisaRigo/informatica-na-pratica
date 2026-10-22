@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Shield, Award, Zap, Play, Headphones, Infinity } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import heroVideoThumb from "@/assets/hero-video-cover.png";
+import { Button } from "@/versoes/v1305/components/ui/button";
+import heroVideoThumb from "@/versoes/v1305/assets/hero-video-cover.png";
 
 export const Hero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);

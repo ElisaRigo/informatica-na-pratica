@@ -1,5 +1,5 @@
 import { Award, Star, Briefcase, FileCheck, ArrowRight, Sparkles, Trophy, GraduationCap, BookOpen } from "lucide-react";
-import certificadoExemplo from "@/assets/certificado-exemplo.png";
+import certificadoExemplo from "@/versoes/v1305/assets/certificado-exemplo.png";
 
 export const CertificateSection = () => {
   return (

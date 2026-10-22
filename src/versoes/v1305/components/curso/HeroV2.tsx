@@ -1,8 +1,8 @@
 import { Play, Shield, Award, Sparkles, MessageCircle, Footprints, Smile, Rocket, Headphones, Users, Infinity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import logo from "@/assets/logo-blue.png";
-import heroVideoThumb from "@/assets/hero-video-cover-home.jpg";
-import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
+import logo from "@/versoes/v1305/assets/logo-blue.png";
+import heroVideoThumb from "@/versoes/v1305/assets/hero-video-cover-home.jpg";
+import freeClassThumb from "@/versoes/v1305/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 
 export const HeroV2 = () => {

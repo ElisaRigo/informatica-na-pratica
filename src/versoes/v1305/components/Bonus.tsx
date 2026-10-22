@@ -1,5 +1,5 @@
 import { Gift, Clock, Mail, Briefcase, Keyboard, FileText } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/versoes/v1305/components/ui/button";
 import { useState, useEffect } from "react";
 
 const bonuses = [

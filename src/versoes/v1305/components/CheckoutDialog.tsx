@@ -1,7 +1,7 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/versoes/v1305/components/ui/dialog";
 import { CheckoutForm } from "./CheckoutForm";
 import { ShieldCheck, Lock, CheckCircle2, Headphones, Infinity, Monitor } from "lucide-react";
-import logoBlue from "@/assets/logo-blue.png";
+import logoBlue from "@/versoes/v1305/assets/logo-blue.png";
 
 interface CheckoutDialogProps {
   open: boolean;

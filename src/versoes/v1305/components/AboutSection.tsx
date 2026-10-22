@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import elisaPhoto from "@/assets/elisa-photo.jpg";
+import { Button } from "@/versoes/v1305/components/ui/button";
+import elisaPhoto from "@/versoes/v1305/assets/elisa-photo.jpg";
 
 export const AboutSection = () => {
   return (

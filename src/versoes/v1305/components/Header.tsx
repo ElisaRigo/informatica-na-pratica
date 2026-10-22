@@ -1,4 +1,4 @@
-import logoImage from "@/assets/logo-blue.png";
+import logoImage from "@/versoes/v1305/assets/logo-blue.png";
 
 export const Header = () => {
   return (

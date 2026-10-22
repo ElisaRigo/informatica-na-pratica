@@ -1,14 +1,14 @@
 import { lazy, Suspense } from "react";
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { SocialProof } from "@/components/SocialProof";
-import { AboutSection } from "@/components/AboutSection";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { Footer } from "@/components/Footer";
-import { Testimonials } from "@/components/Testimonials";
-import { CheckoutDialog } from "@/components/CheckoutDialog";
-import { useCheckoutDialog } from "@/hooks/useCheckoutDialog";
+import { Header } from "@/versoes/v1305/components/Header";
+import { Hero } from "@/versoes/v1305/components/Hero";
+import { SocialProof } from "@/versoes/v1305/components/SocialProof";
+import { AboutSection } from "@/versoes/v1305/components/AboutSection";
+import { WhatsAppFloat } from "@/versoes/v1305/components/WhatsAppFloat";
+import { WhatsAppButton } from "@/versoes/v1305/components/WhatsAppButton";
+import { Footer } from "@/versoes/v1305/components/Footer";
+import { Testimonials } from "@/versoes/v1305/components/Testimonials";
+import { CheckoutDialog } from "@/versoes/v1305/components/CheckoutDialog";
+import { useCheckoutDialog } from "@/versoes/v1305/hooks/useCheckoutDialog";
 
 // Lazy load componentes em blocos separados para carregamento progressivo
 const Authority = lazy(() => import("@/components/Authority").then(m => ({ default: m.Authority })));

@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/versoes/v1305/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
 
 const faqs = [

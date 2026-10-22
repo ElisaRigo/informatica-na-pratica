@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import excelThumb from "@/assets/aula-excel-thumb.jpg";
+import excelThumb from "@/versoes/v1305/assets/aula-excel-thumb.jpg";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 export const FreeLessonExcel = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);

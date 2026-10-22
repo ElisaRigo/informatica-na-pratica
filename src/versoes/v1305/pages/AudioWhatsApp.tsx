@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause } from "lucide-react";
-import logoImage from "@/assets/logo-blue.png";
+import logoImage from "@/versoes/v1305/assets/logo-blue.png";
 
 const AudioWhatsApp = () => {
   const [isPlaying, setIsPlaying] = useState(false);

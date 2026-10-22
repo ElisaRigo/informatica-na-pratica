@@ -1,5 +1,5 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/versoes/v1305/components/Header";
+import { Footer } from "@/versoes/v1305/components/Footer";
 
 export const TermosDeUso = () => {
   return (

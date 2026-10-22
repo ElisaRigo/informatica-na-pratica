@@ -1,5 +1,5 @@
 import { CheckCircle2, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/versoes/v1305/components/ui/button";
 
 const benefits = [
   "Usar o computador com segurança e organização (Windows)",

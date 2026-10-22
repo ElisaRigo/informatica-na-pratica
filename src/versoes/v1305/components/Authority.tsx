@@ -1,5 +1,5 @@
 import { Award, Users, Clock, Heart } from "lucide-react";
-import elisaTeaching from "@/assets/elisa-teaching.jpg";
+import elisaTeaching from "@/versoes/v1305/assets/elisa-teaching.jpg";
 
 export const Authority = () => {
   return (

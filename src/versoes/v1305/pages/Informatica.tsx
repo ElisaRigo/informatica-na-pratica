@@ -2,43 +2,43 @@ import { Play, Shield, Zap, Award, Lock, Star, Quote, MessageCircle, Volume2, Sm
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
-import logo from "@/assets/logo-blue.png";
-import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
+import logo from "@/versoes/v1305/assets/logo-blue.png";
+import heroVideoThumb from "@/versoes/v1305/assets/hero-video-cover-curso.jpg";
 
-import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
-import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
-import avatar1 from "@/assets/avatar-1.jpg";
-import avatar2 from "@/assets/avatar-2.jpg";
-import avatar3 from "@/assets/avatar-3.jpg";
-import avatar4 from "@/assets/avatar-4.jpg";
-import avatar5 from "@/assets/avatar-5.jpg";
-import avatar6 from "@/assets/avatar-6.jpg";
-import avatar7 from "@/assets/avatar-7.jpg";
-import avatar8 from "@/assets/avatar-8.jpg";
-import certificadoExemplo from "@/assets/certificado-exemplo.png";
-import elisaPhoto from "@/assets/elisa-photo.jpg";
-import environmentThumb from "@/assets/environment-thumb.jpg";
-import windowsIcon from "@/assets/windows-icon.png";
-import wordIcon from "@/assets/word-icon.png";
-import excelIcon from "@/assets/excel-icon.png";
-import powerpointIcon from "@/assets/powerpoint-icon.png";
-import internetIcon from "@/assets/internet-icon.png";
-import typingIcon from "@/assets/typing-icon.png";
-import testimonial1 from "@/assets/testimonial-new-1.jpg";
-import testimonial2 from "@/assets/testimonial-new-2.jpg";
-import testimonial3 from "@/assets/testimonial-new-3.jpg";
-import testimonial4 from "@/assets/testimonial-new-4.jpg";
-import testimonial5 from "@/assets/testimonial-new-5.jpg";
-import testimonial6 from "@/assets/testimonial-new-6.jpg";
+import whatsappTestimonial1 from "@/versoes/v1305/assets/whatsapp-testimonial-1.png";
+import whatsappTestimonial2 from "@/versoes/v1305/assets/whatsapp-testimonial-2.png";
+import avatar1 from "@/versoes/v1305/assets/avatar-1.jpg";
+import avatar2 from "@/versoes/v1305/assets/avatar-2.jpg";
+import avatar3 from "@/versoes/v1305/assets/avatar-3.jpg";
+import avatar4 from "@/versoes/v1305/assets/avatar-4.jpg";
+import avatar5 from "@/versoes/v1305/assets/avatar-5.jpg";
+import avatar6 from "@/versoes/v1305/assets/avatar-6.jpg";
+import avatar7 from "@/versoes/v1305/assets/avatar-7.jpg";
+import avatar8 from "@/versoes/v1305/assets/avatar-8.jpg";
+import certificadoExemplo from "@/versoes/v1305/assets/certificado-exemplo.png";
+import elisaPhoto from "@/versoes/v1305/assets/elisa-photo.jpg";
+import environmentThumb from "@/versoes/v1305/assets/environment-thumb.jpg";
+import windowsIcon from "@/versoes/v1305/assets/windows-icon.png";
+import wordIcon from "@/versoes/v1305/assets/word-icon.png";
+import excelIcon from "@/versoes/v1305/assets/excel-icon.png";
+import powerpointIcon from "@/versoes/v1305/assets/powerpoint-icon.png";
+import internetIcon from "@/versoes/v1305/assets/internet-icon.png";
+import typingIcon from "@/versoes/v1305/assets/typing-icon.png";
+import testimonial1 from "@/versoes/v1305/assets/testimonial-new-1.jpg";
+import testimonial2 from "@/versoes/v1305/assets/testimonial-new-2.jpg";
+import testimonial3 from "@/versoes/v1305/assets/testimonial-new-3.jpg";
+import testimonial4 from "@/versoes/v1305/assets/testimonial-new-4.jpg";
+import testimonial5 from "@/versoes/v1305/assets/testimonial-new-5.jpg";
+import testimonial6 from "@/versoes/v1305/assets/testimonial-new-6.jpg";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { EasyToLearn } from "@/components/EasyToLearn";
-import { HeroV2 } from "@/components/aprender/HeroV2";
+} from "@/versoes/v1305/components/ui/accordion";
+import { WhatsAppButton } from "@/versoes/v1305/components/WhatsAppButton";
+import { EasyToLearn } from "@/versoes/v1305/components/EasyToLearn";
+import { HeroV2 } from "@/versoes/v1305/components/aprender/HeroV2";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [

@@ -1,21 +1,21 @@
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { WhatsAppButton } from "@/versoes/v1305/components/WhatsAppButton";
 
-import { HeroV2 } from "@/components/aprender/HeroV2";
-import { ProblemSection } from "@/components/aprender/ProblemSection";
-import { AudioTestimonialsV2 } from "@/components/aprender/AudioTestimonialsV2";
-import { SupportBannerV2 } from "@/components/aprender/SupportBannerV2";
-import { TransformationSection } from "@/components/aprender/TransformationSection";
-import { ContentSectionV2 } from "@/components/aprender/ContentSectionV2";
-import { InstructorSection } from "@/components/aprender/InstructorSection";
-import { StrategicCTAV2 } from "@/components/aprender/StrategicCTAV2";
-import { EnvironmentSection } from "@/components/aprender/EnvironmentSection";
-import { CertificateSection } from "@/components/aprender/CertificateSection";
-import { TestimonialsV2 } from "@/components/aprender/TestimonialsV2";
-import { PricingV2 } from "@/components/aprender/PricingV2";
-import { FAQV2 } from "@/components/aprender/FAQV2";
-import { FinalCTA } from "@/components/aprender/FinalCTA";
-import { FooterV2 } from "@/components/aprender/FooterV2";
-import { DisclaimerSection } from "@/components/aprender/DisclaimerSection";
+import { HeroV2 } from "@/versoes/v1305/components/aprender/HeroV2";
+import { ProblemSection } from "@/versoes/v1305/components/aprender/ProblemSection";
+import { AudioTestimonialsV2 } from "@/versoes/v1305/components/aprender/AudioTestimonialsV2";
+import { SupportBannerV2 } from "@/versoes/v1305/components/aprender/SupportBannerV2";
+import { TransformationSection } from "@/versoes/v1305/components/aprender/TransformationSection";
+import { ContentSectionV2 } from "@/versoes/v1305/components/aprender/ContentSectionV2";
+import { InstructorSection } from "@/versoes/v1305/components/aprender/InstructorSection";
+import { StrategicCTAV2 } from "@/versoes/v1305/components/aprender/StrategicCTAV2";
+import { EnvironmentSection } from "@/versoes/v1305/components/aprender/EnvironmentSection";
+import { CertificateSection } from "@/versoes/v1305/components/aprender/CertificateSection";
+import { TestimonialsV2 } from "@/versoes/v1305/components/aprender/TestimonialsV2";
+import { PricingV2 } from "@/versoes/v1305/components/aprender/PricingV2";
+import { FAQV2 } from "@/versoes/v1305/components/aprender/FAQV2";
+import { FinalCTA } from "@/versoes/v1305/components/aprender/FinalCTA";
+import { FooterV2 } from "@/versoes/v1305/components/aprender/FooterV2";
+import { DisclaimerSection } from "@/versoes/v1305/components/aprender/DisclaimerSection";
 
 const Index = () => {
   (window as any).openCheckout = () => {

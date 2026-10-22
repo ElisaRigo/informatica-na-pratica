@@ -1,10 +1,10 @@
 import { Star, Quote } from "lucide-react";
-import testimonial1 from "@/assets/testimonial-new-1.jpg";
-import testimonial2 from "@/assets/testimonial-new-2.jpg";
-import testimonial3 from "@/assets/testimonial-new-3.jpg";
-import testimonial4 from "@/assets/testimonial-new-4.jpg";
-import testimonial5 from "@/assets/testimonial-new-5.jpg";
-import testimonial6 from "@/assets/testimonial-new-6.jpg";
+import testimonial1 from "@/versoes/v1305/assets/testimonial-new-1.jpg";
+import testimonial2 from "@/versoes/v1305/assets/testimonial-new-2.jpg";
+import testimonial3 from "@/versoes/v1305/assets/testimonial-new-3.jpg";
+import testimonial4 from "@/versoes/v1305/assets/testimonial-new-4.jpg";
+import testimonial5 from "@/versoes/v1305/assets/testimonial-new-5.jpg";
+import testimonial6 from "@/versoes/v1305/assets/testimonial-new-6.jpg";
 
 const testimonials = [
   {

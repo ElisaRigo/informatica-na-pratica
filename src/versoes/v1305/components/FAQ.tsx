@@ -3,8 +3,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+} from "@/versoes/v1305/components/ui/accordion";
+import { Button } from "@/versoes/v1305/components/ui/button";
 
 const faqs = [
   {

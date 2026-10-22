@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/versoes/v1305/components/ui/button";
 import { CheckCircle2, CreditCard, Smartphone, Clock } from "lucide-react";
 
 const features = [

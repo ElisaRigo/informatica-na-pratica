@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Clock, CheckCircle2, FileText, Mail, Smartphone } from "lucide-react";
-import logoImage from "@/assets/logo-new.png";
+import logoImage from "@/versoes/v1305/assets/logo-new.png";
 
 const AguardandoConfirmacao = () => {
   const [searchParams] = useSearchParams();

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import logoImage from "@/assets/logo-blue.png";
+import { Button } from "@/versoes/v1305/components/ui/button";
+import logoImage from "@/versoes/v1305/assets/logo-blue.png";
 
 const ThankYou = () => {
   useEffect(() => {

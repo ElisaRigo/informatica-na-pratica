@@ -1,13 +1,13 @@
 import { Quote } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/versoes/v1305/components/ui/avatar";
+import { Button } from "@/versoes/v1305/components/ui/button";
 import { AnchorLink } from "./AnchorLink";
-import alinePhoto from "@/assets/testimonial-new-1.jpg";
-import joaoPhoto from "@/assets/testimonial-new-3.jpg";
-import carlaPhoto from "@/assets/testimonial-new-2.jpg";
-import mariaPhoto from "@/assets/testimonial-new-4.jpg";
-import robertoPhoto from "@/assets/testimonial-new-6.jpg";
-import sandraPhoto from "@/assets/testimonial-new-5.jpg";
+import alinePhoto from "@/versoes/v1305/assets/testimonial-new-1.jpg";
+import joaoPhoto from "@/versoes/v1305/assets/testimonial-new-3.jpg";
+import carlaPhoto from "@/versoes/v1305/assets/testimonial-new-2.jpg";
+import mariaPhoto from "@/versoes/v1305/assets/testimonial-new-4.jpg";
+import robertoPhoto from "@/versoes/v1305/assets/testimonial-new-6.jpg";
+import sandraPhoto from "@/versoes/v1305/assets/testimonial-new-5.jpg";
 
 const testimonials = [
   {

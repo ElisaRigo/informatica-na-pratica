@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/versoes/v1305/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
 declare global {

@@ -1,10 +1,10 @@
 import { CheckCircle2 } from "lucide-react";
-import windowsIcon from "@/assets/windows-icon.png";
-import wordIcon from "@/assets/word-icon.png";
-import excelIcon from "@/assets/excel-icon.png";
-import powerpointIcon from "@/assets/powerpoint-icon.png";
-import internetIcon from "@/assets/internet-icon.png";
-import typingIcon from "@/assets/typing-icon.png";
+import windowsIcon from "@/versoes/v1305/assets/windows-icon.png";
+import wordIcon from "@/versoes/v1305/assets/word-icon.png";
+import excelIcon from "@/versoes/v1305/assets/excel-icon.png";
+import powerpointIcon from "@/versoes/v1305/assets/powerpoint-icon.png";
+import internetIcon from "@/versoes/v1305/assets/internet-icon.png";
+import typingIcon from "@/versoes/v1305/assets/typing-icon.png";
 
 const modules = [
   {
