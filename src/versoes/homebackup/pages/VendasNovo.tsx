@@ -159,7 +159,7 @@ const Hero = () => {
           <div className="relative max-w-5xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-5">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                <div className="absolute top-0 left-0 md:top-0 md:left-4 z-10 inline-flex items-center gap-1.5 md:gap-2 bg-sky-400 text-slate-900 text-[11px] md:text-sm font-extrabold px-2.5 py-1 md:px-4 md:py-2 rounded-br-2xl shadow-lg pointer-events-none">
+                <div className="absolute top-0 left-0 z-10 inline-flex items-center gap-1.5 md:gap-2 bg-sky-400 text-slate-900 text-[11px] md:text-sm font-extrabold px-2.5 py-1 md:px-4 md:py-2 rounded-br-2xl md:rounded-tl-2xl shadow-lg pointer-events-none">
                   <PlayCircle className="w-3.5 h-3.5 md:w-5 md:h-5" strokeWidth={2.5} />
                   <span>Assista o recado da prof</span>
                 </div>
