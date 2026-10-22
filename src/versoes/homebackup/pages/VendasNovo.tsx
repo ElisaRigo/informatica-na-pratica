@@ -57,7 +57,7 @@ import { HeroBonuses } from "@/versoes/homebackup/components/aprender/HeroBonuse
 const openCheckout = () => openHotmartCheckout();
 
 const scrollToValue = () => {
-  const el = document.getElementById("valor");
+  const el = document.getElementById("primeiro-valor");
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
