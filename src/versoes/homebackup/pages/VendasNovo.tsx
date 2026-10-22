@@ -197,9 +197,6 @@ const Hero = () => {
               />
             ))}
           </div>
-              />
-            ))}
-          </div>
 
           {/* Social proof inline */}
           <div className="flex items-center justify-center gap-3 mt-5">
