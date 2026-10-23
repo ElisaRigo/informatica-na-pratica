@@ -9,7 +9,6 @@ import {
   Users,
   PlayCircle,
   Monitor,
-  Mail,
   FileText,
   Globe,
   Presentation,
@@ -98,6 +97,78 @@ import excelIcon from "@/versoes/homebackup/assets/excel-icon.png";
 import powerpointIcon from "@/versoes/homebackup/assets/powerpoint-icon.png";
 import internetIcon from "@/versoes/homebackup/assets/internet-icon.png";
 import typingIcon from "@/versoes/homebackup/assets/typing-icon.png";
+
+// ───────────────────────── Miniaturas dos programas ─────────────────────────
+type ProgramType = "windows" | "word" | "excel" | "powerpoint" | "email";
+
+const ProgramIcon = ({ type }: { type: ProgramType }) => {
+  switch (type) {
+    case "windows":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[55%] w-[55%]" fill="white" aria-hidden="true">
+          <rect x="1" y="1" width="10" height="10" rx="1" />
+          <rect x="13" y="1" width="10" height="10" rx="1" />
+          <rect x="1" y="13" width="10" height="10" rx="1" />
+          <rect x="13" y="13" width="10" height="10" rx="1" />
+        </svg>
+      );
+    case "word":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[70%] w-[70%]" aria-hidden="true">
+          <rect x="3" y="2" width="18" height="20" rx="2" fill="white" opacity="0.95" />
+          <rect x="3" y="2" width="9" height="20" rx="2" fill="white" opacity="0.25" />
+          <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="900" fontFamily="Arial, sans-serif" fill="#2B579A">W</text>
+        </svg>
+      );
+    case "excel":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[70%] w-[70%]" aria-hidden="true">
+          <rect x="3" y="2" width="18" height="20" rx="2" fill="white" opacity="0.95" />
+          <rect x="3" y="2" width="9" height="20" rx="2" fill="white" opacity="0.25" />
+          <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="900" fontFamily="Arial, sans-serif" fill="#217346">X</text>
+        </svg>
+      );
+    case "powerpoint":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[70%] w-[70%]" aria-hidden="true">
+          <rect x="3" y="2" width="18" height="20" rx="2" fill="white" opacity="0.95" />
+          <rect x="3" y="2" width="9" height="20" rx="2" fill="white" opacity="0.25" />
+          <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="900" fontFamily="Arial, sans-serif" fill="#C43E1C">P</text>
+        </svg>
+      );
+    case "email":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[55%] w-[55%]" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="m2 7 10 6 10-6" />
+        </svg>
+      );
+  }
+};
+
+const programTiles: { type: ProgramType; name: string; gradient: string }[] = [
+  { type: "windows", name: "Windows", gradient: "linear-gradient(135deg, #29a3f0, #0067b8)" },
+  { type: "word", name: "Word", gradient: "linear-gradient(135deg, #3b7dd8, #2B579A)" },
+  { type: "excel", name: "Excel", gradient: "linear-gradient(135deg, #2ea56e, #1e6b41)" },
+  { type: "powerpoint", name: "PowerPoint", gradient: "linear-gradient(135deg, #e06a4a, #C43E1C)" },
+  { type: "email", name: "E-mail", gradient: "linear-gradient(135deg, #38bdf8, #0284c7)" },
+];
+
+const ProgramMiniatures = () => (
+  <div className="mt-2 flex flex-wrap items-start justify-center gap-x-2 gap-y-2 md:gap-x-6">
+    {programTiles.map((p) => (
+      <div key={p.type} className="flex flex-col items-center gap-1 md:gap-2">
+        <div
+          className="flex h-[58px] w-[58px] items-center justify-center rounded-xl shadow-lg shadow-black/30 md:h-[104px] md:w-[104px] md:rounded-2xl"
+          style={{ background: p.gradient }}
+        >
+          <ProgramIcon type={p.type} />
+        </div>
+        <span className="text-[10px] font-bold text-slate-200 md:text-sm">{p.name}</span>
+      </div>
+    ))}
+  </div>
+);
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
@@ -196,65 +267,10 @@ const Hero = () => {
             )}
           </div>
 
-          {/* Programas que você vai dominar */}
-          <div className="mb-4 text-center">
-            <p className="text-base md:text-xl font-bold text-white mb-3">
-              Você vai dominar os <span className="text-sky-300">programas mais usados:</span>
-            </p>
-            <div className="flex items-start justify-center gap-2 md:gap-5">
-              {[
-                {
-                  label: "Windows",
-                  body: (
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#0078D4] shadow-lg flex items-center justify-center">
-                      <div className="grid grid-cols-2 gap-[3px] md:gap-1">
-                        {[...Array(4)].map((_, i) => (
-                          <div key={i} className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 bg-white rounded-[2px]" />
-                        ))}
-                      </div>
-                    </div>
-                  ),
-                },
-                {
-                  label: "Word",
-                  body: (
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#2B579A] shadow-lg flex items-center justify-center">
-                      <span className="text-white font-black text-xl md:text-3xl">W</span>
-                    </div>
-                  ),
-                },
-                {
-                  label: "Excel",
-                  body: (
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#217346] shadow-lg flex items-center justify-center">
-                      <span className="text-white font-black text-xl md:text-3xl">X</span>
-                    </div>
-                  ),
-                },
-                {
-                  label: "PowerPoint",
-                  body: (
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#C43E1C] shadow-lg flex items-center justify-center">
-                      <span className="text-white font-black text-xl md:text-3xl">P</span>
-                    </div>
-                  ),
-                },
-                {
-                  label: "E-mail",
-                  body: (
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-sky-500 shadow-lg flex items-center justify-center">
-                      <Mail className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                    </div>
-                  ),
-                },
-              ].map((app) => (
-                <div key={app.label} className="flex flex-col items-center gap-1.5">
-                  {app.body}
-                  <span className="text-[10px] md:text-xs font-semibold text-slate-200">{app.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="mt-4 text-xs md:text-base font-semibold text-slate-300">
+            Você vai dominar os programas mais usados:
+          </p>
+          <ProgramMiniatures />
 
           <div className="mt-2 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 md:gap-x-5">
             {[
