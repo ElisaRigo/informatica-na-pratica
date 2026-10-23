@@ -9,7 +9,6 @@ import {
   Users,
   PlayCircle,
   Monitor,
-  Mail,
   FileText,
   Globe,
   Presentation,
