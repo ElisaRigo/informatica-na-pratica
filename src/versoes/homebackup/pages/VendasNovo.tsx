@@ -196,6 +196,66 @@ const Hero = () => {
             )}
           </div>
 
+          {/* Programas que você vai dominar */}
+          <div className="mb-4 text-center">
+            <p className="text-base md:text-xl font-bold text-white mb-3">
+              Você vai dominar os <span className="text-sky-300">programas mais usados:</span>
+            </p>
+            <div className="flex items-start justify-center gap-2 md:gap-5">
+              {[
+                {
+                  label: "Windows",
+                  body: (
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#0078D4] shadow-lg flex items-center justify-center">
+                      <div className="grid grid-cols-2 gap-[3px] md:gap-1">
+                        {[...Array(4)].map((_, i) => (
+                          <div key={i} className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 bg-white rounded-[2px]" />
+                        ))}
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  label: "Word",
+                  body: (
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#2B579A] shadow-lg flex items-center justify-center">
+                      <span className="text-white font-black text-xl md:text-3xl">W</span>
+                    </div>
+                  ),
+                },
+                {
+                  label: "Excel",
+                  body: (
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#217346] shadow-lg flex items-center justify-center">
+                      <span className="text-white font-black text-xl md:text-3xl">X</span>
+                    </div>
+                  ),
+                },
+                {
+                  label: "PowerPoint",
+                  body: (
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#C43E1C] shadow-lg flex items-center justify-center">
+                      <span className="text-white font-black text-xl md:text-3xl">P</span>
+                    </div>
+                  ),
+                },
+                {
+                  label: "E-mail",
+                  body: (
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-sky-500 shadow-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                    </div>
+                  ),
+                },
+              ].map((app) => (
+                <div key={app.label} className="flex flex-col items-center gap-1.5">
+                  {app.body}
+                  <span className="text-[10px] md:text-xs font-semibold text-slate-200">{app.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-2 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 md:gap-x-5">
             {[
               { src: "/images/selos/selo-pagamento-seguro.png", alt: "Selo: pagamento seguro" },
