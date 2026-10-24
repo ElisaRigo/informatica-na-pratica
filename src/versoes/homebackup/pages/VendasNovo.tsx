@@ -23,7 +23,8 @@ import {
   Smartphone,
   ThumbsUp,
   Heart,
-  Headphones,
+  Zap,
+  MessageCircle,
 } from "lucide-react";
 import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
@@ -268,21 +269,22 @@ const Hero = () => {
             Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
           </p>
 
-          <div className="mt-3 grid grid-cols-2 gap-y-2 md:grid-cols-4 md:gap-y-0">
+          <div className="mt-3 grid grid-cols-4 gap-x-1 gap-y-2">
             {[
-              { icon: Lock, tone: "bg-sky-400/15 text-sky-300", title: "Pagamento seguro" },
-              { icon: ShieldCheck, tone: "bg-green-400/15 text-green-400", title: "Garantia de 7 dias" },
-              { icon: InfinityIcon, tone: "bg-cyan-400/15 text-cyan-300", title: "Acesso vitalício" },
-              { icon: Headphones, tone: "bg-amber-400/15 text-amber-300", title: "Suporte no WhatsApp" },
+              { icon: ShieldCheck, tone: "bg-green-500", title: "7 dias de garantia", note: "Se não gostar, devolvemos o dinheiro" },
+              { icon: Lock, tone: "bg-blue-500", title: "Compra 100% segura", note: "Pagamento e dados protegidos" },
+              { icon: Zap, tone: "bg-orange-500", title: "Acesso imediato", note: "Receba seu curso agora mesmo, na hora" },
+              { icon: MessageCircle, tone: "bg-teal-500", title: "Suporte por WhatsApp", note: "Ajuda para idosos, sempre disponível" },
             ].map((s) => (
               <div
                 key={s.title}
-                className="flex flex-col items-center justify-center gap-2 px-2 py-2 text-center md:gap-3"
+                className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-1.5 md:px-2"
               >
-                <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full md:h-16 md:w-16 ${s.tone}`}>
-                  <s.icon className="h-6 w-6 md:h-8 md:w-8" strokeWidth={2.5} />
+                <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full md:h-14 md:w-14 ${s.tone}`}>
+                  <s.icon className="h-5 w-5 md:h-7 md:w-7 text-white" strokeWidth={2.5} />
                 </span>
-                <span className="block text-[11px] font-extrabold leading-tight text-slate-300 md:text-sm">{s.title}</span>
+                <span className="block text-[8px] font-extrabold uppercase leading-[1.1] text-white md:text-xs">{s.title}</span>
+                <span className="block text-[7px] leading-[1.15] text-slate-400 md:text-[11px]">{s.note}</span>
               </div>
             ))}
           </div>
