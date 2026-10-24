@@ -14,7 +14,6 @@ import {
   Presentation,
   Keyboard,
   Sparkles,
-  GraduationCap,
   HeartHandshake,
   Infinity as InfinityIcon,
   ChevronDown,
@@ -195,9 +194,21 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="inline-flex items-center justify-center gap-2 bg-sky-400/10 text-sky-300 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Saber informática vai transformar você!
-          </span>
+          <div className="mb-3 flex items-center justify-center gap-3">
+            <div className="flex -space-x-2">
+              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
+                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
+              ))}
+            </div>
+            <div className="text-left">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-xs text-slate-300 font-medium">+15.000 alunos já aprenderam</p>
+            </div>
+          </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-3">
             Aprenda a usar o computador
@@ -214,22 +225,6 @@ const Hero = () => {
           </p>
           <ProgramMiniatures />
 
-          {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="flex -space-x-2">
-              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
-                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
-              ))}
-            </div>
-            <div className="text-left">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-xs text-slate-300 font-medium">+15.000 alunos já aprenderam</p>
-            </div>
-          </div>
 
           {/* Video */}
           <div className="relative max-w-5xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-5">
