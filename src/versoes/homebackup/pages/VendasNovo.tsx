@@ -154,7 +154,7 @@ const programTiles: { type: ProgramType; name: string; gradient: string }[] = [
 ];
 
 const ProgramMiniatures = () => (
-  <div className="mt-3 flex w-full flex-wrap items-start justify-between gap-x-1 gap-y-2 md:flex-nowrap md:gap-x-6">
+  <div className="mt-3 flex w-full flex-wrap items-start justify-between gap-x-1 gap-y-2 md:mx-auto md:max-w-3xl md:flex-nowrap md:gap-x-6">
     {programTiles.map((p) => (
       <div key={p.type} className="flex flex-col items-center gap-1 md:gap-2">
         <div
