@@ -23,7 +23,6 @@ import {
   Smartphone,
   ThumbsUp,
   Heart,
-  Headphones,
   Zap,
   MessageCircle,
 } from "lucide-react";
