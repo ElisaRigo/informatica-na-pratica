@@ -1270,10 +1270,10 @@ const StickyMobile = () => {
     return () => window.removeEventListener("scroll", check);
   }, []);
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-3 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
       <button
         onClick={pastValue ? openCheckout : scrollToValue}
-        className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.6vw,30px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground active:brightness-95"
+        className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground active:brightness-95"
       >
         <Monitor className="w-5 h-5 shrink-0" /> Quero começar agora!
       </button>
