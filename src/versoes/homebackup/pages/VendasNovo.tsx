@@ -52,6 +52,7 @@ import fbAvatar8 from "@/versoes/homebackup/assets/avatar-8.jpg";
 
 import { openHotmartCheckout } from "@/versoes/homebackup/lib/checkoutTracking";
 import { HeroBonuses } from "@/versoes/homebackup/components/aprender/HeroBonuses";
+import { Button } from "@/components/ui/button";
 
 const openCheckout = () => openHotmartCheckout();
 
@@ -227,23 +228,23 @@ const Hero = () => {
           {/* Video */}
           <div className="relative max-w-5xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-5">
             {!isPlaying ? (
-              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
-                <div className="absolute top-0 left-0 z-10 inline-flex items-center gap-1.5 md:gap-2 bg-sky-400 text-slate-900 text-[11px] md:text-sm font-extrabold px-2.5 py-1 md:px-4 md:py-2 rounded-br-2xl md:rounded-tl-2xl shadow-lg pointer-events-none">
-                  <PlayCircle className="w-3.5 h-3.5 md:w-5 md:h-5" strokeWidth={2.5} />
-                  <span>Assista o recado da prof</span>
-                </div>
-
+              <div className="relative aspect-video">
                 <img
                   src={homeVideoThumb}
                   alt="Aula demonstrativa gratuita"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                <div className="absolute inset-0">
-                  <div className="absolute left-[74%] top-[45%] md:left-[66%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <PlayCircle className="w-8 h-8 md:w-16 md:h-16 text-sky-300" strokeWidth={1.5} />
-                  </div>
-                </div>
+                <Button
+                  onClick={() => setIsPlaying(true)}
+                  className="absolute bottom-2 left-2 z-10 h-12 max-w-[calc(100%-1rem)] gap-2 rounded-xl px-3 text-sm font-extrabold shadow-lg md:bottom-4 md:left-4 md:h-14 md:px-5 md:text-lg"
+                >
+                  <span className="relative flex h-7 w-7 shrink-0 items-center justify-center">
+                    <span aria-hidden="true" className="absolute inset-0 rounded-full bg-primary-foreground/40 motion-safe:animate-ping motion-reduce:animate-none" />
+                    <PlayCircle className="relative !h-7 !w-7" strokeWidth={2.5} />
+                  </span>
+                  <span>Assista o recado da prof</span>
+                </Button>
               </div>
             ) : (
               <div className="aspect-video relative">
