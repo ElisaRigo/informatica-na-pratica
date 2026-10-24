@@ -271,10 +271,10 @@ const Hero = () => {
 
           <div className="mt-3 grid grid-cols-4 gap-x-1 gap-y-2">
             {[
-              { icon: ShieldCheck, tone: "bg-green-500", title: "7 dias de garantia", note: "Se não gostar, devolvemos o dinheiro" },
-              { icon: Lock, tone: "bg-blue-500", title: "Compra 100% segura", note: "Pagamento e dados protegidos" },
-              { icon: Zap, tone: "bg-orange-500", title: "Acesso imediato", note: "Receba seu curso agora mesmo, na hora" },
-              { icon: MessageCircle, tone: "bg-teal-500", title: "Suporte por WhatsApp", note: "Ajuda para idosos, sempre disponível" },
+              { icon: ShieldCheck, tone: "bg-green-500", title: "7 dias de garantia" },
+              { icon: Lock, tone: "bg-blue-500", title: "Compra 100% segura" },
+              { icon: Zap, tone: "bg-orange-500", title: "Acesso imediato" },
+              { icon: MessageCircle, tone: "bg-teal-500", title: "Suporte por WhatsApp" },
             ].map((s) => (
               <div
                 key={s.title}
@@ -284,7 +284,6 @@ const Hero = () => {
                   <s.icon className="h-5 w-5 md:h-7 md:w-7 text-white" strokeWidth={2.5} />
                 </span>
                 <span className="block text-[8px] font-extrabold uppercase leading-[1.1] text-white md:text-xs">{s.title}</span>
-                <span className="block text-[7px] leading-[1.15] text-slate-400 md:text-[11px]">{s.note}</span>
               </div>
             ))}
           </div>
