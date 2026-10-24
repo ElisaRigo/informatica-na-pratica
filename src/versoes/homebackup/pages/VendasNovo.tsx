@@ -241,12 +241,12 @@ const Hero = () => {
                 <Button
                   onClick={() => setIsPlaying(true)}
                   aria-label="Assistir ao recado da professora"
-                  className="badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full bg-black/55 py-1.5 pl-1.5 pr-3.5 shadow-lg backdrop-blur-md hover:bg-black/70 md:bottom-4 md:left-4 md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
+                  className="badge-pill badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-3.5 shadow-lg ring-1 ring-white/25 md:bottom-4 md:left-4 md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
                 >
-                  <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot))] md:h-10 md:w-10">
-                    <Play className="ml-0.5 !h-4 !w-4 fill-white text-white md:!h-5 md:!w-5" />
+                  <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot-foreground))] md:h-10 md:w-10">
+                    <Play className="ml-0.5 !h-4 !w-4 fill-[hsl(var(--badge-hot))] text-[hsl(var(--badge-hot))] md:!h-5 md:!w-5" />
                   </span>
-                  <span className="whitespace-nowrap text-[13px] font-bold leading-none text-white md:text-base">
+                  <span className="whitespace-nowrap text-[13px] font-bold leading-none text-[hsl(var(--badge-hot-foreground))] md:text-base">
                     Assista o recado da prof
                   </span>
                 </Button>
@@ -1268,21 +1268,10 @@ const Footer = () => (
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => {
-  const [pastValue, setPastValue] = useState(false);
-  useEffect(() => {
-    const check = () => {
-      const el = document.getElementById("primeiro-valor");
-      if (!el) return;
-      setPastValue(el.getBoundingClientRect().top < window.innerHeight);
-    };
-    check();
-    window.addEventListener("scroll", check, { passive: true });
-    return () => window.removeEventListener("scroll", check);
-  }, []);
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
       <button
-        onClick={pastValue ? openCheckout : scrollToValue}
+        onClick={openCheckout}
         className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground active:brightness-95"
       >
         <Monitor className="w-5 h-5 shrink-0" /> Quero começar agora!
