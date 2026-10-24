@@ -171,6 +171,24 @@ const ProgramMiniatures = () => (
   </div>
 );
 
+const SocialProofRow = () => (
+  <div className="mb-3 flex items-center justify-center gap-3">
+    <div className="flex -space-x-2">
+      {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
+        <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
+      ))}
+    </div>
+    <div className="text-left">
+      <div className="flex">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+        ))}
+      </div>
+      <p className="text-xs text-slate-300 font-medium">+15.000 alunos já aprenderam</p>
+    </div>
+  </div>
+);
+
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
   <header className="border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-3">
@@ -196,21 +214,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="mb-3 flex items-center justify-center gap-3">
-            <div className="flex -space-x-2">
-              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
-                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
-              ))}
-            </div>
-            <div className="text-left">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-xs text-slate-300 font-medium">+15.000 alunos já aprenderam</p>
-            </div>
-          </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-3">
             Aprenda a usar o computador
@@ -266,11 +269,7 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-4">
-            Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
-          </p>
-
-          <div className="mt-3 grid grid-cols-4 gap-x-1 gap-y-2">
+          <div className="grid grid-cols-4 gap-x-1 gap-y-2">
             {[
               { icon: ShieldCheck, tone: "text-green-400", lines: ["7 dias", "de garantia"] },
               { icon: Lock, tone: "text-blue-400", lines: ["Compra", "100% segura"] },
@@ -294,6 +293,10 @@ const Hero = () => {
               </div>
             ))}
           </div>
+
+          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-4">
+            Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
+          </p>
 
 
         </div>
@@ -345,6 +348,7 @@ const AulaDemonstrativa = () => {
   return (
     <section className="py-4 md:py-6 bg-white/5 border-t border-white/10">
       <div className="container mx-auto px-4 max-w-4xl">
+        <SocialProofRow />
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-green-500/100/10 text-green-300 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
             <PlayCircle className="w-4 h-4" /> AULA JÁ LIBERADA
