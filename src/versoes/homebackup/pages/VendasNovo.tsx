@@ -240,13 +240,15 @@ const Hero = () => {
                 />
                 <Button
                   onClick={() => setIsPlaying(true)}
-                  className="cta-pulse cta-pulse-hot absolute bottom-2 left-2 z-10 h-12 max-w-[calc(100%-1rem)] gap-2 rounded-xl bg-[hsl(var(--badge-hot))] px-3 text-sm font-extrabold text-[hsl(var(--badge-hot-foreground))] hover:bg-[hsl(var(--badge-hot-hover))] md:bottom-4 md:left-4 md:h-14 md:px-5 md:text-lg"
+                  aria-label="Assistir ao recado da professora"
+                  className="absolute bottom-2 left-2 z-10 flex items-center gap-2 rounded-full bg-black/55 py-1.5 pl-1.5 pr-3.5 shadow-lg backdrop-blur-md ring-1 ring-white/20 hover:bg-black/70 md:bottom-4 md:left-4 md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
                 >
-                  <span className="relative flex h-7 w-7 shrink-0 items-center justify-center">
-                    <span aria-hidden="true" className="absolute inset-0 rounded-full bg-current opacity-40 motion-safe:animate-ping motion-reduce:animate-none" />
-                    <PlayCircle className="relative !h-7 !w-7" strokeWidth={2.5} />
+                  <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot))] md:h-10 md:w-10">
+                    <Play className="ml-0.5 !h-4 !w-4 fill-white text-white md:!h-5 md:!w-5" />
                   </span>
-                  <span>Assista o recado da prof</span>
+                  <span className="whitespace-nowrap text-[13px] font-bold leading-none text-white md:text-base">
+                    Assista o recado da prof
+                  </span>
                 </Button>
               </div>
             ) : (
