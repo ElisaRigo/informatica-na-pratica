@@ -434,6 +434,21 @@ video::-webkit-media-controls-panel {
   --pulse-color: var(--badge-hot);
 }
 
+/* Video badge: soft orange halo pulsing behind the play dot. */
+@keyframes badge-halo {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--badge-hot) / 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 7px hsl(var(--badge-hot) / 0);
+  }
+}
+
+.badge-halo {
+  animation: badge-halo 1.8s ease-out infinite;
+}
+
 .cta-shine::after {
   content: "";
   position: absolute;
@@ -446,6 +461,7 @@ video::-webkit-media-controls-panel {
 
 @media (prefers-reduced-motion: reduce) {
   .cta-pulse,
+  .badge-halo,
   .cta-shine::after {
     animation: none !important;
   }
