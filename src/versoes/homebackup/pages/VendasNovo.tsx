@@ -216,9 +216,6 @@ const Hero = () => {
             <span className="text-sky-300"> mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-5">
-            Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
-          </p>
 
           <p className="mt-1 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
             Domine os programas mais usados
@@ -266,6 +263,10 @@ const Hero = () => {
               </div>
             )}
           </div>
+
+          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-4">
+            Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
+          </p>
 
           <div className="mt-3 grid grid-cols-2 gap-y-2 md:grid-cols-4 md:gap-y-0">
             {[
