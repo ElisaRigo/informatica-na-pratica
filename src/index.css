@@ -352,6 +352,13 @@ video::-webkit-media-controls-panel {
   --whatsapp-foreground: 0 0% 100%;
 }
 
+/* Dark orange accent for the "watch the teacher's message" badge on the first video. */
+:root {
+  --badge-hot: 18 88% 40%;
+  --badge-hot-hover: 15 79% 34%;
+  --badge-hot-foreground: 0 0% 100%;
+}
+
 /* Warm, high-attention palette scoped to the 7-day challenge block only. */
 .challenge-theme {
   --background: 20 45% 7%;
@@ -397,14 +404,14 @@ video::-webkit-media-controls-panel {
   100% {
     transform: scale(1);
     box-shadow:
-      0 10px 24px hsl(var(--whatsapp) / 0.38),
-      0 0 0 0 hsl(var(--whatsapp) / 0.5);
+      0 10px 24px hsl(var(--pulse-color, var(--whatsapp)) / 0.38),
+      0 0 0 0 hsl(var(--pulse-color, var(--whatsapp)) / 0.5);
   }
   45% {
     transform: scale(1.02);
     box-shadow:
-      0 16px 34px hsl(var(--whatsapp) / 0.55),
-      0 0 0 12px hsl(var(--whatsapp) / 0);
+      0 16px 34px hsl(var(--pulse-color, var(--whatsapp)) / 0.55),
+      0 0 0 12px hsl(var(--pulse-color, var(--whatsapp)) / 0);
   }
 }
 
@@ -420,6 +427,11 @@ video::-webkit-media-controls-panel {
 
 .cta-pulse {
   animation: cta-breathe 2.4s ease-in-out infinite;
+}
+
+/* Breathing glow in dark orange instead of the WhatsApp green. */
+.cta-pulse-hot {
+  --pulse-color: var(--badge-hot);
 }
 
 .cta-shine::after {

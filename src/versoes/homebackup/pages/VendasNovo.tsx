@@ -237,7 +237,7 @@ const Hero = () => {
                 />
                 <Button
                   onClick={() => setIsPlaying(true)}
-                  className="cta-pulse absolute bottom-2 left-2 z-10 h-12 max-w-[calc(100%-1rem)] gap-2 rounded-xl bg-[hsl(var(--whatsapp))] px-3 text-sm font-extrabold text-[hsl(var(--whatsapp-foreground))] hover:bg-[hsl(var(--whatsapp-hover))] md:bottom-4 md:left-4 md:h-14 md:px-5 md:text-lg"
+                  className="cta-pulse cta-pulse-hot absolute bottom-2 left-2 z-10 h-12 max-w-[calc(100%-1rem)] gap-2 rounded-xl bg-[hsl(var(--badge-hot))] px-3 text-sm font-extrabold text-[hsl(var(--badge-hot-foreground))] hover:bg-[hsl(var(--badge-hot-hover))] md:bottom-4 md:left-4 md:h-14 md:px-5 md:text-lg"
                 >
                   <span className="relative flex h-7 w-7 shrink-0 items-center justify-center">
                     <span aria-hidden="true" className="absolute inset-0 rounded-full bg-current opacity-40 motion-safe:animate-ping motion-reduce:animate-none" />
