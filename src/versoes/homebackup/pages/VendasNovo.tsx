@@ -269,26 +269,24 @@ const Hero = () => {
             Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
           </p>
 
-          <div className="mt-3 w-screen relative left-[calc(50%-50vw)] bg-white py-4 md:py-6">
-            <div className="mx-auto grid max-w-4xl grid-cols-4 gap-x-1 gap-y-2 px-2 md:gap-x-4 md:px-4">
-              {[
-                { icon: ShieldCheck, tone: "bg-green-500", title: "7 dias de garantia", note: "Se não gostar, devolvemos o dinheiro" },
-                { icon: Lock, tone: "bg-blue-500", title: "Compra 100% segura", note: "Pagamento e dados protegidos" },
-                { icon: Zap, tone: "bg-orange-500", title: "Acesso imediato", note: "Receba seu curso agora mesmo, na hora" },
-                { icon: MessageCircle, tone: "bg-teal-500", title: "Suporte por WhatsApp", note: "Ajuda para idosos, sempre disponível" },
-              ].map((s) => (
-                <div
-                  key={s.title}
-                  className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-1.5 md:px-2"
-                >
-                  <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full md:h-14 md:w-14 ${s.tone}`}>
-                    <s.icon className="h-5 w-5 md:h-7 md:w-7 text-white" strokeWidth={2.5} />
-                  </span>
-                  <span className="block text-[8px] font-extrabold uppercase leading-[1.1] text-slate-900 md:text-xs">{s.title}</span>
-                  <span className="block text-[7px] leading-[1.15] text-slate-500 md:text-[11px]">{s.note}</span>
-                </div>
-              ))}
-            </div>
+          <div className="mt-3 grid grid-cols-4 gap-x-1 gap-y-2">
+            {[
+              { icon: ShieldCheck, tone: "bg-green-500", title: "7 dias de garantia", note: "Se não gostar, devolvemos o dinheiro" },
+              { icon: Lock, tone: "bg-blue-500", title: "Compra 100% segura", note: "Pagamento e dados protegidos" },
+              { icon: Zap, tone: "bg-orange-500", title: "Acesso imediato", note: "Receba seu curso agora mesmo, na hora" },
+              { icon: MessageCircle, tone: "bg-teal-500", title: "Suporte por WhatsApp", note: "Ajuda para idosos, sempre disponível" },
+            ].map((s) => (
+              <div
+                key={s.title}
+                className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-1.5 md:px-2"
+              >
+                <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full md:h-14 md:w-14 ${s.tone}`}>
+                  <s.icon className="h-5 w-5 md:h-7 md:w-7 text-white" strokeWidth={2.5} />
+                </span>
+                <span className="block text-[8px] font-extrabold uppercase leading-[1.1] text-white md:text-xs">{s.title}</span>
+                <span className="block text-[7px] leading-[1.15] text-slate-400 md:text-[11px]">{s.note}</span>
+              </div>
+            ))}
           </div>
 
 
