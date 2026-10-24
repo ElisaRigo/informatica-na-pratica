@@ -154,11 +154,11 @@ const programTiles: { type: ProgramType; name: string; gradient: string }[] = [
 ];
 
 const ProgramMiniatures = () => (
-  <div className="mt-2 flex flex-wrap items-start justify-center gap-x-2 gap-y-2 md:gap-x-6">
+  <div className="mt-3 flex w-full flex-wrap items-start justify-between gap-x-1 gap-y-2 md:mx-auto md:max-w-3xl md:flex-nowrap md:gap-x-6">
     {programTiles.map((p) => (
       <div key={p.type} className="flex flex-col items-center gap-1 md:gap-2">
         <div
-          className="flex h-[58px] w-[58px] items-center justify-center rounded-xl shadow-lg shadow-black/30 md:h-[104px] md:w-[104px] md:rounded-2xl"
+          className="flex h-[13.5vw] w-[13.5vw] max-h-[52px] max-w-[52px] items-center justify-center rounded-xl shadow-lg shadow-black/30 md:h-[92px] md:w-[92px] md:max-h-none md:max-w-none md:rounded-2xl"
           style={{ background: p.gradient }}
         >
           <ProgramIcon type={p.type} />
