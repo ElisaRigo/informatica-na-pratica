@@ -434,14 +434,38 @@ video::-webkit-media-controls-panel {
   --pulse-color: var(--badge-hot);
 }
 
-/* Video badge: soft orange halo pulsing behind the play dot. */
-@keyframes badge-halo {
+/* Video badge: the whole pill breathes big, growing from its corner. */
+@keyframes badge-breathe {
   0%,
   100% {
-    box-shadow: 0 0 0 0 hsl(var(--badge-hot) / 0.55);
+    transform: scale(1);
+    box-shadow:
+      inset 0 0 0 1px hsl(0 0% 100% / 0.2),
+      0 10px 24px rgba(0, 0, 0, 0.35),
+      0 0 0 0 hsl(var(--badge-hot) / 0.6);
   }
-  50% {
-    box-shadow: 0 0 0 7px hsl(var(--badge-hot) / 0);
+  45% {
+    transform: scale(1.18);
+    box-shadow:
+      inset 0 0 0 1px hsl(0 0% 100% / 0.28),
+      0 14px 30px rgba(0, 0, 0, 0.4),
+      0 0 0 12px hsl(var(--badge-hot) / 0.38);
+  }
+}
+
+.badge-breathe {
+  transform-origin: bottom left;
+  animation: badge-breathe 1.8s ease-in-out infinite;
+}
+
+/* Play dot: ring that expands well past the dot before fading. */
+@keyframes badge-halo {
+  0% {
+    box-shadow: 0 0 0 0 hsl(var(--badge-hot) / 0.75);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 20px hsl(var(--badge-hot) / 0);
   }
 }
 
@@ -462,6 +486,7 @@ video::-webkit-media-controls-panel {
 @media (prefers-reduced-motion: reduce) {
   .cta-pulse,
   .badge-halo,
+  .badge-breathe,
   .cta-shine::after {
     animation: none !important;
   }

@@ -241,7 +241,7 @@ const Hero = () => {
                 <Button
                   onClick={() => setIsPlaying(true)}
                   aria-label="Assistir ao recado da professora"
-                  className="absolute bottom-2 left-2 z-10 flex items-center gap-2 rounded-full bg-black/55 py-1.5 pl-1.5 pr-3.5 shadow-lg backdrop-blur-md ring-1 ring-white/20 hover:bg-black/70 md:bottom-4 md:left-4 md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
+                  className="badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full bg-black/55 py-1.5 pl-1.5 pr-3.5 shadow-lg backdrop-blur-md hover:bg-black/70 md:bottom-4 md:left-4 md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
                 >
                   <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot))] md:h-10 md:w-10">
                     <Play className="ml-0.5 !h-4 !w-4 fill-white text-white md:!h-5 md:!w-5" />
