@@ -355,6 +355,7 @@ video::-webkit-media-controls-panel {
 /* Dark orange accent for the "watch the teacher's message" badge on the first video. */
 :root {
   --badge-hot: 18 88% 40%;
+  --badge-hot-bright: 26 95% 55%;
   --badge-hot-hover: 15 79% 34%;
   --badge-hot-foreground: 0 0% 100%;
 }
@@ -461,16 +462,33 @@ video::-webkit-media-controls-panel {
 /* Play dot: ring that expands well past the dot before fading. */
 @keyframes badge-halo {
   0% {
-    box-shadow: 0 0 0 0 hsl(var(--badge-hot) / 0.75);
+    box-shadow: 0 0 0 0 hsl(var(--badge-hot-foreground) / 0.7);
   }
   70%,
   100% {
-    box-shadow: 0 0 0 20px hsl(var(--badge-hot) / 0);
+    box-shadow: 0 0 0 20px hsl(var(--badge-hot-foreground) / 0);
   }
 }
 
 .badge-halo {
   animation: badge-halo 1.8s ease-out infinite;
+}
+
+/* Video badge pill: warm orange gradient so it carries real colour. */
+.badge-pill {
+  background-image: linear-gradient(
+    135deg,
+    hsl(var(--badge-hot-bright)) 0%,
+    hsl(var(--badge-hot)) 72%
+  );
+}
+
+.badge-pill:hover {
+  background-image: linear-gradient(
+    135deg,
+    hsl(var(--badge-hot)) 0%,
+    hsl(var(--badge-hot-hover)) 100%
+  );
 }
 
 .cta-shine::after {
