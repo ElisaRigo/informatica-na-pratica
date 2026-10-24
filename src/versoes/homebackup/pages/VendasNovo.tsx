@@ -156,7 +156,7 @@ const programTiles: { type: ProgramType; name: string; gradient: string }[] = [
 ];
 
 const ProgramMiniatures = () => (
-  <div className="mt-3 flex w-full flex-wrap items-start justify-between gap-x-1 gap-y-2 md:mx-auto md:max-w-3xl md:flex-nowrap md:gap-x-6">
+  <div className="mt-2 flex w-full flex-wrap items-start justify-between gap-x-1 gap-y-2 md:mx-auto md:max-w-3xl md:flex-nowrap md:gap-x-6">
     {programTiles.map((p) => (
       <div key={p.type} className="flex flex-col items-center gap-1 md:gap-2">
         <div
@@ -191,7 +191,7 @@ const SocialProofRow = () => (
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-3">
+  <header className="border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-2">
     <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
       <p className="leading-none text-center">
         <span className="block whitespace-nowrap text-[8.8vw] font-black tracking-tight text-white sm:text-3xl md:text-5xl">
@@ -212,10 +212,10 @@ const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
 
-      <div className="container mx-auto px-4 py-3 md:py-4">
+      <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="max-w-5xl mx-auto text-center">
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-3">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-2">
             Aprenda a usar o computador
             <br className="hidden md:block" />
             <span className="text-sky-300"> mesmo que você nunca tenha ligado um na vida.</span>
@@ -229,7 +229,7 @@ const Hero = () => {
 
 
           {/* Video */}
-          <div className="relative mt-7 max-w-5xl -mx-4 md:mx-auto md:mt-10 rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-5">
+          <div className="relative mt-5 max-w-5xl -mx-4 md:mx-auto md:mt-8 rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-3">
             {!isPlaying ? (
               <div className="relative aspect-video">
                 <img
@@ -278,7 +278,7 @@ const Hero = () => {
             ].map((s, i) => (
               <div
                 key={s.lines.join(" ")}
-                className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-2 md:px-2"
+                className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2"
               >
                 <s.icon
                   className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`}
