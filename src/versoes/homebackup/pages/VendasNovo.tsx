@@ -267,8 +267,8 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="mt-4 text-xs md:text-base font-semibold text-slate-300">
-            Você vai dominar os programas mais usados:
+          <p className="mt-4 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
+            Domine os programas mais usados
           </p>
           <ProgramMiniatures />
 
