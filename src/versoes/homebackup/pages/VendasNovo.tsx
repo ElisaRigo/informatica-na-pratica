@@ -272,7 +272,7 @@ const Hero = () => {
           </p>
           <ProgramMiniatures />
 
-          <div className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+          <div className="mt-3 grid grid-cols-2 gap-y-2 md:grid-cols-4 md:gap-y-0">
             {[
               { icon: Lock, tone: "bg-sky-400/15 text-sky-300", title: "Pagamento seguro" },
               { icon: ShieldCheck, tone: "bg-green-400/15 text-green-400", title: "Garantia de 7 dias" },
@@ -281,12 +281,12 @@ const Hero = () => {
             ].map((s) => (
               <div
                 key={s.title}
-                className="flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 text-center md:gap-3 md:px-4 md:py-4"
+                className="flex flex-col items-center justify-center gap-2 px-2 py-2 text-center md:gap-3"
               >
                 <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full md:h-16 md:w-16 ${s.tone}`}>
                   <s.icon className="h-6 w-6 md:h-8 md:w-8" strokeWidth={2.5} />
                 </span>
-                <span className="block text-[11px] font-extrabold leading-tight text-white md:text-sm">{s.title}</span>
+                <span className="block text-[11px] font-extrabold leading-tight text-slate-300 md:text-sm">{s.title}</span>
               </div>
             ))}
           </div>
