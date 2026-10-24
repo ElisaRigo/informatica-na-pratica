@@ -271,19 +271,21 @@ const Hero = () => {
 
           <div className="mt-3 grid grid-cols-4 gap-x-1 gap-y-2">
             {[
-              { icon: ShieldCheck, tone: "bg-green-500", title: "7 dias de garantia" },
-              { icon: Lock, tone: "bg-blue-500", title: "Compra 100% segura" },
-              { icon: Zap, tone: "bg-orange-500", title: "Acesso imediato" },
-              { icon: MessageCircle, tone: "bg-teal-500", title: "Suporte por WhatsApp" },
+              { tone: "bg-green-500", lines: ["7 dias", "de garantia"] },
+              { tone: "bg-blue-500", lines: ["Compra", "100% segura"] },
+              { tone: "bg-orange-500", lines: ["Acesso", "imediato"] },
+              { tone: "bg-teal-500", lines: ["Suporte por", "WhatsApp"] },
             ].map((s) => (
               <div
-                key={s.title}
+                key={s.lines.join(" ")}
                 className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-1.5 md:px-2"
               >
-                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full md:h-16 md:w-16 ${s.tone}`}>
-                  <s.icon className="h-[26px] w-[26px] md:h-10 md:w-10 text-white" strokeWidth={2.25} />
+                <span className={`h-11 w-11 shrink-0 rounded-full md:h-16 md:w-16 ${s.tone}`} />
+                <span className="block text-[8px] font-extrabold uppercase leading-[1.15] text-white md:text-xs">
+                  {s.lines[0]}
+                  <br />
+                  {s.lines[1]}
                 </span>
-                <span className="block text-[8px] font-extrabold uppercase leading-[1.1] text-white md:text-xs">{s.title}</span>
               </div>
             ))}
           </div>
