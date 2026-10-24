@@ -280,8 +280,8 @@ const Hero = () => {
                 key={s.title}
                 className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-1.5 md:px-2"
               >
-                <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full md:h-14 md:w-14 ${s.tone}`}>
-                  <s.icon className="h-5 w-5 md:h-7 md:w-7 text-white" strokeWidth={2.5} />
+                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full md:h-16 md:w-16 ${s.tone}`}>
+                  <s.icon className="h-[26px] w-[26px] md:h-10 md:w-10 text-white" strokeWidth={2.25} />
                 </span>
                 <span className="block text-[8px] font-extrabold uppercase leading-[1.1] text-white md:text-xs">{s.title}</span>
               </div>
