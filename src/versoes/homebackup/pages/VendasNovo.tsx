@@ -209,6 +209,11 @@ const Hero = () => {
             Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
           </p>
 
+          <p className="mt-1 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
+            Domine os programas mais usados
+          </p>
+          <ProgramMiniatures />
+
           {/* Social proof inline */}
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="flex -space-x-2">
@@ -266,11 +271,6 @@ const Hero = () => {
               </div>
             )}
           </div>
-
-          <p className="mt-4 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
-            Domine os programas mais usados
-          </p>
-          <ProgramMiniatures />
 
           <div className="mt-3 grid grid-cols-2 gap-y-2 md:grid-cols-4 md:gap-y-0">
             {[
