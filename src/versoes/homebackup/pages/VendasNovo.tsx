@@ -24,6 +24,8 @@ import {
   ThumbsUp,
   Heart,
   Headphones,
+  Zap,
+  MessageCircle,
 } from "lucide-react";
 import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
