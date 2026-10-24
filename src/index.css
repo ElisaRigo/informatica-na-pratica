@@ -486,6 +486,7 @@ video::-webkit-media-controls-panel {
 @media (prefers-reduced-motion: reduce) {
   .cta-pulse,
   .badge-halo,
+  .badge-breathe,
   .cta-shine::after {
     animation: none !important;
   }
