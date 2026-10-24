@@ -158,7 +158,7 @@ const ProgramMiniatures = () => (
     {programTiles.map((p) => (
       <div key={p.type} className="flex flex-col items-center gap-1 md:gap-2">
         <div
-          className="flex h-[52px] w-[52px] items-center justify-center rounded-xl shadow-lg shadow-black/30 md:h-[92px] md:w-[92px] md:rounded-2xl"
+          className="flex h-[min(13.5vw,52px)] w-[min(13.5vw,52px)] items-center justify-center rounded-xl shadow-lg shadow-black/30 md:h-[92px] md:w-[92px] md:rounded-2xl"
           style={{ background: p.gradient }}
         >
           <ProgramIcon type={p.type} />
