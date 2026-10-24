@@ -226,7 +226,7 @@ const Hero = () => {
 
 
           {/* Video */}
-          <div className="relative max-w-5xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-5">
+          <div className="relative mt-7 max-w-5xl -mx-4 md:mx-auto md:mt-10 rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-5">
             {!isPlaying ? (
               <div className="relative aspect-video">
                 <img
@@ -237,10 +237,10 @@ const Hero = () => {
                 />
                 <Button
                   onClick={() => setIsPlaying(true)}
-                  className="absolute bottom-2 left-2 z-10 h-12 max-w-[calc(100%-1rem)] gap-2 rounded-xl px-3 text-sm font-extrabold shadow-lg md:bottom-4 md:left-4 md:h-14 md:px-5 md:text-lg"
+                  className="cta-pulse absolute bottom-2 left-2 z-10 h-12 max-w-[calc(100%-1rem)] gap-2 rounded-xl bg-[hsl(var(--whatsapp))] px-3 text-sm font-extrabold text-[hsl(var(--whatsapp-foreground))] hover:bg-[hsl(var(--whatsapp-hover))] md:bottom-4 md:left-4 md:h-14 md:px-5 md:text-lg"
                 >
                   <span className="relative flex h-7 w-7 shrink-0 items-center justify-center">
-                    <span aria-hidden="true" className="absolute inset-0 rounded-full bg-primary-foreground/40 motion-safe:animate-ping motion-reduce:animate-none" />
+                    <span aria-hidden="true" className="absolute inset-0 rounded-full bg-current opacity-40 motion-safe:animate-ping motion-reduce:animate-none" />
                     <PlayCircle className="relative !h-7 !w-7" strokeWidth={2.5} />
                   </span>
                   <span>Assista o recado da prof</span>
@@ -276,12 +276,16 @@ const Hero = () => {
               { icon: Lock, tone: "text-blue-400", lines: ["Compra", "100% segura"] },
               { icon: Zap, tone: "text-orange-400", lines: ["Acesso", "imediato"] },
               { icon: MessageCircle, tone: "text-teal-400", lines: ["Suporte por", "WhatsApp"] },
-            ].map((s) => (
+            ].map((s, i) => (
               <div
                 key={s.lines.join(" ")}
                 className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-2 md:px-2"
               >
-                <s.icon className={`h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} />
+                <s.icon
+                  className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`}
+                  strokeWidth={2}
+                  style={{ animationDelay: `${i * 0.35}s` }}
+                />
                 <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-white md:text-[13px]">
                   {s.lines[0]}
                   <br />

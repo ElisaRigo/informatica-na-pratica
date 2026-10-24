@@ -438,3 +438,27 @@ video::-webkit-media-controls-panel {
     animation: none !important;
   }
 }
+
+/* Trust seals: gentle breathing pulse so each badge reads as active. */
+@keyframes seal-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 currentColor);
+  }
+  50% {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+}
+
+.seal-pulse {
+  transform-origin: center;
+  animation: seal-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal-pulse {
+    animation: none !important;
+  }
+}
