@@ -271,16 +271,16 @@ const Hero = () => {
 
           <div className="mt-3 grid grid-cols-4 gap-x-1 gap-y-2">
             {[
-              { tone: "bg-green-500", lines: ["7 dias", "de garantia"] },
-              { tone: "bg-blue-500", lines: ["Compra", "100% segura"] },
-              { tone: "bg-orange-500", lines: ["Acesso", "imediato"] },
-              { tone: "bg-teal-500", lines: ["Suporte por", "WhatsApp"] },
+              { icon: ShieldCheck, tone: "text-green-400", lines: ["7 dias", "de garantia"] },
+              { icon: Lock, tone: "text-blue-400", lines: ["Compra", "100% segura"] },
+              { icon: Zap, tone: "text-orange-400", lines: ["Acesso", "imediato"] },
+              { icon: MessageCircle, tone: "text-teal-400", lines: ["Suporte por", "WhatsApp"] },
             ].map((s) => (
               <div
                 key={s.lines.join(" ")}
-                className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-1.5 md:px-2"
+                className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-2 md:px-2"
               >
-                <span className={`h-11 w-11 shrink-0 rounded-full md:h-16 md:w-16 ${s.tone}`} />
+                <s.icon className={`h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} />
                 <span className="block text-[8px] font-extrabold uppercase leading-[1.15] text-white md:text-xs">
                   {s.lines[0]}
                   <br />
