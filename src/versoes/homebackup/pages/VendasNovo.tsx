@@ -267,7 +267,7 @@ const Hero = () => {
             )}
           </div>
 
-          <p className="mt-4 whitespace-nowrap [font-size:min(4.7vw,22px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
+          <p className="mt-4 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
             Domine os programas mais usados
           </p>
           <ProgramMiniatures />
