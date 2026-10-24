@@ -274,22 +274,19 @@ const Hero = () => {
 
           <div className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
             {[
-              { icon: Lock, tone: "bg-sky-400/15 text-sky-300", title: "Pagamento seguro", note: "Seus dados protegidos" },
-              { icon: ShieldCheck, tone: "bg-green-400/15 text-green-400", title: "Garantia de 7 dias", note: "Não gostou? Devolvemos o dinheiro" },
-              { icon: InfinityIcon, tone: "bg-cyan-400/15 text-cyan-300", title: "Acesso vitalício", note: "Assista quantas vezes quiser" },
-              { icon: Headphones, tone: "bg-amber-400/15 text-amber-300", title: "Suporte no WhatsApp", note: "Tire dúvidas com a professora" },
+              { icon: Lock, tone: "bg-sky-400/15 text-sky-300", title: "Pagamento seguro" },
+              { icon: ShieldCheck, tone: "bg-green-400/15 text-green-400", title: "Garantia de 7 dias" },
+              { icon: InfinityIcon, tone: "bg-cyan-400/15 text-cyan-300", title: "Acesso vitalício" },
+              { icon: Headphones, tone: "bg-amber-400/15 text-amber-300", title: "Suporte no WhatsApp" },
             ].map((s) => (
               <div
                 key={s.title}
-                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-2.5 py-2 md:gap-3 md:px-4 md:py-3"
+                className="flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 text-center md:gap-3 md:px-4 md:py-4"
               >
-                <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full md:h-11 md:w-11 ${s.tone}`}>
-                  <s.icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={2.5} />
+                <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full md:h-16 md:w-16 ${s.tone}`}>
+                  <s.icon className="h-6 w-6 md:h-8 md:w-8" strokeWidth={2.5} />
                 </span>
-                <span className="min-w-0">
-                  <span className="block text-[11px] font-extrabold leading-tight text-white md:text-sm">{s.title}</span>
-                  <span className="block text-[9px] leading-tight text-slate-400 md:text-xs">{s.note}</span>
-                </span>
+                <span className="block text-[11px] font-extrabold leading-tight text-white md:text-sm">{s.title}</span>
               </div>
             ))}
           </div>
