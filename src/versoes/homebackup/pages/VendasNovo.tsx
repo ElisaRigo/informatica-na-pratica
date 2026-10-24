@@ -281,7 +281,7 @@ const Hero = () => {
                 className="flex flex-col items-center justify-center gap-1 px-0.5 py-2 text-center md:gap-2 md:px-2"
               >
                 <s.icon className={`h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} />
-                <span className="block text-[8px] font-extrabold uppercase leading-[1.15] text-white md:text-xs">
+                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-white md:text-[13px]">
                   {s.lines[0]}
                   <br />
                   {s.lines[1]}
