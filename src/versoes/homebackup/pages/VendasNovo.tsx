@@ -272,24 +272,28 @@ const Hero = () => {
           </p>
           <ProgramMiniatures />
 
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 md:gap-x-5">
+          <div className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
             {[
-              { src: "/images/selos/selo-pagamento-seguro.png", alt: "Selo: pagamento seguro" },
-              { src: "/images/selos/selo-garantia-7-dias.png", alt: "Selo: garantia de 7 dias" },
-              { src: "/images/selos/selo-acesso-imediato.png", alt: "Selo: acesso imediato e vitalício" },
-              { src: "/images/selos/selo-suporte.png", alt: "Selo: suporte ao aluno" },
-            ].map((selo) => (
-              <img
-                key={selo.src}
-                src={selo.src}
-                alt={selo.alt}
-                loading="lazy"
-                width={320}
-                height={320}
-                className="h-[62px] w-[62px] object-contain md:h-[132px] md:w-[132px]"
-              />
+              { icon: Lock, tone: "bg-sky-400/15 text-sky-300", title: "Pagamento seguro", note: "Seus dados protegidos" },
+              { icon: ShieldCheck, tone: "bg-green-400/15 text-green-400", title: "Garantia de 7 dias", note: "Não gostou? Devolvemos o dinheiro" },
+              { icon: InfinityIcon, tone: "bg-cyan-400/15 text-cyan-300", title: "Acesso vitalício", note: "Assista quantas vezes quiser" },
+              { icon: Headphones, tone: "bg-amber-400/15 text-amber-300", title: "Suporte no WhatsApp", note: "Tire dúvidas com a professora" },
+            ].map((s) => (
+              <div
+                key={s.title}
+                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-2.5 py-2 md:gap-3 md:px-4 md:py-3"
+              >
+                <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full md:h-11 md:w-11 ${s.tone}`}>
+                  <s.icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={2.5} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-[11px] font-extrabold leading-tight text-white md:text-sm">{s.title}</span>
+                  <span className="block text-[9px] leading-tight text-slate-400 md:text-xs">{s.note}</span>
+                </span>
+              </div>
             ))}
           </div>
+
 
         </div>
       </div>
