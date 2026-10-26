@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-export const WhatsAppButton = () => {
+export const WhatsAppButton = ({ raised = false }: { raised?: boolean }) => {
   const handleWhatsAppClick = () => {
     const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
                          window.location.hostname === 'www.informaticanapratica.com.br';
@@ -20,7 +20,7 @@ export const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleWhatsAppClick}
-      className="fixed right-4 bottom-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 animate-pulse flex items-center gap-2 group"
+      className={`fixed right-4 z-50 ${raised ? "bottom-24" : "bottom-6"} bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 animate-pulse flex items-center gap-2 group`}
       aria-label="Tire suas dúvidas no WhatsApp"
     >
       <MessageCircle className="w-6 h-6 group-hover:animate-bounce" />

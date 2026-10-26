@@ -1054,12 +1054,12 @@ const Footer = () => (
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
+  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 px-2 py-3 shadow-2xl">
     <button
       onClick={requestCheckout}
-      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
+      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold py-4 rounded-xl flex items-center justify-center [font-size:min(7.9vw,32px)] leading-[1.15]"
     >
-      <Monitor className="w-5 h-5" /> Quero começar agora!
+      Quero começar agora!
     </button>
   </div>
 );
@@ -1101,7 +1101,7 @@ const VendasNovo = () => {
       <FinalCTA />
       <Footer />
       <StickyMobile />
-      <WhatsAppButton />
+      <WhatsAppButton raised />
       <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
     </div>
   );
