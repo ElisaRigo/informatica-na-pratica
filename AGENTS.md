@@ -1,5 +1,5 @@
 # Project architecture
-- Route `/` and `/aprender` to the same page module so the current sales content stays identical without changing historical versions.
+- Route `/` to the same page module as the chosen historical version (currently /versao-21-09) and keep `/aprender` and `/icone` on their own modules, so swapping the home never edits page content.
 - Keep experimental sales pages in independently routed page modules so comparing a new funnel never changes existing or historical pages.
 - Use existing Hotmart tracking helpers for purchase actions so checkout events remain consistent across sales variants.
 - Scope experimental page theme tokens to its root class so design exploration does not change other pages.
