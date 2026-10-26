@@ -61,6 +61,7 @@ const App = () => (
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
             <Route path="/informatica" element={<Informatica />} />
             <Route path="/nova-versao" element={<NovaVersao />} />
+            <Route path="/icone" element={<Icone />} />
             <Route path="/aprender" element={<HomeBackup />} />
             <Route path="/versao-06-07" element={<Aprender />} />
             <Route path="/versao-27-07" element={<Versao2707 />} />
