@@ -57,8 +57,7 @@ import fbAvatar8 from "@/versoes/v2109/assets/avatar-8.jpg";
 
 import { HeroBonuses } from "@/versoes/v2109/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/versoes/v2109/components/aprender/QuizIdentificacao";
-import { CourseEnrollmentDialog } from "@/versoes/v2109/components/CourseEnrollmentDialog";
-import { CHECKOUT_MODAL_EVENT, requestCheckout } from "@/versoes/v2109/lib/requestCheckout";
+import { openHotmartCheckout } from "@/versoes/v2109/lib/checkoutTracking";
 
 // ───────────────────────── CTA Button ─────────────────────────
 const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
