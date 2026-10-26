@@ -1066,16 +1066,8 @@ const StickyMobile = () => (
 
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
-
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
-  }, []);
-
-  useEffect(() => {
-    const openDialog = () => setCheckoutOpen(true);
-    window.addEventListener(CHECKOUT_MODAL_EVENT, openDialog);
-    return () => window.removeEventListener(CHECKOUT_MODAL_EVENT, openDialog);
   }, []);
 
   return (
