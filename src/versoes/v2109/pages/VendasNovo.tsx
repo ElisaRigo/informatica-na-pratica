@@ -1094,7 +1094,6 @@ const VendasNovo = () => {
       <Footer />
       <StickyMobile />
       <WhatsAppButton raised />
-      <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
     </div>
   );
 };
