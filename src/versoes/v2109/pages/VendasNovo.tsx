@@ -1101,7 +1101,7 @@ const VendasNovo = () => {
       <FinalCTA />
       <Footer />
       <StickyMobile />
-      <WhatsAppButton />
+      <WhatsAppButton raised />
       <CourseEnrollmentDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
     </div>
   );
