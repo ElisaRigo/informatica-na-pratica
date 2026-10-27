@@ -30,6 +30,7 @@ import {
   Gift,
   Zap,
   MessageCircle,
+  MousePointer2,
 } from "lucide-react";
 import logoBlue from "@/versoes/v2909/assets/logo-blue.png";
 import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
@@ -456,7 +457,64 @@ const Instructor = () => (
 );
 
 // ───────────────────────── Method (3 steps) ─────────────────────────
-const Method = () => {
+const Method = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
+  if (remarketingTop) {
+    const trail = [
+      {
+        icon: PlayCircle,
+        tone: "watch",
+        title: "Você assiste",
+        description: "Sente no computador e dê o play. Eu explico do zero, com calma.",
+        reassurance: "Pode pausar e assistir de novo.",
+      },
+      {
+        icon: MousePointer2,
+        tone: "practice",
+        title: "Você faz comigo",
+        description: "Veja onde eu clico e faça igual no seu computador. Um passo de cada vez.",
+        reassurance: "Você não precisa saber antes.",
+      },
+      {
+        icon: Trophy,
+        tone: "achieve",
+        title: "Você usa no dia a dia",
+        description: "Imagine escrever um documento, enviar um e-mail e encontrar seus arquivos.",
+        reassurance: "Cada prática traz mais confiança.",
+      },
+    ];
+    return (
+      <section className="learning-trail py-7 md:py-10" aria-labelledby="learning-trail-title">
+        <div className="mx-auto max-w-4xl px-4 md:px-8">
+          <header className="mb-6 text-center">
+            <p className="learning-trail-eyebrow text-xs font-bold uppercase mb-2">3 passos. No seu ritmo.</p>
+            <h2 id="learning-trail-title" className="text-2xl md:text-4xl font-black leading-tight">
+              Seu caminho para usar<br className="md:hidden" /> o computador
+            </h2>
+            <p className="learning-trail-muted mt-3 text-sm md:text-base">Imagine você aprendendo assim, comigo.</p>
+          </header>
+          <ol className="learning-trail-steps relative grid gap-6 md:grid-cols-3 md:gap-8">
+            {trail.map(({ icon: Icon, tone, title, description, reassurance }, index) => (
+              <li key={tone} className={`learning-trail-step learning-trail-${tone} relative grid grid-cols-[56px_minmax(0,1fr)] gap-4 md:block`}>
+                <div className="learning-trail-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full md:mb-4">
+                  <Icon className="h-7 w-7" strokeWidth={2} aria-hidden="true" />
+                  <span className="learning-trail-number absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-extrabold">{index + 1}</span>
+                </div>
+                <div className="min-w-0 pt-1 md:pt-0">
+                  <h3 className="text-lg md:text-xl font-extrabold leading-tight">{title}</h3>
+                  <p className="learning-trail-muted mt-2 text-sm leading-relaxed">{description}</p>
+                  <p className="learning-trail-reassurance mt-2 text-sm font-bold leading-snug">{reassurance}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <p className="learning-trail-closing mt-6 flex items-center justify-center gap-2 border-t pt-4 text-sm font-bold text-center">
+            <HeartHandshake className="h-5 w-5 shrink-0" aria-hidden="true" />
+            Do zero, com calma. Uma conquista de cada vez.
+          </p>
+        </div>
+      </section>
+    );
+  }
   const steps = [
     {
       n: "1",
@@ -1305,7 +1363,7 @@ const VendasNovo = ({ remarketingTop = false }: { remarketingTop?: boolean }) =>
       {!remarketingTop && <QuizIdentificacao />}
       <WhatsAposAulas />
       <Instructor />
-      <Method />
+      <Method remarketingTop={remarketingTop} />
       <Modules />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
