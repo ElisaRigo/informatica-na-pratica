@@ -199,7 +199,7 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
           </div>}
 
           <p className={`text-base md:text-xl max-w-3xl mx-auto mb-3 ${remarketingTop ? "text-muted-foreground" : "text-slate-700"}`}>
-            Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
+            {"\n"}
           </p>
 
 
@@ -279,7 +279,7 @@ const AulaDemonstrativa = () => {
             Imagine você... Usando o computador com tranquilidade!
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            Cada clique com calma, sem termos difíceis e sem pressa.
+            {"\n"}
           </p>
         </div>
 
