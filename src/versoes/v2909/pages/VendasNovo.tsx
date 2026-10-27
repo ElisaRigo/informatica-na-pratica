@@ -106,7 +106,7 @@ import typingIcon from "@/versoes/v2909/assets/typing-icon.png";
 const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section className={remarketingTop ? "relative bg-background text-foreground" : "relative bg-gradient-to-b from-blue-50 via-white to-white"}>
+    <section className={remarketingTop ? "home-anterior-2-top relative bg-background text-foreground" : "relative bg-gradient-to-b from-blue-50 via-white to-white"}>
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
 
@@ -140,7 +140,7 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
-                  src={homeVideoThumb}
+                  src={remarketingTop ? "/images/capa-primeiro-video.jpg" : homeVideoThumb}
                   alt="Aula demonstrativa"
                   className="w-full h-full object-cover"
                   loading="eager"
