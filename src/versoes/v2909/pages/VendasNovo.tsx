@@ -36,13 +36,10 @@ import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
 import { HeartHandshake as HeartHandshakeIcon } from "lucide-react";
 import elisaTeaching from "@/versoes/v2909/assets/elisa-teaching.jpg";
 import heroCover from "@/versoes/v2909/assets/hero-video-cover-home.jpg";
-import environmentThumb from "@/versoes/v2909/assets/environment-thumb.jpg";
 import courseFirstLessonThumb from "@/versoes/v2909/assets/aprenda-comigo-thumb.jpg";
 import homeVideoThumbAsset from "@/versoes/v2909/assets/capa-primeiro-video.png.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 import certificado from "@/versoes/v2909/assets/certificado-exemplo.png";
-import lessonThumbAsset from "@/versoes/v2909/assets/capa-aula-demonstrativa.jpg.asset.json";
-const lessonThumb = lessonThumbAsset.url;
 import avatar1 from "@/versoes/v2909/assets/testimonial-new-1.jpg";
 import avatar2 from "@/versoes/v2909/assets/testimonial-new-2.jpg";
 import avatar3 from "@/versoes/v2909/assets/testimonial-new-3.jpg";
@@ -266,8 +263,6 @@ const Identification = () => {
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
   const [isCourseLessonPlaying, setIsCourseLessonPlaying] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isSecondPlaying, setIsSecondPlaying] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -283,7 +278,7 @@ const AulaDemonstrativa = () => {
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3 mb-6">
+        <div className="mx-auto mb-6 max-w-2xl">
           <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">1</span>
@@ -323,83 +318,6 @@ const AulaDemonstrativa = () => {
             )}
           </article>
 
-          <article id="aula-2" className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
-            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">2</span>
-              <div className="text-left">
-                <h3 className="font-black text-slate-900">Eu mostro cada clique</h3>
-                <p className="text-xs text-slate-500">Acompanhe minha explicação passo a passo</p>
-              </div>
-            </div>
-            {!isPlaying ? (
-              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsPlaying(true)} aria-label="Assistir à primeira aula real">
-                <img
-                  src={lessonThumb}
-                  alt="Segunda aula real com a Professora Elisa"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
-                    <PlayCircle className="h-10 w-10 text-blue-600 md:h-12 md:w-12" strokeWidth={1.5} />
-                  </span>
-                </span>
-                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
-                  Assistir aula 2
-                </span>
-              </button>
-            ) : (
-              <div className="aspect-video relative">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                  title="Segunda aula real com a Professora Elisa"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </article>
-
-          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
-            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">3</span>
-              <div className="text-left">
-                <h3 className="font-black text-slate-900">Aulas reais do dia a dia</h3>
-                <p className="text-xs text-slate-500">Mais uma aula completa do curso</p>
-              </div>
-            </div>
-            {!isSecondPlaying ? (
-              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsSecondPlaying(true)} aria-label="Assistir à segunda aula real de Excel">
-                <img
-                  src={environmentThumb}
-                  alt="Segunda aula real de Excel com a Professora Elisa"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
-                    <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
-                  </span>
-                </span>
-                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
-                  Assistir aula 3
-                </span>
-              </button>
-            ) : (
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/g_F1-d7tdQ0?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                  title="Segunda aula real de Excel com a Professora Elisa"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </article>
         </div>
 
         <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 md:gap-3">
@@ -417,7 +335,7 @@ const AulaDemonstrativa = () => {
 
         <div className="text-center space-y-4">
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Se você entendeu essas aulas, imagine o que vai conseguir com o curso completo: são <strong className="text-slate-900">+90 aulas simples</strong> para usar o computador com confiança e sem depender de ninguém.
+            Se você entendeu essa aula, imagine o que vai conseguir com o curso completo: são <strong className="text-slate-900">+90 aulas simples</strong> para usar o computador com confiança e sem depender de ninguém.
           </p>
           <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#1e3a8a] via-blue-600 to-sky-500 px-4 py-3.5 text-center shadow-lg shadow-blue-600/30 ring-1 ring-inset ring-white/15">
             <Trophy className="h-5 w-5 shrink-0 text-amber-300 md:h-6 md:w-6" />
