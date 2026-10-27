@@ -718,7 +718,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
   );
 };
 
-const SocialProof = () => {
+const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
   const [showAllComments, setShowAllComments] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white">
@@ -1295,9 +1295,9 @@ const VendasNovo = ({ remarketingTop = false }: { remarketingTop?: boolean }) =>
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Hero remarketingTop={remarketingTop} />
       <AulaDemonstrativa />
-      <SocialProof />
+      <SocialProof remarketingTop={remarketingTop} />
       <MiniValueSection />
-      <QuizIdentificacao />
+      {!remarketingTop && <QuizIdentificacao />}
       <WhatsAposAulas />
       <Instructor />
       <Method />
