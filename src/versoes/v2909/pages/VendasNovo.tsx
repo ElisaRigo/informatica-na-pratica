@@ -302,7 +302,7 @@ const AulaDemonstrativa = () => {
                   </span>
                 </span>
                 <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
-                  Assistir aula 1
+                  Assista uma aula
                 </span>
               </button>
             ) : (
