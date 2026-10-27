@@ -755,6 +755,7 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
         </div>
 
         {/* WhatsApp + Audios */}
+        {!remarketingTop && (
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-5">
           {/* WhatsApp Screenshots */}
           <div className="order-1 lg:order-2">
