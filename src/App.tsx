@@ -70,6 +70,7 @@ const App = () => (
             <Route path="/versao-21-09" element={<Versao2109 />} />
             <Route path="/versao-13-05" element={<Versao1305 />} />
             <Route path="/home-anterior" element={<Index />} />
+            <Route path="/home-anterior-2" element={<HomeAnterior2 />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
