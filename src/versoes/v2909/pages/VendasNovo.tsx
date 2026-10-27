@@ -27,6 +27,7 @@ import {
   Heart,
   Headphones,
   Trophy,
+  Gift,
 } from "lucide-react";
 import logoBlue from "@/versoes/v2909/assets/logo-blue.png";
 import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
@@ -418,7 +419,7 @@ const MiniValueSection = () => {
         </p>
         <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
         <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-          <span>🎁</span> Hoje você leva 4 bônus exclusivos
+          <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
         </p>
         <p className="text-slate-600 text-base md:text-lg mt-1">
           ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
@@ -435,7 +436,7 @@ const MiniValueSection = () => {
             <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
           </p>
           <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">RISCO ZERO!</span> Se não gostar, eu devolvo{" "}
+            <span className="text-blue-600 font-bold">Risco zero.</span> Se não gostar, eu devolvo{" "}
             <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
           </p>
         </div>
@@ -514,7 +515,7 @@ const Method = () => {
     {
       n: "1",
       t: "Assiste a aula curta",
-      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no celular, computador ou tablet, quando quiser.",
+      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no computador, quando quiser, no seu ritmo.",
     },
     {
       n: "2",
@@ -1062,8 +1063,8 @@ const FAQ = () => {
       a: "Na hora. Logo após o pagamento aprovado você recebe os dados de acesso no seu e-mail.",
     },
     {
-      q: "Funciona no celular?",
-      a: "Sim. Você pode assistir no celular, tablet ou computador. Mas pra praticar é importante ter acesso a um computador.",
+      q: "Preciso ter um computador?",
+      a: "Sim. O curso ensina a usar o computador, então você assiste às aulas e pratica nele, comigo mostrando cada passo na tela.",
     },
     {
       q: "Como funciona a garantia?",
