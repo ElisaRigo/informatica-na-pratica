@@ -744,14 +744,18 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
             </div>
           </div>
 
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3 leading-tight">
-            Veja o que dizem os alunos que <span className="text-blue-600">saíram do zero</span>
-          </h2>
-          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-medium">
-            Histórias reais de pessoas que{" "}
-            <span className="text-slate-900 font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
-            confiança
-          </p>
+          {!remarketingTop && (
+            <>
+              <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3 leading-tight">
+                Veja o que dizem os alunos que <span className="text-blue-600">saíram do zero</span>
+              </h2>
+              <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-medium">
+                Histórias reais de pessoas que{" "}
+                <span className="text-slate-900 font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
+                confiança
+              </p>
+            </>
+          )}
         </div>
 
         {/* WhatsApp + Audios */}
@@ -863,13 +867,15 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
         )}
 
         {/* CTA */}
-        <div className="text-center space-y-4">
-          <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
-          <CTA>Quero aprender sem medo!</CTA>
-          <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
-          </p>
-        </div>
+        {!remarketingTop && (
+          <div className="text-center space-y-4">
+            <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
+            <CTA>Quero aprender sem medo!</CTA>
+            <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
+              <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
