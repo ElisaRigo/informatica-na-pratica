@@ -191,7 +191,7 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
             ].map((s, i) => (
               <div key={s.lines.join(" ")} className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2">
                 <s.icon className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} style={{ animationDelay: `${i * 0.35}s` }} />
-                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-foreground md:text-[13px]">{s.lines[0]}<br />{s.lines[1]}</span>
+                <span className="block text-[11px] font-extrabold uppercase leading-[1.15] text-foreground md:text-[14px]">{s.lines[0]}<br />{s.lines[1]}</span>
               </div>
             ))}
           </div>}
@@ -271,8 +271,8 @@ const AulaDemonstrativa = () => {
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
             <PlayCircle className="w-4 h-4" />Deixe sua insegurança para trás. 
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Imagine você... Usando o computador com tranquilidade!
+          <h2 className="text-[27px] md:text-4xl font-black text-slate-900 leading-tight">
+            Imagine você... Usando o computador com <span className="text-blue-600">tranquilidade!</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
             {"\n"}
@@ -329,14 +329,14 @@ const AulaDemonstrativa = () => {
           ].map((benefit) => (
             <div key={benefit} className="flex flex-col items-center gap-1.5 rounded-xl border border-green-200 bg-green-50 p-2 text-center md:flex-row md:justify-center md:p-3">
               <CheckCircle2 className="h-5 w-5 shrink-0 text-green-600" />
-              <span className="text-[11px] font-bold leading-tight text-slate-700 md:text-sm">{benefit}</span>
+              <span className="text-[13px] font-bold leading-tight text-slate-800 md:text-base">{benefit}</span>
             </div>
           ))}
         </div>
 
         <div className="text-center space-y-4">
-          <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Você finalmente vai DESTRAVAR e usar o computador com total SEGURANÇA, sem precisar pedir ajuda para NINGUÉM.
+          <p className="text-slate-800 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-snug">
+            Você finalmente vai <strong className="font-black text-blue-600">DESTRAVAR</strong> e usar o computador com total <strong className="font-black text-green-600">SEGURANÇA</strong>, sem precisar pedir ajuda para <strong className="font-black text-slate-900">NINGUÉM</strong>.
           </p>
           <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#1e3a8a] via-blue-600 to-sky-500 px-4 py-3.5 text-center shadow-lg shadow-blue-600/30 ring-1 ring-inset ring-white/15">
             <Trophy className="h-5 w-5 shrink-0 text-amber-300 md:h-6 md:w-6" />
@@ -354,22 +354,34 @@ const MiniValueSection = () => {
     <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
-          <Award className="w-4 h-4" /> 🎓 SUA OPORTUNIDADE DE APRENDER
+          <Award className="w-4 h-4" /> SUA OPORTUNIDADE DE APRENDER
         </span>
-        <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-          Aprenda informática de verdade
+        <h2 className="text-[28px] md:text-4xl font-black text-slate-900 leading-tight">
+          Aprenda informática <span className="text-blue-600">de verdade</span>
         </h2>
-        <p className="text-slate-500 text-base md:text-lg mt-2">Curso completo, meu suporte e acesso vitalício.</p>
-        <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
-        <p className="text-slate-500 text-sm md:text-base">
+        <div className="mt-4 mb-5 grid grid-cols-3 gap-2 md:gap-3">
+          {[
+            { icon: GraduationCap, tone: "text-blue-600 bg-blue-100", lines: ["Curso", "completo"] },
+            { icon: MessageCircle, tone: "text-green-600 bg-green-100", lines: ["Meu", "suporte"] },
+            { icon: InfinityIcon, tone: "text-orange-600 bg-orange-100", lines: ["Acesso", "vitalício"] },
+          ].map((s, i) => (
+            <div key={s.lines.join(" ")} className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200 bg-white px-1 py-3 shadow-sm">
+              <span className={`seal-pulse flex h-12 w-12 items-center justify-center rounded-full md:h-14 md:w-14 ${s.tone}`} style={{ animationDelay: `${i * 0.35}s` }}>
+                <s.icon className="h-7 w-7 md:h-8 md:w-8" strokeWidth={2.4} />
+              </span>
+              <span className="text-[13px] font-extrabold uppercase leading-[1.15] text-slate-900 md:text-base">{s.lines[0]}<br />{s.lines[1]}</span>
+            </div>
+          ))}
+        </div>
+        <p className="text-slate-600 text-base md:text-lg">
           de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
         </p>
-        <p className="text-green-600 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
-        <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+        <p className="text-green-600 font-black text-5xl md:text-6xl leading-tight mt-1">R$ 297,00</p>
+        <p className="text-amber-600 font-extrabold text-base md:text-lg mt-2 flex items-center justify-center gap-1.5">
           <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
         </p>
-        <p className="text-slate-600 text-base md:text-lg mt-1">
-          ou <span className="font-semibold text-slate-800">12x de R$ 30,72</span> no cartão
+        <p className="text-slate-700 text-lg md:text-xl mt-1">
+          ou <span className="font-black text-slate-900">12x de R$ 30,72</span> no cartão
         </p>
         <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
           <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
