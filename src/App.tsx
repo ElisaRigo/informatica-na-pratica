@@ -32,6 +32,7 @@ const Versao1305 = lazy(() => import("./versoes/v1305/pages/Index"));
 const NovaVersao = lazy(() => import("./pages/NovaVersao"));
 const Icone = lazy(() => import("./pages/Icone"));
 const HomeAnterior2 = lazy(() => import("./pages/HomeAnterior2"));
+const Icone2 = lazy(() => import("./pages/Icone2"));
 
 
 const queryClient = new QueryClient();
@@ -63,6 +64,7 @@ const App = () => (
             <Route path="/informatica" element={<Informatica />} />
             <Route path="/nova-versao" element={<NovaVersao />} />
             <Route path="/icone" element={<Icone />} />
+            <Route path="/icone-2" element={<Icone2 />} />
             <Route path="/aprender" element={<HomeBackup />} />
             <Route path="/versao-06-07" element={<Aprender />} />
             <Route path="/versao-27-07" element={<Versao2707 />} />
