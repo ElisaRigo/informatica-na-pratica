@@ -31,6 +31,7 @@ const Versao2109 = lazy(() => import("./versoes/v2109/pages/Index"));
 const Versao1305 = lazy(() => import("./versoes/v1305/pages/Index"));
 const NovaVersao = lazy(() => import("./pages/NovaVersao"));
 const Icone = lazy(() => import("./pages/Icone"));
+const HomeAnterior2 = lazy(() => import("./pages/HomeAnterior2"));
 
 
 const queryClient = new QueryClient();
@@ -69,6 +70,7 @@ const App = () => (
             <Route path="/versao-21-09" element={<Versao2109 />} />
             <Route path="/versao-13-05" element={<Versao1305 />} />
             <Route path="/home-anterior" element={<Index />} />
+            <Route path="/home-anterior-2" element={<HomeAnterior2 />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
