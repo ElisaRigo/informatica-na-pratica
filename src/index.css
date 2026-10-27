@@ -231,29 +231,6 @@ video::-webkit-media-controls-panel {
   --border: 214 25% 86%;
 }
 
-/* Dedicated remarketing page: dark base with a clean testimonial break. */
-.remarketing-confidence {
-  --background: 220 28% 10%;
-  --foreground: 210 25% 98%;
-  --panel: 220 24% 14%;
-  --primary: 195 100% 62%;
-  --primary-foreground: 220 28% 10%;
-  --muted-foreground: 215 18% 78%;
-  --border: 220 16% 28%;
-  --ring: 195 100% 62%;
-  --success: 142 70% 49%;
-  --success-foreground: 0 0% 100%;
-  --shadow-cta: 0 8px 24px hsl(var(--success) / 0.2);
-}
-.remarketing-confidence .remarketing-light {
-  --background: 210 25% 98%;
-  --foreground: 220 28% 10%;
-  --panel: 0 0% 100%;
-  --primary: 195 100% 35%;
-  --muted-foreground: 215 20% 34%;
-  --border: 215 20% 83%;
-}
-
 /* Animated welcome banner shown above the 7-day challenge. */
 @keyframes welcome-reveal {
   from {
