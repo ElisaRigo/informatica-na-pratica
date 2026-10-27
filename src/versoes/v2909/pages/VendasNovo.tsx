@@ -323,7 +323,7 @@ const AulaDemonstrativa = () => {
         <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 md:gap-3">
           {[
             "Você acompanha no seu ritmo",
-            "Pode assistir quantas vezes quiser",
+            "Assistir quantas vezes quiser",
             "Suporte quando tiver dúvida",
           ].map((benefit) => (
             <div key={benefit} className="flex flex-col items-center gap-1.5 rounded-xl border border-green-200 bg-green-50 p-2 text-center md:flex-row md:justify-center md:p-3">
