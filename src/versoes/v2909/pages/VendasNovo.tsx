@@ -1187,7 +1187,7 @@ const StickyMobile = ({ remarketingTop = false }: { remarketingTop?: boolean }) 
       <Button
         type="button"
         onClick={() => openHotmartCheckout()}
-        className="h-auto w-full bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(7.2vw,29px)] leading-[1.15] whitespace-nowrap"
+        className="cta-pulse h-auto w-full bg-[hsl(var(--whatsapp-strong))] hover:bg-[hsl(var(--whatsapp-strong-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(7.2vw,29px)] leading-[1.15] whitespace-nowrap"
       >
         <Monitor className="!h-[1.05em] !w-[1.05em] shrink-0" strokeWidth={2.5} />
         Quero começar agora!
