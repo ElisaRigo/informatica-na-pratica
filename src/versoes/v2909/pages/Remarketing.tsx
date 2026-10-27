@@ -111,7 +111,7 @@ export const TopBanner = () => (
         <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
           &ldquo;
         </span>
-        <span className="block whitespace-nowrap text-[6.4vw] leading-tight md:text-[4.4rem]">Aprenda a usar o</span>
+        <span className="block whitespace-nowrap text-[6.4vw] leading-tight md:text-[4.4rem]">Acabe com o seu medo do</span>
         <span className="relative mt-1 block w-full leading-none">
           <span className="relative z-10 whitespace-nowrap text-[12.5vw] font-black leading-none md:text-[8.5rem]">
             <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador</span>
