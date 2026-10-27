@@ -1,6 +1,6 @@
 # Nova página de confiança
-- [ ] Ajustar somente /home-anterior-2: vídeo após a copy, selos da /icone abaixo e remoção das fotos, estrelas e faixa azul do anexo.
-- [ ] Conferir a ordem, os selos e a reprodução do vídeo.
+- [x] Ajustar somente /home-anterior-2: vídeo após a copy, selos da /icone abaixo e remoção das fotos, estrelas e faixa azul do anexo.
+- [x] Conferir a ordem, os selos e a reprodução do vídeo.
 - [x] Criar /nova-versao sem alterar as páginas existentes.
 - [x] Combinar aula, razões para aprender, provas reais, oferta e dúvidas em cinco seções.
 - [x] Verificar exibição em telas grandes e pequenas, abertura da aula, dúvidas, Hotmart com eventos e WhatsApp com mensagem pronta.
