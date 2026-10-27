@@ -975,8 +975,8 @@ const Pricing = () => (
         <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
           Oferta especial • 40% OFF
         </span>
-        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
-        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
+        <h2 className="text-3xl md:text-5xl font-black mb-3">Comece hoje, no seu ritmo</h2>
+        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • 7 dias de garantia</p>
       </div>
 
       <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
