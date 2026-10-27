@@ -281,7 +281,7 @@ const AulaDemonstrativa = () => {
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3 mb-6">
+        <div className="mx-auto mb-6 max-w-2xl">
           <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">1</span>
