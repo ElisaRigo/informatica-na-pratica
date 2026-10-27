@@ -1,4 +1,6 @@
 # Nova página de confiança
+- [ ] Deixar vídeo da /home-anterior-2 de ponta a ponta no celular, usar selo pulsante sem play central e botão fixo grande como a home.
+- [ ] Verificar vídeo, selo, botão e abertura do pagamento em telas pequenas e grandes.
 - [x] Ajustar somente /home-anterior-2: vídeo após a copy, selos da /icone abaixo e remoção das fotos, estrelas e faixa azul do anexo.
 - [x] Conferir a ordem, os selos e a reprodução do vídeo.
 - [x] Criar /nova-versao sem alterar as páginas existentes.
