@@ -114,11 +114,11 @@ export const TopBanner = () => (
         <span className="block whitespace-nowrap text-[6.4vw] leading-tight md:text-[4.4rem]">ASabe porque você vai conseguir aprender a usar o</span>
         <span className="relative mt-1 block w-full leading-none">
           <span className="relative z-10 whitespace-nowrap text-[12.5vw] font-black leading-none md:text-[8.5rem]">
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador</span>
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">computador?</span>
           </span>
           <span className="absolute inset-x-0 bottom-[0.04em] z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-2" />
         </span>
-        <span className="mt-1 block whitespace-nowrap text-[6.7vw] leading-tight md:text-[4.6rem]">de uma vez por todas!</span>
+        <span className="mt-1 block whitespace-nowrap text-[6.7vw] leading-tight md:text-[4.6rem]">Porque vou te ensinar do Zero ...</span>
       </p>
       <div className="mx-auto mt-3 h-px w-24 rounded-full bg-gradient-to-r from-transparent via-primary/70 to-transparent md:mt-4 md:w-32" />
     </div>
