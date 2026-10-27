@@ -268,7 +268,7 @@ const AulaDemonstrativa = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> Você é Super Capaz de Aprender ...
+            <PlayCircle className="w-4 h-4" /> Deixe sua insegurança para trás. 
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Imagine você... Usando o computador com tranquilidade!
@@ -335,7 +335,7 @@ const AulaDemonstrativa = () => {
 
         <div className="text-center space-y-4">
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Se você entendeu essa aula, imagine o que vai conseguir com o curso completo: são <strong className="text-slate-900">+90 aulas simples</strong> para usar o computador com confiança e sem depender de ninguém.
+            Você finalmente vai destravar e usar o computador com total segurança, sem precisar pedir ajuda para ninguém.
           </p>
           <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#1e3a8a] via-blue-600 to-sky-500 px-4 py-3.5 text-center shadow-lg shadow-blue-600/30 ring-1 ring-inset ring-white/15">
             <Trophy className="h-5 w-5 shrink-0 text-amber-300 md:h-6 md:w-6" />
