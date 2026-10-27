@@ -62,6 +62,8 @@ import fbAvatar8 from "@/versoes/v2909/assets/avatar-8.jpg";
 import { HeroBonuses } from "@/versoes/v2909/components/aprender/HeroBonuses";
 import { QuizIdentificacao } from "@/versoes/v2909/components/aprender/QuizIdentificacao";
 import { requestCheckout } from "@/versoes/v2909/lib/requestCheckout";
+import { openHotmartCheckout } from "@/versoes/v2909/lib/checkoutTracking";
+import { Button } from "@/components/ui/button";
 
 // ───────────────────────── CTA Button ─────────────────────────
 const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
@@ -128,7 +130,7 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
           </div>}
 
           {/* Video */}
-          <div className="relative max-w-5xl mx-auto mt-1 mb-5">
+          <div className={`relative max-w-5xl mt-1 mb-5 ${remarketingTop ? "-mx-4 md:mx-auto" : "mx-auto"}`}>
             {/* Selo acima da moldura — centrado, sem cobrir a capa */}
             {!remarketingTop && <div className="flex justify-center mb-3">
               <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/30 ring-2 ring-white whitespace-nowrap">
@@ -136,7 +138,7 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
                 Assista e venha aprender comigo
               </div>
             </div>}
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200">
+            <div className={remarketingTop ? "overflow-hidden md:rounded-2xl" : "rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200"}>
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
@@ -145,11 +147,21 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  {remarketingTop ? <Button
+                    type="button"
+                    onClick={() => setIsPlaying(true)}
+                    aria-label="Assistir ao recado da professora"
+                    className="badge-pill badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-3.5 shadow-lg md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
+                  >
+                    <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot-foreground))] md:h-10 md:w-10">
+                      <Play className="ml-0.5 !h-4 !w-4 fill-[hsl(var(--badge-hot))] text-[hsl(var(--badge-hot))] md:!h-5 md:!w-5" />
+                    </span>
+                    <span className="whitespace-nowrap text-[13px] font-bold leading-none text-[hsl(var(--badge-hot-foreground))] md:text-base">Assista o recado da prof</span>
+                  </Button> : <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
                       <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
                     </div>
-                  </div>
+                  </div>}
               </div>
             ) : (
               <div className="aspect-video relative">
@@ -1156,7 +1168,7 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = () => {
+const StickyMobile = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const check = () => {
@@ -1169,6 +1181,18 @@ const StickyMobile = () => {
     window.addEventListener("scroll", check, { passive: true });
     return () => window.removeEventListener("scroll", check);
   }, []);
+  if (remarketingTop) return (
+    <div className="home-anterior-2-sticky md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-border bg-background px-2 py-3 shadow-2xl">
+      <Button
+        type="button"
+        onClick={() => openHotmartCheckout()}
+        className="h-auto w-full bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(7.2vw,29px)] leading-[1.15] whitespace-nowrap"
+      >
+        <Monitor className="!h-[1.05em] !w-[1.05em] shrink-0" strokeWidth={2.5} />
+        Quero começar agora!
+      </Button>
+    </div>
+  );
   if (!show) return null;
   return (
   <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
@@ -1372,7 +1396,7 @@ const VendasNovo = ({ remarketingTop = false }: { remarketingTop?: boolean }) =>
       <FAQ />
       <FinalCTA />
       <Footer />
-      <StickyMobile />
+      <StickyMobile remarketingTop={remarketingTop} />
       <WhatsFloat />
     </div>
   );
