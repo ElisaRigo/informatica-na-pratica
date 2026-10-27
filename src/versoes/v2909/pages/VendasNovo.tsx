@@ -795,8 +795,7 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
             </div>
           </div>
         </div>
-
-        {/* Highlight phrase */}
+        )}
         <div className="text-center my-4 max-w-4xl mx-auto">
           <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
             Se essas pessoas conseguiram, <span className="text-green-600">você também consegue.</span>
