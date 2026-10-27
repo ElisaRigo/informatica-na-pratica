@@ -509,7 +509,7 @@ const Method = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
           </ol>
           <p className="learning-trail-closing mt-6 flex items-center justify-center gap-2 border-t pt-4 text-sm font-bold text-center">
             <HeartHandshake className="h-5 w-5 shrink-0" aria-hidden="true" />
-            Do zero, com calma. Uma conquista de cada vez.
+            Do zero, com calma. Uma conquista de cada vez.
           </p>
         </div>
       </section>
