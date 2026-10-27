@@ -1277,7 +1277,7 @@ const WhatsAposAulas = ({ bg = "bg-white" }: { bg?: string }) => (
             className="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-6 py-4 rounded-xl shrink-0 shadow-md"
           >
             <WhatsIcon className="w-6 h-6" />
-            <span className="text-lg">Quero falar com a Profª Elisa</span>
+            <span className="text-lg">Me Chame para Conversar</span>
           </a>
         </div>
       </div>
