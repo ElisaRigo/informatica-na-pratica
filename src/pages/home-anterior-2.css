@@ -1,3 +1,23 @@
+/* /info: more breathing room between sections, scoped to this page only. */
+.info-spacing > main > section,
+.info-spacing section + section {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .info-spacing > main > section,
+  .info-spacing section + section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Fixed CTA breathes with the darker green it is painted with. */
+.home-anterior-2-sticky .cta-pulse {
+  --pulse-color: var(--whatsapp-strong);
+}
+
 .home-anterior-2-top {
   --background: 222 47% 11%;
   --foreground: 0 0% 100%;
