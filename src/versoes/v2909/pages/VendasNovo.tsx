@@ -28,6 +28,8 @@ import {
   Headphones,
   Trophy,
   Gift,
+  Zap,
+  MessageCircle,
 } from "lucide-react";
 import logoBlue from "@/versoes/v2909/assets/logo-blue.png";
 import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
@@ -101,15 +103,15 @@ import internetIcon from "@/versoes/v2909/assets/internet-icon.png";
 import typingIcon from "@/versoes/v2909/assets/typing-icon.png";
 
 // ───────────────────────── Hero ─────────────────────────
-const Hero = () => {
+const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
+    <section className={remarketingTop ? "home-anterior-2-top relative bg-background text-foreground" : "relative bg-gradient-to-b from-blue-50 via-white to-white"}>
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="max-w-5xl mx-auto text-center">
 
           {/* Social proof inline */}
-          <div className="flex items-center justify-center gap-3 mb-4">
+          {!remarketingTop && <div className="flex items-center justify-center gap-3 mb-4">
             <div className="flex -space-x-2">
               {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
                 <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
@@ -123,22 +125,22 @@ const Hero = () => {
               </div>
               <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
             </div>
-          </div>
+          </div>}
 
           {/* Video */}
           <div className="relative max-w-5xl mx-auto mt-1 mb-5">
             {/* Selo acima da moldura — centrado, sem cobrir a capa */}
-            <div className="flex justify-center mb-3">
+            {!remarketingTop && <div className="flex justify-center mb-3">
               <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/30 ring-2 ring-white whitespace-nowrap">
                 <Play className="w-3.5 h-3.5 md:w-4 md:h-4 fill-white shrink-0" />
                 Assista e venha aprender comigo
               </div>
-            </div>
+            </div>}
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200">
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
-                  src={homeVideoThumb}
+                  src={remarketingTop ? "/images/capa-primeiro-video.jpg" : homeVideoThumb}
                   alt="Aula demonstrativa"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -170,12 +172,26 @@ const Hero = () => {
             </div>
           </div>
 
-          <p className="text-base md:text-xl text-slate-700 max-w-3xl mx-auto mb-3">
+          {remarketingTop && <div className="home-anterior-2-seals grid grid-cols-4 gap-x-1 gap-y-2 mb-4">
+            {[
+              { icon: ShieldCheck, tone: "text-[hsl(var(--seal-guarantee))]", lines: ["7 dias", "de garantia"] },
+              { icon: Lock, tone: "text-[hsl(var(--seal-secure))]", lines: ["Compra", "100% segura"] },
+              { icon: Zap, tone: "text-[hsl(var(--seal-access))]", lines: ["Acesso", "imediato"] },
+              { icon: MessageCircle, tone: "text-[hsl(var(--seal-support))]", lines: ["Suporte por", "WhatsApp"] },
+            ].map((s, i) => (
+              <div key={s.lines.join(" ")} className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2">
+                <s.icon className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} style={{ animationDelay: `${i * 0.35}s` }} />
+                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-foreground md:text-[13px]">{s.lines[0]}<br />{s.lines[1]}</span>
+              </div>
+            ))}
+          </div>}
+
+          <p className={`text-base md:text-xl max-w-3xl mx-auto mb-3 ${remarketingTop ? "text-muted-foreground" : "text-slate-700"}`}>
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
 
-          <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mt-5 mb-2 max-w-3xl mx-auto">
+          {!remarketingTop && <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mt-5 mb-2 max-w-3xl mx-auto">
             {[
               { icon: Lock, label: "Pagamento seguro" },
               { icon: ShieldCheck, label: "7 dias de garantia" },
@@ -191,7 +207,7 @@ const Hero = () => {
                 <span className="text-[10px] sm:text-base font-semibold text-slate-800 leading-tight">{label}</span>
               </div>
             ))}
-          </div>
+          </div>}
 
         </div>
       </div>
@@ -1328,14 +1344,14 @@ const SuporteProfessora = () => {
 
 // ───────────────────────── Footer ─────────────────────────
 
-const VendasNovo = () => {
+const VendasNovo = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
 
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
-      <Hero />
+      <Hero remarketingTop={remarketingTop} />
       <AulaDemonstrativa />
       <SocialProof />
       <MiniValueSection />

@@ -1,0 +1,12 @@
+.home-anterior-2-top {
+  --background: 222 47% 11%;
+  --foreground: 0 0% 100%;
+  --muted-foreground: 213 27% 84%;
+}
+
+.home-anterior-2-seals {
+  --seal-guarantee: 142 69% 58%;
+  --seal-secure: 213 94% 68%;
+  --seal-access: 27 96% 61%;
+  --seal-support: 172 66% 50%;
+}
