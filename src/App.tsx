@@ -31,6 +31,7 @@ const Versao2109 = lazy(() => import("./versoes/v2109/pages/Index"));
 const Versao1305 = lazy(() => import("./versoes/v1305/pages/Index"));
 const NovaVersao = lazy(() => import("./pages/NovaVersao"));
 const Icone = lazy(() => import("./pages/Icone"));
+const HomeAnterior2 = lazy(() => import("./pages/HomeAnterior2"));
 
 
 const queryClient = new QueryClient();
