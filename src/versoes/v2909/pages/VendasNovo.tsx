@@ -276,7 +276,7 @@ const AulaDemonstrativa = () => {
             <PlayCircle className="w-4 h-4" /> ASSISTA AGORA E COMECE A APRENDER
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-            Assista agora e veja: <span className="text-blue-600">você também consegue aprender</span>
+            Imagine você... Usando o computador com tranquilidade!
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
             Cada clique com calma, sem termos difíceis e sem pressa.
