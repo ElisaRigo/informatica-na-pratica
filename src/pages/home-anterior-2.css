@@ -1,13 +1,11 @@
 /* /info: more breathing room between sections, scoped to this page only. */
-.info-spacing > main > section,
-.info-spacing section + section {
+.info-spacing > div > section {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
 
 @media (min-width: 768px) {
-  .info-spacing > main > section,
-  .info-spacing section + section {
+  .info-spacing > div > section {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
