@@ -353,10 +353,10 @@ const MiniValueSection = () => {
     <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
-          <Award className="w-4 h-4" /> Condição especial de hoje
+          <Award className="w-4 h-4" /> 🎓 SUA OPORTUNIDADE DE APRENDER
         </span>
         <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
-          Eu vou te acompanhar, <span className="whitespace-nowrap">no seu ritmo</span>
+          Aprenda informática de verdade
         </h2>
         <p className="text-slate-500 text-base md:text-lg mt-2">Curso completo, meu suporte e acesso vitalício.</p>
         <div className="w-16 h-1 bg-blue-500 rounded-full mx-auto mt-3 mb-5" />
