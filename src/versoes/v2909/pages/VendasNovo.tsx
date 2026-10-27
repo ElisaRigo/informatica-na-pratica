@@ -718,7 +718,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
   );
 };
 
-const SocialProof = () => {
+const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
   const [showAllComments, setShowAllComments] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white">
@@ -755,6 +755,7 @@ const SocialProof = () => {
         </div>
 
         {/* WhatsApp + Audios */}
+        {!remarketingTop && (
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-5">
           {/* WhatsApp Screenshots */}
           <div className="order-1 lg:order-2">
@@ -794,8 +795,7 @@ const SocialProof = () => {
             </div>
           </div>
         </div>
-
-        {/* Highlight phrase */}
+        )}
         <div className="text-center my-4 max-w-4xl mx-auto">
           <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
             Se essas pessoas conseguiram, <span className="text-green-600">você também consegue.</span>
@@ -1295,9 +1295,9 @@ const VendasNovo = ({ remarketingTop = false }: { remarketingTop?: boolean }) =>
     <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Hero remarketingTop={remarketingTop} />
       <AulaDemonstrativa />
-      <SocialProof />
+      <SocialProof remarketingTop={remarketingTop} />
       <MiniValueSection />
-      <QuizIdentificacao />
+      {!remarketingTop && <QuizIdentificacao />}
       <WhatsAposAulas />
       <Instructor />
       <Method />
