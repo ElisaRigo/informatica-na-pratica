@@ -266,8 +266,6 @@ const Identification = () => {
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
   const [isCourseLessonPlaying, setIsCourseLessonPlaying] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isSecondPlaying, setIsSecondPlaying] = useState(false);
   return (
     <section className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-6xl">
