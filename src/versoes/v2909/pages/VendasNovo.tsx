@@ -196,9 +196,9 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
             ))}
           </div>}
 
-          <p className={`text-base md:text-xl max-w-3xl mx-auto mb-3 ${remarketingTop ? "text-muted-foreground" : "text-slate-700"}`}>
+          {!remarketingTop && <p className={`text-base md:text-xl max-w-3xl mx-auto mb-3 text-slate-700`}>
             {"\n"}
-          </p>
+          </p>}
 
 
           {!remarketingTop && <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mt-5 mb-2 max-w-3xl mx-auto">

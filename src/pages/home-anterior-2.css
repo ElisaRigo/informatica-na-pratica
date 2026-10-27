@@ -1,13 +1,49 @@
-/* /info: more breathing room between sections, scoped to this page only. */
+/* /info: compact rhythm between sections, scoped to this page only. */
+.info-spacing > header {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+/* TopBanner sits right under the header — keep it snug. */
+.info-spacing > div.overflow-hidden {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
 .info-spacing > div > section {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+/* Hero carries its own container padding — zero it so the section rule alone controls spacing. */
+.info-spacing section.relative > .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* First-fold gaps under the video and the seals row. */
+.info-spacing section.relative .mt-1.mb-5 {
+  margin-bottom: 0.75rem;
+}
+
+.info-spacing section.relative .home-anterior-2-seals {
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 768px) {
+  .info-spacing > header {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .info-spacing > div.overflow-hidden {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+  }
+
   .info-spacing > div > section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
   }
 }
 
