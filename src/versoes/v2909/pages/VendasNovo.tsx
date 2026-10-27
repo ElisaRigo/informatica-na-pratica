@@ -621,7 +621,7 @@ const Modules = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero ver todas as aulas!</CTA>
+          <CTA>Quero conhecer todas as aulas</CTA>
         </div>
       </div>
     </section>
@@ -973,7 +973,7 @@ const Pricing = () => (
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-8">
         <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-          🔥 Oferta especial • 40% OFF
+          Oferta especial • 40% OFF
         </span>
         <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
         <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
@@ -988,7 +988,7 @@ const Pricing = () => (
           <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
           <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
           <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-            <span>🎁</span> Hoje você leva 4 bônus exclusivos
+            <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
           </p>
           <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
           <p className="text-base text-slate-600 mt-1">
@@ -1003,7 +1003,7 @@ const Pricing = () => (
             "Certificado de conclusão",
             "Suporte direto comigo",
             "Atualizações inclusas pra sempre",
-            "Acesso pelo celular, tablet ou computador",
+            "Acesso pelo seu computador, quando quiser",
           ].map((x) => (
             <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
               <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
@@ -1012,7 +1012,7 @@ const Pricing = () => (
           ))}
         </ul>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
+        <CTA>Quero começar meu curso</CTA>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
@@ -1112,10 +1112,10 @@ const FinalCTA = () => (
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
       <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
         Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
-        mais independente. <strong className="text-white">Hoje é o dia.</strong>
+        mais independente. <strong className="text-white">Você pode começar hoje, no seu ritmo.</strong>
       </p>
       <CTA>Quero começar agora!</CTA>
-      <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
+      <p className="text-xs text-slate-400 mt-4"><Lock className="w-3.5 h-3.5 inline align-[-2px]" /> Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
   </section>
 );
