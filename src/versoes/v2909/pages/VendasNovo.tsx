@@ -725,22 +725,21 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-5">
-          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-slate-200 rounded-full px-5 py-2 bg-slate-50">
-            <div className="flex items-center gap-1.5">
-              <div className="flex -space-x-2">
-                {fbAvatars.slice(0, 5).map((av, i) => (
-                  <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+          <div className="inline-flex items-center justify-center gap-2.5 mb-4 border border-slate-200 rounded-full px-4 py-1.5 bg-slate-50 whitespace-nowrap">
+            <div className="flex -space-x-2">
+              {fbAvatars.slice(0, 5).map((av, i) => (
+                <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+              ))}
+            </div>
+            <div className="text-left leading-tight">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-amber-400 text-base leading-none">
+                    ★
+                  </span>
                 ))}
               </div>
-              <span className="text-slate-900 text-sm font-bold ml-1">+15.000 alunos</span>
-            </div>
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-amber-400 text-lg">
-                  ★
-                </span>
-              ))}
-              <span className="text-slate-900 text-sm font-semibold ml-1">{"\n"}</span>
+              <span className="text-slate-900 text-xs font-bold">+15.000 alunos já aprenderam</span>
             </div>
           </div>
 
