@@ -3,7 +3,7 @@ import VendasNovo from "@/versoes/v2909/pages/VendasNovo";
 import "./home-anterior-2.css";
 
 const HomeAnterior2 = () => (
-  <div className="min-h-screen">
+  <div className="info-spacing min-h-screen">
     <Header />
     <TopBanner />
     <VendasNovo remarketingTop />

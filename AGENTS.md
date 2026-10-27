@@ -1,7 +1,7 @@
 # Project architecture
 - Route `/` to the same page module as the chosen historical version (currently /versao-21-09) and keep `/aprender` and `/icone` on their own modules, so swapping the home never edits page content.
 - Keep experimental sales pages in independently routed page modules so comparing a new funnel never changes existing or historical pages.
-- Pass the opt-in `remarketingTop` presentation variant from /home-anterior-2; shared historical pages keep the default top layout to prevent cross-page visual changes.
+- Pass the opt-in `remarketingTop` presentation variant from /info (page file HomeAnterior2.tsx); shared historical pages keep the default top layout to prevent cross-page visual changes.
 - Use existing Hotmart tracking helpers for purchase actions so checkout events remain consistent across sales variants.
 - Scope experimental page theme tokens to its root class so design exploration does not change other pages.
 - Keep highlighted-text contrast scoped by surface tone: dark sections must resolve `--primary` to a lighter value than light surfaces (via a CSS layer that unlayered theme scopes can still override), so highlight text stays readable on dark without washing out solid blue fills that carry white text.
