@@ -336,7 +336,7 @@ const AulaDemonstrativa = () => {
 
         <div className="text-center space-y-4">
           <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Você finalmente vai destravar e usar o computador com total segurança, sem precisar pedir ajuda para ninguém.
+            Você finalmente vai DESTRAVAR e usar o computador com total SEGURANÇA, sem precisar pedir ajuda para NINGUÉM.
           </p>
           <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#1e3a8a] via-blue-600 to-sky-500 px-4 py-3.5 text-center shadow-lg shadow-blue-600/30 ring-1 ring-inset ring-white/15">
             <Trophy className="h-5 w-5 shrink-0 text-amber-300 md:h-6 md:w-6" />
