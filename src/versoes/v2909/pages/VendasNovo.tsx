@@ -507,10 +507,18 @@ const Method = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
               </li>
             ))}
           </ol>
-          <p className="learning-trail-closing mt-6 flex items-center justify-center gap-2 border-t pt-4 text-sm font-bold text-center">
-            <HeartHandshake className="h-5 w-5 shrink-0" aria-hidden="true" />
-            Do zero, com calma. Uma conquista de cada vez.
-          </p>
+          <div className="home-anterior-2-seals mt-6 grid grid-cols-3 gap-x-1 gap-y-2 border-t pt-5 md:gap-x-4">
+            {[
+              { icon: HeartHandshake, tone: "text-[hsl(var(--seal-guarantee))]", lines: ["Do zero,", "com calma"] },
+              { icon: Clock, tone: "text-[hsl(var(--seal-access))]", lines: ["No seu", "ritmo"] },
+              { icon: Trophy, tone: "text-[hsl(var(--seal-secure))]", lines: ["Uma conquista", "de cada vez"] },
+            ].map((s, i) => (
+              <div key={s.lines.join(" ")} className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2">
+                <s.icon className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} style={{ animationDelay: `${i * 0.35}s` }} />
+                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-foreground md:text-[13px]">{s.lines[0]}<br />{s.lines[1]}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     );
