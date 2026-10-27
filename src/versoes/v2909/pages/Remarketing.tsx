@@ -118,7 +118,7 @@ export const TopBanner = () => (
           </span>
           <span className="absolute inset-x-0 bottom-[0.04em] z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-2" />
         </span>
-        <span className="mt-1 block text-[6.7vw] leading-tight md:text-[4.6rem]">Porque eu ensino do zero, com calma.</span>
+        <span className="mt-1 block text-[6.7vw] leading-tight md:text-[4.6rem]">Porque vou te ensinar do zero, com calma.</span>
       </p>
       <div className="mx-auto mt-3 h-px w-24 rounded-full bg-gradient-to-r from-transparent via-primary/70 to-transparent md:mt-4 md:w-32" />
     </div>
