@@ -1351,8 +1351,7 @@ const SuporteProfessora = () => {
                 </svg>
               </span>
               <span className="flex-1 text-center leading-tight text-lg md:text-3xl">
-                Quero tirar minhas dúvidas
-                <br /> com a professora Elisa
+                Fale com a professora Elisa
               </span>
             </a>
           </div>
