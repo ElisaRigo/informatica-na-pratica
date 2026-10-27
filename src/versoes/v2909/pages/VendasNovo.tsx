@@ -268,7 +268,7 @@ const AulaDemonstrativa = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" /> ASSISTA AGORA E COMECE A APRENDER
+            <PlayCircle className="w-4 h-4" /> Você é Super Capaz de Aprender ...
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight">
             Imagine você... Usando o computador com tranquilidade!
