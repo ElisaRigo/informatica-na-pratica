@@ -4,9 +4,9 @@
 - [x] Verificar exibição em telas grandes e pequenas, abertura da aula, dúvidas, Hotmart com eventos e WhatsApp com mensagem pronta.
 
 # Remarketing em /home-anterior-2
-- [ ] Transformar apenas a cópia em uma página de resultados, aprendizado do zero e segurança.
-- [ ] Reorganizar a oferta com valor do curso, acesso vitalício e garantia clara, sem urgência inventada.
-- [ ] Conferir vídeos, dúvidas, botões de compra e exibição sem sobreposição.
+- [x] Transformar apenas a cópia em uma página de resultados, aprendizado do zero e segurança.
+- [x] Reorganizar a oferta com valor do curso, acesso vitalício e garantia clara, sem urgência inventada.
+- [x] Conferir vídeos, dúvidas, botões de compra e exibição sem sobreposição.
 
 # Contato e esclarecimento em /informatica
 - [x] Manter o WhatsApp fixo desde o início com a mensagem da home.
