@@ -190,7 +190,7 @@ const SocialProofRow = () => (
 );
 
 // ───────────────────────── Header ─────────────────────────
-export const Header = () => (
+const Header = () => (
   <header className="border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-2">
     <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
       <p className="leading-none text-center">

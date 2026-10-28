@@ -1,5 +1,4 @@
-import { TopBanner } from "@/versoes/v2909/pages/Remarketing";
-import { Header } from "@/versoes/homebackup/pages/VendasNovo";
+import { Header, TopBanner } from "@/versoes/v2909/pages/Remarketing";
 import VendasNovo from "@/versoes/v2909/pages/VendasNovo";
 import "./home-anterior-2.css";
 
