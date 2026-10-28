@@ -268,8 +268,8 @@ const AulaDemonstrativa = () => {
     <section className="py-4 md:py-6 bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-6 md:mb-8">
-          <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-            <PlayCircle className="w-4 h-4" />Deixe sua insegurança para trás. 
+          <span className="mb-4 inline-flex max-w-full items-center gap-2 whitespace-nowrap rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 px-3 py-2.5 font-black text-slate-900 shadow-lg shadow-orange-500/30 [font-size:min(5.3vw,24px)] md:gap-3 md:px-6 md:py-3">
+            <ShieldCheck className="h-[1.2em] w-[1.2em] shrink-0" strokeWidth={2.5} />Deixe sua insegurança para trás!
           </span>
           <h2 className="text-[27px] md:text-4xl font-black text-slate-900 leading-tight">
             Imagine você... Usando o computador com <span className="text-blue-600">tranquilidade!</span>
