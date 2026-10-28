@@ -190,15 +190,15 @@ const SocialProofRow = () => (
 );
 
 // ───────────────────────── Header ─────────────────────────
-export const Header = () => (
-  <header className="border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-2">
+export const Header = ({ light = false }: { light?: boolean }) => (
+  <header className={light ? "border-b border-slate-200 bg-white py-2" : "border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-2"}>
     <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
       <p className="leading-none text-center">
-        <span className="block whitespace-nowrap text-[8.8vw] font-black tracking-tight text-white sm:text-3xl md:text-5xl">
+        <span className={`block whitespace-nowrap text-[8.8vw] font-black tracking-tight sm:text-3xl md:text-5xl ${light ? "text-slate-900" : "text-white"}`}>
           Curso de{"\u00a0"}
-          <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-sky-400 bg-clip-text text-transparent">Informática</span>
+          <span className={`bg-gradient-to-r bg-clip-text text-transparent ${light ? "from-blue-600 via-cyan-500 to-blue-600" : "from-sky-300 via-cyan-300 to-sky-400"}`}>Informática</span>
         </span>
-        <span className="mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] text-slate-400 sm:text-xs md:text-sm">
+        <span className={`mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] sm:text-xs md:text-sm ${light ? "text-slate-500" : "text-slate-400"}`}>
           {"\u00a0 100% ONLINE - DO ZERO - SIMPLES E FÁCIL"}
         </span>
       </p>
