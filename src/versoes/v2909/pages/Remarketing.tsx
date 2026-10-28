@@ -87,11 +87,10 @@ export const Header = () => (
       </div>
       <p className="leading-none">
         <span className="block whitespace-nowrap text-[7vw] font-black tracking-tight text-foreground sm:text-3xl md:text-5xl">
-          Aprenda{" "}
-          <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">Informática</span>
+          Curso de Informática
         </span>
         <span className="mt-1.5 block text-[3.4vw] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs md:text-sm">
-          do zero, passo a passo
+          DO ZERO - PASSO A PASSO
         </span>
       </p>
     </div>
