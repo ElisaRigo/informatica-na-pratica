@@ -5,7 +5,7 @@ import "./home-anterior-2.css";
 
 const HomeAnterior2 = () => (
   <div className="info-spacing min-h-screen">
-    <Header />
+    <Header light />
     <TopBanner />
     <VendasNovo remarketingTop />
   </div>
