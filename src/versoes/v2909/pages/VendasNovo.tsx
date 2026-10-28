@@ -140,7 +140,7 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
             {!isPlaying ? (
               <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
-                  src={remarketingTop ? "/images/capa-primeiro-video.jpg" : homeVideoThumb}
+                  src={remarketingTop ? "/images/capa-primeiro-video-info.jpg" : homeVideoThumb}
                   alt="Aula demonstrativa"
                   className="w-full h-full object-cover"
                   loading="eager"
