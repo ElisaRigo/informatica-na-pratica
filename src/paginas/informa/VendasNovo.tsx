@@ -389,7 +389,7 @@ const MiniValueSection = () => {
         <div className="mt-5">
           <button
             onClick={requestCheckout}
-            className="cta-pulse inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-green-600 px-2 py-4 font-black text-white shadow-lg shadow-green-600/30 transition-all hover:bg-green-700 active:scale-[.99] [font-size:min(7.4vw,34px)] leading-none md:py-5"
+            className="cta-pulse inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-green-600 px-2 py-4 font-black text-white shadow-lg shadow-green-600/30 transition-all hover:bg-green-700 active:scale-[.99] [font-size:min(7vw,34px)] leading-none md:py-5"
           >
             <Monitor className="h-[1em] w-[1em] shrink-0" strokeWidth={2.5} />
             <span>Quero Acessar o Curso</span>
