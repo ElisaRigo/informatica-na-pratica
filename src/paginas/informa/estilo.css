@@ -1,0 +1,111 @@
+/* /info: compact rhythm between sections, scoped to this page only. */
+.info-spacing > header {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+/* TopBanner sits right under the header — keep it snug. */
+.info-spacing > div.overflow-hidden {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.info-spacing > div > section {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+/* Hero carries its own container padding — zero it so the section rule alone controls spacing. */
+.info-spacing section.relative > .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* First-fold gaps under the video and the seals row. */
+.info-spacing section.relative .mt-1.mb-5 {
+  margin-bottom: 0.75rem;
+}
+
+.info-spacing section.relative .home-anterior-2-seals {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .info-spacing > header {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .info-spacing > div.overflow-hidden {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+  }
+
+  .info-spacing > div > section {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+  }
+}
+
+/* Fixed CTA breathes with the darker green it is painted with. */
+.home-anterior-2-sticky .cta-pulse {
+  --pulse-color: var(--whatsapp-strong);
+}
+
+.home-anterior-2-top {
+  --background: 222 47% 11%;
+  --foreground: 0 0% 100%;
+  --muted-foreground: 213 27% 84%;
+}
+
+.home-anterior-2-seals {
+  --seal-guarantee: 142 69% 58%;
+  --seal-secure: 213 94% 68%;
+  --seal-access: 27 96% 61%;
+  --seal-support: 172 66% 50%;
+}
+
+.learning-trail {
+  --trail-surface: 210 40% 98%;
+  --trail-ink: 222 47% 15%;
+  --trail-muted: 215 20% 35%;
+  --trail-line: 213 24% 80%;
+  --trail-watch: 204 85% 35%;
+  --trail-practice: 162 78% 26%;
+  --trail-achieve: 335 68% 39%;
+  --trail-watch-soft: 202 90% 92%;
+  --trail-practice-soft: 157 62% 91%;
+  --trail-achieve-soft: 333 80% 94%;
+  background: hsl(var(--trail-surface));
+  color: hsl(var(--trail-ink));
+}
+
+.learning-trail-muted { color: hsl(var(--trail-muted)); }
+.learning-trail-eyebrow { color: hsl(var(--trail-watch)); }
+.learning-trail-watch { --trail-tone: var(--trail-watch); --trail-soft: var(--trail-watch-soft); }
+.learning-trail-practice { --trail-tone: var(--trail-practice); --trail-soft: var(--trail-practice-soft); }
+.learning-trail-achieve { --trail-tone: var(--trail-achieve); --trail-soft: var(--trail-achieve-soft); }
+.learning-trail-node { background: hsl(var(--trail-soft)); color: hsl(var(--trail-tone)); }
+.learning-trail-number { background: hsl(var(--trail-tone)); color: hsl(var(--trail-surface)); }
+.learning-trail-reassurance { color: hsl(var(--trail-tone)); }
+.learning-trail-closing { border-color: hsl(var(--trail-line)); color: hsl(var(--trail-practice)); }
+
+.learning-trail-steps::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  bottom: 60px;
+  left: 27px;
+  border-left: 2px dashed hsl(var(--trail-line));
+}
+
+@media (min-width: 768px) {
+  .learning-trail-steps::before {
+    top: 27px;
+    bottom: auto;
+    left: 28px;
+    right: calc(33.333% - 12px);
+    border-left: 0;
+    border-top: 2px dashed hsl(var(--trail-line));
+  }
+}

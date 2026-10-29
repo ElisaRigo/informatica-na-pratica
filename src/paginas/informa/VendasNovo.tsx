@@ -1,0 +1,1405 @@
+import { useEffect, useState, useRef } from "react";
+import {
+  ShieldCheck,
+  Lock,
+  CheckCircle2,
+  Star,
+  Clock,
+  Award,
+  Users,
+  PlayCircle,
+  Monitor,
+  Mail,
+  FileText,
+  Globe,
+  Presentation,
+  Keyboard,
+  GraduationCap,
+  HeartHandshake,
+  Infinity as InfinityIcon,
+  ChevronDown,
+  ArrowRight,
+  Play,
+  Pause,
+  Volume2,
+  Smartphone,
+  ThumbsUp,
+  Heart,
+  Headphones,
+  Trophy,
+  Gift,
+  Zap,
+  MessageCircle,
+  MousePointer2,
+} from "lucide-react";
+import logoBlue from "@/versoes/v2909/assets/logo-blue.png";
+import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
+import { HeartHandshake as HeartHandshakeIcon } from "lucide-react";
+import elisaTeaching from "@/versoes/v2909/assets/elisa-teaching.jpg";
+import heroCover from "@/versoes/v2909/assets/hero-video-cover-home.jpg";
+import courseFirstLessonThumb from "@/versoes/v2909/assets/aprenda-comigo-thumb.jpg";
+import homeVideoThumbAsset from "@/versoes/v2909/assets/capa-primeiro-video.png.asset.json";
+const homeVideoThumb = homeVideoThumbAsset.url;
+import certificado from "@/versoes/v2909/assets/certificado-exemplo.png";
+import avatar1 from "@/versoes/v2909/assets/testimonial-new-1.jpg";
+import avatar2 from "@/versoes/v2909/assets/testimonial-new-2.jpg";
+import avatar3 from "@/versoes/v2909/assets/testimonial-new-3.jpg";
+import avatar4 from "@/versoes/v2909/assets/testimonial-new-4.jpg";
+import avatar5 from "@/versoes/v2909/assets/testimonial-new-5.jpg";
+import whatsappTestimonial1 from "@/versoes/v2909/assets/whatsapp-testimonial-1.png";
+import whatsappTestimonial2 from "@/versoes/v2909/assets/whatsapp-testimonial-2.png";
+import fbAvatar1 from "@/versoes/v2909/assets/avatar-1.jpg";
+import fbAvatar2 from "@/versoes/v2909/assets/avatar-2.jpg";
+import fbAvatar3 from "@/versoes/v2909/assets/avatar-3.jpg";
+import fbAvatar4 from "@/versoes/v2909/assets/avatar-4.jpg";
+import fbAvatar5 from "@/versoes/v2909/assets/avatar-5.jpg";
+import fbAvatar6 from "@/versoes/v2909/assets/avatar-6.jpg";
+import fbAvatar7 from "@/versoes/v2909/assets/avatar-7.jpg";
+import fbAvatar8 from "@/versoes/v2909/assets/avatar-8.jpg";
+
+import { HeroBonuses } from "@/versoes/v2909/components/aprender/HeroBonuses";
+import { QuizIdentificacao } from "@/versoes/v2909/components/aprender/QuizIdentificacao";
+import { requestCheckout } from "@/versoes/v2909/lib/requestCheckout";
+import { openHotmartCheckout } from "@/versoes/v2909/lib/checkoutTracking";
+import { Button } from "@/components/ui/button";
+
+// ───────────────────────── CTA Button ─────────────────────────
+const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
+  <button
+    onClick={requestCheckout}
+    className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
+      size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
+    } ${subtle ? "bg-green-600/95" : ""}`}
+  >
+    <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
+    <span>{children}</span>
+    <ArrowRight className="hidden sm:inline-block w-5 h-5 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+  </button>
+);
+
+// ───────────────────────── Countdown ─────────────────────────
+const useCountdown = () => {
+  const [t, setT] = useState({ h: 23, m: 47, s: 12 });
+  useEffect(() => {
+    const id = setInterval(() => {
+      setT(({ h, m, s }) => {
+        if (s > 0) return { h, m, s: s - 1 };
+        if (m > 0) return { h, m: m - 1, s: 59 };
+        if (h > 0) return { h: h - 1, m: 59, s: 59 };
+        return { h: 23, m: 59, s: 59 };
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
+};
+
+import windowsIcon from "@/versoes/v2909/assets/windows-icon.png";
+import wordIcon from "@/versoes/v2909/assets/word-icon.png";
+import excelIcon from "@/versoes/v2909/assets/excel-icon.png";
+import powerpointIcon from "@/versoes/v2909/assets/powerpoint-icon.png";
+import internetIcon from "@/versoes/v2909/assets/internet-icon.png";
+import typingIcon from "@/versoes/v2909/assets/typing-icon.png";
+
+// ───────────────────────── Hero ─────────────────────────
+const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  return (
+    <section className={remarketingTop ? "home-anterior-2-top relative bg-background text-foreground" : "relative bg-gradient-to-b from-blue-50 via-white to-white"}>
+      <div className="container mx-auto px-4 py-3 md:py-4">
+        <div className="max-w-5xl mx-auto text-center">
+
+          {/* Social proof inline */}
+          {!remarketingTop && <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="flex -space-x-2">
+              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
+                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
+              ))}
+            </div>
+            <div className="text-left">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
+            </div>
+          </div>}
+
+          {/* Video */}
+          <div className={`relative max-w-5xl mt-1 mb-5 ${remarketingTop ? "-mx-4 md:mx-auto" : "mx-auto"}`}>
+            {/* Selo acima da moldura — centrado, sem cobrir a capa */}
+            {!remarketingTop && <div className="flex justify-center mb-3">
+              <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/30 ring-2 ring-white whitespace-nowrap">
+                <Play className="w-3.5 h-3.5 md:w-4 md:h-4 fill-white shrink-0" />
+                Assista e venha aprender comigo
+              </div>
+            </div>}
+            <div className={remarketingTop ? "overflow-hidden md:rounded-2xl" : "rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200"}>
+            {!isPlaying ? (
+              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+                <img
+                  src={remarketingTop ? "/images/capa-primeiro-video-info.jpg" : homeVideoThumb}
+                  alt="Aula demonstrativa"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                  {remarketingTop ? <Button
+                    type="button"
+                    onClick={() => setIsPlaying(true)}
+                    aria-label="Assistir ao recado da professora"
+                    className="badge-pill badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-3.5 shadow-lg md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
+                  >
+                    <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot-foreground))] md:h-10 md:w-10">
+                      <Play className="ml-0.5 !h-4 !w-4 fill-[hsl(var(--badge-hot))] text-[hsl(var(--badge-hot))] md:!h-5 md:!w-5" />
+                    </span>
+                    <span className="whitespace-nowrap text-[13px] font-bold leading-none text-[hsl(var(--badge-hot-foreground))] md:text-base">Assista o recado da prof</span>
+                  </Button> : <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
+                      <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
+                    </div>
+                  </div>}
+              </div>
+            ) : (
+              <div className="aspect-video relative">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                  title="Aula demonstrativa"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+                <a
+                  href="https://www.youtube.com/watch?v=0kFjFZX5c9I"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
+                ></a>
+              </div>
+            )}
+            </div>
+          </div>
+
+          {remarketingTop && <div className="home-anterior-2-seals grid grid-cols-4 gap-x-1 gap-y-2 mb-4">
+            {[
+              { icon: ShieldCheck, tone: "text-[hsl(var(--seal-guarantee))]", lines: ["7 dias", "de garantia"] },
+              { icon: Lock, tone: "text-[hsl(var(--seal-secure))]", lines: ["Compra", "100% segura"] },
+              { icon: Zap, tone: "text-[hsl(var(--seal-access))]", lines: ["Acesso", "imediato"] },
+              { icon: MessageCircle, tone: "text-[hsl(var(--seal-support))]", lines: ["Suporte por", "WhatsApp"] },
+            ].map((s, i) => (
+              <div key={s.lines.join(" ")} className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2">
+                <s.icon className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} style={{ animationDelay: `${i * 0.35}s` }} />
+                <span className="block text-[11px] font-extrabold uppercase leading-[1.15] text-foreground md:text-[14px]">{s.lines[0]}<br />{s.lines[1]}</span>
+              </div>
+            ))}
+          </div>}
+
+          {!remarketingTop && <p className={`text-base md:text-xl max-w-3xl mx-auto mb-3 text-slate-700`}>
+            {"\n"}
+          </p>}
+
+
+          {!remarketingTop && <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mt-5 mb-2 max-w-3xl mx-auto">
+            {[
+              { icon: Lock, label: "Pagamento seguro" },
+              { icon: ShieldCheck, label: "7 dias de garantia" },
+              { icon: CheckCircle2, label: "Acesso imediato" },
+            ].map(({ icon: Icon, label }) => (
+              <div
+                key={label}
+                className="flex flex-col items-center justify-center gap-1.5 bg-white border border-slate-200 rounded-xl px-1.5 sm:px-4 py-2.5 sm:py-3.5 shadow-sm shadow-blue-900/5 text-center"
+              >
+                <span className="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-green-50 shrink-0">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+                </span>
+                <span className="text-[10px] sm:text-base font-semibold text-slate-800 leading-tight">{label}</span>
+              </div>
+            ))}
+          </div>}
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Identification ─────────────────────────
+const Identification = () => {
+  const items = [
+    "Sente vergonha de pedir ajuda toda hora pro filho ou neto",
+    "Tem medo de clicar em algo e estragar o computador",
+    "Não sabe anexar um arquivo, enviar um e-mail ou salvar uma foto",
+    "Já tentou aprender sozinho(a) no YouTube e se perdeu",
+    "Precisa do computador pra trabalhar, estudar ou resolver coisas do dia a dia",
+    "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
+  ];
+  return (
+    <section className="py-4 md:py-6 bg-slate-50">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
+        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
+          Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
+        </p>
+        <div className="grid md:grid-cols-2 gap-3 md:gap-4">
+          {items.map((t) => (
+            <div
+              key={t}
+              className="flex items-start gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-300 transition-colors"
+            >
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
+              <span className="text-slate-700 font-medium">{t}</span>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-5">
+          <CTA>Quero aprender do zero!</CTA>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
+const AulaDemonstrativa = () => {
+  const [isCourseLessonPlaying, setIsCourseLessonPlaying] = useState(false);
+  return (
+    <section className="py-4 md:py-6 bg-white border-t border-slate-200">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-6 md:mb-8">
+          <span className="mb-4 inline-flex max-w-full items-center gap-2 whitespace-nowrap rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 px-3 py-2.5 font-black text-slate-900 shadow-lg shadow-orange-500/30 [font-size:min(5.3vw,24px)] md:gap-3 md:px-6 md:py-3">
+            <ShieldCheck className="h-[1.2em] w-[1.2em] shrink-0" strokeWidth={2.5} />Deixe sua insegurança para trás!
+          </span>
+          <h2 className="text-[27px] md:text-4xl font-black text-slate-900 leading-tight">
+            Imagine você... Usando o computador com <span className="text-blue-600">tranquilidade!</span>
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            {"\n"}
+          </p>
+        </div>
+
+        <div className="mx-auto mb-6 max-w-2xl">
+          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
+            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">1</span>
+              <div className="text-left">
+                <h3 className="font-black text-slate-900">Venha aprender comigo</h3>
+                <p className="text-xs text-slate-500">Eu explico tudo com calma e simplicidade</p>
+              </div>
+            </div>
+            {!isCourseLessonPlaying ? (
+              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsCourseLessonPlaying(true)} aria-label="Assistir à primeira aula do curso">
+                <img
+                  src={courseFirstLessonThumb}
+                  alt="Primeira aula do curso com a Professora Elisa"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
+                    <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
+                  </span>
+                </span>
+                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
+                  Assista uma aula
+                </span>
+              </button>
+            ) : (
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+                  title="Primeira aula do curso com a Professora Elisa"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            )}
+          </article>
+
+        </div>
+
+        <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 md:gap-3">
+          {[
+            " Acompanhe no seu ritmo",
+            "Assista quantas vezes quiser",
+            "Suporte quando tiver dúvida",
+          ].map((benefit) => (
+            <div key={benefit} className="flex flex-col items-center gap-1.5 rounded-xl border border-green-200 bg-green-50 p-2 text-center md:flex-row md:justify-center md:p-3">
+              <CheckCircle2 className="h-5 w-5 shrink-0 text-green-600" />
+              <span className="text-[13px] font-bold leading-tight text-slate-800 md:text-base">{benefit}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center space-y-4">
+          <p className="text-slate-800 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-snug">
+            Você finalmente vai <strong className="font-black text-blue-600">DESTRAVAR</strong> e usar o computador com total <strong className="font-black text-green-600">SEGURANÇA</strong>, sem precisar pedir ajuda para <strong className="font-black text-slate-900">NINGUÉM</strong>.
+          </p>
+          <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#1e3a8a] via-blue-600 to-sky-500 px-4 py-3.5 text-center shadow-lg shadow-blue-600/30 ring-1 ring-inset ring-white/15">
+            <Trophy className="h-5 w-5 shrink-0 text-amber-300 md:h-6 md:w-6" />
+            <p className="whitespace-nowrap text-[13px] font-black leading-tight text-white md:text-xl">Você é capaz de muito mais do que imagina!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
+const MiniValueSection = () => {
+  return (
+    <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
+      <div className="container mx-auto px-4 max-w-xl text-center">
+        <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
+          <Award className="w-4 h-4" /> SUA OPORTUNIDADE DE APRENDER
+        </span>
+        <h2 className="text-[28px] md:text-4xl font-black text-slate-900 leading-tight">
+          Curso Completo de Informática
+        </h2>
+        <div className="mt-4 mb-5 grid grid-cols-3 gap-2 md:gap-3">
+          {[
+            { icon: GraduationCap, tone: "text-blue-600 bg-blue-100", lines: ["Curso", "completo"] },
+            { icon: MessageCircle, tone: "text-green-600 bg-green-100", lines: ["Meu", "suporte"] },
+            { icon: InfinityIcon, tone: "text-orange-600 bg-orange-100", lines: ["Acesso", "vitalício"] },
+          ].map((s, i) => (
+            <div key={s.lines.join(" ")} className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200 bg-white px-1 py-3 shadow-sm">
+              <span className={`seal-pulse flex h-12 w-12 items-center justify-center rounded-full md:h-14 md:w-14 ${s.tone}`} style={{ animationDelay: `${i * 0.35}s` }}>
+                <s.icon className="h-7 w-7 md:h-8 md:w-8" strokeWidth={2.4} />
+              </span>
+              <span className="text-[13px] font-extrabold uppercase leading-[1.15] text-slate-900 md:text-base">{s.lines[0]}<br />{s.lines[1]}</span>
+            </div>
+          ))}
+        </div>
+        <p className="text-slate-600 text-base md:text-lg">
+          de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
+        </p>
+        <p className="text-green-600 font-black text-5xl md:text-6xl leading-tight mt-1">R$ 297,00</p>
+        <p className="text-amber-600 font-extrabold text-base md:text-lg mt-2 flex items-center justify-center gap-1.5">
+          <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
+        </p>
+        <p className="text-slate-700 text-lg md:text-xl mt-1">
+          ou <span className="font-black text-slate-900">12x de R$ 30,72</span> no cartão
+        </p>
+        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
+          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+        </p>
+        <div className="mt-5">
+          <CTA>Quero Acessar{"\u00a0"} o Curso</CTA>
+        </div>
+        <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
+          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
+            <ShieldCheck className="w-5 h-5" />{" "}
+            <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
+          </p>
+          <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
+            <span className="text-blue-600 font-bold">Risco zero.</span> Se não gostar, eu devolvo{" "}
+            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Instructor ─────────────────────────
+const Instructor = () => (
+  <section className="py-4 md:py-6 bg-white">
+    <div className="container mx-auto px-4 max-w-5xl">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="relative">
+          <img src={elisa} alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
+          <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl border border-slate-200 px-4 py-3 flex items-center gap-2">
+            <Users className="w-5 h-5 text-blue-600" />
+            <div>
+              <div className="text-lg font-black text-slate-900 leading-none">+15.000</div>
+              <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wide">Alunos formados</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
+            <GraduationCap className="w-4 h-4" /> Eu vou te ensinar
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">
+            Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
+          </h2>
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
+            Há mais de <strong>20 anos</strong> eu ensino informática pra adultos que nunca tinham tocado num
+            computador. E descobri uma coisa:{" "}
+            <strong>o problema nunca foi a pessoa — era o jeito que ensinavam.</strong>
+          </p>
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6">
+            Por isso criei um método simples, devagar e com linguagem do dia a dia. Sem palavras difíceis, sem pressa.
+            Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
+          </p>
+          <div className="grid grid-cols-3 gap-3 mb-6">
+            <div className="text-center bg-slate-50 rounded-xl p-3">
+              <Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-700">
+                +20 anos
+                <br />
+                de experiência
+              </div>
+            </div>
+            <div className="text-center bg-slate-50 rounded-xl p-3">
+              <Award className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-700">
+                Método
+                <br />
+                próprio
+              </div>
+            </div>
+            <div className="text-center bg-slate-50 rounded-xl p-3">
+              <HeartHandshakeIcon className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-700">
+                Suporte
+                <br />
+                humano
+              </div>
+            </div>
+          </div>
+          <CTA size="md">Quero aprender sem medo!</CTA>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ───────────────────────── Method (3 steps) ─────────────────────────
+const Method = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
+  if (remarketingTop) {
+    const trail = [
+      {
+        icon: PlayCircle,
+        tone: "watch",
+        title: "Você assiste",
+        description: "Sente no computador e dê o play. Eu explico do zero, com calma.",
+        reassurance: "Pode pausar e assistir de novo.",
+      },
+      {
+        icon: MousePointer2,
+        tone: "practice",
+        title: "Você faz comigo",
+        description: "Veja onde eu clico e faça igual no seu computador. Um passo de cada vez.",
+        reassurance: "Você não precisa saber antes.",
+      },
+      {
+        icon: Trophy,
+        tone: "achieve",
+        title: "Você usa no dia a dia",
+        description: "Imagine escrever um documento, enviar um e-mail e encontrar seus arquivos.",
+        reassurance: "Cada prática traz mais confiança.",
+      },
+    ];
+    return (
+      <section className="learning-trail py-7 md:py-10" aria-labelledby="learning-trail-title">
+        <div className="mx-auto max-w-4xl px-4 md:px-8">
+          <header className="mb-6 text-center">
+            <p className="learning-trail-eyebrow text-xs font-bold uppercase mb-2">3 passos. No seu ritmo.</p>
+            <h2 id="learning-trail-title" className="text-2xl md:text-4xl font-black leading-tight">
+              Seu caminho para usar<br className="md:hidden" /> o computador
+            </h2>
+            <p className="learning-trail-muted mt-3 text-sm md:text-base">Imagine você aprendendo assim, comigo.</p>
+          </header>
+          <ol className="learning-trail-steps relative grid gap-6 md:grid-cols-3 md:gap-8">
+            {trail.map(({ icon: Icon, tone, title, description, reassurance }, index) => (
+              <li key={tone} className={`learning-trail-step learning-trail-${tone} relative grid grid-cols-[56px_minmax(0,1fr)] gap-4 md:block`}>
+                <div className="learning-trail-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full md:mb-4">
+                  <Icon className="h-7 w-7" strokeWidth={2} aria-hidden="true" />
+                  <span className="learning-trail-number absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-extrabold">{index + 1}</span>
+                </div>
+                <div className="min-w-0 pt-1 md:pt-0">
+                  <h3 className="text-lg md:text-xl font-extrabold leading-tight">{title}</h3>
+                  <p className="learning-trail-muted mt-2 text-sm leading-relaxed">{description}</p>
+                  <p className="learning-trail-reassurance mt-2 text-sm font-bold leading-snug">{reassurance}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="home-anterior-2-seals mt-6 grid grid-cols-3 gap-x-1 gap-y-2 border-t pt-5 md:gap-x-4">
+            {[
+              { icon: HeartHandshake, tone: "text-[hsl(var(--seal-guarantee))]", lines: ["Do zero,", "com calma"] },
+              { icon: Clock, tone: "text-[hsl(var(--seal-access))]", lines: ["No seu", "ritmo"] },
+              { icon: Trophy, tone: "text-[hsl(var(--seal-secure))]", lines: ["Uma conquista", "de cada vez"] },
+            ].map((s, i) => (
+              <div key={s.lines.join(" ")} className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2">
+                <s.icon className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} style={{ animationDelay: `${i * 0.35}s` }} />
+                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-foreground md:text-[13px]">{s.lines[0]}<br />{s.lines[1]}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+  const steps = [
+    {
+      n: "1",
+      t: "Assiste a aula curta",
+      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no computador, quando quiser, no seu ritmo.",
+    },
+    {
+      n: "2",
+      t: "Faz junto comigo",
+      d: "Você abre o computador e vai clicando junto. Eu mostro cada passo, sem pular nada.",
+    },
+    {
+      n: "3",
+      t: "Pratica no seu dia a dia",
+      d: "Em poucos dias você já tá enviando e-mail, usando Word e mexendo na internet sem medo.",
+    },
+  ];
+  return (
+    <section className="py-4 md:py-6 bg-blue-600 text-white">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-5">
+          <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
+          <p className="text-blue-100 max-w-2xl mx-auto">
+            Sem complicação, sem termos técnicos. Só você, o computador e eu te guiando.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {steps.map((s) => (
+            <div key={s.n} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-6">
+              <div className="w-12 h-12 rounded-full bg-white text-blue-600 font-black text-xl flex items-center justify-center mb-4">
+                {s.n}
+              </div>
+              <h3 className="text-xl font-bold mb-2">{s.t}</h3>
+              <p className="text-blue-50 text-sm leading-relaxed">{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Modules ─────────────────────────
+const Modules = () => {
+  const mods = [
+    {
+      i: windowsIcon,
+      t: "Windows e Organização",
+      d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos com segurança.",
+      lessons: "Módulo 1",
+    },
+    {
+      i: wordIcon,
+      t: "Word Profissional",
+      d: "Escreva cartas, currículos e documentos. Formate, salve e imprima sem medo.",
+      lessons: "Módulo 2",
+    },
+    {
+      i: excelIcon,
+      t: "Excel na Prática",
+      d: "Crie planilhas, fórmulas e organize contas e gastos do mês.",
+      lessons: "Módulo 3",
+    },
+    {
+      i: powerpointIcon,
+      t: "PowerPoint Impactante",
+      d: "Faça apresentações bonitas e profissionais, mesmo sem experiência.",
+      lessons: "Módulo 4",
+    },
+    {
+      i: internetIcon,
+      t: "Internet e E-mail",
+      d: "Pesquise no Google, envie e receba e-mails, evite golpes e use o YouTube.",
+      lessons: "Módulo 5",
+    },
+    {
+      i: typingIcon,
+      t: "Digitação Profissional",
+      d: "Ganhe velocidade no teclado e produtividade no dia a dia.",
+      lessons: "Módulo 6",
+    },
+  ];
+  return (
+    <section className="py-4 md:py-6 bg-slate-50">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-5">
+          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+            CONTEÚDO COMPLETO
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            +90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {mods.map((m) => (
+            <div
+              key={m.t}
+              className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            >
+              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+                <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
+              <p className="text-slate-600 text-sm mb-3">{m.d}</p>
+              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{m.lessons}</span>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-5">
+          <CTA>Quero conhecer todas as aulas</CTA>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Social Proof (WhatsApp + Facebook) ─────────────────────────
+const audioTestimonials = [
+  { name: "Antonio", description: "Depoimento sobre sua experiência com o curso", audioSrc: "/audio/antonio-1.ogg" },
+  { name: "Antonio", description: "Continuação do depoimento", audioSrc: "/audio/antonio-2.ogg" },
+  { name: "Amanda", description: "Como o curso transformou sua rotina", audioSrc: "/audio/amanda.mp4" },
+  { name: "Vanderlei", description: "Superou as dificuldades com tecnologia", audioSrc: "/audio/vanderlei.ogg" },
+  { name: "Bruna", description: "Gratidão pelo aprendizado", audioSrc: "/audio/bruna.aac" },
+];
+
+const whatsappScreenshots = [
+  { image: whatsappTestimonial1, description: "Mãe de aluna elogiando o curso e voltando para comprar outro" },
+  { image: whatsappTestimonial2, description: "Aluno Roberto agradecendo pela didática das aulas de planilha" },
+];
+
+const fbAvatars = [fbAvatar1, fbAvatar2, fbAvatar3, fbAvatar4, fbAvatar5, fbAvatar6, fbAvatar7, fbAvatar8];
+
+const facebookComments = [
+  {
+    name: "Luciana M.",
+    text: "Professora maravilhosa! Aprendi em 1 semana o que não consegui em meses 🙌",
+    time: "2 h",
+    likes: 14,
+    hasHeart: true,
+  },
+  {
+    name: "Tereza S.",
+    text: "Tô conseguindo usar o computador sozinha, muito obrigada! 😍",
+    time: "5 h",
+    likes: 23,
+    hasHeart: false,
+  },
+  {
+    name: "Carlos A.",
+    text: "Melhor investimento que fiz! Já indiquei pra toda família",
+    time: "1 d",
+    likes: 8,
+    hasHeart: false,
+  },
+  {
+    name: "Juliana R.",
+    text: "Ganhei uma promoção no trabalho por causa do curso! 🎉",
+    time: "3 d",
+    likes: 31,
+    hasHeart: true,
+  },
+  {
+    name: "Marcos V.",
+    text: "Achei que era difícil mas a didática é perfeita, parabéns!",
+    time: "1 sem",
+    likes: 12,
+    hasHeart: false,
+  },
+  {
+    name: "Patrícia S.",
+    text: "Minha mãe de 62 anos aprendeu! Recomendo demais 👏",
+    time: "1 sem",
+    likes: 19,
+    hasHeart: true,
+  },
+  {
+    name: "Roberto L.",
+    text: "Finalmente consigo fazer planilhas no trabalho. Obrigado! 💪",
+    time: "2 sem",
+    likes: 7,
+    hasHeart: false,
+  },
+  {
+    name: "Maria G.",
+    text: "Com 68 anos aprendi a mexer no computador. Deus abençoe! 🙏",
+    time: "3 sem",
+    likes: 42,
+    hasHeart: true,
+  },
+];
+
+const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimonials)[0] }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [hasError, setHasError] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const togglePlay = () => {
+    if (audioRef.current && !hasError) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(() => setHasError(true));
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      const p = (audioRef.current.currentTime / audioRef.current.duration) * 100;
+      setProgress(p || 0);
+    }
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setProgress(0);
+  };
+
+  const handleError = () => {
+    setHasError(true);
+    setIsPlaying(false);
+  };
+
+  return (
+    <div
+      className={`bg-white border rounded-xl p-4 transition-all ${hasError ? "border-red-300 opacity-50" : "border-slate-200 hover:border-blue-300 shadow-sm"}`}
+    >
+      <audio
+        ref={audioRef}
+        src={testimonial.audioSrc}
+        onTimeUpdate={handleTimeUpdate}
+        onEnded={handleEnded}
+        onError={handleError}
+        preload="none"
+      />
+      <div className="flex items-center gap-3">
+        <button
+          onClick={togglePlay}
+          disabled={hasError}
+          className={`w-12 h-12 rounded-full flex items-center justify-center transition-transform shadow-md ${hasError ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:scale-105"}`}
+        >
+          {isPlaying ? <Pause className="w-5 h-5 text-white" /> : <Play className="w-5 h-5 text-white ml-0.5" />}
+        </button>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-slate-900 font-semibold text-sm">{testimonial.name}</span>
+            <Volume2 className="w-3 h-3 text-blue-600" />
+          </div>
+          <p className="text-slate-500 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
+          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+            <div className="h-full bg-blue-500 transition-all duration-100" style={{ width: `${progress}%` }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
+  const [showAllComments, setShowAllComments] = useState(false);
+  return (
+    <section className="py-4 md:py-6 bg-white">
+      <div className="container mx-auto px-4 max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-5">
+          <div className="inline-flex items-center justify-center gap-2.5 mb-4 border border-slate-200 rounded-full px-4 py-1.5 bg-slate-50 whitespace-nowrap">
+            <div className="flex -space-x-2">
+              {fbAvatars.slice(0, 5).map((av, i) => (
+                <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+              ))}
+            </div>
+            <div className="text-left leading-tight">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-amber-400 text-base leading-none">
+                    ★
+                  </span>
+                ))}
+              </div>
+              <span className="text-slate-900 text-xs font-bold">+15.000 alunos já aprenderam</span>
+            </div>
+          </div>
+
+          {!remarketingTop && (
+            <>
+              <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3 leading-tight">
+                Veja o que dizem os alunos que <span className="text-blue-600">saíram do zero</span>
+              </h2>
+              <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-medium">
+                Histórias reais de pessoas que{" "}
+                <span className="text-slate-900 font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
+                confiança
+              </p>
+            </>
+          )}
+        </div>
+
+        {/* WhatsApp + Audios */}
+        {!remarketingTop && (
+        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-5">
+          {/* WhatsApp Screenshots */}
+          <div className="order-1 lg:order-2">
+            <div className="flex items-center gap-2 mb-4">
+              <Smartphone className="w-5 h-5 text-blue-600" />
+              <h3 className="text-lg font-bold text-slate-900">Prints de Conversas</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {whatsappScreenshots.map((screenshot, index) => (
+                <div key={index} className="bg-slate-100 rounded-xl p-1.5 shadow-lg border border-slate-200">
+                  <div className="bg-slate-200 rounded-t-lg pt-1.5 pb-0.5 px-3">
+                    <div className="flex items-center justify-center">
+                      <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
+                    </div>
+                  </div>
+                  <img
+                    src={screenshot.image}
+                    alt={screenshot.description}
+                    className="w-full h-auto rounded-b-md"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Audio Players */}
+          <div className="order-2 lg:order-1">
+            <div className="flex items-center gap-2 mb-4">
+              <Volume2 className="w-5 h-5 text-blue-600" />
+              <h3 className="text-lg font-bold text-slate-900">Áudios de Alunos</h3>
+            </div>
+            <div className="space-y-3">
+              {audioTestimonials.map((testimonial, index) => (
+                <AudioPlayerLight key={index} testimonial={testimonial} />
+              ))}
+            </div>
+          </div>
+        </div>
+        )}
+        <div className="text-center my-4 max-w-4xl mx-auto">
+          <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
+            Se essas pessoas conseguiram, <span className="text-green-600">você também consegue.</span>
+            <br />
+            <span className="text-slate-500 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+          </p>
+        </div>
+
+        {/* Facebook-style comments */}
+        <div id="comentarios" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
+          {(showAllComments ? facebookComments : facebookComments.slice(0, 3)).map((comment, index) => (
+            <div key={index} className="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+              <div className="flex gap-2">
+                <img
+                  src={fbAvatars[index % fbAvatars.length]}
+                  alt=""
+                  className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]"
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="bg-slate-100 rounded-2xl px-3 py-2">
+                    <p className="text-slate-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
+                      {comment.name}
+                    </p>
+                    <p className="text-slate-700 text-xs leading-relaxed">{comment.text}</p>
+                  </div>
+                  <div className="flex items-center gap-3 mt-1 px-2">
+                    <span className="text-[11px] text-slate-400">{comment.time}</span>
+                    <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
+                      Curtir
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
+                      Responder
+                    </span>
+                    {comment.likes > 0 && (
+                      <span className="ml-auto text-[11px] text-slate-400 flex items-center gap-0.5">
+                        <span className="flex items-center -space-x-1">
+                          <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
+                            <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
+                          </span>
+                          {comment.hasHeart && (
+                            <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0">
+                              <Heart className="w-2.5 h-2.5 text-white fill-white" />
+                            </span>
+                          )}
+                        </span>
+                        {comment.likes}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {facebookComments.length > 3 && (
+          <div className="text-center mb-6">
+            <button
+              type="button"
+              onClick={() => setShowAllComments((v) => !v)}
+              className="inline-flex items-center gap-1 text-primary font-bold text-sm md:text-base underline underline-offset-4"
+            >
+              {showAllComments ? "Mostrar menos comentários" : `Ver mais ${facebookComments.length - 3} comentários`}
+            </button>
+          </div>
+        )}
+
+        {/* CTA */}
+        {!remarketingTop && (
+          <div className="text-center space-y-4">
+            <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
+            <CTA>Quero aprender sem medo!</CTA>
+            <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
+              <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Certificate ─────────────────────────
+const Certificate = () => (
+  <section className="py-4 md:py-6 bg-slate-50">
+    <div className="container mx-auto px-4 max-w-5xl">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <img
+          src={certificado}
+          alt="Certificado de conclusão"
+          className="rounded-2xl shadow-xl border border-slate-200"
+        />
+        <div>
+          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+            BÔNUS
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">Você sai com certificado de conclusão</h2>
+          <p className="text-slate-700 text-base md:text-lg mb-6">
+            Ao terminar o curso, você recebe um certificado digital pra anexar no currículo, no LinkedIn ou pra mostrar
+            pra família que <strong>você conseguiu</strong>.
+          </p>
+          <ul className="space-y-2 mb-6">
+            {[
+              "Certificado digital válido em todo Brasil",
+              "Pronto pra anexar no currículo",
+              "Modelo profissional e elegante",
+            ].map((x) => (
+              <li key={x} className="flex items-center gap-2 text-slate-700">
+                <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
+                {x}
+              </li>
+            ))}
+          </ul>
+          <CTA size="md">Quero meu certificado!</CTA>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ───────────────────────── Pricing ─────────────────────────
+const Pricing = () => (
+  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+    <div className="container mx-auto px-4 max-w-3xl">
+      <div className="text-center mb-8">
+        <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+          Oferta especial • 40% OFF
+        </span>
+        <h2 className="text-3xl md:text-5xl font-black mb-3">Comece hoje, no seu ritmo</h2>
+        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • 7 dias de garantia</p>
+      </div>
+
+      <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
+        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
+        <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
+
+        <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
+          <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
+          <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
+          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
+          <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+            <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
+          </p>
+          <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
+          <p className="text-base text-slate-600 mt-1">
+            ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
+          </p>
+        </div>
+
+        <ul className="space-y-3 mb-6">
+          {[
+            "+90 videoaulas passo a passo",
+            "Acesso vitalício — assiste quantas vezes quiser",
+            "Certificado de conclusão",
+            "Suporte direto comigo",
+            "Atualizações inclusas pra sempre",
+            "Acesso pelo seu computador, quando quiser",
+          ].map((x) => (
+            <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
+              {x}
+            </li>
+          ))}
+        </ul>
+
+        <CTA>Quero começar meu curso</CTA>
+
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
+          <span className="flex items-center gap-1.5">
+            <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
+          </span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ───────────────────────── Guarantee ─────────────────────────
+const GuaranteeBlock = () => (
+  <section className="py-4 md:py-6 bg-white">
+    <div className="container mx-auto px-4 max-w-3xl">
+      <div className="bg-green-50 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-600 mb-5">
+          <ShieldCheck className="w-12 h-12 text-white" />
+        </div>
+        <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Garantia incondicional de 7 dias</h2>
+        <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+          Faça sua matrícula hoje, assista as aulas, teste o método. Se em <strong>7 dias</strong> você achar que o
+          curso não é pra você — por qualquer motivo — <strong>eu devolvo 100% do seu dinheiro</strong>. Sem perguntas,
+          sem burocracia. <strong>O risco fica comigo.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
+// ───────────────────────── FAQ ─────────────────────────
+const FAQ = () => {
+  const [open, setOpen] = useState<number | null>(0);
+  const faqs = [
+    {
+      q: "Eu nunca mexi num computador. Vou conseguir mesmo?",
+      a: "Sim! Eu fiz este curso justamente pra quem está começando do zero. Explico passo a passo, com linguagem simples e sem termos técnicos. +15.000 alunos já provaram que funciona.",
+    },
+    {
+      q: "Quanto tempo leva pra concluir?",
+      a: "Você aprende no seu ritmo. Em média os alunos terminam em 30 a 60 dias dedicando 20-30 min por dia. Mas como o acesso é vitalício, você tem o tempo que precisar.",
+    },
+    {
+      q: "Em quanto tempo recebo o acesso?",
+      a: "Na hora. Logo após o pagamento aprovado você recebe os dados de acesso no seu e-mail.",
+    },
+    {
+      q: "Preciso ter um computador?",
+      a: "Sim. O curso ensina a usar o computador, então você assiste às aulas e pratica nele, comigo mostrando cada passo na tela.",
+    },
+    {
+      q: "Como funciona a garantia?",
+      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e eu devolvo 100% do valor. Sem perguntas.",
+    },
+    {
+      q: "O certificado é válido?",
+      a: "Sim. É um certificado digital de conclusão, aceito em todo o Brasil pra anexar em currículos, LinkedIn e processos seletivos.",
+    },
+    {
+      q: "E se eu travar numa aula? Tem suporte?",
+      a: "Tem sim. Você pode tirar suas dúvidas diretamente comigo pelo WhatsApp e pela área do aluno.",
+    },
+  ];
+  return (
+    <section className="py-4 md:py-6 bg-slate-50">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-5">Perguntas frequentes</h2>
+        <div className="space-y-3">
+          {faqs.map((f, i) => (
+            <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex items-center justify-between gap-3 p-5 text-left"
+              >
+                <span className="font-bold text-slate-900">{f.q}</span>
+                <ChevronDown
+                  className={`w-5 h-5 text-slate-500 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
+                />
+              </button>
+              {open === i && <div className="px-5 pb-5 text-slate-700 leading-relaxed">{f.a}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Final CTA ─────────────────────────
+const FinalCTA = () => (
+  <section className="py-4 md:py-6 bg-slate-900 text-white">
+    <div className="container mx-auto px-4 max-w-3xl text-center">
+      <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
+      <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
+      <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
+        Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
+        mais independente. <strong className="text-white">Você pode começar hoje, no seu ritmo.</strong>
+      </p>
+      <CTA>Quero começar agora!</CTA>
+      <p className="text-xs text-slate-400 mt-4"><Lock className="w-3.5 h-3.5 inline align-[-2px]" /> Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
+    </div>
+  </section>
+);
+
+// ───────────────────────── Footer ─────────────────────────
+const Footer = () => (
+  <footer className="bg-slate-950 text-slate-400 py-10 text-center text-xs">
+    <div className="container mx-auto px-4">
+      <p className="font-bold text-slate-300 mb-2">Informática na Prática LTDA</p>
+      <p className="mb-1">© 2026 — Todos os direitos reservados</p>
+      <p className="mb-3 text-slate-500">CNPJ: 32.373.460/0001-51</p>
+      <div className="flex justify-center gap-4">
+        <a href="/termos-de-uso" className="hover:text-white">
+          Termos de Uso
+        </a>
+        <a href="/politica-de-privacidade" className="hover:text-white">
+          Privacidade
+        </a>
+      </div>
+    </div>
+  </footer>
+);
+
+// ───────────────────────── Sticky Mobile CTA ─────────────────────────
+const StickyMobile = ({ remarketingTop = false, whatsappCta = false }: { remarketingTop?: boolean; whatsappCta?: boolean }) => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      const el = document.getElementById("comentarios");
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (r.top + r.height / 2 < window.innerHeight) setShow(true);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, []);
+  if (remarketingTop) return (
+    <div className="home-anterior-2-sticky md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-border bg-background px-2 py-3 shadow-2xl">
+      <Button
+        type="button"
+        onClick={() => (whatsappCta ? window.open(WHATS_LINK, "_blank") : openHotmartCheckout())}
+        className="cta-pulse h-auto w-full bg-[hsl(var(--whatsapp-strong))] hover:bg-[hsl(var(--whatsapp-strong-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(7.2vw,29px)] leading-[1.15] whitespace-nowrap"
+      >
+        <Monitor className="!h-[1.05em] !w-[1.05em] shrink-0" strokeWidth={2.5} />
+        Quero Tirar Minhas Dúvidas!
+      </Button>
+    </div>
+  );
+  if (!show) return null;
+  return (
+  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
+    <button
+      onClick={requestCheckout}
+      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
+    >
+      <Monitor className="w-5 h-5" /> Quero começar agora!
+    </button>
+  </div>
+  );
+};
+
+// ───────────────────────── Page ─────────────────────────
+const WHATS_LINK =
+  "https://api.whatsapp.com/send?phone=5545988287082&text=" +
+  encodeURIComponent("Olá, professora Elisa! Vi no site as informações do curso, mas ainda tenho dúvidas. Pode me ajudar?");
+
+const trackWhats = () => {
+  const h = window.location.hostname;
+  if ((h === "informaticanapratica.com.br" || h === "www.informaticanapratica.com.br") && (window as any).gtag) {
+    (window as any).gtag("event", "conversion", {
+      send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
+      value: 20.0,
+      currency: "BRL",
+    });
+  }
+};
+
+const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+  </svg>
+);
+
+const WhatsFloat = () => {
+  return (
+    <a
+      href={WHATS_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={trackWhats}
+      aria-label="Tire suas dúvidas no WhatsApp"
+      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
+    >
+      <WhatsIcon className="w-6 h-6" />
+      <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
+    </a>
+  );
+};
+
+const WhatsAposAulas = ({ bg = "bg-white" }: { bg?: string }) => (
+  <section className={`py-6 md:py-8 ${bg}`}>
+    <div className="container mx-auto px-4 max-w-3xl">
+      <div className="bg-green-50 border-2 border-green-500 rounded-2xl px-5 py-6 md:px-8 md:py-7 shadow-lg">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+          <div className="flex items-center gap-4 flex-1 min-w-0">
+            <img
+              src="/images/elisa-whatsapp.jpg"
+              alt="Professora Elisa"
+              style={{ objectPosition: "47% 16%" }}
+              className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-green-500 shrink-0"
+            />
+            <div className="min-w-0">
+              <p className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
+                Ficou com alguma dúvida?
+              </p>
+              <p className="mt-1 text-base md:text-lg text-slate-700 leading-snug">
+                Gostou do curso, mas ainda tem alguma dúvida?{"\u00a0"}
+                <span className="font-bold text-green-700">
+                  Estou aqui para te ajudar.
+                </span>
+              </p>
+            </div>
+          </div>
+          <a
+            href={WHATS_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={trackWhats}
+            className="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-6 py-4 rounded-xl shrink-0 shadow-md"
+          >
+            <WhatsIcon className="w-6 h-6" />
+            <span className="text-lg">Me Chame para Conversar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+
+// ───────────────────────── Page ─────────────────────────
+const SuporteProfessora = () => {
+  const handleClick = () => {
+    const isProduction =
+      window.location.hostname === "informaticanapratica.com.br" ||
+      window.location.hostname === "www.informaticanapratica.com.br";
+    if (isProduction && typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
+        value: 20.0,
+        currency: "BRL",
+      });
+    }
+  };
+
+  return (
+    <section className="py-10 md:py-14 bg-slate-900">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center mb-5">
+            <div className="relative">
+              <div className="absolute inset-0 bg-green-500/30 rounded-full blur-2xl scale-150" />
+              <img
+                src="/images/elisa-whatsapp.jpg"
+                alt="Professora Elisa"
+                style={{ objectPosition: "47% 16%" }}
+                className="relative w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-4 border-green-500/60 shadow-2xl"
+              />
+            </div>
+          </div>
+
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-4 leading-tight">
+            Ainda ficou com alguma dúvida?{" "}
+            <span className="text-green-400">Fale comigo antes de decidir.</span>
+          </h2>
+
+          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-4">
+            Será que é pra mim? Será que eu vou conseguir acompanhar? É seguro?
+          </p>
+          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-8">
+            Essas dúvidas são <strong className="text-white">normais</strong> — e você não precisa
+            decidir sozinho(a). Me chama no WhatsApp e eu respondo com calma, tudo o
+            que você quiser saber. <strong className="text-white">Sem compromisso.</strong>
+          </p>
+
+          <div className="mx-auto mb-6 w-full max-w-2xl">
+            <a
+              href={WHATS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleClick}
+              aria-label="Quero tirar minhas dúvidas com a professora Elisa"
+              className="group relative flex w-full items-center justify-center gap-3 md:gap-6 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-4 md:px-12 py-5 md:py-7 rounded-xl shadow-2xl transition-all hover:scale-[1.02] active:scale-[0.99]"
+            >
+              <span className="flex h-11 w-11 md:h-16 md:w-16 shrink-0 items-center justify-center rounded-full bg-white/20 transition-colors group-hover:bg-white/30">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  className="h-6 w-6 md:h-9 md:w-9"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </span>
+              <span className="flex-1 text-center leading-tight text-lg md:text-3xl">
+                Fale com a professora Elisa
+              </span>
+            </a>
+          </div>
+
+          <p className="text-sm text-slate-400 flex items-center justify-center gap-2">
+            <HeartHandshakeIcon className="w-4 h-4 text-green-400" />
+            {"\n"}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Footer ─────────────────────────
+
+const VendasNovo = ({ remarketingTop = false, whatsappCta = false }: { remarketingTop?: boolean; whatsappCta?: boolean }) => {
+  useEffect(() => {
+    document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
+      <Hero remarketingTop={remarketingTop} />
+      <AulaDemonstrativa />
+      <SocialProof remarketingTop={remarketingTop} />
+      <MiniValueSection />
+      {!remarketingTop && <QuizIdentificacao />}
+      <WhatsAposAulas />
+      <Instructor />
+      <Method remarketingTop={remarketingTop} />
+      <Modules />
+      <section className="py-4 md:py-6 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <HeroBonuses variant="light" />
+        </div>
+      </section>
+      <Certificate />
+      <Pricing />
+      <GuaranteeBlock />
+      <SuporteProfessora />
+      <FAQ />
+      <FinalCTA />
+      <Footer />
+      <StickyMobile remarketingTop={remarketingTop} whatsappCta={whatsappCta} />
+      <WhatsFloat />
+    </div>
+  );
+};
+
+export default VendasNovo;
