@@ -1368,7 +1368,7 @@ const SuporteProfessora = () => {
 
 // ───────────────────────── Footer ─────────────────────────
 
-const VendasNovo = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
+const VendasNovo = ({ remarketingTop = false, whatsappCta = false }: { remarketingTop?: boolean; whatsappCta?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
