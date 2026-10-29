@@ -1169,7 +1169,7 @@ const Footer = () => (
 );
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
+const StickyMobile = ({ remarketingTop = false, whatsappCta = false }: { remarketingTop?: boolean; whatsappCta?: boolean }) => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const check = () => {
@@ -1186,7 +1186,7 @@ const StickyMobile = ({ remarketingTop = false }: { remarketingTop?: boolean }) 
     <div className="home-anterior-2-sticky md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-border bg-background px-2 py-3 shadow-2xl">
       <Button
         type="button"
-        onClick={() => openHotmartCheckout()}
+        onClick={() => (whatsappCta ? window.open(WHATS_LINK, "_blank") : openHotmartCheckout())}
         className="cta-pulse h-auto w-full bg-[hsl(var(--whatsapp-strong))] hover:bg-[hsl(var(--whatsapp-strong-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(7.2vw,29px)] leading-[1.15] whitespace-nowrap"
       >
         <Monitor className="!h-[1.05em] !w-[1.05em] shrink-0" strokeWidth={2.5} />
