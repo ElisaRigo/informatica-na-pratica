@@ -1,7 +1,7 @@
-import { TopBanner } from "@/versoes/v2909/pages/Remarketing";
+import { TopBanner } from "@/paginas/info/Remarketing";
 import { Header } from "@/versoes/homebackup/pages/VendasNovo";
-import VendasNovo from "@/versoes/v2909/pages/VendasNovo";
-import "./home-anterior-2.css";
+import VendasNovo from "@/paginas/info/VendasNovo";
+import "@/paginas/info/estilo.css";
 
 const HomeAnterior2 = () => (
   <div className="info-spacing min-h-screen">

@@ -387,7 +387,13 @@ const MiniValueSection = () => {
           <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
         </p>
         <div className="mt-5">
-          <CTA>Quero Acessar{"\u00a0"} o Curso</CTA>
+          <button
+            onClick={requestCheckout}
+            className="cta-pulse inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-green-600 px-2 py-4 font-black text-white shadow-lg shadow-green-600/30 transition-all hover:bg-green-700 active:scale-[.99] [font-size:min(7.4vw,34px)] leading-none md:py-5"
+          >
+            <Monitor className="h-[1em] w-[1em] shrink-0" strokeWidth={2.5} />
+            <span>Quero Acessar o Curso</span>
+          </button>
         </div>
         <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
           <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
