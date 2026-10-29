@@ -1396,7 +1396,7 @@ const VendasNovo = ({ remarketingTop = false, whatsappCta = false }: { remarketi
       <FAQ />
       <FinalCTA />
       <Footer />
-      <StickyMobile remarketingTop={remarketingTop} />
+      <StickyMobile remarketingTop={remarketingTop} whatsappCta={whatsappCta} />
       <WhatsFloat />
     </div>
   );
