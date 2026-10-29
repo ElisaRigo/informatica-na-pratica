@@ -102,7 +102,7 @@ export const TopBanner = () => (
   <div className="relative overflow-hidden bg-slate-900 px-4 py-4 md:py-6">
     <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
     <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-cyan-500/10 blur-2xl" />
-    <div className="container relative mx-auto max-w-4xl text-center">
+    <div className="container relative mx-auto max-w-4xl px-0 text-center">
       <span className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200 backdrop-blur-sm md:mb-3 md:px-4 md:py-1.5 md:text-xs">
         <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
         AGORA É SUA VEZ!
@@ -113,7 +113,7 @@ export const TopBanner = () => (
         </span>
         <span className="block text-[30px] leading-tight sm:text-4xl md:text-[4.75rem]">Você vai conseguir aprender</span>
         <span className="relative mt-1 block w-full leading-none">
-          <span className="relative z-10 whitespace-nowrap text-[52px] font-black leading-none min-[375px]:text-[60px] sm:text-[80px] md:text-[9rem]">
+          <span className="relative z-10 whitespace-nowrap text-[46px] font-black leading-none min-[375px]:text-[54px] sm:text-[80px] md:text-[9rem]">
             <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">Informática</span>
           </span>
           <span className="absolute inset-x-0 bottom-[0.04em] z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-2" />
