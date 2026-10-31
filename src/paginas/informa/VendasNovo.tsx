@@ -1193,7 +1193,7 @@ const StickyMobile = ({ remarketingTop = false, whatsappCta = false }: { remarke
       <Button
         type="button"
         onClick={() => (whatsappCta ? window.open(WHATS_LINK, "_blank") : openHotmartCheckout())}
-        className="cta-pulse h-auto w-full bg-[hsl(var(--whatsapp-strong))] hover:bg-[hsl(var(--whatsapp-strong-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold py-4 rounded-xl flex items-center justify-center gap-2 text-[19px] min-[375px]:text-[22px] leading-[1.15] whitespace-nowrap"
+        className="cta-pulse h-auto w-full bg-[hsl(var(--whatsapp-strong))] hover:bg-[hsl(var(--whatsapp-strong-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold px-2 py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(7.5vw,34px)] leading-[1.15] whitespace-nowrap"
       >
         <Monitor className="!h-[1.05em] !w-[1.05em] shrink-0" strokeWidth={2.5} />
         Quero começar agora!
