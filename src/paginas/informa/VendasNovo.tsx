@@ -1196,7 +1196,7 @@ const StickyMobile = ({ remarketingTop = false, whatsappCta = false }: { remarke
         className="cta-pulse h-auto w-full bg-[hsl(var(--whatsapp-strong))] hover:bg-[hsl(var(--whatsapp-strong-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold py-4 rounded-xl flex items-center justify-center gap-2 text-[19px] min-[375px]:text-[22px] leading-[1.15] whitespace-nowrap"
       >
         <Monitor className="!h-[1.05em] !w-[1.05em] shrink-0" strokeWidth={2.5} />
-        Quero Aprender Informática!
+        Quero começar agora!
       </Button>
     </div>
   );
