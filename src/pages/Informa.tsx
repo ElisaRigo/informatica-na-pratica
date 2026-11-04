@@ -7,7 +7,7 @@ const Informa = () => (
   <div className="info-spacing min-h-screen">
     <Header light />
     <TopBanner />
-    <VendasNovo remarketingTop />
+    <VendasNovo remarketingTop whatsappCta />
   </div>
 );
 
