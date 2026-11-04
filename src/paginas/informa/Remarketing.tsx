@@ -107,7 +107,7 @@ export const TopBanner = () => (
         <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
         AGORA É SUA VEZ!
       </span>
-      <p className="relative text-lg font-black leading-tight text-white md:text-2xl">
+      <p className="informa-intro-copy relative text-lg font-black leading-tight text-white md:text-2xl">
         <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
           &ldquo;
         </span>

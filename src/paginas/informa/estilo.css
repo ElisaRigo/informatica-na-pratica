@@ -31,6 +31,24 @@
 }
 
 @media (min-width: 768px) {
+  /* Large display text needs its own line boxes, not the paragraph's line height. */
+  .informa-intro-copy > span:not([aria-hidden]) {
+    line-height: 1.15;
+  }
+
+  .informa-intro-copy > span:nth-child(3) {
+    margin-top: 0.75rem;
+  }
+
+  .informa-intro-copy > span:nth-child(3) > span:first-child {
+    display: block;
+    line-height: 1.15;
+  }
+
+  .informa-intro-copy > span:last-child {
+    margin-top: 1rem;
+  }
+
   .info-spacing > header {
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
