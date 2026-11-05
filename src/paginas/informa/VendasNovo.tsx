@@ -1196,7 +1196,7 @@ const StickyMobile = ({ remarketingTop = false, whatsappCta = false }: { remarke
         className="cta-pulse h-auto w-full bg-[hsl(var(--whatsapp-strong))] hover:bg-[hsl(var(--whatsapp-strong-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold px-2 py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(calc((100vw_-_40px)/12.4),34px)] leading-[1.15] whitespace-nowrap"
       >
         {whatsappCta ? <WhatsIcon className="!h-[1.05em] !w-[1.05em] shrink-0" /> : <Monitor className="!h-[1.05em] !w-[1.05em] shrink-0" strokeWidth={2.5} />}
-        Quero acessar o curso
+        Quero começar o curso
       </Button>
     </div>
   );
