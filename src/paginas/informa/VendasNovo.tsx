@@ -360,7 +360,7 @@ const MiniValueSection = () => {
           <Award className="w-4 h-4" /> OPORTUNIDADE PARA COMEÇAR AGORA!
         </span>
         <h2 className="text-[28px] md:text-4xl font-black text-slate-900 leading-tight">
-          Domine o COMPUTADOR do Zero
+          Aprenda INFORMÁTCA do Zero
         </h2>
         <div className="mt-4 mb-5 grid grid-cols-3 gap-2 md:gap-3">
           {[
