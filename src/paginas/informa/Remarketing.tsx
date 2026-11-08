@@ -105,7 +105,7 @@ export const TopBanner = () => (
     <div className="container relative mx-auto max-w-4xl px-0 text-center">
       <span className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-blue-200 backdrop-blur-sm md:mb-3 md:px-4 md:py-1.5 md:text-xs">
         <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
-        AGORA É SUA VEZ!
+        CURSO COM SUPORTE PARA DÚVIDAS!
       </span>
       <p className="informa-intro-copy relative text-lg font-black leading-tight text-white md:text-2xl">
         <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
