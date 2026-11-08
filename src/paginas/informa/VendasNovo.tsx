@@ -357,7 +357,7 @@ const MiniValueSection = () => {
     <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
-          <Award className="w-4 h-4" /> SUA OPORTUNIDADE DE APRENDER
+          <Award className="w-4 h-4" /> OPORTUNIDADE PARA COMEÇAR AGORA!
         </span>
         <h2 className="text-[28px] md:text-4xl font-black text-slate-900 leading-tight">
           Curso Completo de Informática
@@ -392,7 +392,7 @@ const MiniValueSection = () => {
             </p>
           </div>
           <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-4 py-1.5 text-base font-black uppercase text-slate-900 md:text-lg">
-            <Gift className="h-5 w-5 shrink-0" /> Você economiza R$ 200,00
+            <Gift className="h-5 w-5 shrink-0" /> VOCÊ ECONOMIZA R$ 200
           </p>
         </div>
         <p className="text-amber-600 font-extrabold text-base md:text-lg mt-2 flex items-center justify-center gap-1.5">
