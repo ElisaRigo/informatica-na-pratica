@@ -76,6 +76,38 @@
   --muted-foreground: 213 27% 84%;
 }
 
+.informa-programs {
+  --program-paper: 0 0% 100%;
+  color: hsl(var(--muted-foreground));
+}
+.informa-programs-title { font-size: 18px; white-space: nowrap; letter-spacing: 0; }
+.informa-program-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 52px;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background: linear-gradient(135deg, hsl(var(--program-start)), hsl(var(--program-end)));
+}
+.informa-program-windows { --program-start: 203 87% 55%; --program-end: 206 100% 36%; }
+.informa-program-word { --program-start: 215 67% 54%; --program-end: 216 56% 39%; }
+.informa-program-excel { --program-start: 152 56% 41%; --program-end: 147 56% 27%; }
+.informa-program-powerpoint { --program-start: 13 71% 58%; --program-end: 12 75% 44%; }
+.informa-program-email { --program-start: 198 93% 60%; --program-end: 200 98% 39%; }
+.program-icon-windows, .program-icon-email { width: 55%; height: 55%; }
+.program-icon-windows, .program-icon-document { fill: hsl(var(--program-paper)); }
+.program-icon-email { fill: none; stroke: hsl(var(--program-paper)); }
+.program-icon-document { width: 70%; height: 70%; }
+.program-icon-document text { fill: hsl(var(--program-end)); }
+@media (min-width: 375px) {
+  .informa-programs-title { font-size: 20px; }
+}
+@media (min-width: 768px) {
+  .informa-program-tile { max-width: 92px; }
+}
+
 .home-anterior-2-seals {
   --seal-guarantee: 142 69% 58%;
   --seal-secure: 213 94% 68%;
