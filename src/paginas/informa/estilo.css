@@ -80,7 +80,7 @@
   --program-paper: 0 0% 100%;
   color: hsl(var(--muted-foreground));
 }
-.informa-programs-title { font-size: 18px; white-space: nowrap; letter-spacing: 0; }
+.informa-programs-title { font-size: 16px; white-space: nowrap; letter-spacing: 0; }
 .informa-program-tile {
   display: flex;
   align-items: center;
@@ -102,7 +102,7 @@
 .program-icon-document { width: 70%; height: 70%; }
 .program-icon-document text { fill: hsl(var(--program-end)); }
 @media (min-width: 375px) {
-  .informa-programs-title { font-size: 20px; }
+  .informa-programs-title { font-size: 18px; }
 }
 @media (min-width: 768px) {
   .informa-program-tile { max-width: 92px; }

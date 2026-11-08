@@ -1,4 +1,5 @@
 # Project architecture
+- Keep the programs row in /informa local to that page so copying its presentation never links edits to /icone-2 or /info.
 - Route `/` to the same page module as the chosen historical version (currently /versao-21-09) and keep `/aprender` and `/icone` on their own modules, so swapping the home never edits page content.
 - Keep experimental sales pages in independently routed page modules so comparing a new funnel never changes existing or historical pages.
 - Pass the opt-in `remarketingTop` presentation variant from /info (page file HomeAnterior2.tsx); shared historical pages keep the default top layout to prevent cross-page visual changes.
