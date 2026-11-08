@@ -376,10 +376,25 @@ const MiniValueSection = () => {
             </div>
           ))}
         </div>
-        <p className="text-slate-600 text-base md:text-lg">
-          de <span className="line-through text-slate-400">R$ 497,00</span> por apenas
-        </p>
-        <p className="text-green-600 font-black text-5xl md:text-6xl leading-tight mt-1">R$ 297,00</p>
+        <div className="mx-auto mt-2 max-w-sm rounded-3xl border-2 border-green-500 bg-white p-4 shadow-xl shadow-green-600/15">
+          <p className="flex items-center justify-center gap-1.5 font-black uppercase leading-none text-green-600 [font-size:min(7vw,30px)]">
+            <Zap className="h-[1.1em] w-[1.1em] shrink-0 fill-green-500" /> Oferta especial
+          </p>
+          <p className="mt-3 text-xl font-extrabold text-slate-700 md:text-2xl">
+            De: <span className="text-red-600 line-through decoration-2">R$ 497,00</span>
+          </p>
+          <span className="mt-2 inline-block rounded-full bg-slate-900 px-5 py-1 text-sm font-black uppercase tracking-wide text-white">Por apenas</span>
+          <div className="mt-2 rounded-2xl border-2 border-green-500 bg-green-50 py-2">
+            <p className="font-black leading-none text-green-600">
+              <span className="align-top text-2xl">R$</span>
+              <span className="text-7xl md:text-8xl">297</span>
+              <span className="align-top text-2xl">,00</span>
+            </p>
+          </div>
+          <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-4 py-1.5 text-base font-black uppercase text-slate-900 md:text-lg">
+            <Gift className="h-5 w-5 shrink-0" /> Você economiza R$ 200,00
+          </p>
+        </div>
         <p className="text-amber-600 font-extrabold text-base md:text-lg mt-2 flex items-center justify-center gap-1.5">
           <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
         </p>
