@@ -357,10 +357,10 @@ const MiniValueSection = () => {
     <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
-          <Award className="w-4 h-4" /> OPORTUNIDADE PARA COMEÇAR AGORA!
+          <Award className="w-4 h-4" /> OPORTUNIDADE PARA COMEÇAR AGORA!
         </span>
         <h2 className="text-[28px] md:text-4xl font-black text-slate-900 leading-tight">
-          Curso Completo de Informática
+          DOMINE O COMPUTADOR DO ZERO
         </h2>
         <div className="mt-4 mb-5 grid grid-cols-3 gap-2 md:gap-3">
           {[
