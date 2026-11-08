@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { Programas } from "./Programas";
 import {
   ShieldCheck,
   Lock,
@@ -195,6 +196,8 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
               </div>
             ))}
           </div>}
+
+          {remarketingTop && <Programas />}
 
           {!remarketingTop && <p className={`text-base md:text-xl max-w-3xl mx-auto mb-3 text-slate-700`}>
             {"\n"}
