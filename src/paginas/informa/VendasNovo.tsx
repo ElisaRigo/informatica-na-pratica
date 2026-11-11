@@ -385,7 +385,7 @@ const MiniValueSection = () => {
           <div className="mt-2 rounded-2xl border-2 border-green-500 bg-green-50 py-2">
             <p className="font-black leading-none text-green-600">
               <span className="align-top text-2xl">R$</span>
-              <span className="text-7xl md:text-8xl">297</span>
+              <span className="text-6xl md:text-7xl">297</span>
               <span className="align-top text-2xl">,00</span>
             </p>
           </div>
