@@ -281,7 +281,7 @@ const AulaDemonstrativa = () => {
           </p>
         </div>
 
-        <div className="mb-4"><Programas /></div>
+        <div className="mb-4 text-center"><Programas /></div>
         <div className="mx-auto mb-6 max-w-2xl">
           <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
             <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
