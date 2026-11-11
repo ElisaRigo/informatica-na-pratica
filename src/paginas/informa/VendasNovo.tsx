@@ -352,12 +352,12 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
 const MiniValueSection = () => {
   return (
-    <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
+    <section id="primeiro-valor" className="informa-offer-band py-4 md:py-6">
       <div className="container mx-auto px-4 max-w-xl text-center">
         <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
           <Award className="w-4 h-4" /> OPORTUNIDADE PARA COMEÇAR AGORA!
         </span>
-        <h2 className="text-[28px] md:text-4xl font-black text-slate-900 leading-tight">
+        <h2 className="text-[28px] md:text-4xl font-black text-foreground leading-tight">
           Domine o COMPUTADOR começando do Zero
         </h2>
         <div className="mt-4 mb-5 grid grid-cols-3 gap-2 md:gap-3">
@@ -393,13 +393,13 @@ const MiniValueSection = () => {
             <Gift className="h-5 w-5 shrink-0" /> VOCÊ ECONOMIZA R$ 200
           </p>
         </div>
-        <p className="text-amber-600 font-extrabold text-base md:text-lg mt-2 flex items-center justify-center gap-1.5">
+        <p className="informa-offer-bonus font-extrabold text-base md:text-lg mt-2 flex items-center justify-center gap-1.5">
           <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
         </p>
-        <p className="text-slate-700 text-lg md:text-xl mt-1">
-          ou <span className="font-black text-slate-900">12x de R$ 30,72</span> no cartão
+        <p className="text-muted-foreground text-lg md:text-xl mt-1">
+          ou <span className="font-black text-foreground">12x de R$ 30,72</span> no cartão
         </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
+        <p className="inline-flex items-center justify-center gap-1.5 text-muted-foreground text-xs md:text-sm mt-2">
           <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
         </p>
         <div className="mt-5">
