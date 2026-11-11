@@ -78,7 +78,12 @@
 
 .informa-programs {
   --program-paper: 0 0% 100%;
+  --program-surface: 222 47% 11%;
+  --program-foreground: 210 40% 98%;
+  --muted-foreground: var(--program-foreground);
+  background: hsl(var(--program-surface));
   color: hsl(var(--muted-foreground));
+  padding-block: 1rem;
 }
 .informa-programs-title { font-size: 16px; white-space: nowrap; letter-spacing: 0; }
 .informa-program-tile {
