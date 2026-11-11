@@ -33,6 +33,7 @@ const NovaVersao = lazy(() => import("./pages/NovaVersao"));
 const Icone = lazy(() => import("./pages/Icone"));
 const HomeAnterior2 = lazy(() => import("./pages/HomeAnterior2"));
 const Informa = lazy(() => import("./pages/Informa"));
+const Informa2 = lazy(() => import("./pages/Informa2"));
 const Icone2 = lazy(() => import("./pages/Icone2"));
 
 
@@ -75,6 +76,7 @@ const App = () => (
             <Route path="/home-anterior" element={<Index />} />
             <Route path="/info" element={<HomeAnterior2 />} />
             <Route path="/informa" element={<Informa />} />
+            <Route path="/informa2" element={<Informa2 />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
