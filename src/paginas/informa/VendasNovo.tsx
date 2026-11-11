@@ -197,7 +197,6 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
             ))}
           </div>}
 
-          {remarketingTop && <Programas />}
 
           {!remarketingTop && <p className={`text-base md:text-xl max-w-3xl mx-auto mb-3 text-slate-700`}>
             {"\n"}
