@@ -274,7 +274,7 @@ const AulaDemonstrativa = () => {
             <ShieldCheck className="h-[1.2em] w-[1.2em] shrink-0" strokeWidth={2.5} />Meu método vai te desbloquar!
           </span>
           <h2 className="text-[27px] md:text-4xl font-black text-slate-900 leading-tight">
-            Imagine você... Usando o computador com <span className="text-blue-600">tranquilidade!</span>
+            Use o computador com <span className="text-blue-600">tranquilidade!</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
             {"\n"}
