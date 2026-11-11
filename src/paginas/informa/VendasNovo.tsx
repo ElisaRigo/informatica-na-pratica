@@ -282,15 +282,13 @@ const AulaDemonstrativa = () => {
         </div>
 
         <div className="mb-4 text-center"><Programas /></div>
+        <div className="mx-auto mb-4 max-w-3xl text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-black uppercase text-amber-800 md:text-sm"><Play className="h-3.5 w-3.5" />Aula real – assista agora</span>
+          <h3 className="mt-3 text-2xl font-black leading-tight text-slate-900 md:text-4xl">Veja como é uma aula <span className="text-blue-600">passo a passo</span> – do jeito que você vai aprender</h3>
+          <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-600 md:text-base">Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.</p>
+        </div>
         <div className="mx-auto mb-6 max-w-2xl">
           <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
-            <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">1</span>
-              <div className="text-left">
-                <h3 className="font-black text-slate-900">Venha aprender comigo</h3>
-                <p className="text-xs text-slate-500">Eu explico tudo com calma e simplicidade</p>
-              </div>
-            </div>
             {!isCourseLessonPlaying ? (
               <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsCourseLessonPlaying(true)} aria-label="Assistir à primeira aula do curso">
                 <img
