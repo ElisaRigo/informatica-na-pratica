@@ -1261,7 +1261,7 @@ const WhatsFloat = () => {
       rel="noopener noreferrer"
       onClick={trackWhats}
       aria-label="Tire suas dúvidas no WhatsApp"
-      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
+      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 hidden md:flex items-center gap-2"
     >
       <WhatsIcon className="w-6 h-6" />
       <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
