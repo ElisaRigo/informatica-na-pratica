@@ -4,7 +4,7 @@ import VendasNovo from "@/paginas/informa/VendasNovo";
 import "@/paginas/informa/estilo.css";
 
 const Informa = () => (
-  <div className="info-spacing min-h-screen">
+  <div className="info-spacing informa-light min-h-screen">
     <Header light />
     <TopBanner />
     <VendasNovo remarketingTop />
