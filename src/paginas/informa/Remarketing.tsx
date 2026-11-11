@@ -99,7 +99,7 @@ export const Header = () => (
 );
 
 export const TopBanner = () => (
-  <div className="relative overflow-hidden bg-slate-900 px-4 py-4 md:py-6">
+  <div className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white px-4 py-4 md:py-6">
     <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
     <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-cyan-500/10 blur-2xl" />
     <div className="container relative mx-auto max-w-4xl px-0 text-center">
@@ -107,14 +107,14 @@ export const TopBanner = () => (
         <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
         CURSO COM SUPORTE PARA DÚVIDAS!
       </span>
-      <p className="informa-intro-copy relative text-lg font-black leading-tight text-white md:text-2xl">
+      <p className="informa-intro-copy relative text-lg font-black leading-tight text-slate-900 md:text-2xl">
         <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
           &ldquo;
         </span>
         <span className="block whitespace-nowrap leading-none [font-size:min(calc((100vw_-_32px)/7),5.5rem)]">Não sabe usar o</span>
         <span className="relative mt-1 block w-full leading-none">
           <span className="relative z-10 whitespace-nowrap text-[46px] font-black leading-none min-[375px]:text-[54px] sm:text-[80px] md:text-[9rem]">
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">Computador?</span>
+            <span className="bg-gradient-to-r from-blue-700 via-cyan-500 to-blue-700 bg-clip-text text-transparent">Computador?</span>
           </span>
           <span className="absolute inset-x-0 bottom-[0.04em] z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-2" />
         </span>
