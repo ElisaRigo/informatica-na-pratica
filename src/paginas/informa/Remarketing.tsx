@@ -100,8 +100,6 @@ export const Header = () => (
 
 export const TopBanner = () => (
   <div className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white px-4 py-4 md:py-6">
-    <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
-    <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-cyan-500/10 blur-2xl" />
     <div className="container relative mx-auto max-w-4xl px-0 text-center">
       <span className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-blue-700 backdrop-blur-sm md:mb-3 md:px-4 md:py-1.5 md:text-xs">
         <MessageCircleHeart className="h-3.5 w-3.5 text-primary md:h-4 md:w-4" aria-hidden />
