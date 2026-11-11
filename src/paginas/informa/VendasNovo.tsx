@@ -379,7 +379,7 @@ const MiniValueSection = () => {
             <Zap className="h-[1.1em] w-[1.1em] shrink-0 fill-green-500" /> Oferta especial
           </p>
           <p className="mt-3 text-xl font-extrabold text-slate-700 md:text-2xl">
-            De: <span className="text-red-600 line-through decoration-2">R$ 497,00</span>
+            De: <span className="informa-price-strike">R$ 497,00</span>
           </p>
           <span className="mt-2 inline-block rounded-full bg-slate-900 px-5 py-1 text-sm font-black uppercase tracking-wide text-white">Por apenas</span>
           <div className="mt-2 rounded-2xl border-2 border-green-500 bg-green-50 py-2">

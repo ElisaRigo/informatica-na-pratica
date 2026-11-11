@@ -76,6 +76,24 @@
   --muted-foreground: 213 27% 84%;
 }
 
+.informa-price-strike {
+  --price-strike: 0 72% 51%;
+  position: relative;
+  display: inline-block;
+  color: hsl(var(--price-strike));
+}
+.informa-price-strike::after {
+  content: "";
+  position: absolute;
+  left: -3%;
+  top: 50%;
+  width: 106%;
+  height: 2px;
+  background: hsl(var(--price-strike));
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
 .informa-programs {
   --program-paper: 0 0% 100%;
   --program-surface: 222 47% 11%;
