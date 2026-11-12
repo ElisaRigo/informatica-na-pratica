@@ -2,6 +2,7 @@
 - Keep the programs row in /informa local to that page so copying its presentation never links edits to /icone-2 or /info.
 - Route `/` to the same page module as the chosen historical version (currently /versao-21-09) and keep `/aprender` and `/icone` on their own modules, so swapping the home never edits page content.
 - Keep experimental sales pages in independently routed page modules so comparing a new funnel never changes existing or historical pages.
+- Render /informa from its own copied home page module, not the historical home module, so future presentation edits remain independent.
 - Keep /informa3 in its own copied page modules and scope its stylesheet to its page root so future edits do not affect earlier copies.
 - Pass the opt-in `remarketingTop` presentation variant from /info (page file HomeAnterior2.tsx); shared historical pages keep the default top layout to prevent cross-page visual changes.
 - Use existing Hotmart tracking helpers for purchase actions so checkout events remain consistent across sales variants.
