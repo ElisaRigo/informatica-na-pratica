@@ -1,9 +1,11 @@
-import { Play, Shield, Zap, Award, Lock, Star, Quote, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
+import { Play, Shield, Zap, Award, Lock, Star, Quote, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity, Monitor } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
+import homeVideoThumbAsset from "@/versoes/v2909/assets/capa-primeiro-video.png.asset.json";
+const homeVideoThumb = homeVideoThumbAsset.url;
 
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -225,6 +227,33 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
   );
 };
 
+// ─── Sticky Mobile CTA (mesmo da home) ─────────────────────────────
+const StickyMobileCta = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      const el = document.getElementById("primeiro-valor");
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (r.top + r.height / 2 < window.innerHeight) setShow(true);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, []);
+  if (!show) return null;
+  return (
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
+      <button
+        onClick={() => (window as any).openCheckout?.()}
+        className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
+      >
+        <Monitor className="w-5 h-5" /> Quero começar agora!
+      </button>
+    </div>
+  );
+};
+
 // ─── Main Page ──────────────────────────────────────────────────────
 const Informatica = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -260,7 +289,7 @@ const Informatica = () => {
   return (
     <div className="min-h-screen bg-slate-900">
       {/* ─── HERO (mesmo da home /aprender) ─── */}
-      <HeroV2 />
+      <HeroV2 videoThumb={homeVideoThumb} />
 
       {/* ─── ACOLHIMENTO ─── */}
       <WelcomeBanner />
@@ -726,6 +755,7 @@ const Informatica = () => {
       </footer>
 
       {/* FLOATING WHATSAPP */}
+      <StickyMobileCta />
       <WhatsFloat />
     </div>
   );

@@ -5,7 +5,7 @@ const heroVideoThumb = "/images/capa-primeiro-video.jpg";
 import freeClassThumb from "@/assets/aprenda-comigo-thumb.jpg";
 import { HeroPricing } from "./HeroPricing";
 
-export const HeroV2 = () => {
+export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   const [shouldLoadFreeClass, setShouldLoadFreeClass] = useState(false);
@@ -111,7 +111,7 @@ export const HeroV2 = () => {
                 onClick={() => setIsPlaying(true)}
               >
                 <img 
-                  src={heroVideoThumb}
+                  src={videoThumb}
                   alt="Prévia do curso de informática"
                   className="w-full h-full object-cover"
                   loading="eager"
