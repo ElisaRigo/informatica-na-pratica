@@ -26,12 +26,15 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
       const context = document.createElement("canvas").getContext("2d");
       if (!context) return;
       const lines = headline.querySelectorAll<HTMLElement>("[data-fit-line]");
-      setMobileLineSizes(Array.from(lines, (line) => {
+      const fittedSizes = Array.from(lines, (line) => {
         const styles = getComputedStyle(line);
         context.font = `${styles.fontWeight} 100px ${styles.fontFamily}`;
         const width = context.measureText(line.textContent ?? "").width;
         return width > 0 ? (headline.clientWidth - 4) * 100 / width : 30;
-      }));
+      });
+      // Keep both headline lines at the same size instead of enlarging the shorter one.
+      const headlineSize = Math.min(fittedSizes[0] ?? 30, fittedSizes[1] ?? 30);
+      setMobileLineSizes([headlineSize, headlineSize, fittedSizes[2] ?? 30]);
     };
     const observer = new ResizeObserver(fitLines);
     observer.observe(headline);
