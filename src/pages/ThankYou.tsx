@@ -19,7 +19,7 @@ const ThankYou = () => {
     const trackConversion = () => {
       if (typeof window !== 'undefined' && (window as any).gtag) {
         // Disparar evento de conversão do Google Analytics
-        (window as any).gtag('event', 'conversion', {
+        (window as any).gtag('event', 'purchase', {
           'send_to': 'G-08B5E33G3F',
           'transaction_id': '',
           'value': 297.0,

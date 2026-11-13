@@ -13,6 +13,7 @@ export const trackWhats = () => {
       h === "www.informaticanapratica.com.br") &&
     (window as any).gtag
   ) {
+    ("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
     (window as any).gtag("event", "conversion", {
       send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
       value: 20.0,
