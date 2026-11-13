@@ -67,9 +67,9 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
               <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 lg:h-28 drop-shadow-lg" />
             </div>
           </div>
-          <p className="w-full text-white text-2xl md:text-3xl lg:text-4xl font-extrabold text-center leading-tight">
-            <span ref={courseTitleRef} className="block whitespace-nowrap font-hero font-normal tracking-normal leading-tight" style={{ fontSize: courseTitleSize }}>Curso de <span className="text-primary">Informática Online</span></span>
-            <span className="block">Simples e para Todos.</span>
+          <p className="w-full text-primary-foreground text-center leading-tight">
+            <span ref={courseTitleRef} className="block whitespace-nowrap font-hero font-normal tracking-normal leading-tight" style={{ fontSize: courseTitleSize }}>Curso de <span className="text-primary">Informática</span></span>
+            <span className="mt-1.5 block whitespace-nowrap text-[9px] min-[375px]:text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-normal text-primary-foreground/70">100% ONLINE - DO ZERO - SIMPLES E FÁCIL</span>
           </p>
         </div>
 
