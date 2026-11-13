@@ -12,6 +12,33 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
   const freeClassRef = useRef<HTMLDivElement>(null);
   const courseTitleRef = useRef<HTMLSpanElement>(null);
   const [courseTitleSize, setCourseTitleSize] = useState(24);
+  const headlineRef = useRef<HTMLDivElement>(null);
+  const [mobileLineSizes, setMobileLineSizes] = useState<number[]>([]);
+
+  useEffect(() => {
+    const headline = headlineRef.current;
+    if (!headline) return;
+    const fitLines = () => {
+      if (window.innerWidth >= 768) {
+        setMobileLineSizes([]);
+        return;
+      }
+      const context = document.createElement("canvas").getContext("2d");
+      if (!context) return;
+      const lines = headline.querySelectorAll<HTMLElement>("[data-fit-line]");
+      setMobileLineSizes(Array.from(lines, (line) => {
+        const styles = getComputedStyle(line);
+        context.font = `${styles.fontWeight} 100px ${styles.fontFamily}`;
+        const width = context.measureText(line.textContent ?? "").width;
+        return width > 0 ? (headline.clientWidth - 4) * 100 / width : 30;
+      }));
+    };
+    const observer = new ResizeObserver(fitLines);
+    observer.observe(headline);
+    void document.fonts.ready.then(fitLines);
+    fitLines();
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const title = courseTitleRef.current;
@@ -86,10 +113,10 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
         </div>
 
         {/* Headline principal */}
-        <div className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
+        <div ref={headlineRef} className="text-center max-w-5xl mx-auto mb-4 md:mb-6">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2 md:mb-4">
-            <span className="block">Domine o Computador</span>
-            <span className="block">
+            <span data-fit-line className="block whitespace-nowrap leading-tight" style={{ fontSize: mobileLineSizes[0] }}>Domine o Computador</span>
+            <span data-fit-line className="block whitespace-nowrap leading-tight" style={{ fontSize: mobileLineSizes[1] }}>
               em{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
@@ -99,7 +126,7 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
               </span>
             </span>
           </h1>
-          <p className="text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium">
+          <p data-fit-line className="whitespace-nowrap text-lg md:text-3xl lg:text-4xl text-slate-300 font-medium" style={{ fontSize: mobileLineSizes[2] }}>
             Mesmo começando do zero
           </p>
         </div>
