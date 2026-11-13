@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
+import homeVideoThumbAsset from "@/versoes/v2909/assets/capa-primeiro-video.png.asset.json";
+const homeVideoThumb = homeVideoThumbAsset.url;
 
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
 import whatsappTestimonial2 from "@/assets/whatsapp-testimonial-2.png";
@@ -260,7 +262,7 @@ const Informatica = () => {
   return (
     <div className="min-h-screen bg-slate-900">
       {/* ─── HERO (mesmo da home /aprender) ─── */}
-      <HeroV2 />
+      <HeroV2 videoThumb={homeVideoThumb} />
 
       {/* ─── ACOLHIMENTO ─── */}
       <WelcomeBanner />
