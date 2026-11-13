@@ -49,6 +49,7 @@ import {
 import { SevenDayChallenge } from "@/components/SevenDayChallenge";
 import { WelcomeBanner } from "@/components/WelcomeBanner";
 import { HeroV2 } from "@/components/aprender/HeroV2";
+import { requestCheckout } from "@/versoes/v2909/lib/requestCheckout";
 
 // ─── Data ───────────────────────────────────────────────────────────
 const audioTestimonials = [
@@ -245,7 +246,7 @@ const StickyMobileCta = () => {
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
       <button
-        onClick={() => (window as any).openCheckout?.()}
+        onClick={requestCheckout}
         className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
       >
         <Monitor className="w-5 h-5" /> Quero começar agora!
