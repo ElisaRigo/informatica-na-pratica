@@ -708,7 +708,7 @@ const Informatica = () => {
             </h2>
           </div>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            Aprender em poucos dias ou em 30 dias é uma estimativa, não uma promessa de resultado.
+            Aprender em poucos dias é uma estimativa, não uma promessa de resultado.
             Seu progresso depende da prática, da dedicação e do seu ponto de partida.
             Você tem acesso vitalício para assistir e repetir as aulas no seu ritmo, sem pressa.
           </p>
