@@ -290,7 +290,7 @@ export const CheckoutForm = () => {
               description: "Redirecionando para confirmação...",
             });
             setTimeout(() => {
-              window.location.href = '/obrigada';
+              window.location.href = '/obrigados';
             }, 1500);
           }
         } catch (error) {
@@ -424,7 +424,7 @@ export const CheckoutForm = () => {
         
         // Redirecionar para página de obrigado
         setTimeout(() => {
-          window.location.href = '/obrigada';
+          window.location.href = '/obrigados';
         }, 1500);
       } else {
         toast({

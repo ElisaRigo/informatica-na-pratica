@@ -113,7 +113,7 @@ export const CardPaymentBrick = ({ formData, amount, onSuccess, onError }: CardP
                       description: "Redirecionando...",
                     });
                     setTimeout(() => {
-                      window.location.href = '/obrigada';
+                      window.location.href = '/obrigados';
                     }, 1500);
                   } else if (data?.status === 'pending') {
                     toast({

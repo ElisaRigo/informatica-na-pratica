@@ -28,7 +28,7 @@ const ThankYou = () => {
         
         // Disparar pageview para garantir que o GA4 rastreie a página
         (window as any).gtag('config', 'G-08B5E33G3F', {
-          page_path: '/obrigada',
+          page_path: '/obrigados',
           page_title: 'Obrigada - Compra Confirmada'
         });
         
@@ -95,12 +95,12 @@ const ThankYou = () => {
         <title>Obrigada pela sua compra! - Informática na Prática</title>
         <meta name="description" content="Parabéns! Sua compra foi confirmada. Você receberá um e-mail com as credenciais de acesso ao curso em até 5 minutos." />
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://informaticanapratica.com.br/obrigada" />
+        <link rel="canonical" href="https://informaticanapratica.com.br/obrigados" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Obrigada pela sua compra! - Informática na Prática" />
         <meta property="og:description" content="Parabéns! Sua compra foi confirmada." />
-        <meta property="og:url" content="https://informaticanapratica.com.br/obrigada" />
+        <meta property="og:url" content="https://informaticanapratica.com.br/obrigados" />
         
         {/* Google Tag Manager */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17641842157"></script>

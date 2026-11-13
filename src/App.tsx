@@ -56,7 +56,8 @@ const App = () => (
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/aguardando" element={<AguardandoConfirmacao />} />
             <Route path="/aguardando-confirmacao" element={<AguardandoConfirmacao />} />
-            <Route path="/obrigada" element={<ThankYou />} />
+            <Route path="/obrigados" element={<ThankYou />} />
+            <Route path="/obrigada" element={<Navigate to="/obrigados" replace />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
             <Route path="/gerar-link-mercadopago" element={<GerarLinkMercadoPago />} />
