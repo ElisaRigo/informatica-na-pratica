@@ -755,6 +755,7 @@ const Informatica = () => {
       </footer>
 
       {/* FLOATING WHATSAPP */}
+      <StickyMobileCta />
       <WhatsFloat />
     </div>
   );
