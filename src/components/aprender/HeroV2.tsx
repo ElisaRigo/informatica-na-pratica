@@ -10,6 +10,29 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   const [shouldLoadFreeClass, setShouldLoadFreeClass] = useState(false);
   const freeClassRef = useRef<HTMLDivElement>(null);
+  const courseTitleRef = useRef<HTMLSpanElement>(null);
+  const [courseTitleSize, setCourseTitleSize] = useState(24);
+
+  useEffect(() => {
+    const title = courseTitleRef.current;
+    if (!title) return;
+    const fitTitle = () => {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      if (!context) return;
+      const styles = getComputedStyle(title);
+      context.font = `${styles.fontWeight} 100px ${styles.fontFamily}`;
+      const width = context.measureText(title.textContent ?? "").width;
+      if (width > 0) {
+        setCourseTitleSize(Math.min(64, (title.clientWidth - 4) * 100 / width));
+      }
+    };
+    const observer = new ResizeObserver(fitTitle);
+    observer.observe(title);
+    void document.fonts.ready.then(fitTitle);
+    fitTitle();
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,8 +67,8 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
               <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 lg:h-28 drop-shadow-lg" />
             </div>
           </div>
-          <p className="text-white text-2xl md:text-3xl lg:text-4xl font-extrabold text-center leading-tight">
-            <span className="block">Curso de <span className="text-primary">Informática Online</span></span>
+          <p className="w-full text-white text-2xl md:text-3xl lg:text-4xl font-extrabold text-center leading-tight">
+            <span ref={courseTitleRef} className="block whitespace-nowrap font-hero font-normal tracking-normal leading-tight" style={{ fontSize: courseTitleSize }}>Curso de <span className="text-primary">Informática Online</span></span>
             <span className="block">Simples e para Todos.</span>
           </p>
         </div>
