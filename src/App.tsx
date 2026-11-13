@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 const Aprender = lazy(() => import("./pages/Aprender"));
 const Informatica = lazy(() => import("./pages/Informatica"));
@@ -56,7 +56,8 @@ const App = () => (
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/aguardando" element={<AguardandoConfirmacao />} />
             <Route path="/aguardando-confirmacao" element={<AguardandoConfirmacao />} />
-            <Route path="/obrigada" element={<ThankYou />} />
+            <Route path="/obrigados" element={<ThankYou />} />
+            <Route path="/obrigada" element={<Navigate to="/obrigados" replace />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
             <Route path="/gerar-link-mercadopago" element={<GerarLinkMercadoPago />} />

@@ -155,7 +155,7 @@ export const useCheckoutFormLogic = (overridePrice?: number) => {
           if (payment) {
             clearInterval(intervalId);
             toast({ title: "✅ Pagamento confirmado!", description: "Redirecionando..." });
-            setTimeout(() => { window.location.href = '/obrigada'; }, 1500);
+            setTimeout(() => { window.location.href = '/obrigados'; }, 1500);
           }
         } catch (error) { console.error('Error checking payment:', error); }
       }, 5000);
@@ -212,7 +212,7 @@ export const useCheckoutFormLogic = (overridePrice?: number) => {
       if (error && error.code !== 'PGRST116') throw error;
       if (payment) {
         toast({ title: "✅ Pagamento confirmado!", description: "Redirecionando..." });
-        setTimeout(() => { window.location.href = '/obrigada'; }, 1500);
+        setTimeout(() => { window.location.href = '/obrigados'; }, 1500);
       } else {
         toast({ title: "Aguardando pagamento", description: "O pagamento ainda não foi confirmado. Aguarde alguns instantes após pagar." });
       }
