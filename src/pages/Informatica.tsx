@@ -230,16 +230,6 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
 
 // ─── Sticky Mobile CTA (mesmo da home) ─────────────────────────────
 const StickyMobileCta = () => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const check = () => {
-      if (window.scrollY > window.innerHeight * 0.8) setShow(true);
-    };
-    check();
-    window.addEventListener("scroll", check, { passive: true });
-    return () => window.removeEventListener("scroll", check);
-  }, []);
-  if (!show) return null;
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
       <button
