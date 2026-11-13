@@ -1,4 +1,4 @@
-import { Play, Shield, Zap, Award, Lock, Star, Quote, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity } from "lucide-react";
+import { Play, Shield, Zap, Award, Lock, Star, Quote, Volume2, Smartphone, ThumbsUp, Heart, Pause, Trophy, Sparkles, ArrowRight, GraduationCap, Briefcase, FileCheck, BookOpen, Clock, CheckCircle2, MessageCircleHeart, HeartHandshake, HelpCircle, Users, Check, Gift, Headphones, AlertCircle, Target, Infinity, Monitor } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
@@ -223,6 +223,33 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
           </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+// ─── Sticky Mobile CTA (mesmo da home) ─────────────────────────────
+const StickyMobileCta = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      const el = document.getElementById("primeiro-valor");
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (r.top + r.height / 2 < window.innerHeight) setShow(true);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, []);
+  if (!show) return null;
+  return (
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
+      <button
+        onClick={() => (window as any).openCheckout?.()}
+        className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
+      >
+        <Monitor className="w-5 h-5" /> Quero começar agora!
+      </button>
     </div>
   );
 };
