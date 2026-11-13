@@ -37,17 +37,16 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
 
       <div className="container mx-auto px-4 py-4 md:py-8 relative z-10">
         {/* Logo */}
-        <div className="flex items-center justify-center gap-3 md:flex-col md:gap-4 mb-3 md:mb-6">
+        <div className="flex flex-col items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
           <div className="relative group shrink-0">
             <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-4 border border-white/20 shadow-lg">
-              <img src={logo} alt="Informática na Prática" className="h-12 md:h-20 lg:h-24 drop-shadow-lg" />
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2.5 md:p-4 border border-white/20 shadow-lg">
+              <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 lg:h-28 drop-shadow-lg" />
             </div>
           </div>
-          <p className="text-white text-lg md:text-2xl lg:text-3xl font-bold text-left md:text-center leading-tight">
-            <span className="block md:inline">Curso de <span className="text-primary">Informática Online</span></span>
-            <span className="hidden md:inline"> — </span>
-            <span className="block md:inline">Simples e para Todos.</span>
+          <p className="text-white text-2xl md:text-3xl lg:text-4xl font-extrabold text-center leading-tight">
+            <span className="block">Curso de <span className="text-primary">Informática Online</span></span>
+            <span className="block">Simples e para Todos.</span>
           </p>
         </div>
 
