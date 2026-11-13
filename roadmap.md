@@ -49,4 +49,4 @@
 # Eventos de compra indevidos
 - [x] Investigar disparos na home, /informatica e agradecimento.
 - [x] Remover conversões de compra baseadas apenas em visitas ao agradecimento, incluindo cópias.
-- [ ] Testar visitas, recargas e cliques de checkout sem compra.
+- [x] Testar visitas, recargas e cliques de checkout sem compra.
