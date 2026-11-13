@@ -1,5 +1,14 @@
-import Home from "@/paginas/informa/Home";
+import { TopBanner } from "@/paginas/informa/Remarketing";
+import { Header } from "@/versoes/homebackup/pages/VendasNovo";
+import VendasNovo from "@/paginas/informa/VendasNovo";
+import "@/paginas/informa/estilo.css";
 
-const Informa = () => <Home />;
+const Informa = () => (
+  <div className="info-spacing informa-light min-h-screen">
+    <Header light />
+    <TopBanner />
+    <VendasNovo remarketingTop />
+  </div>
+);
 
 export default Informa;
