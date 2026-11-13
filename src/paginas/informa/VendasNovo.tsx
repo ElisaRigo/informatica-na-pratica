@@ -1237,7 +1237,7 @@ const WHATS_LINK =
 const trackWhats = () => {
   const h = window.location.hostname;
   if ((h === "informaticanapratica.com.br" || h === "www.informaticanapratica.com.br") && (window as any).gtag) {
-    ("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
+    (window as any).gtag("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
     (window as any).gtag("event", "conversion", {
       send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
       value: 20.0,
@@ -1316,7 +1316,7 @@ const SuporteProfessora = () => {
       window.location.hostname === "informaticanapratica.com.br" ||
       window.location.hostname === "www.informaticanapratica.com.br";
     if (isProduction && typeof window !== "undefined" && (window as any).gtag) {
-      ("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
+      (window as any).gtag("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
       (window as any).gtag("event", "conversion", {
         send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
         value: 20.0,
