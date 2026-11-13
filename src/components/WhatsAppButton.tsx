@@ -6,6 +6,7 @@ export const WhatsAppButton = () => {
                          window.location.hostname === 'www.informaticanapratica.com.br';
     
     if (isProduction && typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
       (window as any).gtag('event', 'conversion', {
         'send_to': 'AW-17641842157/-qUVCOSN474bEO3LpNxB',
         'value': 20.0,

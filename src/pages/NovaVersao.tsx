@@ -28,6 +28,7 @@ const questions = [
 function trackWhatsApp() {
   if (window.location.hostname !== "informaticanapratica.com.br") return;
   const trackedWindow = window as Window & { gtag?: (...args: unknown[]) => void };
+  trackedWindow.gtag?.("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
   trackedWindow.gtag?.("event", "conversion", { send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB", value: 20, currency: "BRL" });
 }
 
