@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo-blue.png";
 import heroVideoThumb from "@/assets/hero-video-cover-curso.jpg";
-import homeVideoThumbAsset from "@/versoes/v2909/assets/capa-primeiro-video.png.asset.json";
+import homeVideoThumbAsset from "@/versoes/v2109/assets/aprender-hero-cover-v3.jpg.asset.json";
 const homeVideoThumb = homeVideoThumbAsset.url;
 
 import whatsappTestimonial1 from "@/assets/whatsapp-testimonial-1.png";
