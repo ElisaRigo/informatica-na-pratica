@@ -8,3 +8,5 @@
 - Scope experimental page theme tokens to its root class so design exploration does not change other pages.
 - Keep highlighted-text contrast scoped by surface tone: dark sections must resolve `--primary` to a lighter value than light surfaces (via a CSS layer that unlayered theme scopes can still override), so highlight text stays readable on dark without washing out solid blue fills that carry white text.
 - Keep page hero/cover images as local files under `public/images/` rather than CDN asset pointers, so they render in the sandbox preview and on the live site.- Keep /info and /informa on their own copied modules under `src/paginas/<page>/`, so edits to one page never change the other or the historical v2909 pages.
+
+- Never emit purchase or sales conversions from a thank-you page visit; only the payment provider or a verified paid transaction may confirm a sale, preventing false purchases and reload duplicates.

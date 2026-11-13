@@ -1,92 +1,11 @@
-import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/versoes/v1305/components/ui/button";
 import logoImage from "@/versoes/v1305/assets/logo-blue.png";
 
 const ThankYou = () => {
-  useEffect(() => {
-    // Só rastrear conversões no domínio de produção
-    const isProduction = window.location.hostname === 'informaticanapratica.com.br' || 
-                         window.location.hostname === 'www.informaticanapratica.com.br';
-    
-    if (!isProduction) {
-      console.log('Google Ads conversion skipped - not on production domain');
-      return;
-    }
+  // A page visit is not proof of payment. Hotmart owns purchase tracking.
 
-    // Função para disparar as conversões
-    const trackConversion = () => {
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        // Disparar evento de conversão do Google Analytics
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'G-08B5E33G3F',
-          'transaction_id': '',
-          'value': 297.0,
-          'currency': 'BRL'
-        });
-        
-        // Disparar pageview para garantir que o GA4 rastreie a página
-        (window as any).gtag('config', 'G-08B5E33G3F', {
-          page_path: '/obrigados',
-          page_title: 'Obrigada - Compra Confirmada'
-        });
-        
-        // Disparar evento de conversão do Google Ads
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-17641842157/fmoACInw160bEO3LpNxB',
-          'value': 297.0,
-          'currency': 'BRL',
-          'transaction_id': ''
-        });
-        
-        // Disparar evento de conversão de matrícula do Google Ads
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-17641842157/B6aWCPfmzr0bEO3LpNxB',
-          'value': 1.0,
-          'currency': 'BRL',
-          'transaction_id': ''
-        });
-        
-        console.log('✅ Google Analytics e Google Ads conversion tracked successfully');
-        
-        // Disparar conversão do Facebook Pixel
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Purchase', {
-            value: 297.00,
-            currency: 'BRL'
-          });
-          console.log('✅ Facebook Pixel conversion tracked successfully');
-        }
-        
-        return true;
-      }
-      return false;
-    };
-
-    // Tentar disparar imediatamente
-    if (trackConversion()) {
-      return;
-    }
-
-    // Se gtag não estiver disponível, esperar até que esteja (max 5 segundos)
-    console.log('⏳ Aguardando gtag carregar...');
-    let attempts = 0;
-    const maxAttempts = 50; // 5 segundos (50 * 100ms)
-    
-    const interval = setInterval(() => {
-      attempts++;
-      
-      if (trackConversion()) {
-        clearInterval(interval);
-      } else if (attempts >= maxAttempts) {
-        console.error('❌ gtag não carregou após 5 segundos');
-        clearInterval(interval);
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
 
 
   return (
@@ -102,16 +21,6 @@ const ThankYou = () => {
         <meta property="og:description" content="Parabéns! Sua compra foi confirmada." />
         <meta property="og:url" content="https://informaticanapratica.com.br/obrigados" />
         
-        {/* Google Tag Manager */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17641842157"></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17641842157');
-          `}
-        </script>
       </Helmet>
       
       <div className="min-h-screen bg-background flex items-center justify-center p-4">

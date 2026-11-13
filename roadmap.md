@@ -45,3 +45,8 @@
 - [x] Manter apenas a barra fixa, que desce até o valor antes do preço e abre o pagamento depois dele.
 - [x] Conferir no celular e no computador, sem erros.
 
+
+# Eventos de compra indevidos
+- [x] Investigar disparos na home, /informatica e agradecimento.
+- [x] Remover conversões de compra baseadas apenas em visitas ao agradecimento, incluindo cópias.
+- [x] Testar visitas, recargas e cliques de checkout sem compra.
