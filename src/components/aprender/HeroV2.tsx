@@ -68,7 +68,7 @@ export const HeroV2 = ({ videoThumb = heroVideoThumb }: { videoThumb?: string })
             </div>
           </div>
           <p className="w-full text-white text-2xl md:text-3xl lg:text-4xl font-extrabold text-center leading-tight">
-            <span ref={courseTitleRef} className="block whitespace-nowrap font-hero font-normal tracking-normal" style={{ fontSize: courseTitleSize }}>Curso de <span className="text-primary">Informática Online</span></span>
+            <span ref={courseTitleRef} className="block whitespace-nowrap font-hero font-normal tracking-normal leading-tight" style={{ fontSize: courseTitleSize }}>Curso de <span className="text-primary">Informática Online</span></span>
             <span className="block">Simples e para Todos.</span>
           </p>
         </div>
