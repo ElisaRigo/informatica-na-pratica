@@ -231,12 +231,13 @@ const AudioPlayer = ({ testimonial }: { testimonial: typeof audioTestimonials[0]
 // ─── Sticky Mobile CTA (mesmo da home) ─────────────────────────────
 const StickyMobileCta = () => {
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 px-2 py-3 shadow-2xl">
       <button
         onClick={requestCheckout}
-        className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
+        className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(7.2vw,29px)] leading-[1.15]"
       >
-        <Monitor className="w-5 h-5" /> Quero começar agora!
+        <Monitor className="h-[1.05em] w-[1.05em] shrink-0" strokeWidth={2.5} />
+        Quero começar agora!
       </button>
     </div>
   );
