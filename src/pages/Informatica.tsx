@@ -42,7 +42,6 @@ import {
   WHATS_LINK,
   trackWhats,
   WhatsIcon,
-  WhatsFloat,
   WhatsCard,
   WhatsAskSection,
 } from "@/components/WhatsAppTouchpoints";
@@ -743,9 +742,8 @@ const Informatica = () => {
         </div>
       </footer>
 
-      {/* FLOATING WHATSAPP */}
+      {/* FIXED CHECKOUT */}
       <StickyMobileCta />
-      <WhatsFloat />
     </div>
   );
 };
