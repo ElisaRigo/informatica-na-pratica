@@ -233,10 +233,7 @@ const StickyMobileCta = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const check = () => {
-      const el = document.getElementById("primeiro-valor");
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      if (r.top + r.height / 2 < window.innerHeight) setShow(true);
+      if (window.scrollY > window.innerHeight * 0.8) setShow(true);
     };
     check();
     window.addEventListener("scroll", check, { passive: true });
