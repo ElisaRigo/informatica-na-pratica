@@ -225,6 +225,7 @@ export const Header = ({ light = false, logo }: { light?: boolean; logo?: string
 // ───────────────────────── Hero ─────────────────────────
 const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hidePrograms = false, showCourseSeals = false }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode; hidePrograms?: boolean; showCourseSeals?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const readableSeals = useContext(MinimalCtas);
   return (
     <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
 
@@ -315,7 +316,7 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             )}
           </div>
 
-          <div className="grid grid-cols-4 gap-x-1 gap-y-2">
+          <div className={`grid grid-cols-4 ${readableSeals ? "gap-1.5 md:gap-3" : "gap-x-1 gap-y-2"}`}>
             {[
               { icon: ShieldCheck, tone: "text-green-400", lines: ["7 dias", "de garantia"] },
               { icon: Lock, tone: "text-blue-400", lines: ["Compra", "100% segura"] },
@@ -324,14 +325,14 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             ].map((s, i) => (
               <div
                 key={s.lines.join(" ")}
-                className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2"
+                className={`flex flex-col items-center justify-center text-center ${readableSeals ? "gap-2 rounded-lg border border-border bg-card text-card-foreground px-0.5 py-3 shadow-sm md:gap-3 md:px-3 md:py-4" : "gap-1 px-0.5 py-1 md:gap-2 md:px-2"}`}
               >
                 <s.icon
                   className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`}
                   strokeWidth={2}
                   style={{ animationDelay: `${i * 0.35}s` }}
                 />
-                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-white md:text-[13px]">
+                <span className={readableSeals ? "block text-xs min-[375px]:text-sm md:text-lg font-extrabold leading-snug text-card-foreground" : "block text-[9px] font-extrabold uppercase leading-[1.15] text-white md:text-[13px]"}>
                   {s.lines[0]}
                   <br />
                   {s.lines[1]}
