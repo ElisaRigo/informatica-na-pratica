@@ -43,7 +43,7 @@ export default function Independencia() {
       <img src="/images/elisa-independencia-aula.jpg" alt="Elisa ensinando cada passo em um computador" className="independencia-hero-photo" fetchPriority="high" />
       <div className="independencia-container py-10 md:py-16">
         <p className="text-secondary text-base md:text-lg font-bold mb-5">APRENDER NÃO TEM IDADE.</p>
-        <h1 className="independencia-heading">O computador<br />é seu.<br /><span className="text-secondary">A independência<br />também pode ser.</span></h1>
+        <h1 className="independencia-heading">O computador<br />é seu.<br /><span className="text-secondary">Sua independência<br />começa aqui.</span></h1>
         <p className="max-w-xl mt-6 text-xl md:text-2xl leading-relaxed">Aprenda a usar o computador <strong>sem depender dos outros.</strong> Do zero, com calma e uma professora de verdade.</p>
         <div className="mt-7"><BuyButton /><p className="mt-3 flex items-center gap-2 text-base text-muted-foreground"><ShieldCheck className="w-5 h-5 text-primary" /> 7 dias para conhecer. Ou seu dinheiro de volta.</p></div>
         <div className="flex flex-wrap gap-x-7 gap-y-3 mt-8 text-base font-semibold"><span className="flex gap-2 items-center"><Pause className="w-5 h-5 text-primary" /> No seu ritmo</span><span className="flex gap-2 items-center"><Repeat2 className="w-5 h-5 text-primary" /> Repita quando quiser</span><span className="flex gap-2 items-center"><MessageCircle className="w-5 h-5 text-primary" /> Ajuda da professora</span></div>
@@ -55,7 +55,7 @@ export default function Independencia() {
         <p className="text-primary text-base font-bold mb-3">DA VONTADE À VIDA REAL</p>
         <h2 className="independencia-heading max-w-3xl">O que você quer<br />fazer sozinho?</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-7" role="group" aria-label="O que você quer aprender">
-          {outcomes.map((outcome, index) => { const Icon = icons[index]; return <Button key={outcome.id} variant="outline" aria-pressed={selected === index} onClick={() => setSelected(index)} className="independencia-option"><Icon className="!h-5 !w-5" />{outcome.label}</Button>; })}
+          {outcomes.map((outcome, index) => { const Icon = icons[index]; return <Button key={outcome.id} variant="outline" aria-pressed={selected === index} onClick={() => setSelected(index)} className="independencia-option"><Icon className="!h-5 !w-5" /><span className="min-w-0 break-words">{outcome.label}</span></Button>; })}
         </div>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mt-8" aria-live="polite">
           <div><h3 className="text-2xl md:text-3xl font-extrabold leading-snug">{current.title}</h3><p className="mt-4 text-muted-foreground">{current.description}</p><ul className="mt-5 space-y-3">{current.skills.map(skill => <li key={skill} className="flex gap-3 items-start"><Check className="mt-1 w-6 h-6 shrink-0 text-primary" />{skill}</li>)}</ul></div>

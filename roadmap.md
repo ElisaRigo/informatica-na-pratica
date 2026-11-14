@@ -52,5 +52,5 @@
 - [x] Testar visitas, recargas e cliques de checkout sem compra.
 
 # Nova página /independencia para público 40+
-- [ ] Criar apresentação independente, letras grandes, resultados práticos, aula real, confiança e oferta clara.
-- [ ] Verificar leitura em telas pequenas e grandes, aula, dúvidas e pagamento sem falsas compras.
+- [x] Criar apresentação independente, letras grandes, resultados práticos, aula real, confiança e oferta clara.
+- [x] Verificar leitura em telas pequenas e grandes, aula, dúvidas e pagamento sem falsas compras.

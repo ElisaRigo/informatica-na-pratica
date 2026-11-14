@@ -571,6 +571,7 @@ video::-webkit-media-controls-panel {
   --muted: 180 12% 93%;
   --muted-foreground: 180 7% 33%;
   --primary: 193 90% 31%;
+  --primary-foreground: 0 0% 100%;
   --border: 180 10% 80%;
   --card: 0 0% 100%;
   --card-foreground: 180 7% 10%;
@@ -598,12 +599,16 @@ video::-webkit-media-controls-panel {
 @keyframes independencia-breathe { 50% { box-shadow: 0 0 0 6px hsl(var(--secondary) / .18); } }
 @media (max-width: 767px) {
   .independencia-page .independencia-heading { font-size: 32px; }
-  .independencia-page .independencia-hero h1 { font-size: 40px; max-width: 100%; }
+  .independencia-page .independencia-hero h1 { font-size: 36px; max-width: 100%; }
   .independencia-page { --independencia-overlay: linear-gradient(90deg, hsl(var(--background) / .96), hsl(var(--background) / .75)), linear-gradient(0deg, hsl(var(--background)), transparent 70%); }
   .independencia-page .independencia-hero-photo { object-position: 40% center; }
-  .independencia-page .independencia-option { font-size: 17px; padding: 12px; }
+  .independencia-page .independencia-option { font-size: 17px; padding: 10px; min-width: 0; }
   .independencia-page .independencia-offer-price { font-size: 54px; }
   .independencia-page .independencia-video-badge { font-size: 16px; bottom: 10px; left: 10px; padding: 10px 12px; }
+}
+@media (max-width: 350px) {
+  .independencia-page .independencia-hero h1 { font-size: 32px; }
+  .independencia-page .independencia-option { gap: 6px; font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .independencia-page *, .independencia-page *::before { animation: none !important; scroll-behavior: auto !important; }
