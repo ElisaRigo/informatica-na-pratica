@@ -549,7 +549,8 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ───────────────────────── Method (3 steps) ─────────────────────────
 const Method = () => {
