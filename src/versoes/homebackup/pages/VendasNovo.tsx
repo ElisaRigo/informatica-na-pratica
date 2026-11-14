@@ -494,13 +494,15 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
                 : "rounded-3xl shadow-xl w-full object-cover aspect-[4/5]"
             }
           />
-          <div className="absolute -bottom-4 -right-4 bg-slate-800 rounded-2xl shadow-xl border border-white/10 px-4 py-3 flex items-center gap-2">
-            <Users className="w-5 h-5 text-sky-300" />
-            <div>
-              <div className="text-lg font-black text-white leading-none">+15.000</div>
-              <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wide">Alunos formados</div>
+          {!isCustomPhoto && (
+            <div className="absolute -bottom-4 -right-4 bg-slate-800 rounded-2xl shadow-xl border border-white/10 px-4 py-3 flex items-center gap-2">
+              <Users className="w-5 h-5 text-sky-300" />
+              <div>
+                <div className="text-lg font-black text-white leading-none">+15.000</div>
+                <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wide">Alunos formados</div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div>
           <span className="inline-flex items-center gap-2 bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
