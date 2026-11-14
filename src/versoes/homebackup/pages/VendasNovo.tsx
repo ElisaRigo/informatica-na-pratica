@@ -766,12 +766,12 @@ const Modules = () => {
 // ───────────────────────── Modules (versão acolhedora, só /icone-2) ─────────────────────────
 const ModulesWarm = () => {
   const mods = [
-    { i: windowsIcon, n: "1", t: "Perca o medo do computador", d: "Ligar, usar o mouse e o teclado e guardar suas fotos e arquivos sem medo de apagar nada.", s: "Primeiro passo" },
-    { i: wordIcon, n: "2", t: "Escreva seus próprios documentos", d: "Cartas, currículo e receitas. Você digita, arruma e imprime sozinho(a).", s: "Muito usado" },
-    { i: excelIcon, n: "3", t: "Organize suas contas do mês", d: "Monte planilhas simples para controlar gastos, listas e tudo da sua casa.", s: "Mais pedido" },
-    { i: powerpointIcon, n: "4", t: "Crie apresentações bonitas", d: "Monte slides caprichados para o trabalho, a igreja ou a família.", s: "Fácil e bonito" },
-    { i: internetIcon, n: "5", t: "Use a internet com segurança", d: "Pesquise no Google, mande e-mails e aprenda a reconhecer golpes.", s: "Protege você" },
-    { i: typingIcon, n: "6", t: "Digite mais rápido", d: "Ganhe confiança no teclado e faça tudo com mais agilidade.", s: "Bônus de prática" },
+    { i: windowsIcon, n: "1", label: " Windows", t: "Perca o medo do computador", d: "Ligar, usar o mouse e o teclado e guardar suas fotos e arquivos sem medo de apagar nada.", s: "Primeiro passo" },
+    { i: wordIcon, n: "2", label: "Word", t: "Escreva seus próprios documentos", d: "Cartas, currículo e receitas. Você digita, arruma e imprime sozinho(a).", s: "Muito usado" },
+    { i: excelIcon, n: "3", label: "Excel", t: "Organize suas contas do mês", d: "Monte planilhas simples para controlar gastos, listas e tudo da sua casa.", s: "Mais pedido" },
+    { i: powerpointIcon, n: "4", label: "PowerPoint", t: "Crie apresentações bonitas", d: "Monte slides caprichados para o trabalho, a igreja ou a família.", s: "Fácil e bonito" },
+    { i: internetIcon, n: "5", label: "Internet, e-mail e anexo", t: "Use a internet com segurança", d: "Pesquise no Google, mande e-mails e aprenda a reconhecer golpes.", s: "Protege você" },
+    { i: typingIcon, n: "6", label: "Digitação", t: "Digite mais rápido", d: "Ganhe confiança no teclado e faça tudo com mais agilidade.", s: "Bônus de prática" },
   ];
   const seals = [
     { Icon: HeartHandshake, t: "Ensino com calma" },
@@ -791,7 +791,7 @@ const ModulesWarm = () => {
             <span className="text-sky-300">sempre com a minha ajuda</span>
           </h2>
           <p className="text-slate-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            São 6 etapas simples, do primeiro clique até usar o computador sozinho(a). Você nunca fica perdido(a).
+            Tudo muito simples, do primeiro clique até usar o computador sozinho(a). Você nunca fica perdido(a).
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8">
@@ -814,7 +814,7 @@ const ModulesWarm = () => {
                 <div className="w-14 h-14 rounded-xl bg-sky-400/10 flex items-center justify-center shrink-0">
                   <img src={m.i} alt="" className="w-8 h-8" loading="lazy" />
                 </div>
-                <span className="text-sm font-bold text-sky-300">Etapa {m.n} - {m.n === "1" ? "Windows" : m.n === "2" ? "Word" : m.n === "3" ? "Excel" : m.n === "4" ? "PowerPoint" : "Internet, e-mail e anexo"}</span>
+                <span className="text-sm font-bold text-sky-300">{m.label}</span>
               </div>
               <h3 className="text-xl md:text-2xl font-black text-white leading-snug mb-2">{m.t}</h3>
               <p className="text-slate-200 text-base md:text-lg leading-relaxed">{m.d}</p>
