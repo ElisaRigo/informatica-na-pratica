@@ -241,10 +241,10 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false }: { videoThumb?
                     type="button"
                     onClick={() => setIsPlaying(true)}
                     aria-label="Assistir ao recado da professora"
-                    className="badge-breathe absolute inset-0 z-10 flex items-center justify-center"
+                    className="group absolute inset-0 z-10 flex cursor-pointer items-center justify-center"
                   >
-                    <span className="badge-halo relative flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(var(--badge-hot-foreground))] shadow-2xl ring-4 ring-white/30 md:h-20 md:w-20">
-                      <Play className="ml-1 !h-7 !w-7 fill-[hsl(var(--badge-hot))] text-[hsl(var(--badge-hot))] md:!h-9 md:!w-9" />
+                    <span className="flex h-14 w-14 animate-pulse items-center justify-center rounded-full bg-white shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
+                      <PlayCircle className="h-10 w-10 text-sky-500 md:h-12 md:w-12" strokeWidth={1.5} />
                     </span>
                   </button>
                 ) : (
@@ -478,12 +478,12 @@ const AulaDemonstrativa = () => {
 
 
 // ───────────────────────── Instructor ─────────────────────────
-const Instructor = () => (
+const Instructor = ({ photo = elisa }: { photo?: string }) => (
   <section className="py-4 md:py-6 bg-transparent">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
-          <img src={elisa} alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
+          <img src={photo} alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
           <div className="absolute -bottom-4 -right-4 bg-slate-800 rounded-2xl shadow-xl border border-white/10 px-4 py-3 flex items-center gap-2">
             <Users className="w-5 h-5 text-sky-300" />
             <div>
@@ -1385,7 +1385,7 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb, centerPlay }: { videoThumb?: string; centerPlay?: boolean }) => {
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
@@ -1396,7 +1396,7 @@ const VendasNovo = ({ videoThumb, centerPlay }: { videoThumb?: string; centerPla
       <AulaDemonstrativa />
       <MiniValueSection />
       <WhatsAposAulas />
-      <Instructor />
+      <Instructor photo={instructorPhoto} />
       <SocialProof />
       <WhatsAposAulas bg="bg-white/5" />
       <Method />
