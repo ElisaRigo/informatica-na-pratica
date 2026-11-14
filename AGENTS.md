@@ -1,6 +1,6 @@
 # Project architecture
 - Keep the programs row in /informa local to that page so copying its presentation never links edits to /icone-2 or /info.
-- Route `/` to the same page module as the chosen historical version (currently /versao-21-09) and keep `/aprender` and `/icone` on their own modules, so swapping the home never edits page content.
+- Keep `/` and `/informa` on independent copies of the sales presentation, with the previous home preserved at `/home-copia` and the previous informa presentation at `/informa-copia`, so edits never alter `/icone-2` or historical pages.
 - Keep experimental sales pages in independently routed page modules so comparing a new funnel never changes existing or historical pages.
 - Keep the independence sales experience and its outcome selector in its own page folder, with theme tokens scoped to the page root, so interaction and design changes remain isolated.
 - Keep /informa3 in its own copied page modules and scope its stylesheet to its page root so future edits do not affect earlier copies.

@@ -33,6 +33,8 @@ const NovaVersao = lazy(() => import("./pages/NovaVersao"));
 const Icone = lazy(() => import("./pages/Icone"));
 const HomeAnterior2 = lazy(() => import("./pages/HomeAnterior2"));
 const Informa = lazy(() => import("./pages/Informa"));
+const HomeAtual = lazy(() => import("./pages/HomeAtual"));
+const InformaCopia = lazy(() => import("./pages/InformaCopia"));
 const Informa2 = lazy(() => import("./pages/Informa2"));
 const Informa3 = lazy(() => import("./pages/Informa3"));
 const Independencia = lazy(() => import("./paginas/independencia/Independencia"));
@@ -49,7 +51,9 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
-            <Route path="/" element={<Versao2109 />} />
+            <Route path="/" element={<HomeAtual />} />
+            <Route path="/home-copia" element={<Versao2109 />} />
+            <Route path="/informa-copia" element={<InformaCopia />} />
             <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
             <Route path="/venda-conversao" element={<VendaConversao />} />
