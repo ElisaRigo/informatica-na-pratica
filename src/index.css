@@ -640,7 +640,7 @@ video::-webkit-media-controls-panel {
 .icone2-headline-support > span { display: block; }
 @media (max-width: 767px) {
   .icone2-headline-intro { font-size: 32px; }
-  .icone2-headline-computer { font-size: 44px; }
+  .icone2-headline-computer { font-size: 42px; }
   .icone2-headline-support { font-size: 26px; }
 }
 @media (min-width: 390px) and (max-width: 767px) {
