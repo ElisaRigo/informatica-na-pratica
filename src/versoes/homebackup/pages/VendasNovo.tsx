@@ -428,7 +428,7 @@ const AulaDemonstrativa = () => {
 
         <div className="text-center mb-3 md:mb-4">
           <h2 className="text-2xl md:text-4xl font-hero text-white leading-tight text-balance">
-            Aprender Informática vai transformar sua vida!
+            Aprender Informática vai transformar sua vida!
           </h2>
         </div>
 
