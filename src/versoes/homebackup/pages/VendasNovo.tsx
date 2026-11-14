@@ -215,7 +215,7 @@ export const Header = ({ light = false }: { light?: boolean }) => (
 );
 
 // ───────────────────────── Hero ─────────────────────────
-const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode }) => {
+const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hidePrograms = false }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode; hidePrograms?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
@@ -228,10 +228,14 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline }: { v
           </h1>}
 
 
-          <p className="mt-1 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
-            Domine os programas mais usados
-          </p>
-          <ProgramMiniatures />
+          {!hidePrograms && (
+            <>
+              <p className="mt-1 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
+                Domine os programas mais usados
+              </p>
+              <ProgramMiniatures />
+            </>
+          )}
 
 
           {/* Video */}
@@ -1544,7 +1548,7 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode }) => {
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline, hidePrograms = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode; hidePrograms?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
@@ -1552,7 +1556,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
     <MinimalCtas.Provider value={minimalCtas}>
     <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header />
-      <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} />
+      <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
       <MiniValueSection />

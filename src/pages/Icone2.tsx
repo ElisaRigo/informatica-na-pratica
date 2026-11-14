@@ -13,6 +13,7 @@ const Icone2 = () => {
         instructorFirst
         minimalCtas
         hideWhatsFloat
+        hidePrograms
         headline={
           <h1 className="mx-auto mb-4 w-full text-center font-black leading-tight text-slate-50">
             <span className="block whitespace-nowrap leading-none [font-size:calc((100vw_-_32px)/8)] md:[font-size:min(calc((100vw_-_32px)/7),5.5rem)]">Domine o</span>
