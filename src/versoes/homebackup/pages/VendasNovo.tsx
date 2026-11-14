@@ -812,7 +812,7 @@ const ModulesWarm = () => {
               </span>
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-14 h-14 rounded-xl bg-sky-400/10 flex items-center justify-center shrink-0">
-                  <img src={m.i} alt="" className="w-8 h-8" loading="lazy" />
+                  <img src={m.i} alt="" className="w-full h-full object-contain" loading="lazy" />
                 </div>
                 <span className="text-sm font-bold text-sky-300">{m.label}</span>
               </div>
