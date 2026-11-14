@@ -533,3 +533,78 @@ video::-webkit-media-controls-panel {
     animation: none !important;
   }
 }
+
+/* Independent, large-type editorial sales experience. */
+.independencia-page {
+  --background: 180 7% 8%;
+  --foreground: 0 0% 98%;
+  --primary: 190 89% 69%;
+  --primary-foreground: 180 7% 8%;
+  --muted: 180 7% 16%;
+  --muted-foreground: 180 7% 76%;
+  --card: 180 7% 13%;
+  --card-foreground: 0 0% 98%;
+  --border: 180 7% 28%;
+  --input: 180 7% 28%;
+  --ring: 190 89% 69%;
+  --secondary: 75 88% 73%;
+  --secondary-foreground: 180 7% 8%;
+  --accent: 190 89% 69%;
+  --accent-foreground: 180 7% 8%;
+  --success: 145 70% 49%;
+  --success-foreground: 180 7% 8%;
+  --whatsapp: 145 70% 49%;
+  --whatsapp-hover: 145 70% 44%;
+  --whatsapp-foreground: 180 7% 8%;
+  --independencia-overlay: linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background) / .97) 25%, hsl(var(--background) / .7) 48%, hsl(var(--background) / .08) 78%), linear-gradient(0deg, hsl(var(--background)), transparent 45%);
+  --independencia-shadow: 0 8px 36px hsl(var(--background) / .25);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 1.65;
+  letter-spacing: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+.independencia-page .independencia-light {
+  --background: 0 0% 98%;
+  --foreground: 180 7% 10%;
+  --muted: 180 12% 93%;
+  --muted-foreground: 180 7% 33%;
+  --primary: 193 90% 31%;
+  --border: 180 10% 80%;
+  --card: 0 0% 100%;
+  --card-foreground: 180 7% 10%;
+  --ring: 193 90% 31%;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+.independencia-page .independencia-container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.independencia-page .independencia-heading { font-family: 'Arial Black', 'Archivo Black', sans-serif; font-weight: 900; line-height: 1.12; letter-spacing: 0; font-size: 44px; }
+.independencia-page .independencia-hero { position: relative; isolation: isolate; }
+.independencia-page .independencia-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 65% center; z-index: -2; }
+.independencia-page .independencia-hero::before { content: ''; position: absolute; inset: 0; background: var(--independencia-overlay); z-index: -1; }
+.independencia-page .independencia-hero h1 { font-size: 68px; max-width: 710px; }
+.independencia-page .independencia-cta { height: auto; min-height: 64px; padding: 14px 24px; border-radius: 12px; font-size: 22px; font-weight: 800; background: hsl(var(--whatsapp)); color: hsl(var(--whatsapp-foreground)); white-space: normal; text-align: center; line-height: 1.3; }
+.independencia-page .independencia-cta:hover { background: hsl(var(--whatsapp-hover)); }
+.independencia-page .independencia-option { font-size: 18px; min-height: 60px; height: auto; white-space: normal; padding: 14px; text-align: left; justify-content: flex-start; border-radius: 6px; }
+.independencia-page .independencia-option[aria-pressed=true] { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); border-color: hsl(var(--primary)); }
+.independencia-page .independencia-preview { min-height: 280px; background: hsl(var(--background)); border: 1px solid hsl(var(--border)); border-radius: 8px; }
+.independencia-page .independencia-video { position: relative; aspect-ratio: 16 / 9; background: hsl(var(--muted)); overflow: hidden; border-radius: 8px; }
+.independencia-page .independencia-video img, .independencia-page .independencia-video iframe { width: 100%; height: 100%; object-fit: cover; border: 0; }
+.independencia-page .independencia-video-badge { position: absolute; bottom: 14px; left: 14px; height: auto; padding: 12px 16px; background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); font-size: 18px; font-weight: 800; border-radius: 6px; animation: independencia-breathe 3s ease-in-out infinite; }
+.independencia-page .independencia-floating { box-shadow: var(--independencia-shadow); }
+.independencia-page .independencia-offer-price { font-family: 'Arial Black', sans-serif; font-size: 64px; line-height: 1.1; }
+.independencia-page .independencia-underline { text-decoration: underline; text-decoration-color: hsl(var(--secondary)); text-underline-offset: 9px; text-decoration-thickness: 3px; }
+@keyframes independencia-breathe { 50% { box-shadow: 0 0 0 6px hsl(var(--secondary) / .18); } }
+@media (max-width: 767px) {
+  .independencia-page .independencia-heading { font-size: 32px; }
+  .independencia-page .independencia-hero h1 { font-size: 40px; max-width: 100%; }
+  .independencia-page { --independencia-overlay: linear-gradient(90deg, hsl(var(--background) / .96), hsl(var(--background) / .75)), linear-gradient(0deg, hsl(var(--background)), transparent 70%); }
+  .independencia-page .independencia-hero-photo { object-position: 40% center; }
+  .independencia-page .independencia-option { font-size: 17px; padding: 12px; }
+  .independencia-page .independencia-offer-price { font-size: 54px; }
+  .independencia-page .independencia-video-badge { font-size: 16px; bottom: 10px; left: 10px; padding: 10px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .independencia-page *, .independencia-page *::before { animation: none !important; scroll-behavior: auto !important; }
+}
