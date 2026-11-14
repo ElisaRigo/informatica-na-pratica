@@ -50,3 +50,7 @@
 - [x] Investigar disparos na home, /informatica e agradecimento.
 - [x] Remover conversões de compra baseadas apenas em visitas ao agradecimento, incluindo cópias.
 - [x] Testar visitas, recargas e cliques de checkout sem compra.
+
+# Nova página /independencia para público 40+
+- [x] Criar apresentação independente, letras grandes, resultados práticos, aula real, confiança e oferta clara.
+- [x] Verificar leitura em telas pequenas e grandes, aula, dúvidas e pagamento sem falsas compras.
