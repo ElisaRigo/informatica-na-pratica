@@ -1569,10 +1569,10 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <WhatsAposAulas />
       {!instructorFirst && <Instructor photo={instructorPhoto} />}
       <SocialProof />
-      <WhatsAposAulas bg="bg-white/5" />
+      {!minimalCtas && <WhatsAposAulas bg="bg-white/5" />}
       <Method />
       {minimalCtas ? <ModulesWarm /> : <Modules />}
-      <WhatsAposAulas />
+      {!minimalCtas && <WhatsAposAulas />}
       <section className="py-4 md:py-6 bg-white/5">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="dark" />
