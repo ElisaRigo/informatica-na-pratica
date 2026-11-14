@@ -409,6 +409,7 @@ const AulaDemonstrativa = () => {
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             {[
+              { Icon: PlayCircle, t: "Aula liberada" },
               { Icon: Clock, t: "Sem pressa" },
               { Icon: HeartHandshake, t: "Explicação simples" },
             ].map(({ Icon, t }) => (
@@ -564,13 +565,6 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
-          {largeLabel && (
-            <div className="flex justify-center mb-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-sm font-bold text-primary">
-                <PlayCircle className="h-4 w-4 text-primary" /> Aula liberada
-              </span>
-            </div>
-          )}
           <img
             src={photo}
             alt="Professora Elisa"
