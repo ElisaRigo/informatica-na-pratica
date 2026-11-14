@@ -602,7 +602,7 @@ video::-webkit-media-controls-panel {
   .independencia-page .independencia-hero h1 { font-size: 36px; max-width: 100%; }
   .independencia-page { --independencia-overlay: linear-gradient(90deg, hsl(var(--background) / .96), hsl(var(--background) / .75)), linear-gradient(0deg, hsl(var(--background)), transparent 70%); }
   .independencia-page .independencia-hero-photo { object-position: 40% center; }
-  .independencia-page .independencia-option { font-size: 17px; padding: 10px; min-width: 0; }
+  .independencia-page .independencia-option { font-size: 17px; padding: 12px 8px; min-width: 0; flex-direction: column; text-align: center; justify-content: center; }
   .independencia-page .independencia-offer-price { font-size: 54px; }
   .independencia-page .independencia-video-badge { font-size: 16px; bottom: 10px; left: 10px; padding: 10px 12px; }
 }

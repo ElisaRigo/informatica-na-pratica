@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { offer } from './content';
+import { offer } from '../src/paginas/independencia/content';
 
 describe('Course offer', () => {
   test('The payment amount is R$ 297', () => expect(offer.price).toBe(297));

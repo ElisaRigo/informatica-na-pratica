@@ -41,12 +41,12 @@ export default function Independencia() {
 
     <section className="independencia-hero">
       <img src="/images/elisa-independencia-aula.jpg" alt="Elisa ensinando cada passo em um computador" className="independencia-hero-photo" fetchPriority="high" />
-      <div className="independencia-container py-10 md:py-16">
+      <div className="independencia-container py-7 md:py-16">
         <p className="text-secondary text-base md:text-lg font-bold mb-5">APRENDER NÃO TEM IDADE.</p>
         <h1 className="independencia-heading">O computador<br />é seu.<br /><span className="text-secondary">Sua independência<br />começa aqui.</span></h1>
         <p className="max-w-xl mt-6 text-xl md:text-2xl leading-relaxed">Aprenda a usar o computador <strong>sem depender dos outros.</strong> Do zero, com calma e uma professora de verdade.</p>
         <div className="mt-7"><BuyButton /><p className="mt-3 flex items-center gap-2 text-base text-muted-foreground"><ShieldCheck className="w-5 h-5 text-primary" /> 7 dias para conhecer. Ou seu dinheiro de volta.</p></div>
-        <div className="flex flex-wrap gap-x-7 gap-y-3 mt-8 text-base font-semibold"><span className="flex gap-2 items-center"><Pause className="w-5 h-5 text-primary" /> No seu ritmo</span><span className="flex gap-2 items-center"><Repeat2 className="w-5 h-5 text-primary" /> Repita quando quiser</span><span className="flex gap-2 items-center"><MessageCircle className="w-5 h-5 text-primary" /> Ajuda da professora</span></div>
+        <div className="hidden md:flex flex-wrap gap-x-7 gap-y-3 mt-8 text-base font-semibold"><span className="flex gap-2 items-center"><Pause className="w-5 h-5 text-primary" /> No seu ritmo</span><span className="flex gap-2 items-center"><Repeat2 className="w-5 h-5 text-primary" /> Repita quando quiser</span><span className="flex gap-2 items-center"><MessageCircle className="w-5 h-5 text-primary" /> Ajuda da professora</span></div>
       </div>
     </section>
 
