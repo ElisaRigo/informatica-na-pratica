@@ -617,21 +617,27 @@ const Method = () => {
   const warm = useContext(MinimalCtas);
   if (warm) {
     const simpleSteps = [
-      { icon: Lock, title: "Receba seu acesso", description: "Após a aprovação do pagamento." },
-      { icon: PlayCircle, title: "Assista e pratique", description: "No seu computador, no seu ritmo." },
-      { icon: HeartHandshake, title: "Conte comigo", description: "Estou aqui para tirar suas dúvidas." },
+      { icon: PlayCircle, title: "Veja cada passo", description: "Eu mostro com calma, desde o início." },
+      { icon: Monitor, title: "Faça junto comigo", description: "Pause e repita no seu computador." },
+      { icon: HeartHandshake, title: "Conte com minha ajuda", description: "Ficou com dúvida? Estou aqui para ajudar." },
     ];
     return (
-      <section className="bg-primary text-primary-foreground py-5 md:py-6">
-        <div className="container mx-auto max-w-5xl px-4">
-          <h2 className="text-center text-3xl md:text-4xl font-black mb-5">É simples começar</h2>
-          <ol className="grid gap-5 md:grid-cols-3 md:gap-8">
+      <section className="bg-card text-card-foreground border-y border-border py-7 md:py-10">
+        <div className="container mx-auto max-w-5xl px-5 md:px-6">
+          <div className="text-center mb-6 md:mb-8">
+            <span className="inline-flex items-center gap-2 text-primary text-base md:text-lg font-semibold mb-2">
+              <HeartHandshake className="h-5 w-5" aria-hidden="true" />
+              No seu ritmo
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">Você aprende.<br />Eu te acompanho.</h2>
+          </div>
+          <ol className="grid gap-0 md:grid-cols-3 md:gap-8">
             {simpleSteps.map(({ icon: Icon, title, description }) => (
-              <li key={title} className="flex items-start gap-3">
-                <Icon className="h-7 w-7 shrink-0 mt-1" aria-hidden="true" />
+              <li key={title} className="flex items-start gap-4 py-4 border-t border-border">
+                <Icon className="h-7 w-7 shrink-0 mt-1 text-primary" strokeWidth={1.75} aria-hidden="true" />
                 <div>
-                  <h3 className="text-xl md:text-2xl font-extrabold leading-tight">{title}</h3>
-                  <p className="text-lg md:text-xl leading-snug mt-1">{description}</p>
+                  <h3 className="text-xl md:text-2xl font-bold leading-tight">{title}</h3>
+                  <p className="text-lg md:text-xl text-muted-foreground leading-snug mt-1.5">{description}</p>
                 </div>
               </li>
             ))}
