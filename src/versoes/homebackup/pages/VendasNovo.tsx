@@ -609,6 +609,32 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
 
 // ───────────────────────── Method (3 steps) ─────────────────────────
 const Method = () => {
+  const warm = useContext(MinimalCtas);
+  if (warm) {
+    const simpleSteps = [
+      { icon: Lock, title: "Receba seu acesso", description: "Após a aprovação do pagamento." },
+      { icon: PlayCircle, title: "Assista e pratique", description: "No seu computador, no seu ritmo." },
+      { icon: HeartHandshake, title: "Conte comigo", description: "Estou aqui para tirar suas dúvidas." },
+    ];
+    return (
+      <section className="bg-primary text-primary-foreground py-5 md:py-6">
+        <div className="container mx-auto max-w-5xl px-4">
+          <h2 className="text-center text-3xl md:text-4xl font-black mb-5">É simples começar</h2>
+          <ol className="grid gap-5 md:grid-cols-3 md:gap-8">
+            {simpleSteps.map(({ icon: Icon, title, description }) => (
+              <li key={title} className="flex items-start gap-3">
+                <Icon className="h-7 w-7 shrink-0 mt-1" aria-hidden="true" />
+                <div>
+                  <h3 className="text-xl md:text-2xl font-extrabold leading-tight">{title}</h3>
+                  <p className="text-lg md:text-xl leading-snug mt-1">{description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    );
+  }
   const steps = [
     {
       n: "1",
