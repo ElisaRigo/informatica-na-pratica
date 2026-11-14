@@ -1,12 +1,14 @@
 import { LeadCaptureDialog } from "@/components/LeadCaptureDialog";
 import { useLeadCaptureDialog } from "@/hooks/useLeadCaptureDialog";
 import VendasNovo from "@/versoes/homebackup/pages/VendasNovo";
+import headerLogo from "@/assets/logo-blue.png";
 
 const Icone2 = () => {
   const { isOpen, closeDialog } = useLeadCaptureDialog();
   return (
     <div className="min-h-screen">
       <VendasNovo
+        headerLogo={headerLogo}
         videoThumb="/images/capa-primeiro-video-icone2.jpg"
         centerPlay
         instructorPhoto="/images/prof-elisa.jpg"
