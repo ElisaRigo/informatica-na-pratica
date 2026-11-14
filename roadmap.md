@@ -54,3 +54,8 @@
 # Nova página /independencia para público 40+
 - [x] Criar apresentação independente, letras grandes, resultados práticos, aula real, confiança e oferta clara.
 - [x] Verificar leitura em telas pequenas e grandes, aula, dúvidas e pagamento sem falsas compras.
+
+# Substituição da home e /informa
+- [ ] Preservar as versões atuais em /home-copia e /informa-copia.
+- [ ] Copiar o conteúdo da /icone-2 para módulos independentes da home e /informa.
+- [ ] Conferir as duas páginas, as cópias e o checkout.
