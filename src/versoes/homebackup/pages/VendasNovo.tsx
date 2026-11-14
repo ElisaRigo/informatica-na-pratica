@@ -295,7 +295,7 @@ const Hero = () => {
           </div>
 
           <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-4">
-            Em pouco tempo, você vai criar documentos e planilhas, organizar seus arquivos, enviar e-mails e muito mais...
+            {"\n"}
           </p>
 
 
