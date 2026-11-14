@@ -6,7 +6,7 @@ const Icone2 = () => {
   const { isOpen, closeDialog } = useLeadCaptureDialog();
   return (
     <div className="min-h-screen">
-      <VendasNovo />
+      <VendasNovo videoThumb="/images/capa-primeiro-video-icone2.jpg" />
       <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
     </div>
   );
