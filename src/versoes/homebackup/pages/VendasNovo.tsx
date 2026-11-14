@@ -1548,7 +1548,7 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode }) => {
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline, hidePrograms = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode; hidePrograms?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
@@ -1556,7 +1556,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
     <MinimalCtas.Provider value={minimalCtas}>
     <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header />
-      <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} />
+      <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
       <MiniValueSection />
