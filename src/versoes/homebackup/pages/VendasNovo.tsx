@@ -207,7 +207,7 @@ export const Header = ({ light = false }: { light?: boolean }) => (
 );
 
 // ───────────────────────── Hero ─────────────────────────
-const Hero = ({ videoThumb = homeVideoThumb }: { videoThumb?: string }) => {
+const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false }: { videoThumb?: string; centerPlay?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
@@ -236,18 +236,31 @@ const Hero = ({ videoThumb = homeVideoThumb }: { videoThumb?: string }) => {
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                <Button
-                  onClick={() => setIsPlaying(true)}
-                  aria-label="Assistir ao recado da professora"
-                  className="badge-pill badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-3.5 shadow-lg ring-1 ring-white/25 md:bottom-4 md:left-4 md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
-                >
-                  <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot-foreground))] md:h-10 md:w-10">
-                    <Play className="ml-0.5 !h-4 !w-4 fill-[hsl(var(--badge-hot))] text-[hsl(var(--badge-hot))] md:!h-5 md:!w-5" />
-                  </span>
-                  <span className="whitespace-nowrap text-[13px] font-bold leading-none text-[hsl(var(--badge-hot-foreground))] md:text-base">
-                    Assista o recado da prof
-                  </span>
-                </Button>
+                {centerPlay ? (
+                  <button
+                    type="button"
+                    onClick={() => setIsPlaying(true)}
+                    aria-label="Assistir ao recado da professora"
+                    className="badge-breathe absolute inset-0 z-10 flex items-center justify-center"
+                  >
+                    <span className="badge-halo relative flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(var(--badge-hot-foreground))] shadow-2xl ring-4 ring-white/30 md:h-20 md:w-20">
+                      <Play className="ml-1 !h-7 !w-7 fill-[hsl(var(--badge-hot))] text-[hsl(var(--badge-hot))] md:!h-9 md:!w-9" />
+                    </span>
+                  </button>
+                ) : (
+                  <Button
+                    onClick={() => setIsPlaying(true)}
+                    aria-label="Assistir ao recado da professora"
+                    className="badge-pill badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-3.5 shadow-lg ring-1 ring-white/25 md:bottom-4 md:left-4 md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
+                  >
+                    <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot-foreground))] md:h-10 md:w-10">
+                      <Play className="ml-0.5 !h-4 !w-4 fill-[hsl(var(--badge-hot))] text-[hsl(var(--badge-hot))] md:!h-5 md:!w-5" />
+                    </span>
+                    <span className="whitespace-nowrap text-[13px] font-bold leading-none text-[hsl(var(--badge-hot-foreground))] md:text-base">
+                      Assista o recado da prof
+                    </span>
+                  </Button>
+                )}
               </div>
             ) : (
               <div className="aspect-video relative">
@@ -1372,14 +1385,14 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb }: { videoThumb?: string }) => {
+const VendasNovo = ({ videoThumb, centerPlay }: { videoThumb?: string; centerPlay?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header />
-      <Hero videoThumb={videoThumb} />
+      <Hero videoThumb={videoThumb} centerPlay={centerPlay} />
       <AulaDemonstrativa />
       <MiniValueSection />
       <WhatsAposAulas />
