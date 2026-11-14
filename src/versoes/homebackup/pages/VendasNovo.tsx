@@ -198,9 +198,10 @@ const SocialProofRow = () => (
 );
 
 // ───────────────────────── Header ─────────────────────────
-export const Header = ({ light = false }: { light?: boolean }) => (
+export const Header = ({ light = false, logo }: { light?: boolean; logo?: string }) => (
   <header className={light ? "border-b border-slate-200 bg-white py-2" : "border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-2"}>
-    <div className="container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4">
+    <div className={`container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4 ${logo ? "flex-col" : ""}`}>
+      {logo && <img src={logo} alt="Informática na Prática" className="h-16 w-auto md:h-24 lg:h-28" />}
       <p className="leading-none text-center">
         <span className={`block whitespace-nowrap text-[8.8vw] font-black tracking-tight sm:text-3xl md:text-5xl ${light ? "text-slate-900" : "text-white"}`}>
           Curso de{"\u00a0"}
@@ -1554,14 +1555,14 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline, hidePrograms = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode; hidePrograms?: boolean }) => {
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline, hidePrograms = false, headerLogo }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode; hidePrograms?: boolean; headerLogo?: string }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
     <MinimalCtas.Provider value={minimalCtas}>
     <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
-      <Header />
+      <Header logo={headerLogo} />
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
