@@ -72,7 +72,7 @@ const CTA = ({ children = "Quero aprender informática agora", size = "lg", subt
   <button
     onClick={action === "value" ? scrollToValue : openCheckout}
     className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
-      minimal && singleLine ? "text-[19px] min-[360px]:text-[22px] min-[390px]:text-[24px] md:text-3xl leading-[1.15] px-2 py-4 md:px-4 md:py-6 !whitespace-nowrap" : size === "xl" ? "[font-size:min(6.6vw,28px)] md:text-3xl leading-[1.15] px-4 py-4 md:px-10 md:py-6" : size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
+      minimal && singleLine ? "text-[18px] min-[360px]:text-[20px] min-[390px]:text-[22px] md:text-3xl leading-[1.15] px-2 py-4 md:px-4 md:py-6 !whitespace-nowrap" : size === "xl" ? "[font-size:min(6.6vw,28px)] md:text-3xl leading-[1.15] px-4 py-4 md:px-10 md:py-6" : size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
     } ${subtle ? "bg-green-600/95" : ""}`}
   >
     <Monitor className={size === "xl" ? "h-[1.05em] w-[1.05em] shrink-0" : "w-5 h-5 md:w-5 md:h-5 shrink-0"} strokeWidth={size === "xl" ? 2.5 : 2} />
