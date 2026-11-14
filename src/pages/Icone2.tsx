@@ -18,9 +18,9 @@ const Icone2 = () => {
             <span className="icone2-headline-intro">Domine o</span>
             <span className="icone2-headline-computer">Computador</span>
             <span className="icone2-headline-support">
-              <span>Aprenda em poucas</span>
-              <span>semanas mesmo</span>
-              <span>começando do ZERO.</span>
+              <span>Aprenda do ZERO com calma e paciência</span>
+              <span>{"\n"}</span>
+              <span>{"\n"}</span>
             </span>
           </h1>
         }
