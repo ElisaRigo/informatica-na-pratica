@@ -216,9 +216,7 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto text-center">
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-2">
-            Aprenda a usar o computador
-            <br className="hidden md:block" />
-            <span className="text-sky-300"> mesmo que você nunca tenha ligado um na vida.</span>
+            Chega de perder "OPORTUNIDADES" por não saber usar o COMPUTADOR
           </h1>
 
 
