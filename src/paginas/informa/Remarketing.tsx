@@ -109,10 +109,10 @@ export const TopBanner = () => (
         <span className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-4xl italic leading-none text-primary/30 md:-left-10 md:-top-7 md:text-6xl" aria-hidden>
           &ldquo;
         </span>
-        <span className="block whitespace-nowrap leading-none [font-size:calc((100vw_-_32px)/8)] md:[font-size:min(calc((100vw_-_32px)/7),5.5rem)]">Não sabe usar o</span>
+        <span className="block whitespace-nowrap leading-none [font-size:calc((100vw_-_32px)/8)] md:[font-size:min(calc((100vw_-_32px)/7),5.5rem)]">Domine o </span>
         <span className="relative mt-1 block w-full leading-none">
           <span className="relative z-10 whitespace-nowrap text-[46px] font-black leading-none min-[375px]:text-[54px] sm:text-[80px] md:text-[9rem]">
-            <span className="bg-gradient-to-r from-blue-700 via-cyan-500 to-blue-700 bg-clip-text text-transparent">Computador?</span>
+            <span className="bg-gradient-to-r from-blue-700 via-cyan-500 to-blue-700 bg-clip-text text-transparent">Computador</span>
           </span>
           <span className="absolute inset-x-0 bottom-[0.04em] z-0 h-1 rounded-full bg-gradient-to-r from-blue-500/0 via-cyan-400/80 to-blue-500/0 md:h-2" />
         </span>
