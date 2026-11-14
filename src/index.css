@@ -613,3 +613,38 @@ video::-webkit-media-controls-panel {
 @media (prefers-reduced-motion: reduce) {
   .independencia-page *, .independencia-page *::before { animation: none !important; scroll-behavior: auto !important; }
 }
+
+.icone2-headline {
+  --headline-highlight-start: 195 100% 62%;
+  --headline-highlight-end: 210 100% 76%;
+  --headline-ink: 210 40% 98%;
+  --headline-highlight: linear-gradient(90deg, hsl(var(--headline-highlight-end)), hsl(var(--headline-highlight-start)), hsl(var(--headline-highlight-end)));
+  color: hsl(var(--headline-ink));
+  margin: 0 auto 16px;
+  max-width: 920px;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+.icone2-headline-intro { display: block; font-size: 44px; }
+.icone2-headline-computer {
+  display: block;
+  font-size: 88px;
+  white-space: nowrap;
+  background: var(--headline-highlight);
+  background-clip: text;
+  color: transparent;
+  border-bottom: 3px solid hsl(var(--headline-highlight-start) / .5);
+  margin: 10px 0 12px;
+}
+.icone2-headline-support { display: block; font-size: 44px; }
+.icone2-headline-support > span { display: block; }
+@media (max-width: 767px) {
+  .icone2-headline-intro { font-size: 32px; }
+  .icone2-headline-computer { font-size: 42px; }
+  .icone2-headline-support { font-size: 26px; }
+}
+@media (min-width: 390px) and (max-width: 767px) {
+  .icone2-headline-intro { font-size: 38px; }
+  .icone2-headline-computer { font-size: 54px; }
+  .icone2-headline-support { font-size: 30px; }
+}

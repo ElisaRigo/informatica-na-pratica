@@ -13,6 +13,17 @@ const Icone2 = () => {
         instructorFirst
         minimalCtas
         hideWhatsFloat
+        headline={
+          <h1 className="icone2-headline font-hero">
+            <span className="icone2-headline-intro">Domine o</span>
+            <span className="icone2-headline-computer">Computador</span>
+            <span className="icone2-headline-support">
+              <span>Aprenda em poucas</span>
+              <span>semanas mesmo</span>
+              <span>começando do ZERO.</span>
+            </span>
+          </h1>
+        }
       />
       <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
     </div>

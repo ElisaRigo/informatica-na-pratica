@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, createContext, useContext } from "react";
+import type { ReactNode } from "react";
 import {
   ShieldCheck,
   Lock,
@@ -214,7 +215,7 @@ export const Header = ({ light = false }: { light?: boolean }) => (
 );
 
 // ───────────────────────── Hero ─────────────────────────
-const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false }: { videoThumb?: string; centerPlay?: boolean }) => {
+const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
@@ -222,9 +223,9 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false }: { videoThumb?
       <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="max-w-5xl mx-auto text-center">
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-2">
+          {headline ?? <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-2">
             Chega de perder "OPORTUNIDADES" por não saber usar o COMPUTADOR
-          </h1>
+          </h1>}
 
 
           <p className="mt-1 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
@@ -1543,7 +1544,7 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean }) => {
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
@@ -1551,7 +1552,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
     <MinimalCtas.Provider value={minimalCtas}>
     <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header />
-      <Hero videoThumb={videoThumb} centerPlay={centerPlay} />
+      <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
       <MiniValueSection />

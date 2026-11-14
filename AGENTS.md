@@ -11,3 +11,4 @@
 - Keep page hero/cover images as local files under `public/images/` rather than CDN asset pointers, so they render in the sandbox preview and on the live site.- Keep /info and /informa on their own copied modules under `src/paginas/<page>/`, so edits to one page never change the other or the historical v2909 pages.
 
 - Never emit purchase or sales conversions from a thank-you page visit; only the payment provider or a verified paid transaction may confirm a sale, preventing false purchases and reload duplicates.
+- Pass page-specific headlines into the shared historical sales module as opt-in content, keeping edits isolated from sibling pages.
