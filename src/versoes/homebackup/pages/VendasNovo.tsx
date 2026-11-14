@@ -207,7 +207,7 @@ export const Header = ({ light = false }: { light?: boolean }) => (
 );
 
 // ───────────────────────── Hero ─────────────────────────
-const Hero = () => {
+const Hero = ({ videoThumb = homeVideoThumb }: { videoThumb?: string }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
@@ -231,7 +231,7 @@ const Hero = () => {
             {!isPlaying ? (
               <div className="relative aspect-video">
                 <img
-                  src={homeVideoThumb}
+                  src={videoThumb}
                   alt="Aula demonstrativa gratuita"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -1372,14 +1372,14 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = () => {
+const VendasNovo = ({ videoThumb }: { videoThumb?: string }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header />
-      <Hero />
+      <Hero videoThumb={videoThumb} />
       <AulaDemonstrativa />
       <MiniValueSection />
       <WhatsAposAulas />
