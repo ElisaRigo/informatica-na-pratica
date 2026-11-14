@@ -223,7 +223,7 @@ export const Header = ({ light = false, logo }: { light?: boolean; logo?: string
 );
 
 // ───────────────────────── Hero ─────────────────────────
-const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hidePrograms = false }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode; hidePrograms?: boolean }) => {
+const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hidePrograms = false, showCourseSeals = false }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode; hidePrograms?: boolean; showCourseSeals?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
@@ -245,6 +245,19 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             </>
           )}
 
+
+          {showCourseSeals && (
+            <div className="flex flex-wrap justify-center gap-2 mb-3 md:mb-4">
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+                <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+                <Monitor className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+                <span className="font-bold text-xs md:text-sm text-accent">CURSO COMPLETO</span>
+              </div>
+            </div>
+          )}
 
           {/* Video */}
           <div className="relative mt-5 max-w-5xl -mx-4 md:mx-auto md:mt-8 rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-3">
@@ -1562,7 +1575,7 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline, hidePrograms = false, headerLogo }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode; hidePrograms?: boolean; headerLogo?: string }) => {
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline, hidePrograms = false, headerLogo, showCourseSeals = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode; hidePrograms?: boolean; headerLogo?: string; showCourseSeals?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
@@ -1570,7 +1583,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
     <MinimalCtas.Provider value={minimalCtas}>
     <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header logo={headerLogo} />
-      <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} />
+      <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
       <MiniValueSection />

@@ -9,6 +9,7 @@ const Icone2 = () => {
     <div className="min-h-screen">
       <VendasNovo
         headerLogo={headerLogo}
+        showCourseSeals
         videoThumb="/images/capa-primeiro-video-icone2.jpg"
         centerPlay
         instructorPhoto="/images/prof-elisa.jpg"
