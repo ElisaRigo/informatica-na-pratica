@@ -25,7 +25,8 @@ import {
   Heart,
   Zap,
   MessageCircle,
-, GraduationCap } from "lucide-react";
+  GraduationCap,
+ } from "lucide-react";
 import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/homebackup/assets/elisa-teaching.jpg";
