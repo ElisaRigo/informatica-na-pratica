@@ -12,6 +12,7 @@ const Icone2 = () => {
         instructorPhoto="/images/prof-elisa.jpg"
         instructorFirst
         minimalCtas
+        hideWhatsFloat
       />
       <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
     </div>

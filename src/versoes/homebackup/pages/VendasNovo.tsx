@@ -1543,7 +1543,7 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean }) => {
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
@@ -1575,7 +1575,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <FinalCTA />
       <Footer />
       <StickyMobile />
-      <WhatsFloat />
+      {!hideWhatsFloat && <WhatsFloat />}
     </div>
     </MinimalCtas.Provider>
   );
