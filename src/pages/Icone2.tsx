@@ -10,6 +10,7 @@ const Icone2 = () => {
         videoThumb="/images/capa-primeiro-video-icone2.jpg"
         centerPlay
         instructorPhoto="/images/prof-elisa.jpg"
+        instructorFirst
       />
       <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
     </div>
