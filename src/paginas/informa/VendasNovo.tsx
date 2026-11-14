@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { Programas } from "./Programas";
+import { useEffect, useState, useRef, createContext, useContext } from "react";
+import type { ReactNode } from "react";
 import {
   ShieldCheck,
   Lock,
@@ -10,73 +10,77 @@ import {
   Users,
   PlayCircle,
   Monitor,
-  Mail,
   FileText,
   Globe,
   Presentation,
   Keyboard,
-  GraduationCap,
+  Sparkles,
   HeartHandshake,
   Infinity as InfinityIcon,
   ChevronDown,
-  ArrowRight,
   Play,
   Pause,
   Volume2,
   Smartphone,
   ThumbsUp,
   Heart,
-  Headphones,
-  Trophy,
-  Gift,
   Zap,
   MessageCircle,
-  MousePointer2,
-} from "lucide-react";
-import logoBlue from "@/versoes/v2909/assets/logo-blue.png";
-import elisa from "@/versoes/v2909/assets/elisa-photo.jpg";
-import { HeartHandshake as HeartHandshakeIcon } from "lucide-react";
-import elisaTeaching from "@/versoes/v2909/assets/elisa-teaching.jpg";
-import heroCover from "@/versoes/v2909/assets/hero-video-cover-home.jpg";
-import courseFirstLessonThumb from "@/versoes/v2909/assets/aprenda-comigo-thumb.jpg";
-import homeVideoThumbAsset from "@/versoes/v2909/assets/capa-primeiro-video.png.asset.json";
-const homeVideoThumb = homeVideoThumbAsset.url;
-import certificado from "@/versoes/v2909/assets/certificado-exemplo.png";
-import avatar1 from "@/versoes/v2909/assets/testimonial-new-1.jpg";
-import avatar2 from "@/versoes/v2909/assets/testimonial-new-2.jpg";
-import avatar3 from "@/versoes/v2909/assets/testimonial-new-3.jpg";
-import avatar4 from "@/versoes/v2909/assets/testimonial-new-4.jpg";
-import avatar5 from "@/versoes/v2909/assets/testimonial-new-5.jpg";
-import whatsappTestimonial1 from "@/versoes/v2909/assets/whatsapp-testimonial-1.png";
-import whatsappTestimonial2 from "@/versoes/v2909/assets/whatsapp-testimonial-2.png";
-import fbAvatar1 from "@/versoes/v2909/assets/avatar-1.jpg";
-import fbAvatar2 from "@/versoes/v2909/assets/avatar-2.jpg";
-import fbAvatar3 from "@/versoes/v2909/assets/avatar-3.jpg";
-import fbAvatar4 from "@/versoes/v2909/assets/avatar-4.jpg";
-import fbAvatar5 from "@/versoes/v2909/assets/avatar-5.jpg";
-import fbAvatar6 from "@/versoes/v2909/assets/avatar-6.jpg";
-import fbAvatar7 from "@/versoes/v2909/assets/avatar-7.jpg";
-import fbAvatar8 from "@/versoes/v2909/assets/avatar-8.jpg";
+  GraduationCap,
+ } from "lucide-react";
+import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
+import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
+import elisaTeaching from "@/versoes/homebackup/assets/elisa-teaching.jpg";
+import heroCover from "@/versoes/homebackup/assets/hero-video-cover-home.jpg";
+const homeVideoThumb = "/images/capa-primeiro-video-aprender.jpg";
+import certificado from "@/versoes/homebackup/assets/certificado-exemplo.png";
+const aulaGratisThumb = "/images/capa-segunda-aula.jpg";
+import freeClassThumb from "@/versoes/homebackup/assets/aprenda-comigo-thumb.jpg";
+import avatar1 from "@/versoes/homebackup/assets/testimonial-new-1.jpg";
+import avatar2 from "@/versoes/homebackup/assets/testimonial-new-2.jpg";
+import avatar3 from "@/versoes/homebackup/assets/testimonial-new-3.jpg";
+import avatar4 from "@/versoes/homebackup/assets/testimonial-new-4.jpg";
+import avatar5 from "@/versoes/homebackup/assets/testimonial-new-5.jpg";
+import whatsappTestimonial1 from "@/versoes/homebackup/assets/whatsapp-testimonial-1.png";
+import whatsappTestimonial2 from "@/versoes/homebackup/assets/whatsapp-testimonial-2.png";
+import fbAvatar1 from "@/versoes/homebackup/assets/avatar-1.jpg";
+import fbAvatar2 from "@/versoes/homebackup/assets/avatar-2.jpg";
+import fbAvatar3 from "@/versoes/homebackup/assets/avatar-3.jpg";
+import fbAvatar4 from "@/versoes/homebackup/assets/avatar-4.jpg";
+import fbAvatar5 from "@/versoes/homebackup/assets/avatar-5.jpg";
+import fbAvatar6 from "@/versoes/homebackup/assets/avatar-6.jpg";
+import fbAvatar7 from "@/versoes/homebackup/assets/avatar-7.jpg";
+import fbAvatar8 from "@/versoes/homebackup/assets/avatar-8.jpg";
 
-import { HeroBonuses } from "@/versoes/v2909/components/aprender/HeroBonuses";
-import { QuizIdentificacao } from "@/versoes/v2909/components/aprender/QuizIdentificacao";
-import { requestCheckout } from "@/versoes/v2909/lib/requestCheckout";
-import { openHotmartCheckout } from "@/versoes/v2909/lib/checkoutTracking";
+import { openHotmartCheckout } from "@/versoes/homebackup/lib/checkoutTracking";
+import { HeroBonuses } from "@/versoes/homebackup/components/aprender/HeroBonuses";
 import { Button } from "@/components/ui/button";
 
+const openCheckout = () => openHotmartCheckout();
+
+const scrollToValue = () => {
+  const el = document.getElementById("primeiro-valor");
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
+const MinimalCtas = createContext(false);
+const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, action = "checkout", keep = false, singleLine = false }: any) => {
+  const minimal = useContext(MinimalCtas);
+  if (minimal && action !== "value" && !keep) return null;
+  if (minimal) size = "xl";
+  return (
   <button
-    onClick={requestCheckout}
+    onClick={action === "value" ? scrollToValue : openCheckout}
     className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
-      size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
+      minimal && singleLine ? "text-[18px] min-[360px]:text-[20px] min-[390px]:text-[22px] md:text-3xl leading-[1.15] px-2 py-4 md:px-4 md:py-6 !whitespace-nowrap" : size === "xl" ? "[font-size:min(6.6vw,28px)] md:text-3xl leading-[1.15] px-4 py-4 md:px-10 md:py-6" : size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
     } ${subtle ? "bg-green-600/95" : ""}`}
   >
-    <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
+    <Monitor className={size === "xl" ? "h-[1.05em] w-[1.05em] shrink-0" : "w-5 h-5 md:w-5 md:h-5 shrink-0"} strokeWidth={size === "xl" ? 2.5 : 2} />
     <span>{children}</span>
-    <ArrowRight className="hidden sm:inline-block w-5 h-5 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
   </button>
-);
+  );
+};
 
 // ───────────────────────── Countdown ─────────────────────────
 const useCountdown = () => {
@@ -96,77 +100,206 @@ const useCountdown = () => {
   return `${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
 };
 
-import windowsIcon from "@/versoes/v2909/assets/windows-icon.png";
-import wordIcon from "@/versoes/v2909/assets/word-icon.png";
-import excelIcon from "@/versoes/v2909/assets/excel-icon.png";
-import powerpointIcon from "@/versoes/v2909/assets/powerpoint-icon.png";
-import internetIcon from "@/versoes/v2909/assets/internet-icon.png";
-import typingIcon from "@/versoes/v2909/assets/typing-icon.png";
+import windowsIcon from "@/versoes/homebackup/assets/windows-icon.png";
+import wordIcon from "@/versoes/homebackup/assets/word-icon.png";
+import excelIcon from "@/versoes/homebackup/assets/excel-icon.png";
+import powerpointIcon from "@/versoes/homebackup/assets/powerpoint-icon.png";
+import internetIcon from "@/versoes/homebackup/assets/internet-icon.png";
+import typingIcon from "@/versoes/homebackup/assets/typing-icon.png";
+
+// ───────────────────────── Miniaturas dos programas ─────────────────────────
+type ProgramType = "windows" | "word" | "excel" | "powerpoint" | "email";
+
+const ProgramIcon = ({ type }: { type: ProgramType }) => {
+  switch (type) {
+    case "windows":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[55%] w-[55%]" fill="white" aria-hidden="true">
+          <rect x="1" y="1" width="10" height="10" rx="1" />
+          <rect x="13" y="1" width="10" height="10" rx="1" />
+          <rect x="1" y="13" width="10" height="10" rx="1" />
+          <rect x="13" y="13" width="10" height="10" rx="1" />
+        </svg>
+      );
+    case "word":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[70%] w-[70%]" aria-hidden="true">
+          <rect x="3" y="2" width="18" height="20" rx="2" fill="white" opacity="0.95" />
+          <rect x="3" y="2" width="9" height="20" rx="2" fill="white" opacity="0.25" />
+          <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="900" fontFamily="Arial, sans-serif" fill="#2B579A">W</text>
+        </svg>
+      );
+    case "excel":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[70%] w-[70%]" aria-hidden="true">
+          <rect x="3" y="2" width="18" height="20" rx="2" fill="white" opacity="0.95" />
+          <rect x="3" y="2" width="9" height="20" rx="2" fill="white" opacity="0.25" />
+          <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="900" fontFamily="Arial, sans-serif" fill="#217346">X</text>
+        </svg>
+      );
+    case "powerpoint":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[70%] w-[70%]" aria-hidden="true">
+          <rect x="3" y="2" width="18" height="20" rx="2" fill="white" opacity="0.95" />
+          <rect x="3" y="2" width="9" height="20" rx="2" fill="white" opacity="0.25" />
+          <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="900" fontFamily="Arial, sans-serif" fill="#C43E1C">P</text>
+        </svg>
+      );
+    case "email":
+      return (
+        <svg viewBox="0 0 24 24" className="h-[55%] w-[55%]" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="m2 7 10 6 10-6" />
+        </svg>
+      );
+  }
+};
+
+const programTiles: { type: ProgramType; name: string; gradient: string }[] = [
+  { type: "windows", name: "Windows", gradient: "linear-gradient(135deg, #29a3f0, #0067b8)" },
+  { type: "word", name: "Word", gradient: "linear-gradient(135deg, #3b7dd8, #2B579A)" },
+  { type: "excel", name: "Excel", gradient: "linear-gradient(135deg, #2ea56e, #1e6b41)" },
+  { type: "powerpoint", name: "PowerPoint", gradient: "linear-gradient(135deg, #e06a4a, #C43E1C)" },
+  { type: "email", name: "E-mail", gradient: "linear-gradient(135deg, #38bdf8, #0284c7)" },
+];
+
+const ProgramMiniatures = () => (
+  <div className="mt-2 flex w-full flex-wrap items-start justify-between gap-x-1 gap-y-2 md:mx-auto md:max-w-3xl md:flex-nowrap md:gap-x-6">
+    {programTiles.map((p) => (
+      <div key={p.type} className="flex flex-col items-center gap-1 md:gap-2">
+        <div
+          className="flex h-[13.5vw] w-[13.5vw] max-h-[52px] max-w-[52px] items-center justify-center rounded-xl shadow-lg shadow-black/30 md:h-[92px] md:w-[92px] md:max-h-none md:max-w-none md:rounded-2xl"
+          style={{ background: p.gradient }}
+        >
+          <ProgramIcon type={p.type} />
+        </div>
+        <span className="text-[10px] font-bold text-slate-200 md:text-sm">{p.name}</span>
+      </div>
+    ))}
+  </div>
+);
+
+const SocialProofRow = () => (
+  <div className="mb-3 flex items-center justify-center gap-3">
+    <div className="flex -space-x-2">
+      {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
+        <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
+      ))}
+    </div>
+    <div className="text-left">
+      <div className="flex">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+        ))}
+      </div>
+      <p className="text-xs text-slate-300 font-medium">+15.000 alunos já aprenderam</p>
+    </div>
+  </div>
+);
+
+// ───────────────────────── Header ─────────────────────────
+export const Header = ({ light = false, logo }: { light?: boolean; logo?: string }) => (
+  <header className={light ? "border-b border-slate-200 bg-white py-2" : "border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-2"}>
+    <div className={`container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4 ${logo ? "flex-col" : ""}`}>
+      {logo && (
+        <div className="relative group shrink-0">
+          <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+          <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2.5 md:p-4 border border-white/20 shadow-lg">
+            <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 lg:h-28 drop-shadow-lg" />
+          </div>
+        </div>
+      )}
+      <p className="leading-none text-center">
+        <span className={`block whitespace-nowrap text-[8.8vw] font-black tracking-tight sm:text-3xl md:text-5xl ${light ? "text-slate-900" : "text-white"}`}>
+          Curso de{"\u00a0"}
+          <span className={`bg-gradient-to-r bg-clip-text text-transparent ${light ? "from-blue-600 via-cyan-500 to-blue-600" : "from-sky-300 via-cyan-300 to-sky-400"}`}>Informática</span>
+        </span>
+        <span className={`mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] sm:text-xs md:text-sm ${light ? "text-slate-500" : "text-slate-400"}`}>
+          {"\u00a0 100% ONLINE - DO ZERO - SIMPLES E FÁCIL"}
+        </span>
+      </p>
+    </div>
+  </header>
+);
 
 // ───────────────────────── Hero ─────────────────────────
-const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
+const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hidePrograms = false, showCourseSeals = false }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode; hidePrograms?: boolean; showCourseSeals?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section className={remarketingTop ? "home-anterior-2-top relative bg-background text-foreground" : "relative bg-gradient-to-b from-blue-50 via-white to-white"}>
-      <div className="container mx-auto px-4 py-3 md:py-4">
+    <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
+
+      <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="max-w-5xl mx-auto text-center">
 
-          {/* Social proof inline */}
-          {!remarketingTop && <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="flex -space-x-2">
-              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((a, i) => (
-                <img key={i} src={a} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
-              ))}
-            </div>
-            <div className="text-left">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                ))}
+          {headline ?? <h1 className="text-3xl md:text-5xl lg:text-6xl font-hero text-white leading-[1.1] tracking-tight mb-2">
+            Chega de perder "OPORTUNIDADES" por não saber usar o COMPUTADOR
+          </h1>}
+
+
+          {!hidePrograms && (
+            <>
+              <p className="mt-1 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
+                Domine os programas mais usados
+              </p>
+              <ProgramMiniatures />
+            </>
+          )}
+
+
+          {showCourseSeals && (
+            <div className="flex flex-wrap justify-center gap-2 mb-3 md:mb-4">
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+                <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
               </div>
-              <p className="text-xs text-slate-600 font-medium">+15.000 alunos já aprenderam</p>
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+                <Monitor className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+                <span className="font-bold text-xs md:text-sm text-accent">CURSO COMPLETO</span>
+              </div>
             </div>
-          </div>}
+          )}
 
           {/* Video */}
-          <div className={`relative max-w-5xl mt-1 mb-5 ${remarketingTop ? "-mx-4 md:mx-auto" : "mx-auto"}`}>
-            {/* Selo acima da moldura — centrado, sem cobrir a capa */}
-            {!remarketingTop && <div className="flex justify-center mb-3">
-              <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/30 ring-2 ring-white whitespace-nowrap">
-                <Play className="w-3.5 h-3.5 md:w-4 md:h-4 fill-white shrink-0" />
-                Assista e venha aprender comigo
-              </div>
-            </div>}
-            <div className={remarketingTop ? "overflow-hidden md:rounded-2xl" : "rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200"}>
+          <div className="relative mt-5 max-w-5xl -mx-4 md:mx-auto md:mt-8 rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-3">
             {!isPlaying ? (
-              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+              <div className="relative aspect-video">
                 <img
-                  src={remarketingTop ? "/images/capa-primeiro-video-info.jpg" : homeVideoThumb}
-                  alt="Aula demonstrativa"
+                  src={videoThumb}
+                  alt="Aula demonstrativa gratuita"
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
-                  {remarketingTop ? <Button
+                {centerPlay ? (
+                  <button
                     type="button"
                     onClick={() => setIsPlaying(true)}
                     aria-label="Assistir ao recado da professora"
-                    className="badge-pill badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-3.5 shadow-lg md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
+                    className="group absolute inset-0 z-10 flex cursor-pointer items-center justify-center"
+                  >
+                    <span className="flex h-14 w-14 animate-pulse items-center justify-center rounded-full bg-white shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
+                      <PlayCircle className="h-10 w-10 text-sky-500 md:h-12 md:w-12" strokeWidth={1.5} />
+                    </span>
+                  </button>
+                ) : (
+                  <Button
+                    onClick={() => setIsPlaying(true)}
+                    aria-label="Assistir ao recado da professora"
+                    className="badge-pill badge-breathe absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-3.5 shadow-lg ring-1 ring-white/25 md:bottom-4 md:left-4 md:gap-2.5 md:py-2 md:pl-2 md:pr-5"
                   >
                     <span className="badge-halo relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--badge-hot-foreground))] md:h-10 md:w-10">
                       <Play className="ml-0.5 !h-4 !w-4 fill-[hsl(var(--badge-hot))] text-[hsl(var(--badge-hot))] md:!h-5 md:!w-5" />
                     </span>
-                    <span className="whitespace-nowrap text-[13px] font-bold leading-none text-[hsl(var(--badge-hot-foreground))] md:text-base">Assista o recado da prof</span>
-                  </Button> : <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
-                      <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
-                    </div>
-                  </div>}
+                    <span className="whitespace-nowrap text-[13px] font-bold leading-none text-[hsl(var(--badge-hot-foreground))] md:text-base">
+                      Assista o recado da prof
+                    </span>
+                  </Button>
+                )}
               </div>
             ) : (
               <div className="aspect-video relative">
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                  title="Aula demonstrativa"
+                  title="Aula gratuita"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
@@ -180,46 +313,37 @@ const Hero = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
                 ></a>
               </div>
             )}
-            </div>
           </div>
 
-          {remarketingTop && <div className="home-anterior-2-seals grid grid-cols-4 gap-x-1 gap-y-2 mb-4">
+          <div className="grid grid-cols-4 gap-x-1 gap-y-2">
             {[
-              { icon: ShieldCheck, tone: "text-[hsl(var(--seal-guarantee))]", lines: ["7 dias", "de garantia"] },
-              { icon: Lock, tone: "text-[hsl(var(--seal-secure))]", lines: ["Compra", "100% segura"] },
-              { icon: Zap, tone: "text-[hsl(var(--seal-access))]", lines: ["Acesso", "imediato"] },
-              { icon: MessageCircle, tone: "text-[hsl(var(--seal-support))]", lines: ["Suporte por", "WhatsApp"] },
+              { icon: ShieldCheck, tone: "text-green-400", lines: ["7 dias", "de garantia"] },
+              { icon: Lock, tone: "text-blue-400", lines: ["Compra", "100% segura"] },
+              { icon: Zap, tone: "text-orange-400", lines: ["Acesso", "imediato"] },
+              { icon: MessageCircle, tone: "text-teal-400", lines: ["Suporte por", "WhatsApp"] },
             ].map((s, i) => (
-              <div key={s.lines.join(" ")} className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2">
-                <s.icon className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} style={{ animationDelay: `${i * 0.35}s` }} />
-                <span className="block text-[11px] font-extrabold uppercase leading-[1.15] text-foreground md:text-[14px]">{s.lines[0]}<br />{s.lines[1]}</span>
-              </div>
-            ))}
-          </div>}
-
-
-          {!remarketingTop && <p className={`text-base md:text-xl max-w-3xl mx-auto mb-3 text-slate-700`}>
-            {"\n"}
-          </p>}
-
-
-          {!remarketingTop && <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mt-5 mb-2 max-w-3xl mx-auto">
-            {[
-              { icon: Lock, label: "Pagamento seguro" },
-              { icon: ShieldCheck, label: "7 dias de garantia" },
-              { icon: CheckCircle2, label: "Acesso imediato" },
-            ].map(({ icon: Icon, label }) => (
               <div
-                key={label}
-                className="flex flex-col items-center justify-center gap-1.5 bg-white border border-slate-200 rounded-xl px-1.5 sm:px-4 py-2.5 sm:py-3.5 shadow-sm shadow-blue-900/5 text-center"
+                key={s.lines.join(" ")}
+                className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2"
               >
-                <span className="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-green-50 shrink-0">
-                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+                <s.icon
+                  className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`}
+                  strokeWidth={2}
+                  style={{ animationDelay: `${i * 0.35}s` }}
+                />
+                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-white md:text-[13px]">
+                  {s.lines[0]}
+                  <br />
+                  {s.lines[1]}
                 </span>
-                <span className="text-[10px] sm:text-base font-semibold text-slate-800 leading-tight">{label}</span>
               </div>
             ))}
-          </div>}
+          </div>
+
+          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-4">
+            {"\n"}
+          </p>
+
 
         </div>
       </div>
@@ -238,25 +362,25 @@ const Identification = () => {
     "Quer aprender no SEU ritmo, sem pressa e sem julgamento",
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-4 md:py-6 bg-white/5">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-3">Esse curso é pra você se…</h2>
-        <p className="text-center text-slate-600 mb-5 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-black text-center text-white mb-3">Esse curso é pra você se…</h2>
+        <p className="text-center text-slate-300 mb-5 max-w-2xl mx-auto">
           Marque quantas você se identifica. Se for 2 ou mais, esse curso foi feito pensando exatamente em você.
         </p>
         <div className="grid md:grid-cols-2 gap-3 md:gap-4">
           {items.map((t) => (
             <div
               key={t}
-              className="flex items-start gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-300 transition-colors"
+              className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4 shadow-sm hover:border-sky-400/40 transition-colors"
             >
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
-              <span className="text-slate-700 font-medium">{t}</span>
+              <CheckCircle2 className="w-6 h-6 text-green-400 shrink-0 mt-0.5" />
+              <span className="text-slate-200 font-medium">{t}</span>
             </div>
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA action="value">Quero aprender do zero!</CTA>
         </div>
       </div>
     </section>
@@ -265,218 +389,237 @@ const Identification = () => {
 
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
-  const [isCourseLessonPlaying, setIsCourseLessonPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
+  const warm = useContext(MinimalCtas);
   return (
-    <section className="py-4 md:py-6 bg-white border-t border-slate-200">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-6 md:mb-8">
-          <span className="mb-4 inline-flex max-w-full items-center gap-2 whitespace-nowrap rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 px-3 py-2.5 font-black text-slate-900 shadow-lg shadow-orange-500/30 [font-size:min(5.3vw,24px)] md:gap-3 md:px-6 md:py-3">
-            <ShieldCheck className="h-[1.2em] w-[1.2em] shrink-0" strokeWidth={2.5} />Meu método vai te desbloquar!
+    <section className="py-4 md:py-6 bg-white/5 border-t border-white/10">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <SocialProofRow />
+        {warm ? (
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
+            <HeartHandshake className="w-4 h-4" /> Aula de presente para você
           </span>
-          <h2 className="text-[27px] md:text-4xl font-black text-slate-900 leading-tight">
-            Use o computador com <span className="text-blue-600">tranquilidade!</span>
+          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+            Sente-se, respire e <span className="text-sky-300">aprenda comigo</span>
           </h2>
-          <p className="text-slate-600 text-base md:text-lg mt-3 max-w-2xl mx-auto">
-            {"\n"}
+          <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
+            Dê o play e veja como é fácil quando alguém explica com calma. Sem cadastro e sem complicação.
           </p>
-        </div>
-
-        <div className="mb-4 text-center"><Programas /></div>
-        <div className="mx-auto mb-4 max-w-3xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-black uppercase text-amber-800 md:text-sm"><Play className="h-3.5 w-3.5" />Aula real – assista agora</span>
-          <h3 className="mt-3 text-2xl font-black leading-tight text-slate-900 md:text-4xl">Veja como é uma aula <span className="text-blue-600">passo a passo</span> – do jeito que você vai aprender</h3>
-          <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-600 md:text-base">Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela.</p>
-        </div>
-        <div className="mx-auto mb-6 max-w-2xl">
-          <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-blue-900/10">
-            {!isCourseLessonPlaying ? (
-              <button type="button" className="relative block aspect-video w-full cursor-pointer group" onClick={() => setIsCourseLessonPlaying(true)} aria-label="Assistir à primeira aula do curso">
-                <img
-                  src={courseFirstLessonThumb}
-                  alt="Primeira aula do curso com a Professora Elisa"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-2xl transition-transform group-hover:scale-110 md:h-16 md:w-16">
-                    <Play className="ml-1 h-7 w-7 fill-blue-600 text-blue-600 md:h-8 md:w-8" />
-                  </span>
-                </span>
-                <span className="absolute bottom-3 left-3 rounded-lg bg-slate-900/80 px-3 py-1.5 text-xs font-bold text-white md:text-sm">
-                  Assista uma aula
-                </span>
-              </button>
-            ) : (
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-                  title="Primeira aula do curso com a Professora Elisa"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            )}
-          </article>
-
-        </div>
-
-        <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 md:gap-3">
-          {[
-            " Acompanhe no seu ritmo",
-            "Assista quantas vezes quiser",
-            "Suporte quando tiver dúvida",
-          ].map((benefit) => (
-            <div key={benefit} className="flex flex-col items-center gap-1.5 rounded-xl border border-green-200 bg-green-50 p-2 text-center md:flex-row md:justify-center md:p-3">
-              <CheckCircle2 className="h-5 w-5 shrink-0 text-green-600" />
-              <span className="text-[13px] font-bold leading-tight text-slate-800 md:text-base">{benefit}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center space-y-4">
-          <p className="text-slate-800 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-snug">
-            Você finalmente vai <strong className="font-black text-blue-600">DESTRAVAR</strong> e usar o computador com total <strong className="font-black text-green-600">SEGURANÇA</strong>, sem precisar pedir ajuda para <strong className="font-black text-slate-900">NINGUÉM</strong>.
-          </p>
-          <div className="mx-auto flex max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#1e3a8a] via-blue-600 to-sky-500 px-4 py-3.5 text-center shadow-lg shadow-blue-600/30 ring-1 ring-inset ring-white/15">
-            <Trophy className="h-5 w-5 shrink-0 text-amber-300 md:h-6 md:w-6" />
-            <p className="whitespace-nowrap text-[13px] font-black leading-tight text-white md:text-xl">Você é capaz de muito mais do que imagina!</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ───────────────────────── Mini Value Section (acima do Instructor) ─────────────────────────
-const MiniValueSection = () => {
-  return (
-    <section id="primeiro-valor" className="py-4 md:py-6 bg-blue-50">
-      <div className="container mx-auto px-4 max-w-xl text-center">
-        <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs md:text-sm font-black uppercase tracking-wide px-4 py-1.5 rounded-full mb-4 shadow-md shadow-orange-500/30">
-          <Award className="w-4 h-4" /> OPORTUNIDADE PARA COMEÇAR AGORA!
-        </span>
-        <h2 className="text-[28px] md:text-4xl font-black text-slate-900 leading-tight">
-          Domine o COMPUTADOR começando do Zero
-        </h2>
-        <div className="mt-4 mb-5 grid grid-cols-3 gap-2 md:gap-3">
-          {[
-            { icon: GraduationCap, tone: "text-blue-600 bg-blue-100", lines: ["Curso", "completo"] },
-            { icon: MessageCircle, tone: "text-green-600 bg-green-100", lines: ["Meu", "suporte"] },
-            { icon: InfinityIcon, tone: "text-orange-600 bg-orange-100", lines: ["Acesso", "vitalício"] },
-          ].map((s, i) => (
-            <div key={s.lines.join(" ")} className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200 bg-white px-1 py-3 shadow-sm">
-              <span className={`seal-pulse flex h-12 w-12 items-center justify-center rounded-full md:h-14 md:w-14 ${s.tone}`} style={{ animationDelay: `${i * 0.35}s` }}>
-                <s.icon className="h-7 w-7 md:h-8 md:w-8" strokeWidth={2.4} />
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {[
+              { Icon: PlayCircle, t: "Aula liberada" },
+              { Icon: Clock, t: "Sem pressa" },
+              { Icon: HeartHandshake, t: "Explicação simples" },
+            ].map(({ Icon, t }) => (
+              <span key={t} className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1.5 text-sm font-bold text-white">
+                <Icon className="h-4 w-4 text-sky-300" /> {t}
               </span>
-              <span className="text-[13px] font-extrabold uppercase leading-[1.15] text-slate-900 md:text-base">{s.lines[0]}<br />{s.lines[1]}</span>
-            </div>
-          ))}
-        </div>
-        <div className="mx-auto mt-2 max-w-sm rounded-3xl border-2 border-green-500 bg-white p-4 shadow-xl shadow-green-600/15">
-          <p className="flex items-center justify-center gap-1.5 font-black uppercase leading-none text-green-600 [font-size:min(7vw,30px)]">
-            <Zap className="h-[1.1em] w-[1.1em] shrink-0 fill-green-500" /> Oferta especial
-          </p>
-          <p className="mt-3 text-xl font-extrabold text-slate-700 md:text-2xl">
-            De: <span className="informa-price-strike">R$ 497,00</span>
-          </p>
-          <span className="mt-2 inline-block rounded-full bg-slate-900 px-5 py-1 text-sm font-black uppercase tracking-wide text-white">Por apenas</span>
-          <div className="mt-2 rounded-2xl border-2 border-green-500 bg-green-50 py-2">
-            <p className="font-black leading-none text-green-600">
-              <span className="align-top text-2xl">R$</span>
-              <span className="text-5xl md:text-6xl">297</span>
-              <span className="align-top text-2xl">,00</span>
-            </p>
+            ))}
           </div>
-          <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-4 py-1.5 text-base font-black uppercase text-slate-900 md:text-lg">
-            <Gift className="h-5 w-5 shrink-0" /> VOCÊ ECONOMIZA R$ 200
+        </div>
+        ) : (
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-green-500/100/10 text-green-300 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            <PlayCircle className="w-4 h-4" /> AULA JÁ LIBERADA
+          </span>
+          <h2 className="text-2xl md:text-4xl font-hero text-white leading-tight">
+            Veja como você vai aprender, <span className="text-sky-300">clique por clique</span>
+          </h2>
+          <p className="text-slate-300 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Assista agora uma aula e veja o computador deixar de ser um mistério. Sem cadastro, sem complicação.
           </p>
         </div>
-        <p className="text-amber-600 font-extrabold text-base md:text-lg mt-2 flex items-center justify-center gap-1.5">
-          <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
-        </p>
-        <p className="text-slate-700 text-lg md:text-xl mt-1">
-          ou <span className="font-black text-slate-900">12x de R$ 30,72</span> no cartão
-        </p>
-        <p className="inline-flex items-center justify-center gap-1.5 text-slate-500 text-xs md:text-sm mt-2">
-          <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-        </p>
-        <div className="mt-5">
-          <button
-            onClick={requestCheckout}
-            className="cta-pulse inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-green-600 px-2 py-4 font-black text-white shadow-lg shadow-green-600/30 transition-all hover:bg-green-700 active:scale-[.99] [font-size:min(7vw,34px)] leading-none md:py-5"
-          >
-            <Monitor className="h-[1em] w-[1em] shrink-0" strokeWidth={2.5} />
-            <span>Quero Acessar o Curso</span>
-          </button>
+        )}
+
+        <div className="relative max-w-4xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-2 border-green-500/30">
+          {!isFreeClassPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
+              <img
+                src={freeClassThumb}
+                alt="Primeira aula do curso"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-sky-300" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-green-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                {warm ? "Toque para assistir" : "Conheça — clique para assistir"}
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                title="Primeira aula do curso"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              <a
+                href="https://www.youtube.com/watch?v=-sdVG1OtDks"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
+              >
+                Ver no YouTube
+              </a>
+            </div>
+          )}
         </div>
-        <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
-          <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
-            <ShieldCheck className="w-5 h-5" />{" "}
-            <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
+
+        <p className="text-center text-slate-300 text-sm md:text-base mt-3 mb-8 md:mb-10 leading-relaxed flex items-start justify-center gap-2 max-w-2xl mx-auto">
+          <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-1" />
+          {warm ? "Eu explico cada clique como se estivesse sentada do seu lado. Pode pausar e repetir quantas vezes quiser." : "Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela."}
+        </p>
+
+        <div className="text-center mb-3 md:mb-4">
+          {warm ? (
+            <>
+              <span className="inline-flex items-center gap-2 bg-amber-400 text-slate-900 text-xs md:text-sm font-black uppercase tracking-wide px-3 py-1.5 rounded-full mb-3">
+                <Award className="w-4 h-4" /> Aula completa de verdade
+              </span>
+              <h2 className="text-3xl md:text-5xl font-black text-white leading-tight text-balance">
+                Veja que <span className="text-green-300">você também consegue</span>
+              </h2>
+              <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
+                Uma aula inteira, do começo ao fim. É assim que você vai aprender no curso.
+              </p>
+            </>
+          ) : (
+          <h2 className="text-2xl md:text-4xl font-hero text-white leading-tight text-balance">
+            Aprender Informática vai transformar sua vida!
+          </h2>
+          )}
+        </div>
+
+        <div className="relative max-w-3xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-xl shadow-blue-900/10 border-0 md:border border-white/10">
+          {!isPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+              <img
+                src={aulaGratisThumb}
+                alt="Aula completa do curso"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6 md:-translate-x-[88px]">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-sky-300" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/60 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                {warm ? "Aula 2 · Toque para assistir" : "Veja uma aula inteira de verdade"}
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                title="Aula completa do curso"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              <a
+                href="https://www.youtube.com/watch?v=_0OPLnEiMHk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
+              >
+                Ver no YouTube
+              </a>
+            </div>
+          )}
+        </div>
+
+        <div className="text-center space-y-4 mt-8 md:mt-10">
+          {warm ? (
+          <p className="text-slate-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-semibold">
+            Mais de <strong className="text-green-300">15.000 pessoas</strong> começaram assim, do zero. <span className="text-sky-300">Agora é a sua vez.</span>
           </p>
-          <p className="text-slate-700 text-sm md:text-base mt-1.5 leading-snug">
-            <span className="text-blue-600 font-bold">Risco zero.</span> Se não gostar, eu devolvo{" "}
-            <span className="text-green-700 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
+          ) : (
+          <p className="text-slate-200 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Essa é a mesma didática que já fez <strong className="text-white">+15.000 pessoas</strong> saírem do
+            zero e usarem o computador com confiança.
           </p>
+          )}
         </div>
       </div>
     </section>
   );
 };
+
 
 // ───────────────────────── Instructor ─────────────────────────
-const Instructor = () => (
-  <section className="py-4 md:py-6 bg-white">
+const Instructor = ({ photo = elisa }: { photo?: string }) => {
+  const isCustomPhoto = photo !== elisa;
+  const largeLabel = useContext(MinimalCtas);
+  return (
+  <section className="py-4 md:py-6 bg-transparent">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
-          <img src={elisa} alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
-          <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl border border-slate-200 px-4 py-3 flex items-center gap-2">
-            <Users className="w-5 h-5 text-blue-600" />
-            <div>
-              <div className="text-lg font-black text-slate-900 leading-none">+15.000</div>
-              <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wide">Alunos formados</div>
+          <img
+            src={photo}
+            alt="Professora Elisa"
+            className={
+              isCustomPhoto
+                ? "rounded-3xl shadow-xl w-full h-auto"
+                : "rounded-3xl shadow-xl w-full object-cover aspect-[4/5]"
+            }
+          />
+          {!isCustomPhoto && (
+            <div className="absolute -bottom-4 -right-4 bg-slate-800 rounded-2xl shadow-xl border border-white/10 px-4 py-3 flex items-center gap-2">
+              <Users className="w-5 h-5 text-sky-300" />
+              <div>
+                <div className="text-lg font-black text-white leading-none">+15.000</div>
+                <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wide">Alunos formados</div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div>
-          <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-            <GraduationCap className="w-4 h-4" /> Eu vou te ensinar
+          <span className={`inline-flex items-center gap-2 bg-primary/10 text-primary font-bold rounded-full mb-4 ${largeLabel ? "text-xl md:text-2xl px-4 py-2" : "text-xs px-3 py-1.5"}`}>
+            <GraduationCap className={largeLabel ? "w-6 h-6 md:w-7 md:h-7 shrink-0" : "w-4 h-4"} /> Quem vai te ensinar
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">
-            Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-4">
+            Oi, eu sou a <span className="text-sky-300">Professora Elisa</span>
           </h2>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
+          <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-4">
             Há mais de <strong>20 anos</strong> eu ensino informática pra adultos que nunca tinham tocado num
             computador. E descobri uma coisa:{" "}
             <strong>o problema nunca foi a pessoa — era o jeito que ensinavam.</strong>
           </p>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6">
+          <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
             Por isso criei um método simples, devagar e com linguagem do dia a dia. Sem palavras difíceis, sem pressa.
             Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
           </p>
           <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
+            <div className="text-center bg-white/10 rounded-xl p-3">
+              <Clock className="w-5 h-5 text-sky-300 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-200">
                 +20 anos
                 <br />
                 de experiência
               </div>
             </div>
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <Award className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
+            <div className="text-center bg-white/10 rounded-xl p-3">
+              <Award className="w-5 h-5 text-sky-300 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-200">
                 Método
                 <br />
                 próprio
               </div>
             </div>
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <HeartHandshakeIcon className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
+            <div className="text-center bg-white/10 rounded-xl p-3">
+              <HeartHandshake className="w-5 h-5 text-sky-300 mx-auto mb-1" />
+              <div className="text-xs font-bold text-slate-200">
                 Suporte
                 <br />
                 humano
@@ -488,71 +631,39 @@ const Instructor = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ───────────────────────── Method (3 steps) ─────────────────────────
-const Method = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
-  if (remarketingTop) {
-    const trail = [
-      {
-        icon: PlayCircle,
-        tone: "watch",
-        title: "Você assiste",
-        description: "Sente no computador e dê o play. Eu explico do zero, com calma.",
-        reassurance: "Pode pausar e assistir de novo.",
-      },
-      {
-        icon: MousePointer2,
-        tone: "practice",
-        title: "Você faz comigo",
-        description: "Veja onde eu clico e faça igual no seu computador. Um passo de cada vez.",
-        reassurance: "Você não precisa saber antes.",
-      },
-      {
-        icon: Trophy,
-        tone: "achieve",
-        title: "Você usa no dia a dia",
-        description: "Imagine escrever um documento, enviar um e-mail e encontrar seus arquivos.",
-        reassurance: "Cada prática traz mais confiança.",
-      },
+const Method = () => {
+  const warm = useContext(MinimalCtas);
+  if (warm) {
+    const simpleSteps = [
+      { icon: PlayCircle, title: "Veja cada passo", description: "Eu mostro com calma, desde o início." },
+      { icon: Monitor, title: "Faça junto comigo", description: "Pause e repita no seu computador." },
+      { icon: HeartHandshake, title: "Conte com minha ajuda", description: "Ficou com dúvida? Estou aqui para ajudar." },
     ];
     return (
-      <section className="learning-trail py-7 md:py-10" aria-labelledby="learning-trail-title">
-        <div className="mx-auto max-w-4xl px-4 md:px-8">
-          <header className="mb-6 text-center">
-            <p className="learning-trail-eyebrow text-xs font-bold uppercase mb-2">3 passos. No seu ritmo.</p>
-            <h2 id="learning-trail-title" className="text-2xl md:text-4xl font-black leading-tight">
-              Seu caminho para usar<br className="md:hidden" /> o computador
-            </h2>
-            <p className="learning-trail-muted mt-3 text-sm md:text-base">Imagine você aprendendo assim, comigo.</p>
-          </header>
-          <ol className="learning-trail-steps relative grid gap-6 md:grid-cols-3 md:gap-8">
-            {trail.map(({ icon: Icon, tone, title, description, reassurance }, index) => (
-              <li key={tone} className={`learning-trail-step learning-trail-${tone} relative grid grid-cols-[56px_minmax(0,1fr)] gap-4 md:block`}>
-                <div className="learning-trail-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full md:mb-4">
-                  <Icon className="h-7 w-7" strokeWidth={2} aria-hidden="true" />
-                  <span className="learning-trail-number absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-extrabold">{index + 1}</span>
-                </div>
-                <div className="min-w-0 pt-1 md:pt-0">
-                  <h3 className="text-lg md:text-xl font-extrabold leading-tight">{title}</h3>
-                  <p className="learning-trail-muted mt-2 text-sm leading-relaxed">{description}</p>
-                  <p className="learning-trail-reassurance mt-2 text-sm font-bold leading-snug">{reassurance}</p>
+      <section className="bg-card text-card-foreground border-y border-border py-7 md:py-10">
+        <div className="container mx-auto max-w-5xl px-5 md:px-6">
+          <div className="text-center mb-6 md:mb-8">
+            <span className="inline-flex items-center gap-2 text-primary text-base md:text-lg font-semibold mb-2">
+              <HeartHandshake className="h-5 w-5" aria-hidden="true" />
+              No seu ritmo
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">Você aprende.<br />Eu te acompanho.</h2>
+          </div>
+          <ol className="grid gap-0 md:grid-cols-3 md:gap-8">
+            {simpleSteps.map(({ icon: Icon, title, description }) => (
+              <li key={title} className="flex items-start gap-4 py-4 border-t border-border">
+                <Icon className="h-7 w-7 shrink-0 mt-1 text-primary" strokeWidth={1.75} aria-hidden="true" />
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold leading-tight">{title}</h3>
+                  <p className="text-lg md:text-xl text-muted-foreground leading-snug mt-1.5">{description}</p>
                 </div>
               </li>
             ))}
           </ol>
-          <div className="home-anterior-2-seals mt-6 grid grid-cols-3 gap-x-1 gap-y-2 border-t pt-5 md:gap-x-4">
-            {[
-              { icon: HeartHandshake, tone: "text-[hsl(var(--seal-guarantee))]", lines: ["Do zero,", "com calma"] },
-              { icon: Clock, tone: "text-[hsl(var(--seal-access))]", lines: ["No seu", "ritmo"] },
-              { icon: Trophy, tone: "text-[hsl(var(--seal-secure))]", lines: ["Uma conquista", "de cada vez"] },
-            ].map((s, i) => (
-              <div key={s.lines.join(" ")} className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2">
-                <s.icon className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`} strokeWidth={2} style={{ animationDelay: `${i * 0.35}s` }} />
-                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-foreground md:text-[13px]">{s.lines[0]}<br />{s.lines[1]}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     );
@@ -561,7 +672,7 @@ const Method = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
     {
       n: "1",
       t: "Assiste a aula curta",
-      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no computador, quando quiser, no seu ritmo.",
+      d: "Cada aula tem entre 5 e 15 minutos. Você assiste no celular, computador ou tablet, quando quiser.",
     },
     {
       n: "2",
@@ -586,7 +697,7 @@ const Method = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((s) => (
             <div key={s.n} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-6">
-              <div className="w-12 h-12 rounded-full bg-white text-blue-600 font-black text-xl flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-full bg-white text-sky-300 font-black text-xl flex items-center justify-center mb-4">
                 {s.n}
               </div>
               <h3 className="text-xl font-bold mb-2">{s.t}</h3>
@@ -640,14 +751,14 @@ const Modules = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-4 md:py-6 bg-white/5">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-5">
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
             CONTEÚDO COMPLETO
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Tudo o que você vai aprender</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-3">Tudo o que você vai aprender</h2>
+          <p className="text-slate-300 max-w-2xl mx-auto">
             +90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.
           </p>
         </div>
@@ -655,20 +766,86 @@ const Modules = () => {
           {mods.map((m) => (
             <div
               key={m.t}
-              className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-sky-400/10 flex items-center justify-center mb-4">
                 <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
-              <p className="text-slate-600 text-sm mb-3">{m.d}</p>
-              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{m.lessons}</span>
+              <h3 className="text-lg font-bold text-white mb-2">{m.t}</h3>
+              <p className="text-slate-300 text-sm mb-3">{m.d}</p>
+              <span className="text-xs font-bold text-sky-300 bg-sky-400/10 px-2 py-1 rounded">{m.lessons}</span>
             </div>
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero conhecer todas as aulas</CTA>
+          <CTA>Quero ver todas as aulas!</CTA>
         </div>
+      </div>
+    </section>
+  );
+};
+
+// ───────────────────────── Modules (versão acolhedora, só /icone-2) ─────────────────────────
+const ModulesWarm = () => {
+  const mods = [
+    { i: windowsIcon, n: "1", label: " Windows", t: "Perca o medo do computador", d: "Ligar, usar o mouse e o teclado e guardar suas fotos e arquivos sem medo de apagar nada.", s: "Primeiro passo" },
+    { i: wordIcon, n: "2", label: "Word", t: "Escreva seus próprios documentos", d: "Cartas, currículo e receitas. Você digita, arruma e imprime sozinho(a).", s: "Muito usado" },
+    { i: excelIcon, n: "3", label: "Excel", t: "Organize suas contas do mês", d: "Monte planilhas simples para controlar gastos, listas e tudo da sua casa.", s: "Mais pedido" },
+    { i: powerpointIcon, n: "4", label: "PowerPoint", t: "Crie apresentações bonitas", d: "Monte slides caprichados para o trabalho, a igreja ou a família.", s: "Fácil e bonito" },
+    { i: internetIcon, n: "5", label: "Internet, e-mail e anexo", t: "Use a internet com segurança", d: "Pesquise no Google, mande e-mails e aprenda a reconhecer golpes.", s: "Protege você" },
+    { i: typingIcon, n: "6", label: "Digitação", t: "Digite mais rápido", d: "Ganhe confiança no teclado e faça tudo com mais agilidade.", s: "Bônus de prática" },
+  ];
+  const seals = [
+    { Icon: HeartHandshake, t: "Ensino com calma" },
+    { Icon: Clock, t: "No seu ritmo" },
+    { Icon: ShieldCheck, t: "7 dias de garantia" },
+    { Icon: Award, t: "Com certificado" },
+  ];
+  return (
+    <section className="py-6 md:py-10 bg-white/5">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-6">
+          <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
+            <HeartHandshake className="w-4 h-4" /> Feito para quem está começando
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
+            Um passo de cada vez,<br />
+            <span className="text-sky-300">sempre com a minha ajuda</span>
+          </h2>
+          <p className="text-slate-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Tudo muito simples, do primeiro clique até usar o computador sozinho(a). Você nunca fica perdido(a).
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8">
+          {seals.map(({ Icon, t }) => (
+            <div key={t} className="flex flex-col items-center gap-2 rounded-2xl border border-sky-400/30 bg-sky-400/10 px-3 py-4 text-center">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-400/20 ring-2 ring-sky-300/40">
+                <Icon className="h-6 w-6 text-sky-300" />
+              </span>
+              <span className="text-base font-bold text-white leading-tight">{t}</span>
+            </div>
+          ))}
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {mods.map((m) => (
+            <div key={m.t} className="relative bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6">
+              <span className="absolute -top-3 right-4 inline-flex items-center gap-1 rounded-full bg-amber-400 px-3 py-1 text-xs font-black uppercase tracking-wide text-slate-900 shadow">
+                <CheckCircle2 className="h-3.5 w-3.5" /> {m.s}
+              </span>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-14 h-14 rounded-xl bg-sky-400/10 flex items-center justify-center shrink-0">
+                  <img src={m.i} alt="" className="w-full h-full object-contain" loading="lazy" />
+                </div>
+                <span className="text-sm font-bold text-sky-300">{m.label}</span>
+              </div>
+              <h3 className="text-xl md:text-2xl font-black text-white leading-snug mb-2">{m.t}</h3>
+              <p className="text-slate-200 text-base md:text-lg leading-relaxed">{m.d}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-lg md:text-xl font-bold text-white">
+          Se travar em alguma aula, é só me chamar. <span className="text-green-300">Eu te ajudo.</span>
+        </p>
       </div>
     </section>
   );
@@ -785,7 +962,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
 
   return (
     <div
-      className={`bg-white border rounded-xl p-4 transition-all ${hasError ? "border-red-300 opacity-50" : "border-slate-200 hover:border-blue-300 shadow-sm"}`}
+      className={`bg-white/5 border border-white/10 rounded-xl p-4 transition-all ${hasError ? "border-red-300 opacity-50" : "border-white/10 hover:border-sky-400/40 shadow-sm"}`}
     >
       <audio
         ref={audioRef}
@@ -805,12 +982,12 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
         </button>
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-slate-900 font-semibold text-sm">{testimonial.name}</span>
-            <Volume2 className="w-3 h-3 text-blue-600" />
+            <span className="text-white font-semibold text-sm">{testimonial.name}</span>
+            <Volume2 className="w-3 h-3 text-sky-300" />
           </div>
-          <p className="text-slate-500 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
-          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
-            <div className="h-full bg-blue-500 transition-all duration-100" style={{ width: `${progress}%` }} />
+          <p className="text-slate-400 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
+          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-full bg-sky-400/100 transition-all duration-100" style={{ width: `${progress}%` }} />
           </div>
         </div>
       </div>
@@ -818,57 +995,52 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
   );
 };
 
-const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) => {
-  const [showAllComments, setShowAllComments] = useState(false);
+const SocialProof = () => {
   return (
-    <section className="py-4 md:py-6 bg-white">
+    <section className="py-4 md:py-6 bg-transparent">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-5">
-          <div className="inline-flex items-center justify-center gap-2.5 mb-4 border border-slate-200 rounded-full px-4 py-1.5 bg-slate-50 whitespace-nowrap">
-            <div className="flex -space-x-2">
-              {fbAvatars.slice(0, 5).map((av, i) => (
-                <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
-              ))}
-            </div>
-            <div className="text-left leading-tight">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-amber-400 text-base leading-none">
-                    ★
-                  </span>
+          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-4 border border-white/10 rounded-full px-5 py-2 bg-white/10">
+            <div className="flex items-center gap-1.5">
+              <div className="flex -space-x-2">
+                {fbAvatars.slice(0, 5).map((av, i) => (
+                  <img key={i} src={av} alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
                 ))}
               </div>
-              <span className="text-slate-900 text-xs font-bold">+15.000 alunos já aprenderam</span>
+              <span className="text-white text-sm font-bold ml-1">+15.000 alunos</span>
+            </div>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className="text-amber-400 text-lg">
+                  ★
+                </span>
+              ))}
+              <span className="text-white text-sm font-semibold ml-1">4.9/5</span>
             </div>
           </div>
 
-          {!remarketingTop && (
-            <>
-              <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3 leading-tight">
-                Veja o que dizem os alunos que <span className="text-blue-600">saíram do zero</span>
-              </h2>
-              <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-medium">
-                Histórias reais de pessoas que{" "}
-                <span className="text-slate-900 font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
-                confiança
-              </p>
-            </>
-          )}
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-3 leading-tight">
+            Veja o que dizem os alunos que <span className="text-sky-300">saíram do zero</span>
+          </h2>
+          <p className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto font-medium">
+            Histórias reais de pessoas que{" "}
+            <span className="text-white font-bold">não sabiam nem ligar o computador</span> — e hoje usam com total
+            confiança
+          </p>
         </div>
 
         {/* WhatsApp + Audios */}
-        {!remarketingTop && (
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-5">
           {/* WhatsApp Screenshots */}
           <div className="order-1 lg:order-2">
             <div className="flex items-center gap-2 mb-4">
-              <Smartphone className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Prints de Conversas</h3>
+              <Smartphone className="w-5 h-5 text-sky-300" />
+              <h3 className="text-lg font-bold text-white">Prints de Conversas</h3>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {whatsappScreenshots.map((screenshot, index) => (
-                <div key={index} className="bg-slate-100 rounded-xl p-1.5 shadow-lg border border-slate-200">
+                <div key={index} className="bg-slate-100 rounded-xl p-1.5 shadow-lg border border-white/10">
                   <div className="bg-slate-200 rounded-t-lg pt-1.5 pb-0.5 px-3">
                     <div className="flex items-center justify-center">
                       <div className="w-10 h-0.5 bg-slate-400 rounded-full"></div>
@@ -888,8 +1060,8 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
           {/* Audio Players */}
           <div className="order-2 lg:order-1">
             <div className="flex items-center gap-2 mb-4">
-              <Volume2 className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Áudios de Alunos</h3>
+              <Volume2 className="w-5 h-5 text-sky-300" />
+              <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
             </div>
             <div className="space-y-3">
               {audioTestimonials.map((testimonial, index) => (
@@ -898,19 +1070,20 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
             </div>
           </div>
         </div>
-        )}
+
+        {/* Highlight phrase */}
         <div className="text-center my-4 max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-            Se essas pessoas conseguiram, <span className="text-green-600">você também consegue.</span>
+          <p className="text-xl md:text-2xl font-black text-white leading-snug">
+            Se essas pessoas conseguiram, <span className="text-green-400">você também consegue.</span>
             <br />
-            <span className="text-slate-500 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
+            <span className="text-slate-300 font-medium text-lg md:text-xl">Mesmo começando do zero.</span>
           </p>
         </div>
 
         {/* Facebook-style comments */}
-        <div id="comentarios" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
-          {(showAllComments ? facebookComments : facebookComments.slice(0, 3)).map((comment, index) => (
-            <div key={index} className="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
+          {facebookComments.map((comment, index) => (
+            <div key={index} className="bg-white/5 border border-white/10 rounded-lg p-3 shadow-sm">
               <div className="flex gap-2">
                 <img
                   src={fbAvatars[index % fbAvatars.length]}
@@ -918,24 +1091,24 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
                   className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]"
                 />
                 <div className="flex-1 min-w-0">
-                  <div className="bg-slate-100 rounded-2xl px-3 py-2">
-                    <p className="text-slate-900 text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
+                  <div className="bg-white/10 rounded-2xl px-3 py-2">
+                    <p className="text-white text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
                       {comment.name}
                     </p>
-                    <p className="text-slate-700 text-xs leading-relaxed">{comment.text}</p>
+                    <p className="text-slate-200 text-xs leading-relaxed">{comment.text}</p>
                   </div>
                   <div className="flex items-center gap-3 mt-1 px-2">
                     <span className="text-[11px] text-slate-400">{comment.time}</span>
-                    <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
+                    <span className="text-[11px] text-slate-400 font-medium cursor-pointer hover:underline">
                       Curtir
                     </span>
-                    <span className="text-[11px] text-slate-500 font-medium cursor-pointer hover:underline">
+                    <span className="text-[11px] text-slate-400 font-medium cursor-pointer hover:underline">
                       Responder
                     </span>
                     {comment.likes > 0 && (
                       <span className="ml-auto text-[11px] text-slate-400 flex items-center gap-0.5">
                         <span className="flex items-center -space-x-1">
-                          <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10">
+                          <span className="w-4 h-4 rounded-full bg-sky-400/100 flex items-center justify-center z-10">
                             <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
                           </span>
                           {comment.hasHeart && (
@@ -953,28 +1126,15 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
             </div>
           ))}
         </div>
-        {facebookComments.length > 3 && (
-          <div className="text-center mb-6">
-            <button
-              type="button"
-              onClick={() => setShowAllComments((v) => !v)}
-              className="inline-flex items-center gap-1 text-primary font-bold text-sm md:text-base underline underline-offset-4"
-            >
-              {showAllComments ? "Mostrar menos comentários" : `Ver mais ${facebookComments.length - 3} comentários`}
-            </button>
-          </div>
-        )}
 
         {/* CTA */}
-        {!remarketingTop && (
-          <div className="text-center space-y-4">
-            <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
-            <CTA>Quero aprender sem medo!</CTA>
-            <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
-              <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
-            </p>
-          </div>
-        )}
+        <div className="text-center space-y-4">
+          <h3 className="text-2xl md:text-3xl font-black text-white">Eu também quero aprender!</h3>
+          <CTA>Quero aprender sem medo!</CTA>
+          <p className="text-slate-400 text-sm flex items-center justify-center gap-2">
+            <Lock className="w-4 h-4 text-green-400" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -982,20 +1142,20 @@ const SocialProof = ({ remarketingTop = false }: { remarketingTop?: boolean }) =
 
 // ───────────────────────── Certificate ─────────────────────────
 const Certificate = () => (
-  <section className="py-4 md:py-6 bg-slate-50">
+  <section className="py-4 md:py-6 bg-white/5">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <img
           src={certificado}
           alt="Certificado de conclusão"
-          className="rounded-2xl shadow-xl border border-slate-200"
+          className="rounded-2xl shadow-xl border border-white/10"
         />
         <div>
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
             BÔNUS
           </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">Você sai com certificado de conclusão</h2>
-          <p className="text-slate-700 text-base md:text-lg mb-6">
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-4">Você sai com certificado de conclusão</h2>
+          <p className="text-slate-200 text-base md:text-lg mb-6">
             Ao terminar o curso, você recebe um certificado digital pra anexar no currículo, no LinkedIn ou pra mostrar
             pra família que <strong>você conseguiu</strong>.
           </p>
@@ -1005,8 +1165,8 @@ const Certificate = () => (
               "Pronto pra anexar no currículo",
               "Modelo profissional e elegante",
             ].map((x) => (
-              <li key={x} className="flex items-center gap-2 text-slate-700">
-                <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
+              <li key={x} className="flex items-center gap-2 text-slate-200">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
                 {x}
               </li>
             ))}
@@ -1018,20 +1178,57 @@ const Certificate = () => (
   </section>
 );
 
+// ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
+const MiniValueSection = () => (
+  <section id="primeiro-valor" className="py-4 md:py-6">
+    <div className="container mx-auto px-4 max-w-xl text-center rounded-3xl border border-sky-400/25 bg-gradient-to-b from-sky-500/20 via-sky-500/10 to-transparent px-4 py-6 md:py-8 shadow-lg shadow-sky-500/10">
+      <h2 className="font-black text-xl md:text-2xl leading-tight text-white">Curso Completo de Informática</h2>
+      <p className="text-slate-400 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
+      <div className="w-16 h-1 bg-sky-400 rounded-full mx-auto mt-3 mb-5" />
+      <p className="text-slate-400 text-sm md:text-base">
+        de <span className="line-through text-slate-500">R$ 497,00</span> por apenas
+      </p>
+      <p className="text-green-400 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
+      <p className="text-amber-400 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
+        <span>🎁</span> Hoje você leva 4 bônus exclusivos
+      </p>
+      <p className="text-slate-300 text-base md:text-lg mt-1">
+        ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
+      </p>
+      <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
+        <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
+      </p>
+      <div className="mt-5">
+        <CTA keep singleLine>Quero começar meu curso!</CTA>
+      </div>
+      <div className="mt-5 rounded-xl border-2 border-green-500/30 bg-green-500/10 px-5 py-4 text-center shadow-sm">
+        <p className="flex flex-row items-center justify-center gap-1.5 text-green-300 font-black text-sm md:text-lg">
+          <ShieldCheck className="w-5 h-5" />{" "}
+          <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
+        </p>
+        <p className="text-slate-200 text-sm md:text-base mt-1.5 leading-snug">
+          <span className="text-sky-300 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
+          <span className="text-green-300 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
   <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-8">
         <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-          Oferta especial • 40% OFF
+          🔥 Oferta especial • 40% OFF
         </span>
-        <h2 className="text-3xl md:text-5xl font-black mb-3">Comece hoje, no seu ritmo</h2>
-        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • 7 dias de garantia</p>
+        <h2 className="text-3xl md:text-5xl font-black mb-3">Garanta sua vaga hoje</h2>
+        <p className="text-blue-100 text-base md:text-lg">Acesso vitalício • Comece agora mesmo</p>
       </div>
 
       <div className="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-yellow-400">
-        <h3 className="text-xl md:text-2xl font-black text-center mb-2">Curso Completo de Informática</h3>
+        <h3 className="text-xl md:text-2xl font-black text-slate-900 text-center mb-2">Curso Completo de Informática</h3>
         <p className="text-center text-slate-500 text-sm mb-6">+90 videoaulas • 6 módulos • Acesso vitalício</p>
 
         <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
@@ -1039,7 +1236,7 @@ const Pricing = () => (
           <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
           <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
           <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-            <Gift className="w-4 h-4 shrink-0" /> Hoje você leva 4 bônus exclusivos
+            <span>🎁</span> Hoje você leva 4 bônus exclusivos
           </p>
           <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
           <p className="text-base text-slate-600 mt-1">
@@ -1052,25 +1249,25 @@ const Pricing = () => (
             "+90 videoaulas passo a passo",
             "Acesso vitalício — assiste quantas vezes quiser",
             "Certificado de conclusão",
-            "Suporte direto comigo",
-            "Atualizações inclusas pra sempre",
-            "Acesso pelo seu computador, quando quiser",
+            "Suporte direto com a professora",
+            "Atualizações gratuitas pra sempre",
+            "Acesso pelo computador",
           ].map((x) => (
             <li key={x} className="flex items-start gap-3 text-slate-800 font-medium">
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-6 h-6 text-green-400 shrink-0 mt-0.5" />
               {x}
             </li>
           ))}
         </ul>
 
-        <CTA>Quero começar meu curso</CTA>
+        <CTA keep>Quero aproveitar o desconto!</CTA>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
-            <Lock className="w-4 h-4 text-green-600" /> Pagamento 100% seguro
+            <Lock className="w-4 h-4 text-green-400" /> Pagamento 100% seguro
           </span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-green-600" /> 7 dias de garantia
+            <ShieldCheck className="w-4 h-4 text-green-400" /> 7 dias de garantia
           </span>
         </div>
       </div>
@@ -1080,17 +1277,17 @@ const Pricing = () => (
 
 // ───────────────────────── Guarantee ─────────────────────────
 const GuaranteeBlock = () => (
-  <section className="py-4 md:py-6 bg-white">
+  <section className="py-4 md:py-6 bg-transparent">
     <div className="container mx-auto px-4 max-w-3xl">
-      <div className="bg-green-50 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
+      <div className="bg-green-500/10 border-2 border-green-600 rounded-3xl p-6 md:p-10 text-center">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-600 mb-5">
           <ShieldCheck className="w-12 h-12 text-white" />
         </div>
-        <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-3">Garantia incondicional de 7 dias</h2>
-        <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+        <h2 className="text-2xl md:text-4xl font-black text-white mb-3">Garantia incondicional de 7 dias</h2>
+        <p className="text-slate-200 text-base md:text-lg leading-relaxed">
           Faça sua matrícula hoje, assista as aulas, teste o método. Se em <strong>7 dias</strong> você achar que o
-          curso não é pra você — por qualquer motivo — <strong>eu devolvo 100% do seu dinheiro</strong>. Sem perguntas,
-          sem burocracia. <strong>O risco fica comigo.</strong>
+          curso não é pra você — por qualquer motivo — <strong>devolvemos 100% do seu dinheiro</strong>. Sem perguntas,
+          sem burocracia. <strong>O risco é todo nosso.</strong>
         </p>
       </div>
     </div>
@@ -1103,7 +1300,7 @@ const FAQ = () => {
   const faqs = [
     {
       q: "Eu nunca mexi num computador. Vou conseguir mesmo?",
-      a: "Sim! Eu fiz este curso justamente pra quem está começando do zero. Explico passo a passo, com linguagem simples e sem termos técnicos. +15.000 alunos já provaram que funciona.",
+      a: "Sim! O curso foi feito justamente pra quem está começando do zero. A professora explica passo a passo, com linguagem simples, sem termos técnicos. +15.000 alunos já provaram que funciona.",
     },
     {
       q: "Quanto tempo leva pra concluir?",
@@ -1114,12 +1311,12 @@ const FAQ = () => {
       a: "Na hora. Logo após o pagamento aprovado você recebe os dados de acesso no seu e-mail.",
     },
     {
-      q: "Preciso ter um computador?",
-      a: "Sim. O curso ensina a usar o computador, então você assiste às aulas e pratica nele, comigo mostrando cada passo na tela.",
+      q: "Funciona no celular?",
+      a: "Sim. Você pode assistir no celular, tablet ou computador. Mas pra praticar é importante ter acesso a um computador.",
     },
     {
       q: "Como funciona a garantia?",
-      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e eu devolvo 100% do valor. Sem perguntas.",
+      a: "Você tem 7 dias pra testar o curso. Se não gostar, é só mandar um e-mail e devolvemos 100% do valor. Sem perguntas.",
     },
     {
       q: "O certificado é válido?",
@@ -1127,26 +1324,26 @@ const FAQ = () => {
     },
     {
       q: "E se eu travar numa aula? Tem suporte?",
-      a: "Tem sim. Você pode tirar suas dúvidas diretamente comigo pelo WhatsApp e pela área do aluno.",
+      a: "Tem sim. Você pode tirar dúvidas direto com a professora pelo WhatsApp e pela área do aluno.",
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-slate-50">
+    <section className="py-4 md:py-6 bg-white/5">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-2xl md:text-4xl font-black text-center text-slate-900 mb-5">Perguntas frequentes</h2>
+        <h2 className="text-2xl md:text-4xl font-black text-center text-white mb-5">Perguntas frequentes</h2>
         <div className="space-y-3">
           {faqs.map((f, i) => (
-            <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div key={i} className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between gap-3 p-5 text-left"
               >
-                <span className="font-bold text-slate-900">{f.q}</span>
+                <span className="font-bold text-white">{f.q}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-slate-500 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
+                  className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
                 />
               </button>
-              {open === i && <div className="px-5 pb-5 text-slate-700 leading-relaxed">{f.a}</div>}
+              {open === i && <div className="px-5 pb-5 text-slate-200 leading-relaxed">{f.a}</div>}
             </div>
           ))}
         </div>
@@ -1163,160 +1360,21 @@ const FinalCTA = () => (
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
       <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
         Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
-        mais independente. <strong className="text-white">Você pode começar hoje, no seu ritmo.</strong>
+        mais independente. <strong className="text-white">Hoje é o dia.</strong>
       </p>
       <CTA>Quero começar agora!</CTA>
-      <p className="text-xs text-slate-400 mt-4"><Lock className="w-3.5 h-3.5 inline align-[-2px]" /> Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
+      <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
   </section>
 );
 
-// ───────────────────────── Footer ─────────────────────────
-const Footer = () => (
-  <footer className="bg-slate-950 text-slate-400 py-10 text-center text-xs">
-    <div className="container mx-auto px-4">
-      <p className="font-bold text-slate-300 mb-2">Informática na Prática LTDA</p>
-      <p className="mb-1">© 2026 — Todos os direitos reservados</p>
-      <p className="mb-3 text-slate-500">CNPJ: 32.373.460/0001-51</p>
-      <div className="flex justify-center gap-4">
-        <a href="/termos-de-uso" className="hover:text-white">
-          Termos de Uso
-        </a>
-        <a href="/politica-de-privacidade" className="hover:text-white">
-          Privacidade
-        </a>
-      </div>
-    </div>
-  </footer>
-);
-
-// ───────────────────────── Sticky Mobile CTA ─────────────────────────
-const StickyMobile = ({ remarketingTop = false, whatsappCta = false }: { remarketingTop?: boolean; whatsappCta?: boolean }) => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const check = () => {
-      const el = document.getElementById("comentarios");
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      if (r.top + r.height / 2 < window.innerHeight) setShow(true);
-    };
-    check();
-    window.addEventListener("scroll", check, { passive: true });
-    return () => window.removeEventListener("scroll", check);
-  }, []);
-  if (remarketingTop) return (
-    <div className="home-anterior-2-sticky md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-border bg-background px-2 py-3 shadow-2xl">
-      <Button
-        type="button"
-        onClick={() => (whatsappCta ? window.open(WHATS_LINK, "_blank") : openHotmartCheckout())}
-        className="cta-pulse h-auto w-full bg-[hsl(var(--whatsapp-strong))] hover:bg-[hsl(var(--whatsapp-strong-hover))] text-[hsl(var(--whatsapp-foreground))] font-extrabold px-2 py-4 rounded-xl flex items-center justify-center gap-2 [font-size:min(calc((100vw_-_40px)/12.4),34px)] leading-[1.15] whitespace-nowrap"
-      >
-        {whatsappCta ? <WhatsIcon className="!h-[1.05em] !w-[1.05em] shrink-0" /> : <Monitor className="!h-[1.05em] !w-[1.05em] shrink-0" strokeWidth={2.5} />}
-        Quero começar agora!
-      </Button>
-    </div>
-  );
-  if (!show) return null;
-  return (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
-    <button
-      onClick={requestCheckout}
-      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
-    >
-      <Monitor className="w-5 h-5" /> Quero começar agora!
-    </button>
-  </div>
-  );
-};
-
-// ───────────────────────── Page ─────────────────────────
-const WHATS_LINK =
-  "https://api.whatsapp.com/send?phone=5545988287082&text=" +
-  encodeURIComponent("Olá, professora Elisa! Vi no site as informações do curso, mas ainda tenho dúvidas. Pode me ajudar?");
-
-const trackWhats = () => {
-  const h = window.location.hostname;
-  if ((h === "informaticanapratica.com.br" || h === "www.informaticanapratica.com.br") && (window as any).gtag) {
-    (window as any).gtag("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
-    (window as any).gtag("event", "conversion", {
-      send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
-      value: 20.0,
-      currency: "BRL",
-    });
-  }
-};
-
-const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-  </svg>
-);
-
-const WhatsFloat = () => {
-  return (
-    <a
-      href={WHATS_LINK}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={trackWhats}
-      aria-label="Tire suas dúvidas no WhatsApp"
-      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 hidden md:flex items-center gap-2"
-    >
-      <WhatsIcon className="w-6 h-6" />
-      <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
-    </a>
-  );
-};
-
-const WhatsAposAulas = ({ bg = "bg-white" }: { bg?: string }) => (
-  <section className={`py-6 md:py-8 ${bg}`}>
-    <div className="container mx-auto px-4 max-w-3xl">
-      <div className="bg-green-50 border-2 border-green-500 rounded-2xl px-5 py-6 md:px-8 md:py-7 shadow-lg">
-        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-          <div className="flex items-center gap-4 flex-1 min-w-0">
-            <img
-              src="/images/elisa-whatsapp.jpg"
-              alt="Professora Elisa"
-              style={{ objectPosition: "47% 16%" }}
-              className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-green-500 shrink-0"
-            />
-            <div className="min-w-0">
-              <p className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
-                Ficou com alguma dúvida?
-              </p>
-              <p className="mt-1 text-base md:text-lg text-slate-700 leading-snug">
-                Gostou do curso, mas ainda tem alguma dúvida?{"\u00a0"}
-                <span className="font-bold text-green-700">
-                  Estou aqui para te ajudar.
-                </span>
-              </p>
-            </div>
-          </div>
-          <a
-            href={WHATS_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackWhats}
-            className="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-6 py-4 rounded-xl shrink-0 shadow-md"
-          >
-            <WhatsIcon className="w-6 h-6" />
-            <span className="text-lg">Me Chame para Conversar</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-
-// ───────────────────────── Page ─────────────────────────
+// ───────────────────────── Suporte com a Professora ─────────────────────────
 const SuporteProfessora = () => {
   const handleClick = () => {
     const isProduction =
       window.location.hostname === "informaticanapratica.com.br" ||
       window.location.hostname === "www.informaticanapratica.com.br";
     if (isProduction && typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "whatsapp_click", { send_to: "G-08B5E33G3F" });
       (window as any).gtag("event", "conversion", {
         send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
         value: 20.0,
@@ -1326,12 +1384,12 @@ const SuporteProfessora = () => {
   };
 
   return (
-    <section className="py-10 md:py-14 bg-slate-900">
+    <section className="py-4 md:py-6 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center justify-center mb-5">
             <div className="relative">
-              <div className="absolute inset-0 bg-green-500/30 rounded-full blur-2xl scale-150" />
+              <div className="absolute inset-0 bg-green-500/100/30 rounded-full blur-2xl scale-150" />
               <img
                 src="/images/elisa-whatsapp.jpg"
                 alt="Professora Elisa"
@@ -1375,13 +1433,14 @@ const SuporteProfessora = () => {
                 </svg>
               </span>
               <span className="flex-1 text-center leading-tight text-lg md:text-3xl">
-                Fale com a professora Elisa
+                Quero tirar minhas dúvidas
+                <br /> com a professora Elisa
               </span>
             </a>
           </div>
 
           <p className="text-sm text-slate-400 flex items-center justify-center gap-2">
-            <HeartHandshakeIcon className="w-4 h-4 text-green-400" />
+            <HeartHandshake className="w-4 h-4 text-green-400" />
             {"\n"}
           </p>
         </div>
@@ -1391,26 +1450,154 @@ const SuporteProfessora = () => {
 };
 
 // ───────────────────────── Footer ─────────────────────────
+const Footer = () => (
+  <footer className="bg-slate-950 text-slate-400 py-10 text-center text-xs">
+    <div className="container mx-auto px-4">
+      <p className="font-bold text-slate-300 mb-2">Informática na Prática LTDA</p>
+      <p className="mb-1">© 2026 — Todos os direitos reservados</p>
+      <p className="mb-3 text-slate-400">CNPJ: 32.373.460/0001-51</p>
+      <div className="flex justify-center gap-4">
+        <a href="/termos-de-uso" className="hover:text-white">
+          Termos de Uso
+        </a>
+        <a href="/politica-de-privacidade" className="hover:text-white">
+          Privacidade
+        </a>
+      </div>
+    </div>
+  </footer>
+);
 
-const VendasNovo = ({ remarketingTop = false, whatsappCta = false }: { remarketingTop?: boolean; whatsappCta?: boolean }) => {
+// ───────────────────────── Sticky Mobile CTA ─────────────────────────
+const StickyMobile = () => {
+  return (
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
+      <button
+        onClick={openCheckout}
+        className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground active:brightness-95"
+      >
+        <Monitor className="w-5 h-5 shrink-0" /> Quero começar agora!
+      </button>
+    </div>
+  );
+};
+
+// ───────────────────────── WhatsApp extra ─────────────────────────
+const WHATS_LINK =
+  "https://api.whatsapp.com/send?phone=5545988287082&text=" +
+  encodeURIComponent("Olá, professora Elisa! Vi no site as informações do curso, mas ainda tenho dúvidas. Pode me ajudar?");
+
+const trackWhats = () => {
+  const h = window.location.hostname;
+  if ((h === "informaticanapratica.com.br" || h === "www.informaticanapratica.com.br") && (window as any).gtag) {
+    (window as any).gtag("event", "conversion", {
+      send_to: "AW-17641842157/-qUVCOSN474bEO3LpNxB",
+      value: 20.0,
+      currency: "BRL",
+    });
+  }
+};
+
+const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+  </svg>
+);
+
+const WhatsFloat = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      const el = document.getElementById("primeiro-valor");
+      if (!el) return;
+      if (el.getBoundingClientRect().bottom < window.innerHeight) setShow(true);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, []);
+  if (!show) return null;
+  return (
+    <a
+      href={WHATS_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={trackWhats}
+      aria-label="Tire suas dúvidas no WhatsApp"
+      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
+    >
+      <WhatsIcon className="w-6 h-6" />
+      <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
+    </a>
+  );
+};
+
+const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
+  <section className={`py-4 md:py-6 ${bg}`}>
+    <div className="container mx-auto px-4 max-w-3xl">
+      <div className="bg-green-500/10 border-2 border-green-500 rounded-2xl px-4 py-4 md:px-6 md:py-5 shadow-lg">
+        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5">
+          <div className="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
+            <img
+              src="/images/elisa-whatsapp.jpg"
+              alt="Professora Elisa"
+              loading="lazy"
+              decoding="async"
+              style={{ objectPosition: "47% 16%" }}
+              className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 border-green-500 shrink-0"
+            />
+            <div className="min-w-0">
+              <p className="text-xl md:text-2xl font-extrabold text-white leading-tight">
+                Ficou com alguma dúvida?
+              </p>
+              <p className="mt-0.5 text-sm md:text-base text-slate-200 leading-snug">
+                Gostou do curso, mas ainda tem alguma dúvida?{"\u00a0"}
+                <span className="font-bold text-green-300">
+                  Estou aqui para te ajudar.
+                </span>
+              </p>
+            </div>
+          </div>
+          <a
+            href={WHATS_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={trackWhats}
+            className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-5 py-3 rounded-xl shrink-0 shadow-md text-base md:text-lg"
+          >
+            <WhatsIcon className="w-5 h-5" />
+            <span>Falar com a Profª Elisa</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+
+// ───────────────────────── Page ─────────────────────────
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false, hideWhatsFloat = false, headline, hidePrograms = false, headerLogo, showCourseSeals = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean; hideWhatsFloat?: boolean; headline?: ReactNode; hidePrograms?: boolean; headerLogo?: string; showCourseSeals?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
-
   return (
-    <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
-      <Hero remarketingTop={remarketingTop} />
+    <MinimalCtas.Provider value={minimalCtas}>
+    <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
+      <Header logo={headerLogo} />
+      <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
+      {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
-      <SocialProof remarketingTop={remarketingTop} />
       <MiniValueSection />
-      {!remarketingTop && <QuizIdentificacao />}
       <WhatsAposAulas />
-      <Instructor />
-      <Method remarketingTop={remarketingTop} />
-      <Modules />
-      <section className="py-4 md:py-6 bg-slate-50">
+      {!instructorFirst && <Instructor photo={instructorPhoto} />}
+      <SocialProof />
+      {!minimalCtas && <WhatsAposAulas bg="bg-white/5" />}
+      <Method />
+      {minimalCtas ? <ModulesWarm /> : <Modules />}
+      {!minimalCtas && <WhatsAposAulas />}
+      <section className="py-4 md:py-6 bg-white/5">
         <div className="container mx-auto px-4">
-          <HeroBonuses variant="light" />
+          <HeroBonuses variant="dark" />
         </div>
       </section>
       <Certificate />
@@ -1420,9 +1607,10 @@ const VendasNovo = ({ remarketingTop = false, whatsappCta = false }: { remarketi
       <FAQ />
       <FinalCTA />
       <Footer />
-      <StickyMobile remarketingTop={remarketingTop} whatsappCta={whatsappCta} />
-      <WhatsFloat />
+      <StickyMobile />
+      {!hideWhatsFloat && <WhatsFloat />}
     </div>
+    </MinimalCtas.Provider>
   );
 };
 
