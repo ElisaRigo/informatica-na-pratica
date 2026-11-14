@@ -215,7 +215,7 @@ export const Header = ({ light = false }: { light?: boolean }) => (
 );
 
 // ───────────────────────── Hero ─────────────────────────
-const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode }) => {
+const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hidePrograms = false }: { videoThumb?: string; centerPlay?: boolean; headline?: ReactNode; hidePrograms?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section className="relative bg-gradient-to-b from-blue-500/10 via-transparent to-transparent">
@@ -228,10 +228,14 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline }: { v
           </h1>}
 
 
-          <p className="mt-1 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
-            Domine os programas mais usados
-          </p>
-          <ProgramMiniatures />
+          {!hidePrograms && (
+            <>
+              <p className="mt-1 whitespace-nowrap [font-size:min(5.2vw,24px)] leading-[1.15] font-bold tracking-tight text-slate-200 md:text-lg">
+                Domine os programas mais usados
+              </p>
+              <ProgramMiniatures />
+            </>
+          )}
 
 
           {/* Video */}
