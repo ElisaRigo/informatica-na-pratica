@@ -25,7 +25,8 @@ import {
   Heart,
   Zap,
   MessageCircle,
-} from "lucide-react";
+  GraduationCap,
+ } from "lucide-react";
 import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/homebackup/assets/elisa-teaching.jpg";
@@ -512,7 +513,7 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
         </div>
         <div>
           <span className="inline-flex items-center gap-2 bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-            <Sparkles className="w-4 h-4" /> Quem vai te ensinar
+            <GraduationCap className="w-4 h-4" /> Quem vai te ensinar
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-white mb-4">
             Oi, eu sou a <span className="text-sky-300">Professora Elisa</span>
