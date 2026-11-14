@@ -566,7 +566,7 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
         <div className="relative">
           {largeLabel && (
             <div className="flex justify-center mb-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-sm font-bold text-foreground">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-sm font-bold text-primary">
                 <PlayCircle className="h-4 w-4 text-primary" /> Aula liberada
               </span>
             </div>
