@@ -478,12 +478,22 @@ const AulaDemonstrativa = () => {
 
 
 // ───────────────────────── Instructor ─────────────────────────
-const Instructor = ({ photo = elisa }: { photo?: string }) => (
+const Instructor = ({ photo = elisa }: { photo?: string }) => {
+  const isCustomPhoto = photo !== elisa;
+  return (
   <section className="py-4 md:py-6 bg-transparent">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
-          <img src={photo} alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
+          <img
+            src={photo}
+            alt="Professora Elisa"
+            className={
+              isCustomPhoto
+                ? "rounded-3xl shadow-xl w-full h-auto"
+                : "rounded-3xl shadow-xl w-full object-cover aspect-[4/5]"
+            }
+          />
           <div className="absolute -bottom-4 -right-4 bg-slate-800 rounded-2xl shadow-xl border border-white/10 px-4 py-3 flex items-center gap-2">
             <Users className="w-5 h-5 text-sky-300" />
             <div>
