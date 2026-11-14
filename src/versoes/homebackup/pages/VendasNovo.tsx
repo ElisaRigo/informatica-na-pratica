@@ -680,6 +680,72 @@ const Modules = () => {
   );
 };
 
+// ───────────────────────── Modules (versão acolhedora, só /icone-2) ─────────────────────────
+const ModulesWarm = () => {
+  const mods = [
+    { i: windowsIcon, n: "1", t: "Perca o medo do computador", d: "Ligar, usar o mouse e o teclado e guardar suas fotos e arquivos sem medo de apagar nada.", s: "Primeiro passo" },
+    { i: wordIcon, n: "2", t: "Escreva seus próprios documentos", d: "Cartas, currículo e receitas. Você digita, arruma e imprime sozinho(a).", s: "Muito usado" },
+    { i: excelIcon, n: "3", t: "Organize suas contas do mês", d: "Monte planilhas simples para controlar gastos, listas e tudo da sua casa.", s: "Mais pedido" },
+    { i: powerpointIcon, n: "4", t: "Crie apresentações bonitas", d: "Monte slides caprichados para o trabalho, a igreja ou a família.", s: "Fácil e bonito" },
+    { i: internetIcon, n: "5", t: "Use a internet com segurança", d: "Pesquise no Google, mande e-mails e aprenda a reconhecer golpes.", s: "Protege você" },
+    { i: typingIcon, n: "6", t: "Digite mais rápido", d: "Ganhe confiança no teclado e faça tudo com mais agilidade.", s: "Bônus de prática" },
+  ];
+  const seals = [
+    { Icon: HeartHandshake, t: "Ensino com calma" },
+    { Icon: Clock, t: "No seu ritmo" },
+    { Icon: ShieldCheck, t: "7 dias de garantia" },
+    { Icon: Award, t: "Com certificado" },
+  ];
+  return (
+    <section className="py-6 md:py-10 bg-white/5">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-6">
+          <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
+            <HeartHandshake className="w-4 h-4" /> Feito para quem está começando
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
+            Um passo de cada vez,<br />
+            <span className="text-sky-300">sempre com a minha ajuda</span>
+          </h2>
+          <p className="text-slate-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            São 6 etapas simples, do primeiro clique até usar o computador sozinho(a). Você nunca fica perdido(a).
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8">
+          {seals.map(({ Icon, t }) => (
+            <div key={t} className="flex flex-col items-center gap-2 rounded-2xl border border-sky-400/30 bg-sky-400/10 px-3 py-4 text-center">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-400/20 ring-2 ring-sky-300/40">
+                <Icon className="h-6 w-6 text-sky-300" />
+              </span>
+              <span className="text-base font-bold text-white leading-tight">{t}</span>
+            </div>
+          ))}
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {mods.map((m) => (
+            <div key={m.t} className="relative bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6">
+              <span className="absolute -top-3 right-4 inline-flex items-center gap-1 rounded-full bg-amber-400 px-3 py-1 text-xs font-black uppercase tracking-wide text-slate-900 shadow">
+                <CheckCircle2 className="h-3.5 w-3.5" /> {m.s}
+              </span>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-14 h-14 rounded-xl bg-sky-400/10 flex items-center justify-center shrink-0">
+                  <img src={m.i} alt="" className="w-8 h-8" loading="lazy" />
+                </div>
+                <span className="text-sm font-bold text-sky-300">Etapa {m.n}</span>
+              </div>
+              <h3 className="text-xl md:text-2xl font-black text-white leading-snug mb-2">{m.t}</h3>
+              <p className="text-slate-200 text-base md:text-lg leading-relaxed">{m.d}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-lg md:text-xl font-bold text-white">
+          Se travar em alguma aula, é só me chamar. <span className="text-green-300">Eu te ajudo.</span>
+        </p>
+      </div>
+    </section>
+  );
+};
+
 // ───────────────────────── Social Proof (WhatsApp + Facebook) ─────────────────────────
 const audioTestimonials = [
   { name: "Antonio", description: "Depoimento sobre sua experiência com o curso", audioSrc: "/audio/antonio-1.ogg" },
@@ -1422,7 +1488,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <SocialProof />
       <WhatsAposAulas bg="bg-white/5" />
       <Method />
-      <Modules />
+      {minimalCtas ? <ModulesWarm /> : <Modules />}
       <WhatsAposAulas />
       <section className="py-4 md:py-6 bg-white/5">
         <div className="container mx-auto px-4">
