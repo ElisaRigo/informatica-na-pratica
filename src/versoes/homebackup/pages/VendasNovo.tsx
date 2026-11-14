@@ -201,7 +201,14 @@ const SocialProofRow = () => (
 export const Header = ({ light = false, logo }: { light?: boolean; logo?: string }) => (
   <header className={light ? "border-b border-slate-200 bg-white py-2" : "border-b border-white/10 bg-slate-900/95 backdrop-blur-md py-2"}>
     <div className={`container mx-auto flex items-center justify-center gap-2 px-3 md:gap-4 md:px-4 ${logo ? "flex-col" : ""}`}>
-      {logo && <img src={logo} alt="Informática na Prática" className="h-16 w-auto md:h-24 lg:h-28" />}
+      {logo && (
+        <div className="relative group shrink-0">
+          <div className="absolute -inset-3 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+          <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-2.5 md:p-4 border border-white/20 shadow-lg">
+            <img src={logo} alt="Informática na Prática" className="h-16 md:h-24 lg:h-28 drop-shadow-lg" />
+          </div>
+        </div>
+      )}
       <p className="leading-none text-center">
         <span className={`block whitespace-nowrap text-[8.8vw] font-black tracking-tight sm:text-3xl md:text-5xl ${light ? "text-slate-900" : "text-white"}`}>
           Curso de{"\u00a0"}
