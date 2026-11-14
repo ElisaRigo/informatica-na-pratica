@@ -11,6 +11,7 @@ const Icone2 = () => {
         centerPlay
         instructorPhoto="/images/prof-elisa.jpg"
         instructorFirst
+        minimalCtas
       />
       <LeadCaptureDialog open={isOpen} onOpenChange={(open) => !open && closeDialog()} />
     </div>

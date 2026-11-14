@@ -62,17 +62,23 @@ const scrollToValue = () => {
 };
 
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, action = "checkout" }: any) => (
+const MinimalCtas = createContext(false);
+const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false, action = "checkout", keep = false }: any) => {
+  const minimal = useContext(MinimalCtas);
+  if (minimal && action !== "value" && !keep) return null;
+  if (minimal) size = "xl";
+  return (
   <button
     onClick={action === "value" ? scrollToValue : openCheckout}
     className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
-      size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
+      size === "xl" ? "[font-size:min(6.6vw,28px)] md:text-3xl leading-[1.15] px-4 py-4 md:px-10 md:py-6" : size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
     } ${subtle ? "bg-green-600/95" : ""}`}
   >
-    <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
+    <Monitor className={size === "xl" ? "h-[1.05em] w-[1.05em] shrink-0" : "w-5 h-5 md:w-5 md:h-5 shrink-0"} strokeWidth={size === "xl" ? 2.5 : 2} />
     <span>{children}</span>
   </button>
-);
+  );
+};
 
 // ───────────────────────── Countdown ─────────────────────────
 const useCountdown = () => {
@@ -1021,7 +1027,7 @@ const MiniValueSection = () => (
         <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
       </p>
       <div className="mt-5">
-        <CTA>Quero perder o medo do computador</CTA>
+        <CTA keep>Quero perder o medo do computador</CTA>
       </div>
       <div className="mt-5 rounded-xl border-2 border-green-500/30 bg-green-500/10 px-5 py-4 text-center shadow-sm">
         <p className="flex flex-row items-center justify-center gap-1.5 text-green-300 font-black text-sm md:text-lg">
@@ -1082,7 +1088,7 @@ const Pricing = () => (
           ))}
         </ul>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
+        <CTA keep>Quero aproveitar o desconto!</CTA>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
@@ -1398,11 +1404,12 @@ const WhatsAposAulas = ({ bg = "bg-transparent" }: { bg?: string }) => (
 
 
 // ───────────────────────── Page ─────────────────────────
-const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean }) => {
+const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, minimalCtas = false }: { videoThumb?: string; centerPlay?: boolean; instructorPhoto?: string; instructorFirst?: boolean; minimalCtas?: boolean }) => {
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
+    <MinimalCtas.Provider value={minimalCtas}>
     <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header />
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} />
@@ -1431,6 +1438,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst }
       <StickyMobile />
       <WhatsFloat />
     </div>
+    </MinimalCtas.Provider>
   );
 };
 
