@@ -395,7 +395,6 @@ const AulaDemonstrativa = () => {
   return (
     <section className="py-4 md:py-6 bg-white/5 border-t border-white/10">
       <div className="container mx-auto px-4 max-w-4xl">
-        <SocialProofRow />
         {warm ? (
         <div className="text-center mb-5 md:mb-6">
           <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
@@ -565,6 +564,7 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
+          <SocialProofRow />
           <img
             src={photo}
             alt="Professora Elisa"
