@@ -559,6 +559,7 @@ const AulaDemonstrativa = () => {
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = ({ photo = elisa }: { photo?: string }) => {
   const isCustomPhoto = photo !== elisa;
+  const largeLabel = useContext(MinimalCtas);
   return (
   <section className="py-4 md:py-6 bg-transparent">
     <div className="container mx-auto px-4 max-w-5xl">
@@ -584,8 +585,8 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
           )}
         </div>
         <div>
-          <span className="inline-flex items-center gap-2 bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-            <GraduationCap className="w-4 h-4" /> Quem vai te ensinar
+          <span className={`inline-flex items-center gap-2 bg-primary/10 text-primary font-bold rounded-full mb-4 ${largeLabel ? "text-xl md:text-2xl px-4 py-2" : "text-xs px-3 py-1.5"}`}>
+            <GraduationCap className={largeLabel ? "w-6 h-6 md:w-7 md:h-7 shrink-0" : "w-4 h-4"} /> Quem vai te ensinar
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-white mb-4">
             Oi, eu sou a <span className="text-sky-300">Professora Elisa</span>
