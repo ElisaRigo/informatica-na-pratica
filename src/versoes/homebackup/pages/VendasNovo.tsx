@@ -808,7 +808,7 @@ const ModulesWarm = () => {
                 <div className="w-14 h-14 rounded-xl bg-sky-400/10 flex items-center justify-center shrink-0">
                   <img src={m.i} alt="" className="w-8 h-8" loading="lazy" />
                 </div>
-                <span className="text-sm font-bold text-sky-300">Etapa {m.n}</span>
+                <span className="text-sm font-bold text-sky-300">Etapa {m.n} - {m.n === "1" ? "Windows" : m.n === "2" ? "Word" : m.n === "3" ? "Excel" : m.n === "4" ? "PowerPoint" : "Internet, e-mail e anexo"}</span>
               </div>
               <h3 className="text-xl md:text-2xl font-black text-white leading-snug mb-2">{m.t}</h3>
               <p className="text-slate-200 text-base md:text-lg leading-relaxed">{m.d}</p>
