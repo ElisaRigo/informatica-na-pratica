@@ -13,3 +13,4 @@
 - Never emit purchase or sales conversions from a thank-you page visit; only the payment provider or a verified paid transaction may confirm a sale, preventing false purchases and reload duplicates.
 - Pass page-specific headlines into the shared historical sales module as opt-in content, keeping edits isolated from sibling pages.
 - Pass page-specific header logos as opt-in props to the shared historical sales module so sibling headers stay unchanged.
+- Keep /informatica on its own copied module under `src/paginas/informatica/`, with the previous informatica page preserved at /informatica-copia, so edits never change the home (/) or historical pages.
