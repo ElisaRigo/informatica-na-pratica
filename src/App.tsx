@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 const Aprender = lazy(() => import("./pages/Aprender"));
 const Informatica = lazy(() => import("./pages/Informatica"));
+const InformaticaCopia = lazy(() => import("./pages/InformaticaCopia"));
 const Index = lazy(() => import("./pages/Index"));
 
 // Lazy load rotas secundárias
@@ -71,6 +72,7 @@ const App = () => (
             <Route path="/aula" element={<Aula />} />
             <Route path="/imagem-whatsapp" element={<ImagemWhatsApp />} />
             <Route path="/informatica" element={<Informatica />} />
+            <Route path="/informatica-copia" element={<InformaticaCopia />} />
             <Route path="/nova-versao" element={<NovaVersao />} />
             <Route path="/icone" element={<Icone />} />
             <Route path="/icone-2" element={<Icone2 />} />
