@@ -1585,7 +1585,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
   }, []);
   return (
     <MinimalCtas.Provider value={minimalCtas}>
-    <div className="home-copia-3-light min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
+    <div className="home-copia-3-light min-h-screen pb-20 md:pb-0">
       <Header logo={headerLogo} />
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
