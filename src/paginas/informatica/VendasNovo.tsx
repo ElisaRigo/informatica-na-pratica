@@ -397,7 +397,31 @@ const AulaDemonstrativa = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
   const warm = useContext(MinimalCtas);
-  return (
+  const firstTitleRef = useRef<HTMLHeadingElement>(null);
+  const secondTitleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (!warm) return;
+    const titles = [firstTitleRef.current, secondTitleRef.current].filter(
+      (title): title is HTMLHeadingElement => title !== null,
+    );
+    const fitTitles = () => {
+      for (const title of titles) {
+        title.style.fontSize = "72px";
+        const range = document.createRange();
+        range.selectNodeContents(title);
+        const textWidth = range.getBoundingClientRect().width;
+        if (textWidth > 0) {
+          title.style.fontSize = `${Math.min(72, 72 * (title.clientWidth - 2) / textWidth)}px`;
+        }
+      }
+    };
+    const observer = new ResizeObserver(fitTitles);
+    titles.forEach((title) => { if (title.parentElement) observer.observe(title.parentElement); });
+    let active = true;
+    document.fonts.ready.then(() => { if (active) fitTitles(); });
+    fitTitles();
+    return (
     <section className="py-4 md:py-6 bg-white/5 border-t border-white/10">
       <div className="container mx-auto px-4 max-w-4xl">
         {warm ? (
@@ -405,7 +429,7 @@ const AulaDemonstrativa = () => {
           <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
             <HeartHandshake className="w-4 h-4" /> Aula de presente para você
           </span>
-          <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(6.4vw,3rem)]">
+          <h2 ref={firstTitleRef} className="-mx-2 md:mx-0 font-black text-white leading-tight whitespace-nowrap text-3xl md:text-6xl">
             É fácil <span className="text-sky-300">aprender comigo</span>
           </h2>
           <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
@@ -487,7 +511,7 @@ const AulaDemonstrativa = () => {
               <span className="inline-flex items-center gap-2 bg-amber-400 text-slate-900 text-xs md:text-sm font-black uppercase tracking-wide px-3 py-1.5 rounded-full mb-3">
                 <Award className="w-4 h-4" /> Aula completa de verdade
               </span>
-              <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(6.4vw,3rem)]">
+              <h2 ref={secondTitleRef} className="-mx-2 md:mx-0 font-black text-white leading-tight whitespace-nowrap text-3xl md:text-6xl">
                 Você <span className="text-green-300">também consegue!</span>
               </h2>
               <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">

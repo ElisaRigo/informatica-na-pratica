@@ -71,3 +71,7 @@
 # Conteúdo atualizado da /home-copia-3
 - [x] Replicar a apresentação atual na home, /informa e /informatica com cópias independentes.
 - [x] Conferir oferta, textos das aulas, vídeos e checkout nas três páginas.
+
+# Títulos das aulas no celular
+- [ ] Aumentar os dois títulos na home, /informa, /informatica e /home-copia-3 sem quebrar a linha.
+- [ ] Conferir os títulos em telas pequenas e grandes.
