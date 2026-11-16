@@ -73,5 +73,5 @@
 - [x] Conferir oferta, textos das aulas, vídeos e checkout nas três páginas.
 
 # Títulos das aulas no celular
-- [ ] Aumentar os dois títulos na home, /informa, /informatica e /home-copia-3 sem quebrar a linha.
-- [ ] Conferir os títulos em telas pequenas e grandes.
+- [x] Aumentar os dois títulos na home, /informa, /informatica e /home-copia-3 sem quebrar a linha.
+- [x] Conferir os títulos em telas pequenas e grandes.
