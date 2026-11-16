@@ -421,7 +421,9 @@ const AulaDemonstrativa = () => {
     let active = true;
     document.fonts.ready.then(() => { if (active) fitTitles(); });
     fitTitles();
-    return (
+    return () => { active = false; observer.disconnect(); };
+  }, [warm]);
+  return (
     <section className="py-4 md:py-6 bg-white/5 border-t border-white/10">
       <div className="container mx-auto px-4 max-w-4xl">
         {warm ? (
