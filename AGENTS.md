@@ -15,3 +15,5 @@
 - Pass page-specific headlines into the shared historical sales module as opt-in content, keeping edits isolated from sibling pages.
 - Pass page-specific header logos as opt-in props to the shared historical sales module so sibling headers stay unchanged.
 - Keep /informatica on its own copied module under `src/paginas/informatica/`, with the previous informatica page preserved at /informatica-copia, so edits never change the home (/) or historical pages.
+
+- Keep the simplified `/home-copia-3` presentation and its theme tokens inside its own page module and root-scoped stylesheet so reductions never alter sibling sales pages.
