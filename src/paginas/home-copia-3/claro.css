@@ -41,3 +41,11 @@
 .home-copia-3-light .hc3-dark .bg-white\/30 { background-color: hsl(0 0% 100% / 0.3); }
 .home-copia-3-light .hc3-dark :is(.border-white\/10, .border-white\/20) { border-color: hsl(0 0% 100% / 0.15); }
 .home-copia-3-light :is([class*="bg-green-500/"], [class*="bg-green-600/"]) :is(.text-white, .text-slate-100):not(:where(button, a, [class*="bg-green-5"]:not([class*="/"]), [class*="bg-green-6"]:not([class*="/"])) *, :where(button, a)) { color: hsl(var(--hc3-text)); }
+.home-copia-3-light .home-copia-3-trust {
+  --trust-guarantee: 150 75% 28%;
+  --trust-secure: 200 90% 32%;
+  --trust-instant: 25 90% 38%;
+  --trust-support: 172 70% 26%;
+}
+.home-copia-3-light .home-copia-3-trust-pill { background: hsl(var(--trust-tone) / 0.08); }
+.home-copia-3-light .hc3-dark { background-color: hsl(222 47% 11%); }
