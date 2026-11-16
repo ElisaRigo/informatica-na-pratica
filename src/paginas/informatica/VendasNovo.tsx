@@ -1,3 +1,4 @@
+import "./claro.css";
 import { useEffect, useState, useRef, createContext, useContext } from "react";
 import type { ReactNode } from "react";
 import {
@@ -27,6 +28,7 @@ import {
   Zap,
   MessageCircle,
   GraduationCap,
+  BookOpen,
  } from "lucide-react";
 import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
@@ -214,7 +216,7 @@ export const Header = ({ light = false, logo }: { light?: boolean; logo?: string
           Curso de{"\u00a0"}
           <span className={`bg-gradient-to-r bg-clip-text text-transparent ${light ? "from-blue-600 via-cyan-500 to-blue-600" : "from-sky-300 via-cyan-300 to-sky-400"}`}>Informática</span>
         </span>
-        <span className={`mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] sm:text-xs md:text-sm ${light ? "text-slate-500" : "text-slate-400"}`}>
+        <span className={`mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] sm:text-xs md:text-sm ${light ? "text-slate-700" : "text-slate-400"}`}>
           {"\u00a0 100% ONLINE - DO ZERO - SIMPLES E FÁCIL"}
         </span>
       </p>
@@ -253,8 +255,8 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
                 <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
               </div>
               <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-                <Monitor className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-                <span className="font-bold text-xs md:text-sm text-accent">CURSO COMPLETO</span>
+                <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+                <span className="font-bold text-xs md:text-sm text-accent">SUPORTE NO WHATS</span>
               </div>
             </div>
           )}
@@ -315,26 +317,29 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             )}
           </div>
 
-          <div className="grid grid-cols-4 gap-x-1 gap-y-2">
+          <p className="mx-auto mb-4 max-w-3xl text-xl font-medium leading-relaxed text-primary-foreground md:text-2xl">
+            Crie documentos e planilhas, organize arquivos, envie e-mails e muito mais...
+          </p>
+
+          <div className="home-copia-3-trust mx-auto grid max-w-3xl grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
             {[
-              { icon: ShieldCheck, tone: "text-green-400", lines: ["7 dias", "de garantia"] },
-              { icon: Lock, tone: "text-blue-400", lines: ["Compra", "100% segura"] },
-              { icon: Zap, tone: "text-orange-400", lines: ["Acesso", "imediato"] },
-              { icon: MessageCircle, tone: "text-teal-400", lines: ["Suporte por", "WhatsApp"] },
-            ].map((s, i) => (
+              { icon: ShieldCheck, tone: "guarantee", label: "7 dias de garantia" },
+              { icon: Lock, tone: "secure", label: "Compra 100% segura" },
+              { icon: Zap, tone: "instant", label: "Acesso imediato" },
+              { icon: Monitor, tone: "support", label: "Curso completo" },
+            ].map((s) => (
               <div
-                key={s.lines.join(" ")}
-                className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2"
+                key={s.label}
+                data-tone={s.tone}
+                className="home-copia-3-trust-pill flex min-h-9 min-w-0 items-center justify-center gap-1.5 rounded-full border px-2 py-2 md:gap-2 md:px-3"
               >
                 <s.icon
-                  className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`}
+                  className="h-4 w-4 shrink-0"
                   strokeWidth={2}
-                  style={{ animationDelay: `${i * 0.35}s` }}
+                  aria-hidden="true"
                 />
-                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-white md:text-[13px]">
-                  {s.lines[0]}
-                  <br />
-                  {s.lines[1]}
+                <span className="whitespace-nowrap text-[10px] font-extrabold uppercase leading-tight min-[390px]:text-[11px] md:text-[11px]">
+                  {s.label}
                 </span>
               </div>
             ))}
@@ -565,6 +570,11 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
           <SocialProofRow />
+          <div className="flex justify-center">
+          <span className={`inline-flex items-center gap-2 bg-primary/10 text-primary font-bold rounded-full mb-4 ${largeLabel ? "text-xl md:text-2xl px-4 py-2" : "text-xs px-3 py-1.5"}`}>
+            <GraduationCap className={largeLabel ? "w-6 h-6 md:w-7 md:h-7 shrink-0" : "w-4 h-4"} /> Quem vai te ensinar
+          </span>
+          </div>
           <img
             src={photo}
             alt="Professora Elisa"
@@ -579,51 +589,36 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
               <Users className="w-5 h-5 text-sky-300" />
               <div>
                 <div className="text-lg font-black text-white leading-none">+15.000</div>
-                <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wide">Alunos formados</div>
+                <div className="text-[10px] text-slate-600 font-bold uppercase tracking-wide">Alunos formados</div>
               </div>
             </div>
           )}
         </div>
         <div>
-          <span className={`inline-flex items-center gap-2 bg-primary/10 text-primary font-bold rounded-full mb-4 ${largeLabel ? "text-xl md:text-2xl px-4 py-2" : "text-xs px-3 py-1.5"}`}>
-            <GraduationCap className={largeLabel ? "w-6 h-6 md:w-7 md:h-7 shrink-0" : "w-4 h-4"} /> Quem vai te ensinar
-          </span>
           <h2 className="text-2xl md:text-4xl font-black text-white mb-4">
             Oi, eu sou a <span className="text-sky-300">Professora Elisa</span>
           </h2>
           <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-4">
-            Há mais de <strong>20 anos</strong> eu ensino informática pra adultos que nunca tinham tocado num
-            computador. E descobri uma coisa:{" "}
-            <strong>o problema nunca foi a pessoa — era o jeito que ensinavam.</strong>
+            Há mais de 20 anos&nbsp;ensino informática para pessoas que estão começando do zero.
           </p>
           <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
-            Por isso criei um método simples, devagar e com linguagem do dia a dia. Sem palavras difíceis, sem pressa.
-            Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
+            Criei um método simples, com calma, paciência e linguagem fácil, para você aprender no seu ritmo e conquistar sua independência ao usar o computador.
           </p>
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="text-center bg-white/10 rounded-xl p-3">
-              <Clock className="w-5 h-5 text-sky-300 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-200">
-                +20 anos
-                <br />
-                de experiência
-              </div>
+          <div className="grid grid-cols-3 gap-2 md:gap-3 mb-6">
+            <div className="text-center bg-white rounded-2xl border border-sky-200 shadow-md px-2 py-4">
+              <GraduationCap className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
+              <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">+20 anos</div>
+              <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Ensinando informática</div>
             </div>
-            <div className="text-center bg-white/10 rounded-xl p-3">
-              <Award className="w-5 h-5 text-sky-300 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-200">
-                Método
-                <br />
-                próprio
-              </div>
+            <div className="text-center bg-white rounded-2xl border border-sky-200 shadow-md px-2 py-4">
+              <BookOpen className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
+              <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">Do zero</div>
+              <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Método simples e fácil</div>
             </div>
-            <div className="text-center bg-white/10 rounded-xl p-3">
-              <HeartHandshake className="w-5 h-5 text-sky-300 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-200">
-                Suporte
-                <br />
-                humano
-              </div>
+            <div className="text-center bg-white rounded-2xl border border-sky-200 shadow-md px-2 py-4">
+              <HeartHandshake className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
+              <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">Suporte humano</div>
+              <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Ajuda sempre que precisar</div>
             </div>
           </div>
           <CTA size="md">Quero aprender sem medo!</CTA>
@@ -686,7 +681,7 @@ const Method = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-blue-600 text-white">
+    <section className="hc3-dark py-4 md:py-6 bg-blue-600 text-white">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-5">
           <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
@@ -854,7 +849,7 @@ const ModulesWarm = () => {
 // ───────────────────────── Social Proof (WhatsApp + Facebook) ─────────────────────────
 const audioTestimonials = [
   { name: "Antonio", description: "Depoimento sobre sua experiência com o curso", audioSrc: "/audio/antonio-1.ogg" },
-  { name: "Antonio", description: "Continuação do depoimento", audioSrc: "/audio/antonio-2.ogg" },
+  { name: "Antonio", description: "Superou as dificuldades", audioSrc: "/audio/antonio-2.ogg" },
   { name: "Amanda", description: "Como o curso transformou sua rotina", audioSrc: "/audio/amanda.mp4" },
   { name: "Vanderlei", description: "Superou as dificuldades com tecnologia", audioSrc: "/audio/vanderlei.ogg" },
   { name: "Bruna", description: "Gratidão pelo aprendizado", audioSrc: "/audio/bruna.aac" },
@@ -985,7 +980,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
             <span className="text-white font-semibold text-sm">{testimonial.name}</span>
             <Volume2 className="w-3 h-3 text-sky-300" />
           </div>
-          <p className="text-slate-400 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
+          <p className="text-slate-600 text-xs font-medium mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
           <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div className="h-full bg-sky-400/100 transition-all duration-100" style={{ width: `${progress}%` }} />
           </div>
@@ -1064,11 +1059,26 @@ const SocialProof = () => {
               <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
             </div>
             <div className="space-y-3">
-              {audioTestimonials.map((testimonial, index) => (
+              {audioTestimonials.slice(1, 2).map((testimonial, index) => (
                 <AudioPlayerLight key={index} testimonial={testimonial} />
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Comentários */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-4xl mx-auto mb-5">
+          {facebookComments.slice(0, 4).map((comment, index) => (
+            <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 shadow-sm">
+              <div className="flex gap-3">
+                <img src={fbAvatars[index % fbAvatars.length]} alt="" className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="text-amber-400 text-sm leading-none mb-1">★★★★★</div>
+                  <p className="text-slate-200 text-base leading-relaxed">{comment.text}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Highlight phrase */}
@@ -1080,61 +1090,6 @@ const SocialProof = () => {
           </p>
         </div>
 
-        {/* Facebook-style comments */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto mb-5">
-          {facebookComments.map((comment, index) => (
-            <div key={index} className="bg-white/5 border border-white/10 rounded-lg p-3 shadow-sm">
-              <div className="flex gap-2">
-                <img
-                  src={fbAvatars[index % fbAvatars.length]}
-                  alt=""
-                  className="w-8 h-8 rounded-full object-cover flex-shrink-0 blur-[3px]"
-                />
-                <div className="flex-1 min-w-0">
-                  <div className="bg-white/10 rounded-2xl px-3 py-2">
-                    <p className="text-white text-xs font-semibold leading-none mb-1 blur-[3px] select-none">
-                      {comment.name}
-                    </p>
-                    <p className="text-slate-200 text-xs leading-relaxed">{comment.text}</p>
-                  </div>
-                  <div className="flex items-center gap-3 mt-1 px-2">
-                    <span className="text-[11px] text-slate-400">{comment.time}</span>
-                    <span className="text-[11px] text-slate-400 font-medium cursor-pointer hover:underline">
-                      Curtir
-                    </span>
-                    <span className="text-[11px] text-slate-400 font-medium cursor-pointer hover:underline">
-                      Responder
-                    </span>
-                    {comment.likes > 0 && (
-                      <span className="ml-auto text-[11px] text-slate-400 flex items-center gap-0.5">
-                        <span className="flex items-center -space-x-1">
-                          <span className="w-4 h-4 rounded-full bg-sky-400/100 flex items-center justify-center z-10">
-                            <ThumbsUp className="w-2.5 h-2.5 text-white fill-white" />
-                          </span>
-                          {comment.hasHeart && (
-                            <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center z-0">
-                              <Heart className="w-2.5 h-2.5 text-white fill-white" />
-                            </span>
-                          )}
-                        </span>
-                        {comment.likes}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center space-y-4">
-          <h3 className="text-2xl md:text-3xl font-black text-white">Eu também quero aprender!</h3>
-          <CTA>Quero aprender sem medo!</CTA>
-          <p className="text-slate-400 text-sm flex items-center justify-center gap-2">
-            <Lock className="w-4 h-4 text-green-400" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -1182,6 +1137,9 @@ const Certificate = () => (
 const MiniValueSection = () => (
   <section id="primeiro-valor" className="py-4 md:py-6">
     <div className="container mx-auto px-4 max-w-xl text-center rounded-3xl border border-sky-400/25 bg-gradient-to-b from-sky-500/20 via-sky-500/10 to-transparent px-4 py-6 md:py-8 shadow-lg shadow-sky-500/10">
+      <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
+        Oferta especial • 40% OFF
+      </span>
       <h2 className="font-black text-xl md:text-2xl leading-tight text-white">Curso Completo de Informática</h2>
       <p className="text-slate-400 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
       <div className="w-16 h-1 bg-sky-400 rounded-full mx-auto mt-3 mb-5" />
@@ -1193,11 +1151,26 @@ const MiniValueSection = () => (
         <span>🎁</span> Hoje você leva 4 bônus exclusivos
       </p>
       <p className="text-slate-300 text-base md:text-lg mt-1">
-        ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
+        à vista no PIX ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
       </p>
-      <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
-        <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-      </p>
+      <div className="grid grid-cols-2 gap-2.5 max-w-md mx-auto mt-5">
+        {[
+          { Icon: Lock, t: "Pagamento 100% seguro" },
+          { Icon: ShieldCheck, t: "Compra protegida" },
+          { Icon: Zap, t: "Acesso imediato" },
+          { Icon: Award, t: "7 dias de garantia" },
+        ].map(({ Icon, t }) => (
+          <div
+            key={t}
+            className="flex flex-col items-center gap-2 rounded-2xl border border-sky-400/30 bg-sky-400/10 px-3 py-3.5 text-center"
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-sky-400/20 ring-2 ring-sky-300/40">
+              <Icon className="h-5 w-5 text-sky-300" />
+            </span>
+            <span className="text-sm md:text-base font-bold text-white leading-tight">{t}</span>
+          </div>
+        ))}
+      </div>
       <div className="mt-5">
         <CTA keep singleLine>Quero começar meu curso!</CTA>
       </div>
@@ -1217,7 +1190,7 @@ const MiniValueSection = () => (
 
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
-  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+  <section id="oferta" className="hc3-dark py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-8">
         <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
@@ -1340,7 +1313,7 @@ const FAQ = () => {
               >
                 <span className="font-bold text-white">{f.q}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
+                  className={`w-5 h-5 text-slate-600 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
                 />
               </button>
               {open === i && <div className="px-5 pb-5 text-slate-200 leading-relaxed">{f.a}</div>}
@@ -1354,7 +1327,7 @@ const FAQ = () => {
 
 // ───────────────────────── Final CTA ─────────────────────────
 const FinalCTA = () => (
-  <section className="py-4 md:py-6 bg-slate-900 text-white">
+  <section className="hc3-dark py-4 md:py-6 bg-slate-900 text-white">
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
@@ -1384,7 +1357,7 @@ const SuporteProfessora = () => {
   };
 
   return (
-    <section className="py-4 md:py-6 bg-slate-900">
+    <section className="hc3-dark py-4 md:py-6 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center justify-center mb-5">
@@ -1471,10 +1444,14 @@ const Footer = () => (
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => {
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2 backdrop-blur-xl shadow-xl">
+      <p className="mb-1.5 flex items-center justify-center gap-1 text-center text-[12px] font-bold text-white">
+        <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
+        Acesso vitalício · 7 dias de garantia
+      </p>
       <button
         onClick={openCheckout}
-        className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground active:brightness-95"
+        className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground shadow-[0_0_24px_rgba(37,211,102,0.55)] ring-2 ring-emerald-300/60 active:brightness-95"
       >
         <Monitor className="w-5 h-5 shrink-0" /> Quero começar agora!
       </button>
@@ -1582,8 +1559,8 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
   }, []);
   return (
     <MinimalCtas.Provider value={minimalCtas}>
-    <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
-      <Header logo={headerLogo} />
+    <div className="home-copia-3-light min-h-screen pb-20 md:pb-0">
+      <Header light logo={headerLogo} />
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
@@ -1595,13 +1572,12 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <Method />
       {minimalCtas ? <ModulesWarm /> : <Modules />}
       {!minimalCtas && <WhatsAposAulas />}
-      <section className="py-4 md:py-6 bg-white/5">
+      <section className="hc3-dark py-4 md:py-6 bg-slate-900">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="dark" />
         </div>
       </section>
       <Certificate />
-      <Pricing />
       <GuaranteeBlock />
       <SuporteProfessora />
       <FAQ />
