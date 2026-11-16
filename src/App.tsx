@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 const Aprender = lazy(() => import("./pages/Aprender"));
+const Versao0707 = lazy(() => import("./pages/Versao0707"));
 const Informatica = lazy(() => import("./pages/Informatica"));
 const InformaticaCopia = lazy(() => import("./pages/InformaticaCopia"));
 const Index = lazy(() => import("./pages/Index"));
@@ -82,6 +83,7 @@ const App = () => (
             <Route path="/icone-2" element={<Icone2 />} />
             <Route path="/aprender" element={<HomeBackup />} />
             <Route path="/versao-06-07" element={<Aprender />} />
+            <Route path="/versao-07-07" element={<Versao0707 />} />
             <Route path="/versao-27-07" element={<Versao2707 />} />
             <Route path="/versao-29-09" element={<Versao2909 />} />
             <Route path="/versao-21-09" element={<Versao2109 />} />
