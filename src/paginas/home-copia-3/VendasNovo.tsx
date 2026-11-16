@@ -1445,7 +1445,7 @@ const Footer = () => (
 const StickyMobile = () => {
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2 backdrop-blur-xl shadow-xl">
-      <p className="mb-1.5 flex items-center justify-center gap-1 text-center text-[11px] font-semibold text-slate-300">
+      <p className="mb-1.5 flex items-center justify-center gap-1 text-center text-[12px] font-bold text-white">
         <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
         Acesso vitalício · 7 dias de garantia
       </p>
