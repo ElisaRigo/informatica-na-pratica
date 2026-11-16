@@ -1135,62 +1135,27 @@ const Certificate = () => (
 
 // ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
 const MiniValueSection = () => (
-  <section id="primeiro-valor" className="py-4 md:py-6">
-    <div className="container mx-auto px-4 max-w-xl text-center rounded-3xl border border-sky-400/25 bg-gradient-to-b from-sky-500/20 via-sky-500/10 to-transparent px-4 py-6 md:py-8 shadow-lg shadow-sky-500/10">
-      <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
-        Oferta especial • 40% OFF
+  <section id="primeiro-valor" className="py-6 md:py-8">
+    <div className="container mx-auto max-w-md rounded-3xl border-2 border-green-500/50 bg-white px-5 py-7 text-center shadow-xl">
+      <span className="inline-block rounded-full bg-yellow-400 px-3 py-1.5 text-xs font-black uppercase tracking-wide text-blue-900">
+        Oferta especial
       </span>
-      <h2 className="font-black text-xl md:text-2xl leading-tight text-white">Curso Completo de Informática</h2>
-      <p className="text-slate-400 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
-      <div className="w-16 h-1 bg-sky-400 rounded-full mx-auto mt-3 mb-5" />
-      <p className="text-slate-400 text-sm md:text-base">
-        de <span className="line-through text-slate-500">R$ 497,00</span> por apenas
+      <h2 className="mt-3 text-2xl font-black leading-tight text-slate-900">Curso Completo de Informática</h2>
+      <p className="mt-5 text-lg text-slate-600">
+        de <span className="line-through">R$ 497,00</span> por
       </p>
-      <p className="text-green-400 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
-      <p className="text-amber-400 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-        <span>🎁</span> Hoje você leva 4 bônus exclusivos
+      <p className="text-5xl font-black leading-none !text-green-700">R$ 297</p>
+      <p className="mt-2 text-lg text-slate-700">
+        ou <strong className="!text-slate-900">12x de R$ 30,72</strong>
       </p>
-      <p className="text-slate-300 text-base md:text-lg mt-1">
-        à vista no PIX ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
-      </p>
-      <p className="text-slate-200 text-base md:text-lg mt-2">
-        Isso é <strong className="text-green-300">menos de R$ 1 por dia</strong> para nunca mais depender de ninguém.
-      </p>
-      <div className="mx-auto mt-4 max-w-md rounded-2xl border-2 border-amber-400/60 bg-amber-400/15 px-4 py-3">
-        <p className="!text-amber-800 font-black text-base md:text-lg leading-tight">PAGAMENTO ÚNICO<br />NÃO É MENSALIDADE</p>
-        <p className="text-slate-200 text-sm md:text-base mt-1 leading-snug">Você paga uma vez e o curso é seu para sempre.</p>
-      </div>
-      <div className="grid grid-cols-2 gap-2.5 max-w-md mx-auto mt-5">
-        {[
-          { Icon: Lock, t: "Pagamento 100% seguro" },
-          { Icon: ShieldCheck, t: "Compra protegida" },
-          { Icon: Zap, t: "Acesso imediato" },
-          { Icon: Award, t: "7 dias de garantia" },
-        ].map(({ Icon, t }) => (
-          <div
-            key={t}
-            className="flex flex-col items-center gap-2 rounded-2xl border border-sky-400/30 bg-sky-400/10 px-3 py-3.5 text-center"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-sky-400/20 ring-2 ring-sky-300/40">
-              <Icon className="h-5 w-5 text-sky-300" />
-            </span>
-            <span className="text-sm md:text-base font-bold text-white leading-tight">{t}</span>
-          </div>
-        ))}
-      </div>
+      <p className="mt-4 text-base font-bold !text-slate-800">Pagamento único · Não é mensalidade</p>
       <div className="mt-5">
         <CTA keep singleLine>Quero começar meu curso!</CTA>
       </div>
-      <div className="mt-5 rounded-xl border-2 border-green-500/30 bg-green-500/10 px-5 py-4 text-center shadow-sm">
-        <p className="flex flex-row items-center justify-center gap-1.5 text-green-300 font-black text-sm md:text-lg">
-          <ShieldCheck className="w-5 h-5" />{" "}
-          <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
-        </p>
-        <p className="text-slate-200 text-sm md:text-base mt-1.5 leading-snug">
-          <span className="text-sky-300 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-          <span className="text-green-300 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
-        </p>
-      </div>
+      <p className="mt-4 flex items-center justify-center gap-1.5 text-base font-semibold text-slate-700">
+        <ShieldCheck className="h-5 w-5 shrink-0 !text-green-700" />
+        7 dias de garantia · Compra segura
+      </p>
     </div>
   </section>
 );
