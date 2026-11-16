@@ -1161,7 +1161,7 @@ const Certificate = () => (
 // ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
 const MiniValueSection = () => (
   <section id="primeiro-valor" className="py-6 md:py-8">
-    <div className="hc3-offer mx-auto max-w-md rounded-lg border-2 border-border bg-background px-5 py-6 text-center text-foreground shadow-xl">
+    <div className="hc3-offer mx-auto max-w-md rounded-lg border-4 border-border bg-background px-5 py-6 text-center text-foreground shadow-xl">
       <span className="inline-flex items-center gap-2 text-base font-bold text-success">
         <Zap className="h-5 w-5 shrink-0" /> Comece hoje, no seu ritmo
       </span>
