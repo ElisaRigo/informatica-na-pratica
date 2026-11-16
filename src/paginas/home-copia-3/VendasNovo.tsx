@@ -1067,11 +1067,26 @@ const SocialProof = () => {
               <h3 className="text-lg font-bold text-white">Áudios de Alunos</h3>
             </div>
             <div className="space-y-3">
-              {audioTestimonials.slice(0, 2).map((testimonial, index) => (
+              {audioTestimonials.slice(1, 2).map((testimonial, index) => (
                 <AudioPlayerLight key={index} testimonial={testimonial} />
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Comentários */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-4xl mx-auto mb-5">
+          {facebookComments.slice(0, 4).map((comment, index) => (
+            <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 shadow-sm">
+              <div className="flex gap-3">
+                <img src={fbAvatars[index % fbAvatars.length]} alt="" className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="text-amber-400 text-sm leading-none mb-1">★★★★★</div>
+                  <p className="text-slate-200 text-base leading-relaxed">{comment.text}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Highlight phrase */}
@@ -1130,6 +1145,9 @@ const Certificate = () => (
 const MiniValueSection = () => (
   <section id="primeiro-valor" className="py-4 md:py-6">
     <div className="container mx-auto px-4 max-w-xl text-center rounded-3xl border border-sky-400/25 bg-gradient-to-b from-sky-500/20 via-sky-500/10 to-transparent px-4 py-6 md:py-8 shadow-lg shadow-sky-500/10">
+      <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
+        Oferta especial • 40% OFF
+      </span>
       <h2 className="font-black text-xl md:text-2xl leading-tight text-white">Curso Completo de Informática</h2>
       <p className="text-slate-400 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
       <div className="w-16 h-1 bg-sky-400 rounded-full mx-auto mt-3 mb-5" />
@@ -1141,8 +1159,22 @@ const MiniValueSection = () => (
         <span>🎁</span> Hoje você leva 4 bônus exclusivos
       </p>
       <p className="text-slate-300 text-base md:text-lg mt-1">
-        ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
+        à vista no PIX ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
       </p>
+      <ul className="mx-auto mt-4 max-w-sm space-y-2 text-left">
+        {[
+          "+90 videoaulas passo a passo",
+          "Acesso vitalício — assista quantas vezes quiser",
+          "Certificado de conclusão",
+          "Suporte direto com a professora",
+          "Atualizações gratuitas pra sempre",
+        ].map((x) => (
+          <li key={x} className="flex items-start gap-2.5 text-slate-200 text-base font-medium">
+            <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+            {x}
+          </li>
+        ))}
+      </ul>
       <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
         <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
       </p>
@@ -1549,7 +1581,6 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
         </div>
       </section>
       <Certificate />
-      <Pricing />
       <GuaranteeBlock />
       <SuporteProfessora />
       <FAQ />
