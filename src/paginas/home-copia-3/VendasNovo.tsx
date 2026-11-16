@@ -1,3 +1,4 @@
+import "./claro.css";
 import { useEffect, useState, useRef, createContext, useContext } from "react";
 import type { ReactNode } from "react";
 import {
@@ -688,7 +689,7 @@ const Method = () => {
     },
   ];
   return (
-    <section className="py-4 md:py-6 bg-blue-600 text-white">
+    <section className="hc3-dark py-4 md:py-6 bg-blue-600 text-white">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-5">
           <h2 className="text-2xl md:text-4xl font-black mb-3">Como funciona — em 3 passos simples</h2>
@@ -1219,7 +1220,7 @@ const MiniValueSection = () => (
 
 // ───────────────────────── Pricing ─────────────────────────
 const Pricing = () => (
-  <section id="oferta" className="py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+  <section id="oferta" className="hc3-dark py-4 md:py-6 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
     <div className="container mx-auto px-4 max-w-3xl">
       <div className="text-center mb-8">
         <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
@@ -1356,7 +1357,7 @@ const FAQ = () => {
 
 // ───────────────────────── Final CTA ─────────────────────────
 const FinalCTA = () => (
-  <section className="py-4 md:py-6 bg-slate-900 text-white">
+  <section className="hc3-dark py-4 md:py-6 bg-slate-900 text-white">
     <div className="container mx-auto px-4 max-w-3xl text-center">
       <InfinityIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
       <h2 className="text-3xl md:text-5xl font-black mb-4">Pare de depender dos outros pra usar o computador</h2>
@@ -1386,7 +1387,7 @@ const SuporteProfessora = () => {
   };
 
   return (
-    <section className="py-4 md:py-6 bg-slate-900">
+    <section className="hc3-dark py-4 md:py-6 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center justify-center mb-5">
@@ -1584,7 +1585,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
   }, []);
   return (
     <MinimalCtas.Provider value={minimalCtas}>
-    <div className="min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
+    <div className="home-copia-3-light min-h-screen bg-slate-900 text-slate-100 pb-20 md:pb-0">
       <Header logo={headerLogo} />
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
