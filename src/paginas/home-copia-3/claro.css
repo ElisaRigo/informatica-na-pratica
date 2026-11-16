@@ -49,3 +49,12 @@
 }
 .home-copia-3-light .home-copia-3-trust-pill { background: hsl(var(--trust-tone) / 0.08); }
 .home-copia-3-light .hc3-dark { background-color: hsl(222 47% 11%); }
+
+.home-copia-3-light .hc3-offer-button {
+  background: hsl(var(--offer-action));
+  color: hsl(var(--offer-action-text));
+  box-shadow: var(--shadow-cta);
+}
+.home-copia-3-light .hc3-offer-button:hover {
+  background: hsl(var(--offer-action-hover));
+}
