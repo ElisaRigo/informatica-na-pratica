@@ -61,5 +61,5 @@
 - [x] Conferir as duas páginas, as cópias e o checkout.
 
 # Conteúdo da /home-copia em /informa e /informatica
-- [ ] Copiar a apresentação para módulos independentes das duas páginas.
-- [ ] Conferir conteúdo, capas, aula e checkout sem alterar home e cópias.
+- [x] Copiar a apresentação para módulos independentes das duas páginas.
+- [x] Conferir conteúdo, capas, aula e checkout sem alterar home e cópias.
