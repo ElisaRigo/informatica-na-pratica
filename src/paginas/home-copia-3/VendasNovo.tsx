@@ -1444,10 +1444,14 @@ const Footer = () => (
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => {
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2.5 backdrop-blur-xl shadow-xl">
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2 backdrop-blur-xl shadow-xl">
+      <p className="mb-1.5 flex items-center justify-center gap-1 text-center text-[12px] font-bold text-white">
+        <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
+        Acesso vitalício · 7 dias de garantia
+      </p>
       <button
         onClick={openCheckout}
-        className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground active:brightness-95"
+        className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground shadow-[0_0_24px_rgba(37,211,102,0.55)] ring-2 ring-emerald-300/60 active:brightness-95"
       >
         <Monitor className="w-5 h-5 shrink-0" /> Quero começar agora!
       </button>
