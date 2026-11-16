@@ -405,8 +405,8 @@ const AulaDemonstrativa = () => {
           <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
             <HeartHandshake className="w-4 h-4" /> Aula de presente para você
           </span>
-          <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(7.4vw,3rem)]">
-            Veja como é <span className="text-sky-300">fácil aprender</span>
+          <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(6.4vw,3rem)]">
+            É fácil <span className="text-sky-300">aprender comigo</span>
           </h2>
           <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
             Dê o play e descubra que o computador não é difícil quando alguém explica com calma.
@@ -488,7 +488,7 @@ const AulaDemonstrativa = () => {
               <span className="inline-flex items-center gap-2 bg-amber-400 text-slate-900 text-xs md:text-sm font-black uppercase tracking-wide px-3 py-1.5 rounded-full mb-3">
                 <Award className="w-4 h-4" /> Aula completa de verdade
               </span>
-              <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(7.4vw,3rem)]">
+              <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(6.4vw,3rem)]">
                 Você <span className="text-green-300">também consegue!</span>
               </h2>
               <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
