@@ -1151,7 +1151,7 @@ const MiniValueSection = () => (
       <p className="mt-3 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 text-base font-extrabold text-accent-foreground">
         <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
       </p>
-      <p className="mt-3 text-base font-semibold text-foreground">Pagamento único · Não é mensalidade</p>
+      <p className="mt-3 text-base font-semibold text-foreground">Pagamento único · Seu para sempre</p>
       <div className="mt-5">
         <Button onClick={openCheckout} className="hc3-offer-button h-auto w-full rounded-xl px-2 py-4 text-xl font-extrabold leading-tight min-[390px]:text-[22px] md:text-2xl">
           Quero começar agora!
