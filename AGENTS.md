@@ -1,5 +1,5 @@
 # Project architecture
-- Keep `/home-copia-2` on its own copied sales module so future edits never change the current home or earlier backups.
+- Keep `/home-copia-2` and `/home-copia-3` on their own independent copied sales modules so future edits never change the current home or earlier backups.
 - Keep the programs row in /informa local to that page so copying its presentation never links edits to /icone-2 or /info.
 - Keep `/`, `/informa`, and `/informatica` on independent copied presentations from `/home-copia`, so future edits never alter sibling or historical pages.
 - Keep experimental sales pages in independently routed page modules so comparing a new funnel never changes existing or historical pages.
