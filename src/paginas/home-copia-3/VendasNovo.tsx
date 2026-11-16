@@ -319,26 +319,25 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             Crie documentos e planilhas, organize arquivos, envie e-mails e muito mais...
           </p>
 
-          <div className="grid grid-cols-4 gap-x-1 gap-y-2">
+          <div className="home-copia-3-trust mx-auto grid max-w-3xl grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
             {[
-              { icon: ShieldCheck, tone: "text-green-400", lines: ["7 dias", "de garantia"] },
-              { icon: Lock, tone: "text-blue-400", lines: ["Compra", "100% segura"] },
-              { icon: Zap, tone: "text-orange-400", lines: ["Acesso", "imediato"] },
-              { icon: MessageCircle, tone: "text-teal-400", lines: ["Suporte por", "WhatsApp"] },
-            ].map((s, i) => (
+              { icon: ShieldCheck, tone: "guarantee", label: "7 dias de garantia" },
+              { icon: Lock, tone: "secure", label: "Compra 100% segura" },
+              { icon: Zap, tone: "instant", label: "Acesso imediato" },
+              { icon: MessageCircle, tone: "support", label: "Suporte por WhatsApp" },
+            ].map((s) => (
               <div
-                key={s.lines.join(" ")}
-                className="flex flex-col items-center justify-center gap-1 px-0.5 py-1 text-center md:gap-2 md:px-2"
+                key={s.label}
+                data-tone={s.tone}
+                className="home-copia-3-trust-pill flex min-h-9 min-w-0 items-center justify-center gap-1.5 rounded-full border px-2 py-2 md:gap-2 md:px-3"
               >
                 <s.icon
-                  className={`seal-pulse h-10 w-10 shrink-0 md:h-14 md:w-14 ${s.tone}`}
+                  className="h-4 w-4 shrink-0"
                   strokeWidth={2}
-                  style={{ animationDelay: `${i * 0.35}s` }}
+                  aria-hidden="true"
                 />
-                <span className="block text-[9px] font-extrabold uppercase leading-[1.15] text-white md:text-[13px]">
-                  {s.lines[0]}
-                  <br />
-                  {s.lines[1]}
+                <span className="whitespace-nowrap text-[10px] font-extrabold uppercase leading-tight min-[390px]:text-[11px] md:text-[11px]">
+                  {s.label}
                 </span>
               </div>
             ))}

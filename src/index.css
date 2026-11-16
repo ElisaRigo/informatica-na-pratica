@@ -510,6 +510,23 @@ video::-webkit-media-controls-panel {
   }
 }
 
+/* Outline trust pills isolated to the third home copy. */
+.home-copia-3-trust {
+  --trust-guarantee: 150 80% 55%;
+  --trust-secure: 195 100% 62%;
+  --trust-instant: 32 95% 65%;
+  --trust-support: 172 70% 57%;
+}
+.home-copia-3-trust-pill[data-tone="guarantee"] { --trust-tone: var(--trust-guarantee); }
+.home-copia-3-trust-pill[data-tone="secure"] { --trust-tone: var(--trust-secure); }
+.home-copia-3-trust-pill[data-tone="instant"] { --trust-tone: var(--trust-instant); }
+.home-copia-3-trust-pill[data-tone="support"] { --trust-tone: var(--trust-support); }
+.home-copia-3-trust-pill {
+  color: hsl(var(--trust-tone));
+  border-color: hsl(var(--trust-tone) / 0.6);
+  background: hsl(var(--trust-tone) / 0.15);
+}
+
 /* Trust seals: gentle breathing pulse so each badge reads as active. */
 @keyframes seal-pulse {
   0%,
