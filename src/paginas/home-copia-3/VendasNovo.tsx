@@ -595,13 +595,10 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
             Oi, eu sou a <span className="text-sky-300">Professora Elisa</span>
           </h2>
           <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-4">
-            Há mais de <strong>20 anos</strong> eu ensino informática pra adultos que nunca tinham tocado num
-            computador. E descobri uma coisa:{" "}
-            <strong>o problema nunca foi a pessoa — era o jeito que ensinavam.</strong>
+            Há mais de 20 anos&nbsp;ensino informática para pessoas que estão começando do zero.
           </p>
           <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
-            Por isso criei um método simples, devagar e com linguagem do dia a dia. Sem palavras difíceis, sem pressa.
-            Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
+            Criei um método simples, com calma, paciência e linguagem fácil, para você aprender no seu ritmo e conquistar sua independência ao usar o computador.
           </p>
           <div className="grid grid-cols-3 gap-3 mb-6">
             <div className="text-center bg-white/10 rounded-xl p-3">
