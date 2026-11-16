@@ -66,4 +66,4 @@
 
 # Página histórica de 07/07
 - [x] Criar /versao-07-07 usando a cópia histórica de v0607, sem alterar páginas existentes.
-- [ ] Conferir capa, aula e abertura do pagamento.
+- [x] Conferir capa, aula e abertura do pagamento.
