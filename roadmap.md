@@ -63,8 +63,3 @@
 # Conteúdo da /home-copia em /informa e /informatica
 - [x] Copiar a apresentação para módulos independentes das duas páginas.
 - [x] Conferir conteúdo, capas, aula e checkout sem alterar home e cópias.
-
-# Simplicidade na /home-copia-3
-- [x] Reduzir a página a apresentação, professora e aula, conteúdo, relatos, oferta e dúvidas.
-- [x] Remover textos e ofertas repetidos, mantendo leitura grande e pagamento Hotmart.
-- [x] Conferir celular, computador, vídeos, dúvidas e pagamento; preservar outras páginas.
