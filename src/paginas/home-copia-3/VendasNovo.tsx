@@ -596,7 +596,7 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
         <div className="relative">
           <SocialProofRow />
           <div className="flex justify-center">
-          <span className={`inline-flex items-center gap-2 bg-primary/10 text-primary font-bold rounded-full mb-4 ${largeLabel ? "text-xl md:text-2xl px-4 py-2" : "text-xs px-3 py-1.5"}`}>
+          <span className={`hc3-instructor-label inline-flex items-center gap-2 font-bold rounded-full mb-4 ${largeLabel ? "text-xl md:text-2xl px-4 py-2" : "text-xs px-3 py-1.5"}`}>
             <GraduationCap className={largeLabel ? "w-6 h-6 md:w-7 md:h-7 shrink-0" : "w-4 h-4"} /> Quem vai te ensinar
           </span>
           </div>
