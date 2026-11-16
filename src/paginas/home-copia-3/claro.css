@@ -65,3 +65,12 @@
   background-color: hsl(var(--hc3-instructor-label-bg));
   color: hsl(var(--hc3-instructor-label-text));
 }
+
+.home-copia-3-light .hc3-offer {
+  --background: 150 50% 98%;
+}
+
+.home-copia-3-light #primeiro-valor {
+  --offer-section-surface: 150 55% 96%;
+  background-color: hsl(var(--offer-section-surface));
+}
