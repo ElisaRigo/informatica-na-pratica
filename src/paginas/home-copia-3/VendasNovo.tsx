@@ -1153,6 +1153,13 @@ const MiniValueSection = () => (
       <p className="text-slate-300 text-base md:text-lg mt-1">
         à vista no PIX ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
       </p>
+      <p className="text-slate-200 text-base md:text-lg mt-2">
+        Isso é <strong className="text-green-300">menos de R$ 1 por dia</strong> para nunca mais depender de ninguém.
+      </p>
+      <div className="mx-auto mt-4 max-w-md rounded-2xl border-2 border-amber-400/60 bg-amber-400/15 px-4 py-3">
+        <p className="text-amber-300 font-black text-base md:text-lg leading-tight">PAGAMENTO ÚNICO · NÃO É MENSALIDADE</p>
+        <p className="text-slate-200 text-sm md:text-base mt-1 leading-snug">Você paga uma vez e o curso é seu para sempre.</p>
+      </div>
       <div className="grid grid-cols-2 gap-2.5 max-w-md mx-auto mt-5">
         {[
           { Icon: Lock, t: "Pagamento 100% seguro" },
