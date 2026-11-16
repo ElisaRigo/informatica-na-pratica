@@ -604,18 +604,18 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
           <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
             Criei um método simples, com calma, paciência e linguagem fácil, para você aprender no seu ritmo e conquistar sua independência ao usar o computador.
           </p>
-          <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6 bg-white rounded-2xl border border-sky-200 shadow-md px-3 py-4 md:px-5 md:py-5">
-            <div className="text-center">
+          <div className="grid grid-cols-3 gap-2 md:gap-3 mb-6">
+            <div className="text-center bg-white rounded-2xl border border-sky-200 shadow-md px-2 py-4">
               <GraduationCap className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
               <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">+20 anos</div>
               <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Ensinando informática</div>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-white rounded-2xl border border-sky-200 shadow-md px-2 py-4">
               <BookOpen className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
               <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">Do zero</div>
               <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Método simples e fácil</div>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-white rounded-2xl border border-sky-200 shadow-md px-2 py-4">
               <HeartHandshake className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
               <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">Suporte humano</div>
               <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Ajuda sempre que precisar</div>
