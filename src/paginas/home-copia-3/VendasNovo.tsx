@@ -568,6 +568,11 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
           <SocialProofRow />
+          <div className="flex justify-center">
+          <span className={`inline-flex items-center gap-2 bg-primary/10 text-primary font-bold rounded-full mb-4 ${largeLabel ? "text-xl md:text-2xl px-4 py-2" : "text-xs px-3 py-1.5"}`}>
+            <GraduationCap className={largeLabel ? "w-6 h-6 md:w-7 md:h-7 shrink-0" : "w-4 h-4"} /> Quem vai te ensinar
+          </span>
+          </div>
           <img
             src={photo}
             alt="Professora Elisa"
@@ -588,9 +593,6 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
           )}
         </div>
         <div>
-          <span className={`inline-flex items-center gap-2 bg-primary/10 text-primary font-bold rounded-full mb-4 ${largeLabel ? "text-xl md:text-2xl px-4 py-2" : "text-xs px-3 py-1.5"}`}>
-            <GraduationCap className={largeLabel ? "w-6 h-6 md:w-7 md:h-7 shrink-0" : "w-4 h-4"} /> Quem vai te ensinar
-          </span>
           <h2 className="text-2xl md:text-4xl font-black text-white mb-4">
             Oi, eu sou a <span className="text-sky-300">Professora Elisa</span>
           </h2>
