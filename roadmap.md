@@ -69,5 +69,5 @@
 - [x] Conferir capa, aula e abertura do pagamento.
 
 # Conteúdo atualizado da /home-copia-3
-- [ ] Replicar a apresentação atual na home, /informa e /informatica com cópias independentes.
-- [ ] Conferir oferta, textos das aulas, vídeos e checkout nas três páginas.
+- [x] Replicar a apresentação atual na home, /informa e /informatica com cópias independentes.
+- [x] Conferir oferta, textos das aulas, vídeos e checkout nas três páginas.
