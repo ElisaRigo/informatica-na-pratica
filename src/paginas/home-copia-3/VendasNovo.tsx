@@ -315,7 +315,7 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             )}
           </div>
 
-          <p className="mx-auto mb-4 max-w-3xl text-xl font-medium leading-relaxed text-foreground md:text-2xl">
+          <p className="mx-auto mb-4 max-w-3xl text-xl font-medium leading-relaxed text-primary-foreground md:text-2xl">
             Crie documentos e planilhas, organize arquivos, envie e-mails e muito mais...
           </p>
 
