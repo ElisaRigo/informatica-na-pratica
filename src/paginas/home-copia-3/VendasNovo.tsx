@@ -215,7 +215,7 @@ export const Header = ({ light = false, logo }: { light?: boolean; logo?: string
           Curso de{"\u00a0"}
           <span className={`bg-gradient-to-r bg-clip-text text-transparent ${light ? "from-blue-600 via-cyan-500 to-blue-600" : "from-sky-300 via-cyan-300 to-sky-400"}`}>Informática</span>
         </span>
-        <span className={`mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] sm:text-xs md:text-sm ${light ? "text-slate-500" : "text-slate-400"}`}>
+        <span className={`mt-1.5 block whitespace-nowrap text-[3vw] font-bold uppercase tracking-[0.14em] sm:text-xs md:text-sm ${light ? "text-slate-700" : "text-slate-400"}`}>
           {"\u00a0 100% ONLINE - DO ZERO - SIMPLES E FÁCIL"}
         </span>
       </p>
@@ -588,7 +588,7 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
               <Users className="w-5 h-5 text-sky-300" />
               <div>
                 <div className="text-lg font-black text-white leading-none">+15.000</div>
-                <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wide">Alunos formados</div>
+                <div className="text-[10px] text-slate-600 font-bold uppercase tracking-wide">Alunos formados</div>
               </div>
             </div>
           )}
@@ -988,7 +988,7 @@ const AudioPlayerLight = ({ testimonial }: { testimonial: (typeof audioTestimoni
             <span className="text-white font-semibold text-sm">{testimonial.name}</span>
             <Volume2 className="w-3 h-3 text-sky-300" />
           </div>
-          <p className="text-slate-400 text-xs mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
+          <p className="text-slate-600 text-xs font-medium mb-2">{hasError ? "Áudio não disponível" : testimonial.description}</p>
           <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div className="h-full bg-sky-400/100 transition-all duration-100" style={{ width: `${progress}%` }} />
           </div>
@@ -1321,7 +1321,7 @@ const FAQ = () => {
               >
                 <span className="font-bold text-white">{f.q}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
+                  className={`w-5 h-5 text-slate-600 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
                 />
               </button>
               {open === i && <div className="px-5 pb-5 text-slate-200 leading-relaxed">{f.a}</div>}
