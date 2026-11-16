@@ -59,3 +59,7 @@
 - [x] Preservar as versões atuais em /home-copia e /informa-copia.
 - [x] Copiar o conteúdo da /icone-2 para módulos independentes da home e /informa.
 - [x] Conferir as duas páginas, as cópias e o checkout.
+
+# Conteúdo da /home-copia em /informa e /informatica
+- [x] Copiar a apresentação para módulos independentes das duas páginas.
+- [x] Conferir conteúdo, capas, aula e checkout sem alterar home e cópias.
