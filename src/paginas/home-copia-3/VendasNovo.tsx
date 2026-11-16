@@ -1150,7 +1150,7 @@ const MiniValueSection = () => (
       </p>
       <p className="mt-4 text-base font-bold !text-slate-800">Pagamento único · Não é mensalidade</p>
       <div className="mt-5">
-        <CTA keep singleLine>Quero começar meu curso!</CTA>
+        <CTA keep singleLine>Quero começar agora!</CTA>
       </div>
       <p className="mt-4 flex items-center justify-center gap-1.5 text-base font-semibold text-slate-700">
         <ShieldCheck className="h-5 w-5 shrink-0 !text-green-700" />
