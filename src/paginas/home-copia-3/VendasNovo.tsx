@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Award, Check, ChevronDown, GraduationCap, HeartHandshake, Infinity as InfinityIcon, PlayCircle, ShieldCheck } from "lucide-react";
+import { Check, ChevronDown, GraduationCap, HeartHandshake, Infinity as InfinityIcon, PlayCircle, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { openHotmartCheckout } from "@/versoes/homebackup/lib/checkoutTracking";
 import headerLogo from "@/assets/logo-blue.png";
