@@ -413,7 +413,6 @@ const AulaDemonstrativa = () => {
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             {[
-              { Icon: PlayCircle, t: "Aula liberada" },
               { Icon: Clock, t: "Sem pressa" },
               { Icon: HeartHandshake, t: "Explicação simples" },
             ].map(({ Icon, t }) => (
