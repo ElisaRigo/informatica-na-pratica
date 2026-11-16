@@ -1136,26 +1136,37 @@ const Certificate = () => (
 // ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
 const MiniValueSection = () => (
   <section id="primeiro-valor" className="py-6 md:py-8">
-    <div className="container mx-auto max-w-md rounded-3xl border-2 border-green-500/50 bg-white px-5 py-7 text-center shadow-xl">
-      <span className="inline-block rounded-full bg-yellow-400 px-3 py-1.5 text-xs font-black uppercase tracking-wide text-blue-900">
-        Oferta especial
+    <div className="hc3-offer mx-auto max-w-md rounded-lg border-2 border-border bg-background px-5 py-6 text-center text-foreground shadow-xl">
+      <span className="inline-flex items-center gap-2 text-base font-bold text-success">
+        <Zap className="h-5 w-5 shrink-0" /> Comece hoje, no seu ritmo
       </span>
-      <h2 className="mt-3 text-2xl font-black leading-tight text-slate-900">Curso Completo de Informática</h2>
-      <p className="mt-5 text-lg text-slate-600">
-        de <span className="line-through">R$ 497,00</span> por
+      <h2 className="mt-3 text-2xl font-black leading-tight text-foreground">Seu primeiro passo para usar o computador com confiança</h2>
+      <p className="mt-2 text-lg text-muted-foreground">Curso completo · Acesso vitalício</p>
+      <p className="mt-5 text-lg text-muted-foreground">
+        De <span className="line-through">R$ 497,00</span> por
       </p>
-      <p className="text-5xl font-black leading-none !text-green-700">R$ 297</p>
-      <p className="mt-2 text-lg text-slate-700">
-        ou <strong className="!text-slate-900">12x de R$ 30,72</strong>
+      <p className="mt-1 text-5xl font-black leading-none text-success">R$ 297</p>
+      <p className="mt-2 text-lg text-muted-foreground">
+        ou <strong className="text-foreground">12x de R$ 30,72</strong>
       </p>
-      <p className="mt-4 text-base font-bold !text-slate-800">Pagamento único · Não é mensalidade</p>
+      <p className="mt-3 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 text-base font-extrabold text-accent-foreground">
+        <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
+      </p>
+      <p className="mt-3 text-base font-semibold text-foreground">Pagamento único · Não é mensalidade</p>
       <div className="mt-5">
-        <CTA keep singleLine>Quero começar agora!</CTA>
+        <Button onClick={openCheckout} className="hc3-offer-button h-auto w-full rounded-xl px-2 py-4 text-xl font-extrabold leading-tight min-[390px]:text-[22px] md:text-2xl">
+          Quero começar agora!
+        </Button>
       </div>
-      <p className="mt-4 flex items-center justify-center gap-1.5 text-base font-semibold text-slate-700">
-        <ShieldCheck className="h-5 w-5 shrink-0 !text-green-700" />
-        7 dias de garantia · Compra segura
-      </p>
+      <div className="mt-5 border-t border-border pt-4">
+        <p className="flex items-center justify-center gap-2 text-lg font-bold text-foreground">
+          <ShieldCheck className="h-6 w-6 shrink-0 text-success" /> 7 dias para experimentar
+        </p>
+        <p className="mt-2 text-base leading-relaxed text-muted-foreground">Se não for para você, peça a devolução do valor em até 7 dias após a compra.</p>
+        <p className="mt-3 flex items-center justify-center gap-2 text-base font-semibold text-muted-foreground">
+          <Lock className="h-4 w-4 shrink-0 text-success" /> Pagamento seguro pela Hotmart
+        </p>
+      </div>
     </div>
   </section>
 );

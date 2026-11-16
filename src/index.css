@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Isolated offer palette for the light sales-page experiment. */
+.home-copia-3-light .hc3-offer {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --muted-foreground: 215 25% 28%;
+  --border: 150 35% 78%;
+  --success: 150 75% 28%;
+  --accent: 150 60% 95%;
+  --accent-foreground: 150 75% 24%;
+  --primary: 150 70% 30%;
+  --primary-foreground: 0 0% 100%;
+  --offer-action: 145 70% 36%;
+  --offer-action-hover: 145 70% 29%;
+  --offer-action-text: 0 0% 100%;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
