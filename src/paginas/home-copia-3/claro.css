@@ -14,7 +14,11 @@
 .home-copia-3-light > header,
 .home-copia-3-light header { background-color: hsl(var(--hc3-surface)); border-color: hsl(var(--hc3-line)); }
 
-.home-copia-3-light :is(.text-white, .text-slate-100):not(:where(button, a, [class*="bg-"]), :where(button, a, [class*="bg-green"], [class*="bg-black"], [class*="bg-slate-900/"], [class*="bg-blue-6"], [class*="bg-[#"]) *) { color: hsl(var(--hc3-text)); }
+.home-copia-3-light :is(.text-white, .text-slate-100, .text-slate-50):not(:where([class*="bg-green"], [class*="bg-black"], [class*="bg-slate-900/"], [class*="bg-blue-6"], [class*="bg-[#"], [class*="bg-gradient"], [class*="bg-slate-900"])):not(:where([class*="bg-green-5"], [class*="bg-green-6"], [class*="bg-black"], [class*="bg-slate-900/"], [class*="bg-blue-6"], [class*="bg-[#"]) *) { color: hsl(var(--hc3-text)); }
+.home-copia-3-light :is(.text-green-300, .text-green-400) { color: hsl(142 72% 29%); }
+.home-copia-3-light :is(.text-amber-400, .text-yellow-400) { color: hsl(32 95% 38%); }
+.home-copia-3-light .hc3-dark :is(.text-green-300, .text-green-400) { color: hsl(142 69% 58%); }
+.home-copia-3-light .hc3-dark :is(.text-amber-400, .text-yellow-400) { color: hsl(45 93% 58%); }
 .home-copia-3-light .text-slate-200 { color: hsl(var(--hc3-text-soft)); }
 .home-copia-3-light :is(.text-slate-300, .text-slate-400) { color: hsl(var(--hc3-text-muted)); }
 .home-copia-3-light :is(.text-sky-300, .text-sky-400) { color: hsl(var(--hc3-accent-text)); }
