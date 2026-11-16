@@ -28,6 +28,7 @@ import {
   Zap,
   MessageCircle,
   GraduationCap,
+  BookOpen,
  } from "lucide-react";
 import logoBlue from "@/versoes/homebackup/assets/logo-blue.png";
 import elisa from "@/versoes/homebackup/assets/elisa-photo.jpg";
@@ -603,30 +604,21 @@ const Instructor = ({ photo = elisa }: { photo?: string }) => {
           <p className="text-slate-200 text-base md:text-lg leading-relaxed mb-6">
             Criei um método simples, com calma, paciência e linguagem fácil, para você aprender no seu ritmo e conquistar sua independência ao usar o computador.
           </p>
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="text-center bg-white/10 rounded-xl p-3">
-              <Clock className="w-5 h-5 text-sky-300 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-200">
-                +20 anos
-                <br />
-                de experiência
-              </div>
+          <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6 bg-white rounded-2xl border border-sky-200 shadow-md px-3 py-4 md:px-5 md:py-5">
+            <div className="text-center">
+              <GraduationCap className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
+              <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">+20 anos</div>
+              <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Ensinando informática</div>
             </div>
-            <div className="text-center bg-white/10 rounded-xl p-3">
-              <Award className="w-5 h-5 text-sky-300 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-200">
-                Método
-                <br />
-                próprio
-              </div>
+            <div className="text-center">
+              <BookOpen className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
+              <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">Do zero</div>
+              <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Método simples e fácil</div>
             </div>
-            <div className="text-center bg-white/10 rounded-xl p-3">
-              <HeartHandshake className="w-5 h-5 text-sky-300 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-200">
-                Suporte
-                <br />
-                humano
-              </div>
+            <div className="text-center">
+              <HeartHandshake className="w-6 h-6 md:w-7 md:h-7 text-blue-600 mx-auto mb-1.5" />
+              <div className="text-sm md:text-base font-extrabold text-slate-900 leading-tight">Suporte humano</div>
+              <div className="text-[11px] md:text-xs text-slate-500 leading-tight mt-0.5">Ajuda sempre que precisar</div>
             </div>
           </div>
           <CTA size="md">Quero aprender sem medo!</CTA>
