@@ -394,70 +394,165 @@ const Identification = () => {
 
 // ───────────────────────── Aula Demonstrativa (após o Quiz) ─────────────────────────
 const AulaDemonstrativa = () => {
-  const [tab, setTab] = useState<0 | 1>(0);
-  const [playing, setPlaying] = useState(false);
-  const aulas = [
-    { id: "-sdVG1OtDks", thumb: freeClassThumb, label: "Aula 1", title: "Primeiros passos" },
-    { id: "_0OPLnEiMHk", thumb: aulaGratisThumb, label: "Aula 2", title: "Aula completa" },
-  ];
-  const aula = aulas[tab];
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isFreeClassPlaying, setIsFreeClassPlaying] = useState(false);
+  const warm = useContext(MinimalCtas);
   return (
-    <section className="py-6 md:py-8 border-t border-white/10">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <div className="text-center mb-4">
-          <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-1.5 rounded-full mb-3">
-            <ShieldCheck className="w-4 h-4" /> Assista antes de decidir
+    <section className="py-4 md:py-6 bg-white/5 border-t border-white/10">
+      <div className="container mx-auto px-4 max-w-4xl">
+        {warm ? (
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
+            <HeartHandshake className="w-4 h-4" /> Aula de presente para você
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
-            Veja como são <span className="text-sky-300">as minhas aulas</span>
+          <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(7.4vw,3rem)]">
+            Veja como é <span className="text-sky-300">fácil aprender</span>
           </h2>
-          <p className="text-slate-200 text-lg mt-2 leading-relaxed">
-            Duas aulas liberadas para você conhecer meu jeito de ensinar.
+          <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
+            Dê o play e descubra que o computador não é difícil quando alguém explica com calma.
+          </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {[
+              { Icon: PlayCircle, t: "Aula liberada" },
+              { Icon: Clock, t: "Sem pressa" },
+              { Icon: HeartHandshake, t: "Explicação simples" },
+            ].map(({ Icon, t }) => (
+              <span key={t} className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1.5 text-sm font-bold text-white">
+                <Icon className="h-4 w-4 text-sky-300" /> {t}
+              </span>
+            ))}
+          </div>
+        </div>
+        ) : (
+        <div className="text-center mb-5 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-green-500/100/10 text-green-300 text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mb-3">
+            <PlayCircle className="w-4 h-4" /> AULA JÁ LIBERADA
+          </span>
+          <h2 className="text-2xl md:text-4xl font-hero text-white leading-tight">
+            Veja como você vai aprender, <span className="text-sky-300">clique por clique</span>
+          </h2>
+          <p className="text-slate-300 text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Assista agora uma aula e veja o computador deixar de ser um mistério. Sem cadastro, sem complicação.
           </p>
         </div>
+        )}
 
-        <div className="grid grid-cols-2 gap-2 mb-3">
-          {aulas.map((a, i) => (
-            <button
-              key={a.id}
-              type="button"
-              onClick={() => { setTab(i as 0 | 1); setPlaying(false); }}
-              className={`rounded-xl border-2 px-3 py-2.5 text-left transition-colors ${tab === i ? "border-blue-600 bg-blue-600 text-white" : "border-slate-300 bg-white text-slate-800"}`}
-            >
-              <span className="block text-sm font-bold opacity-90">{a.label}</span>
-              <span className="block text-lg font-black leading-tight">{a.title}</span>
-            </button>
-          ))}
-        </div>
-
-        <div className="relative -mx-4 md:mx-0 md:rounded-2xl overflow-hidden shadow-xl border-0 md:border border-white/10">
-          {!playing ? (
-            <button type="button" className="relative block w-full aspect-video group" onClick={() => setPlaying(true)} aria-label={`Assistir ${aula.label}`}>
-              <img src={aula.thumb} alt={aula.title} className="w-full h-full object-cover" loading="lazy" />
-              <span className="absolute inset-0 flex items-center justify-center">
-                <span className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl animate-pulse group-hover:scale-110 transition-transform">
-                  <PlayCircle className="w-11 h-11 text-sky-500" strokeWidth={1.5} />
-                </span>
-              </span>
-            </button>
+        <div className="relative max-w-4xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-2 border-green-500/30">
+          {!isFreeClassPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsFreeClassPlaying(true)}>
+              <img
+                src={freeClassThumb}
+                alt="Primeira aula do curso"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-sky-300" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-green-600 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                {warm ? "Toque para assistir" : "Conheça — clique para assistir"}
+              </div>
+            </div>
           ) : (
-            <div className="aspect-video">
+            <div className="aspect-video relative">
               <iframe
-                key={aula.id}
-                src={`https://www.youtube-nocookie.com/embed/${aula.id}?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1`}
-                title={aula.title}
+                src="https://www.youtube-nocookie.com/embed/-sdVG1OtDks?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                title="Primeira aula do curso"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
+              <a
+                href="https://www.youtube.com/watch?v=-sdVG1OtDks"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
+              >
+                Ver no YouTube
+              </a>
             </div>
           )}
         </div>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2 text-base font-semibold text-slate-200">
-          <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-5 h-5 text-green-400" /> Explicação com calma</span>
-          <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-5 h-5 text-green-400" /> Pode repetir quando quiser</span>
+        <p className="text-center text-slate-300 text-sm md:text-base mt-3 mb-8 md:mb-10 leading-relaxed flex items-start justify-center gap-2 max-w-2xl mx-auto">
+          <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-1" />
+          {warm ? "Eu explico cada clique como se estivesse sentada do seu lado. Pode pausar e repetir quantas vezes quiser." : "Sem termos difíceis. Sem pressa. A professora explica cada clique como se você estivesse do lado dela."}
+        </p>
+
+        <div className="text-center mb-3 md:mb-4">
+          {warm ? (
+            <>
+              <span className="inline-flex items-center gap-2 bg-amber-400 text-slate-900 text-xs md:text-sm font-black uppercase tracking-wide px-3 py-1.5 rounded-full mb-3">
+                <Award className="w-4 h-4" /> Aula completa de verdade
+              </span>
+              <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(7.4vw,3rem)]">
+                Você <span className="text-green-300">também consegue!</span>
+              </h2>
+              <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
+                Assista uma aula completa e sinta como vai ser o seu curso, do começo ao fim.
+              </p>
+            </>
+          ) : (
+          <h2 className="text-2xl md:text-4xl font-hero text-white leading-tight text-balance">
+            Aprender Informática vai transformar sua vida!
+          </h2>
+          )}
+        </div>
+
+        <div className="relative max-w-3xl -mx-4 md:mx-auto rounded-none md:rounded-2xl overflow-hidden shadow-xl shadow-blue-900/10 border-0 md:border border-white/10">
+          {!isPlaying ? (
+            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+              <img
+                src={aulaGratisThumb}
+                alt="Aula completa do curso"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform -translate-x-6 md:-translate-x-[88px]">
+                  <PlayCircle className="w-10 h-10 md:w-12 md:h-12 text-sky-300" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/60 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
+                {warm ? "Aula 2 · Toque para assistir" : "Veja uma aula inteira de verdade"}
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                title="Aula completa do curso"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              <a
+                href="https://www.youtube.com/watch?v=_0OPLnEiMHk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
+              >
+                Ver no YouTube
+              </a>
+            </div>
+          )}
+        </div>
+
+        <div className="text-center space-y-4 mt-8 md:mt-10">
+          {warm ? (
+          <p className="text-slate-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-semibold">
+            Mais de <strong className="text-green-300">15.000 pessoas</strong> começaram assim, do zero. <span className="text-sky-300">Agora é a sua vez.</span>
+          </p>
+          ) : (
+          <p className="text-slate-200 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Essa é a mesma didática que já fez <strong className="text-white">+15.000 pessoas</strong> saírem do
+            zero e usarem o computador com confiança.
+          </p>
+          )}
         </div>
       </div>
     </section>
