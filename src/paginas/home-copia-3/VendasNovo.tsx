@@ -1586,7 +1586,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
   return (
     <MinimalCtas.Provider value={minimalCtas}>
     <div className="home-copia-3-light min-h-screen pb-20 md:pb-0">
-      <Header logo={headerLogo} />
+      <Header light logo={headerLogo} />
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
@@ -1598,7 +1598,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <Method />
       {minimalCtas ? <ModulesWarm /> : <Modules />}
       {!minimalCtas && <WhatsAposAulas />}
-      <section className="py-4 md:py-6 bg-white/5">
+      <section className="hc3-dark py-4 md:py-6 bg-slate-900">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="dark" />
         </div>
