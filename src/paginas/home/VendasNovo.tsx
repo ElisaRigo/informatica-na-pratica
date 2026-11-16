@@ -1179,8 +1179,9 @@ const MiniValueSection = () => (
       </p>
       <p className="mt-3 text-base font-semibold text-foreground">Pagamento único · Seu para sempre</p>
       <div className="mt-5">
-        <Button onClick={openCheckout} className="hc3-offer-button h-auto w-full rounded-xl px-2 py-4 text-xl font-extrabold leading-tight min-[390px]:text-[22px] md:text-2xl">
-          Quero começar agora!
+        <Button onClick={openCheckout} className="hc3-offer-button cta-pulse h-auto w-full gap-1.5 rounded-xl px-2 py-4 text-xl font-extrabold leading-tight min-[360px]:text-[23px] min-[390px]:text-2xl md:text-[26px]">
+          <Monitor className="h-[1em] w-[1em] shrink-0" aria-hidden="true" />
+          <span className="whitespace-nowrap">Quero começar agora!</span>
         </Button>
       </div>
       <div className="mt-5 border-t border-border pt-4">
