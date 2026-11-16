@@ -1147,7 +1147,7 @@ const MiniValueSection = () => (
       </p>
       <p className="mt-1 text-5xl font-black leading-none text-success">R$ 297</p>
       <p className="mt-2 text-lg text-muted-foreground">
-        ou <strong className="text-foreground">12x de R$ 30,72</strong>
+        ou <strong className="text-foreground">12x de R$ 30,72</strong> no cartão
       </p>
       <p className="mt-3 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 text-base font-extrabold text-accent-foreground">
         <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
