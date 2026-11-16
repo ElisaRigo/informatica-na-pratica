@@ -253,8 +253,8 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
                 <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
               </div>
               <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-                <Monitor className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-                <span className="font-bold text-xs md:text-sm text-accent">CURSO COMPLETO</span>
+                <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+                <span className="font-bold text-xs md:text-sm text-accent">SUPORTE NO WHATS</span>
               </div>
             </div>
           )}
@@ -324,7 +324,7 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
               { icon: ShieldCheck, tone: "guarantee", label: "7 dias de garantia" },
               { icon: Lock, tone: "secure", label: "Compra 100% segura" },
               { icon: Zap, tone: "instant", label: "Acesso imediato" },
-              { icon: MessageCircle, tone: "support", label: "Suporte por WhatsApp" },
+              { icon: Monitor, tone: "support", label: "Curso completo" },
             ].map((s) => (
               <div
                 key={s.label}
