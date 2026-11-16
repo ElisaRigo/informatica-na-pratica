@@ -63,3 +63,7 @@
 # Conteúdo da /home-copia em /informa e /informatica
 - [x] Copiar a apresentação para módulos independentes das duas páginas.
 - [x] Conferir conteúdo, capas, aula e checkout sem alterar home e cópias.
+
+# Página histórica de 07/07
+- [x] Criar /versao-07-07 usando a cópia histórica de v0607, sem alterar páginas existentes.
+- [x] Conferir capa, aula e abertura do pagamento.
