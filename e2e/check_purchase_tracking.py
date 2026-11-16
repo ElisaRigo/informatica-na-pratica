@@ -15,7 +15,7 @@ async def main():
 
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=True)
-        context = await browser.new_context(viewport={'width': 393, 'height': 851})
+        context = await browser.new_context(viewport={'width': 393, 'height': 851}, reduced_motion='reduce')
         async def block_tracking(route):
             if any(host in route.request.url for host in ['googletagmanager.com', 'google-analytics.com', 'facebook.net', 'facebook.com/tr']):
                 await route.abort()
@@ -25,7 +25,7 @@ async def main():
         page = await context.new_page()
         screenshots = Path('/tmp/browser/purchase-audit/screenshots')
         screenshots.mkdir(parents=True, exist_ok=True)
-        for path in ['/', '/informatica']:
+        for path in ['/', '/informa', '/informatica']:
             await page.goto('http://localhost:8080' + path)
             await page.wait_for_timeout(3000)
             await page.evaluate('''() => {

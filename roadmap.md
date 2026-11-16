@@ -67,3 +67,7 @@
 # Página histórica de 07/07
 - [x] Criar /versao-07-07 usando a cópia histórica de v0607, sem alterar páginas existentes.
 - [x] Conferir capa, aula e abertura do pagamento.
+
+# Conteúdo atualizado da /home-copia-3
+- [x] Replicar a apresentação atual na home, /informa e /informatica com cópias independentes.
+- [x] Conferir oferta, textos das aulas, vídeos e checkout nas três páginas.

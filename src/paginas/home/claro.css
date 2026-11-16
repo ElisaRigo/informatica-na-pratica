@@ -1,5 +1,5 @@
-/* Light theme scoped to /home-copia-3. Dark highlight bands use .hc3-dark. */
-.home-copia-3-light {
+/* Light theme scoped to home. Dark highlight bands use .hc3-dark. */
+.home-current-light {
   --hc3-bg: 210 40% 98%;
   --hc3-surface: 0 0% 100%;
   --hc3-text: 222 47% 11%;
@@ -11,41 +11,66 @@
   background-color: hsl(var(--hc3-bg));
   color: hsl(var(--hc3-text-soft));
 }
-.home-copia-3-light > header,
-.home-copia-3-light header { background-color: hsl(var(--hc3-surface)); border-color: hsl(var(--hc3-line)); }
+.home-current-light > header,
+.home-current-light header { background-color: hsl(var(--hc3-surface)); border-color: hsl(var(--hc3-line)); }
 
-.home-copia-3-light :is(.text-white, .text-slate-100, .text-slate-50):not(:where([class*="bg-green"], [class*="bg-black"], [class*="bg-slate-900/"], [class*="bg-blue-6"], [class*="bg-[#"], [class*="bg-gradient"], [class*="bg-slate-900"])):not(:where([class*="bg-green-5"], [class*="bg-green-6"], [class*="bg-black"], [class*="bg-slate-900/"], [class*="bg-blue-6"], [class*="bg-[#"]) *) { color: hsl(var(--hc3-text)); }
-.home-copia-3-light :is(.text-green-300, .text-green-400) { color: hsl(142 72% 29%); }
-.home-copia-3-light :is(.text-amber-400, .text-yellow-400) { color: hsl(32 95% 38%); }
-.home-copia-3-light .hc3-dark :is(.text-green-300, .text-green-400) { color: hsl(142 69% 58%); }
-.home-copia-3-light .hc3-dark :is(.text-amber-400, .text-yellow-400) { color: hsl(45 93% 58%); }
-.home-copia-3-light .text-slate-200 { color: hsl(var(--hc3-text-soft)); }
-.home-copia-3-light :is(.text-slate-300, .text-slate-400) { color: hsl(var(--hc3-text-muted)); }
-.home-copia-3-light :is(.text-sky-300, .text-sky-400) { color: hsl(var(--hc3-accent-text)); }
-.home-copia-3-light :is(.bg-white\/5, .bg-white\/10) { background-color: hsl(var(--hc3-surface)); }
-.home-copia-3-light :is(.bg-white\/20, .bg-white\/30) { background-color: hsl(var(--hc3-line)); }
-.home-copia-3-light :is(.border-white\/10, .border-white\/20) { border-color: hsl(var(--hc3-line)); }
-.home-copia-3-light .bg-slate-800 { background-color: hsl(var(--hc3-surface)); }
+.home-current-light :is(.text-white, .text-slate-100, .text-slate-50):not(:where([class*="bg-green"], [class*="bg-black"], [class*="bg-slate-900/"], [class*="bg-blue-6"], [class*="bg-[#"], [class*="bg-gradient"], [class*="bg-slate-900"])):not(:where([class*="bg-green-5"], [class*="bg-green-6"], [class*="bg-black"], [class*="bg-slate-900/"], [class*="bg-blue-6"], [class*="bg-[#"]) *) { color: hsl(var(--hc3-text)); }
+.home-current-light :is(.text-green-300, .text-green-400) { color: hsl(142 72% 29%); }
+.home-current-light :is(.text-amber-400, .text-yellow-400) { color: hsl(32 95% 38%); }
+.home-current-light .hc3-dark :is(.text-green-300, .text-green-400) { color: hsl(142 69% 58%); }
+.home-current-light .hc3-dark :is(.text-amber-400, .text-yellow-400) { color: hsl(45 93% 58%); }
+.home-current-light .text-slate-200 { color: hsl(var(--hc3-text-soft)); }
+.home-current-light :is(.text-slate-300, .text-slate-400) { color: hsl(var(--hc3-text-muted)); }
+.home-current-light :is(.text-sky-300, .text-sky-400) { color: hsl(var(--hc3-accent-text)); }
+.home-current-light :is(.bg-white\/5, .bg-white\/10) { background-color: hsl(var(--hc3-surface)); }
+.home-current-light :is(.bg-white\/20, .bg-white\/30) { background-color: hsl(var(--hc3-line)); }
+.home-current-light :is(.border-white\/10, .border-white\/20) { border-color: hsl(var(--hc3-line)); }
+.home-current-light .bg-slate-800 { background-color: hsl(var(--hc3-surface)); }
 
 /* Dark highlight bands keep the original dark look */
-.home-copia-3-light .hc3-dark { --primary-foreground: 0 0% 100%; }
-.home-copia-3-light .hc3-dark :is(.text-white, .text-slate-100) { color: hsl(0 0% 100%); }
-.home-copia-3-light .hc3-dark.text-white { color: hsl(0 0% 100%); }
-.home-copia-3-light .hc3-dark .text-slate-200 { color: hsl(214 32% 91%); }
-.home-copia-3-light .hc3-dark .text-slate-300 { color: hsl(213 27% 84%); }
-.home-copia-3-light .hc3-dark .text-slate-400 { color: hsl(215 20% 65%); }
-.home-copia-3-light .hc3-dark :is(.text-sky-300, .text-sky-400) { color: hsl(199 95% 74%); }
-.home-copia-3-light .hc3-dark .bg-white\/5 { background-color: hsl(0 0% 100% / 0.05); }
-.home-copia-3-light .hc3-dark .bg-white\/10 { background-color: hsl(0 0% 100% / 0.1); }
-.home-copia-3-light .hc3-dark .bg-white\/20 { background-color: hsl(0 0% 100% / 0.2); }
-.home-copia-3-light .hc3-dark .bg-white\/30 { background-color: hsl(0 0% 100% / 0.3); }
-.home-copia-3-light .hc3-dark :is(.border-white\/10, .border-white\/20) { border-color: hsl(0 0% 100% / 0.15); }
-.home-copia-3-light :is([class*="bg-green-500/"], [class*="bg-green-600/"]) :is(.text-white, .text-slate-100):not(:where(button, a, [class*="bg-green-5"]:not([class*="/"]), [class*="bg-green-6"]:not([class*="/"])) *, :where(button, a)) { color: hsl(var(--hc3-text)); }
-.home-copia-3-light .home-copia-3-trust {
+.home-current-light .hc3-dark { --primary-foreground: 0 0% 100%; }
+.home-current-light .hc3-dark :is(.text-white, .text-slate-100) { color: hsl(0 0% 100%); }
+.home-current-light .hc3-dark.text-white { color: hsl(0 0% 100%); }
+.home-current-light .hc3-dark .text-slate-200 { color: hsl(214 32% 91%); }
+.home-current-light .hc3-dark .text-slate-300 { color: hsl(213 27% 84%); }
+.home-current-light .hc3-dark .text-slate-400 { color: hsl(215 20% 65%); }
+.home-current-light .hc3-dark :is(.text-sky-300, .text-sky-400) { color: hsl(199 95% 74%); }
+.home-current-light .hc3-dark .bg-white\/5 { background-color: hsl(0 0% 100% / 0.05); }
+.home-current-light .hc3-dark .bg-white\/10 { background-color: hsl(0 0% 100% / 0.1); }
+.home-current-light .hc3-dark .bg-white\/20 { background-color: hsl(0 0% 100% / 0.2); }
+.home-current-light .hc3-dark .bg-white\/30 { background-color: hsl(0 0% 100% / 0.3); }
+.home-current-light .hc3-dark :is(.border-white\/10, .border-white\/20) { border-color: hsl(0 0% 100% / 0.15); }
+.home-current-light :is([class*="bg-green-500/"], [class*="bg-green-600/"]) :is(.text-white, .text-slate-100):not(:where(button, a, [class*="bg-green-5"]:not([class*="/"]), [class*="bg-green-6"]:not([class*="/"])) *, :where(button, a)) { color: hsl(var(--hc3-text)); }
+.home-current-light .home-copia-3-trust {
   --trust-guarantee: 150 75% 28%;
   --trust-secure: 200 90% 32%;
   --trust-instant: 25 90% 38%;
   --trust-support: 172 70% 26%;
 }
-.home-copia-3-light .home-copia-3-trust-pill { background: hsl(var(--trust-tone) / 0.08); }
-.home-copia-3-light .hc3-dark { background-color: hsl(222 47% 11%); }
+.home-current-light .home-copia-3-trust-pill { background: hsl(var(--trust-tone) / 0.08); }
+.home-current-light .hc3-dark { background-color: hsl(222 47% 11%); }
+
+.home-current-light .hc3-offer-button {
+  background: hsl(var(--offer-action));
+  color: hsl(var(--offer-action-text));
+  box-shadow: var(--shadow-cta);
+}
+.home-current-light .hc3-offer-button:hover {
+  background: hsl(var(--offer-action-hover));
+}
+
+
+.home-current-light .hc3-offer {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --muted-foreground: 215 25% 28%;
+  --border: 150 35% 78%;
+  --success: 150 75% 28%;
+  --accent: 150 60% 95%;
+  --accent-foreground: 150 75% 24%;
+  --primary: 150 70% 30%;
+  --primary-foreground: 0 0% 100%;
+  --offer-action: 145 70% 36%;
+  --offer-action-hover: 145 70% 29%;
+  --offer-action-text: 0 0% 100%;
+}

@@ -405,15 +405,14 @@ const AulaDemonstrativa = () => {
           <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
             <HeartHandshake className="w-4 h-4" /> Aula de presente para você
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
-            Sente-se, respire e <span className="text-sky-300">aprenda comigo</span>
+          <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(6.4vw,3rem)]">
+            É fácil <span className="text-sky-300">aprender comigo</span>
           </h2>
           <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
-            Dê o play e veja como é fácil quando alguém explica com calma. Sem cadastro e sem complicação.
+            Dê o play e descubra que o computador não é difícil quando alguém explica com calma.
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             {[
-              { Icon: PlayCircle, t: "Aula liberada" },
               { Icon: Clock, t: "Sem pressa" },
               { Icon: HeartHandshake, t: "Explicação simples" },
             ].map(({ Icon, t }) => (
@@ -488,11 +487,11 @@ const AulaDemonstrativa = () => {
               <span className="inline-flex items-center gap-2 bg-amber-400 text-slate-900 text-xs md:text-sm font-black uppercase tracking-wide px-3 py-1.5 rounded-full mb-3">
                 <Award className="w-4 h-4" /> Aula completa de verdade
               </span>
-              <h2 className="text-3xl md:text-5xl font-black text-white leading-tight text-balance">
-                Veja que <span className="text-green-300">você também consegue</span>
+              <h2 className="font-black text-white leading-tight whitespace-nowrap [font-size:min(6.4vw,3rem)]">
+                Você <span className="text-green-300">também consegue!</span>
               </h2>
               <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
-                Uma aula inteira, do começo ao fim. É assim que você vai aprender no curso.
+                Assista uma aula completa e sinta como vai ser o seu curso, do começo ao fim.
               </p>
             </>
           ) : (
@@ -1135,53 +1134,36 @@ const Certificate = () => (
 
 // ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
 const MiniValueSection = () => (
-  <section id="primeiro-valor" className="py-4 md:py-6">
-    <div className="container mx-auto px-4 max-w-xl text-center rounded-3xl border border-sky-400/25 bg-gradient-to-b from-sky-500/20 via-sky-500/10 to-transparent px-4 py-6 md:py-8 shadow-lg shadow-sky-500/10">
-      <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-black px-3 py-1.5 rounded-full mb-3 uppercase tracking-wide">
-        Oferta especial • 40% OFF
+  <section id="primeiro-valor" className="py-6 md:py-8">
+    <div className="hc3-offer mx-auto max-w-md rounded-lg border-2 border-border bg-background px-5 py-6 text-center text-foreground shadow-xl">
+      <span className="inline-flex items-center gap-2 text-base font-bold text-success">
+        <Zap className="h-5 w-5 shrink-0" /> Comece hoje, no seu ritmo
       </span>
-      <h2 className="font-black text-xl md:text-2xl leading-tight text-white">Curso Completo de Informática</h2>
-      <p className="text-slate-400 text-sm md:text-base mt-1">+90 videoaulas • Suporte Direto • Acesso vitalício</p>
-      <div className="w-16 h-1 bg-sky-400 rounded-full mx-auto mt-3 mb-5" />
-      <p className="text-slate-400 text-sm md:text-base">
-        de <span className="line-through text-slate-500">R$ 497,00</span> por apenas
+      <h2 className="mt-3 text-2xl font-black leading-tight text-foreground">Seu primeiro passo para usar o computador com confiança</h2>
+      <p className="mt-2 text-lg text-muted-foreground">Curso completo · Acesso vitalício</p>
+      <p className="mt-5 text-lg text-muted-foreground">
+        De <span className="line-through">R$ 497,00</span> por
       </p>
-      <p className="text-green-400 font-black text-4xl md:text-5xl leading-tight mt-1">R$ 297,00</p>
-      <p className="text-amber-400 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
-        <span>🎁</span> Hoje você leva 4 bônus exclusivos
+      <p className="mt-1 text-5xl font-black leading-none text-success">R$ 297</p>
+      <p className="mt-2 text-lg text-muted-foreground">
+        ou <strong className="text-foreground">12x de R$ 30,72</strong> no cartão
       </p>
-      <p className="text-slate-300 text-base md:text-lg mt-1">
-        à vista no PIX ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
+      <p className="mt-3 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 text-base font-extrabold text-accent-foreground">
+        <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
       </p>
-      <div className="grid grid-cols-2 gap-2.5 max-w-md mx-auto mt-5">
-        {[
-          { Icon: Lock, t: "Pagamento 100% seguro" },
-          { Icon: ShieldCheck, t: "Compra protegida" },
-          { Icon: Zap, t: "Acesso imediato" },
-          { Icon: Award, t: "7 dias de garantia" },
-        ].map(({ Icon, t }) => (
-          <div
-            key={t}
-            className="flex flex-col items-center gap-2 rounded-2xl border border-sky-400/30 bg-sky-400/10 px-3 py-3.5 text-center"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-sky-400/20 ring-2 ring-sky-300/40">
-              <Icon className="h-5 w-5 text-sky-300" />
-            </span>
-            <span className="text-sm md:text-base font-bold text-white leading-tight">{t}</span>
-          </div>
-        ))}
-      </div>
+      <p className="mt-3 text-base font-semibold text-foreground">Pagamento único · Seu para sempre</p>
       <div className="mt-5">
-        <CTA keep singleLine>Quero começar meu curso!</CTA>
+        <Button onClick={openCheckout} className="hc3-offer-button h-auto w-full rounded-xl px-2 py-4 text-xl font-extrabold leading-tight min-[390px]:text-[22px] md:text-2xl">
+          Quero começar agora!
+        </Button>
       </div>
-      <div className="mt-5 rounded-xl border-2 border-green-500/30 bg-green-500/10 px-5 py-4 text-center shadow-sm">
-        <p className="flex flex-row items-center justify-center gap-1.5 text-green-300 font-black text-sm md:text-lg">
-          <ShieldCheck className="w-5 h-5" />{" "}
-          <span className="whitespace-nowrap">GARANTIA INCONDICIONAL DE 7 DIAS</span>
+      <div className="mt-5 border-t border-border pt-4">
+        <p className="flex items-center justify-center gap-2 text-lg font-bold text-foreground">
+          <ShieldCheck className="h-6 w-6 shrink-0 text-success" /> 7 dias para experimentar
         </p>
-        <p className="text-slate-200 text-sm md:text-base mt-1.5 leading-snug">
-          <span className="text-sky-300 font-bold">RISCO ZERO!</span> Se não gostar, devolvemos{" "}
-          <span className="text-green-300 font-bold whitespace-nowrap">100% do seu dinheiro.</span>
+        <p className="mt-2 text-base leading-relaxed text-muted-foreground">Se não for para você, peça a devolução do valor em até 7 dias após a compra.</p>
+        <p className="mt-3 flex items-center justify-center gap-2 text-base font-semibold text-muted-foreground">
+          <Lock className="h-4 w-4 shrink-0 text-success" /> Pagamento seguro pela Hotmart
         </p>
       </div>
     </div>
@@ -1559,7 +1541,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
   }, []);
   return (
     <MinimalCtas.Provider value={minimalCtas}>
-    <div className="home-copia-3-light min-h-screen pb-20 md:pb-0">
+    <div className="informa-current-light min-h-screen pb-20 md:pb-0">
       <Header light logo={headerLogo} />
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
