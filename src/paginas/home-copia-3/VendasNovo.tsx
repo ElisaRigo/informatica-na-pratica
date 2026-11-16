@@ -315,6 +315,10 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             )}
           </div>
 
+          <p className="mx-auto mb-4 max-w-3xl text-xl font-medium leading-relaxed text-foreground md:text-2xl">
+            Crie documentos e planilhas, organize arquivos, envie e-mails e muito mais...
+          </p>
+
           <div className="grid grid-cols-4 gap-x-1 gap-y-2">
             {[
               { icon: ShieldCheck, tone: "text-green-400", lines: ["7 dias", "de garantia"] },
