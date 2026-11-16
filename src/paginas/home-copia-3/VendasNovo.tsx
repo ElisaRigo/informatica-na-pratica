@@ -1161,23 +1161,24 @@ const MiniValueSection = () => (
       <p className="text-slate-300 text-base md:text-lg mt-1">
         à vista no PIX ou <span className="font-semibold text-white">12x de R$ 30,72</span> no cartão
       </p>
-      <ul className="mx-auto mt-4 max-w-sm space-y-2 text-left">
+      <div className="grid grid-cols-2 gap-2.5 max-w-md mx-auto mt-5">
         {[
-          "+90 videoaulas passo a passo",
-          "Acesso vitalício — assista quantas vezes quiser",
-          "Certificado de conclusão",
-          "Suporte direto com a professora",
-          "Atualizações gratuitas pra sempre",
-        ].map((x) => (
-          <li key={x} className="flex items-start gap-2.5 text-slate-200 text-base font-medium">
-            <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
-            {x}
-          </li>
+          { Icon: Lock, t: "Pagamento 100% seguro" },
+          { Icon: ShieldCheck, t: "Compra protegida" },
+          { Icon: Zap, t: "Acesso imediato" },
+          { Icon: Award, t: "7 dias de garantia" },
+        ].map(({ Icon, t }) => (
+          <div
+            key={t}
+            className="flex flex-col items-center gap-2 rounded-2xl border border-sky-400/30 bg-sky-400/10 px-3 py-3.5 text-center"
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-sky-400/20 ring-2 ring-sky-300/40">
+              <Icon className="h-5 w-5 text-sky-300" />
+            </span>
+            <span className="text-sm md:text-base font-bold text-white leading-tight">{t}</span>
+          </div>
         ))}
-      </ul>
-      <p className="inline-flex items-center justify-center gap-1.5 text-slate-400 text-xs md:text-sm mt-2">
-        <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
-      </p>
+      </div>
       <div className="mt-5">
         <CTA keep singleLine>Quero começar meu curso!</CTA>
       </div>
