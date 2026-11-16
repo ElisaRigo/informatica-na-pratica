@@ -63,7 +63,7 @@
 
 
 .home-current-light .hc3-offer {
-  --background: 0 0% 100%;
+  --background: 150 50% 98%;
   --foreground: 222 47% 11%;
   --muted-foreground: 215 25% 28%;
   --border: 150 35% 78%;
@@ -80,4 +80,9 @@
 .home-current-light .hc3-instructor-label {
   background-color: hsl(var(--hc3-instructor-label-bg));
   color: hsl(var(--hc3-instructor-label-text));
+}
+
+.home-current-light #primeiro-valor {
+  --offer-section-surface: 150 55% 96%;
+  background-color: hsl(var(--offer-section-surface));
 }
