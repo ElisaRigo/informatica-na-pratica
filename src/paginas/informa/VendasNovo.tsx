@@ -1455,11 +1455,11 @@ const StickyMobile = () => {
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2 backdrop-blur-xl shadow-xl">
       <div className="mb-1.5 flex items-center justify-center gap-1.5">
-        <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-bold text-white ring-1 ring-white/20">
+        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/10 px-2.5 py-1 text-[11px] font-bold text-white ring-1 ring-slate-100/25">
           <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
           7 dias de garantia
         </span>
-        <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-bold text-white ring-1 ring-white/20">
+        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/10 px-2.5 py-1 text-[11px] font-bold text-white ring-1 ring-slate-100/25">
           <MessageCircle className="h-3.5 w-3.5 text-sky-300" aria-hidden="true" />
           Suporte da professora
         </span>
