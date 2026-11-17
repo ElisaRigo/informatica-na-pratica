@@ -1180,14 +1180,14 @@ const BonusBeneficios = () => {
           <span className="inline-block bg-blue-700 !text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide mb-2">Pacote completo</span>
           <h2 className="font-black text-slate-900 text-2xl md:text-4xl leading-tight">Tudo o que você recebe hoje</h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {curso.map(({ I, t, d }) => (
-            <div key={t} className="rounded-2xl bg-white border-2 border-sky-200 shadow-lg p-4 text-center">
-              <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-md">
+            <div key={t} className="rounded-2xl bg-white border-2 border-sky-200 shadow-lg px-3 py-2.5 flex items-center gap-3 text-left">
+              <div className="shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-md">
                 <I className="h-6 w-6 !text-white" />
-              </div>
+              </div><div>
               <p className="font-black text-slate-900 text-[17px] leading-tight">{t}</p>
-              <p className="text-[14px] text-slate-600 mt-0.5">{d}</p>
+              <p className="text-[14px] text-slate-600 mt-0.5">{d}</p></div>
             </div>
           ))}
         </div>
@@ -1195,14 +1195,14 @@ const BonusBeneficios = () => {
           <p className="flex items-center justify-center gap-2 font-black text-amber-800 text-lg mb-3">
             <PqGift className="h-6 w-6" /> 4 bônus de presente
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {bonus.map(({ I, t, v }) => (
-              <div key={t} className="rounded-2xl bg-white border border-amber-200 shadow p-3 text-center">
-                <div className="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 shadow">
+              <div key={t} className="rounded-2xl bg-white border border-amber-200 shadow px-3 py-2.5 flex items-center gap-3 text-left">
+                <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 shadow">
                   <I className="h-6 w-6 !text-white" />
-                </div>
+                </div><div>
                 <p className="font-black text-slate-900 text-[15px] leading-tight">{t}</p>
-                <p className="text-[13px] text-slate-500 mt-1"><span className="line-through">{v}</span> <strong className="text-green-700">Grátis</strong></p>
+                <p className="text-[13px] text-slate-500 mt-1"><span className="line-through">{v}</span> <strong className="text-green-700">Grátis</strong></p></div>
               </div>
             ))}
           </div>
@@ -1229,14 +1229,13 @@ const ParaQuemSection = () => {
           <span className="inline-block bg-blue-700 !text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide mb-2">Feito para você</span>
           <h2 className="font-black text-slate-900 text-2xl md:text-4xl leading-tight">Este curso é para você se...</h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {itens.map(({ I, b, t }) => (
-            <div key={b} className="rounded-2xl bg-white border-2 border-sky-200 shadow-lg p-4 text-center transition-transform hover:-translate-y-1">
-              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-md">
-                <I className="h-7 w-7 !text-white" />
+            <div key={b} className="rounded-2xl bg-white border-2 border-sky-200 shadow-lg px-3 py-2.5 flex items-center gap-3 text-left">
+              <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-md">
+                <I className="h-6 w-6 !text-white" />
               </div>
-              <p className="font-black text-slate-900 text-[17px] leading-tight">{b}</p>
-              <p className="mt-1 text-[15px] leading-snug text-slate-700">{t}</p>
+              <p className="text-[15px] leading-snug text-slate-700"><strong className="font-black text-slate-900 text-[17px] leading-tight">{b}</strong> {t}</p>
             </div>
           ))}
         </div>
