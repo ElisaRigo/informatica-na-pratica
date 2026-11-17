@@ -1159,6 +1159,37 @@ const Certificate = () => (
 );
 
 // ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
+const BonusBeneficios = () => {
+  const curso = ["+90 videoaulas passo a passo", "Acesso vitalício, sem mensalidade", "Suporte direto com a professora", "Certificado de conclusão"];
+  const bonus = ["Mercado de Trabalho", "Atalhos Essenciais", "Currículo Profissional", "E-mail Profissional"];
+  const Check = () => (<svg viewBox="0 0 24 24" className="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>);
+  return (
+    <section className="py-6 md:py-10">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <div className="bg-white rounded-3xl shadow-md border-2 border-sky-200 p-5 md:p-8">
+          <div className="text-center mb-4">
+            <span className="inline-block bg-blue-700 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide mb-2">Pacote completo</span>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">Tudo o que você recebe hoje</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <p className="font-black text-blue-700 mb-2">O curso</p>
+              <ul className="space-y-2">{curso.map((x) => (<li key={x} className="flex gap-2 text-slate-800 font-semibold text-[17px]"><Check />{x}</li>))}</ul>
+            </div>
+            <div>
+              <p className="font-black text-amber-700 mb-2">4 bônus de presente</p>
+              <ul className="space-y-2">{bonus.map((x) => (<li key={x} className="flex gap-2 text-slate-800 font-semibold text-[17px]"><Check />Bônus: {x}</li>))}</ul>
+            </div>
+          </div>
+          <p className="mt-5 text-center bg-green-50 border border-green-200 rounded-xl py-3 px-3 text-slate-800 font-bold">
+            Só os bônus valem R$ 368 · <span className="text-green-700">hoje tudo por R$ 297</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ParaQuemSection = () => (
   <section className="py-6 px-4">
     <div className="max-w-xl mx-auto rounded-2xl bg-card border-2 border-sky-200 shadow-md p-5">
@@ -1596,6 +1627,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <AulaDemonstrativa />
       <ParaQuemSection />
       <MiniValueSection />
+      <BonusBeneficios />
       <WhatsAposAulas />
       {!instructorFirst && <Instructor photo={instructorPhoto} />}
       <SocialProof />
@@ -1603,11 +1635,6 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <Method />
       {minimalCtas ? <ModulesWarm /> : <Modules />}
       {!minimalCtas && <WhatsAposAulas />}
-      <section className="hc3-dark py-4 md:py-6 bg-slate-900">
-        <div className="container mx-auto px-4">
-          <HeroBonuses variant="dark" />
-        </div>
-      </section>
       <Certificate />
       <GuaranteeBlock />
       <SuporteProfessora />
