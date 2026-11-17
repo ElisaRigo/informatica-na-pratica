@@ -1159,6 +1159,27 @@ const Certificate = () => (
 );
 
 // ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
+const ParaQuemSection = () => (
+  <section className="py-6 px-4">
+    <div className="max-w-xl mx-auto rounded-2xl bg-card border-2 border-sky-200 shadow-md p-5">
+      <h2 className="text-center font-black text-slate-900 text-2xl md:text-3xl mb-4">Este curso é para você se...</h2>
+      <ul className="space-y-3">
+        {[
+          ["Cansou de pedir ajuda", " para filhos, parentes ou colegas."],
+          ["Tem medo de errar", " ou estragar o computador ao mexer."],
+          ["Precisa no trabalho ou nos estudos", " (Word, Excel e e-mails)."],
+          ["Quer aprender do zero,", " no seu ritmo, com calma e paciência."],
+        ].map(([b, t]) => (
+          <li key={b} className="flex items-start gap-3 text-[18px] leading-snug text-slate-800">
+            <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0 mt-0.5 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+            <span><strong>{b}</strong>{t}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+);
+
 const MiniValueSection = () => (
   <section id="primeiro-valor" className="py-6 md:py-8">
     <div className="hc3-offer mx-auto max-w-md rounded-lg border-4 border-border bg-background px-5 py-6 text-center text-foreground shadow-xl">
@@ -1573,6 +1594,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
+      <ParaQuemSection />
       <MiniValueSection />
       <WhatsAposAulas />
       {!instructorFirst && <Instructor photo={instructorPhoto} />}
