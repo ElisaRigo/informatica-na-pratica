@@ -1,3 +1,4 @@
+import { Users as PqUsers, ShieldCheck as PqShield, Briefcase as PqBriefcase, Clock as PqClock, PlayCircle as PqPlay, Infinity as PqInfinity, MessageCircle as PqChat, Award as PqAward, Gift as PqGift, Keyboard as PqKeys, FileText as PqFile, Mail as PqMail, TrendingUp as PqTrend } from "lucide-react";
 import "./claro.css";
 import { useEffect, useState, useRef, createContext, useContext } from "react";
 import type { ReactNode } from "react";
@@ -1160,56 +1161,89 @@ const Certificate = () => (
 
 // ───────────────────────── Primeiro Valor (igual à home) ─────────────────────────
 const BonusBeneficios = () => {
-  const curso = ["+90 videoaulas passo a passo", "Acesso vitalício, sem mensalidade", "Suporte direto com a professora", "Certificado de conclusão"];
-  const bonus = ["Mercado de Trabalho", "Atalhos Essenciais", "Currículo Profissional", "E-mail Profissional"];
-  const Check = () => (<svg viewBox="0 0 24 24" className="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>);
+  const curso = [
+    { I: PqPlay, t: "+90 videoaulas", d: "Passo a passo do zero" },
+    { I: PqInfinity, t: "Acesso vitalício", d: "Sem mensalidade" },
+    { I: PqChat, t: "Suporte da professora", d: "Tire suas dúvidas" },
+    { I: PqAward, t: "Certificado", d: "De conclusão" },
+  ];
+  const bonus = [
+    { I: PqTrend, t: "Mercado de Trabalho", v: "R$ 127" },
+    { I: PqKeys, t: "Atalhos Essenciais", v: "R$ 47" },
+    { I: PqFile, t: "Currículo Profissional", v: "R$ 97" },
+    { I: PqMail, t: "E-mail Profissional", v: "R$ 97" },
+  ];
   return (
-    <section className="py-6 md:py-10">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <div className="bg-white rounded-3xl shadow-md border-2 border-sky-200 p-5 md:p-8">
-          <div className="text-center mb-4">
-            <span className="inline-block bg-blue-700 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide mb-2">Pacote completo</span>
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">Tudo o que você recebe hoje</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <p className="font-black text-blue-700 mb-2">O curso</p>
-              <ul className="space-y-2">{curso.map((x) => (<li key={x} className="flex gap-2 text-slate-800 font-semibold text-[17px]"><Check />{x}</li>))}</ul>
-            </div>
-            <div>
-              <p className="font-black text-amber-700 mb-2">4 bônus de presente</p>
-              <ul className="space-y-2">{bonus.map((x) => (<li key={x} className="flex gap-2 text-slate-800 font-semibold text-[17px]"><Check />Bônus: {x}</li>))}</ul>
-            </div>
-          </div>
-          <p className="mt-5 text-center bg-green-50 border border-green-200 rounded-xl py-3 px-3 text-slate-800 font-bold">
-            Só os bônus valem R$ 368 · <span className="text-green-700">hoje tudo por R$ 297</span>
-          </p>
+    <section className="py-8 px-4">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-5">
+          <span className="inline-block bg-blue-700 !text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide mb-2">Pacote completo</span>
+          <h2 className="font-black text-slate-900 text-2xl md:text-4xl leading-tight">Tudo o que você recebe hoje</h2>
         </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {curso.map(({ I, t, d }) => (
+            <div key={t} className="rounded-2xl bg-white border-2 border-sky-200 shadow-lg p-4 text-center">
+              <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-md">
+                <I className="h-6 w-6 !text-white" />
+              </div>
+              <p className="font-black text-slate-900 text-[17px] leading-tight">{t}</p>
+              <p className="text-[14px] text-slate-600 mt-0.5">{d}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 rounded-3xl bg-gradient-to-br from-amber-50 to-yellow-100 border-2 border-amber-300 shadow-lg p-4 md:p-6">
+          <p className="flex items-center justify-center gap-2 font-black text-amber-800 text-lg mb-3">
+            <PqGift className="h-6 w-6" /> 4 bônus de presente
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {bonus.map(({ I, t, v }) => (
+              <div key={t} className="rounded-2xl bg-white border border-amber-200 shadow p-3 text-center">
+                <div className="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 shadow">
+                  <I className="h-6 w-6 !text-white" />
+                </div>
+                <p className="font-black text-slate-900 text-[15px] leading-tight">{t}</p>
+                <p className="text-[13px] text-slate-500 mt-1"><span className="line-through">{v}</span> <strong className="text-green-700">Grátis</strong></p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="mt-4 text-center rounded-2xl bg-green-600 !text-white font-black text-lg py-3 px-3 shadow-lg">
+          Só os bônus valem R$ 368 · hoje tudo por R$ 297
+        </p>
       </div>
     </section>
   );
 };
 
-const ParaQuemSection = () => (
-  <section className="py-6 px-4">
-    <div className="max-w-xl mx-auto rounded-2xl bg-card border-2 border-sky-200 shadow-md p-5">
-      <h2 className="text-center font-black text-slate-900 text-2xl md:text-3xl mb-4">Este curso é para você se...</h2>
-      <ul className="space-y-3">
-        {[
-          ["Cansou de pedir ajuda", " para filhos, parentes ou colegas."],
-          ["Tem medo de errar", " ou estragar o computador ao mexer."],
-          ["Precisa no trabalho ou nos estudos", " (Word, Excel e e-mails)."],
-          ["Quer aprender do zero,", " no seu ritmo, com calma e paciência."],
-        ].map(([b, t]) => (
-          <li key={b} className="flex items-start gap-3 text-[18px] leading-snug text-slate-800">
-            <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0 mt-0.5 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
-            <span><strong>{b}</strong>{t}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-);
+const ParaQuemSection = () => {
+  const itens = [
+    { I: PqUsers, b: "Cansou de pedir ajuda", t: "para filhos, parentes ou colegas." },
+    { I: PqShield, b: "Tem medo de errar", t: "ou estragar o computador ao mexer." },
+    { I: PqBriefcase, b: "Precisa no trabalho", t: "ou nos estudos: Word, Excel e e-mails." },
+    { I: PqClock, b: "Quer aprender do zero", t: "no seu ritmo, com calma e paciência." },
+  ];
+  return (
+    <section className="py-8 px-4">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-5">
+          <span className="inline-block bg-blue-700 !text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide mb-2">Feito para você</span>
+          <h2 className="font-black text-slate-900 text-2xl md:text-4xl leading-tight">Este curso é para você se...</h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {itens.map(({ I, b, t }) => (
+            <div key={b} className="rounded-2xl bg-white border-2 border-sky-200 shadow-lg p-4 text-center transition-transform hover:-translate-y-1">
+              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-md">
+                <I className="h-7 w-7 !text-white" />
+              </div>
+              <p className="font-black text-slate-900 text-[17px] leading-tight">{b}</p>
+              <p className="mt-1 text-[15px] leading-snug text-slate-700">{t}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const MiniValueSection = () => (
   <section id="primeiro-valor" className="py-6 md:py-8">
