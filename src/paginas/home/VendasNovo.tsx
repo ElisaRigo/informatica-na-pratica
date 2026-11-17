@@ -1661,7 +1661,7 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <AulaDemonstrativa />
       <ParaQuemSection />
       <MiniValueSection />
-      <BonusBeneficios />
+      <section className="py-6 md:py-8 bg-amber-50/70"><div className="container mx-auto px-4"><HeroBonuses variant="light" /></div></section>
       <WhatsAposAulas />
       {!instructorFirst && <Instructor photo={instructorPhoto} />}
       <SocialProof />
