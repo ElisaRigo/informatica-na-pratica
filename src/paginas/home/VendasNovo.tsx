@@ -1454,16 +1454,10 @@ const Footer = () => (
 const StickyMobile = () => {
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2 backdrop-blur-xl shadow-xl">
-      <div className="mb-1.5 flex items-center justify-center gap-1.5">
-        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/10 px-2.5 py-1 text-[11px] font-bold text-white ring-1 ring-slate-100/25">
-          <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
-          7 dias de garantia
-        </span>
-        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/10 px-2.5 py-1 text-[11px] font-bold text-white ring-1 ring-slate-100/25">
-          <MessageCircle className="h-3.5 w-3.5 text-sky-300" aria-hidden="true" />
-          Suporte da professora
-        </span>
-      </div>
+      <p className="mb-1.5 flex items-center justify-center gap-1 text-center text-[12px] font-bold text-white">
+        <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
+        Curso com garantia e suporte da professora
+      </p>
       <button
         onClick={openCheckout}
         className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground shadow-[0_0_24px_rgba(37,211,102,0.55)] ring-2 ring-emerald-300/60 active:brightness-95"
