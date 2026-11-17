@@ -1455,7 +1455,7 @@ const StickyMobile = () => {
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2 backdrop-blur-xl shadow-xl">
       <p className="mb-1.5 flex items-center justify-center gap-1.5 whitespace-nowrap text-center [font-size:min(3.9vw,15px)] font-bold text-white">
-        <ShieldCheck className="h-[1.1em] w-[1.1em] shrink-0 text-emerald-400" aria-hidden="true" />
+        <GraduationCap className="h-[1.1em] w-[1.1em] shrink-0 text-emerald-400" aria-hidden="true" />
         Curso com garantia e suporte da professora
       </p>
       <button
