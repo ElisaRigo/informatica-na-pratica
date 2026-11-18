@@ -1661,7 +1661,6 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <ParaQuemSection />
       <MiniValueSection />
       <BonusBeneficios />
-      <WhatsAposAulas />
       {!instructorFirst && <Instructor photo={instructorPhoto} />}
       <SocialProof />
       {!minimalCtas && <WhatsAposAulas bg="bg-white/5" />}
