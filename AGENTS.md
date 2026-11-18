@@ -17,3 +17,4 @@
 - Keep /informatica on its own copied module under `src/paginas/informatica/`, with the previous informatica page preserved at /informatica-copia, so edits never change the home (/) or historical pages.
 
 - Keep `/versao-07-07` on its own copied presentation from the v0607 archive, not the repurposed `/versao-06-07` route, so historical restoration does not change existing pages.
+- Keep `/versao-28-10` on its own copied presentation from the home snapshot at the end of October 28, 2026, so edits to the restoration never change the home or other archive routes.
