@@ -398,7 +398,7 @@ const AulaDemonstrativa = () => {
             <HeartHandshake className="w-4 h-4" /> Aula de presente para você
           </span>
           <h2 ref={firstTitleRef} className="-mx-2 md:mx-0 font-black text-white leading-tight whitespace-nowrap text-3xl md:text-6xl">
-            É fácil <span className="text-sky-300">aprender comigo</span>
+            Veja como é uma aula passo a passoder comigo Veja como é uma aula <span className="text-sky-300">passo a passo— do jeito que você vai aprender</span>
           </h2>
           <p className="text-slate-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto leading-relaxed">
             Dê o play e descubra que o computador não é difícil quando alguém explica com calma.
