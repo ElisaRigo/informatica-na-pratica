@@ -1249,6 +1249,8 @@ const MiniValueSection = () => (
               <s.icon className={`seal-pulse h-10 w-10 shrink-0 ${s.tone}`} strokeWidth={2} aria-hidden="true" />
               <span className="text-[11px] font-extrabold uppercase leading-tight text-foreground min-[390px]:text-xs">{s.lines[0]}<br />{s.lines[1]}</span>
             </div>
+          ))}
+        </div>
         <div className="mt-5 rounded-2xl border-2 border-green-200 bg-green-50 px-2 py-3 text-center">
           <p className="flex items-center justify-center gap-1.5 font-black uppercase !text-green-700 [font-size:min(3.7vw,17px)] whitespace-nowrap">
             <ShieldCheck className="h-[1.25em] w-[1.25em] shrink-0 !text-green-700" aria-hidden="true" /> Garantia incondicional de 7 dias
@@ -1256,8 +1258,6 @@ const MiniValueSection = () => (
           <p className="mt-2 [font-size:min(4vw,16px)] leading-snug !text-slate-700">
             <strong className="!text-blue-600">RISCO ZERO!</strong> Se não gostar, devolvemos <strong className="!text-green-700">100% do seu dinheiro.</strong>
           </p>
-        </div>
-          ))}
         </div>
       </div>
     </div>
