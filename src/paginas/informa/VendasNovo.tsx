@@ -1248,7 +1248,14 @@ const MiniValueSection = () => (
             </div>
           ))}
         </div>
-        <p className="mt-5 border-t border-border pt-4 text-base leading-relaxed text-muted-foreground">Se não for para você, peça a devolução do valor em até 7 dias após a compra.</p>
+        <div className="mt-5 rounded-2xl border-2 border-green-200 bg-green-50 px-4 py-4 text-center">
+          <p className="flex items-center justify-center gap-2 font-black uppercase !text-green-700 [font-size:min(4.4vw,18px)] whitespace-nowrap">
+            <ShieldCheck className="h-[1.3em] w-[1.3em] shrink-0 !text-green-700" aria-hidden="true" /> Garantia incondicional de 7 dias
+          </p>
+          <p className="mt-2 text-base leading-snug !text-slate-700">
+            <strong className="!text-blue-600">RISCO ZERO!</strong> Se não gostar, devolvemos <strong className="!text-green-700">100% do seu dinheiro.</strong>
+          </p>
+        </div>
       </div>
     </div>
   </section>
