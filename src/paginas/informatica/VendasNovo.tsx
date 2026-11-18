@@ -1172,9 +1172,14 @@ const BonusBeneficios = () => {
             ))}
           </div>
         </div>
-        <p className="mt-4 text-center rounded-2xl bg-green-600 !text-white font-black text-lg py-3 px-3 shadow-lg">
-          Só os bônus valem R$ 368 · hoje tudo por R$ 297
-        </p>
+        <div className="hc3-offer mt-4 rounded-2xl border-2 border-dashed border-green-300 bg-green-50 px-4 py-4 text-center">
+          <p className="text-base text-slate-600">Só os bônus valem <span className="font-bold line-through decoration-red-500 decoration-2">R$ 368</span></p>
+          <p className="mt-1 text-lg font-black leading-tight text-slate-900">Hoje você leva <span className="!text-green-700">tudo por R$ 297</span></p>
+          <Button onClick={openCheckout} className="hc3-offer-button cta-pulse mt-3 h-auto w-full gap-1.5 rounded-xl px-2 py-3.5 text-xl font-extrabold leading-tight min-[390px]:text-[22px]">
+            <Monitor className="h-[1em] w-[1em] shrink-0" aria-hidden="true" />
+            <span className="whitespace-nowrap">Quero tudo isso!</span>
+          </Button>
+        </div>
       </div>
     </section>
   );
