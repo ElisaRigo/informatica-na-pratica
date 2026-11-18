@@ -249,19 +249,7 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
           )}
 
 
-          {showCourseSeals && (
-            <div className="flex flex-wrap justify-center gap-2 mb-3 md:mb-4">
-              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-primary/20 border border-primary/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-                <InfinityIcon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                <span className="font-bold text-xs md:text-sm text-primary">ACESSO VITALÍCIO</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/20 border border-accent/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full">
-                <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-                <span className="font-bold text-xs md:text-sm text-accent">SUPORTE NO WHATS</span>
-              </div>
-            </div>
-          )}
-
+          
           {/* Video */}
           <div className="relative mt-5 max-w-5xl -mx-4 md:mx-auto md:mt-8 rounded-none md:rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border-0 md:border border-white/10 mb-3">
             {!isPlaying ? (
@@ -322,29 +310,6 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             Crie documentos e planilhas, organize arquivos, envie e-mails e muito mais...
           </p>
 
-          <div className="home-copia-3-trust mx-auto grid max-w-3xl grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
-            {[
-              { icon: ShieldCheck, tone: "guarantee", label: "7 dias de garantia" },
-              { icon: Lock, tone: "secure", label: "Compra 100% segura" },
-              { icon: Zap, tone: "instant", label: "Acesso imediato" },
-              { icon: Monitor, tone: "support", label: "Curso completo" },
-            ].map((s) => (
-              <div
-                key={s.label}
-                data-tone={s.tone}
-                className="home-copia-3-trust-pill flex min-h-9 min-w-0 items-center justify-center gap-1.5 rounded-full border px-2 py-2 md:gap-2 md:px-3"
-              >
-                <s.icon
-                  className="h-4 w-4 shrink-0"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
-                <span className="whitespace-nowrap text-[10px] font-extrabold uppercase leading-tight min-[390px]:text-[11px] md:text-[11px]">
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
 
           <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-4">
             {"\n"}
@@ -1244,39 +1209,46 @@ const ParaQuemSection = () => {
   );
 };
 
+const OFFER_SEALS = [
+  { icon: ShieldCheck, tone: "text-green-600", lines: ["7 dias", "de garantia"] },
+  { icon: Lock, tone: "text-blue-600", lines: ["Compra", "100% segura"] },
+  { icon: Zap, tone: "text-orange-500", lines: ["Acesso", "imediato"] },
+  { icon: MessageCircle, tone: "text-teal-600", lines: ["Suporte por", "WhatsApp"] },
+];
+
 const MiniValueSection = () => (
-  <section id="primeiro-valor" className="py-6 md:py-8">
-    <div className="hc3-offer mx-auto max-w-md rounded-lg border-4 border-border bg-background px-5 py-6 text-center text-foreground shadow-xl">
-      <span className="inline-flex items-center gap-2 text-base font-bold text-success">
-        <Zap className="h-5 w-5 shrink-0" /> Comece hoje, no seu ritmo
-      </span>
-      <h2 className="mt-3 text-2xl font-black leading-tight text-foreground">Seu primeiro passo para usar o computador com confiança</h2>
-      <p className="mt-2 text-lg text-muted-foreground">Curso completo · Acesso vitalício</p>
-      <p className="mt-5 text-lg text-muted-foreground">
-        De <span className="line-through">R$ 497,00</span> por
-      </p>
-      <p className="mt-1 text-5xl font-black leading-none text-success">R$ 297</p>
-      <p className="mt-2 text-lg text-muted-foreground">
-        ou <strong className="text-foreground">12x de R$ 30,72</strong> no cartão
-      </p>
-      <p className="mt-3 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 text-base font-extrabold text-accent-foreground">
-        <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
-      </p>
-      <p className="mt-3 text-base font-semibold text-foreground">Pagamento único · Seu para sempre</p>
-      <div className="mt-5">
-        <Button onClick={openCheckout} className="hc3-offer-button cta-pulse h-auto w-full gap-1.5 rounded-xl px-2 py-4 text-xl font-extrabold leading-tight min-[360px]:text-[23px] min-[390px]:text-2xl md:text-[26px]">
-          <Monitor className="h-[1em] w-[1em] shrink-0" aria-hidden="true" />
-          <span className="whitespace-nowrap">Quero começar agora!</span>
-        </Button>
+  <section id="primeiro-valor" className="py-6 md:py-8 px-3">
+    <div className="hc3-offer relative mx-auto max-w-md overflow-hidden rounded-3xl border-4 border-border bg-background text-center text-foreground shadow-2xl">
+      <div className="bg-gradient-to-r from-blue-700 to-sky-600 px-4 py-2.5">
+        <p className="text-sm font-black uppercase tracking-wide !text-white">Oferta especial · Acesso vitalício</p>
       </div>
-      <div className="mt-5 border-t border-border pt-4">
-        <p className="flex items-center justify-center gap-2 text-lg font-bold text-foreground">
-          <ShieldCheck className="h-6 w-6 shrink-0 text-success" /> 7 dias para experimentar
-        </p>
-        <p className="mt-2 text-base leading-relaxed text-muted-foreground">Se não for para você, peça a devolução do valor em até 7 dias após a compra.</p>
-        <p className="mt-3 flex items-center justify-center gap-2 text-base font-semibold text-muted-foreground">
-          <Lock className="h-4 w-4 shrink-0 text-success" /> Pagamento seguro pela Hotmart
-        </p>
+      <div className="px-5 pb-6 pt-5">
+        <h2 className="text-2xl font-black leading-tight text-foreground">Curso Completo de Informática</h2>
+        <p className="mt-1 text-base text-muted-foreground">Do zero, com calma e no seu ritmo</p>
+        <div className="mt-5 rounded-2xl border-2 border-dashed border-green-300 bg-green-50/70 px-4 py-4">
+          <p className="text-lg text-muted-foreground">De <span className="font-bold line-through decoration-red-500 decoration-2">R$ 497,00</span> por apenas</p>
+          <p className="mt-1 text-6xl font-black leading-none text-success">R$ 297</p>
+          <p className="mt-2 text-lg text-muted-foreground">ou <strong className="text-foreground">12x de R$ 30,72</strong> no cartão</p>
+          <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-amber-400 px-4 py-1.5 text-base font-black text-slate-900">
+            <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
+          </p>
+        </div>
+        <p className="mt-3 text-base font-semibold text-foreground">Pagamento único · Seu para sempre</p>
+        <div className="mt-4">
+          <Button onClick={openCheckout} className="hc3-offer-button cta-pulse h-auto w-full gap-1.5 rounded-xl px-2 py-4 text-xl font-extrabold leading-tight min-[360px]:text-[23px] min-[390px]:text-2xl md:text-[26px]">
+            <Monitor className="h-[1em] w-[1em] shrink-0" aria-hidden="true" />
+            <span className="whitespace-nowrap">Quero começar agora!</span>
+          </Button>
+        </div>
+        <div className="mt-5 grid grid-cols-4 gap-x-1">
+          {OFFER_SEALS.map((s) => (
+            <div key={s.lines.join(" ")} className="flex flex-col items-center gap-1 text-center">
+              <s.icon className={`seal-pulse h-10 w-10 shrink-0 ${s.tone}`} strokeWidth={2} aria-hidden="true" />
+              <span className="text-[11px] font-extrabold uppercase leading-tight text-foreground min-[390px]:text-xs">{s.lines[0]}<br />{s.lines[1]}</span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-5 border-t border-border pt-4 text-base leading-relaxed text-muted-foreground">Se não for para você, peça a devolução do valor em até 7 dias após a compra.</p>
       </div>
     </div>
   </section>
