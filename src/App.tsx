@@ -38,6 +38,7 @@ const Informa = lazy(() => import("./pages/Informa"));
 const HomeAtual = lazy(() => import("./pages/HomeAtual"));
 const HomeCopia2 = lazy(() => import("./pages/HomeCopia2"));
 const HomeCopia3 = lazy(() => import("./pages/HomeCopia3"));
+const ProfElisa = lazy(() => import("./pages/ProfElisa"));
 const InformaCopia = lazy(() => import("./pages/InformaCopia"));
 const Informa2 = lazy(() => import("./pages/Informa2"));
 const Informa3 = lazy(() => import("./pages/Informa3"));
@@ -59,6 +60,7 @@ const App = () => (
             <Route path="/home-copia" element={<Versao2109 />} />
             <Route path="/home-copia-2" element={<HomeCopia2 />} />
             <Route path="/home-copia-3" element={<HomeCopia3 />} />
+            <Route path="/prof-elisa" element={<ProfElisa />} />
             <Route path="/informa-copia" element={<InformaCopia />} />
             <Route path="/curso" element={<Curso />} />
             <Route path="/venda-teste" element={<VendaTeste />} />
