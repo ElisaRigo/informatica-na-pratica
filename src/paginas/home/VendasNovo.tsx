@@ -1086,7 +1086,7 @@ const MiniValueSection = () => (
         <div className="mt-4">
           <Button onClick={openCheckout} className="hc3-offer-button cta-pulse h-auto w-full gap-1.5 rounded-xl px-2 py-4 text-xl font-extrabold leading-tight min-[360px]:text-[23px] min-[390px]:text-2xl md:text-[26px]">
             <Monitor className="h-[1em] w-[1em] shrink-0" aria-hidden="true" />
-            <span className="whitespace-nowrap">Quero começar agora!</span>
+            <span className="whitespace-nowrap">Quero começar o curso!</span>
           </Button>
         </div>
         <div className="mt-5 rounded-2xl border-2 border-green-200 bg-green-50 px-2 py-3 text-center">
