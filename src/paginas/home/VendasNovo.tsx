@@ -1054,7 +1054,7 @@ const BonusBeneficios = () => {
           <p className="mt-1 text-lg font-black leading-tight text-slate-900"></p>
           <Button onClick={openCheckout} className="hc3-offer-button cta-pulse mt-3 h-auto w-full gap-1.5 rounded-xl px-2 py-3.5 text-xl font-extrabold leading-tight min-[390px]:text-[22px]">
             <Monitor className="h-[1em] w-[1em] shrink-0" aria-hidden="true" />
-            <span className="whitespace-nowrap">Quero tudo isso!</span>
+            <span className="whitespace-nowrap">Quero Dominar o Computador!</span>
           </Button>
         </div>
       </div>
