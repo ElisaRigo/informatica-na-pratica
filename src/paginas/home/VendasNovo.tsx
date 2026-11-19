@@ -1075,8 +1075,8 @@ const MiniValueSection = () => (
           <p className="text-lg text-muted-foreground">De <span className="font-bold line-through decoration-red-500 decoration-2">R$ 497,00</span> por apenas</p>
           <p className="mt-1 text-6xl font-black leading-none text-success">R$ 297</p>
           <p className="mt-2 text-lg text-muted-foreground">ou <strong className="text-foreground">12x de R$ 30,72</strong> no cartão</p>
-          <p className="mt-2 flex items-center justify-center gap-1.5 whitespace-nowrap font-bold !text-green-700 [font-size:min(3.9vw,16px)]">
-            <Lock className="h-[1.2em] w-[1.2em] shrink-0 !text-green-700" aria-hidden="true" /> Pagamento 100% seguro · Acesso imediato
+          <p className="mt-2 flex items-center justify-center gap-1 whitespace-nowrap font-bold !text-green-700 [font-size:min(3.3vw,15px)]">
+            <Lock className="h-[1.1em] w-[1.1em] shrink-0 !text-green-700" aria-hidden="true" /> Pagamento 100% seguro · Acesso imediato
           </p>
           <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-amber-400 px-4 py-1.5 text-base font-black text-slate-900">
             <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
