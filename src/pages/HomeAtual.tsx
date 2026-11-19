@@ -15,7 +15,6 @@ const HomeAtual = () => {
         instructorPhoto="/images/prof-elisa.jpg"
         instructorFirst
         minimalCtas
-        hideWhatsFloat
         hidePrograms
         headline={
           <h1 className="mx-auto mb-4 w-full text-center font-black leading-tight text-slate-900">

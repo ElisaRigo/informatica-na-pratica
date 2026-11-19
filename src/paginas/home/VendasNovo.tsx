@@ -1443,27 +1443,30 @@ const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
 const WhatsFloat = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
-    const check = () => {
-      const el = document.getElementById("primeiro-valor");
-      if (!el) return;
-      if (el.getBoundingClientRect().bottom < window.innerHeight) setShow(true);
-    };
+    const check = () => setShow(window.scrollY > 300);
     check();
     window.addEventListener("scroll", check, { passive: true });
     return () => window.removeEventListener("scroll", check);
   }, []);
-  if (!show) return null;
   return (
     <a
       href={WHATS_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={trackWhats}
-      aria-label="Tire suas dúvidas no WhatsApp"
-      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
+      onClick={() => { trackWhats(); (window as any).gtag?.("event", "whatsapp_click"); }}
+      aria-label="Fale com a Profª Elisa no WhatsApp"
+      className={`fixed right-3 bottom-[128px] md:bottom-6 z-40 flex items-center gap-2 rounded-full border border-white/40 bg-slate-900/60 py-1.5 pl-1.5 pr-4 !text-white shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all duration-300 active:scale-95 ${show ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"}`}
     >
-      <WhatsIcon className="w-6 h-6" />
-      <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
+      <span className="relative shrink-0">
+        <img src="/images/elisa-whatsapp.jpg" alt="" className="h-10 w-10 rounded-full object-cover ring-2 ring-[#25D366]" />
+        <span className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#25D366] ring-2 ring-white">
+          <WhatsIcon className="h-2.5 w-2.5 !text-white" />
+        </span>
+      </span>
+      <span className="flex flex-col leading-tight">
+        <span className="text-[11px] font-semibold !text-emerald-300">Dúvidas no WhatsApp</span>
+        <span className="text-[15px] font-extrabold !text-white">Fale com a Profª Elisa</span>
+      </span>
     </a>
   );
 };
