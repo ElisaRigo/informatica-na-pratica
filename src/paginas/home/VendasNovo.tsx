@@ -1,4 +1,4 @@
-import { Users as PqUsers, ShieldCheck as PqShield, Briefcase as PqBriefcase, Clock as PqClock, PlayCircle as PqPlay, Infinity as PqInfinity, MessageCircle as PqChat, Award as PqAward, Gift as PqGift, Keyboard as PqKeys, FileText as PqFile, Mail as PqMail, TrendingUp as PqTrend } from "lucide-react";
+import { PlayCircle as PqPlay, Infinity as PqInfinity, MessageCircle as PqChat, Award as PqAward, Gift as PqGift, Keyboard as PqKeys, FileText as PqFile, Mail as PqMail, TrendingUp as PqTrend } from "lucide-react";
 import "./claro.css";
 import { useEffect, useState, useRef, createContext, useContext } from "react";
 import type { ReactNode } from "react";
@@ -26,7 +26,6 @@ import {
   Smartphone,
   ThumbsUp,
   Heart,
-  Zap,
   MessageCircle,
   GraduationCap,
   BookOpen,
@@ -1063,42 +1062,6 @@ const BonusBeneficios = () => {
   );
 };
 
-const ParaQuemSection = () => {
-  const itens = [
-    { I: PqUsers, b: "Cansou de pedir ajuda", t: "para filhos, parentes ou colegas." },
-    { I: PqShield, b: "Tem medo de errar", t: "ou estragar o computador ao mexer." },
-    { I: PqBriefcase, b: "Precisa no trabalho", t: "ou nos estudos: Word, Excel e e-mails." },
-    { I: PqClock, b: "Quer aprender do zero", t: "no seu ritmo, com calma e paciência." },
-  ];
-  return (
-    <section className="py-8 px-4">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-5">
-          <span className="inline-block bg-blue-700 !text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide mb-2">Feito para você</span>
-          <h2 className="font-black text-slate-900 text-2xl md:text-4xl leading-tight">Este curso é para você se...</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          {itens.map(({ I, b, t }) => (
-            <div key={b} className="rounded-2xl bg-white border-2 border-sky-200 shadow-lg px-3 py-2.5 flex items-center gap-3 text-left">
-              <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-md">
-                <I className="h-6 w-6 !text-white" />
-              </div>
-              <p className="text-[15px] leading-snug text-slate-700"><strong className="font-black text-slate-900 text-[17px] leading-tight">{b}</strong> {t}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const OFFER_SEALS = [
-  { icon: ShieldCheck, tone: "text-green-600", lines: ["7 dias", "de garantia"] },
-  { icon: Lock, tone: "text-blue-600", lines: ["Compra", "100% segura"] },
-  { icon: Zap, tone: "text-orange-500", lines: ["Acesso", "imediato"] },
-  { icon: MessageCircle, tone: "text-teal-600", lines: ["Suporte por", "WhatsApp"] },
-];
-
 const MiniValueSection = () => (
   <section id="primeiro-valor" className="py-6 md:py-8 px-3">
     <div className="hc3-offer relative mx-auto max-w-md overflow-hidden rounded-3xl border-4 border-border bg-background text-center text-foreground shadow-2xl">
@@ -1112,8 +1075,8 @@ const MiniValueSection = () => (
           <p className="text-lg text-muted-foreground">De <span className="font-bold line-through decoration-red-500 decoration-2">R$ 497,00</span> por apenas</p>
           <p className="mt-1 text-6xl font-black leading-none text-success">R$ 297</p>
           <p className="mt-2 text-lg text-muted-foreground">ou <strong className="text-foreground">12x de R$ 30,72</strong> no cartão</p>
-          <p className="mt-2 flex items-center justify-center gap-1.5 whitespace-nowrap font-bold !text-green-700 [font-size:min(4.2vw,17px)]">
-            <Zap className="h-[1.2em] w-[1.2em] shrink-0 !text-green-700" aria-hidden="true" /> Acesso imediato
+          <p className="mt-2 flex items-center justify-center gap-1.5 whitespace-nowrap font-bold !text-green-700 [font-size:min(3.9vw,16px)]">
+            <Lock className="h-[1.2em] w-[1.2em] shrink-0 !text-green-700" aria-hidden="true" /> Pagamento 100% seguro · Acesso imediato
           </p>
           <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-amber-400 px-4 py-1.5 text-base font-black text-slate-900">
             <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
@@ -1125,14 +1088,6 @@ const MiniValueSection = () => (
             <Monitor className="h-[1em] w-[1em] shrink-0" aria-hidden="true" />
             <span className="whitespace-nowrap">Quero começar agora!</span>
           </Button>
-        </div>
-        <div className="mt-5 grid grid-cols-4 gap-x-1">
-          {OFFER_SEALS.map((s) => (
-            <div key={s.lines.join(" ")} className="flex flex-col items-center gap-1 text-center">
-              <s.icon className={`seal-pulse h-10 w-10 shrink-0 ${s.tone}`} strokeWidth={2} aria-hidden="true" />
-              <span className="text-[11px] font-extrabold uppercase leading-tight text-foreground min-[390px]:text-xs">{s.lines[0]}<br />{s.lines[1]}</span>
-            </div>
-          ))}
         </div>
         <div className="mt-5 rounded-2xl border-2 border-green-200 bg-green-50 px-2 py-3 text-center">
           <p className="flex items-center justify-center gap-1.5 font-black uppercase !text-green-700 [font-size:min(3.7vw,17px)] whitespace-nowrap">
@@ -1522,7 +1477,6 @@ const VendasNovo = ({ videoThumb, centerPlay, instructorPhoto, instructorFirst, 
       <Hero videoThumb={videoThumb} centerPlay={centerPlay} headline={headline} hidePrograms={hidePrograms} showCourseSeals={showCourseSeals} />
       {instructorFirst && <Instructor photo={instructorPhoto} />}
       <AulaDemonstrativa />
-      <ParaQuemSection />
       <MiniValueSection />
       <BonusBeneficios />
       {!instructorFirst && <Instructor photo={instructorPhoto} />}
