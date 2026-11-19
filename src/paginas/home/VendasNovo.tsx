@@ -61,6 +61,10 @@ import { Button } from "@/components/ui/button";
 
 const openCheckout = () => openHotmartCheckout();
 
+// Keep native controls available; the YouTube player can still honor viewer caption preferences.
+const homeVideoEmbed = (id: string) =>
+  `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&controls=1&cc_load_policy=0&rel=0&iv_load_policy=3`;
+
 const scrollToValue = () => {
   const el = document.getElementById("primeiro-valor");
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -289,19 +293,13 @@ const Hero = ({ videoThumb = homeVideoThumb, centerPlay = false, headline, hideP
             ) : (
               <div className="aspect-video relative">
                 <iframe
-                  src="https://www.youtube-nocookie.com/embed/0kFjFZX5c9I?rel=0&modestbranding=1&controls=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
-                  title="Aula gratuita"
+                  src={homeVideoEmbed("0kFjFZX5c9I")}
+                  title="Recado da professora Elisa"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
-                <a
-                  href="https://www.youtube.com/watch?v=0kFjFZX5c9I"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-                ></a>
               </div>
             )}
           </div>
@@ -378,7 +376,13 @@ const AulaDemonstrativa = () => {
 
         <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-6">
           {!isPlaying ? (
-            <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+            <Button
+              type="button"
+              variant="ghost"
+              aria-label="Assistir à aula demonstrativa gratuita"
+              className="group relative block h-auto w-full aspect-video rounded-none p-0"
+              onClick={() => setIsPlaying(true)}
+            >
               <img
                 src="/images/versao-28-10/capa-aula-demonstrativa.jpg"
                 alt="Aula demonstrativa gratuita"
@@ -393,25 +397,17 @@ const AulaDemonstrativa = () => {
               <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-slate-900/40 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-lg">
                 Aula — Assista agora
               </div>
-            </div>
+            </Button>
           ) : (
             <div className="aspect-video relative">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/_0OPLnEiMHk?rel=0&controls=1&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&autoplay=1"
+                src={homeVideoEmbed("_0OPLnEiMHk")}
                 title="Aula demonstrativa gratuita"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
-              <a
-                href="https://www.youtube.com/watch?v=_0OPLnEiMHk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 text-white text-[10px] md:text-xs px-2 py-1 rounded"
-              >
-                Ver no YouTube
-              </a>
             </div>
           )}
         </div>
