@@ -1403,11 +1403,7 @@ const Footer = () => (
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => {
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-slate-900/85 px-2 pb-3 pt-2 backdrop-blur-xl shadow-xl">
-      <p className="mb-1.5 flex items-center justify-center gap-1.5 whitespace-nowrap text-center [font-size:min(3.9vw,15px)] font-bold text-white">
-        <GraduationCap className="h-[1.1em] w-[1.1em] shrink-0 text-emerald-400" aria-hidden="true" />
-        {"\n"}
-      </p>
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-30 px-2 pb-3 pt-2">
       <button
         onClick={openCheckout}
         className="cta-pulse cta-shine relative flex w-full items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-whatsapp to-whatsapp-strong py-4 [font-size:min(7.9vw,32px)] leading-[1.15] font-extrabold tracking-tight text-whatsapp-foreground shadow-[0_0_24px_rgba(37,211,102,0.55)] ring-2 ring-emerald-300/60 active:brightness-95"
