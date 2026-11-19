@@ -400,13 +400,15 @@ const AulaDemonstrativa = () => {
             </Button>
           ) : (
             <div className="aspect-video relative">
-              <iframe
-                src={homeVideoEmbed("_0OPLnEiMHk")}
+              <video
+                src="/videos/aula-abrir-programas.mp4"
                 title="Aula demonstrativa gratuita"
                 className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
+                controls
+                autoPlay
+                playsInline
+                preload="none"
+                poster="/images/versao-28-10/capa-aula-demonstrativa.jpg"
               />
             </div>
           )}
