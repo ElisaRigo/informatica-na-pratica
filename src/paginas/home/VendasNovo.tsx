@@ -1451,7 +1451,7 @@ const WhatsFloat = () => {
       rel="noopener noreferrer"
       onClick={() => { trackWhats(); (window as any).gtag?.("event", "whatsapp_click"); }}
       aria-label="Fale com a Profª Elisa no WhatsApp"
-      className={`fixed right-3 bottom-[128px] md:bottom-6 z-40 flex items-center gap-2 rounded-full border border-white/40 bg-slate-900/60 py-1.5 pl-1.5 pr-4 !text-white shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all duration-300 active:scale-95 ${show ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"}`}
+      className={`fixed right-3 bottom-[86px] md:bottom-6 z-40 flex items-center gap-2 rounded-full border border-white/40 bg-slate-900/60 py-1.5 pl-1.5 pr-4 !text-white shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all duration-300 active:scale-95 ${show ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"}`}
     >
       <span className="relative shrink-0">
         <img src="/images/prof-elisa-avatar.jpg" alt="" className="h-10 w-10 rounded-full object-cover ring-2 ring-[#25D366]" />
