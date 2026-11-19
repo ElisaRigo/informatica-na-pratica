@@ -1372,7 +1372,7 @@ const StickyMobile = () => {
 // ───────────────────────── WhatsApp extra ─────────────────────────
 const WHATS_LINK =
   "https://api.whatsapp.com/send?phone=5545988287082&text=" +
-  encodeURIComponent("Olá, professora Elisa! Vi no site as informações do curso, mas ainda tenho dúvidas. Pode me ajudar?");
+  encodeURIComponent("Oi, professora Elisa! Tudo bem? Gostaria de tirar uma dúvida sobre o curso.");
 
 const trackWhats = () => {
   const h = window.location.hostname;
