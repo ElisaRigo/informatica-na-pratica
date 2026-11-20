@@ -54,7 +54,7 @@ import fbAvatar6 from "@/versoes/homebackup/assets/avatar-6.jpg";
 import fbAvatar7 from "@/versoes/homebackup/assets/avatar-7.jpg";
 import fbAvatar8 from "@/versoes/homebackup/assets/avatar-8.jpg";
 
-import { openHotmartCheckout } from "./lib/checkoutTracking";
+import { openHotmartCheckout } from "@/versoes/homebackup/lib/checkoutTracking";
 import { HeroBonuses } from "@/versoes/homebackup/components/aprender/HeroBonuses";
 import { Button } from "@/components/ui/button";
 
@@ -1073,13 +1073,13 @@ const MiniValueSection = () => (
         <p className="mt-1 text-base text-muted-foreground">Do zero, com calma e no seu ritmo</p>
         <div className="mt-5 rounded-2xl border-2 border-dashed border-green-300 bg-green-50/70 px-4 py-4">
           <p className="text-lg text-muted-foreground">De <span className="font-bold line-through decoration-red-500 decoration-2">R$ 497,00</span> por apenas</p>
-          <p className="mt-1 text-6xl font-black leading-none text-success">R$ 148,50</p>
-          <p className="mt-2 text-lg text-muted-foreground">ou <strong className="text-foreground">12x de R$ 15,36</strong> no cartão</p>
+          <p className="mt-1 text-3xl font-black leading-none text-success">R$ 297</p>
+          <p className="mt-2 text-lg text-muted-foreground">ou <strong className="text-foreground">12x de R$ 30,72</strong> no cartão</p>
           <p className="mt-2 flex items-center justify-center gap-1 whitespace-nowrap font-bold !text-green-700 [font-size:min(3.3vw,15px)]">
             <Lock className="h-[1.1em] w-[1.1em] shrink-0 !text-green-700" aria-hidden="true" /> Pagamento 100% seguro · Acesso imediato
           </p>
           <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-amber-400 px-4 py-1.5 text-base font-black text-slate-900">
-            <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 348,50
+            <CheckCircle2 className="h-5 w-5 shrink-0" /> Você economiza R$ 200
           </p>
         </div>
         <p className="mt-3 text-base font-semibold text-foreground">{"\n"}</p>
@@ -1121,13 +1121,13 @@ const Pricing = () => (
         <div className="bg-slate-50 rounded-2xl p-6 text-center mb-6">
           <p className="text-slate-500 line-through text-lg md:text-xl mb-1">De R$ 497,00</p>
           <p className="text-sm text-slate-600 font-semibold mb-1">por apenas</p>
-          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 148,50</p>
+          <p className="text-5xl md:text-7xl font-black text-green-600 leading-none">R$ 297</p>
           <p className="text-amber-600 font-bold text-sm md:text-base mt-2 flex items-center justify-center gap-1.5">
             <span>🎁</span> Hoje você leva 4 bônus exclusivos
           </p>
           <p className="text-lg text-slate-700 mt-2">à vista no PIX</p>
           <p className="text-base text-slate-600 mt-1">
-            ou <strong className="text-slate-900">12x de R$ 15,36</strong> no cartão
+            ou <strong className="text-slate-900">12x de R$ 30,72</strong> no cartão
           </p>
         </div>
 
