@@ -1,4 +1,5 @@
 # Project architecture
+- Keep `/home-publicada` in its independent copied module with a scoped light stylesheet, preserving the published-home snapshot without linking future edits to other pages.
 - Keep `/home-copia-2` and `/home-copia-3` on their own independent copied sales modules so future edits never change the current home or earlier backups.
 - Keep the programs row in /informa local to that page so copying its presentation never links edits to /icone-2 or /info.
 - Keep `/` on its independent copied presentation from `/versao-28-10` under `src/paginas/home-28-10/`; keep `/informa`, `/informatica`, and `/prof-elisa` on their independent light copies from `/home-copia-3`, so edits never alter sibling or historical pages.

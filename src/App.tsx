@@ -37,6 +37,7 @@ const Icone = lazy(() => import("./pages/Icone"));
 const HomeAnterior2 = lazy(() => import("./pages/HomeAnterior2"));
 const Informa = lazy(() => import("./pages/Informa"));
 const HomeAtual = lazy(() => import("./pages/HomeAtual"));
+const HomePublicada = lazy(() => import("./pages/HomePublicada"));
 const HomeCopia2 = lazy(() => import("./pages/HomeCopia2"));
 const HomeCopia3 = lazy(() => import("./pages/HomeCopia3"));
 const ProfElisa = lazy(() => import("./pages/ProfElisa"));
@@ -58,6 +59,7 @@ const App = () => (
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
             <Route path="/" element={<HomeAtual />} />
+            <Route path="/home-publicada" element={<HomePublicada />} />
             <Route path="/home-copia" element={<Versao2109 />} />
             <Route path="/home-copia-2" element={<HomeCopia2 />} />
             <Route path="/home-copia-3" element={<HomeCopia3 />} />
