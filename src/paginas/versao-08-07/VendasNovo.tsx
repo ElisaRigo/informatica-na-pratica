@@ -1244,8 +1244,8 @@ const VendasNovo = () => {
       <Hero />
       <AulaDemonstrativa />
       <MiniValueSection />
-      <QuizIdentificacao />
       <Instructor />
+      <QuizIdentificacao />
       <SocialProof />
       <Method />
       <Modules />
