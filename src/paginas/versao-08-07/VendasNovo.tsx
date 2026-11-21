@@ -30,7 +30,6 @@ import {
   Headphones,
 } from "lucide-react";
 import logoBlue from "@/versoes/v0607/assets/logo-blue.png";
-import elisa from "@/versoes/v0607/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/v0607/assets/elisa-teaching.jpg";
 import heroCover from "@/versoes/v0607/assets/hero-video-cover-home.jpg";
 const homeVideoThumb = "/images/capa-primeiro-video-08-07.jpg";
@@ -413,7 +412,7 @@ const Instructor = () => (
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
-          <img src={elisa} alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
+          <img src="/images/prof-elisa.jpg" alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
           <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl border border-slate-200 px-4 py-3 flex items-center gap-2">
             <Users className="w-5 h-5 text-blue-600" />
             <div>
