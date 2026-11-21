@@ -12,6 +12,9 @@
   --instructor-stars: 45 93% 58%;
   --instructor-card-line: 201 94% 86%;
   --instructor-muted: 215 25% 28%;
+  --cta-fill: 142 71% 45%;
+  --cta-hover: 142 76% 36%;
+  --cta-text: 0 0% 100%;
 }
 .versao0807-header { background: hsl(var(--top-surface)); color: hsl(var(--top-text)); border-bottom: 1px solid hsl(var(--top-line)); padding: 8px 12px; text-align: center; }
 .versao0807-logo { display: inline-block; padding: 10px; border: 1px solid hsl(var(--top-line)); border-radius: 8px; box-shadow: 0 0 24px hsl(var(--top-glow) / .5); margin-bottom: 8px; }
@@ -34,6 +37,12 @@
 .versao0807-top .versao0807-instructor-avatar { border-color: hsl(var(--top-surface)); }
 .versao0807-top .versao0807-instructor-star { color: hsl(var(--instructor-stars)); fill: currentColor; }
 .versao0807-top .versao0807-instructor-card { background: hsl(var(--top-surface)); border-color: hsl(var(--instructor-card-line)); }
+.versao0807-top .versao0807-cta { background: hsl(var(--cta-fill)); color: hsl(var(--cta-text)); font-size: 22px; line-height: 1.2; padding: 20px 16px; min-height: 68px; box-shadow: 0 6px 16px hsl(var(--cta-fill) / .24); }
+.versao0807-top .versao0807-cta:hover { background: hsl(var(--cta-hover)); }
+.versao0807-top .versao0807-fixed-cta { font-size: 23px; padding: 20px 8px; white-space: nowrap; }
+@media (min-width: 360px) { .versao0807-top .versao0807-fixed-cta { font-size: 26px; } }
+@media (min-width: 390px) { .versao0807-top .versao0807-fixed-cta { font-size: 28px; } }
+@media (min-width: 768px) { .versao0807-top .versao0807-cta { font-size: 28px; padding: 24px 32px; min-height: 82px; } }
 @media (min-width: 375px) and (max-width: 390px) {
   .versao0807-computer { font-size: 52px; }
 }

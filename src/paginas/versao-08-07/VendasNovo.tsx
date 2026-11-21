@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./topo.css";
+import { Button } from "@/components/ui/button";
 import {
   ShieldCheck,
   Lock,
@@ -60,17 +61,13 @@ import { QuizIdentificacao } from "@/versoes/v0607/components/aprender/QuizIdent
 const openCheckout = () => openHotmartCheckout();
 
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora", size = "lg", subtle = false }: any) => (
-  <button
+const CTA = ({ children = "Quero aprender informática agora" }: any) => (
+  <Button
     onClick={openCheckout}
-    className={`group inline-flex items-center justify-center gap-2 md:gap-1.5 bg-green-600 hover:bg-green-700 active:scale-[.99] text-white font-extrabold rounded-2xl shadow-lg shadow-green-600/20 transition-all whitespace-normal w-full ${
-      size === "lg" ? "text-base md:text-xl px-5 py-4 md:px-10 md:py-5" : "text-sm md:text-lg px-4 py-3 md:px-6 md:py-3"
-    } ${subtle ? "bg-green-600/95" : ""}`}
+    className="versao0807-cta w-full h-auto whitespace-normal font-extrabold rounded-xl active:scale-[.99]"
   >
-    <Monitor className="w-5 h-5 md:w-5 md:h-5 shrink-0" />
     <span>{children}</span>
-    <ArrowRight className="hidden sm:inline-block w-5 h-5 md:w-5 md:h-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
-  </button>
+  </Button>
 );
 
 // ───────────────────────── Countdown ─────────────────────────
@@ -1163,13 +1160,13 @@ const Footer = () => (
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 p-3 shadow-2xl">
-    <button
+  <div className="versao0807-sticky md:hidden fixed bottom-0 inset-x-0 z-30 p-2">
+    <Button
       onClick={openCheckout}
-      className="w-full bg-green-600 active:scale-[.99] text-white font-extrabold text-base py-4 rounded-xl flex items-center justify-center gap-2"
+      className="versao0807-cta versao0807-fixed-cta w-full h-auto font-extrabold rounded-xl active:scale-[.99]"
     >
-      <Monitor className="w-5 h-5" /> Quero começar agora!
-    </button>
+      <span>Quero começar agora!</span>
+    </Button>
   </div>
 );
 
