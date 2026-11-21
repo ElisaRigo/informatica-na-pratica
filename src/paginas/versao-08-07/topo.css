@@ -15,6 +15,8 @@
   --cta-fill: 142 71% 45%;
   --cta-hover: 142 76% 36%;
   --cta-text: 0 0% 100%;
+  --float-surface: 222 47% 11%;
+  --float-accent: 156 72% 67%;
 }
 .versao0807-header { background: hsl(var(--top-surface)); color: hsl(var(--top-text)); border-bottom: 1px solid hsl(var(--top-line)); padding: 8px 12px; text-align: center; }
 .versao0807-logo { display: inline-block; padding: 10px; border: 1px solid hsl(var(--top-line)); border-radius: 8px; box-shadow: 0 0 24px hsl(var(--top-glow) / .5); margin-bottom: 8px; }
@@ -39,9 +41,16 @@
 .versao0807-top .versao0807-instructor-card { background: hsl(var(--top-surface)); border-color: hsl(var(--instructor-card-line)); }
 .versao0807-top .versao0807-cta { background: hsl(var(--cta-fill)); color: hsl(var(--cta-text)); font-size: 22px; line-height: 1.2; padding: 20px 16px; min-height: 68px; box-shadow: 0 6px 16px hsl(var(--cta-fill) / .24); }
 .versao0807-top .versao0807-cta:hover { background: hsl(var(--cta-hover)); }
-.versao0807-top .versao0807-fixed-cta { font-size: 23px; padding: 20px 8px; white-space: nowrap; }
-@media (min-width: 360px) { .versao0807-top .versao0807-fixed-cta { font-size: 26px; } }
-@media (min-width: 390px) { .versao0807-top .versao0807-fixed-cta { font-size: 28px; } }
+.versao0807-top .versao0807-cta-icon { width: 24px; height: 24px; flex-shrink: 0; }
+.versao0807-top .versao0807-fixed-cta { background: linear-gradient(to bottom, hsl(var(--whatsapp)), hsl(var(--whatsapp-strong))); color: hsl(var(--cta-text)); font-size: 23px; line-height: 1.15; padding: 16px 4px; white-space: nowrap; box-shadow: 0 0 24px hsl(var(--whatsapp) / .55); border: 2px solid hsl(var(--float-accent) / .6); }
+.versao0807-top .versao0807-fixed-icon { width: 20px; height: 20px; flex-shrink: 0; }
+@media (min-width: 360px) { .versao0807-top .versao0807-fixed-cta { font-size: 27px; } }
+@media (min-width: 390px) { .versao0807-top .versao0807-fixed-cta { font-size: 30px; } }
+.versao0807-top .versao0807-whats, .versao0807-top .versao0807-whats:hover { background: hsl(var(--float-surface) / .6); color: hsl(var(--cta-text)); border: 1px solid hsl(var(--cta-text) / .4); box-shadow: 0 8px 28px hsl(var(--float-surface) / .35); }
+.versao0807-top .versao0807-whats-avatar { box-shadow: 0 0 0 2px hsl(var(--whatsapp)); }
+.versao0807-top .versao0807-whats-badge { background: hsl(var(--whatsapp)); box-shadow: 0 0 0 2px hsl(var(--cta-text)); }
+.versao0807-top .versao0807-whats-icon { width: 10px; height: 10px; }
+.versao0807-top .versao0807-whats-caption { color: hsl(var(--float-accent)); }
 @media (min-width: 768px) { .versao0807-top .versao0807-cta { font-size: 28px; padding: 24px 32px; min-height: 82px; } }
 @media (min-width: 375px) and (max-width: 390px) {
   .versao0807-computer { font-size: 52px; }

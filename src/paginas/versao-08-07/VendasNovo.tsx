@@ -61,11 +61,12 @@ import { QuizIdentificacao } from "@/versoes/v0607/components/aprender/QuizIdent
 const openCheckout = () => openHotmartCheckout();
 
 // ───────────────────────── CTA Button ─────────────────────────
-const CTA = ({ children = "Quero aprender informática agora" }: any) => (
+const CTA = ({ children = "Começar o curso", icon: Icon = Monitor }: any) => (
   <Button
     onClick={openCheckout}
     className="versao0807-cta w-full h-auto whitespace-normal font-extrabold rounded-xl active:scale-[.99]"
   >
+    <Icon aria-hidden="true" className="versao0807-cta-icon" />
     <span>{children}</span>
   </Button>
 );
@@ -168,7 +169,7 @@ const Hero = () => {
             Em poucas aulas, você vai criar documentos e planilhas, organizar arquivos, enviar e-mails e muito mais...
           </p>
 
-          <CTA>Quero começar agora!</CTA>
+          <CTA>Começar agora!</CTA>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 text-xs md:text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
@@ -233,7 +234,7 @@ const Identification = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA icon={BookOpen}>Aprender do zero!</CTA>
         </div>
       </div>
     </section>
@@ -355,7 +356,7 @@ const AulaDemonstrativa = () => {
             Essa é a mesma didática que já fez <strong className="text-slate-900">+15.000 pessoas</strong> saírem do
             zero e usarem o computador com confiança.
           </p>
-          <CTA>Quero aprender do zero!</CTA>
+          <CTA icon={BookOpen}>Aprender do zero!</CTA>
           <p className="text-xs md:text-sm text-slate-500 flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · 7 dias de garantia
           </p>
@@ -387,7 +388,7 @@ const MiniValueSection = () => {
           <ShieldCheck className="w-3.5 h-3.5" /> Pagamento 100% seguro · Acesso imediato
         </p>
         <div className="mt-5">
-          <CTA>Quero perder o medo do computador</CTA>
+          <CTA>Aprender sem medo!</CTA>
         </div>
         <div className="mt-5 rounded-xl border-2 border-green-200 bg-green-50 px-5 py-4 text-center shadow-sm">
           <p className="flex flex-row items-center justify-center gap-1.5 text-green-700 font-black text-sm md:text-lg">
@@ -571,7 +572,7 @@ const Modules = () => {
           ))}
         </div>
         <div className="text-center mt-5">
-          <CTA>Quero ver todas as aulas!</CTA>
+          <CTA icon={PlayCircle}>Quero as aulas!</CTA>
         </div>
       </div>
     </section>
@@ -857,7 +858,7 @@ const SocialProof = () => {
         {/* CTA */}
         <div className="text-center space-y-4">
           <h3 className="text-2xl md:text-3xl font-black text-slate-900">Eu também quero aprender!</h3>
-          <CTA>Quero aprender sem medo!</CTA>
+          <CTA>Aprender sem medo!</CTA>
           <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
             <Lock className="w-4 h-4 text-green-600" /> Pagamento seguro · Garantia de 7 dias · Acesso imediato
           </p>
@@ -898,7 +899,7 @@ const Certificate = () => (
               </li>
             ))}
           </ul>
-          <CTA size="md">Quero meu certificado!</CTA>
+          <CTA icon={Award}>Quero o certificado!</CTA>
         </div>
       </div>
     </div>
@@ -950,7 +951,7 @@ const Pricing = () => (
           ))}
         </ul>
 
-        <CTA>Quero aproveitar o desconto!</CTA>
+        <CTA icon={Lock}>Garantir minha vaga!</CTA>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-5 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
@@ -1052,7 +1053,7 @@ const FinalCTA = () => (
         Em poucas semanas você vai olhar pra trás e não vai acreditar como era difícil antes. Sua vida fica mais leve,
         mais independente. <strong className="text-white">Hoje é o dia.</strong>
       </p>
-      <CTA>Quero começar agora!</CTA>
+      <CTA>Começar agora!</CTA>
       <p className="text-xs text-slate-400 mt-4">🔒 Pagamento seguro • 7 dias de garantia • Acesso imediato</p>
     </div>
   </section>
@@ -1123,8 +1124,7 @@ const SuporteProfessora = () => {
                 </svg>
               </span>
               <span className="flex-1 text-center leading-tight text-lg md:text-3xl">
-                Quero tirar minhas dúvidas
-                <br /> com a professora Elisa
+                Falar com a professora
               </span>
             </a>
           </div>
@@ -1160,12 +1160,12 @@ const Footer = () => (
 
 // ───────────────────────── Sticky Mobile CTA ─────────────────────────
 const StickyMobile = () => (
-  <div className="versao0807-sticky md:hidden fixed bottom-0 inset-x-0 z-30 p-2">
+  <div className="versao0807-sticky md:hidden fixed bottom-0 inset-x-0 z-30 px-2 pb-3 pt-2">
     <Button
       onClick={openCheckout}
-      className="versao0807-cta versao0807-fixed-cta w-full h-auto font-extrabold rounded-xl active:scale-[.99]"
+      className="versao0807-fixed-cta cta-pulse cta-shine relative flex w-full h-auto items-center justify-center gap-1.5 overflow-hidden font-extrabold rounded-xl active:brightness-95"
     >
-      <span>Quero começar agora!</span>
+      <Monitor aria-hidden="true" className="versao0807-fixed-icon" /><span>Quero começar agora!</span>
     </Button>
   </div>
 );
@@ -1173,7 +1173,7 @@ const StickyMobile = () => (
 // ───────────────────────── WhatsApp extra ─────────────────────────
 const WHATS_LINK =
   "https://api.whatsapp.com/send?phone=5545988287082&text=" +
-  encodeURIComponent("Olá, professora Elisa! Vi no site as informações do curso, mas ainda tenho dúvidas. Pode me ajudar?");
+  encodeURIComponent("Oi, professora Elisa! Tudo bem? Gostaria de tirar uma dúvida sobre o curso.");
 
 const trackWhats = () => {
   const h = window.location.hostname;
@@ -1195,28 +1195,26 @@ const WhatsIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
 const WhatsFloat = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
-    const check = () => {
-      const el = document.getElementById("primeiro-valor");
-      if (!el) return;
-      if (el.getBoundingClientRect().bottom < window.innerHeight) setShow(true);
-    };
+    const check = () => setShow(window.scrollY > 300);
     check();
     window.addEventListener("scroll", check, { passive: true });
     return () => window.removeEventListener("scroll", check);
   }, []);
-  if (!show) return null;
   return (
-    <a
-      href={WHATS_LINK}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={trackWhats}
-      aria-label="Tire suas dúvidas no WhatsApp"
-      className="fixed right-4 bottom-24 md:bottom-6 z-40 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold px-4 py-3.5 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center gap-2"
-    >
-      <WhatsIcon className="w-6 h-6" />
-      <span className="text-sm hidden sm:inline">Tire suas dúvidas</span>
-    </a>
+    <Button asChild variant="ghost" className={`versao0807-whats fixed right-3 bottom-[86px] md:bottom-6 z-40 h-auto flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-4 backdrop-blur-md transition-all duration-300 active:scale-95 ${show ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"}`}>
+      <a href={WHATS_LINK} target="_blank" rel="noopener noreferrer" onClick={() => { trackWhats(); (window as any).gtag?.("event", "whatsapp_click"); }} aria-label="Fale com a Profª Elisa no WhatsApp">
+        <span className="relative shrink-0">
+          <img src="/images/prof-elisa-avatar.jpg" alt="" className="versao0807-whats-avatar h-10 w-10 rounded-full object-cover" />
+          <span className="versao0807-whats-badge absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full">
+            <WhatsIcon className="versao0807-whats-icon" />
+          </span>
+        </span>
+        <span className="flex flex-col leading-tight">
+          <span className="versao0807-whats-caption text-[11px] font-semibold">Dúvidas no WhatsApp</span>
+          <span className="text-[15px] font-extrabold">Fale com a Profª Elisa</span>
+        </span>
+      </a>
+    </Button>
   );
 };
 
