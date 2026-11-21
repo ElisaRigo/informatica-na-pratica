@@ -7,6 +7,8 @@ import { lazy, Suspense } from "react";
 const Aprender = lazy(() => import("./pages/Aprender"));
 const Versao0707 = lazy(() => import("./pages/Versao0707"));
 const Versao0807 = lazy(() => import("./pages/Versao0807"));
+const Versao1707 = lazy(() => import("./paginas/versao-17-07/VendasNovo"));
+const Versao1706 = lazy(() => import("./versoes/v1706/pages/Index"));
 const Versao2810 = lazy(() => import("./paginas/versao-28-10/VendasNovo"));
 const Informatica = lazy(() => import("./pages/Informatica"));
 const InformaticaCopia = lazy(() => import("./pages/InformaticaCopia"));
@@ -89,6 +91,8 @@ const App = () => (
             <Route path="/versao-06-07" element={<Aprender />} />
             <Route path="/versao-07-07" element={<Versao0707 />} />
             <Route path="/versao-08-07" element={<Versao0807 />} />
+            <Route path="/versao-17-07" element={<Versao1707 />} />
+            <Route path="/versao-17-06" element={<Versao1706 />} />
             <Route path="/versao-28-10" element={<Versao2810 />} />
             <Route path="/versao-27-07" element={<Versao2707 />} />
             <Route path="/versao-29-09" element={<Versao2909 />} />
