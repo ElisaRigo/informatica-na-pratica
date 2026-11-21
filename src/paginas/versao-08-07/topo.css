@@ -20,6 +20,7 @@
 .versao0807-intro { font-size: 44px; line-height: 1; white-space: nowrap; }
 .versao0807-computer { margin-top: 4px; font-size: 54px; line-height: 1; white-space: nowrap; }
 .versao0807-reassurance { margin-top: 4px; font-size: 26px; line-height: 1.25; }
+.versao0807-invitation { color: hsl(var(--top-muted)); }
 @media (min-width: 375px) and (max-width: 390px) {
   .versao0807-computer { font-size: 52px; }
 }

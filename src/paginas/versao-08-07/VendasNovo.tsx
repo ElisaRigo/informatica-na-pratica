@@ -127,6 +127,10 @@ const Hero = () => {
             <span className="versao0807-reassurance">Mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
 
+          <p className="versao0807-invitation mx-auto max-w-3xl mb-5 text-lg md:text-2xl leading-relaxed">
+            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
+          </p>
+
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
             {!isPlaying ? (
