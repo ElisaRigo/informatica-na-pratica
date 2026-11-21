@@ -507,42 +507,12 @@ const Method = () => {
 // ───────────────────────── Modules ─────────────────────────
 const Modules = () => {
   const mods = [
-    {
-      i: windowsIcon,
-      t: "Windows e Organização",
-      d: "Ligar, desligar, mouse, teclado, área de trabalho, pastas e arquivos com segurança.",
-      lessons: "Módulo 1",
-    },
-    {
-      i: wordIcon,
-      t: "Word Profissional",
-      d: "Escreva cartas, currículos e documentos. Formate, salve e imprima sem medo.",
-      lessons: "Módulo 2",
-    },
-    {
-      i: excelIcon,
-      t: "Excel na Prática",
-      d: "Crie planilhas, fórmulas e organize contas e gastos do mês.",
-      lessons: "Módulo 3",
-    },
-    {
-      i: powerpointIcon,
-      t: "PowerPoint Impactante",
-      d: "Faça apresentações bonitas e profissionais, mesmo sem experiência.",
-      lessons: "Módulo 4",
-    },
-    {
-      i: internetIcon,
-      t: "Internet e E-mail",
-      d: "Pesquise no Google, envie e receba e-mails, evite golpes e use o YouTube.",
-      lessons: "Módulo 5",
-    },
-    {
-      i: typingIcon,
-      t: "Digitação Profissional",
-      d: "Ganhe velocidade no teclado e produtividade no dia a dia.",
-      lessons: "Módulo 6",
-    },
+    { i: windowsIcon, n: "1", label: " Windows", t: "Perca o medo do computador", d: "Ligar, usar o mouse e o teclado e guardar suas fotos e arquivos sem medo de apagar nada.", s: "Primeiro passo" },
+    { i: wordIcon, n: "2", label: "Word", t: "Escreva seus próprios documentos", d: "Cartas, currículo e receitas. Você digita, arruma e imprime sozinho(a).", s: "Muito usado" },
+    { i: excelIcon, n: "3", label: "Excel", t: "Organize suas contas do mês", d: "Monte planilhas simples para controlar gastos, listas e tudo da sua casa.", s: "Mais pedido" },
+    { i: powerpointIcon, n: "4", label: "PowerPoint", t: "Crie apresentações bonitas", d: "Monte slides caprichados para o trabalho, a igreja ou a família.", s: "Fácil e bonito" },
+    { i: internetIcon, n: "5", label: "Internet, e-mail e anexo", t: "Use a internet com segurança", d: "Pesquise no Google, mande e-mails e aprenda a reconhecer golpes.", s: "Protege você" },
+    { i: typingIcon, n: "6", label: "Digitação", t: "Digite mais rápido", d: "Ganhe confiança no teclado e faça tudo com mais agilidade.", s: "Bônus de prática" },
   ];
   return (
     <section className="py-4 md:py-6 bg-slate-50">
@@ -560,14 +530,19 @@ const Modules = () => {
           {mods.map((m) => (
             <div
               key={m.t}
-              className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              className="relative bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
-                <img src={m.i} alt={m.t} className="w-8 h-8" loading="lazy" />
+              <span className="absolute -top-3 right-4 inline-flex items-center gap-1 rounded-full bg-amber-400 px-3 py-1 text-xs font-black uppercase tracking-wide text-slate-900 shadow">
+                <CheckCircle2 className="h-3.5 w-3.5" /> {m.s}
+              </span>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+                  <img src={m.i} alt="" className="w-full h-full object-contain" loading="lazy" />
+                </div>
+                <span className="text-sm font-bold text-blue-600">{m.label}</span>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">{m.t}</h3>
-              <p className="text-slate-600 text-sm mb-3">{m.d}</p>
-              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{m.lessons}</span>
+              <h3 className="text-xl md:text-2xl font-black text-slate-900 leading-snug mb-2">{m.t}</h3>
+              <p className="text-slate-600 text-base leading-relaxed">{m.d}</p>
             </div>
           ))}
         </div>
