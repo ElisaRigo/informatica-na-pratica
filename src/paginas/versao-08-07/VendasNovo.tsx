@@ -1232,46 +1232,6 @@ const WhatsFloat = () => {
   );
 };
 
-const WhatsAposAulas = ({ bg = "bg-white" }: { bg?: string }) => (
-  <section className={`py-6 md:py-8 ${bg}`}>
-    <div className="container mx-auto px-4 max-w-3xl">
-      <div className="bg-green-50 border-2 border-green-500 rounded-2xl px-5 py-6 md:px-8 md:py-7 shadow-lg">
-        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-          <div className="flex items-center gap-4 flex-1 min-w-0">
-            <img
-              src="/images/elisa-whatsapp.jpg"
-              alt="Professora Elisa"
-              style={{ objectPosition: "47% 16%" }}
-              className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-green-500 shrink-0"
-            />
-            <div className="min-w-0">
-              <p className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
-                Ficou com alguma dúvida?
-              </p>
-              <p className="mt-1 text-base md:text-lg text-slate-700 leading-snug">
-                Gostou do curso, mas ainda tem alguma dúvida?{"\u00a0"}
-                <span className="font-bold text-green-700">
-                  Estou aqui para te ajudar.
-                </span>
-              </p>
-            </div>
-          </div>
-          <a
-            href={WHATS_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackWhats}
-            className="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-[#16A34A] hover:bg-[#12873E] text-white font-extrabold px-6 py-4 rounded-xl shrink-0 shadow-md"
-          >
-            <WhatsIcon className="w-6 h-6" />
-            <span className="text-lg">Quero falar com a Profª Elisa</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
 
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
@@ -1285,13 +1245,10 @@ const VendasNovo = () => {
       <AulaDemonstrativa />
       <MiniValueSection />
       <QuizIdentificacao />
-      <WhatsAposAulas />
       <Instructor />
       <SocialProof />
-      <WhatsAposAulas bg="bg-slate-50" />
       <Method />
       <Modules />
-      <WhatsAposAulas />
       <section className="py-4 md:py-6 bg-slate-50">
         <div className="container mx-auto px-4">
           <HeroBonuses variant="light" />
