@@ -21,9 +21,9 @@
 .versao0807-header { background: hsl(var(--top-surface)); color: hsl(var(--top-text)); border-bottom: 1px solid hsl(var(--top-line)); padding: 8px 12px; text-align: center; }
 .versao0807-logo { display: inline-block; padding: 10px; border: 1px solid hsl(var(--top-line)); border-radius: 8px; box-shadow: 0 0 24px hsl(var(--top-glow) / .5); margin-bottom: 8px; }
 .versao0807-logo img { height: 64px; width: auto; }
-.versao0807-brand { font-size: 34px; font-weight: 900; line-height: 1; }
+.versao0807-brand { font-size: 33.7px; font-weight: 900; line-height: 1; }
 .versao0807-blue { background: linear-gradient(to right, hsl(var(--top-blue)), hsl(var(--top-sky)), hsl(var(--top-blue))); background-clip: text; color: transparent; }
-.versao0807-tagline { margin-top: 6px; color: hsl(var(--top-muted)); font-size: 11px; font-weight: 700; letter-spacing: 0; }
+.versao0807-tagline { margin-top: 8px; color: hsl(var(--top-muted)); font-size: 17.6px; font-weight: 700; letter-spacing: 0; }
 .versao0807-hero { background: linear-gradient(to bottom, hsl(var(--top-tint)), hsl(var(--top-surface))); }
 .versao0807-headline { color: hsl(var(--top-text)); margin-bottom: 16px; font-weight: 900; line-height: 1.1; }
 .versao0807-headline > span { display: block; }
@@ -56,22 +56,40 @@
   .versao0807-computer { font-size: 52px; }
 }
 @media (max-width: 374px) {
-  .versao0807-brand { font-size: 28px; }
-  .versao0807-tagline { font-size: 9px; }
+  .versao0807-brand { font-size: 27px; }
+  .versao0807-tagline { font-size: 14px; }
   .versao0807-intro { font-size: 36px; }
   .versao0807-computer { font-size: 44px; }
   .versao0807-reassurance { font-size: 22px; }
 }
+@media (min-width: 360px) and (max-width: 374px) {
+  .versao0807-brand { font-size: 30.5px; }
+  .versao0807-tagline { font-size: 16px; }
+}
+@media (min-width: 375px) and (max-width: 389px) {
+  .versao0807-brand { font-size: 32px; }
+  .versao0807-tagline { font-size: 16.7px; }
+}
+@media (min-width: 414px) and (max-width: 767px) {
+  .versao0807-brand { font-size: 35.6px; }
+  .versao0807-tagline { font-size: 18.6px; }
+}
 @media (min-width: 768px) {
   .versao0807-logo img { height: 96px; }
-  .versao0807-brand { font-size: 48px; }
-  .versao0807-tagline { font-size: 14px; }
+  .versao0807-brand { font-size: 68px; }
+  .versao0807-tagline { font-size: 35.5px; }
   .versao0807-intro { font-size: 80px; }
   .versao0807-computer { font-size: 108px; }
   .versao0807-reassurance { font-size: 56px; }
 }
 @media (min-width: 1024px) {
+  .versao0807-brand { font-size: 91px; }
+  .versao0807-tagline { font-size: 47px; }
   .versao0807-intro { font-size: 88px; }
   .versao0807-computer { font-size: 144px; }
   .versao0807-reassurance { font-size: 73px; }
+}
+@media (min-width: 1280px) {
+  .versao0807-brand { font-size: 114px; }
+  .versao0807-tagline { font-size: 59.5px; }
 }
