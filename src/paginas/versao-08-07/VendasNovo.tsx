@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import "./topo.css";
 import {
   ShieldCheck,
   Lock,
@@ -100,18 +101,15 @@ import typingIcon from "@/versoes/v0607/assets/typing-icon.png";
 
 // ───────────────────────── Header ─────────────────────────
 const Header = () => (
-  <header className="bg-white border-b border-slate-200 py-3 md:py-5">
-    <div className="container mx-auto px-4">
-      <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
-        <div className="relative group shrink-0">
-          <div className="relative bg-slate-100 rounded-xl p-2 md:p-4 border border-slate-200 shadow-lg">
-            <img src={logo} alt="Informática na Prática" className="h-16 md:h-20 lg:h-24" />
-          </div>
-        </div>
-        <p className="text-slate-900 text-base md:text-2xl lg:text-3xl font-bold leading-tight text-left">
-          Curso de <span className="text-sky-600">Informática Online</span> — Simples e para Todos.
-        </p>
+  <header className="versao0807-header">
+    <div className="container mx-auto flex flex-col items-center">
+      <div className="versao0807-logo">
+        <img src={logo} alt="Informática na Prática" />
       </div>
+      <p className="versao0807-brand whitespace-nowrap">
+        Curso de{"\u00a0"}<span className="versao0807-blue">Informática</span>
+      </p>
+      <p className="versao0807-tagline whitespace-nowrap">100% ONLINE - DO ZERO - SIMPLES E FÁCIL</p>
     </div>
   </header>
 );
@@ -120,30 +118,14 @@ const Header = () => (
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
-    <section className="relative bg-gradient-to-b from-blue-50 via-white to-white">
-      {/* Top urgency strip */}
-      <div className="bg-blue-600 text-center py-2.5 px-4">
-        <span className="inline-flex items-center justify-center gap-2 text-base md:text-lg font-bold text-white whitespace-nowrap w-full">
-          <span className="text-xl md:text-2xl">💻</span>
-          Você sente Dificuldade com o Computador?
-        </span>
-      </div>
-
-      <div className="container mx-auto px-4 py-3 md:py-4">
+    <section className="relative versao0807-hero">
+      <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-700 text-sm md:text-xl font-bold px-3 py-1.5 rounded-full mb-3 w-full">
-            <GraduationCap className="w-5 h-5 md:w-8 md:h-8" /> Curso 100% Online • Passo a Passo
-          </span>
-
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-3">
-            Aprenda a usar o computador
-            <br className="hidden md:block" />
-            <span className="text-blue-600"> mesmo que você nunca tenha ligado um na vida.</span>
+          <h1 className="versao0807-headline mx-auto w-full text-center">
+            <span className="versao0807-intro">Aprenda usar o</span>
+            <span className="versao0807-computer versao0807-blue">Computador</span>
+            <span className="versao0807-reassurance">Mesmo que você nunca tenha ligado um na vida.</span>
           </h1>
-
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-5">
-            Imagine usar o computador com confiança e transformar a sua rotina, sem depender de ninguém!
-          </p>
 
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
@@ -1293,7 +1275,7 @@ const VendasNovo = () => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);
   return (
-    <div className="min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
+    <div className="versao0807-top min-h-screen bg-white text-slate-900 pb-20 md:pb-0">
       <Header />
       <Hero />
       <AulaDemonstrativa />

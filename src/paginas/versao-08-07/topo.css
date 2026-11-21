@@ -1,0 +1,45 @@
+.versao0807-top {
+  --top-surface: 0 0% 100%;
+  --top-text: 222 47% 11%;
+  --top-muted: 215 25% 27%;
+  --top-line: 214 32% 88%;
+  --top-blue: 221 83% 45%;
+  --top-sky: 199 89% 48%;
+  --top-glow: 190 95% 70%;
+  --top-tint: 214 95% 93%;
+}
+.versao0807-header { background: hsl(var(--top-surface)); color: hsl(var(--top-text)); border-bottom: 1px solid hsl(var(--top-line)); padding: 8px 12px; text-align: center; }
+.versao0807-logo { display: inline-block; padding: 10px; border: 1px solid hsl(var(--top-line)); border-radius: 8px; box-shadow: 0 0 24px hsl(var(--top-glow) / .5); margin-bottom: 8px; }
+.versao0807-logo img { height: 64px; width: auto; }
+.versao0807-brand { font-size: 34px; font-weight: 900; line-height: 1; }
+.versao0807-blue { background: linear-gradient(to right, hsl(var(--top-blue)), hsl(var(--top-sky)), hsl(var(--top-blue))); background-clip: text; color: transparent; }
+.versao0807-tagline { margin-top: 6px; color: hsl(var(--top-muted)); font-size: 11px; font-weight: 700; letter-spacing: 0; }
+.versao0807-hero { background: linear-gradient(to bottom, hsl(var(--top-tint)), hsl(var(--top-surface))); }
+.versao0807-headline { color: hsl(var(--top-text)); margin-bottom: 16px; font-weight: 900; line-height: 1.1; }
+.versao0807-headline > span { display: block; }
+.versao0807-intro { font-size: 44px; line-height: 1; white-space: nowrap; }
+.versao0807-computer { margin-top: 4px; font-size: 54px; line-height: 1; white-space: nowrap; }
+.versao0807-reassurance { margin-top: 4px; font-size: 26px; line-height: 1.25; }
+@media (min-width: 375px) and (max-width: 390px) {
+  .versao0807-computer { font-size: 52px; }
+}
+@media (max-width: 374px) {
+  .versao0807-brand { font-size: 28px; }
+  .versao0807-tagline { font-size: 9px; }
+  .versao0807-intro { font-size: 36px; }
+  .versao0807-computer { font-size: 44px; }
+  .versao0807-reassurance { font-size: 22px; }
+}
+@media (min-width: 768px) {
+  .versao0807-logo img { height: 96px; }
+  .versao0807-brand { font-size: 48px; }
+  .versao0807-tagline { font-size: 14px; }
+  .versao0807-intro { font-size: 80px; }
+  .versao0807-computer { font-size: 108px; }
+  .versao0807-reassurance { font-size: 56px; }
+}
+@media (min-width: 1024px) {
+  .versao0807-intro { font-size: 88px; }
+  .versao0807-computer { font-size: 144px; }
+  .versao0807-reassurance { font-size: 73px; }
+}
