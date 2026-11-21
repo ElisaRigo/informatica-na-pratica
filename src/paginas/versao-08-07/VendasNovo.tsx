@@ -33,7 +33,7 @@ import logoBlue from "@/versoes/v0607/assets/logo-blue.png";
 import elisa from "@/versoes/v0607/assets/elisa-photo.jpg";
 import elisaTeaching from "@/versoes/v0607/assets/elisa-teaching.jpg";
 import heroCover from "@/versoes/v0607/assets/hero-video-cover-home.jpg";
-const homeVideoThumb = "/images/capa-primeiro-video-aprender.jpg";
+const homeVideoThumb = "/images/capa-primeiro-video-08-07.jpg";
 import certificado from "@/versoes/v0607/assets/certificado-exemplo.png";
 const aulaGratisThumb = "/images/capa-segunda-aula.jpg";
 import freeClassThumb from "@/versoes/v0607/assets/aprenda-comigo-thumb.jpg";
