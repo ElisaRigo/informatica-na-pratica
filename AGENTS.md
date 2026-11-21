@@ -18,3 +18,4 @@
 
 - Keep `/versao-07-07` on its own copied presentation from the v0607 archive, not the repurposed `/versao-06-07` route, so historical restoration does not change existing pages.
 - Keep `/versao-28-10` on its own copied presentation from the home snapshot at the end of October 28, 2026, so edits to the restoration never change the home or other archive routes.
+- Keep `/versao-08-07` on its own copied presentation from the 07/07 page (no changes were saved between 07/07 and 25/07, so the 08/07 state is identical), so edits to the restoration never change sibling archive routes.
