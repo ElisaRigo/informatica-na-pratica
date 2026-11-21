@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useLayoutEffect, useState, useRef } from "react";
 import "./topo.css";
+import { finishInitialHome } from "./initial-home-handoff";
 import { Button } from "@/components/ui/button";
 import {
   ShieldCheck,
@@ -63,6 +64,7 @@ const openCheckout = () => openHotmartCheckout();
 // ───────────────────────── CTA Button ─────────────────────────
 const CTA = ({ children = "Começar o curso", icon: Icon = Monitor }: any) => (
   <Button
+    data-home-checkout-trigger
     onClick={openCheckout}
     className="versao0807-cta w-full h-auto whitespace-normal font-extrabold rounded-xl active:scale-[.99]"
   >
@@ -102,7 +104,7 @@ const Header = () => (
   <header className="versao0807-header">
     <div className="container mx-auto flex flex-col items-center">
       <div className="versao0807-logo">
-        <img src={logo} alt="Informática na Prática" />
+        <img src="/images/logo-initial-home.png" alt="Informática na Prática" />
       </div>
       <p className="versao0807-brand whitespace-nowrap">
         Curso de{"\u00a0"}<span className="versao0807-blue">Informática</span>
@@ -132,12 +134,15 @@ const Hero = () => {
           {/* Video */}
           <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 mb-5">
             {!isPlaying ? (
-              <div className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
+              <div data-home-video-trigger className="relative aspect-video cursor-pointer group" onClick={() => setIsPlaying(true)}>
                 <img
                   src={homeVideoThumb}
                   alt="Aula demonstrativa gratuita"
                   className="w-full h-full object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  width={1365}
+                  height={768}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
@@ -1196,6 +1201,7 @@ const WhatsFloat = () => {
 
 // ───────────────────────── Page ─────────────────────────
 const VendasNovo = () => {
+  useLayoutEffect(finishInitialHome, []);
   useEffect(() => {
     document.title = "Aprenda Informática do Zero • Curso Online com Garantia";
   }, []);

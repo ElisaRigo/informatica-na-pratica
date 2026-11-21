@@ -1,4 +1,5 @@
 # Project architecture
+- Inline the home-only early HTML and shared scoped top stylesheet through Vite; reveal React only when the home mounts and preserve scroll and early video clicks, so lazy loading never replaces the top with a blank screen.
 - Keep `/home-copia-2` and `/home-copia-3` on their own independent copied sales modules so future edits never change the current home or earlier backups.
 - Keep the programs row in /informa local to that page so copying its presentation never links edits to /icone-2 or /info.
 - The home `/` is the `/08-07` page module (`src/paginas/versao-08-07/`); the previous home lives at `/home-anterior`. Keep `/informa`, `/informatica`, and `/prof-elisa` on independent copied presentations from `/home-copia-3` (light theme), with distinct page-root stylesheet scopes, so future edits never alter sibling or historical pages.

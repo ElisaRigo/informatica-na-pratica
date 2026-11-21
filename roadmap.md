@@ -75,3 +75,9 @@
 # Títulos das aulas no celular
 - [x] Aumentar os dois títulos na home, /informa, /informatica e /home-copia-3 sem quebrar a linha.
 - [x] Conferir os títulos em telas pequenas e grandes.
+
+
+# Abertura antecipada da home
+- [x] Mostrar cabeçalho, título e capa antes do carregamento da aplicação, somente na home.
+- [x] Priorizar a capa e adiar o Clarity, mantendo o visual e a rolagem na troca.
+- [x] Conferir abertura com carregamento atrasado, rolagem, vídeo e páginas históricas.

@@ -1,0 +1,30 @@
+/* Inlined by Vite alongside topo.css; no CSS or application download is needed to paint. */
+#initial-home { display: none; }
+html[data-initial-home] #initial-home { display: block; }
+html[data-initial-home] #root { display: none; }
+#initial-home { font-family: Montserrat, system-ui, sans-serif; line-height: 1.5; background: hsl(var(--top-surface)); }
+#initial-home p, #initial-home h1 { margin: 0; }
+#initial-home img { display: block; max-width: 100%; content-visibility: visible; }
+#initial-home .initial-container { width: 100%; padding-inline: 32px; margin-inline: auto; }
+#initial-home .versao0807-header .initial-container { display: flex; flex-direction: column; align-items: center; }
+#initial-home .versao0807-logo img { width: auto; }
+#initial-home .versao0807-brand, #initial-home .versao0807-tagline { white-space: nowrap; }
+#initial-home .versao0807-tagline { margin-top: 8px; }
+#initial-home .initial-hero-inner { padding: 8px 16px; }
+#initial-home .initial-content { max-width: 1024px; margin-inline: auto; text-align: center; }
+#initial-home .versao0807-headline { margin-bottom: 16px; }
+#initial-home .versao0807-invitation { max-width: 768px; margin: 0 auto 20px; font-size: 18px; line-height: 1.625; }
+#initial-home .initial-video { position: relative; display: block; width: 100%; padding: 0; margin: 0 auto 20px; border: 1px solid hsl(var(--top-line)); border-radius: 16px; overflow: hidden; background: hsl(var(--top-surface)); box-shadow: 0 25px 50px -12px hsl(var(--top-blue) / .1); cursor: pointer; }
+#initial-home .initial-video img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+#initial-home .initial-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: hsl(var(--top-surface) / .4); backdrop-filter: blur(4px); color: hsl(var(--top-blue)); }
+#initial-home .initial-description { max-width: 768px; margin: 0 auto 12px; font-size: 16px; line-height: 24px; color: hsl(var(--top-muted)); }
+#initial-home .initial-cta { width: 100%; border: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit; font-weight: 800; cursor: pointer; }
+#initial-home .initial-trust { margin-top: 16px; font-size: 12px; color: hsl(var(--top-muted)); }
+@media (min-width: 768px) {
+  #initial-home .initial-hero-inner { padding-block: 12px; }
+  #initial-home .versao0807-invitation { font-size: 24px; line-height: 32px; }
+  #initial-home .initial-play { width: 96px; height: 96px; }
+  #initial-home .initial-play svg { width: 64px; height: 64px; }
+  #initial-home .initial-description { font-size: 20px; line-height: 28px; }
+}
+@media (min-width: 1400px) { #initial-home .initial-container { max-width: 1400px; } }

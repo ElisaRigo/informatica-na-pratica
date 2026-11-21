@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { readFileSync } from "node:fs";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
@@ -9,7 +10,20 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    {
+      name: "initial-home-html",
+      transformIndexHtml(html: string) {
+        const pagePath = path.resolve(__dirname, "src/paginas/versao-08-07");
+        const css = readFileSync(path.join(pagePath, "topo.css"), "utf8") +
+          readFileSync(path.join(pagePath, "initial-home.css"), "utf8");
+        return html
+          .replace("<!-- initial-home-styles -->", `<style>${css}</style>`)
+          .replace("<!-- initial-home-content -->", readFileSync(path.join(pagePath, "initial-home.html"), "utf8"));
+      },
+    },
+    react(), mode === "development" && componentTagger(),
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
