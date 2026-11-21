@@ -7,6 +7,11 @@
   --top-sky: 199 89% 48%;
   --top-glow: 190 95% 70%;
   --top-tint: 214 95% 93%;
+  --instructor-surface: 210 40% 98%;
+  --instructor-label: 224 82% 48%;
+  --instructor-stars: 45 93% 58%;
+  --instructor-card-line: 201 94% 86%;
+  --instructor-muted: 215 25% 28%;
 }
 .versao0807-header { background: hsl(var(--top-surface)); color: hsl(var(--top-text)); border-bottom: 1px solid hsl(var(--top-line)); padding: 8px 12px; text-align: center; }
 .versao0807-logo { display: inline-block; padding: 10px; border: 1px solid hsl(var(--top-line)); border-radius: 8px; box-shadow: 0 0 24px hsl(var(--top-glow) / .5); margin-bottom: 8px; }
@@ -21,6 +26,14 @@
 .versao0807-computer { margin-top: 4px; font-size: 54px; line-height: 1; white-space: nowrap; }
 .versao0807-reassurance { margin-top: 4px; font-size: 26px; line-height: 1.25; }
 .versao0807-invitation { color: hsl(var(--top-muted)); }
+.versao0807-top .versao0807-instructor { background: hsl(var(--instructor-surface)); color: hsl(var(--top-text)); }
+.versao0807-top .versao0807-instructor-body { color: hsl(var(--top-muted)); }
+.versao0807-top .versao0807-instructor-muted { color: hsl(var(--instructor-muted)); }
+.versao0807-top .versao0807-instructor-accent { color: hsl(var(--top-blue)); }
+.versao0807-top .versao0807-instructor-label { background: hsl(var(--instructor-label)); color: hsl(var(--top-surface)); }
+.versao0807-top .versao0807-instructor-avatar { border-color: hsl(var(--top-surface)); }
+.versao0807-top .versao0807-instructor-star { color: hsl(var(--instructor-stars)); fill: currentColor; }
+.versao0807-top .versao0807-instructor-card { background: hsl(var(--top-surface)); border-color: hsl(var(--instructor-card-line)); }
 @media (min-width: 375px) and (max-width: 390px) {
   .versao0807-computer { font-size: 52px; }
 }

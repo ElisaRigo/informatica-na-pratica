@@ -17,6 +17,7 @@ import {
   Keyboard,
   Sparkles,
   GraduationCap,
+  BookOpen,
   HeartHandshake,
   Infinity as InfinityIcon,
   ChevronDown,
@@ -408,62 +409,53 @@ const MiniValueSection = () => {
 
 // ───────────────────────── Instructor ─────────────────────────
 const Instructor = () => (
-  <section className="py-4 md:py-6 bg-white">
+  <section className="versao0807-instructor py-4 md:py-6">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div className="relative">
-          <img src="/images/prof-elisa.jpg" alt="Professora Elisa" className="rounded-3xl shadow-xl w-full object-cover aspect-[4/5]" />
-          <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl border border-slate-200 px-4 py-3 flex items-center gap-2">
-            <Users className="w-5 h-5 text-blue-600" />
-            <div>
-              <div className="text-lg font-black text-slate-900 leading-none">+15.000</div>
-              <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wide">Alunos formados</div>
+        <div>
+          <div className="mb-3 flex items-center justify-center gap-3">
+            <div className="flex -space-x-2">
+              {[avatar1, avatar2, avatar3, avatar4, avatar5].map((avatar, index) => (
+                <img key={index} src={avatar} alt="" className="versao0807-instructor-avatar w-9 h-9 rounded-full border-2 object-cover" />
+              ))}
+            </div>
+            <div className="text-left">
+              <div className="flex">
+                {Array.from({ length: 5 }, (_, index) => <Star key={index} className="versao0807-instructor-star w-4 h-4" />)}
+              </div>
+              <p className="versao0807-instructor-muted text-xs font-medium">+15.000 alunos já aprenderam</p>
             </div>
           </div>
+          <div className="flex justify-center">
+            <span className="versao0807-instructor-label inline-flex items-center gap-2 font-bold rounded-full mb-4 text-xl md:text-2xl px-4 py-2">
+              <GraduationCap className="w-6 h-6 md:w-7 md:h-7 shrink-0" /> Quem vai te ensinar
+            </span>
+          </div>
+          <img src="/images/prof-elisa.jpg" alt="Professora Elisa" className="rounded-3xl shadow-xl w-full h-auto" />
         </div>
         <div>
-          <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-            <Sparkles className="w-4 h-4" /> Quem vai te ensinar
-          </span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">
-            Oi, eu sou a <span className="text-blue-600">Professora Elisa</span>
+          <h2 className="text-2xl md:text-4xl font-black mb-4">
+            Oi, eu sou a <span className="versao0807-instructor-accent">Professora Elisa</span>
           </h2>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
-            Há mais de <strong>20 anos</strong> eu ensino informática pra adultos que nunca tinham tocado num
-            computador. E descobri uma coisa:{" "}
-            <strong>o problema nunca foi a pessoa — era o jeito que ensinavam.</strong>
+          <p className="versao0807-instructor-body text-base md:text-lg leading-relaxed mb-4">
+            Há mais de 20 anos&nbsp;ensino informática para pessoas que estão começando do zero.
           </p>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6">
-            Por isso criei um método simples, devagar e com linguagem do dia a dia. Sem palavras difíceis, sem pressa.
-            Você assiste, faz junto comigo, e em poucas semanas tá usando o computador sozinho(a).
+          <p className="versao0807-instructor-body text-base md:text-lg leading-relaxed mb-6">
+            Criei um método simples, com calma, paciência e linguagem fácil, para você aprender no seu ritmo e conquistar sua independência ao usar o computador.
           </p>
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
-                +20 anos
-                <br />
-                de experiência
+          <div className="grid grid-cols-3 gap-2 md:gap-3 mb-6">
+            {[
+              { icon: GraduationCap, title: "+20 anos", description: "Ensinando informática" },
+              { icon: BookOpen, title: "Do zero", description: "Método simples e fácil" },
+              { icon: HeartHandshake, title: "Suporte humano", description: "Ajuda sempre que precisar" },
+            ].map(({ icon: Icon, title, description }) => (
+              <div key={title} className="versao0807-instructor-card text-center rounded-2xl border shadow-md px-2 py-4">
+                <Icon className="versao0807-instructor-accent w-6 h-6 md:w-7 md:h-7 mx-auto mb-1.5" />
+                <div className="text-sm md:text-base font-extrabold leading-tight">{title}</div>
+                <div className="versao0807-instructor-muted text-[11px] md:text-xs leading-tight mt-0.5">{description}</div>
               </div>
-            </div>
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <Award className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
-                Método
-                <br />
-                próprio
-              </div>
-            </div>
-            <div className="text-center bg-slate-50 rounded-xl p-3">
-              <HeartHandshake className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <div className="text-xs font-bold text-slate-700">
-                Suporte
-                <br />
-                humano
-              </div>
-            </div>
+            ))}
           </div>
-          <CTA size="md">Quero aprender sem medo!</CTA>
         </div>
       </div>
     </div>
