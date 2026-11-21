@@ -658,36 +658,17 @@ const ModulesWarm = () => {
     { i: internetIcon, n: "5", label: "Internet, e-mail e anexo", t: "Use a internet com segurança", d: "Pesquise no Google, mande e-mails e aprenda a reconhecer golpes.", s: "Protege você" },
     { i: typingIcon, n: "6", label: "Digitação", t: "Digite mais rápido", d: "Ganhe confiança no teclado e faça tudo com mais agilidade.", s: "Bônus de prática" },
   ];
-  const seals = [
-    { Icon: HeartHandshake, t: "Ensino com calma" },
-    { Icon: Clock, t: "No seu ritmo" },
-    { Icon: ShieldCheck, t: "7 dias de garantia" },
-    { Icon: Award, t: "Com certificado" },
-  ];
   return (
     <section className="py-6 md:py-10 bg-white/5">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-6">
-          <span className="inline-flex items-center gap-2 bg-green-500/15 text-green-300 text-sm font-bold px-4 py-2 rounded-full mb-4">
-            <HeartHandshake className="w-4 h-4" /> Feito para quem está começando
+        <div className="text-center mb-5">
+          <span className="inline-block bg-sky-400/10 text-sky-300 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+            CONTEÚDO COMPLETO
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-3">
-            Um passo de cada vez,<br />
-            <span className="text-sky-300">sempre com a minha ajuda</span>
-          </h2>
-          <p className="text-slate-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Tudo muito simples, do primeiro clique até usar o computador sozinho(a). Você nunca fica perdido(a).
+          <h2 className="text-2xl md:text-4xl font-black text-white mb-3">Tudo o que você vai aprender</h2>
+          <p className="text-slate-300 max-w-2xl mx-auto">
+            +90 videoaulas práticas, organizadas em 6 módulos, do básico ao essencial.
           </p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8">
-          {seals.map(({ Icon, t }) => (
-            <div key={t} className="flex flex-col items-center gap-2 rounded-2xl border border-sky-400/30 bg-sky-400/10 px-3 py-4 text-center">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-400/20 ring-2 ring-sky-300/40">
-                <Icon className="h-6 w-6 text-sky-300" />
-              </span>
-              <span className="text-base font-bold text-white leading-tight">{t}</span>
-            </div>
-          ))}
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {mods.map((m) => (
@@ -706,9 +687,9 @@ const ModulesWarm = () => {
             </div>
           ))}
         </div>
-        <p className="mt-6 text-center text-lg md:text-xl font-bold text-white">
-          Se travar em alguma aula, é só me chamar. <span className="text-green-300">Eu te ajudo.</span>
-        </p>
+        <div className="text-center mt-5">
+          <CTA keep>Quero as aulas!</CTA>
+        </div>
       </div>
     </section>
   );
