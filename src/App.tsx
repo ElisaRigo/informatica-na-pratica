@@ -60,7 +60,8 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando...</div>}>
           <Routes>
-            <Route path="/" element={<HomeAtual />} />
+            <Route path="/" element={<Versao0807 />} />
+            <Route path="/home-anterior" element={<HomeAtual />} />
             <Route path="/home-copia" element={<Versao2109 />} />
             <Route path="/home-copia-2" element={<HomeCopia2 />} />
             <Route path="/home-copia-3" element={<HomeCopia3 />} />

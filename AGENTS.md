@@ -1,7 +1,7 @@
 # Project architecture
 - Keep `/home-copia-2` and `/home-copia-3` on their own independent copied sales modules so future edits never change the current home or earlier backups.
 - Keep the programs row in /informa local to that page so copying its presentation never links edits to /icone-2 or /info.
-- Keep `/`, `/informa`, `/informatica`, and `/prof-elisa` on independent copied presentations from `/home-copia-3` (light theme), with distinct page-root stylesheet scopes, so future edits never alter sibling or historical pages.
+- The home `/` is the `/08-07` page module (`src/paginas/versao-08-07/`); the previous home lives at `/home-anterior`. Keep `/informa`, `/informatica`, and `/prof-elisa` on independent copied presentations from `/home-copia-3` (light theme), with distinct page-root stylesheet scopes, so future edits never alter sibling or historical pages.
 - Keep experimental sales pages in independently routed page modules so comparing a new funnel never changes existing or historical pages.
 - Keep the independence sales experience and its outcome selector in its own page folder, with theme tokens scoped to the page root, so interaction and design changes remain isolated.
 - Keep /informa3 in its own copied page modules and scope its stylesheet to its page root so future edits do not affect earlier copies.
@@ -18,7 +18,7 @@
 
 - Keep `/versao-07-07` on its own copied presentation from the v0607 archive, not the repurposed `/versao-06-07` route, so historical restoration does not change existing pages.
 - Keep `/versao-28-10` on its own copied presentation from the home snapshot at the end of October 28, 2026, so edits to the restoration never change the home or other archive routes.
-- Keep `/versao-08-07` and its `/08-07` alias on their own copied presentation, with local scoped header/headline styling, so edits never change the home or sibling archive routes.
+- Keep `/versao-08-07` and its `/08-07` alias on their own copied presentation, with local scoped header/headline styling; this module also serves `/`, so edits to it change the home but never sibling archive routes.
 - Keep the home-derived instructor presentation in `/08-07` locally copied and styled within its page scope, so future edits never affect the home.
 - Keep home-derived floating purchase and WhatsApp controls locally copied in `/08-07`, preserving tracking helpers and scoped styling so later edits remain isolated.
 - Keep `/versao-17-07` on its own copied presentation and supporting presentation components from the July archive (no saves between July 6 and July 26), so edits never alter the home or sibling archives.
